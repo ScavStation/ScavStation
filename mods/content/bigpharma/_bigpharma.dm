@@ -29,7 +29,7 @@ var/global/list/reagent_names_to_icon_state
 	if(!meds)
 		return
 	// Emergency pouches probably shouldn't be obfuscated.
-	if(istype(thing.loc, /obj/item/storage/med_pouch) || istype(thing.loc, /obj/item/storage/firstaid))
+	if(istype(thing.loc, /obj/item/med_pouch) || istype(thing.loc, /obj/item/firstaid))
 		remove_extension(thing, /datum/extension/obfuscated_medication)
 		return
 	// Containers that can't find an original reagent name will just opt-out of the entire system.
@@ -51,7 +51,7 @@ var/global/list/reagent_names_to_icon_state
 		if(istype(thing, /obj/item/chems))
 			var/obj/item/chems/chems = thing
 			chems.label_text = new_name
-			chems.update_container_name()
+			chems.update_name()
 		else
 			if(has_extension(thing, /datum/extension/labels))
 				var/datum/extension/labels/L = get_extension(thing, /datum/extension/labels)

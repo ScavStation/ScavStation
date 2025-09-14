@@ -15,6 +15,9 @@
 	var/panel_file = 'icons/obj/doors/hazard/panel.dmi'
 	var/welded_file = 'icons/obj/doors/hazard/welded.dmi'
 	icon_state = "open"
+	icon_state_open = "open"
+	icon_state_closed = "closed"
+	begins_closed = FALSE
 	initial_access = list(list(access_atmospherics, access_engine_equip))
 	autoset_access = FALSE
 	opacity = FALSE
@@ -62,9 +65,9 @@
 
 /obj/machinery/door/firedoor/get_blend_objects()
 	var/static/list/blend_objects = list(
-		/obj/machinery/door/firedoor, 
-		/obj/structure/wall_frame, 
-		/turf/unsimulated/wall, 
+		/obj/machinery/door/firedoor,
+		/obj/structure/wall_frame,
+		/turf/unsimulated/wall,
 		/obj/structure/window
 	) // Objects which to blend with
 	return blend_objects
@@ -111,6 +114,7 @@
 		register_area(area)
 
 /obj/machinery/door/firedoor/get_material()
+	RETURN_TYPE(/decl/material)
 	return GET_DECL(/decl/material/solid/metal/steel)
 
 /obj/machinery/door/firedoor/examine(mob/user, distance)
@@ -215,23 +219,22 @@
 /obj/machinery/door/firedoor/attackby(obj/item/C, mob/user)
 	add_fingerprint(user, 0, C)
 	if(operating)
-		return//Already doing something.
+		return TRUE //Already doing something.
 	if(IS_WELDER(C) && !repairing)
 		var/obj/item/weldingtool/W = C
 		if(W.weld(0, user))
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			if(do_after(user, 2 SECONDS, src))
-				if(!W.isOn()) return
+				if(!W.isOn()) return TRUE
 				blocked = !blocked
 				user.visible_message("<span class='danger'>\The [user] [blocked ? "welds" : "unwelds"] \the [src] with \a [W].</span>",\
 				"You [blocked ? "weld" : "unweld"] \the [src] with \the [W].",\
 				"You hear something being welded.")
 				playsound(src, 'sound/items/Welder.ogg', 100, 1)
 				update_icon()
-				return TRUE
 			else
 				to_chat(user, SPAN_WARNING("You must remain still to complete this task."))
-				return TRUE
+		return TRUE
 
 	if(blocked && IS_CROWBAR(C))
 		user.visible_message("<span class='danger'>\The [user] pries at \the [src] with \a [C], but \the [src] is welded in place!</span>",\
@@ -239,19 +242,19 @@
 		"You hear someone struggle and metal straining.")
 		return TRUE
 
-	if(!blocked && (IS_CROWBAR(C) || istype(C,/obj/item/twohanded/fireaxe)))
+	if(!blocked && (IS_CROWBAR(C) || istype(C,/obj/item/bladed/axe/fire)))
 		if(operating)
 			return ..()
 
-		if(istype(C,/obj/item/twohanded/fireaxe))
-			var/obj/item/twohanded/fireaxe/F = C
-			if(!F.wielded)
+		if(istype(C,/obj/item/bladed/axe/fire))
+			var/obj/item/bladed/axe/fire/F = C
+			if(!F.is_held_twohanded())
 				return ..()
 
 		user.visible_message("<span class='danger'>\The [user] starts to force \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
 				"You start forcing \the [src] [density ? "open" : "closed"] with \the [C]!",\
 				"You hear metal strain.")
-		if(do_after(user,30,src))
+		if(do_after(user, 3 SECONDS, src))
 			if(IS_CROWBAR(C))
 				if(stat & (BROKEN|NOPOWER) || !density)
 					user.visible_message("<span class='danger'>\The [user] forces \the [src] [density ? "open" : "closed"] with \a [C]!</span>",\
@@ -472,6 +475,8 @@
 
 	update_heat_protection(loc)
 
-	if(istype(source) && source.simulated) SSair.mark_for_update(source)
-	if(istype(destination) && destination.simulated) SSair.mark_for_update(destination)
+	if(istype(source) && source.simulated)
+		SSair.mark_for_update(source)
+	if(istype(destination) && destination.simulated)
+		SSair.mark_for_update(destination)
 	return TRUE

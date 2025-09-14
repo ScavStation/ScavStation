@@ -4,9 +4,12 @@
 	icon = 'icons/obj/items/device/tape_recorder/tape_recorder.dmi'
 	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_SMALL
-
 	material = /decl/material/solid/metal/aluminium
 	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	slot_flags = SLOT_LOWER_BODY
+	throw_speed = 4
+	throw_range = 20
 
 	var/emagged = 0.0
 	var/recording = 0.0
@@ -16,11 +19,6 @@
 	var/canprint = 1
 	var/datum/wires/taperecorder/wires = null // Wires datum
 	var/maintenance = 0
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	slot_flags = SLOT_LOWER_BODY
-	throwforce = 2
-	throw_speed = 4
-	throw_range = 20
 
 /obj/item/taperecorder/Initialize()
 	. = ..()
@@ -35,7 +33,6 @@
 
 /obj/item/taperecorder/Destroy()
 	QDEL_NULL(wires)
-	global.listening_objects -= src
 	if(mytape)
 		qdel(mytape)
 		mytape = null
@@ -45,19 +42,19 @@
 	if(IS_SCREWDRIVER(I))
 		maintenance = !maintenance
 		to_chat(user, "<span class='notice'>You [maintenance ? "open" : "secure"] the lid.</span>")
-		return
+		return TRUE
 	if(istype(I, /obj/item/magnetic_tape))
 		if(mytape)
 			to_chat(user, "<span class='notice'>There's already a tape inside.</span>")
-			return
+			return TRUE
 		if(!user.try_unequip(I))
-			return
+			return TRUE
 		I.forceMove(src)
 		mytape = I
 		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
 		update_icon()
-		return
-	..()
+		return TRUE
+	return ..()
 
 
 /obj/item/taperecorder/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -107,14 +104,6 @@
 			mytape.record_speech("[M.name] [speaking.format_message_plain(msg, verb)]")
 		else
 			mytape.record_speech("[M.name] [verb], \"[msg]\"")
-
-
-/obj/item/taperecorder/see_emote(mob/M, text, var/emote_type)
-	if(emote_type != AUDIBLE_MESSAGE) //only hearable emotes
-		return
-	if(mytape && recording)
-		mytape.record_speech("[strip_html_properly(text)]")
-
 
 /obj/item/taperecorder/show_message(msg, type, alt, alt_type)
 	var/recordedtext
@@ -378,14 +367,13 @@
 	desc = "A magnetic tape that can hold up to ten minutes of content."
 	icon = 'icons/obj/items/device/tape_recorder/tape_casette_white.dmi'
 	icon_state = ICON_STATE_WORLD
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/organic/plastic
 	matter = list(
 		/decl/material/solid/metal/steel = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/fiberglass = MATTER_AMOUNT_TRACE
 	)
-	force = 1
-	throwforce = 0
+	_base_attack_force = 1
 	var/max_capacity = 600
 	var/used_capacity = 0
 	var/list/storedinfo = new/list()
@@ -434,21 +422,21 @@
 
 
 /obj/item/magnetic_tape/attackby(obj/item/I, mob/user, params)
-	if(user.incapacitated())
-		return
+	if(user.incapacitated()) // TODO: this may not be necessary since OnClick checks before starting the attack chain
+		return TRUE
 	if(ruined && IS_SCREWDRIVER(I))
 		if(!max_capacity)
 			to_chat(user, "<span class='notice'>There is no tape left inside.</span>")
-			return
+			return TRUE
 		to_chat(user, "<span class='notice'>You start winding the tape back in...</span>")
 		if(do_after(user, 120, target = src))
 			to_chat(user, "<span class='notice'>You wound the tape back in.</span>")
 			fix()
-		return
+		return TRUE
 	else if(IS_PEN(I))
 		if(loc == user)
 			var/new_name = input(user, "What would you like to label the tape?", "Tape labeling") as null|text
-			if(isnull(new_name)) return
+			if(isnull(new_name)) return TRUE
 			new_name = sanitize_safe(new_name)
 			if(new_name)
 				SetName("tape - '[new_name]'")
@@ -456,12 +444,14 @@
 			else
 				SetName("tape")
 				to_chat(user, "<span class='notice'>You scratch off the label.</span>")
-		return
+		return TRUE
 	else if(IS_WIRECUTTER(I))
 		cut(user)
+		return TRUE
 	else if(istype(I, /obj/item/magnetic_tape/loose))
 		join(user, I)
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/magnetic_tape/proc/cut(mob/user)
 	if(!LAZYLEN(timestamp))
@@ -470,7 +460,7 @@
 	var/list/output = list("<center>")
 	for(var/i=1, i < timestamp.len, i++)
 		var/time = "\[[time2text(timestamp[i]*10,"mm:ss")]\]"
-		output += "[time]<br><a href='?src=\ref[src];cut_after=[i]'>-----CUT------</a><br>"
+		output += "[time]<br><a href='byond://?src=\ref[src];cut_after=[i]'>-----CUT------</a><br>"
 	output += "</center>"
 
 	var/datum/browser/popup = new(user, "tape_cutting", "Cutting tape", 170, 600)

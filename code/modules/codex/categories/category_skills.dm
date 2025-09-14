@@ -3,12 +3,13 @@
 	desc = "Certifiable skills."
 
 /decl/codex_category/skills/Populate()
-	for(var/decl/hierarchy/skill/skill in global.skills)
+	var/list/available_skill_types = global.using_map.get_available_skill_types()
+	for(var/decl/skill/skill in decls_repository.get_decls_of_subtype_unassociated(/decl/skill))
 		var/list/skill_info = list()
 		if(skill.prerequisites)
 			var/list/reqs = list()
 			for(var/req in skill.prerequisites)
-				var/decl/hierarchy/skill/skill_req = GET_DECL(req)
+				var/decl/skill/skill_req = GET_DECL(req)
 				reqs += "[skill_req.levels[skill.prerequisites[req]]] [skill_req.name]"
 			skill_info += "Prerequisites: [english_list(reqs)]"
 		for(var/level in skill.levels)
@@ -18,5 +19,7 @@
 			_lore_text = skill.desc,
 			_mechanics_text = jointext(skill_info, "<br>"),
 		)
+		if(!(skill.type in available_skill_types))
+			entry.unsearchable = TRUE
 		items |= entry.name
 	. = ..()

@@ -2,9 +2,8 @@
 	name = "boombox"
 	desc = "A device used to emit rhythmic sounds, colloquialy refered to as a 'boombox'. It's in a retro style (massive), and absolutely unwieldy."
 	icon = 'icons/obj/items/device/boombox.dmi'
-	icon_state = "off"
-	item_state = "boombox"
-	force = 7
+	icon_state = ICON_STATE_WORLD
+	_base_attack_force = 7
 	w_class = ITEM_SIZE_HUGE //forbid putting something that emits loud sounds forever into a backpack
 	origin_tech = @'{"magnets":2,"combat":1}'
 	material = /decl/material/solid/organic/plastic
@@ -50,12 +49,12 @@
 /obj/item/boombox/interact(var/mob/user)
 	if(!CanPhysicallyInteract(user))
 		return
-	var/dat = "<A href='?src=\ref[src];tracknum=1;'>NEXT</a>"
-	dat += "<A href='?src=\ref[src];tracknum=-1;'>PREV</a>"
-	dat += "<A href='?src=\ref[src];start=1;'>PLAY</a>"
-	dat += "<A href='?src=\ref[src];stop=1;'>STOP</a>"
-	dat += "<A href='?src=\ref[src];voldown=1;'>VOL -</a>"
-	dat += "<A href='?src=\ref[src];volup=1;'>VOL +</a>"
+	var/dat = "<A href='byond://?src=\ref[src];tracknum=1;'>NEXT</a>"
+	dat += "<A href='byond://?src=\ref[src];tracknum=-1;'>PREV</a>"
+	dat += "<A href='byond://?src=\ref[src];start=1;'>PLAY</a>"
+	dat += "<A href='byond://?src=\ref[src];stop=1;'>STOP</a>"
+	dat += "<A href='byond://?src=\ref[src];voldown=1;'>VOL -</a>"
+	dat += "<A href='byond://?src=\ref[src];volup=1;'>VOL +</a>"
 	var/datum/browser/popup = new(user, "boombox", "BOOMTASTIC 3000", 290, 110)
 	popup.set_content(dat)
 	popup.open()
@@ -137,7 +136,7 @@
 		return FALSE
 	if(!MayAdjust(user))
 		return FALSE
-	if(W != user.get_active_hand())
+	if(W != user.get_active_held_item())
 		return FALSE
 
 	if(!CanPhysicallyInteract(user))

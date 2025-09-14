@@ -14,8 +14,8 @@
 	create_reagents(5)
 
 /obj/item/scanner/spectrometer/on_reagent_change()
-	..()
-	update_icon()
+	if((. = ..()))
+		update_icon()
 
 /obj/item/scanner/spectrometer/on_update_icon()
 	. = ..()
@@ -62,8 +62,8 @@
 			return "<span class='warning'>The sample was contaminated! Please insert another sample</span>"
 		var/data = REAGENT_DATA(reagents, R)
 		if(islist(data))
-			blood_traces = data["trace_chem"]
-			blood_doses = data["dose_chem"]
+			blood_traces = data[DATA_BLOOD_TRACE_CHEM]
+			blood_doses = data[DATA_BLOOD_DOSE_CHEM]
 		break
 
 	var/list/dat = list("Trace Chemicals Found: ")

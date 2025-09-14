@@ -20,6 +20,7 @@
 			playsound(src, 'sound/items/jaws_pry.ogg', 50, 1)
 		else
 			to_chat(user,"<span class='notice'>The maintenance panel must be screwed open for this!</span>")
+		return TRUE
 	else
 		return ..()
 

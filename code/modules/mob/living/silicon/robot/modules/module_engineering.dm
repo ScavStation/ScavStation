@@ -20,7 +20,8 @@
 		"Landmate"           = 'icons/mob/robots/robot_engineer.dmi',
 		"Landmate - Treaded" = 'icons/mob/robots/robot_engineer_treaded.dmi'
 	)
-	no_slip = 1
+	has_nonslip_feet  = TRUE
+	has_magnetic_feet = TRUE
 	equipment = list(
 		/obj/item/flash,
 		/obj/item/borg/sight/meson,

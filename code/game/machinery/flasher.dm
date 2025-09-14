@@ -40,11 +40,12 @@
 		add_fingerprint(user, 0, W)
 		src.disable = !src.disable
 		if (src.disable)
-			user.visible_message("<span class='warning'>[user] has disconnected the [src]'s flashbulb!</span>", "<span class='warning'>You disconnect the [src]'s flashbulb!</span>")
+			user.visible_message("<span class='warning'>[user] has disconnected \the [src]'s flashbulb!</span>", "<span class='warning'>You disconnect \the [src]'s flashbulb!</span>")
 		if (!src.disable)
-			user.visible_message("<span class='warning'>[user] has connected the [src]'s flashbulb!</span>", "<span class='warning'>You connect the [src]'s flashbulb!</span>")
+			user.visible_message("<span class='warning'>[user] has connected \the [src]'s flashbulb!</span>", "<span class='warning'>You connect \the [src]'s flashbulb!</span>")
+		return TRUE
 	else
-		..()
+		return ..()
 
 //Let the AI trigger them directly.
 /obj/machinery/flasher/attack_ai()
@@ -74,13 +75,13 @@
 			if(O.eyecheck() > FLASH_PROTECTION_NONE)
 				continue
 			if(ishuman(O))
-				var/mob/living/carbon/human/H = O
-				flash_time = round(H.getFlashMod() * flash_time)
+				var/mob/living/human/H = O
+				flash_time = round(H.get_flash_mod() * flash_time)
 				if(flash_time <= 0)
 					return
-				var/vision_organ = H.get_bodytype()?.vision_organ
-				if(vision_organ)
-					var/obj/item/organ/internal/E = GET_INTERNAL_ORGAN(H, vision_organ)
+				var/vision_organ_tag = H.get_vision_organ_tag()
+				if(vision_organ_tag)
+					var/obj/item/organ/internal/E = GET_INTERNAL_ORGAN(H, vision_organ_tag)
 					if(E && E.is_bruised() && prob(E.damage + 50))
 						H.flash_eyes()
 						E.damage += rand(1, 5)
@@ -117,12 +118,10 @@
 	. = ..()
 	if(!. || !anchored || disable || last_flash && world.time < last_flash + 150)
 		return
-	if(iscarbon(AM))
-		var/mob/living/carbon/M = AM
+	if(isliving(AM))
+		var/mob/living/M = AM
 		if(!MOVING_DELIBERATELY(M))
 			flash()
-	if(isanimal(AM))
-		flash()
 
 /obj/machinery/flasher/portable/attackby(obj/item/W, mob/user)
 	if(IS_WRENCH(W))
@@ -136,6 +135,8 @@
 		else if (src.anchored)
 			user.show_message(text("<span class='warning'>[src] is now secured.</span>"))
 			src.overlays += "[base_state]-s"
+		return TRUE
+	return ..()
 
 /obj/machinery/button/flasher
 	name = "flasher button"

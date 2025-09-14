@@ -12,7 +12,7 @@
 	obj_flags = OBJ_FLAG_NOFALL | OBJ_FLAG_MOVES_UNSUPPORTED
 	material_alteration = MAT_FLAG_ALTERATION_ALL
 
-/obj/structure/lattice/Initialize()
+/obj/structure/lattice/Initialize(mapload)
 	. = ..()
 	if(. != INITIALIZE_HINT_QDEL)
 		DELETE_IF_DUPLICATE_OF(/obj/structure/lattice)
@@ -21,11 +21,16 @@
 		var/turf/T = loc
 		if(!istype(T) || !T.is_open())
 			return INITIALIZE_HINT_QDEL
-		. = INITIALIZE_HINT_LATELOAD
+		if(mapload)
+			return INITIALIZE_HINT_LATELOAD
 
 /obj/structure/lattice/LateInitialize()
 	. = ..()
 	update_neighbors()
+
+/obj/structure/lattice/shuttle_rotate(angle) // DO NOT CHANGE DIR.
+	queue_icon_update()
+	update_neighbors() // in case we have lattices outside the shuttle area that want to connect
 
 /obj/structure/lattice/can_climb_from_below(var/mob/climber)
 	return TRUE
@@ -60,22 +65,21 @@
 	physically_destroyed()
 
 /obj/structure/lattice/attackby(obj/item/C, mob/user)
-
 	if (istype(C, /obj/item/stack/tile))
 		var/turf/T = get_turf(src)
 		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
-		return
+		return TRUE
 	if(IS_WELDER(C))
 		var/obj/item/weldingtool/WT = C
 		if(WT.weld(0, user))
 			deconstruct(user)
-		return
+		return TRUE
 	if(istype(C, /obj/item/gun/energy/plasmacutter))
 		var/obj/item/gun/energy/plasmacutter/cutter = C
 		if(!cutter.slice(user))
-			return
+			return TRUE
 		deconstruct(user)
-		return
+		return TRUE
 	if (istype(C, /obj/item/stack/material/rods))
 
 		var/ladder = (locate(/obj/structure/ladder) in loc)
@@ -84,15 +88,18 @@
 			return TRUE
 
 		var/obj/item/stack/material/rods/R = C
-		if(locate(/obj/structure/catwalk) in get_turf(src))
-			to_chat(user, SPAN_WARNING("There is already a catwalk here."))
-			return
+		var/turf/my_turf = get_turf(src)
+		if(my_turf?.get_supporting_platform())
+			to_chat(user, SPAN_WARNING("There is already a platform here."))
+			return TRUE
 		else if(R.use(2))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			new /obj/structure/catwalk(src.loc, R.material.type)
-			return
+			new /obj/structure/catwalk(my_turf, R.material.type)
+			return TRUE
 		else
 			to_chat(user, SPAN_WARNING("You require at least two rods to complete the catwalk."))
+			return TRUE
+	return ..()
 
 /obj/structure/lattice/on_update_icon()
 	..()

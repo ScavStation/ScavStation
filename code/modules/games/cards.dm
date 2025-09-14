@@ -156,8 +156,8 @@ var/global/list/card_decks = list()
 
 		qdel(O)
 		to_chat(user, "You place your cards on the bottom of \the [src].")
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/deck/verb/draw_card()
 
@@ -166,13 +166,11 @@ var/global/list/card_decks = list()
 	set desc = "Draw a card from a deck."
 	set src in view(1)
 
-	if(usr.stat || !Adjacent(usr)) return
-
-	if(!iscarbon(usr))
+	// TODO: let dogs play poker
+	if(!ishuman(usr) || usr.incapacitated() || !Adjacent(usr))
 		return
 
-	var/mob/living/carbon/user = usr
-
+	var/mob/living/human/user = usr
 	if(!cards.len)
 		to_chat(usr, "There are no cards in the deck.")
 		return
@@ -226,8 +224,8 @@ var/global/list/card_decks = list()
 	H.concealed = 1
 	H.update_icon()
 	if(user==target)
-		var/decl/pronouns/G = user.get_pronouns()
-		user.visible_message("\The [user] deals a card to [G.self].")
+		var/decl/pronouns/pronouns = user.get_pronouns()
+		user.visible_message("\The [user] deals a card to [pronouns.self].")
 	else
 		user.visible_message("\The [user] deals a card to \the [target].")
 
@@ -275,7 +273,7 @@ var/global/list/card_decks = list()
 	desc = "For those with disposible income."
 	icon_state = "card_pack"
 	icon = 'icons/obj/items/playing_cards.dmi'
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	material = /decl/material/solid/organic/cardboard
 	var/list/cards = list()
 
@@ -369,7 +367,7 @@ var/global/list/card_decks = list()
 		overlays += I
 		return
 
-	var/offset = FLOOR(20/cards.len)
+	var/offset = floor(20/cards.len)
 
 	var/matrix/M = matrix()
 	if(direction)
@@ -408,7 +406,7 @@ var/global/list/card_decks = list()
 	else
 		update_icon()
 
-/obj/item/hand/on_picked_up(mob/user)
+/obj/item/hand/on_picked_up(mob/user, atom/old_loc)
 	src.update_icon()
 
 /*** A special thing that steals a card from a deck, probably lost in maint somewhere. ***/

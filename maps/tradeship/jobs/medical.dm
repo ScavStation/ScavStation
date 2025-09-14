@@ -3,8 +3,6 @@
 	department_types = list(/decl/department/medical)
 	head_position = 0
 	supervisors = "the Head Doctor and the Captain"
-	total_positions = 2
-	spawn_positions = 2
 	alt_titles = list()
 	skill_points = 24
 	min_skill = list(
@@ -38,7 +36,7 @@
 		access_surgery,
 		access_virology
 	)
-	outfit_type = /decl/hierarchy/outfit/job/tradeship/doc/junior
+	outfit_type = /decl/outfit/job/tradeship/doc/junior
 	event_categories = list(ASSIGNMENT_MEDICAL)
 
 /datum/job/tradeship_doctor/head
@@ -49,12 +47,12 @@
 		/decl/department/command
 	)
 	supervisors = "the Captain and your own ethics"
-	outfit_type = /decl/hierarchy/outfit/job/tradeship/doc
+	outfit_type = /decl/outfit/job/tradeship/doc
 	alt_titles = list("Surgeon")
 	total_positions = 1
 	spawn_positions = 1
 	skill_points = 28
-	guestbanned = 1	
+	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1
 	selection_color = "#026865"

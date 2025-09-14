@@ -24,19 +24,18 @@
 // Parcel Wrapper
 ///////////////////////////////////////////////////////////////////////////////////////
 /obj/item/stack/package_wrap
-	name             = "package wrapper roll"
-	desc             = "Heavy duty brown paper used to wrap packages to protect them during shipping."
-	icon             = 'icons/obj/items/gift_wrapper.dmi'
-	icon_state       = "deliveryPaper"
-	singular_name    = "sheet"
-	w_class          = ITEM_SIZE_NORMAL
-	max_amount       = 50
-	material         = /decl/material/solid/organic/paper
-	force            = 1
-	throwforce       = 1
-	throw_range      = 5
-	throw_speed      = 3
-	item_flags       = ITEM_FLAG_NO_BLUDGEON
+	name               = "package wrapper roll"
+	desc               = "Heavy duty brown paper used to wrap packages to protect them during shipping."
+	icon               = 'icons/obj/items/gift_wrapper.dmi'
+	icon_state         = "deliveryPaper"
+	singular_name      = "sheet"
+	w_class            = ITEM_SIZE_NORMAL
+	max_amount         = 50
+	material           = /decl/material/solid/organic/paper
+	throw_range        = 5
+	throw_speed        = 3
+	item_flags         = ITEM_FLAG_NO_BLUDGEON
+	_base_attack_force = 1
 	/// Check to prevent people from wrapping something multiple times at once.
 	var/tmp/currently_wrapping = FALSE
 	/// The type of wrapped item that will be produced
@@ -61,7 +60,7 @@
 		to_chat(user, SPAN_WARNING("You cannot wrap yourself!"))
 		return
 	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+		var/mob/living/human/H = AM
 		if(!H.incapacitated(INCAPACITATION_DISABLED | INCAPACITATION_RESTRAINED))
 			if(user)
 				to_chat(user, SPAN_WARNING("\The [H] is moving around too much. Restrain or incapacitate them first."))
@@ -95,7 +94,7 @@
 			qdel(wrapper)
 
 	else if(ishuman(target))
-		var/mob/living/carbon/human/H = target
+		var/mob/living/human/H = target
 		if(H.incapacitated(INCAPACITATION_DISABLED | INCAPACITATION_RESTRAINED))
 			var/obj/item/parcel/wrapper = new wrapped_result_type(get_turf(target))
 			if(wrapper.make_parcel(target, user)) //Call this directly so it applies our fingerprints
@@ -187,7 +186,6 @@
 	icon        = 'icons/obj/items/gift_wrapper.dmi'
 	icon_state  = "c_tube"
 	w_class     = ITEM_SIZE_NORMAL
-	throwforce  = 1
 	throw_speed = 4
 	throw_range = 5
 	material    = /decl/material/solid/organic/cardboard

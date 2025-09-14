@@ -36,48 +36,47 @@
 	icon_state = get_world_inventory_state()
 	. = ..()
 
-/obj/item/chems/hypospray/attack(mob/living/M, mob/user)
-	if(!reagents.total_volume)
-		to_chat(user, SPAN_WARNING("[src] is empty."))
-		return
-	if (!istype(M))
-		return
+/obj/item/chems/hypospray/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
-	var/allow = M.can_inject(user, check_zone(user.get_target_zone(), M))
+	if(!reagents?.total_volume)
+		to_chat(user, SPAN_WARNING("\The [src] is empty."))
+		return TRUE
+
+	var/allow = target.can_inject(user, check_zone(user.get_target_zone(), target))
 	if(!allow)
-		return
+		return TRUE
 
 	if (allow == INJECTION_PORT)
-		if(M != user)
-			user.visible_message(SPAN_WARNING("\The [user] begins hunting for an injection port on \the [M]'s suit!"))
+		if(target != user)
+			user.visible_message(SPAN_WARNING("\The [user] begins hunting for an injection port on \the [target]'s suit!"))
 		else
 			to_chat(user, SPAN_NOTICE("You begin hunting for an injection port on your suit."))
-		if(!user.do_skilled(INJECTION_PORT_DELAY, SKILL_MEDICAL, M))
-			return
+		if(!user.do_skilled(INJECTION_PORT_DELAY, SKILL_MEDICAL, target))
+			return TRUE
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(target)
 
-	if(user != M && !M.incapacitated() && time) // you're injecting someone else who is concious, so apply the device's intrisic delay
-		to_chat(user, SPAN_WARNING("\The [user] is trying to inject \the [M] with \the [name]."))
-		if(!user.do_skilled(time, SKILL_MEDICAL, M))
-			return
+	if(user != target && !target.incapacitated() && time) // you're injecting someone else who is concious, so apply the device's intrisic delay
+		to_chat(user, SPAN_WARNING("\The [user] is trying to inject \the [target] with \the [name]."))
+		if(!user.do_skilled(time, SKILL_MEDICAL, target))
+			return TRUE
 
 	if(single_use && reagents.total_volume <= 0) // currently only applies to autoinjectors
 		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER // Prevents autoinjectors to be refilled.
 
-	to_chat(user, SPAN_NOTICE("You inject [M] with [src]."))
-	to_chat(M, SPAN_NOTICE("You feel a tiny prick!"))
+	to_chat(user, SPAN_NOTICE("You inject [target] with [src]."))
+	to_chat(target, SPAN_NOTICE("You feel a tiny prick!"))
 	playsound(src, 'sound/effects/hypospray.ogg',25)
-	user.visible_message(SPAN_WARNING("[user] injects [M] with [src]."))
+	user.visible_message(SPAN_WARNING("[user] injects [target] with [src]."))
 
-	if(M.reagents)
+	if(target.reagents)
 		var/contained = REAGENT_LIST(src)
-		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_INJECT)
-		admin_inject_log(user, M, src, contained, trans)
+		var/trans = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INJECT)
+		admin_inject_log(user, target, src, contained, trans)
 		to_chat(user, SPAN_NOTICE("[trans] unit\s injected. [reagents.total_volume] unit\s remaining in \the [src]."))
 
-	return
+	return TRUE
 
 ////////////////////////////////////////////////////////////////////////////////
 /// VIAL HYPOSPRAY
@@ -137,7 +136,7 @@
 	loaded_vial = null
 	if(user)
 		if (swap_mode != "swap") // if swapping vials, we will print a different message in another proc
-			to_chat(user, "You remove the vial from the [src].")
+			to_chat(user, "You remove the vial from \the [src].")
 	playsound(loc, 'sound/weapons/flipblade.ogg', 50, TRUE)
 	if(should_update_icon)
 		update_icon()
@@ -153,12 +152,12 @@
 	return TRUE
 
 /obj/item/chems/hypospray/vial/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/chems/glass/beaker/vial))
-		if(!do_after(user,10) || !(W in user))
-			return
-		insert_vial(W, user)
+	if(!istype(W, /obj/item/chems/glass/beaker/vial))
+		return ..()
+	if(!do_after(user, 1 SECOND, src))
 		return TRUE
-	. = ..()
+	insert_vial(W, user)
+	return TRUE
 
 /obj/item/chems/hypospray/vial/afterattack(obj/target, mob/user, proximity) // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks.
 	if(!proximity)
@@ -176,7 +175,7 @@
 	volume = 5
 	origin_tech = @'{"materials":2,"biotech":2}'
 	slot_flags = SLOT_LOWER_BODY | SLOT_EARS
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	detail_state = "_band"
 	detail_color = COLOR_CYAN
 	abstract_type = /obj/item/chems/hypospray/autoinjector
@@ -185,7 +184,7 @@
 /obj/item/chems/hypospray/autoinjector/Initialize()
 	. = ..()
 	if(label_text)
-		update_container_name()
+		update_name()
 
 /obj/item/chems/hypospray/autoinjector/populate_reagents()
 	SHOULD_CALL_PARENT(TRUE)
@@ -197,9 +196,10 @@
 	. = ..()
 	update_icon()
 
-/obj/item/chems/hypospray/autoinjector/attack(mob/M as mob, mob/user as mob)
+/obj/item/chems/hypospray/autoinjector/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	. = ..()
-	update_icon()
+	if(.)
+		update_icon()
 
 /obj/item/chems/hypospray/autoinjector/on_update_icon()
 	. = ..()

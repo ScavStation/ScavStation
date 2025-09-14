@@ -3,7 +3,7 @@
 /obj/item/flashlight/flare
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'pull cord, make light'."
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	light_color = "#e58775"
 	icon = 'icons/obj/lighting/flare.dmi'
 	action_button_name = null //just pull it manually, neckbeard.
@@ -64,11 +64,11 @@
 
 /obj/item/flashlight/flare/proc/update_damage()
 	if(on)
-		force = on_damage
-		damtype = BURN
+		set_base_attack_force(on_damage)
+		atom_damage_type = BURN
 	else
-		force = initial(force)
-		damtype = initial(damtype)
+		set_base_attack_force(get_initial_base_attack_force())
+		atom_damage_type = initial(atom_damage_type)
 
 /obj/item/flashlight/flare/on_update_icon()
 	var/nofuel = fuel <= 0

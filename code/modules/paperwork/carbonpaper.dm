@@ -2,13 +2,8 @@
 // Carbon paper
 /////////////////////////////////////////////////
 /obj/item/paper/carbon
-	name       = "sheets of paper with carbon paper"
-	icon_state = "paper_stack"
-	item_state = "paper"
-
-/obj/item/paper/carbon/update_contents_overlays()
-	if(length(info))
-		add_overlay("paper_stack_words")
+	name = "sheets of paper with carbon paper"
+	icon = 'icons/obj/items/paperwork/carbon_paper.dmi'
 
 /obj/item/paper/carbon/proc/remove_copy(var/mob/user)
 	//Make a new paper that copies our contents
@@ -62,5 +57,6 @@
 	name = "remove carbon-copy"
 	expected_target_type = /obj/item/paper/carbon
 
-/decl/interaction_handler/carbon_paper_remove/invoked(obj/item/paper/carbon/target, mob/user)
-	target.remove_copy(user)
+/decl/interaction_handler/carbon_paper_remove/invoked(atom/target, mob/user, obj/item/prop)
+	var/obj/item/paper/carbon/paper = target
+	paper.remove_copy(user)

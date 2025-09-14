@@ -39,6 +39,7 @@
 	prop.forceMove(user)
 	prop.hud_layerise()
 	prop.equipped(user, slot_id)
+	prop.compile_overlays() // avoid world overlays on inventory state and vice versa
 
 	// Clean up the preexisting item.
 	if(held)

@@ -3,9 +3,7 @@
 	desc = "A handy-dandy holographic projector that displays a janitorial sign."
 	icon = 'icons/obj/items/holosign_projector.dmi'
 	icon_state = ICON_STATE_WORLD
-	force = 0
 	w_class = ITEM_SIZE_SMALL
-	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
 	material = /decl/material/solid/metal/steel
@@ -55,8 +53,8 @@
 				else
 					to_chat(user, "<span class='notice'>[src] is projecting at max capacity!</span>")
 
-/obj/item/holosign_creator/attack(mob/living/carbon/human/M, mob/user)
-	return
+/obj/item/holosign_creator/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	return FALSE
 
 /obj/item/holosign_creator/attack_self(mob/user)
 	if(signs.len)

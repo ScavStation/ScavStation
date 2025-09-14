@@ -103,8 +103,10 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 
 /obj/structure/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(!has_extension(W, /datum/extension/tool) || !process_tool_hit(W,user))
-		return ..()
+	if(has_extension(W, /datum/extension/tool))
+		if(process_tool_hit(W,user))
+			return TRUE
+	return ..()
 
 /obj/structure/particle_accelerator/Move()
 	..()
@@ -167,33 +169,33 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(IS_WRENCH(O))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				src.anchored = TRUE
-				user.visible_message("[user.name] secures the [src.name] to the floor.", \
+				user.visible_message("[user.name] secures \the [src] to the floor.", \
 					"You secure the external bolts.")
 				temp_state++
 		if(1)
 			if(IS_WRENCH(O))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				src.anchored = FALSE
-				user.visible_message("[user.name] detaches the [src.name] from the floor.", \
+				user.visible_message("[user.name] detaches \the [src] from the floor.", \
 					"You remove the external bolts.")
 				temp_state--
 			else if(IS_COIL(O))
 				if(O:use(1,user))
-					user.visible_message("[user.name] adds wires to the [src.name].", \
+					user.visible_message("[user.name] adds wires to \the [src].", \
 						"You add some wires.")
 					temp_state++
 		if(2)
-			if(IS_WIRECUTTER(O))//TODO:Shock user if its on?
-				user.visible_message("[user.name] removes some wires from the [src.name].", \
+			if(IS_WIRECUTTER(O))//TODO:Shock user if it's on?
+				user.visible_message("[user.name] removes some wires from \the [src].", \
 					"You remove some wires.")
 				temp_state--
 			else if(IS_SCREWDRIVER(O))
-				user.visible_message("[user.name] closes the [src.name]'s access panel.", \
+				user.visible_message("[user.name] closes \the [src]'s access panel.", \
 					"You close the access panel.")
 				temp_state++
 		if(3)
 			if(IS_SCREWDRIVER(O))
-				user.visible_message("[user.name] opens the [src.name]'s access panel.", \
+				user.visible_message("[user.name] opens \the [src]'s access panel.", \
 					"You open the access panel.")
 				temp_state--
 	if(temp_state == src.construction_state)//Nothing changed
@@ -242,8 +244,10 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 
 /obj/machinery/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(!has_extension(W, /datum/extension/tool) || !process_tool_hit(W,user))
-		return ..()
+	if(has_extension(W, /datum/extension/tool))
+		if(process_tool_hit(W,user))
+			return TRUE
+	return ..()
 
 /obj/machinery/particle_accelerator/explosion_act(severity)
 	. = ..()
@@ -262,33 +266,33 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(IS_WRENCH(O))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				src.anchored = TRUE
-				user.visible_message("[user.name] secures the [src.name] to the floor.", \
+				user.visible_message("[user.name] secures \the [src] to the floor.", \
 					"You secure the external bolts.")
 				temp_state++
 		if(1)
 			if(IS_WRENCH(O))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 				src.anchored = FALSE
-				user.visible_message("[user.name] detaches the [src.name] from the floor.", \
+				user.visible_message("[user.name] detaches \the [src] from the floor.", \
 					"You remove the external bolts.")
 				temp_state--
 			else if(IS_COIL(O))
 				if(O:use(1))
-					user.visible_message("[user.name] adds wires to the [src.name].", \
+					user.visible_message("[user.name] adds wires to \the [src].", \
 						"You add some wires.")
 					temp_state++
 		if(2)
-			if(IS_WIRECUTTER(O))//TODO:Shock user if its on?
-				user.visible_message("[user.name] removes some wires from the [src.name].", \
+			if(IS_WIRECUTTER(O))//TODO:Shock user if it's on?
+				user.visible_message("[user.name] removes some wires from \the [src].", \
 					"You remove some wires.")
 				temp_state--
 			else if(IS_SCREWDRIVER(O))
-				user.visible_message("[user.name] closes the [src.name]'s access panel.", \
+				user.visible_message("[user.name] closes \the [src]'s access panel.", \
 					"You close the access panel.")
 				temp_state++
 		if(3)
 			if(IS_SCREWDRIVER(O))
-				user.visible_message("[user.name] opens the [src.name]'s access panel.", \
+				user.visible_message("[user.name] opens \the [src]'s access panel.", \
 					"You open the access panel.")
 				temp_state--
 				active = 0

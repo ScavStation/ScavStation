@@ -90,6 +90,8 @@
 		. += "Splinted"
 	if(status & ORGAN_BLEEDING)
 		. += "Bleeding"
+	if(limb_flags & ORGAN_FLAG_SKELETAL)
+		. += "Skeletal"
 	if(status & ORGAN_BROKEN)
 		. += capitalize(broken_description)
 	if (LAZYLEN(implants))
@@ -153,10 +155,10 @@
 		return
 
 	if(status & ORGAN_BROKEN)
-		to_chat(user, "<span class='warning'>The [encased ? encased : "bone in the [name]"] moves slightly when you poke it!</span>")
+		to_chat(user, "<span class='warning'>The [encased ? encased : "bone in \the [src]"] moves slightly when you poke it!</span>")
 		owner.custom_pain("Your [name] hurts where it's poked.",40, affecting = src)
 	else
-		to_chat(user, "<span class='notice'>The [encased ? encased : "bones in the [name]"] seem to be fine.</span>")
+		to_chat(user, "<span class='notice'>The [encased ? encased : "bones in \the [src]"] seem to be fine.</span>")
 
 	if(status & ORGAN_TENDON_CUT)
 		to_chat(user, "<span class='warning'>The tendons in [name] are severed!</span>")
@@ -187,7 +189,7 @@
 /decl/diagnostic_sign/proc/get_description(mob/user)
 	. = descriptor
 	if(user && user.skill_check(SKILL_MEDICAL, hint_min_skill))
-		. += "<small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
+		. += "<small><a href='byond://?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
 
 /decl/diagnostic_sign/Topic(var/href, var/list/href_list)
 	. = ..()
@@ -211,7 +213,7 @@
 	explanation = "Patient has internal organ damage."
 
 /decl/diagnostic_sign/liver/manifested_in(obj/item/organ/external/victim)
-	return victim.owner && victim.owner.getToxLoss() >= 25
+	return victim.owner && victim.owner.get_damage(TOX) >= 25
 
 /decl/diagnostic_sign/oxygenation
 	name = "Cyanosis"

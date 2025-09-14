@@ -1,5 +1,5 @@
 /datum/unit_test/subsystem_atom_shall_have_no_bad_init_calls
-	name = "SUBSYSTEM - ATOMS: Shall have no bad init calls"
+	name = "SUBSYSTEM: ATOMS: Shall have no bad init calls"
 
 /datum/unit_test/subsystem_atom_shall_have_no_bad_init_calls/start_test()
 	if(SSatoms.BadInitializeCalls.len)
@@ -10,7 +10,7 @@
 	return 1
 
 /datum/unit_test/subsystem_shall_be_initialized
-	name = "SUBSYSTEM - INIT: Subsystems shall be initalized"
+	name = "SUBSYSTEM: INIT: Subsystems shall be initalized"
 
 /datum/unit_test/subsystem_shall_be_initialized/start_test()
 	var/list/bad_subsystems = list()
@@ -28,7 +28,7 @@
 	return 1
 
 /datum/unit_test/all_atoms_shall_be_initialized
-	name = "SUBSYSTEM - ATOMS: All atoms shall be initialized."
+	name = "SUBSYSTEM: ATOMS: All atoms shall be initialized."
 
 /datum/unit_test/all_atoms_shall_be_initialized/start_test()
 	set background = TRUE // avoid infinite loop warning; SS will still wait for us.

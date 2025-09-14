@@ -125,11 +125,11 @@ var/global/list/localhost_addresses = list(
 
 	switch (connection)
 		if ("seeker", "web") // check for invalid connection type. do nothing if valid
+			pass()
 		else return null
 
 	deactivate_darkmode(clear_chat = FALSE) // Overwritten if the pref is set later.
 
-	#if DM_VERSION >= 512
 	var/bad_version = byond_version < get_config_value(/decl/config/num/minimum_byond_version)
 	var/bad_build   = byond_build < get_config_value(/decl/config/num/minimum_byond_build)
 
@@ -143,8 +143,6 @@ var/global/list/localhost_addresses = list(
 		to_chat(src, "You are attempting to connect with a broken and possibly exploitable BYOND build. Please update to the latest version at http://www.byond.com/ before trying again.")
 		qdel(src)
 		return
-
-	#endif
 
 	var/local_connection = (get_config_value(/decl/config/toggle/on/auto_local_admin) && (isnull(address) || global.localhost_addresses[address]))
 	if(!local_connection)
@@ -182,7 +180,7 @@ var/global/list/localhost_addresses = list(
 		holder.owner = src
 		handle_staff_login()
 
-	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
+	//preferences datum - also holds some persistent data for the client (because we may as well keep these datums to a minimum)
 	prefs = SScharacter_setup.preferences_datums[ckey]
 	if(!prefs)
 		prefs = new /datum/preferences(src)
@@ -380,10 +378,14 @@ var/global/list/localhost_addresses = list(
 	if(admin_datums[ckey] && GAME_STATE == RUNLEVEL_GAME) //Only report this stuff if we are currently playing.
 		message_staff("\[[holder.rank]\] [key_name(src)] logged out.")
 		if(!global.admins.len) //Apparently the admin logging out is no longer an admin at this point, so we have to check this towards 0 and not towards 1. Awell.
-			send2adminirc("[key_name(src)] logged out - no more staff online.")
+			var/full_message = "[key_name(src)] logged out - no more staff online."
+			send2adminirc(full_message)
+			SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Admin Logout (Game ID: [game_id])", "body" = full_message))
 			if(get_config_value(/decl/config/toggle/delist_when_no_admins) && get_config_value(/decl/config/toggle/hub_visibility))
 				toggle_config_value(/decl/config/toggle/hub_visibility)
-				send2adminirc("Toggled hub visibility. The server is now invisible.")
+				full_message = "Toggled hub visibility. The server is now invisible."
+				send2adminirc(full_message)
+				SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Automatic Hub Visibility Toggle (Game ID: [game_id])", "body" = full_message))
 
 //checks if a client is afk
 //3000 frames = 5 minutes
@@ -503,8 +505,8 @@ var/global/const/MAX_VIEW = 41
 		return // Some kind of malformed winget(), do not proceed.
 
 	// Rescale as needed.
-	var/res_x =    get_config_value(/decl/config/num/clients/lock_client_view_x) || CEILING(text2num(view_components[1]) / divisor)
-	var/res_y =    get_config_value(/decl/config/num/clients/lock_client_view_y) || CEILING(text2num(view_components[2]) / divisor)
+	var/res_x =    get_config_value(/decl/config/num/clients/lock_client_view_x) || ceil(text2num(view_components[1]) / divisor)
+	var/res_y =    get_config_value(/decl/config/num/clients/lock_client_view_y) || ceil(text2num(view_components[2]) / divisor)
 	var/max_view = get_config_value(/decl/config/num/clients/max_client_view_x)  || MAX_VIEW
 
 	last_view_x_dim = clamp(res_x, MIN_VIEW, max_view)
@@ -678,7 +680,7 @@ var/global/const/MAX_VIEW = 41
 	// winget() does not work for F1 and F2
 	for(var/key in communication_hotkeys)
 		if(!(key in list("F1","F2")) && !winget(src, "default-\ref[key]", "command"))
-			to_chat(src, SPAN_WARNING("You probably entered the game with a different keyboard layout.\n<a href='?src=\ref[src];reset_macros=1'>Please switch to the English layout and click here to fix the communication hotkeys.</a>"))
+			to_chat(src, SPAN_WARNING("You probably entered the game with a different keyboard layout.\n<a href='byond://?src=\ref[src];reset_macros=1'>Please switch to the English layout and click here to fix the communication hotkeys.</a>"))
 			break
 
 /client/proc/get_byond_membership()
@@ -697,6 +699,6 @@ var/global/const/MAX_VIEW = 41
 /client/verb/drop_item()
 	set hidden = 1
 	if(!isrobot(mob) && mob.stat == CONSCIOUS && isturf(mob.loc))
-		var/obj/item/I = mob.get_active_hand()
+		var/obj/item/I = mob.get_active_held_item()
 		if(I && I.can_be_dropped_by_client(mob))
 			mob.drop_item()

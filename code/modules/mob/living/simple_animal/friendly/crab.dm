@@ -5,31 +5,43 @@
 	icon = 'icons/mob/simple_animal/crab.dmi'
 	mob_size = MOB_SIZE_SMALL
 	speak_emote = list("clicks")
-	emote_hear = list("clicks")
-	emote_see = list("clacks")
-	speak_chance = 0.5
-	turns_per_move = 5
 	response_harm = "stamps on"
-	stop_automated_movement = 1
-	friendly = "pinches"
 	possession_candidate = 1
-	can_escape = TRUE //snip snip
 	pass_flags = PASS_FLAG_TABLE
 	natural_armor = list(
 		ARMOR_MELEE = ARMOR_MELEE_KNIVES
 		)
-	ai = /datum/ai/crab
+	ai = /datum/mob_controller/crab
+	butchery_data = /decl/butchery_data/animal/arthropod/crab
 
-	meat_amount =   3
-	skin_material = /decl/material/solid/organic/skin/insect
-	skin_amount =   10
-	bone_material = null
-	bone_amount =   0
+/datum/mob_controller/crab
+	emote_hear = list("clicks")
+	emote_see = list("clacks")
+	speak_chance = 0.25
+	turns_per_wander = 10
+	wander_directions = list(EAST, WEST) // they only go sideways...
+	can_escape_buckles = TRUE //snip snip
+
+// TODO
+/decl/bodytype/hexapod
+	abstract_type = /decl/bodytype/hexapod
+
+/decl/bodytype/hexapod/animal
+	abstract_type = /decl/bodytype/hexapod/animal
+	name = "hexapod animal"
+	bodytype_flag = 0
+	bodytype_category = "hexapodal animal body"
+
+/decl/bodytype/hexapod/get_ignited_icon_state(mob/living/victim)
+	return "Generic_mob_burning"
 
 /mob/living/simple_animal/crab/get_bodytype()
-	return GET_DECL(/decl/bodytype/animal/crab)
+	return GET_DECL(/decl/bodytype/hexapod/animal/crab)
 
-/decl/bodytype/animal/crab/Initialize()
+/decl/bodytype/hexapod/animal/crab
+	uid = "bodytype_animal_crab"
+
+/decl/bodytype/hexapod/animal/crab/Initialize()
 	equip_adjust = list(
 		slot_head_str = list(
 			"[NORTH]" = list(-1, -10),
@@ -39,19 +51,6 @@
 		)
 	)
 	. = ..()
-
-/datum/ai/crab
-	expected_type = /mob/living/simple_animal/crab
-
-/datum/ai/crab/do_process(time_elapsed)
-	. = ..()
-	var/mob/living/simple_animal/crab/crab = body
-	if(!isturf(crab.loc) || crab.resting || crab.buckled)
-		return
-	crab.turns_since_move++
-	if(crab.turns_since_move >= crab.turns_per_move)
-		crab.Move(get_step(crab,pick(4,8)))
-		crab.turns_since_move = 0
 
 //COFFEE! SQUEEEEEEEEE!
 /mob/living/simple_animal/crab/Coffee

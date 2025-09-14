@@ -76,10 +76,10 @@
 
 		dat += "Set Temperature: "
 
-		dat += "<A href='?src=\ref[src];op=temp;val=-5'>-</A>"
+		dat += "<A href='byond://?src=\ref[src];op=temp;val=-5'>-</A>"
 
 		dat += " [set_temperature]K ([set_temperature-T0C]&deg;C)"
-		dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];op=temp;val=5'>+</A><BR>"
 
 		var/datum/browser/popup = new(usr, "spaceheater", "Space Heater Control Panel")
 		popup.set_content(jointext(dat, null))
@@ -88,9 +88,10 @@
 /obj/machinery/space_heater/physical_attack_hand(mob/user)
 	if(!panel_open)
 		on = !on
-		user.visible_message("<span class='notice'>[user] switches [on ? "on" : "off"] the [src].</span>","<span class='notice'>You switch [on ? "on" : "off"] the [src].</span>")
+		user.visible_message("<span class='notice'>[user] switches [on ? "on" : "off"] \the [src].</span>","<span class='notice'>You switch [on ? "on" : "off"] \the [src].</span>")
 		update_icon()
 		return TRUE
+	return FALSE
 
 /obj/machinery/space_heater/Topic(href, href_list, state = global.physical_topic_state)
 	if (..())

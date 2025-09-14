@@ -27,7 +27,6 @@
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
 		/obj/item/flashlight,
-		/obj/item/storage/,
 		/obj/item/tank,
 		/obj/item/suit_cooling_unit
 	)
@@ -239,6 +238,6 @@
 	icon = 'mods/species/bayliens/skrell/icons/gear/gear_rig.dmi'
 	icon_state = "welder1"
 	engage_string = "Toggle Welder"
-	device = /obj/item/weldingtool/electric/
+	device = /obj/item/weldingtool/electric
 	usable = TRUE
 	selectable = TRUE

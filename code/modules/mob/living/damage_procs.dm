@@ -7,7 +7,7 @@
 	Returns
 	standard 0 if fail
 */
-/mob/living/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/damage_flags = 0, var/used_weapon = null, var/armor_pen, var/silent = FALSE)
+/mob/living/apply_damage(damage = 0, damagetype = BRUTE, def_zone, damage_flags = 0, obj/used_weapon, armor_pen, silent = FALSE, obj/item/organ/external/given_organ)
 
 	if(status_flags & GODMODE)
 		return FALSE
@@ -23,31 +23,19 @@
 		return FALSE
 
 	switch(damagetype)
-		if(BRUTE)
-			adjustBruteLoss(damage)
 		if(BURN)
-			if(MUTATION_COLD_RESISTANCE in mutations)
+			if(has_genetic_condition(GENE_COND_COLD_RESISTANCE))
 				return
-			adjustFireLoss(damage)
-		if(TOX)
-			adjustToxLoss(damage)
-		if(OXY)
-			adjustOxyLoss(damage)
-		if(CLONE)
-			adjustCloneLoss(damage)
-		if(PAIN)
-			adjustHalLoss(damage)
+			take_damage(damage, BURN, damage_flags, used_weapon, armor_pen)
 		if(ELECTROCUTE)
 			electrocute_act(damage, used_weapon, 1, def_zone)
-		if(IRRADIATE)
-			apply_radiation(damage)
+		else
+			take_damage(damage, damagetype, damage_flags, used_weapon, armor_pen)
 	return TRUE
 
-
-/mob/living/proc/apply_radiation(var/damage = 0)
+/mob/living/apply_radiation(var/damage = 0)
 	if(!damage)
 		return FALSE
-
 	radiation = max(0, radiation + damage)
 	return TRUE
 
@@ -70,7 +58,7 @@
 		if(PARALYZE)
 			SET_STATUS_MAX(src, STAT_PARA, effect * blocked_mult(blocked))
 		if(PAIN)
-			adjustHalLoss(effect * blocked_mult(blocked))
+			take_damage(effect * blocked_mult(blocked), PAIN)
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter - TODO CANSTUTTER flag?
 				SET_STATUS_MAX(src, STAT_STUTTER, effect * blocked_mult(blocked))

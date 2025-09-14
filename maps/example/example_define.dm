@@ -2,6 +2,7 @@
 	name = "Testing"
 	full_name = "Testing Site"
 	path = "example"
+	votable = FALSE
 
 	lobby_screens = list(
 		'maps/example/example_lobby.png'

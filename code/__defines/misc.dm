@@ -4,14 +4,13 @@
 #define TURF_FLAG_NO_POINTS_OF_INTEREST BITFLAG(1) // Used by the level subtemplate generator to skip placing loaded templates on this turf.
 #define TURF_FLAG_BACKGROUND            BITFLAG(2) // Used by shuttle movement to determine if it should be ignored by turf translation.
 #define TURF_FLAG_HOLY                  BITFLAG(3)
-#define TURF_IS_HOLOMAP_OBSTACLE        BITFLAG(4)
-#define TURF_IS_HOLOMAP_PATH            BITFLAG(5)
-#define TURF_IS_HOLOMAP_ROCK            BITFLAG(6)
+#define TURF_FLAG_ABSORB_LIQUID         BITFLAG(4)
+#define TURF_IS_HOLOMAP_OBSTACLE        BITFLAG(5)
+#define TURF_IS_HOLOMAP_PATH            BITFLAG(6)
+#define TURF_IS_HOLOMAP_ROCK            BITFLAG(7)
 
 ///Width or height of a transition edge area along the map's borders where transition edge turfs are placed to connect levels together.
 #define TRANSITIONEDGE 7
-///Extra spacing needed between any random level templates and the transition edge of a level.
-#define TEMPLATE_TAG_MAP_EDGE_PAD 15
 
 ///Enum value for a level edge that's to be untouched
 #define LEVEL_EDGE_NONE 0
@@ -87,9 +86,6 @@
 #define EVENT_LEVEL_MODERATE 2
 #define EVENT_LEVEL_MAJOR    3
 
-//General-purpose life speed define for plants.
-#define HYDRO_SPEED_MULTIPLIER 1
-
 //Area flags, possibly more to come
 #define AREA_FLAG_RAD_SHIELDED         BITFLAG(1)  // Shielded from radiation, clearly.
 #define AREA_FLAG_EXTERNAL             BITFLAG(2)  // External as in exposed to space, not outside in a nice, green, forest.
@@ -105,12 +101,13 @@
 #define AREA_FLAG_HIDE_FROM_HOLOMAP    BITFLAG(12) // if we shouldn't be drawn on station holomaps
 
 //Map template flags
-#define TEMPLATE_FLAG_ALLOW_DUPLICATES BITFLAG(0)  // Lets multiple copies of the template to be spawned
-#define TEMPLATE_FLAG_SPAWN_GUARANTEED BITFLAG(1)  // Makes it ignore away site budget and just spawn (only for away sites)
-#define TEMPLATE_FLAG_CLEAR_CONTENTS   BITFLAG(2)  // if it should destroy objects it spawns on top of
-#define TEMPLATE_FLAG_NO_RUINS         BITFLAG(3)  // if it should forbid ruins from spawning on top of it
-#define TEMPLATE_FLAG_NO_RADS          BITFLAG(4)  // Removes all radiation from the template after spawning.
-#define TEMPLATE_FLAG_TEST_DUPLICATES  BITFLAG(5)  // Makes unit testing attempt to spawn mutliple copies of this template. Assumes unit testing is spawning at least one copy.
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES   BITFLAG(0)  // Lets multiple copies of the template to be spawned
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED   BITFLAG(1)  // Makes it ignore away site budget and just spawn (only for away sites)
+#define TEMPLATE_FLAG_CLEAR_CONTENTS     BITFLAG(2)  // if it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_NO_RUINS           BITFLAG(3)  // if it should forbid ruins from spawning on top of it
+#define TEMPLATE_FLAG_NO_RADS            BITFLAG(4)  // Removes all radiation from the template after spawning.
+#define TEMPLATE_FLAG_TEST_DUPLICATES    BITFLAG(5)  // Makes unit testing attempt to spawn mutliple copies of this template. Assumes unit testing is spawning at least one copy.
+#define TEMPLATE_FLAG_GENERIC_REPEATABLE BITFLAG(6) // Template can be picked repeatedly for the same level gen run.
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -134,10 +131,19 @@
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.
 
-//objectives
+// Objective config enum values.
 #define CONFIG_OBJECTIVE_NONE 2
 #define CONFIG_OBJECTIVE_VERB 1
 #define CONFIG_OBJECTIVE_ALL  0
+
+// Server whitelist config enums.
+#define CONFIG_SERVER_NO_WHITELIST      1
+#define CONFIG_SERVER_JOBS_WHITELIST    2
+#define CONFIG_SERVER_JOIN_WHITELIST    3
+#define CONFIG_SERVER_CONNECT_WHITELIST 4
+
+// Location for server whitelist file to load from.
+#define CONFIG_SERVER_WHITELIST_FILE "config/server_whitelist.txt"
 
 // How many times an AI tries to connect to APC before switching to low power mode.
 #define AI_POWER_RESTORE_MAX_ATTEMPTS 3
@@ -247,10 +253,6 @@
 //Inserts 'a' or 'an' before X in ways \a doesn't allow
 #define ADD_ARTICLE(X) "[(lowertext(X[1]) in global.vowels) ? "an" : "a"] [X]"
 
-#define SOULSTONE_CRACKED -1
-#define SOULSTONE_EMPTY 0
-#define SOULSTONE_ESSENCE 1
-
 //Request Console Department Types
 #define RC_ASSIST 1		//Request Assistance
 #define RC_SUPPLY 2		//Request Supplies
@@ -267,8 +269,6 @@
 #define num2hex(num) num2text(num, 2, 16)
 /// Returns the hex value of a number given a value assumed to be a base-ten value, padded to a supplied minimum length.
 #define num2hex_padded(num, len) num2text(num, len, 16)
-
-#define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
 
 //NOTE: INTENT_HOTKEY_* defines are not actual intents!
 //they are here to support hotkeys
@@ -349,3 +349,40 @@
 #define GROOMING_RESULT_PARTIAL 1
 // Can groom properly (long hair with a brush)
 #define GROOMING_RESULT_SUCCESS 2
+
+// Used by recipe selection.
+#define RECIPE_CATEGORY_MICROWAVE   "microwave"
+#define RECIPE_CATEGORY_POT         "pot"
+#define RECIPE_CATEGORY_SKILLET     "skillet"
+#define RECIPE_CATEGORY_BAKING_DISH "baking dish"
+
+// So we want to have compile time guarantees these methods exist on local type, unfortunately 515 killed the .proc/procname and .verb/verbname syntax so we have to use nameof()
+// For the record: GLOBAL_VERB_REF would be useless as verbs can't be global.
+
+/// Call by name proc references, checks if the proc exists on either this type or as a global proc.
+#define PROC_REF(X) (nameof(.proc/##X))
+/// Call by name verb references, checks if the verb exists on either this type or as a global verb.
+#define VERB_REF(X) (nameof(.verb/##X))
+
+/// Call by name proc reference, checks if the proc exists on either the given type or as a global proc
+#define TYPE_PROC_REF(TYPE, X) (nameof(##TYPE.proc/##X))
+/// Call by name verb reference, checks if the verb exists on either the given type or as a global verb
+#define TYPE_VERB_REF(TYPE, X) (nameof(##TYPE.verb/##X))
+
+/// Call by name proc reference, checks if the proc is an existing global proc
+#define GLOBAL_PROC_REF(X) (/proc/##X)
+
+#define RADIAL_LABELS_NONE     0
+#define RADIAL_LABELS_OFFSET   1
+#define RADIAL_LABELS_CENTERED 2
+
+#define CRAYON_DRAW_RUNE     "rune"
+#define CRAYON_DRAW_GRAFFITI "graffiti"
+#define CRAYON_DRAW_LETTER   "letter"
+#define CRAYON_DRAW_ARROW    "arrow"
+
+// Enum for results of is_space_movement_permitted()
+// Note that it may also return an instance of /atom/movable, which acts as SPACE_MOVE_SUPPORTED.
+#define SPACE_MOVE_SUPPORTED (-1) //! Mob should run space-slipping checks.
+#define SPACE_MOVE_FORBIDDEN   0  //! Mob should begin spacedrift.
+#define SPACE_MOVE_PERMITTED   1  //! Mob should stop/prevent spacedrift.

@@ -18,21 +18,23 @@
 
 /obj/item/ammo_magazine/speedloader/on_update_icon()
 	. = ..()
-	if(!length(stored_ammo))
+	var/ammo_count = get_stored_ammo_count()
+	if(!ammo_count)
 		return
+	create_initial_contents() // Not ideal, but we need instances for the icon gen.
 	switch(icon_state)
-		if("world")
+		if(ICON_STATE_WORLD)
 			var/ammo_state = "world-some"
-			if(length(stored_ammo) == 1)
+			if(ammo_count == 1)
 				ammo_state = "world-one"
-			else if(length(stored_ammo) == max_ammo)
+			else if(ammo_count == max_ammo)
 				ammo_state = "world-full"
 			var/obj/item/ammo_casing/A = stored_ammo[1]
 			add_overlay(overlay_image(icon, ammo_state, A.color, RESET_COLOR))
 			add_overlay(overlay_image(icon, "[ammo_state]-bullets", A.bullet_color, flags = RESET_COLOR))
 			if(A.marking_color)
 				add_overlay(overlay_image(icon, "[ammo_state]-markings", A.marking_color, RESET_COLOR))
-		if("inventory")
+		if(ICON_STATE_INV)
 			for(var/i = 1 to length(stored_ammo))
 				var/obj/item/ammo_casing/A = stored_ammo[i]
 				var/image/I = overlay_image(icon, "casing", A.color, RESET_COLOR)
@@ -57,15 +59,13 @@
 
 /obj/item/ammo_magazine/shotholder/on_update_icon()
 	..()
-	overlays.Cut()
 	if(marking_color)
-		var/image/I = image(icon, "shotholder-marking")
-		I.color = marking_color
-		overlays += I
+		add_overlay(overlay_image(icon, "shotholder-marking", marking_color, RESET_COLOR))
 
 /obj/item/ammo_magazine/shotholder/attack_hand(mob/user)
-	if(loc != user || user.a_intent != I_HURT || !length(stored_ammo) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
+	if(loc != user || user.a_intent != I_HURT || !get_stored_ammo_count() || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
 		return ..()
+	create_initial_contents()
 	var/obj/item/ammo_casing/C = stored_ammo[stored_ammo.len]
 	stored_ammo -= C
 	user.put_in_hands(C)

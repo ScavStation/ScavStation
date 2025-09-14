@@ -30,13 +30,6 @@
 	generate_overmap()
 	testing("Overmap build for [name] complete.")
 
-	if(!assigned_z)
-		PRINT_STACK_TRACE("Overmap datum generated null assigned z_level.")
-
-	if(global.overmaps_by_z["[assigned_z]"])
-		PRINT_STACK_TRACE("Duplicate overmap datum instantiated for z-level: [type], [assigned_z], [overmaps_by_name[name]]")
-	global.overmaps_by_z["[assigned_z]"] = src
-
 	for(var/event_type in subtypesof(/datum/overmap_event))
 		var/datum/overmap_event/event = event_type
 		if(initial(event.overmap_id) == name)
@@ -46,19 +39,21 @@
 
 /datum/overmap/proc/populate_overmap()
 	var/area/overmap/A = locate(overmap_area_type) || new overmap_area_type //level_data should have initialized the area
-	for(var/square in block(locate(1, 1, assigned_z), locate(map_size_x, map_size_y, assigned_z)))
-		var/turf/T = square
-		if(T.x == map_size_x || T.y == map_size_y)
-			T = T.ChangeTurf(overmap_edge_type)
+	for(var/turf/square as anything in block(1, 1, assigned_z, map_size_x, map_size_y, assigned_z))
+		if(square.x == map_size_x || square.y == map_size_y)
+			square = square.ChangeTurf(overmap_edge_type)
 		else
-			T = T.ChangeTurf(overmap_turf_type)
-		ChangeArea(T, A)
+			square = square.ChangeTurf(overmap_turf_type)
+		ChangeArea(square, A)
 
 /datum/overmap/proc/generate_overmap()
 	testing("Building overmap [name]...")
 	SSmapping.increment_world_z_size(/datum/level_data/overmap)
 	assigned_z = world.maxz
 	testing("Putting [name] on [assigned_z].")
+	if(global.overmaps_by_z["[assigned_z]"])
+		PRINT_STACK_TRACE("Duplicate overmap datum instantiated for z-level: [type], [assigned_z], [overmaps_by_name[name]]")
+	global.overmaps_by_z["[assigned_z]"] = src
 	populate_overmap()
 	SSmapping.sealed_levels |= assigned_z
 	. = TRUE
@@ -113,8 +108,8 @@
 		A.forceMove(dest)
 		if(isliving(A))
 			var/mob/living/L = A
-			for(var/obj/item/grab/G in L.get_active_grabs())
-				G.affecting.forceMove(dest)
+			for(var/obj/item/grab/grab as anything in L.get_active_grabs())
+				grab.affecting.forceMove(dest)
 
 	if(istype(M, /obj/effect/overmap/visitable/sector/temporary))
 		var/obj/effect/overmap/visitable/sector/temporary/source = M

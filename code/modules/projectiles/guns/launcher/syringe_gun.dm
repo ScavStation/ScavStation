@@ -7,9 +7,7 @@
 	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_LOWER_BODY | SLOT_EARS
-	throwforce = 3
-	force = 3
-	w_class = ITEM_SIZE_TINY
+	w_class = ITEM_SIZE_SMALL
 	var/icon_flight = "syringe-cartridge-flight" //so it doesn't look so weird when shot
 	var/obj/item/chems/syringe/syringe
 
@@ -27,12 +25,16 @@
 		underlays += MA
 
 /obj/item/syringe_cartridge/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/chems/syringe) && user.try_unequip(I, src))
+	if(istype(I, /obj/item/chems/syringe))
+		if(!user.try_unequip(I, src))
+			return TRUE
 		syringe = I
 		to_chat(user, "<span class='notice'>You carefully insert [syringe] into [src].</span>")
-		sharp = 1
+		sharp = TRUE
 		name = "syringe dart"
 		update_icon()
+		return TRUE
+	return ..()
 
 /obj/item/syringe_cartridge/attack_self(mob/user)
 	if(syringe)
@@ -61,7 +63,7 @@
 				syringe.reagents.trans_to_mob(L, syringe.reagents.total_volume, CHEM_INJECT)
 				admin_inject_log(TT.thrower? TT.thrower : null, L, src, reagent_log, 15, violent=1)
 
-		syringe.break_syringe(iscarbon(hit_atom)? hit_atom : null)
+		syringe.break_syringe(ishuman(hit_atom)? hit_atom : null)
 		syringe.update_icon()
 
 	icon_state = initial(icon_state) //reset icon state
@@ -73,7 +75,7 @@
 	icon = 'icons/obj/guns/launcher/syringe.dmi'
 	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_LARGE
-	force = 7
+	_base_attack_force = 7
 	material = /decl/material/solid/metal/steel
 	slot_flags = SLOT_LOWER_BODY
 
@@ -104,7 +106,7 @@
 		next = null
 	else if(darts.len)
 		playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
-		user.visible_message("[user] draws back the bolt on [src], clicking it into place.", "<span class='warning'>You draw back the bolt on the [src], loading the spring!</span>")
+		user.visible_message("[user] draws back the bolt on [src], clicking it into place.", "<span class='warning'>You draw back the bolt on \the [src], loading the spring!</span>")
 		next = darts[1]
 	add_fingerprint(user)
 
@@ -131,13 +133,14 @@
 		var/obj/item/syringe_cartridge/C = A
 		if(darts.len >= max_darts)
 			to_chat(user, "<span class='warning'>[src] is full!</span>")
-			return
+			return TRUE
 		if(!user.try_unequip(C, src))
-			return
+			return TRUE
 		darts += C //add to the end
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/gun/launcher/syringe/rapid
 	name = "syringe gun revolver"
@@ -153,7 +156,7 @@
 	icon = 'icons/clothing/mask/smokables/cigarette_electronic_deluxe.dmi'
 	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_SMALL
-	force = 3
+	_base_attack_force = 3
 	throw_distance = 7
 	release_force = 10
 

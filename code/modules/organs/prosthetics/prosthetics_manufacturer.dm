@@ -6,10 +6,30 @@
 	modifier_string = "robotic"
 	is_robotic = TRUE
 	body_flags = BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS | BODY_FLAG_NO_PAIN | BODY_FLAG_NO_EAT
-	material = /decl/material/solid/metal/steel
+	organ_material = /decl/material/solid/metal/steel
+	appearance_flags = HAS_EYE_COLOR
 	eye_flash_mod = 1
 	eye_darksight_range = 2
-	associated_gender = PLURAL
+	associated_gender = null
+	edible_reagent = null
+	emote_sounds = list(
+		"whistle" = list('sound/voice/emotes/longwhistle_robot.ogg'),
+		"qwhistle" = list('sound/voice/emotes/shortwhistle_robot.ogg'),
+		"swhistle" = list('sound/voice/emotes/summon_whistle_robot.ogg'),
+		"wwhistle" = list('sound/voice/emotes/wolfwhistle_robot.ogg')
+	)
+	broadcast_emote_sounds = list(
+		"swhistle" = list('sound/voice/emotes/summon_whistle_robot.ogg')
+	)
+	override_emote_sounds = list(
+		"cough" = list(
+			'sound/voice/emotes/machine_cougha.ogg',
+			'sound/voice/emotes/machine_coughb.ogg'
+		),
+		"sneeze" = list(
+			'sound/voice/emotes/machine_sneeze.ogg'
+		)
+	)
 	bodyfall_sounds = list(
 		'sound/foley/metal1.ogg'
 	)
@@ -31,6 +51,8 @@
 	)
 	/// Determines which bodyparts can use this limb.
 	var/list/applies_to_part
+	/// Prosthetics of this type are not available in chargen unless the map has the required tech level.
+	var/required_map_tech = MAP_TECH_LEVEL_SPACE
 
 /decl/bodytype/prosthetic/get_user_species_for_validation()
 	if(bodytype_category)
@@ -38,7 +60,7 @@
 			var/decl/species/species = get_species_by_key(species_name)
 			for(var/decl/bodytype/bodytype_data in species.available_bodytypes)
 				if(bodytype_data.bodytype_category == bodytype_category)
-					return species_name
+					return species
 	return ..()
 
 /decl/bodytype/prosthetic/apply_bodytype_organ_modifications(obj/item/organ/org)

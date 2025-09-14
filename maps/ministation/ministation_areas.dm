@@ -245,6 +245,15 @@
 	secure = TRUE
 	icon_state = "pink"
 
+/area/ministation/contracter_bunk
+	name = "\improper Contracter's Bunk"
+	turf_initializer = /decl/turf_initializer/maintenance
+	icon_state = "green"
+
+/area/ministation/illegal_hideaway
+	name = "\improper Illegal Hideout"
+	icon_state = "green"
+
 /area/ministation/library
 	name = "\improper Library"
 	icon_state = "LIB"
@@ -299,6 +308,12 @@
 	req_access = list(access_medical)
 	icon_state = "purple"
 	secure = TRUE
+
+/area/ministation/meddocking
+	name = "\improper Medical Docking Bay"
+	req_access = list()
+	icon_state = "green"
+	secure = FALSE
 
 /area/ministation/medical/nursery
 	name = "\improper Nursery"
@@ -467,15 +482,266 @@
 	icon_state = "green"
 	secure = TRUE
 
-
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
+	icon_state = "white"
+	requires_power = 0
+
+/area/ministation/visitors
+	name = "\improper Visiting Shuttles"
 	icon_state = "white"
 	requires_power = 0
 
 /area/ministation/shuttle/outgoing
 	name = "\improper Science Shuttle"
 	icon_state = "shuttle"
+
+/*/area/ministation/shuttle/outgoing_visitors1
+	name = "\improper Visitors Bay 1"
+	icon_state = "shuttle"
+
+/area/ministation/shuttle/outgoing_visitors2
+	name = "\improper Visitors Bay 2"
+	icon_state = "shuttle"*/
+
+
+// CENTCOMMS AREAS
+
+/area/ministation/centcomm/Arrival
+	name = "\improper CentComm Arrivals" // I hate this ugly thing
+	icon_state = "white"
+	requires_power = 0
+
+/area/ministation/centcomm/lounge
+	name = "\improper CentComm Lounge"
+	icon_state = "orange"
+
+/area/ministation/centcomm/custodials
+	name = "\improper CentComm Custodials"
+	icon_state = "red"
+
+/area/ministation/centcomm/bbcourt
+	name = "\improper CentComm Basketball Court"
+	icon_state = "blue"
+
+/area/ministation/centcomm/hell
+	name = "\improper Hell"
+	icon_state = "green"
+
+/area/ministation/centcomm/atmospherics
+	name = "\improper CentComm Atmospherics"
+	icon_state = "green"
+
+/area/ministation/centcomm/command
+	name = "\improper CentComm Command"
+	icon_state = "dark_blue"
+
+/area/ministation/centcomm/backrooms
+	name = "\improper CentComm BackRooms"
+	icon_state = "pink"
+
+/area/ministation/centcomm/backrooms_2
+	name = "\improper CentComm BackRooms"
+	icon_state = "pink"
+
+/area/ministation/centcomm/ghost_halls
+	name = "\improper CentComm Ghost Halls"
+	icon_state = "pink"
+
+// for coherency, apparently an area can't exist in more than one place....
+/area/ministation/centcomm/ghost_halls_2
+	name = "\improper CentComm Ghost Halls"
+	icon_state = "pink"
+
+
+/area/ministation/centcomm/halls
+	name = "\improper CentComm Hallways"
+	icon_state = "yellow"
+
+/area/ministation/centcomm/private_room_1
+	name = "\improper CentComm Private Room"
+	icon_state = "green"
+
+/area/ministation/centcomm/private_room_2
+	name = "\improper CentComm Private Room"
+	icon_state = "red"
+
+/area/ministation/centcomm/private_room_3
+	name = "\improper CentComm Private Room"
+	icon_state = "yellow"
+
+/area/ministation/centcomm/bathroom
+	name = "\improper CentComm Bathrooms"
+	icon_state = "blue"
+
+/area/ministation/centcomm/medbay
+	name = "\improper CentComm Medbay"
+	icon_state = "blue"
+
+/area/ministation/centcomm/cryo
+	name = "\improper CentComm Cryo"
+	icon_state = "orange"
+
+// MURPHY's AREAS
+
+/area/ministation/Murphy
+	name = "\improper Murphy"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bridge
+	name = "\improper Murphy Bridge"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/common
+	name = "\improper Murphy Common Area"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/common/upper
+	name = "\improper Murphy Upstairs Common Area"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/medical
+	name = "\improper Murphy Medbay"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/lounge
+	name = "\improper Murphy Lounge"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/kitchen
+	name = "\improper Murphy Kitchen"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/chem
+	name = "\improper Murphy Chemistry Lab"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/ai
+	name = "\improper Murphy AI Core"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/living
+	name = "\improper Murphy Living Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/rnd
+	name = "\improper Murphy Research Lab"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/hydro
+	name = "\improper Murphy Hydroponics"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/toxins
+	name = "\improper Murphy Toxins Lab"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/smresearch
+	name = "\improper Murphy Supermatter Research Area"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/engineering
+	name = "\improper Murphy Engineering"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/atmos
+	name = "\improper Murphy Atmospherics"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint
+	name = "\improper Murphy Maintenance Corridor"
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_MAINTENANCE
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/Eighteen
+	name = "\improper Murphy - Eighteen's Nest"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/Mawreek
+	name = "\improper Murphy - Mawreek's Bedroom Maint"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/Vayryn
+	name = "\improper Murphy - Vayryn's Bedroom Maint"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/guest
+	name = "\improper Murphy - Guest Bedroom Maint"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/janitors
+	name = "\improper Murphy Janitor Closet"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bathroom
+	name = "\improper Murphy Bathroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom
+	name = "\improper Murphy Bedroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/guest
+	name = "\improper Murphy Guest Bedroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Steph
+	name = "\improper Murphy - Steph's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Karlawa_Haven
+	name = "\improper Murphy - Karlawa and Haven's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Elicot
+	name = "\improper Murphy - Elicot's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Mawreek
+	name = "\improper Murphy - Mawreek's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Kaawmer
+	name = "\improper Murphy - Kaawmer's Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/bedroom/Vayryn
+	name = "\improper Murphy - Vayryn's Room"
+	icon_state = "dark_blue"
+/*
+
+/area/ministation/Murphy/library
+	name = "\improper Murphy Library"
+	icon_state = "dark_blue"
+
+
+
+/area/ministation/Murphy/maint2
+	name = "\improper Murphy Maintenance Corridor 2"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint3
+	name = "\improper Murphy Maintenance Corridor 3"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint4
+	name = "\improper Murphy Maintenance Corridor 4"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/classroom
+	name = "\improper Murphy Classroom"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/engineroom
+	name = "\improper Murphy Engine Room"
+	icon_state = "dark_blue"
+*/
+
+/area/ministation/Murphy/meeting
+	name = "\improper Murphy Meeting Room"
+	icon_state = "dark_blue"
+
+
 
 //satellite
 /area/ministation/ai_sat
@@ -519,14 +785,14 @@
 	arrival_sound = null
 	lift_announce_str = null
 
-/area/turbolift/alert_on_fall(var/mob/living/carbon/human/H)
+/area/turbolift/alert_on_fall(var/mob/living/human/H)
 	if(H.client && SSpersistence.elevator_fall_shifts > 0)
 		SSwebhooks.send(WEBHOOK_ELEVATOR_FALL, list("text" = "We managed to make it [SSpersistence.elevator_fall_shifts] shift\s without someone falling down an elevator shaft."))
 		SSpersistence.elevator_fall_shifts = -1
 
 /area/turbolift/l1
 	name = "Station Level 1"
-	base_turf = /turf/simulated/floor
+	base_turf = /turf/floor/plating
 
 /area/turbolift/l2
 	name = "Station Level 2"
@@ -538,7 +804,7 @@
 
 /area/turbolift/l1p
 	name = "Station Level 1"
-	base_turf = /turf/simulated/floor
+	base_turf = /turf/floor
 
 /area/turbolift/l2p
 	name = "Station Level 2"

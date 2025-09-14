@@ -67,19 +67,19 @@
 	. += "<br>Current Load: [load ? load.name : "<i>none</i>"]"
 
 /mob/living/bot/mulebot/GetInteractPanel()
-	. += "<a href='?src=\ref[src];command=stop'>Stop</a>"
-	. += "<br><a href='?src=\ref[src];command=go'>Proceed</a>"
-	. += "<br><a href='?src=\ref[src];command=home'>Return to home</a>"
-	. += "<br><a href='?src=\ref[src];command=destination'>Set destination</a>"
-	. += "<br><a href='?src=\ref[src];command=sethome'>Set home</a>"
-	. += "<br><a href='?src=\ref[src];command=autoret'>Toggle auto return home</a> ([auto_return ? "On" : "Off"])"
-	. += "<br><a href='?src=\ref[src];command=cargotypes'>Toggle non-standard cargo</a> ([crates_only ? "Off" : "On"])"
+	. += "<a href='byond://?src=\ref[src];command=stop'>Stop</a>"
+	. += "<br><a href='byond://?src=\ref[src];command=go'>Proceed</a>"
+	. += "<br><a href='byond://?src=\ref[src];command=home'>Return to home</a>"
+	. += "<br><a href='byond://?src=\ref[src];command=destination'>Set destination</a>"
+	. += "<br><a href='byond://?src=\ref[src];command=sethome'>Set home</a>"
+	. += "<br><a href='byond://?src=\ref[src];command=autoret'>Toggle auto return home</a> ([auto_return ? "On" : "Off"])"
+	. += "<br><a href='byond://?src=\ref[src];command=cargotypes'>Toggle non-standard cargo</a> ([crates_only ? "Off" : "On"])"
 
 	if(load)
-		. += "<br><a href='?src=\ref[src];command=unload'>Unload now</a>"
+		. += "<br><a href='byond://?src=\ref[src];command=unload'>Unload now</a>"
 
 /mob/living/bot/mulebot/GetInteractMaintenance()
-	. = "<a href='?src=\ref[src];command=safety'>Toggle safety</a> ([safety ? "On" : "Off - DANGER"])"
+	. = "<a href='byond://?src=\ref[src];command=safety'>Toggle safety</a> ([safety ? "On" : "Off - DANGER"])"
 
 /mob/living/bot/mulebot/ProcessCommand(var/mob/user, var/command, var/href_list)
 	..()
@@ -116,7 +116,7 @@
 				safety = !safety
 
 /mob/living/bot/mulebot/attackby(var/obj/item/O, var/mob/user)
-	..()
+	. = ..()
 	update_icon()
 
 /mob/living/bot/mulebot/proc/obeyCommand(var/command)
@@ -172,13 +172,13 @@
 	if(target == src.loc)
 		custom_emote(2, "makes a chiming sound.")
 		playsound(loc, 'sound/machines/chime.ogg', 50, 0)
-		UnarmedAttack(target)
+		UnarmedAttack(target, TRUE)
 		resetTarget()
 		if(auto_return && home && (loc != home))
 			target = home
 			targetName = "Home"
 
-/mob/living/bot/mulebot/confirmTarget()
+/mob/living/bot/mulebot/confirmTarget(atom/target)
 	return 1
 
 /mob/living/bot/mulebot/calcTargetPath()
@@ -193,11 +193,11 @@
 		return
 	..()
 
-/mob/living/bot/mulebot/UnarmedAttack(var/turf/T)
+/mob/living/bot/mulebot/ResolveUnarmedAttack(var/turf/T)
 	if(T == src.loc)
 		unload(dir)
 
-/mob/living/bot/mulebot/Bump(var/mob/living/carbon/human/M)
+/mob/living/bot/mulebot/Bump(var/mob/living/human/M)
 	if(!safety && istype(M))
 		visible_message("<span class='warning'>[src] knocks over [M]!</span>")
 		SET_STATUS_MAX(M, STAT_STUN, 8)

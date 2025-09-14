@@ -45,20 +45,20 @@
 		. += "error: not found"
 
 /mob/living/bot/farmbot/GetInteractPanel()
-	. = "Water plants : <a href='?src=\ref[src];command=water'>[waters_trays ? "Yes" : "No"]</a>"
-	. += "<br>Refill watertank : <a href='?src=\ref[src];command=refill'>[refills_water ? "Yes" : "No"]</a>"
-	. += "<br>Weed plants: <a href='?src=\ref[src];command=weed'>[uproots_weeds ? "Yes" : "No"]</a>"
-	. += "<br>Replace fertilizer: <a href='?src=\ref[src];command=replacenutri'>[replaces_nutriment ? "Yes" : "No"]</a>"
-	. += "<br>Collect produce: <a href='?src=\ref[src];command=collect'>[collects_produce ? "Yes" : "No"]</a>"
-	. += "<br>Remove dead plants: <a href='?src=\ref[src];command=removedead'>[removes_dead ? "Yes" : "No"]</a>"
+	. = "Water plants : <a href='byond://?src=\ref[src];command=water'>[waters_trays ? "Yes" : "No"]</a>"
+	. += "<br>Refill watertank : <a href='byond://?src=\ref[src];command=refill'>[refills_water ? "Yes" : "No"]</a>"
+	. += "<br>Weed plants: <a href='byond://?src=\ref[src];command=weed'>[uproots_weeds ? "Yes" : "No"]</a>"
+	. += "<br>Replace fertilizer: <a href='byond://?src=\ref[src];command=replacenutri'>[replaces_nutriment ? "Yes" : "No"]</a>"
+	. += "<br>Collect produce: <a href='byond://?src=\ref[src];command=collect'>[collects_produce ? "Yes" : "No"]</a>"
+	. += "<br>Remove dead plants: <a href='byond://?src=\ref[src];command=removedead'>[removes_dead ? "Yes" : "No"]</a>"
 
 /mob/living/bot/farmbot/GetInteractMaintenance()
 	. = "Plant identifier status: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Normal</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Normal</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 
@@ -106,11 +106,11 @@
 		flick("farmbot_broke", src)
 
 /mob/living/bot/farmbot/handleAdjacentTarget()
-	UnarmedAttack(target)
+	UnarmedAttack(target, TRUE)
 
 /mob/living/bot/farmbot/lookForTargets()
 	if(emagged)
-		for(var/mob/living/carbon/human/H in view(7, src))
+		for(var/mob/living/human/H in view(7, src))
 			target = H
 			return
 	else
@@ -141,11 +141,7 @@
 	makeStep(target_path)
 	return
 
-/mob/living/bot/farmbot/UnarmedAttack(var/atom/A, var/proximity)
-	. = ..()
-	if(.)
-		return
-
+/mob/living/bot/farmbot/ResolveUnarmedAttack(var/atom/A)
 	if(busy)
 		return TRUE
 
@@ -231,7 +227,7 @@
 	var/turf/my_turf = get_turf(src)
 	. = ..()
 	if(. && my_turf)
-		new /obj/item/minihoe(my_turf)
+		new /obj/item/tool/hoe/mini(my_turf)
 		new /obj/item/chems/glass/bucket(my_turf)
 		new /obj/item/assembly/prox_sensor(my_turf)
 		new /obj/item/scanner/plant(my_turf)
@@ -240,21 +236,21 @@
 		if(prob(50))
 			new /obj/item/robot_parts/l_arm(my_turf)
 
-/mob/living/bot/farmbot/confirmTarget(var/atom/targ)
+/mob/living/bot/farmbot/confirmTarget(atom/target)
 	if(!..())
 		return 0
 
-	if(emagged && ishuman(targ))
-		if(targ in view(world.view, src))
+	if(emagged && ishuman(target))
+		if(target in view(world.view, src))
 			return 1
 		return 0
 
-	if(istype(targ, /obj/structure/hygiene/sink))
+	if(istype(target, /obj/structure/hygiene/sink))
 		if(!tank || tank.reagents.total_volume >= tank.reagents.maximum_volume)
 			return 0
 		return 1
 
-	var/obj/machinery/portable_atmospherics/hydroponics/tray = targ
+	var/obj/machinery/portable_atmospherics/hydroponics/tray = target
 	if(!istype(tray))
 		return 0
 

@@ -9,5 +9,14 @@
 		/datum/computer_file/program/supply
 	)
 
+// This has to be here rather than ministation_define.dm because it's from a modpack.
 /datum/map/ministation
-	lobby_tracks = list(/decl/music_track/zazie)
+	default_law_type = /datum/ai_laws/nanotrasen
+
+/datum/map/ministation/New()
+	lobby_tracks |= /decl/music_track/zazie
+	return ..()
+
+// This has to be here rather than ministation_define.dm because it's from a modpack.
+/datum/map/ministation
+	default_law_type = /datum/ai_laws/nanotrasen

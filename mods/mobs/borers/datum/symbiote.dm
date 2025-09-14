@@ -1,12 +1,13 @@
 var/global/list/symbiote_starting_points = list()
 
-/decl/cultural_info/culture/symbiotic
+/decl/background_detail/faction/symbiotic
 	name = "Symbiote Host"
 	description = "Your culture has always welcomed a form of brain-slug called cortical borers into their bodies, \
 	and your upbringing taught that this was a normal and beneficial state of affairs. Taking this background will \
 	allow symbiote players to join as your mind-partner. Symbiotes can secrete beneficial chemicals, translate languages \
 	and are rendered docile by sugar. Unlike feral cortical borers, they cannot take control of your body or cause brain damage."
 	economic_power = 0.8
+	uid = "heritage_symbiote"
 	var/matches_to_role = /datum/job/symbiote
 
 /datum/job/symbiote
@@ -21,12 +22,12 @@ var/global/list/symbiote_starting_points = list()
 	economic_power = 0
 	defer_roundstart_spawn = TRUE
 	hud_icon = "hudblank"
-	outfit_type = /decl/hierarchy/outfit/job/symbiote_host
+	outfit_type = /decl/outfit/job/symbiote_host
 	create_record = FALSE
 	var/check_whitelist // = "Symbiote"
 	var/static/mob/living/simple_animal/borer/preview_slug
 
-/decl/hierarchy/outfit/job/symbiote_host
+/decl/outfit/job/symbiote_host
 	name = "Job - Symbiote Host"
 
 /datum/job/symbiote/post_equip_job_title(var/mob/person, var/alt_title)
@@ -56,10 +57,10 @@ var/global/list/symbiote_starting_points = list()
 			to_chat(prefs.client.mob, SPAN_WARNING("You are not whitelisted for [check_whitelist] roles."))
 		. = FALSE
 
-/datum/job/symbiote/handle_variant_join(var/mob/living/carbon/human/H, var/alt_title)
+/datum/job/symbiote/handle_variant_join(var/mob/living/human/H, var/alt_title)
 
 	var/mob/living/simple_animal/borer/symbiote/symbiote = new
-	var/mob/living/carbon/human/host
+	var/mob/living/human/host
 	try
 		// No clean way to handle kicking them back to the lobby at this point, so dump
 		// them into xenobio or latejoin instead if there are zero viable hosts left.
@@ -96,7 +97,7 @@ var/global/list/symbiote_starting_points = list()
 	qdel(H)
 	return symbiote
 
-/datum/job/symbiote/equip_preview(var/mob/living/carbon/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade, var/additional_skips)
+/datum/job/symbiote/equip_preview(var/mob/living/human/H, var/alt_title, var/datum/mil_branch/branch, var/datum/mil_rank/grade, var/additional_skips)
 	if(!preview_slug)
 		preview_slug = new
 	H.appearance = preview_slug
@@ -104,14 +105,14 @@ var/global/list/symbiote_starting_points = list()
 
 /datum/job/symbiote/proc/find_valid_hosts(var/just_checking)
 	. = list()
-	for(var/mob/living/carbon/human/H in global.player_list)
+	for(var/mob/living/human/H in global.player_list)
 		if(H.stat == DEAD || !H.client || !H.ckey || !H.has_brain())
 			continue
 		var/obj/item/organ/external/head = GET_EXTERNAL_ORGAN(H, BP_HEAD)
 		if(BP_IS_PROSTHETIC(head) || BP_IS_CRYSTAL(head) || head.has_growths())
 			continue
-		var/decl/cultural_info/culture/symbiotic/culture = H.get_cultural_value(TAG_CULTURE)
-		if(!istype(culture) || culture.matches_to_role != type)
+		var/decl/background_detail/faction/symbiotic/background = H.get_background_datum_by_flag(BACKGROUND_FLAG_IDEOLOGY)
+		if(!istype(background) || background.matches_to_role != type)
 			continue
 		. += H
 		if(just_checking)

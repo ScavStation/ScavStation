@@ -12,9 +12,7 @@ AI MODULES
 	icon_state = ICON_STATE_WORLD
 	desc = "An AI Module for transmitting encrypted instructions to the AI."
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	force = 5.0
 	w_class = ITEM_SIZE_SMALL
-	throwforce = 5
 	throw_speed = 3
 	throw_range = 15
 	origin_tech = @'{"programming":3}'
@@ -128,7 +126,7 @@ AI MODULES
 
 /obj/item/aiModule/oneHuman/addAdditionalLaws(var/mob/living/silicon/ai/target, var/mob/sender)
 	var/law = "Only [targetName] is a crew member."
-	if (!target.is_traitor()) // Makes sure the AI isn't a traitor before changing their law 0. --NeoFite
+	if (!target.is_malfunctioning()) // Makes sure the AI isn't a traitor before changing their law 0. --NeoFite
 		to_chat(target, law)
 		target.set_zeroth_law(law)
 		global.lawchanges.Add("The law specified [targetName]")
@@ -232,7 +230,7 @@ AI MODULES
 /obj/item/aiModule/reset/transmitInstructions(var/mob/living/silicon/ai/target, var/mob/sender)
 	log_law_changes(target, sender)
 
-	if (!target.is_traitor())
+	if (!target.is_malfunctioning())
 		target.set_zeroth_law("")
 	target.laws.clear_supplied_laws()
 	target.laws.clear_ion_laws()
@@ -250,7 +248,7 @@ AI MODULES
 /obj/item/aiModule/purge/transmitInstructions(var/mob/living/silicon/ai/target, var/mob/sender)
 	log_law_changes(target, sender)
 
-	if (!target.is_traitor())
+	if (!target.is_malfunctioning())
 		target.set_zeroth_law("")
 	target.laws.clear_supplied_laws()
 	target.laws.clear_ion_laws()

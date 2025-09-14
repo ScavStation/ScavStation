@@ -29,6 +29,8 @@
 
 /obj/effect/decompiler/Initialize()
 	. = ..()
+	if(!loc)
+		return INITIALIZE_HINT_QDEL
 	expiry_time = world.time + lifetime
 	START_PROCESSING(SSobj, src)
 	decompiled_matter = list()
@@ -54,7 +56,7 @@
 	if(dump_cubes)
 		visible_message(SPAN_DANGER("\The [src] collapses!"))
 		for(var/mat in decompiled_matter)
-			var/sheet_amount = FLOOR(decompiled_matter[mat]/SHEET_MATERIAL_AMOUNT)
+			var/sheet_amount = floor(decompiled_matter[mat]/SHEET_MATERIAL_AMOUNT)
 			if(sheet_amount > 0)
 				while(sheet_amount > 100)
 					var/obj/item/stack/material/cubes/cubes = new (dump_cubes, 100, mat)
@@ -97,7 +99,7 @@
 						thing = pick(options)
 
 				if(ishuman(thing))
-					var/mob/living/carbon/human/H = thing
+					var/mob/living/human/H = thing
 					for(var/obj/item/organ/external/limb in H.get_external_organs())
 						if(BP_IS_PROSTHETIC(limb) && !length(limb.children))
 							limb.dismember()

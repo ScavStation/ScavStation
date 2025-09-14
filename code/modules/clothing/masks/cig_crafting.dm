@@ -21,7 +21,8 @@
 /obj/item/paper/cig
 	name = "rolling paper"
 	desc = "A thin piece of paper used to make smokeables."
-	icon = 'icons/obj/cigarettes.dmi'
+	icon = 'icons/obj/items/paperwork/cigarette_paper.dmi'
+
 	icon_state = "cig_paper"
 	w_class = ITEM_SIZE_TINY
 
@@ -32,44 +33,46 @@
 /obj/item/paper/cig/fancy
 	name = "\improper Trident rolling paper"
 	desc = "A thin piece of Trident-branded paper used to make fine smokeables."
-	icon_state = "cig_paperf"
+	icon = 'icons/obj/items/paperwork/cigarette_paper_fancy.dmi'
 
-/obj/item/paper/cig/filter
+/obj/item/cigarette_filter
 	name = "cigarette filter"
 	desc = "A small nub like filter for cigarettes."
-	icon_state = "cig_filter"
+	icon = 'icons/obj/items/cigarette_filter.dmi'
+	icon_state = ICON_STATE_WORLD
 	w_class = ITEM_SIZE_TINY
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
-/obj/item/chems/food/grown/dried_tobacco
-	plantname = "tobacco"
+/obj/item/food/grown/dried_tobacco
+	seed = "tobacco"
 	w_class = ITEM_SIZE_TINY
 
-/obj/item/chems/food/grown/dried_tobacco/Initialize()
+/obj/item/food/grown/dried_tobacco/Initialize(mapload, material_key, skip_plate = FALSE)
 	. = ..()
 	dry = TRUE
 	SetName("dried [name]")
 	color = "#a38463"
-/obj/item/chems/food/grown/dried_tobacco/bad
-	plantname = "badtobacco"
+/obj/item/food/grown/dried_tobacco/bad
+	seed = "badtobacco"
 
-/obj/item/chems/food/grown/dried_tobacco/fine
-	plantname = "finetobacco"
+/obj/item/food/grown/dried_tobacco/fine
+	seed = "finetobacco"
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper/cig/filter))
-		if(filter)
-			to_chat(user, "<span class='warning'>[src] already has a filter!</span>")
-			return
-		if(lit)
-			to_chat(user, "<span class='warning'>[src] is lit already!</span>")
-			return
-		if(user.try_unequip(I))
-			to_chat(user, "<span class='notice'>You stick [I] into \the [src]</span>")
-			filter = 1
-			SetName("filtered [name]")
-			brand = "[brand] with a filter"
-			update_icon()
-			qdel(I)
-			return
-	..()
+	if(!istype(I, /obj/item/cigarette_filter))
+		return ..()
+	if(filter)
+		to_chat(user, "<span class='warning'>[src] already has a filter!</span>")
+		return TRUE
+	if(lit)
+		to_chat(user, "<span class='warning'>[src] is lit already!</span>")
+		return TRUE
+	if(!user.try_unequip(I))
+		return TRUE
+	to_chat(user, "<span class='notice'>You stick [I] into \the [src]</span>")
+	filter = 1
+	SetName("filtered [name]")
+	brand = "[brand] with a filter"
+	update_icon()
+	qdel(I)
+	return TRUE

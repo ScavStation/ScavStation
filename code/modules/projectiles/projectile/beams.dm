@@ -5,7 +5,7 @@
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 40
-	damage_type = BURN
+	atom_damage_type = BURN
 	sharp = 1 //concentrated burns
 	damage_flags = DAM_LASER
 	eyeblur = 4
@@ -17,6 +17,10 @@
 	muzzle_type = /obj/effect/projectile/muzzle/laser
 	tracer_type = /obj/effect/projectile/tracer/laser
 	impact_type = /obj/effect/projectile/impact/laser
+
+/obj/item/projectile/beam/megabot
+	damage = 45
+	distance_falloff = 0.5
 
 /obj/item/projectile/beam/variable
 	muzzle_type = /obj/effect/projectile/muzzle/variable
@@ -56,8 +60,8 @@
 				P.light_color = color
 				P.firer = firer
 				P.shot_from = shot_from
-				P.damage = FLOOR(damage/split_count)
-				P.armor_penetration = FLOOR(armor_penetration/split_count)
+				P.damage = floor(damage/split_count)
+				P.armor_penetration = floor(armor_penetration/split_count)
 				P.launch(pick_n_take(targets), def_zone)
 	. = ..()
 
@@ -140,7 +144,7 @@
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 0
 	no_attack_log = 1
-	damage_type = BURN
+	atom_damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
@@ -148,7 +152,7 @@
 
 /obj/item/projectile/beam/lastertag/blue/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
-		var/mob/living/carbon/human/M = target
+		var/mob/living/human/M = target
 		if(istype(M.get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/redtag))
 			SET_STATUS_MAX(M, STAT_WEAK, 5)
 	return 1
@@ -159,11 +163,11 @@
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 0
 	no_attack_log = 1
-	damage_type = BURN
+	atom_damage_type = BURN
 
 /obj/item/projectile/beam/lastertag/red/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
-		var/mob/living/carbon/human/M = target
+		var/mob/living/human/M = target
 		if(istype(M.get_equipped_item(slot_wear_suit_str), /obj/item/clothing/suit/bluetag))
 			SET_STATUS_MAX(M, STAT_WEAK, 5)
 	return 1
@@ -173,7 +177,7 @@
 	icon_state = "omnilaser"
 	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
 	damage = 0
-	damage_type = BURN
+	atom_damage_type = BURN
 
 	muzzle_type = /obj/effect/projectile/muzzle/cult
 	tracer_type = /obj/effect/projectile/tracer/cult
@@ -181,7 +185,7 @@
 
 /obj/item/projectile/beam/lastertag/omni/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
-		var/mob/living/carbon/human/M = target
+		var/mob/living/human/M = target
 		var/obj/item/suit = M.get_equipped_item(slot_wear_suit_str)
 		if((istype(suit, /obj/item/clothing/suit/bluetag))||(istype(suit, /obj/item/clothing/suit/redtag)))
 			SET_STATUS_MAX(M, STAT_WEAK, 5)
@@ -208,7 +212,7 @@
 	damage_flags = 0
 	sharp = 0 //not a laser
 	damage = 1//flavor burn! still not a laser, dmg will be reduce by energy resistance not laser resistances
-	damage_type = BURN
+	atom_damage_type = BURN
 	eyeblur = 1//Some feedback that you've been hit
 	agony = 40
 
@@ -225,7 +229,7 @@
 	name = "shock beam"
 	agony = 0
 	damage = 15
-	damage_type = ELECTROCUTE
+	atom_damage_type = ELECTROCUTE
 	fire_sound='sound/weapons/pulse.ogg'
 
 /obj/item/projectile/beam/stun/shock/heavy
@@ -239,7 +243,7 @@
 	damage = 15
 	sharp = 1
 	edge = 1
-	damage_type = BURN
+	atom_damage_type = BURN
 	life_span = 5
 	pass_flags = PASS_FLAG_TABLE
 	distance_falloff = 4
@@ -249,9 +253,9 @@
 	impact_type = /obj/effect/projectile/impact/plasma_cutter
 
 /obj/item/projectile/beam/plasmacutter/on_impact(var/atom/A)
-	if(istype(A, /turf/exterior/wall))
-		var/turf/exterior/wall/M = A
-		M.dismantle_wall()
+	if(istype(A, /turf/wall/natural))
+		var/turf/wall/natural/M = A
+		M.dismantle_turf()
 	. = ..()
 
 /obj/item/projectile/beam/confuseray
@@ -263,7 +267,7 @@
 	sharp = FALSE
 	distance_falloff = 5
 	damage_flags = 0
-	damage_type = STUN
+	atom_damage_type = STUN
 	life_span = 3
 	penetration_modifier = 0
 	var/potency_min = 4
@@ -304,7 +308,7 @@
 	icon_state = "darkb"
 	damage = 40
 	armor_penetration = 35
-	damage_type = BRUTE
+	atom_damage_type = BRUTE
 	muzzle_type = /obj/effect/projectile/muzzle/darkmatter
 	tracer_type = /obj/effect/projectile/tracer/darkmatter
 	impact_type = /obj/effect/projectile/impact/darkmatter
@@ -315,7 +319,7 @@
 	damage_flags = 0
 	sharp = 0 //not a laser
 	agony = 40
-	damage_type = STUN
+	atom_damage_type = STUN
 	muzzle_type = /obj/effect/projectile/muzzle/darkmattertaser
 	tracer_type = /obj/effect/projectile/tracer/darkmattertaser
 	impact_type = /obj/effect/projectile/impact/darkmattertaser
@@ -324,7 +328,7 @@
 	name = "point defense salvo"
 	icon_state = "laser"
 	damage = 15
-	damage_type = ELECTROCUTE //You should be safe inside a voidsuit
+	atom_damage_type = ELECTROCUTE //You should be safe inside a voidsuit
 	sharp = FALSE //"Wide" spectrum beam
 	muzzle_type = /obj/effect/projectile/muzzle/pd
 	tracer_type = /obj/effect/projectile/tracer/pd

@@ -35,14 +35,14 @@
 	events_repository.register(/decl/observ/moved, holder, src, PROC_REF(waddle))
 	events_repository.register(/decl/observ/destroyed, holder, src, PROC_REF(qdel_self))
 
-/datum/extension/event_registration/Destroy()
+/datum/extension/waddle/Destroy()
 	events_repository.unregister(/decl/observ/destroyed, holder, src)
 	events_repository.unregister(/decl/observ/moved, holder, src)
 	return ..()
 
 /datum/extension/waddle/proc/waddle()
 	var/mob/living/L = holder
-	if(!istype(L) || L.incapacitated() || L.lying)
+	if(!istype(L) || L.incapacitated() || L.current_posture.prone)
 		return
 	animate(L, pixel_z = 4, time = 0)
 	animate(pixel_z = 0, transform = turn(matrix(), pick(-12, 0, 12)), time=2)

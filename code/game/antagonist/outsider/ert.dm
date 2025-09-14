@@ -20,12 +20,12 @@
 	initial_spawn_req = 5
 	initial_spawn_target = 7
 	show_objectives_on_creation = 0 //we are not antagonists, we do not need the antagonist shpiel/objectives
-	default_outfit = /decl/hierarchy/outfit/ert
+	default_outfit = /decl/outfit/ert
 
 	base_to_load = "ERT Base"
 
 /decl/special_role/ert/create_default(var/mob/source)
-	var/mob/living/carbon/human/M = ..()
+	var/mob/living/human/M = ..()
 	if(istype(M))
 		M.set_age(rand(25,45))
 

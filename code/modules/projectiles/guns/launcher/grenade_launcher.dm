@@ -5,7 +5,7 @@
 	icon_state = ICON_STATE_WORLD
 	origin_tech = @'{"combat":2,"materials":3}'
 	w_class = ITEM_SIZE_HUGE
-	force = 10
+	_base_attack_force = 10
 
 	fire_sound = 'sound/weapons/empty.ogg'
 	fire_sound_text = "a metallic thunk"
@@ -79,10 +79,11 @@
 	pump(user)
 
 /obj/item/gun/launcher/grenade/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
+	if(istype(I, /obj/item/grenade))
 		load(I, user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/gun/launcher/grenade/attack_hand(mob/user)
 	if(!user.is_holding_offhand(src) || !user.check_dexterity(DEXTERITY_HOLD_ITEM, TRUE))
@@ -132,7 +133,6 @@
 	name = "underslung grenade launcher"
 	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
 	w_class = ITEM_SIZE_NORMAL
-	force = 5
 	max_grenades = 0
 
 /obj/item/gun/launcher/grenade/underslung/attack_self()

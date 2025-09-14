@@ -85,7 +85,7 @@
 	uid = "hair_ying_messy"
 
 /decl/sprite_accessory/hair/yinglet/get_hidden_substitute()
-	if(accessory_flags & VERY_SHORT)
+	if(accessory_flags & HAIR_VERY_SHORT)
 		return src
 	return GET_DECL(/decl/sprite_accessory/hair/yinglet/bald)
 
@@ -131,7 +131,7 @@
 /decl/sprite_accessory/hair/yinglet/bald
 	name = "Ying Bald"
 	icon_state = "hair_bald"
-	accessory_flags = VERY_SHORT | HAIR_BALD
+	accessory_flags = HAIR_VERY_SHORT | HAIR_BALD
 	uid = "hair_ying_bald"
 
 /decl/sprite_accessory/hair/yinglet/akoll
@@ -139,6 +139,12 @@
 	icon_state = "hair_akoll"
 	accessory_flags = HAIR_TIEABLE
 	uid = "hair_ying_akoll"
+
+/decl/sprite_accessory/hair/yinglet/flowing
+	name = "Ying Flowing"
+	icon_state = "hair_flowing"
+	accessory_flags = HAIR_TIEABLE
+	uid = "hair_ying_flowing"
 
 /decl/sprite_accessory/hair/yinglet/fonzie
 	name = "Ying Fonzie"

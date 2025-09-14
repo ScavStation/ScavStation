@@ -1,0 +1,1 @@
+/obj/item/clothing/neck/tie/bow/color/@SUBTYPES : /obj/item/clothing/neck/tie/bow/@SUBTYPES{@OLD}

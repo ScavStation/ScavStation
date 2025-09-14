@@ -107,9 +107,9 @@
 	else
 		to_chat(user, "<span class='warning'>Some strange aura is blocking the way!</span>")
 	canmove = 0
-	addtimer(CALLBACK(src, PROC_REF(allow_move)), 2)
+	addtimer(CALLBACK(src, PROC_REF(jaunt_allow_move)), 2)
 
-/obj/effect/dummy/spell_jaunt/proc/allow_move()
+/obj/effect/dummy/spell_jaunt/proc/jaunt_allow_move()
 	canmove = TRUE
 
 /obj/effect/dummy/spell_jaunt/explosion_act(blah)
@@ -118,8 +118,3 @@
 
 /obj/effect/dummy/spell_jaunt/bullet_act(blah)
 	return
-
-/spell/targeted/ethereal_jaunt/tower
-	desc = "Allows you to liquify for a short duration, letting them pass through all dense objects."
-	charge_max = 2
-	spell_flags = Z2NOCAST | INCLUDEUSER

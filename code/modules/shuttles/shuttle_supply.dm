@@ -4,7 +4,7 @@
 	var/max_late_time = (30 SECONDS)
 	flags = SHUTTLE_FLAGS_PROCESS|SHUTTLE_FLAGS_SUPPLY|SHUTTLE_FLAGS_NO_CODE
 	category = /datum/shuttle/autodock/ferry/supply
-	ceiling_type = /turf/simulated/floor/shuttle_ceiling
+	ceiling_type = /turf/floor/shuttle_ceiling
 
 /datum/shuttle/autodock/ferry/supply/short_jump(var/area/destination)
 	if(moving_status != SHUTTLE_IDLE)
@@ -64,15 +64,6 @@
 /datum/shuttle/autodock/ferry/supply/proc/at_station()
 	return (!location)
 
-//returns 1 if the shuttle is idle and we can still mess with the cargo shopping list
-/datum/shuttle/autodock/ferry/supply/proc/idle()
-	return (moving_status == SHUTTLE_IDLE)
-
-//returns the ETA in minutes
-/datum/shuttle/autodock/ferry/supply/proc/eta_minutes()
-	var/ticksleft = arrive_time - world.time
-	return max(0, round(ticksleft/600,1))
-
-/datum/shuttle/autodock/ferry/supply/proc/eta_seconds()
-	var/ticksleft = arrive_time - world.time
-	return max(0, round(ticksleft/10,1))
+//returns the ETA as a natural language timestamp
+/datum/shuttle/autodock/ferry/supply/proc/eta_readable()
+	return ticks2readable(max(0, arrive_time - world.time))

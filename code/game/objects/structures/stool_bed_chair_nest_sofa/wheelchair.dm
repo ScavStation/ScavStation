@@ -9,6 +9,7 @@
 		/datum/movement_handler/delay = list(5),
 		/datum/movement_handler/move_relay_self
 	)
+	tool_interaction_flags = 0
 
 	var/item_form_type = /obj/item/wheelchair_kit
 	var/bloodiness
@@ -22,10 +23,8 @@
 /obj/structure/bed/chair/wheelchair/on_update_icon()
 	set_overlays(image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = ABOVE_HUMAN_LAYER))
 
-/obj/structure/bed/chair/wheelchair/attackby(obj/item/W, mob/user)
-	if(IS_WRENCH(W) || istype(W,/obj/item/stack) || IS_WIRECUTTER(W))
-		return
-	..()
+/obj/structure/bed/chair/wheelchair/can_apply_padding()
+	return FALSE
 
 /obj/structure/bed/chair/wheelchair/attack_hand(mob/user)
 	if(!user.check_dexterity(DEXTERITY_SIMPLE_MACHINES, TRUE))
@@ -76,7 +75,7 @@
 		B.set_dir(newdir)
 	bloodiness--
 
-/proc/equip_wheelchair(mob/living/carbon/human/H) //Proc for spawning in a wheelchair if a new character has no legs. Used in new_player.dm
+/proc/equip_wheelchair(mob/living/human/H) //Proc for spawning in a wheelchair if a new character has no legs. Used in new_player.dm
 	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(H))
 	if(isturf(H.loc))
 		W.buckle_mob(H)
@@ -99,13 +98,13 @@
 		return
 
 	if(buckled_mob)
-		to_chat(usr, SPAN_WARNING("You can't collapse \the [src.name] while it is still in use."))
+		to_chat(usr, SPAN_WARNING("You can't collapse \the [src] while it is still in use."))
 		return
 
-	usr.visible_message("<b>[usr]</b> starts to collapse \the [src.name].")
+	usr.visible_message("<b>[usr]</b> starts to collapse \the [src].")
 	if(do_after(usr, 4 SECONDS, src))
 		var/obj/item/wheelchair_kit/K = new item_form_type(get_turf(src))
-		visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src.name]."))
+		visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."))
 		K.add_fingerprint(usr)
 		qdel(src)
 
@@ -139,7 +138,7 @@
 	if(!structure_form_type)
 		return
 
-	user.visible_message("<b>[user]</b> starts to lay out \the [src.name].")
+	user.visible_message("<b>[user]</b> starts to lay out \the [src].")
 	if(do_after(user, 4 SECONDS, src))
 		var/obj/structure/bed/chair/wheelchair/W = new structure_form_type(get_turf(user))
 		user.visible_message(SPAN_NOTICE("<b>[user]</b> lays out \the [W.name]."))

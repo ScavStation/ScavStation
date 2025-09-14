@@ -29,24 +29,34 @@
 	manual_dexterity = DEXTERITY_SIMPLE_MACHINES
 	movement_slowdown = 2
 	is_robotic = FALSE
-	material = /decl/material/solid/organic/wood
+	organ_material = /decl/material/solid/organic/wood
+	uid = "bodytype_prosthetic_yinglet_wooden"
 
 /decl/bodytype/prosthetic/ying/metal
 	name = "Lunar Transit"
 	desc = "A cheap robotic prosthetic designed for yinglet owners."
 	icon_base = 'mods/valsalia/icons/metal_male.dmi'
-	material = /decl/material/solid/metal/steel
+	organ_material = /decl/material/solid/metal/steel
+	uid = "bodytype_prosthetic_yinglet_metal"
 
 /decl/bodytype/prosthetic/ying/metal/fbp
 	name = "yinglet, gynoid"
 	icon_base = 'mods/valsalia/icons/metal_female.dmi'
 	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
+	uid = "bodytype_prosthetic_yinglet_fbp_fem"
+	age_descriptor = /datum/appearance_descriptor/age/yinglet
+	appearance_descriptors = list(
+		/datum/appearance_descriptor/height = 0.5,
+		/datum/appearance_descriptor/build =  0.5
+	)
+
 
 /decl/bodytype/prosthetic/ying/metal/fbp/masculine
 	name = "yinglet, android"
 	appearance_flags = HAS_SKIN_COLOR | HAS_EYE_COLOR | HAS_UNDERWEAR
+	uid = "bodytype_prosthetic_yinglet_fbp_masc"
 
-DEFINE_ROBOLIMB_MODEL_ASPECTS(/decl/bodytype/prosthetic/ying/metal, yinglet_scavenged, 0)
+DEFINE_ROBOLIMB_MODEL_TRAITS(/decl/bodytype/prosthetic/ying/metal, yinglet_scavenged, 0, "yinglet_scavenged")
 DEFINE_ROBOLIMB_DESIGNS(/decl/bodytype/prosthetic/ying/metal, lunar_transit)
 
 /decl/stack_recipe/wooden_prosthetic

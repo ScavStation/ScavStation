@@ -16,30 +16,32 @@
 		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
 	)
 
-/obj/item/forensics/sample_kit/swabs/attack(var/mob/living/carbon/human/H, var/mob/user)
-	if(!istype(H))
+/obj/item/forensics/sample_kit/swabs/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+
+	if(!ishuman(target))
 		return ..()
 
+	var/mob/living/human/H = target
 	var/time_to_take = H.a_intent == I_HELP ? 1 SECOND : 3 SECONDS
 	user.visible_message(SPAN_NOTICE("\The [user] starts swabbing a sample from \the [H]."))
 	if(!do_mob(user, H, time_to_take))
 		user.visible_message(SPAN_WARNING("\The [user] tried to take a swab sample from \the [H], but they moved away."))
-		return
+		return TRUE
 
 	if(user.get_target_zone() == BP_MOUTH)
 		var/cover = H.get_covering_equipped_item(SLOT_FACE)
 		if(cover)
 			to_chat(user, SPAN_WARNING("\The [H]'s [cover] is in the way."))
-			return
+			return TRUE
 
 		var/unique_enzymes = H.get_unique_enzymes()
 		if(!unique_enzymes)
 			to_chat(user, SPAN_WARNING("They don't seem to have DNA!"))
-			return
+			return TRUE
 
 		if(!H.check_has_mouth())
 			to_chat(user, SPAN_WARNING("They don't have a mouth."))
-			return
+			return TRUE
 
 		user.visible_message(SPAN_NOTICE("[user] swabs \the [H]'s mouth for a saliva sample."))
 		var/datum/forensics/trace_dna/trace = new()
@@ -52,7 +54,7 @@
 		var/zone = user.get_target_zone()
 		if(!H.has_organ(zone))
 			to_chat(user, SPAN_WARNING("They don't have that part!"))
-			return
+			return TRUE
 		var/obj/object_to_swab = GET_EXTERNAL_ORGAN(H, zone)
 		var/cover = H.get_covering_equipped_item_by_zone(zone)
 		if(cover)
@@ -66,12 +68,12 @@
 					has_evidence = TRUE
 		if(!has_evidence)
 			to_chat(user, SPAN_WARNING("You can't find anything useful on \the [object_to_swab]."))
-			return
+			return TRUE
 		user.visible_message(SPAN_NOTICE("[user] swabs [H]'s [object_to_swab.name] for a sample."))
 		var/obj/item/forensics/sample/swab/S = new /obj/item/forensics/sample/swab/(get_turf(user), object_to_swab)
 		user.put_in_hands(S)
 	update_icon()
-	return 1
+	return TRUE
 
 
 /obj/item/forensics/sample/swab

@@ -28,19 +28,16 @@ RSF
 		to_chat(user, "It currently holds [stored_matter]/30 fabrication-units.")
 
 /obj/item/rsf/attackby(obj/item/W, mob/user)
-	..()
 	if (istype(W, /obj/item/rcd_ammo))
-
 		if ((stored_matter + 10) > 30)
 			to_chat(user, "The RSF can't hold any more matter.")
-			return
-
+			return TRUE
 		qdel(W)
-
 		stored_matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 		to_chat(user, "The RSF now holds [stored_matter]/30 fabrication-units.")
-		return
+		return TRUE
+	return ..()
 
 /obj/item/rsf/attack_self(mob/user)
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
@@ -102,7 +99,7 @@ RSF
 			product = new /obj/item/pen()
 			used_energy = 50
 		if(5)
-			product = new /obj/item/storage/pill_bottle/dice()
+			product = new /obj/item/pill_bottle/dice()
 			used_energy = 200
 
 	to_chat(user, "Dispensing [product ? product : "product"]...")

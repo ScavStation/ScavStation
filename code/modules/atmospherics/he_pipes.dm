@@ -3,6 +3,7 @@
 	icon = 'icons/atmos/heat.dmi'
 	icon_state = "11"
 	color = "#404040"
+	pipe_color = "#404040"
 	level = LEVEL_ABOVE_PLATING
 	connect_types = CONNECT_TYPE_HE
 	interact_offline = TRUE //Needs to be set so that pipes don't say they lack power in their description
@@ -24,8 +25,12 @@
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/Initialize()
 	. = ..()
-	color = "#404040" //we don't make use of the fancy overlay system for colours, use this to set the default.
 	add_filter("glow",1, list(type = "drop_shadow", x = 0, y = 0, offset = 0, size = 4))
+
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/pipe_color_check(var/color)
+	if (color == initial(pipe_color))
+		return TRUE
+	return FALSE
 
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/set_dir(new_dir)
 	. = ..()
@@ -78,7 +83,7 @@
 
 			var/heat_limit = 1000
 
-			var/mob/living/carbon/human/H = buckled_mob
+			var/mob/living/human/H = buckled_mob
 			if(istype(H) && H.species)
 				heat_limit = H.get_mob_temperature_threshold(HEAT_LEVEL_3)
 
@@ -119,5 +124,5 @@
 
 // Doubling up on initialize_directions is necessary to allow HE pipes to connect
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction/set_dir(new_dir)
-	..()
+	. = ..()
 	initialize_directions_he = dir

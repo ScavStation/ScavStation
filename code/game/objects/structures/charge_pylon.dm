@@ -19,7 +19,7 @@
 /obj/structure/charge_pylon/proc/charge_user(var/mob/living/user)
 	if(next_use > world.time) return
 	next_use = world.time + 10
-	var/mob/living/carbon/human/H = user
+	var/mob/living/human/H = user
 	var/obj/item/cell/power_cell
 	if(ishuman(user))
 		var/obj/item/organ/internal/cell/cell = H.get_organ(BP_CELL, /obj/item/organ/internal/cell)
@@ -45,12 +45,15 @@
 		visible_message("<span class='danger'>\The [user] has been shocked by \the [src]!</span>")
 		user.throw_at(get_step(user,get_dir(src,user)), 5, 10)
 
-/obj/structure/charge_pylon/attackby(var/obj/item/grab/G, mob/user)
-	if(!istype(G))
-		return
-	var/mob/M = G.get_affecting_mob()
+/obj/structure/charge_pylon/attackby(var/obj/item/item, mob/user)
+	if(!istype(item, /obj/item/grab))
+		return FALSE
+	var/obj/item/grab/grab = item
+	var/mob/M = grab.get_affecting_mob()
 	if(M)
 		charge_user(M)
+		return TRUE
+	return FALSE
 
 /obj/structure/charge_pylon/Bumped(atom/AM)
 	if(ishuman(AM))

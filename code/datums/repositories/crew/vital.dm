@@ -1,5 +1,5 @@
 /* Vital */
-/crew_sensor_modifier/vital/process_crew_data(var/mob/living/carbon/human/H, var/obj/item/clothing/accessory/vitals_sensor/S, var/turf/pos, var/list/crew_data)
+/crew_sensor_modifier/vital/process_crew_data(var/mob/living/human/H, var/obj/item/clothing/sensor/vitals/S, var/turf/pos, var/list/crew_data)
 	crew_data["true_pulse"] = -1
 	crew_data["pulse"] = "N/A"
 	crew_data["pulse_span"] = "neutral"
@@ -74,7 +74,7 @@
 		crew_data["charge_span"] = "good"
 
 	if(crew_data["true_oxygenation"] != -1)
-		crew_data["pressure"] = "[FLOOR(120+rand(-5,5))]/[FLOOR(80+rand(-5,5))]"
+		crew_data["pressure"] = "[floor(120+rand(-5,5))]/[floor(80+rand(-5,5))]"
 		crew_data["true_oxygenation"] = 100
 		crew_data["oxygenation"] = "normal"
 		crew_data["oxygenation_span"] = "good"
@@ -91,7 +91,7 @@
 		crew_data["charge_span"] = "bad"
 
 	if(crew_data["true_oxygenation"] != -1)
-		crew_data["pressure"] = "[FLOOR((120+rand(-5,5))*0.25)]/[FLOOR((80+rand(-5,5))*0.25)]"
+		crew_data["pressure"] = "[floor((120+rand(-5,5))*0.25)]/[floor((80+rand(-5,5))*0.25)]"
 		crew_data["true_oxygenation"] = 25
 		crew_data["oxygenation"] = "extremely low"
 		crew_data["oxygenation_span"] = "bad"
@@ -100,12 +100,12 @@
 /crew_sensor_modifier/vital/jamming
 	priority = 5
 
-/crew_sensor_modifier/vital/jamming/healthy/process_crew_data(var/mob/living/carbon/human/H, var/obj/item/clothing/accessory/vitals_sensor/S, var/turf/pos, var/list/crew_data)
+/crew_sensor_modifier/vital/jamming/healthy/process_crew_data(var/mob/living/human/H, var/obj/item/clothing/sensor/vitals/S, var/turf/pos, var/list/crew_data)
 	. = ..()
 	set_healthy(crew_data)
 	return MOD_SUIT_SENSORS_HANDLED
 
-/crew_sensor_modifier/vital/jamming/dead/process_crew_data(var/mob/living/carbon/human/H, var/obj/item/clothing/accessory/vitals_sensor/S, var/turf/pos, var/list/crew_data)
+/crew_sensor_modifier/vital/jamming/dead/process_crew_data(var/mob/living/human/H, var/obj/item/clothing/sensor/vitals/S, var/turf/pos, var/list/crew_data)
 	. = ..()
 	set_dead(crew_data)
 	return MOD_SUIT_SENSORS_HANDLED
@@ -120,7 +120,7 @@
 /crew_sensor_modifier/vital/jamming/random/major
 	error_prob = 100
 
-/crew_sensor_modifier/vital/jamming/random/process_crew_data(var/mob/living/carbon/human/H, var/obj/item/clothing/accessory/vitals_sensor/S, var/turf/pos, var/list/crew_data)
+/crew_sensor_modifier/vital/jamming/random/process_crew_data(var/mob/living/human/H, var/obj/item/clothing/sensor/vitals/S, var/turf/pos, var/list/crew_data)
 	. = ..()
 	if(prob(error_prob))
 		pick(set_healthy(crew_data), set_dead(crew_data))

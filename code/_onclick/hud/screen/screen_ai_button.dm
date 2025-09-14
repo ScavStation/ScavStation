@@ -1,16 +1,18 @@
 /obj/screen/ai_button
 	icon = 'icons/mob/screen/ai.dmi'
 	requires_ui_style = FALSE
-	var/mob/living/silicon/ai/ai_verb
+	var/ai_verb
 	var/list/input_procs
 	var/list/input_args
 	var/list/template_icon = list(null, "template")
 	var/image/template_undelay
 
 /obj/screen/ai_button/handle_click(mob/user, params)
-	if(!isAI(usr))
+
+	var/mob/living/silicon/ai/A = user
+	if(!istype(A))
 		return TRUE
-	var/mob/living/silicon/ai/A = usr
+
 	if(!(ai_verb in A.verbs))
 		return TRUE
 
@@ -30,7 +32,6 @@
 
 		if(!(ai_verb in A.verbs) || A.incapacitated())
 			return
-
 		input_arguments += input_arg
 
 	if(length(input_args))

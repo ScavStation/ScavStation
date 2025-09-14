@@ -1,7 +1,7 @@
 // HIDDEN UPLINK - Can be stored in anything but the host item has to have a trigger for it.
 /* How to create an uplink in 3 easy steps!
 
- 1. All obj/item 's have a hidden_uplink var. By default it's null. Give the item one with "new(src)", it must be in it's contents. Feel free to add "uses".
+ 1. All obj/item 's have a hidden_uplink var. By default it's null. Give the item one with "new(src)", it must be in its contents. Feel free to add "uses".
 
  2. Code in the triggers. Use check_trigger for this, I recommend closing the item's menu with "close_browser(usr, "window=windowname") if it returns true.
  The var/value is the value that will be compared with the var/target. If they are equal it will activate the menu.
@@ -22,8 +22,8 @@
 	)
 	is_spawnable_type = FALSE
 	var/active = 0
-	var/datum/uplink_category/category 	= 0		// The current category we are in
-	var/exploit_id								// Id of the current exploit record we are viewing
+	var/datum/uplink_category/category	// The current category we are in
+	var/exploit_id						// Id of the current exploit record we are viewing
 
 	var/welcome = "Welcome, Operative"	// Welcoming menu message
 	var/uses 							// Numbers of crystals
@@ -69,7 +69,7 @@
 		do
 			var/datum/uplink_random_selection/uplink_selection = get_uplink_random_selection_by_type(/datum/uplink_random_selection/blacklist)
 			new_discount_item = uplink_selection.get_random_item(INFINITY, src)
-		// Ensures we only only get items for which we get an actual discount and that this particular uplink can actually view (can buy would risk near-infinite loops).
+		// Ensures we only get items for which we get an actual discount and that this particular uplink can actually view (can buy would risk near-infinite loops).
 		while(is_improper_item(new_discount_item, discount_amount))
 		if(!new_discount_item)
 			return

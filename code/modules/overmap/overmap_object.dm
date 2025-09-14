@@ -1,11 +1,10 @@
-var/global/list/overmap_unknown_ids = list()
-
 /obj/effect/overmap
 	name = "map object"
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "object"
 	color = "#c0c0c0"
 	animate_movement = NO_STEPS
+	is_spawnable_type = FALSE
 
 	var/scannable                       // if set to TRUE will show up on ship sensors for detailed scans, and will ping when detected by scanners.
 	var/unknown_id                      // A unique identifier used when this entity is scanned. Assigned in Initialize().
@@ -183,9 +182,9 @@ var/global/list/overmap_unknown_ids = list()
 		// Add speed to this dimension of our position.
 		position[i] += clamp((speed[i] * OVERMAP_SPEED_CONSTANT) * (wait / (1 SECOND)), -1, 1)
 		if(position[i] < 0)
-			deltas[i] = CEILING(position[i])
+			deltas[i] = ceil(position[i])
 		else if(position[i] > 0)
-			deltas[i] = FLOOR(position[i])
+			deltas[i] = floor(position[i])
 		moved = TRUE
 		// Delta over 0 means we've moved a turf, so we adjust our position accordingly.
 		if(deltas[i] != 0)

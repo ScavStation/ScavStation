@@ -3,6 +3,11 @@
 	desc                = "The most basic of mining drills, for short excavations and small mineral extractions."
 	icon                = 'icons/obj/items/tool/drills/drill.dmi'
 	material_alteration = 0
+	w_class             = ITEM_SIZE_HUGE
+
+/obj/item/tool/drill/Initialize(ml, material_key, _handle_material, _binding_material, override_tool_qualities, override_tool_properties)
+	. = ..()
+	set_extension(src, /datum/extension/demolisher/pick)
 
 /obj/item/tool/drill/get_handle_color()
 	return null

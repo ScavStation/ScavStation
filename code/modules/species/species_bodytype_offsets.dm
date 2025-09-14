@@ -1,12 +1,12 @@
 /*
 These are all the things that can be adjusted for equipping stuff and
 each one can be in the NORTH, SOUTH, EAST, and WEST direction. Specify
-the direction to shift the thing and what direction.
+the x and y amounts to shift the thing for a given direction.
 
 example:
 	equip_adjust = list(
-		slot_back_str = list(NORTH = list(SOUTH = 12, EAST = 7), EAST = list(SOUTH = 2, WEST = 12))
-			)
+		slot_back_str = list("[NORTH]" = list(-12, 7), "[EAST]" = list(-2, -12))
+	)
 
 This would shift back items (backpacks, axes, etc.) when the mob
 is facing either north or east.
@@ -18,19 +18,24 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 */
 
 /decl/bodytype
-	var/list/equip_adjust = list()
+	var/list/equip_adjust
 	var/list/equip_overlays = list()
 
-/decl/bodytype/proc/get_offset_overlay_image(var/mob_icon, var/mob_state, var/color, var/slot)
+/decl/bodytype/proc/get_equip_adjust(mob/mob)
+	return equip_adjust
+
+/decl/bodytype/proc/get_offset_overlay_image(mob/mob, mob_icon, mob_state, color, slot)
 	// If we don't actually need to offset this, don't bother with any of the generation/caching.
-	if(length(equip_adjust) && equip_adjust[slot] && length(equip_adjust[slot]))
+	var/list/use_equip_adjust = get_equip_adjust(mob)
+	if(length(use_equip_adjust) && use_equip_adjust[slot] && length(use_equip_adjust[slot]))
 
 		// Check the cache for previously made icons.
-		var/image_key = "[mob_icon]-[mob_state]-[color]-[slot]"
+		var/modifier = mob?.get_overlay_state_modifier()
+		var/image_key = modifier ? "[modifier]-[mob_icon]-[mob_state]-[color]-[slot]" : "generic-[mob_icon]-[mob_state]-[color]-[slot]"
 		if(!equip_overlays[image_key])
 
 			var/icon/final_I = new(icon_template)
-			var/list/shifts = equip_adjust[slot]
+			var/list/shifts = use_equip_adjust[slot]
 
 			// Apply all pixel shifts for each direction.
 			for(var/shift_facing in shifts)

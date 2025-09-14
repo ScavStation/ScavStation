@@ -3,8 +3,6 @@
 	desc = "A thing to keep your butts in."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "ashtray"
-	material_force_multiplier = 0.1
-	thrown_material_force_multiplier = 0.1
 	randpixel = 5
 	material = /decl/material/solid/metal/bronze
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
@@ -30,7 +28,7 @@
 	if (istype(W,/obj/item/trash/cigbutt) || istype(W,/obj/item/clothing/mask/smokable/cigarette) || istype(W, /obj/item/flame/match))
 		if (contents.len >= max_butts)
 			to_chat(user, "\The [src] is full.")
-			return
+			return TRUE
 
 		if (istype(W,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = W
@@ -45,6 +43,7 @@
 		if(user.try_unequip(W, src))
 			set_extension(src, /datum/extension/scent/ashtray)
 			update_icon()
+		return TRUE
 	return ..()
 
 /obj/item/ashtray/throw_impact(atom/hit_atom)
@@ -54,7 +53,7 @@
 		dump_contents()
 		remove_extension(src, /datum/extension/scent)
 		update_icon()
-	take_damage(3, BRUTE, 0, hit_atom)
+	take_damage(3, inflicter = hit_atom)
 
 /obj/item/ashtray/plastic
 	material = /decl/material/solid/organic/plastic

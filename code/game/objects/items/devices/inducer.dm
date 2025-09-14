@@ -4,7 +4,7 @@
 	icon = 'icons/obj/items/device/inducer.dmi'
 	icon_state = "inducer-sci"
 	item_state = "inducer-sci"
-	force = 7
+	_base_attack_force = 7
 	origin_tech = @'{"powerstorage":6,"engineering":4}'
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
@@ -32,7 +32,7 @@
 	MyC.update_icon()
 	target.update_icon()
 
-/obj/item/inducer/afterattack(obj/O, mob/living/carbon/user, var/proximity)
+/obj/item/inducer/afterattack(obj/O, mob/living/user, var/proximity)
 	if (!proximity || user.a_intent == I_HURT || CannotUse(user) || !recharge(O, user))
 		return ..()
 
@@ -106,8 +106,8 @@
 	else
 		return 0
 
-/obj/item/inducer/attack(mob/M, mob/user)
-	return
+/obj/item/inducer/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	return FALSE
 
 /obj/item/inducer/on_update_icon()
 	. = ..()

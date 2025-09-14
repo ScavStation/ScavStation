@@ -1,10 +1,11 @@
 /datum/seed/mollusc
 	name = "mollusc"
-	seed_name = "mollusc"
+	product_name = "mollusc"
 	display_name = "mollusc bed"
 	product_type = /obj/item/mollusc
 	seed_noun = SEED_NOUN_EGGS
 	mutants = null
+	allergen_flags = ALLERGEN_FISH
 
 /datum/seed/mollusc/New()
 	..()
@@ -22,9 +23,9 @@
 
 /datum/seed/mollusc/clam
 	name = "clam"
-	seed_name = "clam"
+	product_name = "clam"
 	display_name = "clam bed"
-	product_type = /obj/item/mollusc/clam
+	product_type = /obj/item/mollusc/clam/fished
 
 /datum/seed/mollusc/clam/New()
 	..()
@@ -33,9 +34,9 @@
 
 /datum/seed/mollusc/barnacle
 	name = "barnacle"
-	seed_name = "barnacle"
+	product_name = "barnacle"
 	display_name = "barnacle bed"
-	product_type = /obj/item/mollusc/barnacle
+	product_type = /obj/item/mollusc/barnacle/fished
 
 /datum/seed/mollusc/barnacle/New()
 	..()

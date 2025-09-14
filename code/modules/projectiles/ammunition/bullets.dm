@@ -26,6 +26,7 @@
 	desc = "A pistol bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/item/projectile/ion/small
 	material = /decl/material/solid/metal/steel
+	color = /decl/material/solid/metal/steel::color
 	matter = list(/decl/material/solid/metal/uranium = MATTER_AMOUNT_REINFORCEMENT)
 	bullet_color = COLOR_ACID_CYAN
 	marking_color = COLOR_LUMINOL
@@ -76,56 +77,71 @@
 	bullet_color = COLOR_OFF_WHITE
 	marking_color = COLOR_SUN
 
+// This uses a shotgun shell icon despite not being a shotgun shell...
+// TODO: Unify the casing icon system somehow to avoid code duplication.
 /obj/item/ammo_casing/pistol/magnum/stun
 	name = "stun round"
 	desc = "An energy stun cartridge."
-	icon_state = "stunshell"
-	spent_icon = "stunshell-spent"
+	icon = 'icons/obj/ammo/shells/stun.dmi'
+	icon_state = ICON_STATE_WORLD
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
-	leaves_residue = 0
+	leaves_residue = FALSE
 	material = /decl/material/solid/metal/steel
+	material_alteration = MAT_FLAG_ALTERATION_NONE
 	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 	origin_tech = @'{"combat":3,"materials":3}'
+
+/obj/item/ammo_casing/pistol/magnum/stun/update_casing_icon()
+	icon_state = get_world_inventory_state()
+	if(!BB) // use spent icon
+		icon_state = "[icon_state]-spent"
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A shotgun slug."
-	icon_state = "slshell"
-	spent_icon = "slshell-spent"
+	icon = 'icons/obj/ammo/shells/slugs.dmi'
+	icon_state = ICON_STATE_WORLD
 	caliber = CALIBER_SHOTGUN
 	projectile_type = /obj/item/projectile/bullet/shotgun
-	material = /decl/material/solid/metal/steel
+	material = /decl/material/solid/metal/steel // at some point this should use matter, brass + plastic
+	color = null
+	material_alteration = MAT_FLAG_ALTERATION_NONE
 	drop_sound = 'sound/weapons/guns/shotgun_fall.ogg'
+
+/obj/item/ammo_casing/shotgun/update_casing_icon()
+	icon_state = get_world_inventory_state()
+	if(!BB) // use spent icon
+		icon_state = "[icon_state]-spent"
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
 	desc = "A shotshell."
-	icon_state = "gshell"
-	spent_icon = "gshell-spent"
+	icon = 'icons/obj/ammo/shells/buckshot.dmi'
+	icon_state = ICON_STATE_WORLD
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	material = /decl/material/solid/metal/steel
 
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
 	desc = "A blank shell."
-	icon_state = "blshell"
-	spent_icon = "blshell-spent"
+	icon = 'icons/obj/ammo/shells/blanks.dmi'
+	icon_state = ICON_STATE_WORLD
 	projectile_type = /obj/item/projectile/bullet/blank
 	material = /decl/material/solid/metal/steel
 
 /obj/item/ammo_casing/shotgun/practice
 	name = "shotgun shell"
 	desc = "A practice shell."
-	icon_state = "pshell"
-	spent_icon = "pshell-spent"
+	icon = 'icons/obj/ammo/shells/practice.dmi'
+	icon_state = ICON_STATE_WORLD
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
 	material = /decl/material/solid/metal/steel
 
 /obj/item/ammo_casing/shotgun/beanbag
 	name = "beanbag shell"
 	desc = "A beanbag shell."
-	icon_state = "bshell"
-	spent_icon = "bshell-spent"
+	icon = 'icons/obj/ammo/shells/beanbag.dmi'
+	icon_state = ICON_STATE_WORLD
 	projectile_type = /obj/item/projectile/bullet/shotgun/beanbag
 	material = /decl/material/solid/metal/steel
 
@@ -134,10 +150,10 @@
 /obj/item/ammo_casing/shotgun/stunshell
 	name = "stun shell"
 	desc = "An energy stun cartridge."
-	icon_state = "stunshell"
-	spent_icon = "stunshell-spent"
+	icon = 'icons/obj/ammo/shells/stun.dmi'
+	icon_state = ICON_STATE_WORLD
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
-	leaves_residue = 0
+	leaves_residue = FALSE
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
 	origin_tech = @'{"combat":3,"materials":3}'
@@ -150,8 +166,8 @@
 /obj/item/ammo_casing/shotgun/flash
 	name = "flash shell"
 	desc = "A chemical shell used to signal distress or provide illumination."
-	icon_state = "fshell"
-	spent_icon = "fshell-spent"
+	icon = 'icons/obj/ammo/shells/flash.dmi'
+	icon_state = ICON_STATE_WORLD
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT)
@@ -159,8 +175,8 @@
 /obj/item/ammo_casing/shotgun/emp
 	name = "haywire slug"
 	desc = "A 12-gauge shotgun slug fitted with a single-use ion pulse generator."
-	icon_state = "empshell"
-	spent_icon = "empshell-spent"
+	icon = 'icons/obj/ammo/shells/haywire.dmi'
+	icon_state = ICON_STATE_WORLD
 	projectile_type  = /obj/item/projectile/ion
 	material = /decl/material/solid/metal/steel
 	matter = list(/decl/material/solid/metal/uranium = MATTER_AMOUNT_REINFORCEMENT)

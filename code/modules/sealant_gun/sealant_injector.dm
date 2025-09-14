@@ -63,7 +63,7 @@
 		to_chat(user, SPAN_WARNING("There is no tank loaded."))
 		return TRUE
 
-	var/fill_space = FLOOR(loaded_tank.max_foam_charges - loaded_tank.foam_charges) / 5
+	var/fill_space = floor(loaded_tank.max_foam_charges - loaded_tank.foam_charges) / 5
 	if(fill_space <= 0)
 		to_chat(user, SPAN_WARNING("\The [loaded_tank] is full."))
 		return TRUE
@@ -104,6 +104,6 @@
 	name = "Inject Sealant"
 	expected_target_type = /obj/structure/sealant_injector
 
-/decl/interaction_handler/sealant_try_inject/invoked(var/atom/target, var/mob/user)
+/decl/interaction_handler/sealant_try_inject/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/structure/sealant_injector/SI = target
 	SI.try_inject(user)

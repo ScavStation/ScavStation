@@ -20,6 +20,31 @@
 	opacity = TRUE
 	width = 2
 
+// TODO: Find a better way to do this.
+/obj/machinery/door/airlock/double/shuttle_rotate(angle)
+	. = ..()
+	if(.)
+		var/turf/obstacle
+		switch(dir)
+			if(WEST)
+				obstacle = get_step(get_step(src, SOUTH), SOUTH) // two turfs south
+				if(!obstacle.density)
+					y--
+					return
+				obstacle = get_step(src, NORTH)
+				if(!obstacle.density)
+					y++
+					return
+			if(SOUTH)
+				obstacle = get_step(get_step(src, EAST), EAST) // two turfs east
+				if(!obstacle.density)
+					x++
+					return
+				obstacle = get_step(src, WEST)
+				if(!obstacle.density)
+					x--
+					return
+
 /obj/machinery/door/airlock/double/update_connections(var/propagate = 0)
 	var/dirs = 0
 
@@ -30,15 +55,13 @@
 		if(direction in list(NORTH, EAST))
 			T = get_step(T, direction)
 
-		if( istype(T, /turf/simulated/wall))
+		if( istype(T, /turf/wall))
 			success = 1
 			if(propagate)
-				var/turf/simulated/wall/W = T
+				var/turf/wall/W = T
 				W.wall_connections = null
 				W.other_connections = null
 				W.queue_icon_update()
-		else if( istype(T, /turf/simulated/shuttle/wall))
-			success = 1
 		else
 			for(var/obj/O in T)
 				for(var/blend_type in get_blend_objects())

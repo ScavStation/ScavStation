@@ -1,0 +1,2 @@
+/obj/item/chems/waterskin/@SUBTYPES : /obj/item/chems/glass/waterskin/@SUBTYPES{@OLD}
+

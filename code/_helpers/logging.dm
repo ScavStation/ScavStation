@@ -16,9 +16,6 @@ var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 	if (log_world)
 		to_world_log("SS[subsystem]: [text]")
 
-/proc/log_ss_init(text)
-	game_log("SS", "[text]")
-
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log
 /proc/warning(msg)
@@ -90,16 +87,13 @@ var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 		game_log("ATTACK", text)
 
 /proc/log_adminsay(text)
+	global.admin_log.Add(text)
 	if (get_config_value(/decl/config/toggle/log_adminchat))
 		game_log("ADMINSAY", text)
 
 /proc/log_adminwarn(text)
 	if (get_config_value(/decl/config/toggle/log_adminwarn))
 		game_log("ADMINWARN", text)
-
-/proc/log_pda(text)
-	if (get_config_value(/decl/config/toggle/log_pda))
-		game_log("PDA", text)
 
 /proc/log_misc(text)
 	game_log("MISC", text)
@@ -116,23 +110,6 @@ var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 	to_world_log(text) //this comes before the config check because it can't possibly runtime
 	if(get_config_value(/decl/config/toggle/log_world_output))
 		game_log("DD_OUTPUT", text)
-
-//pretty print a direction bitflag, can be useful for debugging.
-/proc/dir_text(var/dir)
-	var/list/comps = list()
-	if(dir & NORTH)
-		comps += "NORTH"
-	if(dir & SOUTH)
-		comps += "SOUTH"
-	if(dir & EAST)
-		comps += "EAST"
-	if(dir & WEST)
-		comps += "WEST"
-	if(dir & UP)
-		comps += "UP"
-	if(dir & DOWN)
-		comps += "DOWN"
-	return english_list(comps, nothing_text="0", and_text="|", comma_text="|")
 
 //more or less a logging utility
 /proc/key_name(var/whom, var/include_link = null, var/include_name = 1, var/highlight_special_characters = 1, var/datum/ticket/ticket = null)
@@ -165,7 +142,7 @@ var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 
 	if(key)
 		if(include_link && C)
-			. += "<a href='?priv_msg=\ref[C];ticket=\ref[ticket]'>"
+			. += "<a href='byond://?priv_msg=\ref[C];ticket=\ref[ticket]'>"
 
 		. += key
 
@@ -224,12 +201,13 @@ var/global/log_end= world.system_type == UNIX ? ascii2text(13) : ""
 	if(isnull(d))
 		return "*null*"
 	if(islist(d))
-		var/list/L = list()
-		for(var/e in d)
+		var/list/out = list()
+		var/list/dlist = d
+		for(var/entry in dlist)
 			// Indexing on numbers just gives us the same number again in the best case and causes an index out of bounds runtime in the worst
-			var/v = isnum(e) ? null : d[e]
-			L += "[log_info_line(e)][" - [log_info_line(v)]"]"
-		return "\[[jointext(L, ", ")]\]" // We format the string ourselves, rather than use json_encode(), because it becomes difficult to read recursively escaped "
+			var/value = isnum(entry) ? null : dlist[entry]
+			out += "[log_info_line(entry)][" - [log_info_line(value)]"]"
+		return "\[[jointext(out, ", ")]\]" // We format the string ourselves, rather than use json_encode(), because it becomes difficult to read recursively escaped "
 	if(!istype(d))
 		return json_encode(d)
 	return d.get_log_info_line()

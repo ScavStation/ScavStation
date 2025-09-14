@@ -52,7 +52,7 @@ var/global/list/mimic_defines = list(
 )
 
 // Movable flags.
-#define ZMM_IGNORE        1	//! Do not copy this movable.
-#define ZMM_MANGLE_PLANES 2	//! Check this movable's overlays/underlays for explicit plane use and mangle for compatibility with Z-Mimic. If you're using emissive overlays, you probably should be using this flag. Expensive, only use if necessary.
-#define ZMM_LOOKAHEAD     3	//! Look one turf ahead and one turf back when considering z-turfs that might be seeing this atom. Cheap, but not free.
-#define ZMM_LOOKBESIDE    4	//! Look one turf beside (left/right) when considering z-turfs that might be seeing this atom. Cheap, but not free.
+#define ZMM_IGNORE        BITFLAG(0)	//! Do not copy this movable.
+#define ZMM_MANGLE_PLANES BITFLAG(1)	//! Check this movable's overlays/underlays for explicit plane use and mangle for compatibility with Z-Mimic. If you're using emissive overlays, you probably should be using this flag. Expensive, only use if necessary.
+#define ZMM_LOOKAHEAD     BITFLAG(2)	//! Look one turf ahead and one turf back when considering z-turfs that might be seeing this atom. Cheap, but not free.
+#define ZMM_LOOKBESIDE    BITFLAG(3)	//! Look one turf beside (left/right) when considering z-turfs that might be seeing this atom. Cheap, but not free.

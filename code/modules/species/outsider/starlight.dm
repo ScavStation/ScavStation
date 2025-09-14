@@ -1,15 +1,12 @@
 /decl/species/starlight
 	abstract_type = /decl/species/starlight
-
-	meat_type = null
-	bone_material = null
-	skin_material = null
-
+	butchery_data = null
 	spawn_flags = SPECIES_IS_RESTRICTED
 	available_pronouns = list(/decl/pronouns/neuter)
-	force_cultural_info = list(
-		TAG_CULTURE = /decl/cultural_info/culture/other
+	force_background_info = list(
+		/decl/background_category/heritage = /decl/background_detail/heritage/other
 	)
+	hidden_from_codex = TRUE
 
 /decl/bodytype/starlight
 	abstract_type = /decl/bodytype/starlight
@@ -43,6 +40,7 @@
 	icon_deformed           = 'icons/mob/human_races/species/starborn/body.dmi'
 	husk_icon               = 'icons/mob/human_races/species/starborn/husk.dmi'
 	body_flags              = BODY_FLAG_NO_DNA | BODY_FLAG_NO_PAIN | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
+	uid                     = "bodytype_starlight_starborn"
 	cold_level_1            = 260
 	cold_level_2            = 250
 	cold_level_3            = 235
@@ -68,7 +66,7 @@
 	splatter_desc = "A puddle of starstuff."
 	splatter_colour = "#ffff00"
 
-/decl/species/starlight/handle_death(var/mob/living/carbon/human/H)
+/decl/species/starlight/handle_death(var/mob/living/human/H)
 	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob, dust)),0)
 
 /decl/species/starlight/starborn
@@ -86,8 +84,9 @@
 
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
-	siemens_coefficient = 0
+	shock_vulnerability = 0
 	hunger_factor = 0
+	thirst_factor = 0
 	death_message = "dissolves into pure flames!"
 	breath_type = null
 
@@ -98,22 +97,23 @@
 
 	base_auras = list(
 		/obj/aura/starborn
-		)
+	)
 
-/decl/species/starlight/starborn/handle_death(var/mob/living/carbon/human/H)
+/decl/species/starlight/starborn/handle_death(var/mob/living/human/H)
 	..()
 	var/turf/T = get_turf(H)
 	T.add_to_reagents(/decl/material/liquid/fuel, 20)
 	T.hotspot_expose(FLAMMABLE_GAS_MINIMUM_BURN_TEMPERATURE)
 
 /decl/bodytype/starlight/blueforged
-	name =             "blueforged"
-	desc =             "A mass of carved and shaped spacetime."
-	icon_base =        'icons/mob/human_races/species/blueforged/body.dmi'
-	icon_deformed =    'icons/mob/human_races/species/blueforged/body.dmi'
-	eye_icon =         'icons/mob/human_races/species/blueforged/eyes.dmi'
-	body_flags =       BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
+	name                 = "blueforged"
+	desc                 = "A mass of carved and shaped spacetime."
+	icon_base            = 'icons/mob/human_races/species/blueforged/body.dmi'
+	icon_deformed        = 'icons/mob/human_races/species/blueforged/body.dmi'
+	eye_icon             = 'icons/mob/human_races/species/blueforged/eyes.dmi'
+	body_flags           = BODY_FLAG_NO_DNA | BODY_FLAG_NO_DEFIB | BODY_FLAG_NO_STASIS
 	override_organ_types = list(BP_EYES = /obj/item/organ/internal/eyes/blueforged)
+	uid                  = "bodytype_starlight_blueforged"
 
 /decl/blood_type/spacestuff
 	name = "spacestuff"
@@ -133,6 +133,7 @@
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	hunger_factor = 0
+	thirst_factor = 0
 	breath_type = null
 
 	burn_mod = 10
@@ -142,7 +143,7 @@
 	radiation_mod = 0
 	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
 
-/decl/species/starlight/blueforged/handle_death(var/mob/living/carbon/human/H)
+/decl/species/starlight/blueforged/handle_death(var/mob/living/human/H)
 	..()
 	new /obj/effect/temporary(get_turf(H),11, 'icons/mob/mob.dmi', "liquify")
 

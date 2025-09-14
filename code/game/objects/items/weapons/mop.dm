@@ -3,8 +3,6 @@
 	name = "mop"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mop"
-	force = 5
-	throwforce = 10.0
 	throw_speed = 5
 	throw_range = 10
 	w_class = ITEM_SIZE_NORMAL
@@ -14,15 +12,20 @@
 		/decl/material/solid/organic/cloth = MATTER_AMOUNT_SECONDARY,
 	)
 	var/mopspeed = 40
-	var/list/moppable_types = list(
+	var/static/list/moppable_types
+
+/obj/item/mop/proc/populate_moppable_types()
+	moppable_types = list(
+		/turf/floor,
 		/obj/effect/decal/cleanable,
-		/obj/effect/rune,
 		/obj/structure/catwalk
-		)
+	)
 
 /obj/item/mop/Initialize()
 	. = ..()
 	initialize_reagents()
+	if(!moppable_types)
+		populate_moppable_types()
 
 /obj/item/mop/initialize_reagents(populate = TRUE)
 	create_reagents(30)
@@ -30,58 +33,51 @@
 
 /obj/item/mop/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
-		return
+		return ..()
+	var/turf/moppable_turf = get_turf(A)
+	if(!istype(moppable_turf))
+		return ..()
 
-	var/moppable
-	if(isturf(A))
-		var/turf/T = A
-		if(T?.reagents?.total_volume > 0)
-			if(T.reagents.total_volume > FLUID_SHALLOW)
+	if(moppable_turf?.reagents?.total_volume > 0)
+		if(moppable_turf.reagents.total_volume > FLUID_SHALLOW)
+			to_chat(user, SPAN_WARNING("There is too much water here to be mopped up."))
+			return TRUE
+		user.visible_message(SPAN_NOTICE("\The [user] begins to mop up \the [moppable_turf]."))
+		if(do_after(user, 40, moppable_turf) && !QDELETED(moppable_turf))
+			if(moppable_turf.reagents?.total_volume > FLUID_SHALLOW)
 				to_chat(user, SPAN_WARNING("There is too much water here to be mopped up."))
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] begins to mop up \the [T]."))
-				if(do_after(user, 40, T) && !QDELETED(T))
-					if(T.reagents?.total_volume > FLUID_SHALLOW)
-						to_chat(user, SPAN_WARNING("There is too much water here to be mopped up."))
-					else
-						to_chat(user, SPAN_NOTICE("You have finished mopping!"))
-						T.reagents?.clear_reagents()
-			return
-		moppable = TRUE
+				to_chat(user, SPAN_NOTICE("You have finished mopping!"))
+				moppable_turf.reagents?.clear_reagents()
+		return TRUE
 
-	else if(is_type_in_list(A,moppable_types))
-		moppable = TRUE
+	if(!is_type_in_list(A, moppable_types))
+		return ..()
 
-	if(moppable)
-		if(reagents.total_volume < 1)
-			to_chat(user, SPAN_WARNING("Your mop is dry!"))
-			return
-		var/turf/T = get_turf(A)
-		if(!T)
-			return
+	if(reagents?.total_volume < 1)
+		to_chat(user, SPAN_WARNING("\The [src] is dry!"))
+		return TRUE
 
-		var/trans_amt = FLUID_QDEL_POINT
-		if(user.a_intent == I_HURT)
-			trans_amt = round(FLUID_PUDDLE * 0.25)
-			user.visible_message(SPAN_DANGER("\The [user] begins to aggressively mop \the [T]!"))
-		else
-			user.visible_message(SPAN_NOTICE("\The [user] begins to clean \the [T]."))
-		if(do_after(user, mopspeed, T) && reagents?.total_volume)
-			reagents.splash(T, trans_amt)
-			to_chat(user, SPAN_NOTICE("You have finished mopping!"))
+	if(user.a_intent == I_HURT)
+		user.visible_message(SPAN_DANGER("\The [user] begins to aggressively mop \the [moppable_turf]!"))
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] begins to clean \the [moppable_turf]."))
+	if(do_after(user, mopspeed, moppable_turf) && reagents?.total_volume)
+		reagents.touch_turf(moppable_turf)
+		reagents.remove_any(1)
+		to_chat(user, SPAN_NOTICE("You have finished mopping!"))
+	return TRUE
 
 /obj/effect/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
-		return
-	..()
+		return FALSE
+	return ..()
 
 /obj/item/mop/advanced
 	desc = "The most advanced tool in a custodian's arsenal, with a cleaner synthesizer to boot! Just think of all the viscera you will clean up with this!"
 	name = "advanced mop"
 	icon_state = "advmop"
 	item_state = "mop"
-	force = 6
-	throwforce = 11
 	mopspeed = 20
 	material = /decl/material/solid/metal/aluminium
 	matter = list(
@@ -89,6 +85,7 @@
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_TRACE
 	)
 	origin_tech = @'{"engineering":4,"materials":4,"powerstorage":3}'
+	_base_attack_force = 6
 
 	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
 	var/refill_rate = 1 //Rate per process() tick mop refills itself

@@ -3,6 +3,7 @@
 	desc = "Yarr."
 	body_parts_covered = 0
 	icon = 'icons/clothing/eyes/eyepatch.dmi'
+	gender = NEUTER
 	var/flipped_icon = 'icons/clothing/eyes/eyepatch_right.dmi'
 
 /obj/item/clothing/glasses/eyepatch/verb/flip_patch()
@@ -20,9 +21,14 @@
 	else
 		icon = flipped_icon
 		flipped = "right"
-	to_chat(usr, "You change \the [src] to cover the [flipped] eye.")
+	to_chat(usr, SPAN_NOTICE("You change \the [src] to cover the [flipped] eye."))
 	update_icon()
 	update_clothing_icon()
+
+/obj/item/clothing/glasses/eyepatch/colourable
+	desc = "A simple cloth patch that covers an eye."
+	icon = 'icons/clothing/eyes/eyepatch_colourable.dmi'
+	material = /decl/material/solid/organic/cloth
 
 /obj/item/clothing/glasses/eyepatch/hud
 	name = "iPatch"
@@ -60,7 +66,7 @@
 		eye.color = eye_color
 		add_overlay(eye)
 
-/obj/item/clothing/glasses/eyepatch/hud/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/clothing/glasses/eyepatch/hud/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && active && check_state_in_icon("[overlay.icon_state]-eye", overlay.icon))
 		var/image/eye = emissive_overlay(overlay.icon, "[overlay.icon_state]-eye")
 		eye.color = eye_color
@@ -90,7 +96,7 @@
 /obj/item/clothing/glasses/eyepatch/hud/science
 	name = "SCIpatch"
 	desc = "A Science-type heads-up display that connects directly to the ocular nerve of the user, replacing the need for that useless eyeball."
-	hud_type = HUD_SCIENCE
+	glasses_hud_type = HUD_SCIENCE
 	eye_color = COLOR_PINK
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()

@@ -28,6 +28,7 @@
 /obj/structure/holosign/attackby(obj/W, mob/user)
 	visible_message(SPAN_NOTICE("\The [user] waves \a [W] through \the [src], causing it to dissipate."))
 	deactivate(user)
+	return TRUE
 
 /obj/structure/holosign/proc/deactivate(mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

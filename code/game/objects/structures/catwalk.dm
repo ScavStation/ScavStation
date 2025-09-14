@@ -19,14 +19,6 @@
 	var/list/connections
 	var/list/other_connections
 
-/obj/structure/catwalk/clear_connections()
-	connections = null
-	other_connections = null
-
-/obj/structure/catwalk/set_connections(dirs, other_dirs)
-	connections = dirs_to_corner_states(dirs)
-	other_connections = dirs_to_corner_states(other_dirs)
-
 /obj/structure/catwalk/Initialize()
 	. = ..()
 	DELETE_IF_DUPLICATE_OF(/obj/structure/catwalk)
@@ -41,9 +33,6 @@
 	update_connections(1)
 	update_icon()
 
-/obj/structure/catwalk/can_climb_from_below(var/mob/climber)
-	return TRUE
-
 /obj/structure/catwalk/Destroy()
 	var/turf/oldloc = loc
 	redraw_nearby_catwalks()
@@ -51,6 +40,26 @@
 	if(istype(oldloc))
 		for(var/atom/movable/AM in oldloc)
 			AM.fall(oldloc)
+		oldloc.supporting_platform = null
+
+// Catwalks need to layer over grass and water.
+/obj/structure/catwalk/update_turf_alpha_mask()
+	return FALSE
+
+/obj/structure/catwalk/clear_connections()
+	connections = null
+	other_connections = null
+
+/obj/structure/catwalk/is_platform()
+	return TRUE
+
+/obj/structure/catwalk/set_connections(dirs, other_dirs)
+	connections = dirs_to_corner_states(dirs)
+	other_connections = dirs_to_corner_states(other_dirs)
+
+/obj/structure/catwalk/can_climb_from_below(var/mob/climber)
+	return TRUE
+
 
 /obj/structure/catwalk/proc/redraw_nearby_catwalks()
 	for(var/direction in global.alldirs)
@@ -72,75 +81,80 @@
 		add_overlay(I)
 
 /obj/structure/catwalk/create_dismantled_products(var/turf/T)
+	. = ..()
 	if(plated_tile)
 		var/plate_path = plated_tile.build_type
-		new plate_path(T)
-	. = ..()
+		LAZYADD(., new plate_path(T))
+		plated_tile = null
 
 /obj/structure/catwalk/explosion_act(severity)
 	..()
 	if(!QDELETED(src) && severity != 3)
 		physically_destroyed()
 
-/obj/structure/catwalk/grab_attack(var/obj/item/grab/G)
-	var/mob/living/affecting_mob = G.get_affecting_mob()
+/obj/structure/catwalk/grab_attack(obj/item/grab/grab, mob/user)
 	if(atom_flags & ATOM_FLAG_CLIMBABLE)
 		var/obj/occupied = turf_is_crowded()
 		if (occupied)
-			to_chat(G.assailant, SPAN_WARNING("There's \a [occupied] in the way."))
+			to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
 			return TRUE
-		G.affecting.forceMove(src.loc)
-		if(affecting_mob)
-			SET_STATUS_MAX(affecting_mob, STAT_WEAK, rand(2,5))
-		visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."))
+		grab.affecting.forceMove(src.loc)
+		var/mob/living/victim = grab.get_affecting_mob()
+		if(istype(victim))
+			SET_STATUS_MAX(victim, STAT_WEAK, rand(2,5))
+			visible_message(SPAN_DANGER("\The [user] puts \the [victim] on \the [src]."))
 		return TRUE
+	return ..()
 
 /obj/structure/catwalk/attack_robot(var/mob/user)
 	return attack_hand_with_interaction_checks(user)
 
 /obj/structure/catwalk/attackby(obj/item/C, mob/user)
-	. = ..()
-	if(!.)
 
-		if(istype(C, /obj/item/grab))
-			var/obj/item/grab/G = C
-			G.affecting.forceMove(get_turf(src))
+	if((. = ..()))
+		return
+
+	if(istype(C, /obj/item/gun/energy/plasmacutter))
+		var/obj/item/gun/energy/plasmacutter/cutter = C
+		if(cutter.slice(user))
+			dismantle_structure(user)
+		return TRUE
+
+	if(istype(C, /obj/item/stack/tile/mono) && !plated_tile)
+
+		var/ladder = (locate(/obj/structure/ladder) in loc)
+		if(ladder)
+			to_chat(user, SPAN_WARNING("\The [ladder] is in the way."))
 			return TRUE
 
-		if(istype(C, /obj/item/gun/energy/plasmacutter))
-			var/obj/item/gun/energy/plasmacutter/cutter = C
-			if(!cutter.slice(user))
-				return
-			dismantle(user)
+		var/obj/item/stack/tile/ST = C
+		if(ST.in_use)
 			return TRUE
 
-		if(istype(C, /obj/item/stack/tile/mono) && !plated_tile)
+		to_chat(user, SPAN_NOTICE("You begin plating \the [src] with \the [ST]."))
+		ST.in_use = 1
+		if (!do_after(user, 10))
+			ST.in_use = 0
+			return TRUE
 
-			var/ladder = (locate(/obj/structure/ladder) in loc)
-			if(ladder)
-				to_chat(user, SPAN_WARNING("\The [ladder] is in the way."))
-				return TRUE
+		to_chat(user, SPAN_NOTICE("You plate \the [src]"))
+		name = "plated catwalk"
+		ST.in_use = 0
+		if(!ST.use(1))
+			return TRUE
 
-			var/obj/item/stack/tile/ST = C
-			if(!ST.in_use)
-				to_chat(user, "<span class='notice'>Placing tile...</span>")
-				ST.in_use = 1
-				if (!do_after(user, 10))
-					ST.in_use = 0
-					return TRUE
-				to_chat(user, "<span class='notice'>You plate \the [src]</span>")
-				name = "plated catwalk"
-				ST.in_use = 0
-				if(ST.use(1))
-					var/list/decls = decls_repository.get_decls_of_subtype(/decl/flooring)
-					for(var/flooring_type in decls)
-						var/decl/flooring/F = decls[flooring_type]
-						if(!F.build_type)
-							continue
-						if(istype(C, F.build_type) && (!F.build_material || C.material?.type == F.build_material))
-							plated_tile = F
-							break
-					update_icon()
+		var/list/decls = decls_repository.get_decls_of_subtype(/decl/flooring)
+		for(var/flooring_type in decls)
+			var/decl/flooring/F = decls[flooring_type]
+			if(!F.build_type)
+				continue
+			if(istype(C, F.build_type) && (!F.build_material || C.material?.type == F.build_material))
+				plated_tile = F
+				break
+		update_icon()
+		return TRUE
+
+	return FALSE
 
 /obj/structure/catwalk/handle_default_crowbar_attackby(mob/user, obj/item/crowbar)
 	if(plated_tile)
@@ -164,6 +178,9 @@
 
 /obj/structure/catwalk/refresh_neighbors()
 	return
+
+/obj/structure/catwalk/is_z_passable()
+	return !plated_tile
 
 /obj/effect/catwalk_plated
 	name = "plated catwalk spawner"
@@ -206,7 +223,7 @@
 		C.update_icon()
 	activated = 1
 	for(var/turf/T in orange(src, 1))
-		for(var/obj/effect/wallframe_spawn/other in T)
+		for(var/obj/effect/catwalk_plated/other in T)
 			if(!other.activated) other.activate()
 
 /obj/effect/catwalk_plated/dark

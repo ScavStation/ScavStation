@@ -6,11 +6,16 @@
 	w_class             = ITEM_SIZE_SMALL
 	slot_flags          = SLOT_HEAD
 	body_parts_covered  = SLOT_HEAD
+	accessory_slot      = ACCESSORY_SLOT_OVER_HELMET
+	fallback_slot       = slot_head_str
 
 	var/protects_against_weather = FALSE
 	var/light_applied
 	var/brightness_on
 	var/on = 0
+
+/obj/item/clothing/head/gives_weather_protection()
+	return protects_against_weather
 
 /obj/item/clothing/head/attack_self(mob/user)
 	if(brightness_on)
@@ -43,16 +48,12 @@
 			light_overlay.appearance_flags |= RESET_COLOR
 			add_overlay(light_overlay)
 
-/obj/item/clothing/head/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/clothing/head/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && on && check_state_in_icon("[overlay.icon_state]_light", overlay.icon))
 		var/light_overlay
-		if(user_mob.get_bodytype_category() != bodytype)
-			light_overlay = user_mob.get_bodytype()?.get_offset_overlay_image(overlay.icon, "[overlay.icon_state]_light", null, slot)
+		if(user_mob?.get_bodytype_category() != bodytype)
+			light_overlay = user_mob?.get_bodytype()?.get_offset_overlay_image(user_mob, overlay.icon, "[overlay.icon_state]_light", null, slot)
 		if(!light_overlay)
 			light_overlay = image(overlay.icon, "[overlay.icon_state]_light")
 		overlay.overlays += light_overlay
 	. = ..()
-
-/obj/item/clothing/head/get_associated_equipment_slots()
-	. = ..()
-	LAZYDISTINCTADD(., slot_head_str)

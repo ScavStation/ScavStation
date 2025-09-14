@@ -19,9 +19,11 @@
 	name = "Basic"
 	sort_order = 1
 
-/datum/category_item/player_setup_item/physical/basic/load_character(datum/pref_record_reader/R)
+/datum/category_item/player_setup_item/physical/basic/preload_character(datum/pref_record_reader/R)
 	pref.gender =         R.read("gender")
 	pref.bodytype =       R.read("bodytype")
+
+/datum/category_item/player_setup_item/physical/basic/load_character(datum/pref_record_reader/R)
 	pref.real_name =      R.read("real_name")
 	pref.be_random_name = R.read("name_is_always_random")
 	var/decl/spawnpoint/loaded_spawnpoint = decls_repository.get_decl_by_id_or_var(R.read("spawnpoint"), /decl/spawnpoint)
@@ -64,15 +66,15 @@
 	var/decl/bodytype/bodytype = S.get_bodytype_by_name(pref.bodytype)
 	if(!istype(bodytype) || !(bodytype in S.available_bodytypes))
 		bodytype = S.get_bodytype_by_pronouns(pronouns)
-		pref.bodytype = bodytype.name
+		pref.set_bodytype(bodytype.name)
 
 /datum/category_item/player_setup_item/physical/basic/content()
 
 	. = list()
 	. += "<b>Name:</b> "
-	. += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
-	. += "<a href='?src=\ref[src];random_name=1'>Randomize Name</A><br>"
-	. += "<a href='?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
+	. += "<a href='byond://?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
+	. += "<a href='byond://?src=\ref[src];random_name=1'>Randomize Name</A><br>"
+	. += "<a href='byond://?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
 	. += "<hr>"
 
 	. += "<b>Bodytype:</b> "
@@ -81,14 +83,14 @@
 		if(B.name == pref.bodytype)
 			. += "<span class='linkOn'>[capitalize(B.pref_name)]</span>"
 		else
-			. += "<a href='?src=\ref[src];bodytype=\ref[B]'>[capitalize(B.pref_name)]</a>"
+			. += "<a href='byond://?src=\ref[src];bodytype=\ref[B]'>[capitalize(B.pref_name)]</a>"
 
 	. += "<br><b>Pronouns:</b> "
 	for(var/decl/pronouns/pronouns in S.available_pronouns)
 		if(pronouns.name == pref.gender)
 			. += "<span class='linkOn'>[pronouns.pronoun_string]</span>"
 		else
-			. += "<a href='?src=\ref[src];gender=\ref[pronouns]'>[pronouns.pronoun_string]</a>"
+			. += "<a href='byond://?src=\ref[src];gender=\ref[pronouns]'>[pronouns.pronoun_string]</a>"
 
 	. += "<br><b>Spawnpoint</b>:"
 	var/decl/spawnpoint/spawnpoint = GET_DECL(pref.spawnpoint)
@@ -96,7 +98,7 @@
 		if(spawnpoint == allowed_spawnpoint)
 			. += "<span class='linkOn'>[allowed_spawnpoint.name]</span>"
 		else
-			. += "<a href='?src=\ref[src];spawnpoint=\ref[allowed_spawnpoint]'>[allowed_spawnpoint.name]</a>"
+			. += "<a href='byond://?src=\ref[src];spawnpoint=\ref[allowed_spawnpoint]'>[allowed_spawnpoint.name]</a>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/physical/basic/OnTopic(var/href,var/list/href_list, var/mob/user)
@@ -106,8 +108,11 @@
 		var/raw_name = input(user, "Choose your character's name:", "Character Name")  as text|null
 		if (!isnull(raw_name) && CanUseTopic(user))
 
-			var/decl/cultural_info/check = GET_DECL(pref.cultural_info[TAG_CULTURE])
-			var/new_name = check.sanitize_cultural_name(raw_name, pref.species)
+			var/decl/background_detail/check = pref.get_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
+			if(!istype(check))
+				return TOPIC_NOACTION
+
+			var/new_name = check.sanitize_background_name(raw_name, pref.species)
 			if(filter_block_message(user, new_name))
 				return TOPIC_NOACTION
 
@@ -141,10 +146,9 @@
 	else if(href_list["bodytype"])
 		var/decl/bodytype/new_body = locate(href_list["bodytype"])
 		if(istype(new_body) && CanUseTopic(user) && (new_body in S.available_bodytypes))
-			pref.bodytype = new_body.name
-			if(new_body.associated_gender) // Set to default for male/female to avoid confusing people
+			pref.set_bodytype(new_body.name)
+			if(get_config_value(/decl/config/toggle/on/cisnormativity) && new_body.associated_gender) // Let servers stuck in the 2010s set bodytype default to avoid "confusing" people
 				pref.gender = new_body.associated_gender
-		new_body.handle_post_bodytype_pref_set(pref)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["spawnpoint"])

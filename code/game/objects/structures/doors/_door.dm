@@ -9,19 +9,15 @@
 	anchored = TRUE
 	opacity =  TRUE
 
-	var/datum/lock/lock
 	var/has_window = FALSE
 	var/changing_state = FALSE
 	var/icon_base
 	var/door_sound_volume = 25
-	var/connections = 0
 
 /obj/structure/door/Initialize()
 	..()
 	if(!istype(material))
 		return INITIALIZE_HINT_QDEL
-	if(lock)
-		lock = new /datum/lock(src, lock)
 	if(!icon_base)
 		icon_base = material.door_icon_base
 	update_icon()
@@ -39,7 +35,6 @@
 
 /obj/structure/door/Destroy()
 	update_nearby_tiles()
-	QDEL_NULL(lock)
 	return ..()
 
 /obj/structure/door/get_blend_objects()
@@ -51,13 +46,43 @@
 	)
 	return blend_objects
 
+// Preference is: constructed walls, other doors, other walls.
+/obj/structure/door/proc/get_turf_blend_priority(turf/neighbor)
+	if(istype(neighbor, /turf/wall))
+		return istype(neighbor, /turf/wall/natural) ? 1 : 3
+	if(locate(/obj/structure/door) in neighbor)
+		return 2
+	return 0
+
 /obj/structure/door/update_connections(var/propagate = FALSE)
+
 	. = ..()
-	if(propagate && isturf(loc))
-		for(var/turf/simulated/wall/W in RANGE_TURFS(loc, 1))
-			W.wall_connections = null
-			W.other_connections = null
-			W.queue_icon_update()
+
+	if(!isturf(loc))
+		return
+
+	var/highest_priority
+	var/highest_dir
+
+	for(var/turf/neighbor as anything in RANGE_TURFS(loc, 1))
+
+		if(propagate && istype(neighbor, /turf/wall))
+			var/turf/wall/wall = neighbor
+			wall.wall_connections = null
+			wall.other_connections = null
+			wall.queue_icon_update()
+
+		var/turf_dir = get_dir(loc, neighbor)
+		if(turf_dir & (turf_dir - 1)) // if diagonal
+			continue // skip diagonals
+
+		var/turf_priority = get_turf_blend_priority(neighbor)
+		if(turf_priority > highest_priority)
+			highest_dir      = turf_dir
+			highest_priority = turf_priority
+
+	if(highest_priority > 0 && highest_dir)
+		set_dir(turn(highest_dir, 90))
 
 /obj/structure/door/get_material_health_modifier()
 	. = 10
@@ -73,12 +98,12 @@
 
 /obj/structure/door/attack_hand(mob/user)
 	if(user.check_dexterity(DEXTERITY_SIMPLE_MACHINES, TRUE))
-		return density ? open() : close()
+		return density ? open(user) : close(user)
 	return ..()
 
-/obj/structure/door/proc/close()
-	set waitfor = 0
-	if(!can_close())
+/obj/structure/door/proc/close(mob/user)
+	set waitfor = FALSE
+	if(!can_close(user))
 		return FALSE
 	flick("[icon_base]_closing", src)
 	playsound(src, material.dooropen_noise, door_sound_volume, 1)
@@ -90,9 +115,9 @@
 	post_change_state()
 	return TRUE
 
-/obj/structure/door/proc/open()
-	set waitfor = 0
-	if(!can_open())
+/obj/structure/door/proc/open(mob/user)
+	set waitfor = FALSE
+	if(!can_open(user))
 		return FALSE
 	flick("[icon_base]_opening", src)
 	playsound(src, material.dooropen_noise, door_sound_volume, 1)
@@ -104,18 +129,19 @@
 	post_change_state()
 	return TRUE
 
-/obj/structure/door/proc/can_open()
-	if(lock && lock.isLocked())
-		return FALSE
+/obj/structure/door/update_lock_overlay()
+	return // TODO
+
+/obj/structure/door/proc/can_open(mob/user)
+	if(lock)
+		try_unlock(user, user?.get_active_held_item())
+		if(lock.isLocked())
+			to_chat(user, SPAN_WARNING("\The [src] is locked."))
+			return FALSE
 	return density && !changing_state
 
 /obj/structure/door/proc/can_close()
 	return !density && !changing_state
-
-/obj/structure/door/examine(mob/user, distance)
-	. = ..()
-	if(distance <= 1 && lock)
-		to_chat(user, SPAN_NOTICE("It appears to have a lock."))
 
 /obj/structure/door/attack_ai(mob/living/user)
 	return attack_hand_with_interaction_checks(user)
@@ -131,37 +157,27 @@
 		to_chat(user, SPAN_WARNING("\The [src] must be closed before it can be repaired."))
 		return FALSE
 
-/obj/structure/door/attackby(obj/item/I, mob/user)
-	add_fingerprint(user, 0, I)
+/obj/structure/door/can_install_lock()
+	return TRUE
 
-	if((user.a_intent == I_HURT && I.force) || istype(I, /obj/item/stack/material))
+/obj/structure/door/attackby(obj/item/used_item, mob/user)
+	add_fingerprint(user, 0, used_item)
+
+	if((user.a_intent == I_HURT && used_item.get_attack_force(user)) || istype(used_item, /obj/item/stack/material))
 		return ..()
 
-	if(lock)
-		if(istype(I, /obj/item/key))
-			if(lock.toggle(I))
-				to_chat(user, SPAN_NOTICE("You [lock.status ? "lock" : "unlock"] \the [src] with \the [I]."))
-			else
-				to_chat(user, SPAN_WARNING("\The [I] does not fit in the lock!"))
+	if(used_item.user_can_attack_with(user, silent = TRUE))
+		if(try_key_unlock(used_item, user))
 			return TRUE
-		if(lock.pick_lock(I,user))
-			return TRUE
-		if(lock.isLocked())
-			to_chat(user, SPAN_WARNING("\The [src] is locked!"))
-		return TRUE
 
-	if(istype(I,/obj/item/lock_construct))
-		if(lock)
-			to_chat(user, SPAN_WARNING("\The [src] already has a lock."))
-		else
-			var/obj/item/lock_construct/L = I
-			lock = L.create_lock(src,user)
-		return
+		if(try_install_lock(used_item, user))
+			return TRUE
 
 	if(density)
-		open()
+		open(user)
 	else
-		close()
+		close(user)
+	return TRUE
 
 /obj/structure/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group)
@@ -184,8 +200,36 @@
 		var/mob/M = AM
 		if(M.restrained() || issmall(M))
 			return
-	open()
+	open(ismob(AM) ? AM : null)
 
+/obj/structure/door/get_alt_interactions(var/mob/user)
+	. = ..()
+	if(density)
+		. += /decl/interaction_handler/knock_on_door
+
+/decl/interaction_handler/knock_on_door
+	name = "Knock On Door"
+	expected_target_type = /obj/structure/door
+	interaction_flags = INTERACTION_NEEDS_PHYSICAL_INTERACTION | INTERACTION_NEEDS_TURF
+
+/decl/interaction_handler/knock_on_door/invoked(atom/target, mob/user, obj/item/prop)
+	if(!istype(target) || !target.density)
+		return FALSE
+	user.do_attack_animation(src)
+	playsound(target.loc, 'sound/effects/glassknock.ogg', 80, 1)
+	if(user.a_intent == I_HURT)
+		target.visible_message(
+			SPAN_DANGER("\The [user] bangs against \the [src]!"),
+			blind_message = "You hear a banging sound!"
+		)
+	else
+		target.visible_message(
+			SPAN_NOTICE("\The [user] knocks on \the [target]."),
+			blind_message = SPAN_NOTICE("You hear a knocking sound.")
+		)
+	return TRUE
+
+// Subtypes below.
 /obj/structure/door/iron
 	material = /decl/material/solid/metal/iron
 
@@ -200,31 +244,47 @@
 
 /obj/structure/door/sandstone
 	material = /decl/material/solid/stone/sandstone
+	color = /decl/material/solid/stone/sandstone::color
+
+/obj/structure/door/basalt
+	desc = "A door hewn of raw basalt, unthinkably heavy and smooth to the touch."
+	material = /decl/material/solid/stone/basalt
+	color = /decl/material/solid/stone/basalt::color
 
 /obj/structure/door/diamond
 	material = /decl/material/solid/gemstone/diamond
 
 /obj/structure/door/wood
 	material = /decl/material/solid/organic/wood
+	color = /decl/material/solid/organic/wood::color
 
 /obj/structure/door/mahogany
 	material = /decl/material/solid/organic/wood/mahogany
+	color = /decl/material/solid/organic/wood/mahogany::color
 
 /obj/structure/door/maple
 	material = /decl/material/solid/organic/wood/maple
+	color = /decl/material/solid/organic/wood/maple::color
 
 /obj/structure/door/ebony
 	material = /decl/material/solid/organic/wood/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
 
 /obj/structure/door/walnut
 	material = /decl/material/solid/organic/wood/walnut
-
-/obj/structure/door/cult
-	material = /decl/material/solid/stone/cult
+	color = /decl/material/solid/organic/wood/walnut::color
 
 /obj/structure/door/wood/saloon
 	material = /decl/material/solid/organic/wood
 	opacity = FALSE
+
+/obj/structure/door/wood/saloon/ebony
+	material = /decl/material/solid/organic/wood/ebony
+	color = /decl/material/solid/organic/wood/ebony::color
+
+/obj/structure/door/wood/saloon/walnut
+	material = /decl/material/solid/organic/wood/walnut
+	color = /decl/material/solid/organic/wood/walnut::color
 
 /obj/structure/door/glass
 	material = /decl/material/solid/glass

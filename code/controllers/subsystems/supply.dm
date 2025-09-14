@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(supply)
 	var/decl/hierarchy/supply_pack/root = GET_DECL(/decl/hierarchy/supply_pack)
 	for(var/decl/hierarchy/supply_pack/sp in root.children)
 		if(sp.is_category())
-			for(var/decl/hierarchy/supply_pack/spc in sp.get_descendents())
+			for(var/decl/hierarchy/supply_pack/spc in sp.get_descendants())
 				spc.setup()
 				master_supply_list += spc
 				CHECK_TICK
@@ -84,9 +84,9 @@ SUBSYSTEM_DEF(supply)
 		for(var/atom/movable/AM in subarea)
 			if(AM.anchored)
 				continue
-			if(istype(AM, /obj/structure/closet/crate/))
+			if(istype(AM, /obj/structure/closet/crate))
 				var/obj/structure/closet/crate/CR = AM
-				callHook("sell_crate", list(CR, subarea))
+				RAISE_EVENT(/decl/observ/crate_sold, subarea, CR)
 				add_points_from_source(CR.get_single_monetary_worth() * crate_return_rebate * 0.1, "crate")
 				var/find_slip = 1
 
@@ -117,7 +117,7 @@ SUBSYSTEM_DEF(supply)
 				continue
 			var/occupied = 0
 			for(var/atom/A in T.contents)
-				if(!A.simulated)
+				if(!A.simulated || !A.density)
 					continue
 				occupied = 1
 				break
@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(supply)
 		var/obj/item/paper/manifest/slip
 		if(!SP.contraband)
 			var/info = list()
-			info +="<h3>[command_name()] Shipping Manifest</h3><hr><br>"
+			info +="<h3>[global.using_map.boss_name] Shipping Manifest</h3><hr><br>"
 			info +="Order #[SO.ordernum]<br>"
 			info +="Destination: [global.using_map.station_name]<br>"
 			info +="[shoppinglist.len] PACKAGES IN THIS SHIPMENT<br>"

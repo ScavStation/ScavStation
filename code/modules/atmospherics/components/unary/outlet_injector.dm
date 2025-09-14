@@ -1,6 +1,6 @@
 //Basically a one way passive valve. If the pressure inside is greater than the environment then gas will flow passively,
 //but it does not permit gas to flow back from the environment into the injector. Can be turned off to prevent any gas flow.
-//When it receives the "inject" signal, it will try to pump it's entire contents into the environment regardless of pressure, using power.
+//When it receives the "inject" signal, it will try to pump its entire contents into the environment regardless of pressure, using power.
 
 /obj/machinery/atmospherics/unary/outlet_injector
 	icon = 'icons/atmos/injector.dmi'
@@ -70,7 +70,7 @@
 	. = list()
 	. += "<table>"
 	. += "<tr><td><b>Name:</b></td><td>[name]</td>"
-	. += "<tr><td><b>Power:</b></td><td>[use_power?("<font color = 'green'>Injecting</font>"):("<font color = 'red'>Offline</font>")]</td><td><a href='?src=\ref[src];toggle_power=\ref[src]'>Toggle</a></td></tr>"
+	. += "<tr><td><b>Power:</b></td><td>[use_power?("<font color = 'green'>Injecting</font>"):("<font color = 'red'>Offline</font>")]</td><td><a href='byond://?src=\ref[src];toggle_power=\ref[src]'>Toggle</a></td></tr>"
 	. = JOINTEXT(.)
 
 /obj/machinery/atmospherics/unary/outlet_injector/OnTopic(mob/user, href_list, datum/topic_state/state)
@@ -132,7 +132,7 @@
 		var/datum/browser/written_digital/popup = new (user, "Vent Configuration Utility", "[src] Configuration Panel", 600, 200)
 		popup.set_content(jointext(get_console_data(),"<br>"))
 		popup.open()
-		return
+		return TRUE
 	return ..()
 
 /decl/public_access/public_variable/volume_rate

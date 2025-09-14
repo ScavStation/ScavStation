@@ -72,23 +72,22 @@
 	return ..(SOUTH)
 
 /obj/structure/heavy_vehicle_frame/attackby(var/obj/item/thing, var/mob/user)
-
 	// Removing components.
 	if(IS_CROWBAR(thing))
 		if(is_reinforced == FRAME_REINFORCED)
-			if(!do_after(user, 5 * user.skill_delay_mult(SKILL_DEVICES)) || !material)
-				return
+			if(!user.do_skilled(0.5 SECONDS, SKILL_DEVICES, src) || !material)
+				return TRUE
 			user.visible_message(SPAN_NOTICE("\The [user] crowbars the reinforcement off \the [src]."))
 			material.create_object(src.loc, 10)
 			material = null
 			is_reinforced = 0
-			return
+			return TRUE
 
 		var/to_remove = input("Which component would you like to remove") as null|anything in list(arms, body, legs, head)
 
 		if(!to_remove)
 			to_chat(user, SPAN_WARNING("There are no components to remove."))
-			return
+			return TRUE
 
 		if(uninstall_component(to_remove, user))
 			if(to_remove == arms)
@@ -101,7 +100,7 @@
 				head = null
 
 		update_icon()
-		return
+		return TRUE
 
 	// Final construction step.
 	else if(IS_SCREWDRIVER(thing))
@@ -109,7 +108,7 @@
 		// Check for basic components.
 		if(!(arms && legs && head && body))
 			to_chat(user,  SPAN_WARNING("There are still parts missing from \the [src]."))
-			return
+			return TRUE
 
 		// Check for wiring.
 		if(is_wired < FRAME_WIRED_ADJUSTED)
@@ -117,7 +116,7 @@
 				to_chat(user, SPAN_WARNING("\The [src]'s wiring has not been adjusted!"))
 			else
 				to_chat(user, SPAN_WARNING("\The [src] is not wired!"))
-			return
+			return TRUE
 
 		// Check for basing metal internal plating.
 		if(is_reinforced < FRAME_REINFORCED_WELDED)
@@ -127,14 +126,14 @@
 				to_chat(user, SPAN_WARNING("\The [src]'s internal reinforcement has not been welded down!"))
 			else
 				to_chat(user, SPAN_WARNING("\The [src] has no internal reinforcement!"))
-			return
+			return TRUE
 
 		visible_message(SPAN_NOTICE("\The [user] begins tightening screws, flipping connectors and finishing off \the [src]."))
 		if(!user.do_skilled(50, SKILL_DEVICES, src))
-			return
+			return TRUE
 
 		if(is_reinforced < FRAME_REINFORCED_WELDED || is_wired < FRAME_WIRED_ADJUSTED || !(arms && legs && head && body) || QDELETED(src) || QDELETED(user))
-			return
+			return TRUE
 
 		// We're all done. Finalize the exosuit and pass the frame to the new system.
 		var/mob/living/exosuit/M = new(get_turf(src), src)
@@ -147,27 +146,27 @@
 		body = null
 		qdel(src)
 
-		return
+		return TRUE
 
 	// Installing wiring.
 	else if(IS_COIL(thing))
 
 		if(is_wired)
 			to_chat(user, SPAN_WARNING("\The [src] has already been wired."))
-			return
+			return TRUE
 
 		var/obj/item/stack/cable_coil/CC = thing
 		if(CC.get_amount() < 10)
 			to_chat(user, SPAN_WARNING("You need at least ten units of cable to complete the exosuit."))
-			return
+			return TRUE
 
 		user.visible_message("\The [user] begins wiring \the [src]...")
 
-		if(!do_after(user, 30 * user.skill_delay_mult(SKILL_ELECTRICAL)))
-			return
+		if(!user.do_skilled(3 SECONDS, SKILL_ELECTRICAL, src))
+			return TRUE
 
 		if(!CC || !user || !src || CC.get_amount() < 10 || is_wired)
-			return
+			return TRUE
 
 		CC.use(10)
 		user.visible_message("\The [user] installs wiring in \the [src].")
@@ -177,12 +176,12 @@
 	else if(IS_WIRECUTTER(thing))
 		if(!is_wired)
 			to_chat(user, "There is no wiring in \the [src] to neaten.")
-			return
+			return TRUE
 
 		user.visible_message("\The [user] begins adjusting the wiring inside \the [src]...")
 		var/last_wiring_state = is_wired
-		if(!do_after(user, 30 * user.skill_delay_mult(SKILL_ELECTRICAL)) || last_wiring_state != is_wired)
-			return
+		if(!user.do_skilled(3 SECONDS, SKILL_ELECTRICAL, src) || last_wiring_state != is_wired)
+			return TRUE
 
 		visible_message("\The [user] [(is_wired == FRAME_WIRED_ADJUSTED) ? "snips some of" : "neatens"] the wiring in \the [src].")
 		playsound(user.loc, 'sound/items/Wirecutter.ogg', 100, 1)
@@ -193,15 +192,15 @@
 		if(M.material)
 			if(is_reinforced)
 				to_chat(user, SPAN_WARNING("There is already a material reinforcement installed in \the [src]."))
-				return
+				return TRUE
 			if(M.get_amount() < 10)
 				to_chat(user, SPAN_WARNING("You need at least ten sheets to reinforce \the [src]."))
-				return
+				return TRUE
 
-			visible_message("\The [user] begins layering the interior of the \the [src] with \the [M].")
+			visible_message("\The [user] begins layering the interior of \the [src] with \the [M].")
 
-			if(!do_after(user, 30 * user.skill_delay_mult(SKILL_DEVICES)) || is_reinforced)
-				return
+			if(!user.do_skilled(3 SECONDS, SKILL_DEVICES, src) || is_reinforced)
+				return TRUE
 
 			visible_message("\The [user] reinforces \the [src] with \the [M].")
 			playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -214,16 +213,16 @@
 	else if(IS_WRENCH(thing))
 		if(!is_reinforced)
 			to_chat(user, SPAN_WARNING("There is no metal to secure inside \the [src]."))
-			return
+			return TRUE
 		if(is_reinforced == FRAME_REINFORCED_WELDED)
 			to_chat(user, SPAN_WARNING("\The [src]'s internal reinforcment has been welded in."))
-			return
+			return TRUE
 
 		var/last_reinforced_state = is_reinforced
 		visible_message("\The [user] begins adjusting the metal reinforcement inside \the [src].")
 
 		if(!user.do_skilled(4 SECONDS, SKILL_DEVICES,src) || last_reinforced_state != is_reinforced)
-			return
+			return TRUE
 
 		visible_message("\The [user] [(is_reinforced == 2) ? "unsecures" : "secures"] the metal reinforcement inside \the [src].")
 		playsound(user.loc, 'sound/items/Ratchet.ogg', 100, 1)
@@ -233,66 +232,67 @@
 		var/obj/item/weldingtool/WT = thing
 		if(!is_reinforced)
 			to_chat(user, SPAN_WARNING("There is no metal to secure inside \the [src]."))
-			return
+			return TRUE
 		if(is_reinforced == FRAME_REINFORCED)
 			to_chat(user, SPAN_WARNING("The reinforcement inside \the [src] has not been secured."))
-			return
+			return TRUE
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
-			return
+			return TRUE
 		if(WT.weld(1, user))
 
 			var/last_reinforced_state = is_reinforced
 			visible_message("\The [user] begins welding the metal reinforcement inside \the [src].")
-			if(!do_after(user, 20 * user.skill_delay_mult(SKILL_DEVICES)) || last_reinforced_state != is_reinforced)
-				return
+			if(!user.do_skilled(2 SECONDS, SKILL_DEVICES, src) || last_reinforced_state != is_reinforced)
+				return TRUE
 
 			visible_message("\The [user] [(is_reinforced == FRAME_REINFORCED_WELDED) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].")
 			is_reinforced = (is_reinforced == FRAME_REINFORCED_WELDED) ? FRAME_REINFORCED_SECURE : FRAME_REINFORCED_WELDED
 			playsound(user.loc, 'sound/items/Welder.ogg', 50, 1)
 		else
 			to_chat(user, SPAN_WARNING("Not enough fuel!"))
-			return
+			return TRUE
 	// Installing basic components.
 	else if(istype(thing,/obj/item/mech_component/manipulators))
 		if(arms)
 			to_chat(user, SPAN_WARNING("\The [src] already has manipulators installed."))
-			return
+			return TRUE
 		if(install_component(thing, user))
 			if(arms)
 				thing.dropInto(loc)
-				return
+				return TRUE
 			arms = thing
 	else if(istype(thing,/obj/item/mech_component/propulsion))
 		if(legs)
 			to_chat(user, SPAN_WARNING("\The [src] already has a propulsion system installed."))
-			return
+			return TRUE
 		if(install_component(thing, user))
 			if(legs)
 				thing.dropInto(loc)
-				return
+				return TRUE
 			legs = thing
 	else if(istype(thing,/obj/item/mech_component/sensors))
 		if(head)
 			to_chat(user, SPAN_WARNING("\The [src] already has a sensor array installed."))
-			return
+			return TRUE
 		if(install_component(thing, user))
 			if(head)
 				thing.dropInto(loc)
-				return
+				return TRUE
 			head = thing
 	else if(istype(thing,/obj/item/mech_component/chassis))
 		if(body)
 			to_chat(user, SPAN_WARNING("\The [src] already has an outer chassis installed."))
-			return
+			return TRUE
 		if(install_component(thing, user))
 			if(body)
 				thing.dropInto(loc)
-				return
+				return TRUE
 			body = thing
 	else
 		return ..()
 	update_icon()
+	return TRUE
 
 /obj/structure/heavy_vehicle_frame/proc/install_component(var/obj/item/thing, var/mob/user)
 	var/obj/item/mech_component/MC = thing
@@ -301,7 +301,7 @@
 		return 0
 	if(user)
 		visible_message(SPAN_NOTICE("\The [user] begins installing \the [thing] into \the [src]."))
-		if(!user.canUnEquip(thing) || !do_after(user, 30 * user.skill_delay_mult(SKILL_DEVICES)) || user.get_active_hand() != thing)
+		if(!user.canUnEquip(thing) || !user.do_skilled(3 SECONDS, SKILL_DEVICES, src) || user.get_active_held_item() != thing)
 			return
 		if(!user.try_unequip(thing))
 			return
@@ -313,7 +313,7 @@
 /obj/structure/heavy_vehicle_frame/proc/uninstall_component(var/obj/item/component, var/mob/user)
 	if(!istype(component) || (component.loc != src) || !istype(user))
 		return FALSE
-	if(!do_after(user, 40 * user.skill_delay_mult(SKILL_DEVICES)) || component.loc != src)
+	if(!user.do_skilled(4 SECONDS, SKILL_DEVICES, src) || component.loc != src)
 		return FALSE
 	user.visible_message(SPAN_NOTICE("\The [user] crowbars \the [component] off \the [src]."))
 	component.forceMove(get_turf(src))

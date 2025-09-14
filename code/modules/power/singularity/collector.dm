@@ -80,11 +80,11 @@ var/global/list/rad_collectors = list()
 		return FALSE
 	. = TRUE
 	if((stat & BROKEN) || melted)
-		to_chat(user, "<span class='warning'>The [src] is completely destroyed!</span>")
+		to_chat(user, "<span class='warning'>\The [src] is completely destroyed!</span>")
 	if(!src.locked)
 		toggle_power()
-		user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
-		"You turn the [src.name] [active? "on":"off"].")
+		user.visible_message("[user.name] turns \the [src] [active? "on":"off"].", \
+		"You turn \the [src] [active? "on":"off"].")
 		investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [user.key]. [loaded_tank?"Fuel: [round(loaded_tank.air_contents.gas[/decl/material/gas/hydrogen]/0.29)]%":"<font color='red'>It is empty</font>"].","singulo")
 	else
 		to_chat(user, "<span class='warning'>The controls are locked!</span>")
@@ -92,34 +92,34 @@ var/global/list/rad_collectors = list()
 /obj/machinery/rad_collector/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/tank/hydrogen))
 		if(!src.anchored)
-			to_chat(user, "<span class='warning'>The [src] needs to be secured to the floor first.</span>")
-			return 1
+			to_chat(user, "<span class='warning'>\The [src] needs to be secured to the floor first.</span>")
+			return TRUE
 		if(src.loaded_tank)
 			to_chat(user, "<span class='warning'>There's already a tank loaded.</span>")
-			return 1
+			return TRUE
 		if(!user.try_unequip(W, src))
-			return
+			return TRUE
 		src.loaded_tank = W
 		update_icon()
-		return 1
+		return TRUE
 	else if(IS_CROWBAR(W))
 		if(loaded_tank && !src.locked)
 			eject()
-			return 1
+			return TRUE
 	else if(IS_WRENCH(W))
 		if(loaded_tank)
 			to_chat(user, "<span class='notice'>Remove the tank first.</span>")
-			return 1
+			return TRUE
 		for(var/obj/machinery/rad_collector/R in get_turf(src))
 			if(R != src)
 				to_chat(user, "<span class='warning'>You cannot install more than one collector on the same spot.</span>")
-				return 1
+				return TRUE
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		src.anchored = !src.anchored
-		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
+		user.visible_message("[user.name] [anchored? "secures":"unsecures"] \the [src].", \
 			"You [anchored? "secure":"undo"] the external bolts.", \
 			"You hear a ratchet.")
-		return 1
+		return TRUE
 	else if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
 		if (src.allowed(user))
 			if(active)
@@ -130,7 +130,7 @@ var/global/list/rad_collectors = list()
 				to_chat(user, SPAN_WARNING("The controls can only be locked when \the [src] is active."))
 		else
 			to_chat(user, "<span class='warning'>Access denied!</span>")
-		return 1
+		return TRUE
 	return ..()
 
 /obj/machinery/rad_collector/examine(mob/user, distance)

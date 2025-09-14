@@ -1,21 +1,30 @@
-var/global/datum/map/using_map = new USING_MAP_DATUM
-var/global/list/all_maps = list()
+var/global/datum/map/using_map  = new USING_MAP_DATUM
+var/global/list/all_maps        = list()
+var/global/list/votable_maps    = list()
 
 var/global/const/MAP_HAS_BRANCH = 1	//Branch system for occupations, togglable
-var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
+var/global/const/MAP_HAS_RANK   = 2		//Rank system, also togglable
 
 /hook/startup/proc/initialise_map_list()
-	for(var/type in subtypesof(/datum/map))
-		var/datum/map/M
-		if(type == global.using_map.type)
-			M = global.using_map
-			M.setup_map()
+	for(var/map_type in subtypesof(/datum/map))
+
+		var/datum/map/map_instance = map_type
+		if(TYPE_IS_ABSTRACT(map_instance))
+			continue
+
+		if(map_type == global.using_map.type)
+			map_instance = global.using_map
+			map_instance.setup_map()
+		else if(map_instance::path)
+			map_instance = new map_instance
 		else
-			M = new type
-		if(!M.path)
-			log_error("Map '[M]' ([type]) does not have a defined path, not adding to map list!")
-		else
-			global.all_maps[M.path] = M
+			log_error("Map '[map_type]' does not have a defined path, not adding to map list!")
+			continue
+
+		global.all_maps[map_instance.path] = map_instance
+		if(map_instance.votable)
+			global.votable_maps[map_instance.path] = map_instance
+
 	return 1
 
 /datum/map
@@ -53,6 +62,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	 */
 	var/list/map_admin_faxes
 
+	var/map_tech_level = MAP_TECH_LEVEL_SPACE
 
 	var/shuttle_docked_message
 	var/shuttle_leaving_dock
@@ -80,7 +90,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/evac_controller_type = /datum/evacuation_controller
 	var/list/overmap_ids // Assoc list of overmap ID to overmap type, leave empty to disable overmap.
 
-	var/pray_reward_type = /obj/item/chems/food/cookie // What reward should be given by admin when a prayer is received?
+	var/pray_reward_type = /obj/item/food/cookie // What reward should be given by admin when a prayer is received?
 
 	// The list of lobby screen images to pick() from.
 	var/list/lobby_screens = list('icons/default_lobby.png')
@@ -126,18 +136,21 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 	var/default_species = SPECIES_HUMAN
 
-	var/list/available_cultural_info = list(
-		TAG_HOMEWORLD = list(/decl/cultural_info/location/other),
-		TAG_FACTION =   list(/decl/cultural_info/faction/other),
-		TAG_CULTURE =   list(/decl/cultural_info/culture/other),
-		TAG_RELIGION =  list(/decl/cultural_info/religion/other)
+	// Can this map be voted for by players?
+	var/votable = TRUE
+
+	var/list/available_background_info = list(
+		/decl/background_category/homeworld = list(/decl/background_detail/location/other),
+		/decl/background_category/faction =   list(/decl/background_detail/faction/other),
+		/decl/background_category/heritage =   list(/decl/background_detail/heritage/other),
+		/decl/background_category/religion =  list(/decl/background_detail/religion/other)
 	)
 
-	var/list/default_cultural_info = list(
-		TAG_HOMEWORLD = /decl/cultural_info/location/other,
-		TAG_FACTION =   /decl/cultural_info/faction/other,
-		TAG_CULTURE =   /decl/cultural_info/culture/other,
-		TAG_RELIGION =  /decl/cultural_info/religion/other
+	var/list/default_background_info = list(
+		/decl/background_category/homeworld = /decl/background_detail/location/other,
+		/decl/background_category/faction =   /decl/background_detail/faction/other,
+		/decl/background_category/heritage =   /decl/background_detail/heritage/other,
+		/decl/background_category/religion =  /decl/background_detail/religion/other
 	)
 
 	var/access_modify_region = list(
@@ -154,6 +167,53 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	/// A list of /decl/loadout_category types which will be available for characters made on this map. Uses all categories if null.
 	var/list/decl/loadout_category/loadout_categories
 
+	/// A list of survival box types selectable for this map. If null, defaults to all defined decls. At runtime, this is an associative list of decl type -> decl.
+	var/list/decl/survival_box_option/survival_box_choices
+
+	// A list of cash spawn options, similar to above.
+	var/list/decl/starting_cash_choice/starting_cash_choices
+
+	/// A reagent used to prefill lanterns.
+	var/default_liquid_fuel_type = /decl/material/liquid/fuel
+
+	/// Decl list of backpacks available to outfits and in character generation.
+	var/list/_available_backpacks
+	var/backpacks_setup = FALSE
+
+	var/list/char_preview_bgstate_options = list(
+		"000",
+		"midgrey",
+		"FFF",
+		"white",
+		"steel",
+		"techmaint",
+		"dark",
+		"plating",
+		"reinforced"
+	)
+	var/background_categories_generated = FALSE
+	var/list/_background_categories
+
+/datum/map/proc/get_background_categories()
+	if(!background_categories_generated)
+		if(isnull(_background_categories))
+			_background_categories = decls_repository.get_decls_of_type(/decl/background_category)
+		else
+			for(var/cat_type in _background_categories)
+				_background_categories[cat_type] = GET_DECL(cat_type)
+		background_categories_generated = TRUE
+	return _background_categories
+
+/datum/map/proc/get_random_location()
+	var/list/options = list()
+	for(var/cat_type in available_background_info)
+		var/decl/background_category/background_cat = GET_DECL(cat_type)
+		if(istype(background_cat) && (background_cat.background_flags & BACKGROUND_FLAG_LOCATION))
+			options |= available_background_info[cat_type]
+	if(length(options))
+		return GET_DECL(pick(options))
+	return GET_DECL(/decl/background_detail/location/other)
+
 /datum/map/proc/get_lobby_track(var/exclude)
 	var/lobby_track_type
 	if(LAZYLEN(lobby_tracks) == 1)
@@ -163,6 +223,17 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	else
 		lobby_track_type = pick(decls_repository.get_decl_paths_of_subtype(/decl/music_track) - exclude)
 	return GET_DECL(lobby_track_type)
+
+/datum/map/proc/get_available_backpacks()
+	if(!backpacks_setup)
+		backpacks_setup = TRUE
+		if(length(_available_backpacks))
+			for(var/backpack_type in _available_backpacks)
+				_available_backpacks[backpack_type] = GET_DECL(backpack_type)
+			_available_backpacks[/decl/backpack_outfit/nothing] = GET_DECL(/decl/backpack_outfit/nothing)
+		else
+			_available_backpacks = decls_repository.get_decls_of_subtype(/decl/backpack_outfit)
+	return _available_backpacks
 
 /datum/map/proc/setup_map()
 
@@ -174,6 +245,16 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	for(var/loadout_category in loadout_categories)
 		loadout_categories -= loadout_category
 		loadout_categories += GET_DECL(loadout_category)
+
+	if(isnull(survival_box_choices)) // an empty list is a valid option here, a null one is not
+		survival_box_choices = decls_repository.get_decls_of_subtype(/decl/survival_box_option)
+	else if(length(survival_box_choices))
+		survival_box_choices = decls_repository.get_decls(survival_box_choices)
+
+	if(isnull(starting_cash_choices))
+		starting_cash_choices = decls_repository.get_decls_of_subtype(/decl/starting_cash_choice)
+	else if(length(starting_cash_choices))
+		starting_cash_choices = decls_repository.get_decls(starting_cash_choices)
 
 	if(secrets_directory)
 		secrets_directory = trim(lowertext(secrets_directory))
@@ -226,7 +307,23 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	LAZYSET(map_admin_faxes, uppertext(replacetext("[system_name]_POLICE.GOV", " ", "_")), list("name" = "[system_name] Police",  "color" = "#1f66a0", "access" = list(access_heads)))
 
 /datum/map/proc/setup_job_lists()
-	return
+
+	// Populate blacklists for any default-blacklisted species.
+	for(var/decl/species/species as anything in decls_repository.get_decls_of_subtype_unassociated(/decl/species))
+		if(!species.job_blacklist_by_default)
+			continue
+		var/found_whitelisted_job = FALSE
+		for(var/datum/job/job as anything in SSjobs.primary_job_datums)
+			if((species.type in job_to_species_whitelist[job.type]) || (job.type in species_to_job_whitelist[species.type]))
+				found_whitelisted_job = TRUE
+			else
+				LAZYDISTINCTADD(species_to_job_blacklist[species.type], job.type)
+				LAZYDISTINCTADD(job_to_species_blacklist[job.type], species.type)
+
+		// If no jobs are available for the main map, mark the species as unavailable to avoid player confusion.
+		if(!found_whitelisted_job && src == global.using_map)
+			species.spawn_flags &= ~SPECIES_CAN_JOIN
+			species.spawn_flags |=  SPECIES_IS_RESTRICTED
 
 /datum/map/proc/send_welcome()
 	return
@@ -315,10 +412,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		log_unit_test("Loaded template '[PT]' ([PT.type]) at Z-level [world.maxz] with a tallness of [PT.tallness]")
 #endif
 
-/datum/map/proc/get_network_access(var/network)
-	return 0
-
-// By default transition randomly to another zlevel
+// By default return a random accessible z-level, or the current level if one is unavailable
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
 	var/list/candidates = SSmapping.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
@@ -430,7 +524,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		else
 			to_chat(player, SPAN_BAD("<b>You did not survive the events on [station_name()]...</b>"))
 
-/datum/map/proc/create_passport(var/mob/living/carbon/human/H)
+/datum/map/proc/create_passport(var/mob/living/human/H)
 	if(!passport_type)
 		return
 	var/obj/item/passport/pass = new passport_type(get_turf(H))
@@ -442,3 +536,24 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 /datum/map/proc/populate_overmap_events()
 	for(var/overmap_id in global.overmaps_by_name)
 		SSmapping.overmap_event_handler.create_events(global.overmaps_by_name[overmap_id])
+
+/datum/map/proc/finalize_map_generation()
+	return
+
+/datum/map/proc/validate()
+	. = TRUE
+	if(!length(SSmapping.player_levels))
+		log_error("[name] has no player levels!")
+		. = FALSE
+	if(!length(SSmapping.station_levels))
+		log_error("[name] has no station levels!")
+		. = FALSE
+	// TODO: add an admin level loaded from template for maps like tradeship (generic admin level modpack?)
+	/*
+	if(!length(SSmapping.admin_levels))
+		log_error("[name] has no admin levels!")
+		. = FALSE
+	*/
+	if(!length(SSmapping.contact_levels))
+		log_error("[name] has no contact levels!")
+		. = FALSE

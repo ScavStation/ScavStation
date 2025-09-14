@@ -51,18 +51,6 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/gun/projectile/automatic/smg,
 		/obj/item/gun/projectile/automatic/assault_rifle)
 
-/datum/supply_drop_loot/ballistics
-	name = "Ballistics"
-	container = /obj/structure/largecrate
-/datum/supply_drop_loot/ballistics/New()
-	..()
-	contents = list(
-		/obj/item/gun/projectile/pistol,
-		/obj/item/gun/projectile/shotgun/doublebarrel,
-		/obj/item/gun/projectile/shotgun/pump,
-		/obj/item/gun/projectile/automatic/smg,
-		/obj/item/gun/projectile/automatic/assault_rifle)
-
 /datum/supply_drop_loot/seeds
 	name = "Seeds"
 	container = /obj/structure/closet/crate
@@ -92,16 +80,18 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/food/New()
 	..()
 	contents = list(
+		/obj/item/chems/condiment/yeast,
 		/obj/item/chems/condiment/flour,
 		/obj/item/chems/condiment/flour,
 		/obj/item/chems/condiment/flour,
 		/obj/item/chems/drinks/milk,
 		/obj/item/chems/drinks/milk,
-		/obj/item/storage/box/fancy/egg_box,
-		/obj/item/chems/food/tofu,
-		/obj/item/chems/food/tofu,
-		/obj/item/chems/food/meat,
-		/obj/item/chems/food/meat)
+		/obj/item/food/dairy/butter/stick,
+		/obj/item/box/fancy/egg_box,
+		/obj/item/food/tofu,
+		/obj/item/food/tofu,
+		/obj/item/food/butchery/meat,
+		/obj/item/food/butchery/meat)
 
 /datum/supply_drop_loot/armour
 	name = "Armour"
@@ -144,22 +134,22 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /datum/supply_drop_loot/medical/New()
 	..()
 	contents = list(
-		/obj/item/storage/firstaid/regular,
-		/obj/item/storage/firstaid/trauma,
-		/obj/item/storage/firstaid/fire,
-		/obj/item/storage/firstaid/toxin,
-		/obj/item/storage/firstaid/o2,
-		/obj/item/storage/firstaid/adv,
+		/obj/item/firstaid/regular,
+		/obj/item/firstaid/trauma,
+		/obj/item/firstaid/fire,
+		/obj/item/firstaid/toxin,
+		/obj/item/firstaid/o2,
+		/obj/item/firstaid/adv,
 		/obj/item/chems/glass/bottle/antitoxin,
 		/obj/item/chems/glass/bottle/stabilizer,
 		/obj/item/chems/glass/bottle/sedatives,
-		/obj/item/storage/box/syringes,
-		/obj/item/storage/box/autoinjectors)
+		/obj/item/box/syringes,
+		/obj/item/box/autoinjectors)
 
-/datum/supply_drop_loot/power
-	name = "Power"
+/datum/supply_drop_loot/materials
+	name = "Materials"
 	container = /obj/structure/largecrate
-/datum/supply_drop_loot/power/New()
+/datum/supply_drop_loot/materials/New()
 	..()
 	contents = list(
 		/obj/item/stack/material/sheet/mapped/steel,

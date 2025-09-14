@@ -19,6 +19,10 @@
 	. = ..()
 	update_top_paper()
 
+/obj/item/sticky_pad/Destroy()
+	top = null
+	return ..()
+
 /obj/item/sticky_pad/proc/update_matter()
 	matter = list(
 		/decl/material/solid/organic/paper = round((papers * SHEET_MATERIAL_AMOUNT) * 0.2)
@@ -80,7 +84,7 @@
 
 /obj/item/sticky_pad/random/Initialize()
 	. = ..()
-	color = pick(COLOR_YELLOW, COLOR_LIME, COLOR_CYAN, COLOR_ORANGE, COLOR_PINK)
+	set_color(pick(COLOR_YELLOW, COLOR_LIME, COLOR_CYAN, COLOR_ORANGE, COLOR_PINK))
 
 ////////////////////////////////////////////////
 // Sticky Note Sheet
@@ -88,7 +92,7 @@
 /obj/item/paper/sticky
 	name            = "sticky note"
 	desc            = "Note to self: buy more sticky notes."
-	icon            = 'icons/obj/stickynotes.dmi'
+	icon            = 'icons/obj/items/paperwork/sticky_note.dmi'
 	color           = COLOR_YELLOW
 	slot_flags      = 0
 	layer           = ABOVE_WINDOW_LAYER
@@ -109,10 +113,6 @@
 	events_repository.unregister(/decl/observ/moved, src, src)
 	. = ..()
 
-/obj/item/paper/sticky/update_contents_overlays()
-	if(length(info))
-		add_overlay("sticky_words")
-
 // Copied from duct tape.
 /obj/item/paper/sticky/attack_hand()
 	. = ..()
@@ -122,9 +122,9 @@
 /obj/item/paper/sticky/can_bundle()
 	return FALSE // Would otherwise lead to buggy interaction
 
-/obj/item/paper/sticky/afterattack(var/A, var/mob/user, var/flag, var/params)
+/obj/item/paper/sticky/afterattack(var/atom/A, var/mob/user, var/flag, var/params)
 
-	if(!in_range(user, A) || istype(A, /obj/machinery/door) || istype(A, /obj/item/storage) || is_crumpled)
+	if(!in_range(user, A) || istype(A, /obj/machinery/door) || A.storage || is_crumpled)
 		return
 
 	var/turf/target_turf = get_turf(A)

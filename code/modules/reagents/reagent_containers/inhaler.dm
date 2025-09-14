@@ -40,13 +40,10 @@
 	if(reagents?.total_volume > 0)
 		add_overlay("[icon_state]_reagents")
 
-/obj/item/chems/inhaler/attack(var/mob/living/carbon/human/target, var/mob/user, var/proximity)
+/obj/item/chems/inhaler/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
-	if (!istype(target))
+	if (!ishuman(target))
 		return ..()
-
-	if(!proximity)
-		return TRUE
 
 	if(ATOM_IS_OPEN_CONTAINER(src))
 		to_chat(user, SPAN_NOTICE("You must secure the reagents inside \the [src] before using it!"))
@@ -63,14 +60,23 @@
 	user.do_attack_animation(target)
 
 	if(user == target)
-		user.visible_message(SPAN_NOTICE("\The [user] inhales from \the [src]."), SPAN_NOTICE("You stick the \the [src] in your mouth and press the injection button."))
+		user.visible_message(
+			SPAN_NOTICE("\The [user] inhales from \the [src]."),
+			SPAN_NOTICE("You stick \the [src] in your mouth and press the injection button.")
+		)
 	else
-		user.visible_message(SPAN_WARNING("\The [user] attempts to administer \the [src] to \the [target]..."), SPAN_NOTICE("You attempt to administer \the [src] to \the [target]..."))
+		user.visible_message(
+			SPAN_WARNING("\The [user] attempts to administer \the [src] to \the [target]..."),
+			SPAN_NOTICE("You attempt to administer \the [src] to \the [target]...")
+		)
 		if (!do_after(user, 1 SECONDS, target))
 			to_chat(user, SPAN_NOTICE("You and the target need to be standing still in order to inject \the [src]."))
 			return TRUE
 
-		user.visible_message(SPAN_NOTICE("\The [user] administers \the [src] to \the [target]."), SPAN_NOTICE("You stick \the [src] in \the [target]'s mouth and press the injection button."))
+		user.visible_message(
+			SPAN_NOTICE("\The [user] administers \the [src] to \the [target]."),
+			SPAN_NOTICE("You stick \the [src] in \the [target]'s mouth and press the injection button.")
+		)
 
 	var/contained = REAGENT_LIST(src)
 	var/trans = reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_INHALE)
@@ -81,7 +87,6 @@
 		used = TRUE
 
 	update_icon()
-
 	return TRUE
 
 /obj/item/chems/inhaler/attack_self(mob/user)

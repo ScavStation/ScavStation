@@ -31,6 +31,8 @@
 	w_class = ITEM_SIZE_NORMAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
+	replaced_in_loadout = LOADOUT_CONFLICT_STORAGE
+	accessory_slot = null // cannot be equipped on top of helmets
 	var/up = 0
 	var/base_state
 
@@ -51,14 +53,14 @@
 			flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
-			to_chat(usr, "You flip the [src] down to protect your eyes.")
+			to_chat(usr, "You flip \the [src] down to protect your eyes.")
 		else
 			src.up = !src.up
 			body_parts_covered &= ~(SLOT_EYES|SLOT_FACE)
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
 			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			to_chat(usr, "You push the [src] up out of your face.")
+			to_chat(usr, "You push \the [src] up out of your face.")
 		update_icon()
 		update_wearer_vision()
 		usr.update_action_buttons()
@@ -143,6 +145,35 @@
 	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
 	brightness_on = 2
 	w_class = ITEM_SIZE_NORMAL
+	material = /decl/material/solid/organic/plantmatter
+	valid_accessory_slots = list(ACCESSORY_SLOT_OVER_HELMET)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_OVER_HELMET)
+	accessory_slot = null // cannot be equipped on top of helmets
+	var/plant_type = "pumpkin"
+
+// Duplicated from growns for now. TODO: move sliceability down to other objects like clay.
+/obj/item/clothing/head/pumpkinhead/attackby(obj/item/W, mob/user)
+	if(IS_KNIFE(W) && user.a_intent != I_HURT)
+		var/datum/seed/plant = SSplants.seeds[plant_type]
+		if(!plant)
+			return ..()
+		var/slice_amount = plant.slice_amount
+		if(W.w_class > ITEM_SIZE_NORMAL || !user.skill_check(SKILL_COOKING, SKILL_BASIC))
+			user.visible_message(
+				SPAN_NOTICE("\The [user] crudely slices \the [src] with \the [W]!"),
+				SPAN_NOTICE("You crudely slice \the [src] with your [W.name]!")
+			)
+			slice_amount = rand(1, max(1, round(slice_amount*0.5)))
+		else
+			user.visible_message(
+				SPAN_NOTICE("\The [user] slices \the [src]!"),
+				SPAN_NOTICE("You slice \the [src]!")
+			)
+		for(var/i = 1 to slice_amount)
+			new /obj/item/food/processed_grown/chopped(loc, null, TRUE, plant)
+		qdel(src)
+		return TRUE
+	return ..()
 
 /*
  * Kitty ears
@@ -198,7 +229,7 @@
 	if(overlay && check_state_in_icon("[overlay.icon_state]-flame", overlay.icon))
 		return emissive_overlay(overlay.icon, "[overlay.icon_state]-flame")
 
-/obj/item/clothing/head/cakehat/adjust_mob_overlay(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
+/obj/item/clothing/head/cakehat/apply_additional_mob_overlays(mob/living/user_mob, bodytype, image/overlay, slot, bodypart, use_fallback_if_icon_missing = TRUE)
 	if(overlay && is_on_fire)
 		var/image/I = get_mob_flame_overlay(overlay, bodytype)
 		if(I)
@@ -227,10 +258,10 @@
 		is_on_fire = !is_on_fire
 		update_icon()
 		if(is_on_fire)
-			damtype = BURN
+			atom_damage_type = BURN
 			START_PROCESSING(SSobj, src)
 		else
-			force = null
-			damtype = BRUTE
+			set_base_attack_force(0)
+			atom_damage_type = BRUTE
 			STOP_PROCESSING(SSobj, src)
 		return TRUE

@@ -3,20 +3,19 @@
 #define DIONA_SCREEN_LOC_INTENT "RIGHT-2,BOTTOM:5"
 #define DIONA_SCREEN_LOC_HEALTH ui_alien_health
 
-/mob/living/carbon/alien/diona
+/mob/living/simple_animal/alien/diona
 	name = "diona nymph"
 	desc = "It's a little skittery critter. Chirp."
 	icon = 'mods/mobs/dionaea/icons/nymph.dmi'
 	icon_state = ICON_STATE_WORLD
-	death_msg = "expires with a pitiful chirrup..."
+	death_message = "expires with a pitiful chirrup..."
 	max_health = 60
 	available_maneuvers = list(/decl/maneuver/leap)
 	status_flags = NO_ANTAG
+	glowing_eyes = TRUE
 
-	language = /decl/language/diona
 	species_language = /decl/language/diona
 	only_species_language = 1
-	voice_name = "diona nymph"
 	speak_emote = list("chirrups")
 	universal_understand = FALSE
 	universal_speak = FALSE
@@ -27,25 +26,28 @@
 	holder_type = /obj/item/holder/diona
 	possession_candidate = 1
 	atom_flags = ATOM_FLAG_NO_CHEM_CHANGE
-	hud_type = /datum/hud/diona_nymph
+	hud_used = /datum/hud/diona_nymph
 
-	ai = /datum/ai/nymph
+	ai = /datum/mob_controller/nymph
 
 	z_flags = ZMM_MANGLE_PLANES
 
 	var/tmp/flower_color
 	var/tmp/last_glow
 
-/mob/living/carbon/alien/diona/get_jump_distance()
+/mob/living/simple_animal/alien/diona/get_jump_distance()
 	return 3
 
-/mob/living/carbon/alien/diona/sterile
+/mob/living/simple_animal/alien/diona/setup_languages()
+	add_language(/decl/language/diona)
+
+/mob/living/simple_animal/alien/diona/sterile
 	name = "sterile nymph"
 
-/mob/living/carbon/alien/diona/sterile/Initialize(var/mapload)
+/mob/living/simple_animal/alien/diona/sterile/Initialize(var/mapload)
 	. = ..(mapload, 0)
 
-/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 15)
+/mob/living/simple_animal/alien/diona/Initialize(var/mapload, var/flower_chance = 15)
 
 	set_extension(src, /datum/extension/base_icon_state, icon_state)
 	add_language(/decl/language/diona)
@@ -58,16 +60,27 @@
 
 	. = ..(mapload)
 
-/mob/living/carbon/alien/diona/get_dexterity(var/silent)
+/mob/living/simple_animal/alien/diona/get_dexterity(var/silent)
 	return (DEXTERITY_EQUIP_ITEM|DEXTERITY_HOLD_ITEM)
 
-/mob/living/carbon/alien/diona/get_bodytype()
+/mob/living/simple_animal/alien/diona/get_bodytype()
 	return GET_DECL(/decl/bodytype/diona)
+
+/mob/living/simple_animal/alien/diona/handle_mutations_and_radiation()
+	..()
+	if(radiation)
+		var/rads = radiation/25
+		radiation -= rads
+		adjust_nutrition(rads)
+		heal_overall_damage(rads,rads)
+		heal_damage(OXY, rads, do_update_health = FALSE)
+		heal_damage(TOX, rads)
 
 /decl/bodytype/diona
 	name = "nymph"
 	bodytype_flag = 0
 	bodytype_category = "diona nymph body"
+	uid = "bodytype_diona"
 
 /decl/bodytype/diona/Initialize()
 	equip_adjust = list(

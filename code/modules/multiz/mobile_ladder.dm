@@ -7,7 +7,7 @@
 	matter = list(/decl/material/solid/organic/plastic = MATTER_AMOUNT_SECONDARY)
 	icon_state = ICON_STATE_WORLD
 	throw_range = 3
-	force = 10
+	_base_attack_force = 10
 	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK
 
@@ -131,6 +131,6 @@
 	name = "Fold Ladder"
 	expected_target_type = /obj/structure/ladder/mobile
 
-/decl/interaction_handler/ladder_fold/invoked(var/atom/target, var/mob/user)
+/decl/interaction_handler/ladder_fold/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/structure/ladder/mobile/L
 	L.fold(user)

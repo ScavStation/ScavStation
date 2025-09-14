@@ -11,19 +11,19 @@
 	hard_cap_round = 3
 	min_player_age = 18
 	faction = "paramount"
-	default_outfit = /decl/hierarchy/outfit/paramount
+	default_outfit = /decl/outfit/paramount
 
-/decl/hierarchy/outfit/paramount
+/decl/outfit/paramount
 	name =    "Special Role - Paramount Grandmaster"
 	head =    /obj/item/clothing/head/helmet/space/psi_amp
-	uniform = /obj/item/clothing/under/psysuit
+	uniform = /obj/item/clothing/costume/psysuit
 	suit =    /obj/item/clothing/suit/wizrobe/psypurple
 	shoes =   /obj/item/clothing/shoes/jackboots
-	back =    /obj/item/storage/backpack/satchel
-	gloves =  /obj/item/clothing/gloves/color/grey
+	back =    /obj/item/backpack/satchel
+	gloves =  /obj/item/clothing/gloves/grey
 	id_type = /obj/item/card/id/syndicate
 
-/decl/special_role/paramount/equip_role(var/mob/living/carbon/human/player)
+/decl/special_role/paramount/equip_role(var/mob/living/human/player)
 	. = ..()
 	if(.)
 		player.set_psi_rank(PSI_REDACTION, 3,     defer_update = TRUE)

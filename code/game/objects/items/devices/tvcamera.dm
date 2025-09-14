@@ -19,7 +19,6 @@
 	var/obj/item/radio/radio
 
 /obj/item/camera/tvcamera/Destroy()
-	global.listening_objects -= src
 	QDEL_NULL(radio)
 	. = ..()
 
@@ -41,13 +40,13 @@
 	add_fingerprint(user)
 	user.set_machine(src)
 	var/dat = list()
-	dat += "Photography mode is currently: <a href='?src=\ref[src];photo=1'>[turned_on ? "On" : "Off"]</a><br>"
-	dat += "Photography focus is currently: <a href='?src=\ref[src];focus=1'>[field_of_view]</a><br>"
-	dat += "Channel name is: <a href='?src=\ref[src];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
-	dat += "Video streaming is: <a href='?src=\ref[src];video=1'>[video_enabled ? "Online" : "Offline"]</a><br>"
-	dat += "Microphone is: <a href='?src=\ref[src];sound=1'>[radio.broadcasting ? "Online" : "Offline"]</a><br>"
+	dat += "Photography mode is currently: <a href='byond://?src=\ref[src];photo=1'>[turned_on ? "On" : "Off"]</a><br>"
+	dat += "Photography focus is currently: <a href='byond://?src=\ref[src];focus=1'>[field_of_view]</a><br>"
+	dat += "Channel name is: <a href='byond://?src=\ref[src];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
+	dat += "Video streaming is: <a href='byond://?src=\ref[src];video=1'>[video_enabled ? "Online" : "Offline"]</a><br>"
+	dat += "Microphone is: <a href='byond://?src=\ref[src];sound=1'>[radio.broadcasting ? "Online" : "Offline"]</a><br>"
 	dat += "Sound is being broadcasted on frequency: [format_frequency(radio.frequency)]<br>"
-	dat += "<a href='?src=\ref[src];net_options=1'>Network Options</a>"
+	dat += "<a href='byond://?src=\ref[src];net_options=1'>Network Options</a>"
 	var/datum/browser/written_digital/popup = new(user, "Press Camera Drone", "EyeBuddy", 300, 390, src)
 	popup.set_content(jointext(dat,null))
 	popup.open()
@@ -98,20 +97,20 @@
 
 /* Assembly by a roboticist */
 /obj/item/robot_parts/head/attackby(var/obj/item/assembly/S, mob/user)
-	if ((!istype(S, /obj/item/assembly/infra)))
-		..()
-		return
+	if (!istype(S, /obj/item/assembly/infra))
+		return ..()
 	var/obj/item/TVAssembly/A = new(user)
 	qdel(S)
 	user.put_in_hands(A)
 	to_chat(user, "<span class='notice'>You add the infrared sensor to the robot head.</span>")
 	qdel(src)
+	return TRUE
 
 /* Using camcorder icon as I can't sprite.
 Using robohead because of restricting to roboticist */
 /obj/item/TVAssembly
 	name = "TV Camera assembly"
-	desc = "A robotic head with an infrared sensor inside"
+	desc = "A robotic head with an infrared sensor inside."
 	icon = 'icons/obj/robot_parts.dmi'
 	icon_state = "head"
 	item_state = "head"
@@ -119,6 +118,7 @@ Using robohead because of restricting to roboticist */
 	w_class = ITEM_SIZE_LARGE
 	material = /decl/material/solid/metal/steel
 
+// TODO: refactor this to use slapcrafting? remove entirely?
 /obj/item/TVAssembly/attackby(var/obj/item/W, var/mob/user)
 	switch(buildstep)
 		if(0)
@@ -127,30 +127,30 @@ Using robohead because of restricting to roboticist */
 				qdel(W)
 				desc = "This TV camera assembly has a camera module."
 				buildstep++
+				return TRUE
 		if(1)
 			if(istype(W, /obj/item/taperecorder))
 				qdel(W)
 				buildstep++
 				to_chat(user, "<span class='notice'>You add the tape recorder to [src]</span>")
 				desc = "This TV camera assembly has a camera and audio module."
-				return
+				return TRUE
 		if(2)
 			if(IS_COIL(W))
 				var/obj/item/stack/cable_coil/C = W
 				if(!C.use(3))
 					to_chat(user, "<span class='notice'>You need three cable coils to wire the devices.</span>")
-					..()
-					return
+					return TRUE
 				buildstep++
 				to_chat(user, SPAN_NOTICE("You wire the assembly."))
 				desc = "This TV camera assembly has wires sticking out."
-				return
+				return TRUE
 		if(3)
 			if(IS_WIRECUTTER(W))
 				to_chat(user, "<span class='notice'> You trim the wires.</span>")
 				buildstep++
 				desc = "This TV camera assembly needs casing."
-				return
+				return TRUE
 		if(4)
 			if(istype(W, /obj/item/stack/material))
 				var/obj/item/stack/material/S = W
@@ -160,8 +160,8 @@ Using robohead because of restricting to roboticist */
 					var/turf/T = get_turf(src)
 					new /obj/item/camera/tvcamera(T)
 					qdel(src)
-					return
-	..()
+					return TRUE
+	return ..()
 
 /datum/extension/network_device/camera/television
 	expected_type = /obj/item/camera/tvcamera

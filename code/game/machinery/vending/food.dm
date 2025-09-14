@@ -4,26 +4,24 @@
 	desc = "A snack machine courtesy of the Getmore Chocolate Corporation, based out of Mars."
 	product_slogans = "Try our new nougat bar!;Twice the calories for half the price!"
 	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!"
-	icon_state = "snack"
-	icon_vend = "snack-vend"
-	icon_deny = "snack-deny"
+	icon = 'icons/obj/machines/vending/snacks.dmi'
 	vend_delay = 25
 	base_type = /obj/machinery/vending/snack
 	products = list(
 		/obj/item/clothing/mask/chewable/candy/lolli = 8,
-		/obj/item/storage/chewables/candy/gum = 4,
-		/obj/item/storage/chewables/candy/cookies = 4,
-		/obj/item/chems/food/candy = 6,
+		/obj/item/chewables/candy/gum = 4,
+		/obj/item/chewables/candy/cookies = 4,
+		/obj/item/food/junk/candy = 6,
 		/obj/item/chems/drinks/dry_ramen = 6,
-		/obj/item/chems/food/chips = 6,
-		/obj/item/chems/food/sosjerky = 6,
-		/obj/item/chems/food/no_raisin = 6,
-		/obj/item/chems/food/spacetwinkie = 6,
-		/obj/item/chems/food/cheesiehonkers = 6,
-		/obj/item/chems/food/tastybread = 6
+		/obj/item/food/junk/chips = 6,
+		/obj/item/food/junk/sosjerky = 6,
+		/obj/item/food/junk/no_raisin = 6,
+		/obj/item/food/junk/spacetwinkie = 6,
+		/obj/item/food/junk/cheesiehonkers = 6,
+		/obj/item/food/junk/tastybread = 6
 	)
 	contraband = list(
-		/obj/item/chems/food/syndicake = 6
+		/obj/item/food/junk/syndicake = 6
 	)
 
 //a food variant of the boda machine - It carries slavic themed foods. Mostly beer snacks
@@ -33,20 +31,17 @@
 	vend_delay = 30
 	base_type = /obj/machinery/vending/snix
 	product_slogans = "Snix!"
-
-	icon_state = "snix"
-	icon_vend = "snix-vend"
-	icon_deny = "snix-deny"
-	products = list(/obj/item/chems/food/semki = 7,
-					/obj/item/chems/food/can/caviar = 7,
-					/obj/item/chems/food/squid = 7,
-					/obj/item/chems/food/croutons = 7,
-					/obj/item/chems/food/salo = 7,
-					/obj/item/chems/food/driedfish = 7,
-					/obj/item/chems/food/pistachios = 7,
+	icon = 'icons/obj/machines/vending/snix.dmi'
+	products = list(/obj/item/food/junk/semki = 7,
+					/obj/item/food/can/caviar = 7,
+					/obj/item/food/junk/squid = 7,
+					/obj/item/food/junk/croutons = 7,
+					/obj/item/food/junk/salo = 7,
+					/obj/item/food/junk/driedfish = 7,
+					/obj/item/food/junk/pistachios = 7,
 					)
 
-	contraband = list(/obj/item/chems/food/can/caviar/true = 1)
+	contraband = list(/obj/item/food/can/caviar/true = 1)
 
 /obj/machinery/vending/snix/on_update_icon()
 	..()
@@ -58,20 +53,18 @@
 	desc = "A SolCentric vending machine dispensing treats from home."
 	vend_delay = 30
 	product_slogans = "A taste of home!"
-	icon_state = "solsnack"
-	icon_vend = "solsnack-vend"
-	icon_deny = "solsnack-deny"
+	icon = 'icons/obj/machines/vending/solsnacks.dmi'
 	products = list(
-		/obj/item/chems/food/lunacake = 8,
-		/obj/item/chems/food/lunacake/mochicake = 8,
-		/obj/item/chems/food/lunacake/mooncake = 8,
-		/obj/item/chems/food/pluto = 8,
-		/obj/item/chems/food/triton = 8,
-		/obj/item/chems/food/saturn = 8,
-		/obj/item/chems/food/jupiter = 8,
-		/obj/item/chems/food/mars = 8,
-		/obj/item/chems/food/venus = 8,
-		/obj/item/chems/food/oort = 8
+		/obj/item/food/junk/lunacake = 8,
+		/obj/item/food/junk/lunacake/mochicake = 8,
+		/obj/item/food/junk/lunacake/mooncake = 8,
+		/obj/item/food/junk/pluto = 8,
+		/obj/item/food/junk/triton = 8,
+		/obj/item/food/junk/saturn = 8,
+		/obj/item/food/junk/jupiter = 8,
+		/obj/item/food/junk/mars = 8,
+		/obj/item/food/junk/venus = 8,
+		/obj/item/food/junk/oort = 8
 	)
 
 /obj/machinery/vending/weeb
@@ -79,15 +72,13 @@
 	desc = "A distressingly ethnic vending machine loaded with high sucrose low calorie for lack of better words snacks."
 	vend_delay = 30
 	product_slogans = "Konnichiwa gaijin senpai! ;Notice me senpai!; Kawaii-desu!"
-	icon_state = "weeb"
-	icon_vend = "weeb-vend"
-	icon_deny = "weeb-deny"
+	icon = 'icons/obj/machines/vending/weeb.dmi'
 	products = list(
-		/obj/item/chems/food/weebonuts = 8,
-		/obj/item/chems/food/ricecake = 8,
-		/obj/item/chems/food/dango = 8,
-		/obj/item/chems/food/pokey = 8,
-		/obj/item/chems/food/chocobanana = 8
+		/obj/item/food/junk/weebonuts = 8,
+		/obj/item/food/junk/ricecake = 8,
+		/obj/item/food/junk/dango = 8,
+		/obj/item/food/junk/pokey = 8,
+		/obj/item/food/junk/chocobanana = 8
 	)
 
 /obj/machinery/vending/weeb/on_update_icon()
@@ -100,16 +91,13 @@
 	desc = "An old vending machine promising 'hot foods'. You doubt any of its contents are still edible."
 	vend_delay = 40
 	base_type = /obj/machinery/vending/hotfood
-
-	icon_state = "hotfood"
-	icon_deny = "hotfood-deny"
-	icon_vend = "hotfood-vend"
-	products = list(/obj/item/chems/food/old/pizza = 1,
-					/obj/item/chems/food/old/burger = 1,
-					/obj/item/chems/food/old/hamburger = 1,
-					/obj/item/chems/food/old/fries = 1,
-					/obj/item/chems/food/old/hotdog = 1,
-					/obj/item/chems/food/old/taco = 1
+	icon = 'icons/obj/machines/vending/hotfood.dmi'
+	products = list(/obj/item/food/old/pizza = 1,
+					/obj/item/food/old/burger = 1,
+					/obj/item/food/old/hamburger = 1,
+					/obj/item/food/old/fries = 1,
+					/obj/item/food/old/hotdog = 1,
+					/obj/item/food/old/taco = 1
 					)
 
 /obj/machinery/vending/hotfood/on_update_icon()
@@ -120,8 +108,7 @@
 /obj/machinery/vending/boozeomat
 	name = "Booze-O-Mat"
 	desc = "A refrigerated vending unit for alcoholic beverages and alcoholic beverage accessories."
-	icon_state = "fridge_dark"
-	icon_deny = "fridge_dark-deny"
+	icon = 'icons/obj/machines/vending/bar.dmi'
 	markup = 0
 	products = list(
 		/obj/item/chems/drinks/glass2/square = 10,
@@ -183,9 +170,7 @@
 	name = "Hot Drinks machine"
 	desc = "A vending machine which dispenses hot drinks and hot drinks accessories."
 	product_ads = "Have a drink!;Drink up!;It's good for you!;Would you like a hot joe?;I'd kill for some coffee!;The best beans in the galaxy.;Only the finest brew for you.;Mmmm. Nothing like a coffee.;I like coffee, don't you?;Coffee helps you work!;Try some tea.;We hope you like the best!;Try our new chocolate!;Admin conspiracies"
-	icon_state = "coffee"
-	icon_vend = "coffee-vend"
-	icon_deny = "coffee-deny"
+	icon = 'icons/obj/machines/vending/coffee.dmi'
 	vend_delay = 34
 	base_type = /obj/machinery/vending/coffee
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
@@ -196,7 +181,7 @@
 		/obj/item/chems/drinks/tea/green = 15,
 		/obj/item/chems/drinks/tea/chai = 15,
 		/obj/item/chems/drinks/h_chocolate = 10,
-		/obj/item/chems/condiment/small/packet/sugar = 25,
+		/obj/item/chems/packet/sugar = 25,
 		/obj/item/chems/pill/pod/cream = 25,
 		/obj/item/chems/pill/pod/cream_soy = 25,
 		/obj/item/chems/pill/pod/orange = 10,
@@ -206,7 +191,7 @@
 
 /obj/machinery/vending/coffee/on_update_icon()
 	..()
-	if(stat & BROKEN && prob(20))
+	if((stat & BROKEN) && prob(20))
 		icon_state = "[initial(icon_state)]-hellfire"
 	else if(!(stat & NOPOWER))
 		add_overlay("[initial(icon_state)]-screen")
@@ -214,9 +199,7 @@
 /obj/machinery/vending/cola
 	name = "Robust Softdrinks"
 	desc = "A softdrink vendor provided by Robust Industries, LLC."
-	icon_state = "Cola_Machine"
-	icon_vend = "Cola_Machine-vend"
-	icon_deny = "Cola_Machine-deny"
+	icon = 'icons/obj/machines/vending/drinks.dmi'
 	vend_delay = 11
 	base_type = /obj/machinery/vending/cola
 	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
@@ -236,7 +219,7 @@
 	)
 	contraband = list(
 		/obj/item/chems/drinks/cans/thirteenloko = 5,
-		/obj/item/chems/food/liquidfood = 6
+		/obj/item/food/junk/liquidfood = 6
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 
@@ -245,9 +228,7 @@
 	desc = "An exercise aid and nutrition supplement vendor that preys on your inadequacy."
 	product_slogans = "SweatMAX, get robust!"
 	product_ads = "Pain is just weakness leaving the body!;Run! Your fat is catching up to you;Never forget leg day!;Push out!;This is the only break you get today.;Don't cry, sweat!;Healthy is an outfit that looks good on everybody."
-	icon_state = "fitness"
-	icon_vend = "fitness-vend"
-	icon_deny = "fitness-deny"
+	icon = 'icons/obj/machines/vending/fitness.dmi'
 	vend_delay = 6
 	base_type = /obj/machinery/vending/fitness
 	products = list(
@@ -256,10 +237,10 @@
 		/obj/item/chems/drinks/cans/waterbottle = 8,
 		/obj/item/chems/drinks/glass2/fitnessflask/proteinshake = 8,
 		/obj/item/chems/drinks/glass2/fitnessflask = 8,
-		/obj/item/chems/food/candy/proteinbar = 8,
-		/obj/item/storage/mre/random = 8,
-		/obj/item/storage/mre/menu9 = 4,
-		/obj/item/storage/mre/menu10 = 4,
+		/obj/item/food/junk/candy/proteinbar = 8,
+		/obj/item/mre/random = 8,
+		/obj/item/mre/menu9 = 4,
+		/obj/item/mre/menu10 = 4,
 		/obj/item/towel/random = 8
 	)
 	contraband = list(/obj/item/chems/syringe/steroid = 4)
@@ -272,9 +253,7 @@
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
 	desc = "An old soda vending machine. How could this have got here?"
-	icon_state = "sovietsoda"
-	icon_vend = "sovietsoda-vend"
-	icon_deny = "sovietsoda-deny"
+	icon = 'icons/obj/machines/vending/soviet.dmi'
 	base_type = /obj/machinery/vending/sovietsoda
 	product_ads = "For Tsar and Country.;Have you fulfilled your nutrition quota today?;Very nice!;We are simple people, for this is all we eat.;If there is a person, there is a problem. If there is no person, then there is no problem."
 	products = list(

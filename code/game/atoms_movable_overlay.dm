@@ -42,6 +42,7 @@
 /atom/movable/overlay/attackby(obj/item/I, mob/user)
 	if (master)
 		return master.attackby(I, user)
+	return TRUE
 
 /atom/movable/overlay/attack_hand(mob/user)
 	SHOULD_CALL_PARENT(FALSE)

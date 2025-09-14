@@ -9,7 +9,7 @@
 		/decl/material/solid/organic/plastic = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/osmium = MATTER_AMOUNT_TRACE
 	)
-	force = 10
+	_base_attack_force = 10
 
 	var/list/restricted_hardpoints
 	var/mob/living/exosuit/owner
@@ -21,8 +21,8 @@
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
 
-/obj/item/mech_equipment/attack() //Generally it's not desired to be able to attack with items
-	return 0
+/obj/item/mech_equipment/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
+	return FALSE
 
 /obj/item/mech_equipment/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	if(require_adjacent)

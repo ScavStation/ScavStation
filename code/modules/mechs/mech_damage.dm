@@ -28,7 +28,7 @@
 		. = ..()
 
 /mob/living/exosuit/resolve_item_attack(var/obj/item/I, var/mob/living/user, var/def_zone)
-	if(!I.force)
+	if(!I.get_attack_force(user))
 		user.visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly with \the [I]."))
 		return
 
@@ -85,7 +85,7 @@
 	return (body ? body.mech_health : 0)
 
 /mob/living/exosuit/get_total_life_damage()
-	return (getFireLoss()+getBruteLoss())
+	return (get_damage(BURN)+get_damage(BRUTE))
 
 /mob/living/exosuit/adjustFireLoss(var/amount, var/obj/item/mech_component/MC = pick(list(arms, legs, body, head)), var/do_update_health = TRUE)
 	if(MC)
@@ -109,7 +109,7 @@
 		else
 			return body
 
-/mob/living/exosuit/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/damage_flags = 0, var/used_weapon = null, var/armor_pen, var/silent = FALSE)
+/mob/living/exosuit/apply_damage(damage = 0, damagetype = BRUTE, def_zone, damage_flags = 0, obj/used_weapon, armor_pen, silent = FALSE, obj/item/organ/external/given_organ)
 	if(!damage)
 		return 0
 
@@ -146,9 +146,9 @@
 	//Only 3 types of damage concern mechs and vehicles
 	switch(damagetype)
 		if(BRUTE)
-			adjustBruteLoss(damage, target)
+			take_damage(damage, inflicter = target)
 		if(BURN)
-			adjustFireLoss(damage, target)
+			take_damage(damage, BURN, inflicter = target)
 		if(IRRADIATE)
 			for(var/mob/living/pilot in pilots)
 				pilot.apply_damage(damage, IRRADIATE, def_zone, damage_flags, used_weapon)

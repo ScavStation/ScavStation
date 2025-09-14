@@ -8,14 +8,16 @@
 	storage_types = CLOSET_STORAGE_ITEMS
 	var/rigged = 0
 
-/obj/structure/closet/crate/open()
-	if((atom_flags & ATOM_FLAG_OPEN_CONTAINER) && !opened && can_open())
+/obj/structure/closet/crate/open(mob/user)
+	if((atom_flags & ATOM_FLAG_CLIMBABLE) && !opened && can_open(user))
 		object_shaken()
 	. = ..()
 	if(.)
 		if(rigged)
 			visible_message("<span class='danger'>There are wires attached to the lid of [src]...</span>")
 			for(var/obj/item/assembly_holder/H in src)
+				// This proc expects an /obj/item, and usr is never that, but it must be non-null for the code to function.
+				// TODO: Rewrite or refactor either this code or the proc itself to avoid that.
 				H.process_activation(usr)
 			for(var/obj/item/assembly/A in src)
 				A.activate()
@@ -34,28 +36,29 @@
 	if(opened)
 		return ..()
 	else if(istype(W, /obj/item/stack/package_wrap))
-		return
+		return FALSE // let afterattack run
 	else if(istype(W, /obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/C = W
 		if(rigged)
 			to_chat(user, "<span class='notice'>[src] is already rigged!</span>")
-			return
+			return TRUE
 		if (C.use(1))
 			to_chat(user, "<span class='notice'>You rig [src].</span>")
 			rigged = 1
-			return
-	else if(istype(W, /obj/item/assembly_holder) || istype(W, /obj/item/assembly))
-		if(rigged)
-			if(!user.try_unequip(W, src))
-				return
-			to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
-			return
+			return TRUE
+		return FALSE
+	else if((istype(W, /obj/item/assembly_holder) || istype(W, /obj/item/assembly)) && rigged)
+		if(!user.try_unequip(W, src))
+			return TRUE
+		to_chat(user, "<span class='notice'>You attach [W] to [src].</span>")
+		return TRUE
 	else if(IS_WIRECUTTER(W))
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			rigged = 0
-			return
+			return TRUE
+		return FALSE
 	else
 		return ..()
 
@@ -165,9 +168,9 @@
 
 /obj/structure/closet/crate/freezer/meat/WillContain()
 	return list(
-		/obj/item/chems/food/meat/beef = 4,
-		/obj/item/chems/food/meat/syntiflesh = 4,
-		/obj/item/chems/food/fish = 4
+		/obj/item/food/butchery/meat/beef = 4,
+		/obj/item/food/butchery/meat/syntiflesh = 4,
+		/obj/item/food/butchery/meat/fish = 4
 	)
 
 /obj/structure/closet/crate/bin
@@ -248,9 +251,9 @@
 /obj/structure/closet/crate/hydroponics/prespawned/WillContain()
 	return list(
 		/obj/item/chems/spray/plantbgone = 2,
-		/obj/item/minihoe = 2,
-		/obj/item/storage/plants = 2,
-		/obj/item/hatchet = 2,
+		/obj/item/tool/hoe/mini = 2,
+		/obj/item/plants = 2,
+		/obj/item/tool/axe/hatchet = 2,
 		/obj/item/wirecutters/clippers = 2,
 		/obj/item/scanner/plant = 2
 	)
@@ -283,7 +286,7 @@
 /obj/structure/closet/crate/secure/biohazard/blanks/WillContain()
 	return list(/obj/structure/closet/body_bag/cryobag/blank)
 
-/obj/structure/closet/crate/secure/biohazard/blanks/can_close()
+/obj/structure/closet/crate/secure/biohazard/blanks/can_close(mob/user)
 	for(var/obj/structure/closet/closet in get_turf(src))
 		if(closet != src && !(istype(closet, /obj/structure/closet/body_bag/cryobag)))
 			return 0
@@ -310,3 +313,18 @@
 
 /obj/structure/closet/crate/uranium/WillContain()
 	return list(/obj/item/stack/material/puck/mapped/uranium/ten = 5)
+
+/obj/structure/closet/crate/chest
+	name = "chest"
+	desc = "A compact, hinged chest."
+	icon = 'icons/obj/closets/bases/chest.dmi'
+	open_sound = 'sound/effects/storage/briefcase.ogg'
+	close_sound = 'sound/effects/storage/briefcase.ogg'
+	closet_appearance = /decl/closet_appearance/crate/chest
+	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_DESC
+	material = /decl/material/solid/organic/wood
+	color = /decl/material/solid/organic/wood::color
+
+/obj/structure/closet/crate/chest/ebony
+	material = /decl/material/solid/organic/wood/ebony
+	color = /decl/material/solid/organic/wood/ebony::color

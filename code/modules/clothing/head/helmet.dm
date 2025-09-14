@@ -2,8 +2,9 @@
 	name = "helmet"
 	desc = "Reinforced headgear. Protects the head from impacts."
 	icon = 'icons/clothing/head/armor/helmet.dmi'
-	valid_accessory_slots = list(ACCESSORY_SLOT_HELM_C)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_HELM_C)
+	accessory_slot = null // you can't equip helmets over other helmets
+	valid_accessory_slots = list(ACCESSORY_SLOT_HELM_C, ACCESSORY_SLOT_OVER_HELMET)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_HELM_C, ACCESSORY_SLOT_OVER_HELMET)
 	item_flags = ITEM_FLAG_THICKMATERIAL
 	body_parts_covered = SLOT_HEAD
 	armor = list(
@@ -24,6 +25,8 @@
 	matter = list(/decl/material/solid/metal/plasteel = MATTER_AMOUNT_TRACE)
 	origin_tech = @'{"materials":1,"engineering":1,"combat":1}'
 	protects_against_weather = TRUE
+	replaced_in_loadout = LOADOUT_CONFLICT_STORAGE
+	_base_attack_force = 8
 
 /obj/item/clothing/head/helmet/tactical
 	name = "tactical helmet"
@@ -74,9 +77,9 @@
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user)
 	up = !up
 	if(up)
-		to_chat(user, "You raise the visor on the [src].")
+		to_chat(user, "You raise the visor on \the [src].")
 	else
-		to_chat(user, "You lower the visor on the [src].")
+		to_chat(user, "You lower the visor on \the [src].")
 	update_icon()
 
 /obj/item/clothing/head/helmet/riot/on_update_icon(mob/user)

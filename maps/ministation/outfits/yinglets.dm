@@ -1,11 +1,11 @@
-/decl/hierarchy/outfit/job/yinglet/yinglet_rep
+/decl/outfit/job/yinglet/yinglet_rep
 	name = "Ministation - Enclave Patriarch"
-	suit = /obj/item/clothing/suit/fancyrobe
+	suit = /obj/item/clothing/suit/robe/yinglet/fancy
 	id_type = /obj/item/card/id/ministation/yinglet_rep
 
-/decl/hierarchy/outfit/job/yinglet/yinglet_rep/matriarch
+/decl/outfit/job/yinglet/yinglet_rep/matriarch
 	name = "Ministation - Enclave Matriarch"
-	uniform = /obj/item/clothing/under/yinglet/matriarch
+	uniform = /obj/item/clothing/suit/robe/yinglet/matriarch
 	head = /obj/item/clothing/head/yinglet/matriarch
 	id_type = /obj/item/card/id/ministation/yinglet_rep
 	suit = null

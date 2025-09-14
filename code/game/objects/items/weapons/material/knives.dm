@@ -1,10 +1,9 @@
 //knives for stabbing and slashing and so on and so forth
-/obj/item/knife //master obj
+/obj/item/knife
 	name = "knife"
 	desc = "You call that a knife? This is a master item - berate the admin or mapper who spawned this"
 	icon = 'icons/obj/items/weapon/knives/kitchen.dmi'
 	icon_state = ICON_STATE_WORLD
-	material_force_multiplier = 0.3
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	material = /decl/material/solid/metal/steel
 	origin_tech = @'{"materials":1}'
@@ -15,7 +14,8 @@
 	material_alteration = MAT_FLAG_ALTERATION_COLOR | MAT_FLAG_ALTERATION_NAME
 	pickup_sound = 'sound/foley/knife1.ogg'
 	drop_sound = 'sound/foley/knifedrop3.ogg'
-
+	abstract_type = /obj/item/knife
+	_base_attack_force = 8
 	var/draw_handle
 	var/handle_color
 	var/valid_handle_colors
@@ -23,7 +23,7 @@
 /obj/item/knife/Initialize(ml, material_key)
 	. = ..()
 	if(!has_extension(src, /datum/extension/tool))
-		set_extension(src, /datum/extension/tool/variable, list(
+		set_extension(src, /datum/extension/tool/variable/simple, list(
 			TOOL_SCALPEL =     TOOL_QUALITY_MEDIOCRE,
 			TOOL_SAW =         TOOL_QUALITY_BAD,
 			TOOL_RETRACTOR =   TOOL_QUALITY_BAD,
@@ -37,16 +37,12 @@
 			handle_color = pick(valid_handle_colors)
 		add_overlay(overlay_image(icon, "[get_world_inventory_state()]_handle", handle_color, flags=RESET_COLOR|RESET_ALPHA))
 
-/obj/item/knife/attack(mob/living/carbon/M, mob/living/carbon/user, target_zone)
-	if(!istype(M))
-		return ..()
+/obj/item/knife/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 
-	if(user.a_intent != I_HELP)
-		if(user.get_target_zone() == BP_EYES)
-			if((MUTATION_CLUMSY in user.mutations) && prob(50))
-				M = user
-			return eyestab(M, user)
-
+	if(user.a_intent != I_HELP && user.get_target_zone() == BP_EYES)
+		if(user.has_genetic_condition(GENE_COND_CLUMSY) && prob(50))
+			target = user
+		return eyestab(target, user)
 	return ..()
 
 /obj/item/knife/can_take_wear_damage()
@@ -77,24 +73,21 @@
 	desc = "A heavy blade used to process food, especially animal carcasses."
 	icon = 'icons/obj/items/weapon/knives/cleaver.dmi'
 	armor_penetration = 5
-	material_force_multiplier = 0.18
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
 /obj/item/knife/kitchen/cleaver/bronze
 	name = "master chef's cleaver"
 	desc = "A heavy blade used to process food. This one is so fancy, it must be for a truly exceptional chef. There aren't any here, so what it's doing here is anyone's guess."
 	material = /decl/material/solid/metal/bronze
-	material_force_multiplier = 1 //25 with material bronze
 
 //fighting knives
 /obj/item/knife/combat
-	name = "combat knife"
-	desc = "A blade with a saw-like pattern on the reverse edge and a heavy handle."
-	icon = 'icons/obj/items/weapon/knives/tactical.dmi'
-	material_force_multiplier = 0.2
-	w_class = ITEM_SIZE_SMALL
-	max_force = 15
-	draw_handle = TRUE
+	name               = "combat knife"
+	desc               = "A blade with a saw-like pattern on the reverse edge and a heavy handle."
+	icon               = 'icons/obj/items/weapon/knives/tactical.dmi'
+	w_class            = ITEM_SIZE_SMALL
+	draw_handle        = TRUE
+	_base_attack_force = 15
 
 /obj/item/knife/combat/get_autopsy_descriptors()
 	. = ..()
@@ -128,10 +121,9 @@
 	name = "utility knife"
 	desc = "An utility knife with a polymer handle, commonly used through human space."
 	icon = 'icons/obj/items/weapon/knives/utility.dmi'
-	max_force = 5
-	material_force_multiplier = 0.2
 	w_class = ITEM_SIZE_SMALL
 	draw_handle = TRUE
+	_base_attack_force = 5
 
 /obj/item/knife/utility/lightweight
 	name = "lightweight utility knife"

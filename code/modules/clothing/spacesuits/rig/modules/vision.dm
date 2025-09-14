@@ -160,8 +160,14 @@
 
 // There should only ever be one vision module installed in a suit.
 /obj/item/rig_module/vision/installed()
-	..()
-	holder.visor = src
+	. = ..()
+	if(holder)
+		holder.visor = src
+
+/obj/item/rig_module/vision/removed()
+	if(holder)
+		holder.visor = null
+	. = ..()
 
 /obj/item/rig_module/vision/engage()
 

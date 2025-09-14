@@ -88,15 +88,14 @@
 			if(eating.reagents?.total_volume)
 				eating.reagents.trans_to_obj(src, eating.reagents.total_volume)
 			for(var/mtype in eating.matter)
-				add_to_reagents(mtype, FLOOR(eating.matter[mtype] * REAGENT_UNITS_PER_MATERIAL_UNIT))
+				add_to_reagents(mtype, floor(eating.matter[mtype] * REAGENT_UNITS_PER_MATERIAL_UNIT))
 			qdel(eating)
 			if(eaten >= MAX_INTAKE_ORE_PER_TICK)
 				break
 
 /obj/machinery/material_processing/extractor/on_reagent_change()
-	..()
 
-	if(!reagents)
+	if(!(. = ..()) || !reagents)
 		return
 
 	var/adjusted_reagents = FALSE
@@ -144,7 +143,7 @@
 		if(MAT_PHASE_SOLID)
 			if(!can_process_material_name(mtype))
 				var/removing = REAGENT_VOLUME(reagents, mtype) || 0
-				var/sheets = FLOOR((removing / REAGENT_UNITS_PER_MATERIAL_UNIT) / SHEET_MATERIAL_AMOUNT)
+				var/sheets = floor((removing / REAGENT_UNITS_PER_MATERIAL_UNIT) / SHEET_MATERIAL_AMOUNT)
 				if(sheets > 0) // If we can't process any sheets at all, leave it for manual processing.
 					adjusted_reagents = TRUE
 					SSmaterials.create_object(mtype, output_turf, sheets)
@@ -157,28 +156,28 @@
 		var/datum/extension/atmospherics_connection/connection = get_extension(src, /datum/extension/atmospherics_connection)
 		if(connection.disconnect())
 			to_chat(user, SPAN_NOTICE("You disconnect \the [src] from the port."))
-			return
+			return TRUE
 		else
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector) in loc
 			if(possible_port)
 				if(connection.connect(possible_port))
 					to_chat(user, SPAN_NOTICE("You connect \the [src] to the port."))
-					return
+					return TRUE
 				else
 					to_chat(user, SPAN_WARNING("\The [src] failed to connect to the port."))
-					return
+					return TRUE
 
 	if(istype(I, /obj/item/chems/glass))
 		if(isnull(output_container))
 			if(!user.try_unequip(I, src))
-				return
+				return TRUE
 			output_container = I
 			events_repository.register(/decl/observ/destroyed, output_container, src, TYPE_PROC_REF(/obj/machinery/material_processing/extractor, remove_container))
 			user.visible_message(SPAN_NOTICE("\The [user] places \a [I] in \the [src]."), SPAN_NOTICE("You place \a [I] in \the [src]."))
-			return
+			return TRUE
 
 		to_chat(user, SPAN_WARNING("\The [src] already has an output container!"))
-		return
+		return TRUE
 	. = ..()
 
 /obj/machinery/material_processing/extractor/proc/remove_container()
@@ -245,6 +244,8 @@
 	for(var/mtype in reagents.reagent_volumes)
 		index += 1
 		var/decl/material/mat = GET_DECL(mtype)
+
+		// TODO: Must be revised once state changes are in. Reagent names might be a litle odd in the meantime.
 		var/is_liquid = mat.phase_at_temperature(temperature, ONE_ATMOSPHERE) == MAT_PHASE_LIQUID
 
 		data["reagents"] += list(list("label" = "[mat.liquid_name] ([reagents.reagent_volumes[mtype]] U)", "index" = index, "liquid" = is_liquid))

@@ -5,7 +5,14 @@
 	ignore_invalid_loc = TRUE
 
 /decl/persistence_handler/book/CreateEntryInstance(var/turf/creating, var/list/tokens)
-	var/obj/item/book/book = new(creating)
+
+	var/book_type = tokens["book_type"]
+	if(book_type)
+		book_type = text2path(book_type)
+	if(!ispath(book_type))
+		book_type = /obj/item/book
+
+	var/obj/item/book/book = new book_type(creating)
 	book.dat =                tokens["message"]
 	book.title =              tokens["title"]
 	book.author =             tokens["writer"]
@@ -17,7 +24,7 @@
 	if(case)
 		book.forceMove(case)
 		case.update_icon()
-	. = book
+	return book
 
 /decl/persistence_handler/book/IsValidEntry(var/atom/entry)
 	. = ..()
@@ -29,11 +36,12 @@
 	. = ..()
 
 	var/obj/item/book/book = entry
-	.["author"] =     book.last_modified_ckey || ""
-	.["message"] =    book.dat                || "dat"
-	.["title"] =      book.title              || "Untitled"
-	.["writer"] =     book.author             || "unknown"
+	.["author"]     = book.last_modified_ckey || ""
+	.["message"]    = book.dat                || "dat"
+	.["title"]      = book.title              || "Untitled"
+	.["writer"]     = book.author             || "unknown"
 	.["icon_state"] = book.icon_state         || "book"
+	.["book_type"]  = "[book.type]"
 
 	var/turf/T = get_turf(entry)
 	if(!T || !isStationLevel(T.z))
@@ -62,7 +70,7 @@
 		else
 			T = get_random_spawn_turf(SPAWN_FLAG_PERSISTENCE_CAN_SPAWN)
 
-	. = ..(T, tokens)
+	. = ..()
 
 /decl/persistence_handler/book/GetEntryAge(var/atom/entry)
 	. = -1
@@ -70,6 +78,6 @@
 /decl/persistence_handler/book/GetAdminDataStringFor(var/thing, var/can_modify, var/mob/user)
 	var/obj/item/book/book = thing
 	if(can_modify)
-		. = "<td>[book.dat]</td><td>[book.title]</td><td>[book.last_modified_ckey]</td><td><a href='byond://?src=\ref[src];caller=\ref[user];remove_entry=\ref[thing]'>Destroy</a></td>"
+		. = "<td>[book.dat]</td><td>[book.title]</td><td>[book.last_modified_ckey]</td><td><a href='byond://?src=\ref[src];user=\ref[user];remove_entry=\ref[thing]'>Destroy</a></td>"
 	else
 		. = "<td colspan = 2>[book.dat]</td><td>[book.title]</td><td>[book.last_modified_ckey]</td>"

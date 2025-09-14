@@ -1,28 +1,28 @@
 //Let's get some REAL contraband stuff in here. Because come on, getting brigged for LIPSTICK is no fun.
 
 //Illicit drugs~
-/obj/item/storage/pill_bottle/happy
+/obj/item/pill_bottle/happy
 	name = "bottle of Happy pills"
 	desc = "Highly illegal drug. When you want to see the rainbow."
 	wrapper_color = COLOR_PINK
 
-/obj/item/storage/pill_bottle/happy/WillContain()
+/obj/item/pill_bottle/happy/WillContain()
 	return list(/obj/item/chems/pill/happy = 10)
 
-/obj/item/storage/pill_bottle/zoom
+/obj/item/pill_bottle/zoom
 	name = "bottle of Zoom pills"
 	desc = "Highly illegal drug. Trade brain for speed."
 	wrapper_color = COLOR_BLUE
 
-/obj/item/storage/pill_bottle/zoom/WillContain()
+/obj/item/pill_bottle/zoom/WillContain()
 	return list(/obj/item/chems/pill/zoom = 10)
 
-/obj/item/storage/pill_bottle/gleam
+/obj/item/pill_bottle/gleam
 	name = "bottle of Gleam pills"
 	desc = "Highly illegal drug. Stimulates rarely used portions of the brain."
 	wrapper_color = COLOR_BLUE
 
-/obj/item/storage/pill_bottle/gleam/WillContain()
+/obj/item/pill_bottle/gleam/WillContain()
 	return list(/obj/item/chems/pill/gleam = 10)
 
 /obj/item/chems/glass/beaker/vial/random
@@ -48,7 +48,12 @@
 		add_to_reagents(reagent, picked_reagents[reagent])
 
 	var/list/names = new
-	for(var/reagent_type in reagents.reagent_volumes)
-		var/decl/material/R = GET_DECL(reagent_type)
-		names += R.liquid_name
+	for(var/liquid_type in reagents.liquid_volumes)
+		var/decl/material/liquid = GET_DECL(liquid_type)
+		names += liquid.get_reagent_name(reagents, MAT_PHASE_LIQUID)
+
+	for(var/solid_type in reagents.solid_volumes)
+		var/decl/material/solid = GET_DECL(solid_type)
+		names += solid.get_reagent_name(reagents, MAT_PHASE_SOLID)
+
 	desc = "Contains [english_list(names)]."

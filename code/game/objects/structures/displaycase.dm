@@ -49,7 +49,7 @@
 
 /obj/structure/displaycase/bullet_act(var/obj/item/projectile/Proj)
 	..()
-	take_damage(Proj.get_structure_damage())
+	take_damage(Proj.get_structure_damage(), Proj.atom_damage_type)
 
 /obj/structure/proc/subtract_matter(var/obj/subtracting)
 	if(!length(matter))
@@ -64,7 +64,7 @@
 			matter -= mat
 	UNSETEMPTY(matter)
 
-/obj/structure/displaycase/dismantle()
+/obj/structure/displaycase/dismantle_structure(mob/user)
 	SHOULD_CALL_PARENT(FALSE)
 	. = TRUE
 
@@ -75,7 +75,10 @@
 	if(.)
 		set_density(0)
 		destroyed = TRUE
-		subtract_matter(new /obj/item/shard(get_turf(src), material?.type))
+		var/obj/item/shard/shard = new(get_turf(src), material?.type)
+		if(paint_color)
+			shard.set_color(paint_color)
+		subtract_matter(shard)
 		playsound(src, "shatter", 70, 1)
 		update_icon()
 
@@ -93,22 +96,22 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	var/obj/item/card/id/id = W.GetIdCard()
 	if(istype(id))
-		if(allowed(usr))
+		if(allowed(user))
 			locked = !locked
 			to_chat(user, "\The [src] was [locked ? "locked" : "unlocked"].")
 		else
 			to_chat(user, "\The [src]'s card reader denies you access.")
-		return
+		return TRUE
 
 	if(isitem(W) && (!locked || destroyed))
 		if(!W.simulated || W.anchored)
-			return
+			return FALSE
 
 		if(user.try_unequip(W, src))
 			W.pixel_x = 0
 			W.pixel_y = -7
 			update_icon()
-		return
+		return TRUE
 	. = ..()
 
 /obj/structure/displaycase/attack_hand(mob/user)
@@ -121,9 +124,9 @@
 
 	if(!locked || destroyed)
 		var/obj/item/selected_item
-		selected_item = show_radial_menu(user, src, make_item_radial_menu_choices(src), radius = 42, require_near = TRUE, use_labels = TRUE)
+		selected_item = show_radial_menu(user, src, make_item_radial_menu_choices(src), radius = 42, require_near = TRUE, use_labels = RADIAL_LABELS_OFFSET)
 		if(QDELETED(selected_item) || !contents.Find(selected_item) || !Adjacent(user) || user.incapacitated())
-			return
+			return TRUE
 
 		to_chat(user, SPAN_NOTICE("You remove \the [selected_item] from \the [src]."))
 		selected_item.dropInto(loc)
@@ -134,3 +137,4 @@
 		visible_message(SPAN_WARNING("[user] kicks \the [src]."), SPAN_WARNING("You kick \the [src]."))
 		take_damage(2)
 		return TRUE
+	return FALSE

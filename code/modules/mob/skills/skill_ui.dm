@@ -41,7 +41,7 @@
 	if(href_list["toggle_hide_unskilled"])
 		hide_unskilled = !hide_unskilled
 		return 1
-	
+
 /datum/nano_module/skill_ui/proc/get_data()
 	return list()
 
@@ -52,31 +52,39 @@
 	.["hide_unskilled"] = hide_unskilled
 
 	var/list/skill_data = list()
-	var/decl/hierarchy/skill/skill = GET_DECL(/decl/hierarchy/skill)
-	for(var/decl/hierarchy/skill/V in skill.children)
+	var/list/available_skills = global.using_map.get_available_skills()
+	var/list/categories = sortTim(decls_repository.get_decls_of_subtype_unassociated(/decl/skill_category), /proc/cmp_skill_category_asc)
+	for(var/decl/skill_category/cat in categories)
 		var/list/skill_cat = list()
-		skill_cat["name"] = V.name
-		var/list/skills_in_cat = list()
-		for(var/decl/hierarchy/skill/S in V.children)
-			var/offset = S.prerequisites ? S.prerequisites[S.parent.type] - 1 : 0
+		var/list/skills_in_cat = list() // can't just use category.children because we check available_skills and our skill levels
+
+		for(var/decl/skill/S in cat.children)
+			if(!(S in available_skills))
+				continue
+
+			var/decl/skill/prerequisite = S.prerequisites?[1]
+			var/offset = prerequisite ? S.prerequisites[prerequisite] - 1 : 0
 			if(hide_unskilled && (get_value(S.type) + offset == SKILL_MIN))
 				continue
+
 			skills_in_cat += list(get_nano_row(S))
-			for(var/decl/hierarchy/skill/perk in S.children)
-				skills_in_cat += list(get_nano_row(perk))
+
 		if(length(skills_in_cat))
+			skill_cat["name"] = cat.name
 			skill_cat["skills"] = skills_in_cat
 			skill_data += list(skill_cat)
+
 	.["skills_by_cat"] = skill_data
 
-/datum/skillset/proc/get_nano_row(var/decl/hierarchy/skill/S)
+/datum/skillset/proc/get_nano_row(var/decl/skill/S)
 	var/list/skill_item = list()
 	skill_item["name"] = S.name
 	var/value = get_value(S.type)
 	skill_item["val"] = value
 	skill_item["ref"] = "\ref[S.type]"
 	skill_item["available"] = check_prerequisites(S.type)
-	var/offset = S.prerequisites ? S.prerequisites[S.parent.type] - 1 : 0
+	var/decl/skill/prerequisite = S.prerequisites?[1]
+	var/offset = prerequisite ? S.prerequisites[prerequisite] - 1 : 0
 	var/list/levels = list()
 	for(var/i in 1 to offset)
 		levels += list(list("blank" = 1))
@@ -93,7 +101,7 @@
 	return skill_item
 
 /datum/skillset/proc/check_prerequisites(skill_type)
-	var/decl/hierarchy/skill/S = GET_DECL(skill_type)
+	var/decl/skill/S = GET_DECL(skill_type)
 	if(!S.prerequisites)
 		return TRUE
 	for(var/prereq_type in S.prerequisites)
@@ -114,18 +122,25 @@ The generic antag version.
 	. = ..()
 	.["can_choose"] = can_choose()
 	var/list/selection_data = list()
-	var/decl/hierarchy/skill/skill = GET_DECL(/decl/hierarchy/skill)
+	var/decl/skill/sample_skill // just used to get the skill level names
+	for(var/candidate_skill_type in skillset.skill_list)
+		var/decl/skill/candidate = GET_DECL(candidate_skill_type)
+		if(length(candidate.levels) == SKILL_MAX) // find a skill with all the levels, so avoid perks/traits
+			sample_skill = candidate
+			break
+	if(!sample_skill)
+		sample_skill = GET_DECL(/decl/skill/general/hauling)
 	for(var/i in 1 to length(max_choices))
 		var/choices = max_choices[i]
 		if(!choices)
 			continue
 		var/list/level_data = list()
-		level_data["name"] = skill.levels[i]
+		level_data["name"] = sample_skill.levels[i]
 		level_data["level"] = i
 		var/selected = LAZYACCESS(currently_selected, i)
 		level_data["selected"] = list()
 		for(var/skill_type in selected)
-			var/decl/hierarchy/skill/S = skill_type // False type.
+			var/decl/skill/S = skill_type // False type.
 			level_data["selected"] += list(list("name" = initial(S.name), "ref" = "\ref[skill_type]"))
 		level_data["remaining"] = choices - length(selected)
 		selection_data += list(level_data)
@@ -142,7 +157,7 @@ The generic antag version.
 			return 1
 		var/level = text2num(href_list["add_skill"])
 		var/list/choices = list()
-		for(var/decl/hierarchy/skill/S in global.skills)
+		for(var/decl/skill/S in global.using_map.get_available_skills())
 			if(can_select(S.type, level))
 				choices[S.name] = S.type
 		var/choice = input(usr, "Which skill would you like to add?", "Add Skill") as null|anything in choices
@@ -187,7 +202,7 @@ The generic antag version.
 		return
 	if(skillset.get_value(skill_type) >= level)
 		return
-	var/decl/hierarchy/skill/S = GET_DECL(skill_type)
+	var/decl/skill/S = GET_DECL(skill_type)
 	if(length(S.levels) < level)
 		return
 	if(S.prerequisites)

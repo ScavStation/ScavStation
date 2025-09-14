@@ -65,8 +65,7 @@
 	. = ..()
 	if(!random_light_color)
 		random_light_color = get_random_colour(FALSE, 100, 255)
-	b_color = random_light_color
-	color = random_light_color
+	set_color(random_light_color) // if stuff starts exploding due to too-early update_icon calls it's this thing's fault
 
 //Airlock
 /obj/machinery/door/airlock/alien

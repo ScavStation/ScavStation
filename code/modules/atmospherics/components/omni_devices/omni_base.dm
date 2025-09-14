@@ -110,16 +110,14 @@
 			. |= port.direction
 
 /obj/machinery/atmospherics/omni/on_update_icon()
+	// ?.Copy() used because set_overlays() mutates the input list.
 	if(stat & NOPOWER)
-		overlays = overlays_off
+		set_overlays(overlays_off?.Copy())
 	else if(error_check())
-		overlays = overlays_error
+		set_overlays(overlays_error?.Copy())
 	else
-		overlays = use_power ? (overlays_on) : (overlays_off)
-
+		set_overlays(use_power ? overlays_on?.Copy() : overlays_off?.Copy())
 	underlays = underlays_current
-
-	return
 
 /obj/machinery/atmospherics/omni/proc/error_check()
 	return
@@ -236,6 +234,16 @@
 /obj/machinery/atmospherics/omni/proc/sort_ports()
 	return
 
+/obj/machinery/atmospherics/omni/shuttle_rotate(angle)
+	. = ..()
+	if(.)
+		for(var/datum/omni_port/port in ports)
+			port.direction = turn(port.direction, angle)
+			port.disconnect()
+			port.update = TRUE
+		initialize_directions = get_initialize_directions()
+		atmos_init()
+		return TRUE
 
 // Housekeeping and pipe network stuff below
 

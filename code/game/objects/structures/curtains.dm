@@ -3,7 +3,7 @@
 	desc = "A rolled-up curtain."
 	icon = 'icons/obj/structures/curtain.dmi'
 	icon_state = "curtain_rolled"
-	force = 3 //just plastic
+	_base_attack_force = 3 //just plastic
 	w_class = ITEM_SIZE_HUGE //curtains, yeap
 	var/curtain_kind_path = /decl/curtain_kind //path to decl containing the curtain's details
 
@@ -26,15 +26,15 @@
 /obj/item/curtain/attackby(obj/item/W, mob/user)
 	if(IS_SCREWDRIVER(W))
 		if(!curtain_kind_path)
-			return
+			return TRUE
 
 		if(!isturf(loc))
 			to_chat(user, SPAN_DANGER("You cannot install \the [src] from your hands."))
-			return
+			return TRUE
 
 		if(isspaceturf(loc))
 			to_chat(user, SPAN_DANGER("You cannot install \the [src] in space."))
-			return
+			return TRUE
 
 		user.visible_message(
 			SPAN_NOTICE("\The [user] begins installing \the [src]."),
@@ -42,24 +42,25 @@
 		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
 		if(!do_after(user, 4 SECONDS, src))
-			return
+			return TRUE
 
 		if(QDELETED(src))
-			return
+			return TRUE
 
 		var/decl/curtain_kind/kind = GET_DECL(curtain_kind_path)
 		var/obj/structure/curtain/C = kind.make_structure(loc, dir)
 		transfer_fingerprints_to(C)
 		qdel(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/curtain/on_update_icon()
 	. = ..()
 	if(curtain_kind_path)
 		var/decl/curtain_kind/kind = GET_DECL(curtain_kind_path)
 		alpha = kind.alpha
-		color = kind.color
+		set_color(kind.color)
 
 //
 // Curtain Structure
@@ -110,27 +111,25 @@
 	return ..()
 
 /obj/structure/curtain/attackby(obj/item/W, mob/user)
-	if(IS_SCREWDRIVER(W))
-		if(!curtain_kind_path)
-			return
-
+	if(IS_SCREWDRIVER(W) && curtain_kind_path)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] begins uninstalling \the [src]."),
 			SPAN_NOTICE("You begin uninstalling \the [src]."))
 		playsound(src, 'sound/items/Screwdriver.ogg', 100, 1)
 
 		if(!do_after(user, 4 SECONDS, src))
-			return
+			return TRUE
 
 		if(QDELETED(src))
-			return
+			return TRUE
 
 		var/decl/curtain_kind/kind = GET_DECL(curtain_kind_path)
 		var/obj/item/curtain/C = kind.make_item(loc)
 		transfer_fingerprints_to(C)
 		qdel(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/structure/curtain/proc/toggle()
 	playsound(src, 'sound/effects/curtain.ogg', 15, 1, -5)
@@ -174,35 +173,55 @@
 // - Closed subtypes
 /obj/structure/curtain/bed
 	curtain_kind_path = /decl/curtain_kind/cloth/bed
+	color = /decl/curtain_kind/cloth/bed::color
 /obj/structure/curtain/black
 	curtain_kind_path = /decl/curtain_kind/cloth/black
+	color = /decl/curtain_kind/cloth/black::color
 /obj/structure/curtain/bar
 	curtain_kind_path = /decl/curtain_kind/cloth/bar
+	color = /decl/curtain_kind/cloth/bar::color
 /obj/structure/curtain/medical
 	curtain_kind_path = /decl/curtain_kind/plastic/medical
+	color = /decl/curtain_kind/plastic/medical::color
+	alpha = /decl/curtain_kind/plastic/medical::alpha
 /obj/structure/curtain/privacy
 	curtain_kind_path = /decl/curtain_kind/plastic/privacy
+	color = /decl/curtain_kind/plastic/privacy::color
 /obj/structure/curtain/shower
 	curtain_kind_path = /decl/curtain_kind/plastic/shower
+	color = /decl/curtain_kind/plastic/shower::color
+	alpha = /decl/curtain_kind/plastic/shower::alpha
 /obj/structure/curtain/canteen
 	curtain_kind_path = /decl/curtain_kind/plastic/canteen
+	color = /decl/curtain_kind/plastic/canteen::color
 
 // - Open subtypes
 /obj/structure/curtain/open/bed
 	curtain_kind_path = /decl/curtain_kind/cloth/bed
+	color = /decl/curtain_kind/cloth/bed::color
 /obj/structure/curtain/open/black
 	curtain_kind_path = /decl/curtain_kind/cloth/black
+	color = /decl/curtain_kind/cloth/black::color
 /obj/structure/curtain/open/medical
 	curtain_kind_path = /decl/curtain_kind/plastic/medical
+	color = /decl/curtain_kind/plastic/medical::color
+	alpha = /decl/curtain_kind/plastic/medical::alpha
 /obj/structure/curtain/open/bar
 	curtain_kind_path = /decl/curtain_kind/cloth/bar
+	color = /decl/curtain_kind/cloth/bar::color
 /obj/structure/curtain/open/privacy
 	curtain_kind_path = /decl/curtain_kind/plastic/privacy
+	color = /decl/curtain_kind/plastic/privacy::color
 /obj/structure/curtain/open/shower
 	curtain_kind_path = /decl/curtain_kind/plastic/shower
+	color = /decl/curtain_kind/plastic/shower::color
+	alpha = /decl/curtain_kind/plastic/shower::alpha
 /obj/structure/curtain/open/canteen
 	curtain_kind_path = /decl/curtain_kind/plastic/canteen
+	color = /decl/curtain_kind/plastic/canteen::color
 /obj/structure/curtain/open/shower/engineering
 	curtain_kind_path = /decl/curtain_kind/plastic/shower/engineering
+	color = /decl/curtain_kind/plastic/shower/engineering::color
 /obj/structure/curtain/open/shower/security
 	curtain_kind_path = /decl/curtain_kind/plastic/shower/security
+	color = /decl/curtain_kind/plastic/shower/security::color

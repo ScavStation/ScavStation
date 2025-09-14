@@ -28,18 +28,18 @@
 		/obj/item/flash,
 		/obj/item/gripper/service,
 		/obj/item/chems/glass/bucket,
-		/obj/item/minihoe,
-		/obj/item/hatchet,
+		/obj/item/tool/hoe/mini,
+		/obj/item/tool/axe/hatchet,
 		/obj/item/scanner/plant,
-		/obj/item/storage/plants,
+		/obj/item/plants,
 		/obj/item/robot_harvester,
 		/obj/item/kitchen/rollingpin,
 		/obj/item/knife/kitchen,
 		/obj/item/crowbar,
 		/obj/item/rsf,
 		/obj/item/chems/dropper/industrial,
-		/obj/item/flame/lighter/zippo,
-		/obj/item/storage/tray/robotray,
+		/obj/item/flame/fuelled/lighter/zippo,
+		/obj/item/plate/tray/robotray,
 		/obj/item/chems/borghypo/service
 	)
 	emag = /obj/item/chems/drinks/bottle/small/beer
@@ -56,7 +56,7 @@
 	. = ..()
 	var/obj/item/rsf/M = locate() in equipment
 	M.stored_matter = 30
-	var/obj/item/flame/lighter/zippo/L = locate() in equipment
+	var/obj/item/flame/fuelled/lighter/zippo/L = locate() in equipment
 	L.lit = TRUE
 
 /obj/item/robot_module/clerical/butler/finalize_emag()
@@ -65,7 +65,7 @@
 		var/datum/reagents/R = emag.create_reagents(50)
 		R.add_reagent(/decl/material/liquid/paralytics, 10)
 		R.add_reagent(/decl/material/liquid/sedatives, 15)
-		R.add_reagent(/decl/material/liquid/ethanol/beer, 20)
+		R.add_reagent(/decl/material/liquid/alcohol/beer, 20)
 		R.add_reagent(/decl/material/solid/ice, 5)
 		emag.SetName("Mickey Finn's Special Brew")
 
@@ -75,7 +75,7 @@
 	E.add_to_reagents(/decl/material/liquid/enzyme, 2 * amount)
 	if(emag)
 		var/obj/item/chems/drinks/bottle/small/beer/B = emag
-		B.add_to_reagents(/decl/material/liquid/ethanol/beer, amount * 0.4)
+		B.add_to_reagents(/decl/material/liquid/alcohol/beer, amount * 0.4)
 		B.add_to_reagents(/decl/material/solid/ice,         amount * 0.1)
 		B.add_to_reagents(/decl/material/liquid/paralytics,   amount * 0.2)
 		B.add_to_reagents(/decl/material/liquid/sedatives,    amount * 0.3)

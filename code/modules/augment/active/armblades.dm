@@ -5,7 +5,6 @@
 	icon = 'icons/obj/augment.dmi'
 	desc = "A handy utility blade for the discerning augmentee. Warranty void if used for cutting."
 	base_parry_chance = 30
-	material_force_multiplier = 0.2
 	sharp = 1
 	edge = 1
 	attack_verb = list("stabbed", "sliced", "cut")
@@ -25,6 +24,8 @@
 	//Limited to robolimbs
 	augment_flags = AUGMENTATION_MECHANIC
 	material = /decl/material/solid/metal/steel
+
+/obj/item/organ/internal/augment/active/simple/armblade/reset_matter()
 	matter = list(/decl/material/solid/fiberglass = MATTER_AMOUNT_REINFORCEMENT)
 
 /obj/item/armblade/claws
@@ -32,7 +33,6 @@
 	name = "combat claws"
 	desc = "These do not grow back."
 	base_parry_chance = 40
-	material_force_multiplier = 0.3
 	origin_tech = @'{"materials":2,"engineering":2,"combat":3}'
 
 //Alternate look
@@ -46,4 +46,6 @@
 	//Limited to robolimbs
 	augment_flags = AUGMENTATION_MECHANIC
 	material = /decl/material/solid/metal/steel
+
+/obj/item/organ/internal/augment/active/simple/wolverine/reset_matter()
 	matter = list(/decl/material/solid/gemstone/diamond = MATTER_AMOUNT_REINFORCEMENT)

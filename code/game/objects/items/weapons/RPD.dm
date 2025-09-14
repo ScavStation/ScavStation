@@ -67,8 +67,6 @@ var/global/list/rpd_pipe_selection_skilled = list()
 	desc = "Portable, complex and deceptively heavy, it's the cousin of the RCD, use to dispense piping on the move."
 	icon = 'icons/obj/items/device/rpd.dmi'
 	icon_state = "rpd"
-	force = 12
-	throwforce = 15
 	throw_speed = 1
 	throw_range = 3
 	w_class = ITEM_SIZE_NORMAL
@@ -78,6 +76,7 @@ var/global/list/rpd_pipe_selection_skilled = list()
 		/decl/material/solid/glass = MATTER_AMOUNT_REINFORCEMENT,
 		/decl/material/solid/metal/silver = MATTER_AMOUNT_TRACE
 	)
+	_base_attack_force = 12
 
 	var/datum/fabricator_recipe/pipe/P
 	var/pipe_color = "white"
@@ -95,11 +94,11 @@ var/global/list/rpd_pipe_selection_skilled = list()
 	. = list()
 	. += "<table>"
 	if(color_options)
-		. += "<tr><td>Color</td><td><a href='?src=\ref[src];color=\ref[src]'><font color = '[pipe_color]'>[pipe_color]</font></a></td></tr>"
+		. += "<tr><td>Color</td><td><a href='byond://?src=\ref[src];color=\ref[src]'><font color = '[pipe_color]'>[pipe_color]</font></a></td></tr>"
 	for(var/category in pipe_categories)
 		. += "<tr><td><font color = '#517087'><strong>[category]</strong></font></td></tr>"
 		for(var/datum/fabricator_recipe/pipe/pipe in pipe_categories[category])
-			. += "<tr><td>[pipe.name]</td><td>[P.type == pipe.type ? "<span class='linkOn'>Select</span>" : "<a href='?src=\ref[src];select=\ref[pipe]'>Select</a>"]</td></tr>"
+			. += "<tr><td>[pipe.name]</td><td>[P.type == pipe.type ? "<span class='linkOn'>Select</span>" : "<a href='byond://?src=\ref[src];select=\ref[pipe]'>Select</a>"]</td></tr>"
 	.+= "</table>"
 	. = JOINTEXT(.)
 
@@ -147,7 +146,7 @@ var/global/list/rpd_pipe_selection_skilled = list()
 				return
 			playsound(get_turf(user), 'sound/items/Deconstruct.ogg', 50, 1)
 
-		P.build(T, new/datum/fabricator_build_order(P, 1, list("slected_color" = pipe_colors[pipe_color])))
+		P.build(T, new/datum/fabricator_build_order(P, 1, list("selected_color" = pipe_colors[pipe_color])))
 		if(prob(20))
 			spark_at(src, amount = 5, holder = src)
 
@@ -166,10 +165,10 @@ var/global/list/rpd_pipe_selection_skilled = list()
 /obj/item/rpd/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/pipe))
 		if(!user.try_unequip(W))
-			return
+			return TRUE
 		recycle(W,user)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/rpd/proc/recycle(var/obj/item/W,var/mob/user)
 	if(!user.skill_check(SKILL_ATMOS,SKILL_BASIC))

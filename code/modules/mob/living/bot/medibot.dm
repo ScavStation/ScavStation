@@ -73,40 +73,36 @@
 /mob/living/bot/medbot/handleAdjacentTarget()
 	if(is_tipped) // Don't handle targets if we're incapacitated!
 		return
-	UnarmedAttack(target)
+	UnarmedAttack(target, TRUE)
 
 /mob/living/bot/medbot/lookForTargets()
 	if(is_tipped) // Don't look for targets if we're incapacitated!
 		return
-	for(var/mob/living/carbon/human/H in view(7, src)) // Time to find a patient!
-		if(confirmTarget(H))
-			target = H
+	for(var/mob/living/human/patient in view(7, src)) // Time to find a patient!
+		if(confirmTarget(patient))
+			target = patient
 			if(last_newpatient_speak + 300 < world.time && vocal)
 				if(vocal)
 					var/message_options = list(
-						"Hey, [H.name]! Hold on, I'm coming." = 'sound/voice/medbot/mcoming.ogg',
-						"Wait [H.name]! I want to help!" = 'sound/voice/medbot/mhelp.ogg',
-						"[H.name], you appear to be injured!" = 'sound/voice/medbot/minjured.ogg'
+						"Hey, [patient.name]! Hold on, I'm coming." = 'sound/voice/medbot/mcoming.ogg',
+						"Wait [patient.name]! I want to help!" = 'sound/voice/medbot/mhelp.ogg',
+						"[patient.name], you appear to be injured!" = 'sound/voice/medbot/minjured.ogg'
 						)
 					var/message = pick(message_options)
 					say(message)
 					playsound(src, message_options[message], 50, 0)
-				custom_emote(1, "points at [H.name].")
+				custom_emote(1, "points at [patient.name].")
 				last_newpatient_speak = world.time
 			break
 
-/mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/human/H, var/proximity)
-	. = ..()
-	if(.)
-		return
-
-	if(!on || !istype(H))
+/mob/living/bot/medbot/ResolveUnarmedAttack(var/mob/living/human/target)
+	if(!on || !istype(target))
 		return FALSE
 
 	if(busy)
 		return TRUE
 
-	if(H.stat == DEAD)
+	if(target.stat == DEAD)
 		if(vocal)
 			var/static/death_messages = list(
 				"No! Stay with me!" = 'sound/voice/medbot/mno.ogg',
@@ -117,7 +113,7 @@
 			say(message)
 			playsound(src, death_messages[message], 50, 0)
 
-	var/t = confirmTarget(H)
+	var/t = confirmTarget(target)
 	if(!t)
 		if(vocal)
 			var/static/possible_messages = list(
@@ -130,18 +126,18 @@
 			playsound(src, possible_messages[message], 50, 0)
 
 	icon_state = "medibots"
-	visible_message("<span class='warning'>[src] is trying to inject [H]!</span>")
+	visible_message("<span class='warning'>[src] is trying to inject [target]!</span>")
 	if(declare_treatment)
 		var/area/location = get_area(src)
-		broadcast_medical_hud_message("[src] is treating <b>[H]</b> in <b>[location.proper_name]</b>", src)
+		broadcast_medical_hud_message("[src] is treating <b>[target]</b> in <b>[location.proper_name]</b>", src)
 	busy = 1
 	update_icon()
-	if(do_mob(src, H, 30))
+	if(do_mob(src, target, 30))
 		if(t == 1)
-			reagent_glass.reagents.trans_to_mob(H, injection_amount, CHEM_INJECT)
+			reagent_glass.reagents.trans_to_mob(target, injection_amount, CHEM_INJECT)
 		else
-			H.add_to_reagents(t, injection_amount)
-		visible_message("<span class='warning'>[src] injects [H] with the syringe!</span>")
+			target.add_to_reagents(t, injection_amount)
+		visible_message("<span class='warning'>[src] injects [target] with the syringe!</span>")
 	busy = 0
 	update_icon()
 	return TRUE
@@ -159,18 +155,18 @@
 	if(istype(O, /obj/item/chems/glass))
 		if(locked)
 			to_chat(user, "<span class='notice'>You cannot insert a beaker because the panel is locked.</span>")
-			return
+			return TRUE
 		if(!isnull(reagent_glass))
 			to_chat(user, "<span class='notice'>There is already a beaker loaded.</span>")
-			return
+			return TRUE
 
 		if(!user.try_unequip(O, src))
-			return
+			return TRUE
 		reagent_glass = O
 		to_chat(user, "<span class='notice'>You insert [O].</span>")
-		return
+		return TRUE
 	else
-		..()
+		return ..()
 
 /mob/living/bot/medbot/default_disarm_interaction(mob/user)
 	if(!is_tipped)
@@ -203,34 +199,34 @@
 	. = ..()
 	. += "<br>Beaker: "
 	if(reagent_glass)
-		. += "<A href='?src=\ref[src];command=eject'>Loaded \[[reagent_glass.reagents.total_volume]/[reagent_glass.reagents.maximum_volume]\]</a>"
+		. += "<A href='byond://?src=\ref[src];command=eject'>Loaded \[[reagent_glass.reagents.total_volume]/[reagent_glass.reagents.maximum_volume]\]</a>"
 	else
 		. += "None loaded"
 
 /mob/living/bot/medbot/GetInteractPanel()
 	. = "Healing threshold: "
-	. += "<a href='?src=\ref[src];command=adj_threshold;amount=-10'>--</a> "
-	. += "<a href='?src=\ref[src];command=adj_threshold;amount=-5'>-</a> "
+	. += "<a href='byond://?src=\ref[src];command=adj_threshold;amount=-10'>--</a> "
+	. += "<a href='byond://?src=\ref[src];command=adj_threshold;amount=-5'>-</a> "
 	. += "[heal_threshold] "
-	. += "<a href='?src=\ref[src];command=adj_threshold;amount=5'>+</a> "
-	. += "<a href='?src=\ref[src];command=adj_threshold;amount=10'>++</a>"
+	. += "<a href='byond://?src=\ref[src];command=adj_threshold;amount=5'>+</a> "
+	. += "<a href='byond://?src=\ref[src];command=adj_threshold;amount=10'>++</a>"
 
 	. += "<br>Injection level: "
-	. += "<a href='?src=\ref[src];command=adj_inject;amount=-5'>-</a> "
+	. += "<a href='byond://?src=\ref[src];command=adj_inject;amount=-5'>-</a> "
 	. += "[injection_amount] "
-	. += "<a href='?src=\ref[src];command=adj_inject;amount=5'>+</a> "
+	. += "<a href='byond://?src=\ref[src];command=adj_inject;amount=5'>+</a> "
 
-	. += "<br>Reagent source: <a href='?src=\ref[src];command=use_beaker'>[use_beaker ? "Loaded Beaker (When available)" : "Internal Synthesizer"]</a>"
-	. += "<br>Treatment report is [declare_treatment ? "on" : "off"]. <a href='?src=\ref[src];command=declaretreatment'>Toggle</a>"
-	. += "<br>The speaker switch is [vocal ? "on" : "off"]. <a href='?src=\ref[src];command=togglevoice'>Toggle</a>"
+	. += "<br>Reagent source: <a href='byond://?src=\ref[src];command=use_beaker'>[use_beaker ? "Loaded Beaker (When available)" : "Internal Synthesizer"]</a>"
+	. += "<br>Treatment report is [declare_treatment ? "on" : "off"]. <a href='byond://?src=\ref[src];command=declaretreatment'>Toggle</a>"
+	. += "<br>The speaker switch is [vocal ? "on" : "off"]. <a href='byond://?src=\ref[src];command=togglevoice'>Toggle</a>"
 
 /mob/living/bot/medbot/GetInteractMaintenance()
 	. = "Injection mode: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Treatment</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Treatment</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>Random (DANGER)</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Random (DANGER)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 
@@ -288,7 +284,7 @@
 	var/turf/my_turf = get_turf(src)
 	. = ..()
 	if(. && my_turf)
-		new /obj/item/storage/firstaid(my_turf)
+		new /obj/item/firstaid(my_turf)
 		new /obj/item/assembly/prox_sensor(my_turf)
 		new /obj/item/scanner/health(my_turf)
 		if (prob(50))
@@ -297,33 +293,34 @@
 			reagent_glass.forceMove(my_turf)
 			reagent_glass = null
 
-/mob/living/bot/medbot/confirmTarget(var/mob/living/carbon/human/H)
-	if(!..())
-		return 0
+/mob/living/bot/medbot/confirmTarget(atom/target)
+	if(!(. = ..()))
+		return
 
-	if(H.stat == DEAD) // He's dead, Jim
-		return 0
+	var/mob/living/human/patient = target
+	if(!istype(patient) || patient.stat == DEAD) // He's dead, Jim
+		return FALSE
 
 	if(emagged)
 		return treatment_emag
 
 	// If they're injured, we're using a beaker, and they don't have on of the chems in the beaker
-	if(reagent_glass && use_beaker && ((H.getBruteLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getToxLoss() >= heal_threshold) || (H.getOxyLoss() >= (heal_threshold + 15))))
+	if(reagent_glass && use_beaker && ((patient.get_damage(BRUTE) >= heal_threshold) || (patient.get_damage(TOX) >= heal_threshold) || (patient.get_damage(TOX) >= heal_threshold) || (patient.get_damage(OXY) >= (heal_threshold + 15))))
 		for(var/R in reagent_glass.reagents.reagent_volumes)
-			if(!H.reagents.has_reagent(R))
+			if(!patient.reagents.has_reagent(R))
 				return 1
 			continue
 
-	if((H.getBruteLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_brute)))
+	if((patient.get_damage(BRUTE) >= heal_threshold) && (!patient.reagents.has_reagent(treatment_brute)))
 		return treatment_brute //If they're already medicated don't bother!
 
-	if((H.getOxyLoss() >= (15 + heal_threshold)) && (!H.reagents.has_reagent(treatment_oxy)))
+	if((patient.get_damage(OXY) >= (15 + heal_threshold)) && (!patient.reagents.has_reagent(treatment_oxy)))
 		return treatment_oxy
 
-	if((H.getFireLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_fire)))
+	if((patient.get_damage(BURN) >= heal_threshold) && (!patient.reagents.has_reagent(treatment_fire)))
 		return treatment_fire
 
-	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
+	if((patient.get_damage(TOX) >= heal_threshold) && (!patient.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
 
 /mob/living/bot/medbot/proc/tip_over(mob/user)

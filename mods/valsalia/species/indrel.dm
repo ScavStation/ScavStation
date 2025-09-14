@@ -1,11 +1,5 @@
-var/global/list/pheromone_markers = list()
-
-/decl/species/handle_post_spawn(var/mob/living/carbon/human/H)
-	. = ..()
-	if(H)
-		H.update_pheromone_markers()
-
 /decl/bodytype/indrel
+	uid = "bodytype_indrel"
 	name = "indrel"
 	bodytype_category = BODYTYPE_INDREL
 	bodytype_flag =     BODY_FLAG_INDREL
@@ -118,21 +112,27 @@ var/global/list/pheromone_markers = list()
 	)
 	hazard_low_pressure = -1
 
-	available_cultural_info = list(
-		TAG_CULTURE =   list(
-			/decl/cultural_info/culture/indrel,
-			/decl/cultural_info/culture/other
+	available_background_info = list(
+		/decl/background_category/heritage =  list(
+			/decl/background_detail/heritage/indrel/mountains,
+			/decl/background_detail/heritage/other
 		),
-		TAG_HOMEWORLD = list(
-			/decl/cultural_info/location/tradehousespace,
-			/decl/cultural_info/location/stateless
+		/decl/background_category/homeworld = list(
+			/decl/background_detail/location/tradehousespace,
+			/decl/background_detail/location/stateless
 		),
-		TAG_FACTION =   list(
-			/decl/cultural_info/faction/indrel,
-			/decl/cultural_info/faction/other
+		/decl/background_category/faction =   list(
+			/decl/background_detail/faction/tradehouse_indrel,
+			/decl/background_detail/faction/indrel,
+			/decl/background_detail/faction/hiveless,
+			/decl/background_detail/faction/wanderer
 		),
-		TAG_RELIGION =  list(
-			/decl/cultural_info/religion/other
+		/decl/background_category/religion =  list(
+			/decl/background_detail/religion/dinnaism,
+			/decl/background_detail/religion/veil_worship,
+			/decl/background_detail/religion/angel_worship,
+			/decl/background_detail/religion/ancestor_worship,
+			/decl/background_detail/religion/faithless,
 		)
 	)
 
@@ -141,7 +141,7 @@ var/global/list/pheromone_markers = list()
 	slot_name = "Upper Right Hand"
 	slot_id = BP_R_HAND_UPPER
 	requires_organ_tag = BP_R_HAND_UPPER
-	can_use_held_item = FALSE
+	dexterity = (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 	overlay_slot = BP_R_HAND_UPPER
 	ui_label = "UR"
 	hand_sort_priority = 2
@@ -150,7 +150,7 @@ var/global/list/pheromone_markers = list()
 	slot_name = "Upper Left Hand"
 	slot_id = BP_L_HAND_UPPER
 	requires_organ_tag = BP_L_HAND_UPPER
-	can_use_held_item = FALSE
+	dexterity = (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 	overlay_slot = BP_L_HAND_UPPER
 	ui_label = "UL"
 	hand_sort_priority = 2

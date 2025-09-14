@@ -5,13 +5,12 @@ var/global/const/DRINK_ICON_DEFAULT = ""
 var/global/const/DRINK_ICON_NOISY = "noise"
 
 /obj/item/chems/drinks/glass2
+
 	name = "glass" // Name when empty
-	base_name = "glass"
 	desc = "A generic drinking glass." // Description when empty
 	icon = 'icons/obj/drink_glasses/square.dmi'
 	icon_state = null
 	base_icon = "square" // Base icon name
-	/// The icon state prefix used for overlay/addon sprites. If unset, defaults to base_icon.
 	filling_states = @"[20,40,60,80,100]"
 	volume = 30
 	material = /decl/material/solid/glass
@@ -22,9 +21,9 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	possible_transfer_amounts = @"[5,10,15,30]"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	presentation_flags = PRESENTATION_FLAG_NAME | PRESENTATION_FLAG_DESC
-	temperature_coefficient = 4
 	w_class = ITEM_SIZE_SMALL
 
+	/// The icon state prefix used for overlay/addon sprites. If unset, defaults to base_icon.
 	var/overlay_base_icon = null
 	var/list/extras = list() // List of extras. Two extras maximum
 	var/rim_pos // Position of the rim for fruit slices. list(y, x_left, x_right)
@@ -46,7 +45,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	for(var/I in extras)
 		if(istype(I, /obj/item/glass_extra))
 			to_chat(M, "There is \a [I] in \the [src].")
-		else if(istype(I, /obj/item/chems/food/fruit_slice))
+		else if(istype(I, /obj/item/food/processed_grown/slice))
 			to_chat(M, "There is \a [I] on the rim.")
 		else
 			to_chat(M, "There is \a [I] somewhere on the glass. Somehow.")
@@ -102,15 +101,8 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	if(!overlay_base_icon)
 		overlay_base_icon = base_icon
 
-/obj/item/chems/drinks/glass2/get_base_name()
-	. = base_name
-
 /obj/item/chems/drinks/glass2/get_base_desc()
 	. = custom_desc || ..()
-
-/obj/item/chems/drinks/glass2/on_reagent_change()
-	temperature_coefficient = 4 / max(1, reagents?.total_volume)
-	..()
 
 /obj/item/chems/drinks/glass2/proc/can_add_extra(obj/item/glass_extra/GE)
 	if(!("[overlay_base_icon]_[GE.glass_addition]left" in icon_states(icon)))
@@ -128,7 +120,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 		if(istype(extra, /obj/item/glass_extra))
 			var/obj/item/glass_extra/GE = extra
 			LAZYADD(extra_text, GE.glass_desc)
-		else if(istype(extra, /obj/item/chems/food/fruit_slice))
+		else if(istype(extra, /obj/item/food/processed_grown/slice))
 			LAZYADD(extra_text, "There is \a [extra] on the rim.")
 	if(length(extra_text))
 		to_chat(user, SPAN_NOTICE(jointext(extra_text," ")))
@@ -197,7 +189,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 			var/image/I = image(icon, src, "[overlay_base_icon]_[GE.glass_addition][side]")
 			I.color = GE.color
 			underlays += I
-		else if(rim_pos && istype(item, /obj/item/chems/food/fruit_slice))
+		else if(rim_pos && istype(item, /obj/item/food/processed_grown/slice))
 			var/obj/FS = item
 			var/image/I = image(FS)
 
@@ -222,10 +214,12 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 				user.visible_message("<span class='notice'>The contents of \the [src] splash all over [user]!</span>")
 				reagents.splash(user, reagents.total_volume)
 			qdel(src)
-			return
+			return TRUE
 		user.visible_message("<span class='notice'>[user] gently strikes \the [src] with a spoon, calling the room to attention.</span>")
 		playsound(src, "sound/items/wineglass.ogg", 65, 1)
-	else return ..()
+		return TRUE
+	else
+		return ..()
 
 /obj/item/chems/drinks/glass2/ProcessAtomTemperature()
 	var/old_temp = temperature

@@ -1,50 +1,44 @@
-/mob/living/simple_animal/borer/UnarmedAttack(atom/A, proximity)
+/mob/living/simple_animal/borer/ResolveUnarmedAttack(atom/A)
 
-	. = ..()
-	if(.)
-		return
+	if(host)
+		return TRUE // We cannot click things outside of our host.
 
-	if(!isliving(A) || a_intent != I_GRAB)
-		return FALSE
+	if(!isliving(A) || a_intent != I_GRAB || stat)
+		return ..()
 
-	if(host || !can_use_borer_ability(requires_host_value = FALSE, check_last_special = FALSE))
-		return FALSE
+	if(!can_use_borer_ability(requires_host_value = FALSE, check_last_special = FALSE))
+		return TRUE
 
-	var/mob/living/M = A
-	if(M.has_brain_worms())
+	var/mob/living/victim = A
+	if(victim.has_brain_worms())
 		to_chat(src, SPAN_WARNING("You cannot take a host who already has a passenger!"))
 		return TRUE
-
-	//TODO generalize borers to enter any mob. Until then, return early.
-	if(!ishuman(M))
-		to_chat(src, SPAN_WARNING("This creature is not sufficiently intelligent to host you."))
+	var/obj/item/organ/external/limb = GET_EXTERNAL_ORGAN(victim, BP_HEAD)
+	if(!limb)
+		to_chat(src, SPAN_WARNING("\The [victim] does not have anatomy compatible with your lifecycle!"))
 		return TRUE
-	// end TODO
-
-	var/mob/living/carbon/human/H = M
-	var/obj/item/organ/external/E = GET_EXTERNAL_ORGAN(H, BP_HEAD)
-	if(!E)
-		to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
+	if(BP_IS_PROSTHETIC(limb))
+		to_chat(src, SPAN_WARNING("\The [victim]'s head is prosthetic and cannot support your lifecycle!"))
 		return TRUE
-	if(!H.should_have_organ(BP_BRAIN))
-		to_chat(src, SPAN_WARNING("\The [H] does not seem to have a brain cavity to enter."))
+	if(!victim.should_have_organ(BP_BRAIN))
+		to_chat(src, SPAN_WARNING("\The [victim] does not seem to have a brain cavity to enter."))
 		return TRUE
-	if(H.check_head_coverage())
+	if(victim.check_head_coverage())
 		to_chat(src, SPAN_WARNING("You cannot get through that host's protective gear."))
 		return TRUE
 
-	to_chat(M, SPAN_WARNING("Something slimy begins probing at the opening of your ear canal..."))
-	to_chat(src, SPAN_NOTICE("You slither up [M] and begin probing at their ear canal..."))
+	to_chat(victim, SPAN_WARNING("Something slimy begins probing at the opening of your ear canal..."))
+	to_chat(src, SPAN_NOTICE("You slither up [victim] and begin probing at their ear canal..."))
 	set_ability_cooldown(5 SECONDS)
 
-	if(!do_after(src, 3 SECONDS, M))
+	if(!do_after(src, 3 SECONDS, victim) || host || GET_EXTERNAL_ORGAN(victim, BP_HEAD) != limb || BP_IS_PROSTHETIC(limb) || victim.check_head_coverage())
 		return TRUE
 
-	to_chat(src, SPAN_NOTICE("You wiggle into \the [M]'s ear."))
-	if(M.stat == CONSCIOUS)
-		to_chat(M, SPAN_DANGER("Something wet, cold and slimy wiggles into your ear!"))
+	to_chat(src, SPAN_NOTICE("You wiggle into \the [victim]'s ear."))
+	if(victim.stat == CONSCIOUS)
+		to_chat(victim, SPAN_DANGER("Something wet, cold and slimy wiggles into your ear!"))
 
-	host = M
+	host = victim
 	host.status_flags |= PASSEMOTES
 	forceMove(host)
 
@@ -60,9 +54,9 @@
 		borers.add_antagonist_mind(host.mind, 1, borers.faction_name, borers.faction_welcome)
 
 	if(ishuman(host))
-		var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(H, BP_BRAIN)
+		var/obj/item/organ/internal/I = GET_INTERNAL_ORGAN(victim, BP_BRAIN)
 		if(!I) // No brain organ, so the borer moves in and replaces it permanently.
 			replace_brain()
-		else if(E) // If they're in normally, implant removal can get them out.
-			LAZYDISTINCTADD(E.implants, src)
+		else if(limb) // If they're in normally, implant removal can get them out.
+			LAZYDISTINCTADD(limb.implants, src)
 	return TRUE
