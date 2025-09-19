@@ -214,6 +214,6 @@
 /datum/nano_module/law_manager/proc/sync_laws(var/mob/living/silicon/ai/AI)
 	if(!AI)
 		return
-	for(var/mob/living/silicon/robot/R in AI.connected_robots)
-		R.sync()
-	log_and_message_admins("has syncronized [AI]'s laws with its borgs.")
+	for(var/mob/living/silicon/robot/robot in AI.connected_robots)
+		robot.sync()
+	log_and_message_admins("has synchronized [AI]'s laws with its borgs.")
