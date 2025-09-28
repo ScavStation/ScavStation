@@ -3197,8 +3197,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "jj" = (
-/obj/machinery/door/window,
-/turf/floor/tiled/white,
+/turf/floor/wood/walnut,
 /area/ministation/Murphy/common/upper)
 "jm" = (
 /obj/machinery/door/blast/regular{
@@ -3487,10 +3486,12 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "jW" = (
-/obj/structure/table,
-/obj/item/bodybag/cryobag,
-/obj/item/modular_computer/laptop/preset/custom_loadout/advanced,
-/turf/floor/tiled/white,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 22
+	},
+/turf/floor/wood/walnut,
 /area/ministation/Murphy/common/upper)
 "jX" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -4885,11 +4886,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l3ne)
 "nO" = (
-/obj/structure/bed/padded{
-	dir = 8
-	},
-/obj/item/bedsheet/blue,
-/turf/floor/tiled,
+/turf/floor/reinforced,
 /area/ministation/Murphy/common/upper)
 "nP" = (
 /obj/machinery/door/airlock/hatch/maintenance,
@@ -5791,7 +5788,15 @@
 /turf/space,
 /area/ministation/bombrange)
 "qV" = (
-/obj/structure/door_assembly,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/medical{
+	dir = 8
+	},
 /turf/floor/tiled,
 /area/ministation/Murphy/common/upper)
 "qW" = (
@@ -5962,12 +5967,10 @@
 /turf/floor/tiled,
 /area/ministation/Murphy/common/upper)
 "rr" = (
-/obj/structure/bed/padded{
+/obj/structure/bed/sofa/right/beige{
 	dir = 8
 	},
-/obj/structure/curtain/medical,
-/obj/item/bedsheet/medical,
-/turf/floor/tiled/white,
+/turf/floor/wood/walnut,
 /area/ministation/Murphy/common/upper)
 "rs" = (
 /obj/machinery/shipsensors,
@@ -6418,12 +6421,18 @@
 /turf/floor/plating,
 /area/ministation/maint/l3central)
 "sT" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/table/woodentable/walnut,
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 4;
+	pixel_x = -24
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled,
+/obj/random/mre/dessert{
+	pixel_x = -5
+	},
+/obj/random/snack{
+	pixel_x = 5
+	},
+/turf/floor/wood/walnut,
 /area/ministation/Murphy/common/upper)
 "sU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6834,11 +6843,7 @@
 /turf/floor/tiled,
 /area/ministation/hall/s3)
 "uj" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/floor/tiled/white,
+/turf/floor/carpet/green,
 /area/ministation/Murphy/common/upper)
 "ul" = (
 /obj/structure/bed/chair/armchair/black{
@@ -7641,9 +7646,32 @@
 /turf/floor,
 /area/ministation/Murphy/maint)
 "wj" = (
-/obj/structure/table/steel,
-/obj/item/modular_computer/tablet,
-/turf/floor/tiled,
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/revolver,
+/obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/box/ammo/shotgunammo,
+/obj/item/box/ammo/shotgunammo/large,
+/obj/item/box/ammo/shotgunshells,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/ammo_magazine/rifle,
+/obj/item/grenade/flashbang/clusterbang,
+/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
+/obj/item/box/ammo/beanbags,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/item/ammo_magazine/speedloader,
+/obj/random/firstaid,
+/obj/item/ammo_magazine/speedloader/rubber,
+/obj/item/ammo_magazine/speedloader/laser_revolver,
+/obj/item/belt/holster/security/tactical,
+/obj/item/clothing/webbing/holster/thigh,
+/obj/item/ammo_magazine/box/pistol{
+	ammo_type = /obj/item/ammo_casing/pistol/magnum;
+	caliber = "15mm"
+	},
+/turf/floor/reinforced,
 /area/ministation/Murphy/common/upper)
 "wk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7875,10 +7903,18 @@
 /turf/floor/tiled/white,
 /area/ministation/biodome)
 "wS" = (
-/obj/structure/bed/chair/office{
-	dir = 1
+/obj/structure/table,
+/obj/item/chems/drinks/juicebox/sensible_random{
+	pixel_x = 5
 	},
-/turf/floor/tiled,
+/obj/item/chems/drinks/cans/waterbottle{
+	pixel_x = -6
+	},
+/obj/random/cash,
+/obj/random/single/cola{
+	pixel_y = 6
+	},
+/turf/floor/carpet/green,
 /area/ministation/Murphy/common/upper)
 "wT" = (
 /obj/structure/table/woodentable,
@@ -8219,8 +8255,11 @@
 /turf/floor/lino,
 /area/ministation/contracter_bunk)
 "xZ" = (
-/obj/random/medical/lite,
-/turf/floor/tiled/white,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light/small,
+/turf/floor/wood/walnut,
 /area/ministation/Murphy/common/upper)
 "ya" = (
 /obj/structure/cable{
@@ -8632,6 +8671,14 @@
 "zf" = (
 /turf/wall,
 /area/ministation/Murphy/janitors)
+"zh" = (
+/obj/structure/table/steel,
+/obj/machinery/recharger,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/floor/reinforced,
+/area/ministation/Murphy/common/upper)
 "zi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -10557,13 +10604,38 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/contracter_bunk)
 "Eq" = (
-/obj/structure/closet/secure_closet/personal/patient,
-/obj/item/roller,
-/obj/item/chewables/candy/medicallollis,
-/obj/machinery/light{
+/obj/item/clothing/gloves/armguards/yinglet,
+/obj/item/clothing/shoes/legguards/yinglet,
+/obj/item/clothing/suit/jacket/winter/yinglet/HoS,
+/obj/item/clothing/jumpsuit/yinglet{
+	color = "#000000";
+	paint_color = "#000000"
+	},
+/obj/item/clothing/jumpsuit/yinglet{
+	color = "#ffa500";
+	paint_color = "#ffa500"
+	},
+/obj/item/clothing/jumpsuit/yinglet,
+/obj/item/clothing/jumpsuit/yinglet{
+	color = "#658D59";
+	paint_color = "#658D59"
+	},
+/obj/item/clothing/head/beret/orange,
+/obj/item/clothing/head/beret/corp/sec/corporate/hos,
+/obj/item/clothing/shoes/jackboots/jungleboots,
+/obj/item/clothing/gloves/ring/material/silver,
+/obj/item/clothing/webbing/pouches/large/tan,
+/obj/machinery/light/small{
 	dir = 4
 	},
-/turf/floor/tiled/white,
+/obj/structure/closet/wardrobe,
+/obj/item/mre/random,
+/obj/item/clothing/shoes/magboots/rig/ert/security,
+/obj/item/clothing/webbing/holster/hip,
+/obj/item/clothing/suit/armor/pcarrier/tan,
+/obj/item/clothing/armor_attachment/plate,
+/obj/item/clothing/glasses/sunglasses/sechud/toggle,
+/turf/floor/wood/walnut,
 /area/ministation/Murphy/common/upper)
 "Er" = (
 /obj/structure/cable{
@@ -11171,15 +11243,10 @@
 /turf/floor/blackgrid,
 /area/ministation/maint/l3ne)
 "Gc" = (
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/structure/bed/sofa/left/beige{
+	dir = 8
 	},
-/obj/structure/window/reinforced{
-	current_health = 1e+007
-	},
-/obj/random/medical,
-/obj/random/medical,
-/turf/floor/tiled/white,
+/turf/floor/wood/walnut,
 /area/ministation/Murphy/common/upper)
 "Gd" = (
 /obj/machinery/door/firedoor,
@@ -11401,6 +11468,18 @@
 "GO" = (
 /turf/wall,
 /area/ministation/contracter_bunk)
+"GP" = (
+/obj/structure/table/woodentable/walnut,
+/obj/item/integrated_circuit_printer,
+/obj/machinery/computer/modular/telescreen/preset/security{
+	dir = 4;
+	pixel_x = -24
+	},
+/obj/random/snack{
+	pixel_y = 7
+	},
+/turf/floor/wood/walnut,
+/area/ministation/Murphy/common/upper)
 "GQ" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -12283,19 +12362,16 @@
 /turf/floor/reinforced,
 /area/ministation/science)
 "Jv" = (
-/obj/structure/closet,
-/obj/item/ammo_magazine/speedloader,
-/obj/item/ammo_magazine/speedloader,
-/obj/item/ammo_magazine/speedloader,
-/obj/item/gun/projectile/revolver,
-/obj/item/handcuffs,
-/obj/machinery/light/small{
-	dir = 8
+/turf/wall{
+	can_open = 1;
+	dir = 4
 	},
-/turf/floor/tiled,
 /area/ministation/Murphy/common/upper)
 "Jw" = (
-/turf/floor/tiled/white,
+/obj/structure/bed/chair/armchair/beige{
+	dir = 4
+	},
+/turf/floor/carpet/green,
 /area/ministation/Murphy/common/upper)
 "Jx" = (
 /obj/item/clothing/suit/jacket/winter/yinglet/rd,
@@ -13205,8 +13281,9 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "Mm" = (
-/obj/structure/bed/chair/office/dark,
-/turf/floor/tiled/white,
+/obj/item/bedsheet/blue,
+/obj/structure/bed/padded,
+/turf/floor/carpet/green,
 /area/ministation/Murphy/common/upper)
 "Mn" = (
 /obj/structure/cable{
@@ -16137,11 +16214,13 @@
 /turf/floor/tiled,
 /area/ministation/Murphy/common/upper)
 "UO" = (
-/obj/item/scalpel/laser,
-/obj/item/plastique,
-/obj/item/gun/projectile/pistol/holdout,
-/obj/structure/closet/crate/bin,
-/turf/floor/tiled/white,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/wood/walnut,
 /area/ministation/Murphy/common/upper)
 "UP" = (
 /obj/machinery/light{
@@ -16692,10 +16771,10 @@
 /turf/floor/reinforced,
 /area/ministation/science)
 "Wp" = (
-/obj/machinery/door/airlock/command{
+/obj/machinery/light/small{
 	dir = 8
 	},
-/turf/floor/tiled,
+/turf/floor/carpet/green,
 /area/ministation/Murphy/common/upper)
 "Wr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -64910,7 +64989,7 @@ cn
 cn
 cn
 cn
-cn
+vg
 zE
 zE
 zE
@@ -65168,12 +65247,12 @@ vg
 vg
 vg
 vg
-zE
-Jv
-zE
-zE
-zE
-zE
+zh
+mM
+Mm
+Wp
+sT
+GP
 zE
 zE
 HO
@@ -65426,11 +65505,11 @@ He
 IW
 vg
 nO
-NG
-zE
+Jv
 Jw
+uj
 jj
-zE
+jj
 mM
 LO
 tS
@@ -65683,8 +65762,8 @@ VS
 nd
 vg
 wj
+mM
 wS
-zE
 uj
 Gc
 rr
@@ -65940,10 +66019,10 @@ vg
 vg
 Nx
 mM
-Wp
 mM
-Jw
-Mm
+mM
+jj
+jj
 xZ
 mM
 Gg
@@ -66715,7 +66794,7 @@ CH
 UN
 Xx
 Xx
-sT
+Ts
 Cv
 Je
 Xx
@@ -68508,7 +68587,7 @@ cn
 cn
 cn
 cn
-cn
+Lc
 Lc
 Lc
 Lc

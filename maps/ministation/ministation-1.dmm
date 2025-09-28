@@ -21834,7 +21834,6 @@
 /obj/random/mre/drink,
 /obj/random/mre/drink,
 /obj/item/rig/industrial,
-/obj/structure/closet/crate,
 /obj/item/rig_module/ai_container,
 /obj/item/rig_module/datajack,
 /obj/item/rig_module/device/rcd,
