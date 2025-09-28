@@ -10491,6 +10491,13 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l3se)
+"DY" = (
+/obj/item/clothing/jumpsuit/yinglet{
+	color = "#658d59";
+	paint_color = "#658d59"
+	},
+/turf/wall,
+/area/ministation/Murphy/common/upper)
 "DZ" = (
 /obj/item/cash/scavbucks,
 /turf/floor/tiled/white,
@@ -10617,8 +10624,8 @@
 	},
 /obj/item/clothing/jumpsuit/yinglet,
 /obj/item/clothing/jumpsuit/yinglet{
-	color = "#658D59";
-	paint_color = "#658D59"
+	color = "#658d59";
+	paint_color = "#658d59"
 	},
 /obj/item/clothing/head/beret/orange,
 /obj/item/clothing/head/beret/corp/sec/corporate/hos,
@@ -66534,7 +66541,7 @@ lf
 NG
 NG
 pC
-mM
+DY
 mM
 mM
 qV
