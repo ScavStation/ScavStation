@@ -159,14 +159,14 @@
 		"-orurari" = list("million"),
 		"-orurarisu" = list("billion"),
 		"-oruraratu" = list("trillion"),
-		"-oru-oru-ra" = list("immeasurable", "forever", "eternal", "eternity", "infinite", "inifinity", "ouroboros", "loop", "looping")
+		"-oru-oru-ra" = list("immeasurable", "forever", "eternal", "eternity", "infinite", "inifinity", "ouroboros", "loop", "looping"),
 		"zhat" = list("zhat"),
  		"zhose" = list("zhose"),
  		"zhem" = list("zhem"),
  		"zhey" = list("zhey"),
  		"zhe" = list("zhe"),
  		"zhey're" = list("zhey're"),
- 		"zheir" = list("zheir"),
+ 		"zheir" = list("zheir")
 	)
 
 	var/list/outext = list()
