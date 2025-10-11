@@ -287,6 +287,9 @@
 /area/ministation/Murphy/common)
 "aL" = (
 /obj/structure/bed/sofa/middle/black,
+/obj/abstract/landmark/start{
+	name = "Matriarch"
+	},
 /turf/floor/carpet/green,
 /area/ministation/cafe)
 "aM" = (
@@ -13306,9 +13309,6 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/abstract/landmark/start{
-	name = "Matriarch"
-	},
 /turf/floor/carpet/green,
 /area/ministation/enclave/matriarch)
 "Fq" = (
@@ -21834,7 +21834,6 @@
 /obj/random/mre/drink,
 /obj/random/mre/drink,
 /obj/item/rig/industrial,
-/obj/structure/closet/crate,
 /obj/item/rig_module/ai_container,
 /obj/item/rig_module/datajack,
 /obj/item/rig_module/device/rcd,
