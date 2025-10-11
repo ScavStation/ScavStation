@@ -1322,7 +1322,6 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_y = -30
 	},
-/obj/random/handgun,
 /turf/floor,
 /area/ministation/Murphy/common/upper)
 "dJ" = (
@@ -5453,6 +5452,10 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
+/obj/item/clothing/jumpsuit/yinglet{
+	color = "#658d59";
+	paint_color = "#658d59"
+	},
 /turf/floor/tiled,
 /area/ministation/Murphy/common/upper)
 "pD" = (
@@ -7380,9 +7383,6 @@
 	pixel_y = 14;
 	pixel_x = -5
 	},
-/obj/abstract/landmark/start{
-	name = "Matriarch"
-	},
 /turf/floor/carpet/green,
 /area/ministation/enclave/matriarch)
 "vy" = (
@@ -7645,34 +7645,6 @@
 	},
 /turf/floor,
 /area/ministation/Murphy/maint)
-"wj" = (
-/obj/structure/closet/secure_closet/guncabinet,
-/obj/item/gun/projectile/revolver,
-/obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/box/ammo/shotgunammo,
-/obj/item/box/ammo/shotgunammo/large,
-/obj/item/box/ammo/shotgunshells,
-/obj/item/ammo_magazine/rifle,
-/obj/item/ammo_magazine/rifle,
-/obj/item/ammo_magazine/rifle,
-/obj/item/grenade/flashbang/clusterbang,
-/obj/item/gun/projectile/automatic/assault_rifle/yinglet,
-/obj/item/box/ammo/beanbags,
-/obj/item/ammo_magazine/speedloader,
-/obj/item/ammo_magazine/speedloader,
-/obj/item/ammo_magazine/speedloader,
-/obj/item/ammo_magazine/speedloader,
-/obj/random/firstaid,
-/obj/item/ammo_magazine/speedloader/rubber,
-/obj/item/ammo_magazine/speedloader/laser_revolver,
-/obj/item/belt/holster/security/tactical,
-/obj/item/clothing/webbing/holster/thigh,
-/obj/item/ammo_magazine/box/pistol{
-	ammo_type = /obj/item/ammo_casing/pistol/magnum;
-	caliber = "15mm"
-	},
-/turf/floor/reinforced,
-/area/ministation/Murphy/common/upper)
 "wk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7693,9 +7665,6 @@
 	dir = 1
 	},
 /obj/structure/lattice,
-/obj/abstract/landmark/start{
-	name = "Matriarch"
-	},
 /turf/unsimulated/floor,
 /area/ministation/enclave/matriarch)
 "wn" = (
@@ -7862,8 +7831,6 @@
 "wN" = (
 /obj/structure/table/reinforced,
 /obj/item/screwdriver,
-/obj/item/rig/ce/equipped,
-/obj/item/rig_module/power_sink,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -8689,22 +8656,12 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "zj" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/bed/chair/padded{
-	dir = 8
-	},
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/abstract/landmark/start{
 	name = "Matriarch"
 	},
-/turf/floor/tiled/stone,
-/area/ministation/enclave/matriarch)
+/turf/floor/wood/usedup,
+/area/ministation/maint/l3ne)
 "zl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -10492,12 +10449,12 @@
 /turf/floor/plating,
 /area/ministation/maint/l3se)
 "DY" = (
-/obj/item/clothing/jumpsuit/yinglet{
-	color = "#658d59";
-	paint_color = "#658d59"
+/obj/item/stool/padded,
+/obj/abstract/landmark/start{
+	name = "Matriarch"
 	},
-/turf/wall,
-/area/ministation/Murphy/common/upper)
+/turf/floor/tiled/dark/monotile,
+/area/ministation/contracter_bunk)
 "DZ" = (
 /obj/item/cash/scavbucks,
 /turf/floor/tiled/white,
@@ -28746,7 +28703,7 @@ af
 aa
 aa
 pW
-zj
+Tb
 BH
 Tb
 ph
@@ -45254,7 +45211,7 @@ Ka
 GO
 ZY
 mR
-mR
+DY
 Zb
 Hy
 Eo
@@ -53211,7 +53168,7 @@ KU
 Tm
 Sa
 KG
-PZ
+zj
 rM
 mk
 Qd
@@ -65768,7 +65725,7 @@ tK
 VS
 nd
 vg
-wj
+nO
 mM
 wS
 uj
@@ -66541,7 +66498,7 @@ lf
 NG
 NG
 pC
-DY
+mM
 mM
 mM
 qV

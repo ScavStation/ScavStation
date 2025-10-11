@@ -287,6 +287,9 @@
 /area/ministation/Murphy/common)
 "aL" = (
 /obj/structure/bed/sofa/middle/black,
+/obj/abstract/landmark/start{
+	name = "Matriarch"
+	},
 /turf/floor/carpet/green,
 /area/ministation/cafe)
 "aM" = (
@@ -13305,9 +13308,6 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/abstract/landmark/start{
-	name = "Matriarch"
 	},
 /turf/floor/carpet/green,
 /area/ministation/enclave/matriarch)
