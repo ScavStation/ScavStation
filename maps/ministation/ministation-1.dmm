@@ -11273,7 +11273,6 @@
 /obj/item/clothing/suit/jacket/winter/yinglet/cmo,
 /obj/item/toolbox/mechanical,
 /obj/item/toolbox/electrical,
-/obj/item/rcd,
 /obj/item/rcd_ammo,
 /obj/item/rcd_ammo,
 /obj/item/rcd_ammo,
@@ -13313,10 +13312,9 @@
 /area/ministation/enclave/matriarch)
 "Fq" = (
 /obj/structure/rack,
-/obj/item/gun/projectile/pistol/holdout,
 /obj/item/ammo_magazine/pistol/small,
 /obj/item/ammo_magazine/pistol/small,
-/obj/item/gun/projectile/pistol/holdout,
+/obj/item/gun/projectile/automatic/machine,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/illegal_hideaway)
 "Fr" = (
