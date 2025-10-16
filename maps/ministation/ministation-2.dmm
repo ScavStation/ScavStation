@@ -7739,6 +7739,14 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/floor/plating,
 /area/ministation/maint/l3ne)
+"wy" = (
+/obj/item/clothing/webbing/holster/hip,
+/obj/item/clothing/webbing/holster/waist,
+/obj/item/clothing/webbing/holster/armpit,
+/obj/item/secure_storage/safe,
+/obj/item/gun/projectile/flare/loaded,
+/turf/floor/reinforced,
+/area/ministation/Murphy/common/upper)
 "wz" = (
 /obj/machinery/door/firedoor,
 /turf/floor/tiled,
@@ -7834,6 +7842,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/item/rig/eva,
+/obj/item/powersink,
 /turf/floor,
 /area/ministation/Murphy/maint/Vayryn)
 "wO" = (
@@ -65725,7 +65735,7 @@ tK
 VS
 nd
 vg
-nO
+wy
 mM
 wS
 uj
