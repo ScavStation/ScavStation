@@ -307,7 +307,7 @@ var/global/ruinstate = 0
 
 /obj/machinery/power/supermatter/nullmatter
 	name = "nullmatter condensate"
-	desc = "Nothing. Absolute physical nothing that ought to be impossible to exist. Your head hurts."
+	desc = "Nothing. Absolute physical nothing that seems impossible to exist. Your head hurts."
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "singularity_s1"
 	explosion_point = 150;
@@ -355,7 +355,7 @@ var/global/ruinstate = 0
 			global.notifiednullmatter = 1
 	else
 		if(!global.notifiednullmatter)
-			to_world("Suddenly, you feel a wave of wrongness wash over you - then fade just as quickly, replaced with a sense of euphoric calm. The frayed edges of reality are healing.")
+			to_world("You feel like something has been made RIGHT. Reeality is healing")
 			global.notifiednullmatter = 1
 		global.notifiedend = 1
 		explosion(src, 3, 4, 5, 6, 1)
