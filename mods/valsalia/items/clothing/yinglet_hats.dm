@@ -53,3 +53,31 @@
 	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
 	body_parts_covered = SLOT_HEAD|SLOT_FACE|SLOT_EYES
 	icon = 'mods/valsalia/icons/clothing/head/quingsuit_hood.dmi'
+
+/obj/item/clothing/head/yinglet/cone
+	name = "cone hat"
+	desc = "A coned hat for a yinglet; pointy!"
+	icon = 'mods/valsalia/icons/clothing/head/cone_hat.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	_yinglet_icon = null
+
+/obj/item/clothing/head/yinglet/peasant
+	name = "peasant hat"
+	desc = "A hat for a peasant! (That's you)"
+	icon = 'mods/valsalia/icons/clothing/head/peasant_hat.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	_yinglet_icon = null
+
+/obj/item/clothing/head/yinglet/scout_short
+	name = "scout hat"
+	desc = "A hat for traveling and seeing better in the sun. What are you even looking for?"
+	icon = 'mods/valsalia/icons/clothing/head/scout_hat.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	_yinglet_icon = null
+
+/obj/item/clothing/head/yinglet/zmessenger
+	name = "Zmessenger hat"
+	desc = "A hat for messengers, important and busy folks"
+	icon = 'mods/valsalia/icons/clothing/head/zmessenger_hat.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	_yinglet_icon = null
