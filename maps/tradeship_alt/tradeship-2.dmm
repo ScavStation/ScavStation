@@ -81,12 +81,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "ai" = (
@@ -193,8 +187,6 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/filth,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "au" = (
@@ -1763,8 +1755,6 @@
 /area/ship/trade/crew/medbay)
 "eB" = (
 /obj/effect/decal/cleanable/filth,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/starboard)
 "eC" = (
@@ -4307,8 +4297,6 @@
 	id_tag = "tradeship_starboard_dock";
 	pixel_x = 20
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "lu" = (
@@ -4568,15 +4556,6 @@
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/dock)
-"ob" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/techmaint,
-/area/ship/trade/crew/hallway/starboard)
 "og" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -4986,12 +4965,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/filth,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/starboard)
 "sb" = (
@@ -5233,11 +5206,6 @@
 	},
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/shuttle/outgoing/general)
-"tq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled/techmaint,
-/area/ship/trade/crew/hallway/starboard)
 "tu" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -5394,15 +5362,6 @@
 /obj/effect/paint/brown,
 /turf/wall/r_wall/hull,
 /area/ship/trade/crew/toilets)
-"vk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/dock)
 "vm" = (
 /turf/floor/wood,
 /area/ship/trade/command/captain)
@@ -5535,16 +5494,6 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
-"xa" = (
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/dock)
 "xc" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5562,8 +5511,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/filth,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "xn" = (
@@ -5760,16 +5707,6 @@
 	},
 /turf/floor/tiled/freezer,
 /area/ship/trade/crew/toilets)
-"ze" = (
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/floor/tiled/monotile,
-/area/ship/trade/dock)
 "zs" = (
 /obj/structure/lattice,
 /obj/effect/paint/brown,
@@ -6660,12 +6597,6 @@
 /area/ship/trade/crew/surgery)
 "HA" = (
 /obj/effect/decal/cleanable/filth,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "HB" = (
@@ -6788,8 +6719,6 @@
 "Iy" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/starboard)
 "IA" = (
@@ -6800,16 +6729,12 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/crew/hallway/starboard)
 "IH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/starboard)
 "IJ" = (
@@ -6880,12 +6805,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ship/trade/dock)
 "Jn" = (
@@ -7149,8 +7070,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/dock)
 "Ls" = (
@@ -7421,15 +7340,6 @@
 /obj/effect/decal/cleanable/filth,
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/hallway)
-"Op" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/floor/tiled/techmaint,
-/area/ship/trade/crew/hallway/starboard)
 "Os" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
@@ -7797,11 +7707,15 @@
 /turf/wall/r_wall,
 /area/ship/trade/command/fmate)
 "Sq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/starboard)
 "Sr" = (
@@ -11788,7 +11702,7 @@ qN
 am
 ap
 UV
-xa
+UV
 DE
 dZ
 PF
@@ -12034,7 +11948,7 @@ ai
 Pb
 SC
 bo
-vk
+tg
 bO
 bW
 nv
@@ -12116,13 +12030,13 @@ Rq
 ER
 Pp
 UE
-ze
+UV
 lj
 at
 xl
 Lm
 IH
-ob
+FW
 sa
 Sb
 HB
@@ -12205,8 +12119,8 @@ cf
 Mw
 VX
 yF
-Op
-tq
+cG
+cG
 eB
 Iy
 IC
