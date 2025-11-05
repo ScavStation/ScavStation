@@ -21,7 +21,8 @@
 	lobby_tracks = list(
 		/decl/music_track/absconditus,
 		/decl/music_track/level3_mod,
-		/decl/music_track/tintin
+		/decl/music_track/tintin,
+		/decl/music_track/cleanrooms
 	)
 
 	shuttle_docked_message = "The public ferry to %dock_name% has docked with the station. It will depart in approximately %ETD%"
