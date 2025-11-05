@@ -106,7 +106,7 @@ var/global/const/MAP_HAS_RANK   = 2		//Rank system, also togglable
 	// Sounds played on roundstart
 	var/list/welcome_sound = 'sound/AI/welcome.ogg'
 	// Sounds played with end titles (credits)
-	var/list/credit_sound = list('sound/music/THUNDERDOME.ogg', 'sound/music/europa/Chronox_-_03_-_In_Orbit.ogg', 'sound/music/europa/asfarasitgets.ogg')
+	var/list/credit_sound = list('sound/music/THUNDERDOME.ogg', 'sound/music/europa/Chronox_-_03_-_In_Orbit.ogg', 'sound/music/europa/asfarasitgets.ogg', 'sound/music/dysphoricmelody.ogg')
 	// Sounds played on server reboot
 	var/list/reboot_sound = list('sound/AI/newroundsexy.ogg','sound/misc/apcdestroyed.ogg','sound/misc/bangindonk.ogg')
 
