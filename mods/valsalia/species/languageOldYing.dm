@@ -31,6 +31,7 @@
 		"auww" = list("augh", "ow", "oof", "argh", "ouch", "pain", "painful", "pains", "pained"),
 		"batan" = list("baton", "bat", "bludgeon", "stick", "club", "rod", "dowel", "shaft"),
 		"bifu" = list("beef", "meat", "pork", "protein"),
+		"ceg" = list("god"),
 		"behu" = list("behind", "rear", "rearmost", "back", "backside", "bottom", "under", "stern", "sternside", "backward", "backwards", "down", "short", "low"),
 		"viitasa" = list("life", "lives", "living", "alive", "lived", "vital", "vitals", "vitality", "blood", "bloody", "bleed", "bleeding", "bleeds", "bled", "goo", "goop", "juice", "juices", "juiced", "juicing", "juicer", "juicy"),
 		"blaabi" = list("blob", "blobs", "blobbed", "blobber", "blobby", "blobbing", "slime", "slimes", "slimer", "slimy", "slimier", "slimiest", "slimed", "thing", "things", "stuff", "stuffed", "stuffing", "stuffy"),
