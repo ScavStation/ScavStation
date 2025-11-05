@@ -566,6 +566,7 @@
 #include "code\datums\music_tracks\treacherous_voyage.dm"
 #include "code\datums\music_tracks\wake.dm"
 #include "code\datums\music_tracks\zazie.dm"
+#include "code\datums\music_tracks\cleanrooms.dm"
 #include "code\datums\observation\_defines.dm"
 #include "code\datums\observation\area_power_change.dm"
 #include "code\datums\observation\crate_sold.dm"
