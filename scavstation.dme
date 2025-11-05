@@ -537,6 +537,7 @@
 #include "code\datums\music_tracks\ambispace.dm"
 #include "code\datums\music_tracks\businessend.dm"
 #include "code\datums\music_tracks\chasing_time.dm"
+#include "code\datums\music_tracks\cleanrooms.dm"
 #include "code\datums\music_tracks\clouds_of_fire.dm"
 #include "code\datums\music_tracks\comet_haley.dm"
 #include "code\datums\music_tracks\DEMON_PUNCHER.dm"

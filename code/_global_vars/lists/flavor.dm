@@ -106,7 +106,8 @@ var/global/list/music_tracks = list(
 	"Tintin" = /decl/music_track/tintin,
 	"Unatco" = /decl/music_track/unatco,
 	"DEMON PUNCHER" = /decl/music_track/DEMON_PUNCHER,
-	"Zazie (Scav Chorus Edition)" = /decl/music_track/zazie
+	"Zazie (Scav Chorus Edition)" = /decl/music_track/zazie,
+	"CleanRooms" = /decl/music_track/cleanrooms
 )
 
 /proc/setup_music_tracks(var/list/tracks)
