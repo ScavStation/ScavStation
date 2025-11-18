@@ -18,15 +18,15 @@ var/global/ruinstate = 0
 	name = "The Summit"
 	description = "Temporal Anomaly"
 	suffixes = list("summit/summit.dmm")
-	cost = 2
+	cost = 7 // was orig 2
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_NO_RADS
 	template_tags = TEMPLATE_TAG_ALIEN
 	apc_test_exempt_areas = list(
 		/area/map_template/summit = NO_SCRUBBER|NO_VENT,
 		/area/map_template/summit/cold = NO_SCRUBBER|NO_VENT
 		)
-// Areas //
 
+// Areas //
 
 /area/map_template/summit
 	name = "\improper Summit Stone"
