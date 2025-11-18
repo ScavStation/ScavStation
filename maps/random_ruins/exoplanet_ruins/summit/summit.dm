@@ -65,7 +65,7 @@ var/global/ruinstate = 0
 	return TRUE
 
 /datum/mob_controller/aggressive/avianborg
-	speak_chance = .15
+	speak_chance = 0.15
 	turns_per_wander = 5
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
@@ -108,7 +108,7 @@ var/global/ruinstate = 0
 	return TRUE
 
 /datum/mob_controller/aggressive/yingborg
-	speak_chance = .15
+	speak_chance = 0.15
 	turns_per_wander = 3
 	stop_wander_when_pulled = 0
 	can_escape_buckles = FALSE
@@ -152,7 +152,7 @@ var/global/ruinstate = 0
 	return TRUE
 
 /datum/mob_controller/aggressive/humborg
-	speak_chance = .15
+	speak_chance = 0.15
 	turns_per_wander = 8
 	stop_wander_when_pulled = 0
 	can_escape_buckles = FALSE
@@ -222,7 +222,7 @@ var/global/ruinstate = 0
 	. = ..()
 
 /datum/mob_controller/aggressive/robosharah
-	speak_chance = .15
+	speak_chance = 0.15
 	turns_per_wander = 3
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
