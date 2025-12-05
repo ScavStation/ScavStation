@@ -251,7 +251,7 @@
 	name = "Airlock"
 
 /decl/hierarchy/rcd_mode/airlock/basic
-	cost = 10
+	cost = 5
 	delay = 5 SECONDS
 	handles_type = /turf/floor
 	work_type = /obj/machinery/door/airlock
@@ -289,12 +289,12 @@
 	user.visible_message("<span class='warning'>\The [user] is using \a [rcd] to deconstruct \the [target]!</span>", "<span class='warning'>You are deconstructing \the [target]!</span>")
 
 /decl/hierarchy/rcd_mode/deconstruction/airlock
-	cost = 30
+	cost = 10
 	delay = 5 SECONDS
 	handles_type = /obj/machinery/door/airlock
 
 /decl/hierarchy/rcd_mode/deconstruction/floor
-	cost = 9
+	cost = 3
 	delay = 2 SECONDS
 	handles_type = /turf/floor
 
@@ -302,7 +302,7 @@
 	return get_base_turf_by_area(target)
 
 /decl/hierarchy/rcd_mode/deconstruction/wall
-	cost = 9
+	cost = 6
 	delay = 2 SECONDS
 	handles_type = /turf/wall
 	work_type = /turf/floor/plating
