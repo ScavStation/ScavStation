@@ -1827,6 +1827,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/monotile,
 /area/ministation/atmospherics)
+"eT" = (
+/mob/living/simple_animal/hostile/beast/charbaby,
+/turf/floor/rock,
+/area/space)
 "eU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -6133,6 +6137,8 @@
 	pixel_y = 30
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/bed/roller/ironingboard,
+/obj/item/ironingiron,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "qn" = (
@@ -43092,7 +43098,7 @@ Uj
 af
 Uj
 Uj
-Uj
+eT
 af
 af
 af
