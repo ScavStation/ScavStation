@@ -1061,6 +1061,11 @@
 	},
 /turf/open,
 /area/ministation/hall/w2)
+"cI" = (
+/turf/wall/r_wall{
+	can_open = 1
+	},
+/area/ministation/perma)
 "cK" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5830,6 +5835,9 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
+"nY" = (
+/turf/wall/r_wall,
+/area/ministation/maint/l2centraln)
 "oa" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -15036,10 +15044,9 @@
 /turf/space,
 /area/space)
 "JB" = (
-/turf/wall/r_wall{
-	can_open = 1
-	},
-/area/ministation/maint/nebypass)
+/mob/living/simple_animal/fowl/chicken,
+/turf/floor/grass,
+/area/ministation/hydro)
 "JC" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/floor/shuttle_ceiling/air,
@@ -15811,6 +15818,11 @@
 "Lg" = (
 /turf/wall,
 /area/ministation/enclave/entrance)
+"Lh" = (
+/turf/wall{
+	can_open = 1
+	},
+/area/ministation/maint/l2centraln)
 "Li" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/yellow{
@@ -51354,9 +51366,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+nY
+nY
+nY
 mq
 mq
 mq
@@ -51611,10 +51623,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-mq
+nY
+dd
+dd
+Lh
 bs
 dd
 dd
@@ -51868,9 +51880,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+nY
+dd
+nY
 mq
 mq
 mq
@@ -52125,9 +52137,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+nY
+dd
+nY
 HO
 HO
 HO
@@ -52383,7 +52395,7 @@ HO
 HO
 Fj
 Fj
-Fj
+cI
 Fj
 Fj
 HO
@@ -55721,7 +55733,7 @@ HO
 HO
 HO
 lF
-JB
+lF
 lF
 Fj
 Fj
@@ -63221,7 +63233,7 @@ In
 mx
 OG
 vX
-Ji
+JB
 zQ
 ad
 aa
