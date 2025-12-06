@@ -18,15 +18,15 @@ var/global/ruinstate = 0
 	name = "The Summit"
 	description = "Temporal Anomaly"
 	suffixes = list("summit/summit.dmm")
-	cost = 2
+	cost = 7 // was orig 2
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_NO_RADS
 	template_tags = TEMPLATE_TAG_ALIEN
 	apc_test_exempt_areas = list(
 		/area/map_template/summit = NO_SCRUBBER|NO_VENT,
 		/area/map_template/summit/cold = NO_SCRUBBER|NO_VENT
 		)
-// Areas //
 
+// Areas //
 
 /area/map_template/summit
 	name = "\improper Summit Stone"
@@ -36,7 +36,6 @@ var/global/ruinstate = 0
 /area/map_template/summit/cold
 	name = "\improper Summit Snow"
 	icon_state = "cold"
-
 
 
 // Enemies //
@@ -62,12 +61,11 @@ var/global/ruinstate = 0
 	fire_desc = "stares vacantly, mouths a plea, and fires!"
 
 
-
 /mob/living/simple_animal/aggressive/avianborg/has_ranged_attack()
 	return TRUE
 
 /datum/mob_controller/aggressive/avianborg
-	speak_chance = 15
+	speak_chance = 0.15
 	turns_per_wander = 5
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
@@ -75,7 +73,6 @@ var/global/ruinstate = 0
 	emote_speech = list("H...el..p...", "T.he...cr..y.st...a..l...!", "Make... it... st...op...", "I... Cannot... s..stop...", "HhHhHEEeeLLP...!!!!", "uuhHHHHaahh...", "I... ne..ed... med..ic..al...", "I... thou..ght... you... d-died...", "Get... it out...!!!", "O-oh n-no.... N-no...", "Kar...la...w.a....", "Wh...ere... am... I...??", "Huuhnnhn...!!!", "Sh...ar...d...s...", "St...f... a-ah...!!!", "Chrr..p...!!!", "Scrreerrk...!!", "Uunnh...")
 	emote_hear = list("squawks and wheezes")
 	break_stuff_probability = 0
-
 
 /mob/living/simple_animal/aggressive/avianborg/death(gibbed)
 	. = ..()
@@ -85,12 +82,6 @@ var/global/ruinstate = 0
 
 /obj/abstract/landmark/corpse/avianborg
 	name = "Dead Avian Cyborg"
-
-
-
-
-
-
 
 
 /mob/living/simple_animal/aggressive/yingborg
@@ -113,12 +104,11 @@ var/global/ruinstate = 0
 	blood_type = "O-"
 	fire_desc = "struggles momentarily, then takes aim and fires!"
 
-
 /mob/living/simple_animal/aggressive/yingborg/has_ranged_attack()
 	return TRUE
 
 /datum/mob_controller/aggressive/yingborg
-	speak_chance = 10
+	speak_chance = 0.15
 	turns_per_wander = 3
 	stop_wander_when_pulled = 0
 	can_escape_buckles = FALSE
@@ -126,8 +116,6 @@ var/global/ruinstate = 0
 	emote_speech = list("Zhis... is not...", "wh...y... w..hy...?", "I... cannot... sto...p... i...t...", "Zh...e... wrong... time...", "uuhHHnnnhHHaahh...", "S...te...f..f..a...", "I... c...ca.n.no.t... g...give... in...", "R...run...!!!", "Oh... no... no... n...o... no....!!!", "B.....zh..re.e...", "W..hy... am... I... stil.l...a.l.i..v..e...?", "M...aw...re...e...k... n..no....", "h..hi..t... z...zhe... but..ton...", "NNghh...", "W...w.eh...", "Ple..as..e...")
 	emote_hear = list("gasps audibly")
 	break_stuff_probability = 0
-
-
 
 /mob/living/simple_animal/aggressive/yingborg/death(gibbed)
 	. = ..()
@@ -137,9 +125,6 @@ var/global/ruinstate = 0
 
 /obj/abstract/landmark/corpse/yingborg
 	name = "Dead Yinglet Cyborg"
-
-
-
 
 
 /mob/living/simple_animal/aggressive/humborg
@@ -167,7 +152,7 @@ var/global/ruinstate = 0
 	return TRUE
 
 /datum/mob_controller/aggressive/humborg
-	speak_chance = 5
+	speak_chance = 0.15
 	turns_per_wander = 8
 	stop_wander_when_pulled = 0
 	can_escape_buckles = FALSE
@@ -175,8 +160,6 @@ var/global/ruinstate = 0
 	emote_speech = list("Hhnnngnn...", "Mmaww...r..e..e..k..", "I... F..a...il..ed...", "S..so... t...thi..s... is... what... I..", "V...ay....rnnhhghh....", "Wh...ho... am... I...", "S..s..or..r.y...", "...dese..rve... t.h..is...", "I... kn...ew... I... w.a.s... a... mm..mon...st...err..", "mm..my... b...bon..es.... th...ey.... hu..rt...", "...I... do...not... dese..erv...e... d..e..a...th...", "...It...hurts... it...hurts......", "Mm...om... d...dad...", "S.or..ry... lit.tl.e...b.ro.t..h.er...Nghh!", "Uaghh...!!!", "..aAAuhh..hu... au...!")
 	emote_hear = list("sobs intensely")
 	break_stuff_probability = 0
-
-
 
 /mob/living/simple_animal/aggressive/humborg/death(gibbed)
 	. = ..()
@@ -186,10 +169,6 @@ var/global/ruinstate = 0
 
 /obj/abstract/landmark/corpse/humborg
 	name = "Dead Human Cyborg"
-
-
-
-
 
 
 /mob/living/simple_animal/aggressive/robosharah
@@ -229,12 +208,8 @@ var/global/ruinstate = 0
 	sound_id = "[/mob/living/simple_animal/aggressive/robosharah]_[sequential_id(/mob/living/simple_animal/aggressive/robosharah)]"
 	addtimer(CALLBACK(src, PROC_REF(timerfun)), 10 MINUTE)
 
-
-
 /mob/living/simple_animal/aggressive/robosharah/isSynthetic()
 	return TRUE
-
-
 
 /mob/living/simple_animal/aggressive/robosharah/has_ranged_attack()
 	return TRUE
@@ -247,7 +222,7 @@ var/global/ruinstate = 0
 	. = ..()
 
 /datum/mob_controller/aggressive/robosharah
-	speak_chance = 20
+	speak_chance = 0.15
 	turns_per_wander = 3
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
@@ -255,8 +230,6 @@ var/global/ruinstate = 0
 	emote_speech = list("I. SEE. YOU!!!", "I WILL STOP DA FUTURE!!! DA BIRD GAVE ME DA POWER!!!", "YOU DO NOT FOOL ME!!!", "I KNOW DA TROOF!!!", "DIE, TIMESTEALERS!!!", "I WILL USE YOUR BLOOD TO LUBE DA FLOORS!!!", "EAT DIS!!!", "I AM POWERFUL. I AM BIG. I WILL STOP DA BAD FUTURE!!!", "DA FUTUUUUURE!!!!", "YOU WILL ALL SEE, ALL WILL SEE, I WILL STOP DIS MADNESS!!!", "YOU WILL HELP ME DEAD OR ALIVE!!! YOU WILL SAVE DA FUTURE, JUST LIKE DA REST!!!", "BOW TO YOUR MATRIARCH!!!", "HOLOGRAMS! LIES!! DA QUANTA OF REALITY IS FULL OF HOLES!!! I WILL PLUG DOZE HOLES - WIDH BULLETS!!!", "HOW ARE YOU SO INTACT? I DHOT- NO, YOU ARE PHANTOMS! DIE!!!", "I NEED TO OPEN DA GATE. I NEED TO STOP DA FUTURE!! I WILL NOT LET YOU STOP ME!!!","GggrrraaaaaaaaAAAA!!!!","EEEEEEEEEEEEE!!!!","YOU CANNOT RUN FROM DA FUTURE, COWARDS!!!","YOU ARE NUFFIN BEFORE MY MIGHT!!!","STOP RESISTING ME AND START RESISTING DA FUTURE!!!","WHY DO YOU WANT DIS!? NNRRRAAAAAUUGHH!!!","I REFUSE TO LET YOU KILL DA FUTURE!!!","STOP. STRUGGLING!!!","I WILL TAKE GOOD CARE OF YOU, IF YOU WOULD ONLY JUST. LET. MY. BULLETS. EXPLODE. YOU!!!","STOP MOVING SO I CAN HIT YOU!!!","I KNEW I SHOULDA LUBED DA FLOOR IN HERE!!!","FECK!!!","YOU GONNA REGRET WHATEVER YOU JUST DID JUST NOW!!!","HHRRAAAUGHHH!!!!","YOU DO NOT KNOW DA DEPPS OF MY RAGE RIGHT NOW!!!","I HAVE ENOUGH SPARE PARTS TO REBUILD YOU, STOP RESISTING!!!","WHY ARE YOU NOT HELPING ME!? WE WERE SUPPOSED TO- WHY HAVE YOU BETRAYED ME!? DIE TRAITOR!! DIE FOR YOUR MATRIARCH!!!", "WWRRRRYYYYYYYYYYYYY!!!!!!")
 	emote_hear = list("scans the room.")
 	break_stuff_probability = 5
-
-
 
 /mob/living/simple_animal/aggressive/robosharah/death(gibbed)
 	. = ..()

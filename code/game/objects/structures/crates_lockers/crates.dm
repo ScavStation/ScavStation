@@ -116,7 +116,7 @@
 
 /obj/structure/closet/crate/rcd/WillContain()
 	return list(
-		/obj/item/rcd_ammo = 3,
+		/obj/item/rcd_ammo = 4,
 		/obj/item/rcd
 	)
 

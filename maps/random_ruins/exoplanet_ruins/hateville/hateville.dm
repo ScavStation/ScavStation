@@ -238,7 +238,7 @@
 	return TRUE
 
 /datum/mob_controller/aggressive/prosyletizing_employist
-	speak_chance = 15
+	speak_chance = 0.5
 	turns_per_wander = 5
 	stop_wander_when_pulled = 0
 	can_escape_buckles = TRUE
