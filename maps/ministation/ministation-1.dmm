@@ -909,6 +909,25 @@
 	},
 /turf/open,
 /area/ministation/hall/w2)
+"cI" = (
+/turf/wall/r_wall{
+	can_open = 1
+	},
+/area/ministation/perma)
+"cK" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/emergency_dispenser/north,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/floor/shuttle_ceiling/air,
+/area/ministation/enclave/badclamrock)
 "cL" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -4792,6 +4811,9 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
+"nY" = (
+/turf/wall/r_wall,
+/area/ministation/maint/l2centraln)
 "oa" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -12477,6 +12499,17 @@
 	can_open = 1
 	},
 /area/ministation/maint/nebypass)
+/mob/living/simple_animal/fowl/chicken,
+/turf/floor/grass,
+/area/ministation/hydro)
+"JC" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/floor/shuttle_ceiling/air,
+/area/ministation/enclave/airroom)
+"JD" = (
+/obj/structure/lattice,
+/turf/floor/tiled/stone,
+/area/ministation/enclave/matriarch)
 "JF" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -12941,6 +12974,18 @@
 "Ld" = (
 /turf/floor/carpet/red,
 /area/ministation/Murphy/living)
+"Lf" = (
+/obj/structure/undies_wardrobe,
+/turf/floor/tiled/dark/monotile,
+/area/ministation/illegal_hideaway)
+"Lg" = (
+/turf/wall,
+/area/ministation/enclave/entrance)
+"Lh" = (
+/turf/wall{
+	can_open = 1
+	},
+/area/ministation/maint/l2centraln)
 "Li" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/yellow{
@@ -47163,9 +47208,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+nY
+nY
+nY
 mq
 mq
 mq
@@ -47420,10 +47465,10 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
-mq
+nY
+dd
+dd
+Lh
 bs
 dd
 dd
@@ -47677,9 +47722,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+nY
+dd
+nY
 mq
 mq
 mq
@@ -47934,9 +47979,9 @@ HO
 HO
 HO
 HO
-HO
-HO
-HO
+nY
+dd
+nY
 HO
 HO
 HO
@@ -48192,7 +48237,7 @@ HO
 HO
 Fj
 Fj
-Fj
+cI
 Fj
 Fj
 HO
@@ -51530,7 +51575,7 @@ HO
 HO
 HO
 lF
-JB
+lF
 lF
 Fj
 Fj
@@ -59030,7 +59075,7 @@ In
 mx
 OG
 vX
-Ji
+JB
 zQ
 ad
 aa
