@@ -95,6 +95,19 @@
 /obj/abstract/landmark/latejoin/cryo
 	spawn_decl = /decl/spawnpoint/cryo
 
+
+
+/decl/spawnpoint/cryo/enclave
+	name = "Yinglet Sleeptime Capsule"
+	spawn_announcement = "is no longer part of zhe sleeptime storage"
+	disallow_job_event_categories = list(ASSIGNMENT_ROBOT)
+	uid = "spawn_enclave"
+	spawn_flags = (SPAWN_FLAG_GHOSTS_CAN_SPAWN | SPAWN_FLAG_JOBS_CAN_SPAWN)
+
+/obj/abstract/landmark/latejoin/cryo/enclave
+	spawn_decl = /decl/spawnpoint/cryo/enclave
+
+
 /decl/spawnpoint/cryo/after_join(mob/living/human/victim)
 	if(!istype(victim) || victim.buckled) // They may have spawned with a wheelchair; don't move them into a pod in that case.
 		return
