@@ -96,6 +96,16 @@
 	spawn_decl = /decl/spawnpoint/cryo
 
 
+/decl/spawnpoint/cryo/contractor
+	name = "Contractor Acquisition Pod"
+	spawn_announcement = "has been defrosted for duty"
+	disallow_job_event_categories = list(ASSIGNMENT_ROBOT)
+	uid = "spawn_contractor"
+	spawn_flags = (SPAWN_FLAG_GHOSTS_CAN_SPAWN | SPAWN_FLAG_JOBS_CAN_SPAWN)
+
+/obj/abstract/landmark/latejoin/cryo/contractor
+	spawn_decl = /decl/spawnpoint/cryo/contractor
+
 
 /decl/spawnpoint/cryo/enclave
 	name = "Yinglet Sleeptime Capsule"
