@@ -914,20 +914,6 @@
 	can_open = 1
 	},
 /area/ministation/perma)
-"cK" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/emergency_dispenser/north,
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/floor/shuttle_ceiling/air,
-/area/ministation/enclave/badclamrock)
 "cL" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -12499,17 +12485,6 @@
 	can_open = 1
 	},
 /area/ministation/maint/nebypass)
-/mob/living/simple_animal/fowl/chicken,
-/turf/floor/grass,
-/area/ministation/hydro)
-"JC" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen,
-/turf/floor/shuttle_ceiling/air,
-/area/ministation/enclave/airroom)
-"JD" = (
-/obj/structure/lattice,
-/turf/floor/tiled/stone,
-/area/ministation/enclave/matriarch)
 "JF" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -12974,13 +12949,13 @@
 "Ld" = (
 /turf/floor/carpet/red,
 /area/ministation/Murphy/living)
-"Lf" = (
-/obj/structure/undies_wardrobe,
-/turf/floor/tiled/dark/monotile,
-/area/ministation/illegal_hideaway)
 "Lg" = (
-/turf/wall,
-/area/ministation/enclave/entrance)
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/coatrack,
+/turf/floor/tiled/dark/monotile,
+/area/ministation/security)
 "Lh" = (
 /turf/wall{
 	can_open = 1
@@ -52110,7 +52085,7 @@ cY
 FU
 bf
 ca
-LQ
+Lg
 FU
 bb
 mL
