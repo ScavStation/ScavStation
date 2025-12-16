@@ -11,57 +11,6 @@
 "af" = (
 /turf/wall/natural/random/ministation,
 /area/space)
-"ap" = (
-/obj/structure/lattice,
-/obj/item/food/hydration,
-/turf/space,
-/area/space)
-"aq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"as" = (
-/obj/machinery/door/blast/regular{
-	id_tag = "bombventdoor"
-	},
-/turf/floor/plating,
-/area/ministation/sciencetesting)
-"aw" = (
-/obj/structure/lattice,
-/obj/structure/dogbed{
-	pixel_y = 18;
-	pixel_x = 5
-	},
-/obj/item/shreddedp{
-	pixel_y = 16;
-	pixel_x = -6
-	},
-/obj/item/shreddedp{
-	pixel_y = 19;
-	pixel_x = 12
-	},
-/obj/item/shreddedp{
-	pixel_y = 10;
-	pixel_x = 11
-	},
-/obj/item/trash/mollusc_shell/clam{
-	pixel_y = 6;
-	pixel_x = -9
-	},
-/obj/item/mollusc/barnacle{
-	pixel_y = 3;
-	pixel_x = 2
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "aF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -83,26 +32,6 @@
 "aK" = (
 /turf/floor/rock,
 /area/space)
-"aS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "aV" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -121,41 +50,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"aW" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"bl" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 2
-	},
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/floor/tiled/airless,
-/area/space)
-"bn" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 10
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/space,
-/area/space)
 "bx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -169,68 +63,9 @@
 /obj/machinery/camera/autoname,
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"bA" = (
-/obj/structure/lattice,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"bU" = (
-/obj/structure/lattice,
-/obj/item/shreddedp{
-	pixel_y = -3;
-	pixel_x = -8
-	},
-/obj/item/shreddedp{
-	pixel_y = 6
-	},
-/obj/item/shreddedp{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/structure/dogbed{
-	pixel_y = -2;
-	pixel_x = -7
-	},
-/obj/item/mollusc/clam{
-	pixel_y = 2;
-	pixel_x = -10
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"bX" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
-	name = "Gas Testing Room"
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
 "cw" = (
 /turf/floor/reinforced/airless,
 /area/space)
-"cK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"cQ" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"df" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/wall/r_wall,
-/area/ministation/enclave/eggclave)
 "dp" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -238,51 +73,9 @@
 /obj/structure/cable,
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"dv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"dC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
 "dH" = (
 /turf/floor/plating,
 /area/space)
-"dO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/button/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	id_tag = "lockdown";
-	name = "Lockdown Doors";
-	pixel_x = -25;
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "en" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -329,158 +122,9 @@
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
 /area/ministation/observation_deck)
-"ev" = (
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"eJ" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/space,
-/area/space)
-"eN" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
-	id_tag = "eggclave_vent";
-	dir = 4
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "eggclave_airlock";
-	pixel_y = 7;
-	tag_airpump = "eggclave_vent";
-	tag_chamber_sensor = "eggclave_sensor";
-	tag_exterior_door = "eggclave_airlock_exterior";
-	tag_interior_door = "eggclave_airlock_interior";
-	dir = 4;
-	pixel_x = -20
-	},
-/turf/floor/plating,
-/area/ministation/enclave/eggclave)
-"eQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"eT" = (
-/turf/wall/r_wall/hull,
-/area/ministation/sciencetesting)
-"eW" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/item/shreddedp{
-	pixel_y = 10;
-	pixel_x = -7
-	},
-/obj/item/shreddedp{
-	pixel_y = 4;
-	pixel_x = 6
-	},
-/obj/machinery/light{
-	dir = 2
-	},
-/obj/item/mollusc/clam{
-	pixel_y = 2;
-	pixel_x = -10
-	},
-/obj/item/radio/intercom{
-	dir = 1;
-	pixel_y = -30
-	},
-/turf/floor/tiled/techfloor,
-/area/ministation/enclave/sleepingroom)
-"fo" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"fv" = (
-/obj/machinery/light/spot,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"fw" = (
-/obj/structure/lattice,
-/obj/structure/ladder,
-/turf/space,
-/area/space)
 "fD" = (
 /turf/open,
 /area/ministation/observation_deck)
-"fE" = (
-/obj/structure/dogbed{
-	pixel_y = -2;
-	pixel_x = -7
-	},
-/obj/item/shreddedp{
-	pixel_y = 13;
-	pixel_x = -8
-	},
-/obj/item/shreddedp{
-	pixel_y = 6
-	},
-/obj/item/shreddedp{
-	pixel_y = -4;
-	pixel_x = -8
-	},
-/obj/item/shreddedp{
-	pixel_x = 7;
-	pixel_y = -6
-	},
-/obj/item/trash/mollusc_shell,
-/turf/floor/tiled/white,
-/area/ministation/enclave/sleepingroom)
-"fG" = (
-/turf/open,
-/area/ministation/enclave/atrium)
-"fJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"fW" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/wall,
-/area/ministation/enclave/sleepingroom)
-"gb" = (
-/turf/wall/r_wall/prepainted,
-/area/ministation/sciencetesting)
-"gn" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/floor/tiled,
-/area/ministation/enclave/eggclave)
-"gr" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
 "gu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -491,42 +135,8 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"gB" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/radio/intercom{
-	dir = 8;
-	pixel_x = 22
-	},
-/obj/structure/yinglet_nest,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
 "gE" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
-	},
 /turf/space,
-/area/ministation/sciencetesting)
-"gZ" = (
-/obj/structure/lattice,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/wall/r_wall,
-/area/ministation/enclave/eggclave)
-"hd" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/floor/reinforced,
 /area/ministation/sciencetesting)
 "hx" = (
 /obj/structure/cable{
@@ -544,12 +154,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"hQ" = (
-/obj/machinery/door/blast/regular{
-	id_tag = "gasventdoor"
-	},
-/turf/floor/plating,
-/area/ministation/sciencetesting)
 "hR" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -558,72 +162,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"hW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"hY" = (
-/obj/structure/table/reinforced,
-/obj/item/briefcase/inflatable,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"iD" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/item/shreddedp{
-	pixel_y = -11;
-	pixel_x = 5
-	},
-/obj/item/shreddedp{
-	pixel_y = -5;
-	pixel_x = -3
-	},
-/obj/item/shreddedp{
-	pixel_y = 13;
-	pixel_x = -4
-	},
-/obj/item/shreddedp{
-	pixel_y = 7;
-	pixel_x = 6
-	},
-/obj/item/shreddedp{
-	pixel_y = 2;
-	pixel_x = -3
-	},
-/obj/machinery/door/firedoor,
-/turf/floor/tiled/techmaint,
-/area/ministation/enclave/atrium)
-"iP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"jg" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"jo" = (
-/turf/wall,
-/area/ministation/enclave/sleepingroom)
 "jq" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -634,91 +172,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"jt" = (
-/obj/machinery/alarm{
-	pixel_y = 23
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"jA" = (
-/obj/structure/lattice,
-/obj/structure/dogbed{
-	pixel_y = 16
-	},
-/obj/item/shreddedp{
-	pixel_y = 19;
-	pixel_x = 12
-	},
-/obj/item/shreddedp{
-	pixel_y = 7;
-	pixel_x = 6
-	},
-/obj/item/shreddedp{
-	pixel_y = 13;
-	pixel_x = -4
-	},
-/obj/item/mollusc/clam{
-	pixel_y = 4;
-	pixel_x = 4
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"jD" = (
-/obj/structure/lattice,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
-	},
-/turf/floor,
-/area/ministation/enclave/eggclave)
-"jS" = (
-/obj/structure/closet/firecloset,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"kg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"ko" = (
-/obj/structure/target_stake,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"kq" = (
-/obj/structure/closet/crate/bin/ministation,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"kI" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/item/clothing/suit/fancyrobe,
-/obj/item/clothing/suit/fancyclothes{
-	pixel_y = -8;
-	pixel_x = 9
-	},
-/obj/item/clothing/head/fancyhat{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
 "kQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -750,79 +203,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"lf" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped,
-/obj/structure/dogbed{
-	pixel_y = 18
-	},
-/obj/item/shreddedp{
-	pixel_y = 8;
-	pixel_x = 11
-	},
-/obj/item/shreddedp{
-	pixel_y = 17;
-	pixel_x = -6
-	},
-/obj/machinery/firealarm{
-	pixel_y = 21
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/floor/tiled/techfloor,
-/area/ministation/enclave/sleepingroom)
-"lk" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"ll" = (
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "bulb1"
-	},
-/turf/floor/plating,
-/area/ministation/science2nddeck)
-"ly" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/basic/full,
-/turf/floor/plating,
-/area/ministation/enclave/atrium)
-"lX" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/basic/full,
-/turf/floor/plating,
-/area/ministation/enclave/sleepingroom)
-"mk" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/structure/bed/holobed,
-/obj/item/bedsheet/ian,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"mG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "mI" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -835,30 +215,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"mM" = (
-/obj/structure/lattice,
-/obj/item/shreddedp{
-	pixel_y = -3;
-	pixel_x = 8
-	},
-/obj/item/shreddedp{
-	pixel_y = 8;
-	pixel_x = 5
-	},
-/obj/structure/dogbed{
-	pixel_y = 10;
-	pixel_x = -8
-	},
-/obj/item/shreddedp{
-	pixel_y = 6;
-	pixel_x = -2
-	},
-/obj/item/mollusc/clam{
-	pixel_y = -4;
-	pixel_x = -4
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "nf" = (
 /obj/structure/closet/crate/bin/ministation,
 /turf/floor/tiled,
@@ -880,42 +236,18 @@
 "nF" = (
 /turf/wall/r_wall,
 /area/ministation/maint/l4central)
-"nT" = (
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
 "nY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/floor/plating,
 /area/space)
-"nZ" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	level = 2
-	},
-/obj/structure/bed/holobed,
-/obj/item/bedsheet/purple,
-/obj/item/utensil/knife/steak,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
 "ou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"oE" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
 "oP" = (
 /obj/structure/lattice,
 /turf/wall/natural/random/ministation,
@@ -934,73 +266,6 @@
 /obj/item/bot_controller,
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"pB" = (
-/turf/wall,
-/area/ministation/science2nddeck)
-"pN" = (
-/obj/structure/lattice,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "_East APC";
-	pixel_x = 27;
-	pixel_y = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/light{
-	dir = 2
-	},
-/turf/floor,
-/area/ministation/enclave/eggclave)
-"pP" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/button/blast_door{
-	id_tag = "smsafetydoor";
-	name = "Vent Blast Room";
-	pixel_x = 25;
-	pixel_y = null
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"pS" = (
-/turf/open,
-/area/ministation/science2nddeck)
-"pW" = (
-/obj/structure/lattice,
-/obj/item/trash/mollusc_shell/clam{
-	pixel_y = 6;
-	pixel_x = -9
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"qa" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/outlet_injector{
-	icon_state = "map_injector";
-	use_power = 1
-	},
-/turf/space,
-/area/ministation/sciencetesting)
-"ql" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/wall/r_wall,
-/area/ministation/enclave/eggclave)
-"qq" = (
-/obj/structure/emergency_dispenser/north,
-/turf/floor,
-/area/ministation/enclave/sleepingroom)
 "qD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -1008,14 +273,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"qG" = (
-/obj/structure/reagent_dispensers/watertank,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "qH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -1052,37 +309,6 @@
 "rB" = (
 /turf/wall,
 /area/ministation/observation_deck)
-"rR" = (
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"rT" = (
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"rW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"rZ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
 "sD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1101,60 +327,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"sR" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/item/shreddedp{
-	pixel_y = 20
-	},
-/obj/item/shreddedp{
-	pixel_y = 15;
-	pixel_x = 3
-	},
-/obj/item/shreddedp{
-	pixel_y = 8;
-	pixel_x = -5
-	},
-/obj/item/shreddedp{
-	pixel_x = 10;
-	pixel_y = 6
-	},
-/obj/item/shreddedp{
-	pixel_y = -3;
-	pixel_x = -2
-	},
-/obj/machinery/door/firedoor,
-/obj/item/mollusc/barnacle{
-	pixel_y = -7;
-	pixel_x = 9
-	},
-/turf/floor/tiled/techmaint,
-/area/ministation/enclave/atrium)
-"tg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/button/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	id_tag = "lockdown";
-	name = "Lockdown Doors";
-	pixel_x = -25;
-	dir = 4
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
 "tu" = (
 /turf/floor/tiled,
 /area/ministation/observation_deck)
@@ -1162,64 +334,18 @@
 /obj/structure/flora/bush/grassybush,
 /turf/floor/grass,
 /area/ministation/observation_deck)
-"tG" = (
-/obj/structure/hygiene/sink{
-	dir = 4;
-	pixel_x = 11
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "tN" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4overpass)
-"tO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "_West APC";
-	pixel_x = -25
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
 "tV" = (
 /obj/abstract/landmark{
 	name = "carpspawn"
 	},
 /turf/floor/reinforced/airless,
 /area/space)
-"ue" = (
-/obj/structure/lattice,
-/obj/item/shreddedp{
-	pixel_y = 6;
-	pixel_x = -13
-	},
-/obj/item/shreddedp{
-	pixel_y = -2;
-	pixel_x = -6
-	},
-/obj/item/shreddedp{
-	pixel_y = 8;
-	pixel_x = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/item/trash/mollusc_shell/clam{
-	pixel_y = -3;
-	pixel_x = 8
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "ug" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -1242,29 +368,8 @@
 /turf/floor/plating/airless,
 /area/ministation/maint/l4central)
 "uh" = (
-/obj/structure/lattice,
-/turf/wall/r_wall,
-/area/ministation/enclave/eggclave)
-"uo" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"ux" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular/open{
-	id_tag = "lockdown"
-	},
-/obj/machinery/door/airlock,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
+/turf/unsimulated/dark_filler,
+/area/space)
 "uG" = (
 /obj/structure/lattice,
 /turf/space,
@@ -1272,17 +377,6 @@
 "uQ" = (
 /turf/floor/plating,
 /area/ministation/maint/l4overpass)
-"vb" = (
-/obj/machinery/network/relay{
-	initial_network_id = "molluscnet"
-	},
-/turf/floor/plating,
-/area/ministation/science2nddeck)
-"ve" = (
-/obj/structure/lattice,
-/obj/machinery/door/airlock/glass,
-/turf/floor/tiled/techfloor,
-/area/ministation/enclave/eggclave)
 "vh" = (
 /obj/structure/table/woodentable,
 /turf/floor/tiled,
@@ -1299,22 +393,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"vn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"vq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "vD" = (
 /obj/machinery/power/solar_control{
 	dir = 8
@@ -1322,30 +400,6 @@
 /obj/structure/cable,
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"vG" = (
-/obj/machinery/camera/autoname{
-	dir = 1
-	},
-/turf/open,
-/area/ministation/enclave/sleepingroom)
-"vH" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 1;
-	icon_state = "map_injector";
-	use_power = 1
-	},
-/turf/space,
-/area/ministation/sciencetesting)
-"vK" = (
-/obj/structure/lattice,
-/obj/structure/emergency_dispenser/south,
-/obj/machinery/suit_cycler/medical/prepared{
-	suit = /obj/item/clothing/suit/space/void/medical/alt/scav;
-	helmet = /obj/item/clothing/head/helmet/space/void/medical/alt/scav
-	},
-/turf/floor,
-/area/ministation/enclave/eggclave)
 "vR" = (
 /obj/structure/bed/sofa/left/beige{
 	dir = 8
@@ -1365,23 +419,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"wm" = (
-/obj/structure/lattice,
-/obj/structure/ladder,
-/obj/structure/cable{
-	icon_state = "32-2"
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	dir = 1
-	},
-/turf/open,
-/area/ministation/enclave/sleepingroom)
 "wH" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1389,21 +426,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"xc" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 2
-	},
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/floor/tiled/airless,
-/area/space)
 "xN" = (
 /obj/abstract/map_data{
 	height = 4
@@ -1419,70 +441,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"yq" = (
-/obj/structure/lattice,
-/obj/structure/dogbed{
-	pixel_y = -1;
-	pixel_x = -9
-	},
-/obj/item/shreddedp{
-	pixel_y = 6;
-	pixel_x = -2
-	},
-/obj/item/shreddedp{
-	pixel_y = 13;
-	pixel_x = -4
-	},
-/obj/item/shreddedp{
-	pixel_x = 6;
-	pixel_y = 14
-	},
-/obj/item/shreddedp{
-	pixel_x = 7;
-	pixel_y = -6
-	},
-/obj/item/trash/mollusc_shell/clam{
-	pixel_x = 8
-	},
-/obj/item/mollusc/clam{
-	pixel_y = 4;
-	pixel_x = 4
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"yr" = (
-/obj/structure/lattice,
-/obj/item/trash/mollusc_shell,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"yB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"yD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"yI" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -26
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"yL" = (
-/obj/structure/lattice,
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "yS" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
@@ -1492,13 +450,6 @@
 "yX" = (
 /turf/wall,
 /area/ministation/maint/l4overpass)
-"yY" = (
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 22
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "zd" = (
 /obj/structure/ladder,
 /obj/structure/lattice,
@@ -1507,120 +458,6 @@
 	},
 /turf/open,
 /area/ministation/maint/l4overpass)
-"zn" = (
-/obj/structure/lattice,
-/obj/structure/dogbed{
-	pixel_y = 14
-	},
-/obj/item/shreddedp{
-	pixel_y = 13;
-	pixel_x = -10
-	},
-/obj/item/shreddedp{
-	pixel_y = 8;
-	pixel_x = 8
-	},
-/obj/item/shreddedp{
-	pixel_y = 7;
-	pixel_x = -7
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	level = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"zz" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/shreddedp{
-	pixel_y = 6;
-	pixel_x = -2
-	},
-/obj/item/shreddedp{
-	pixel_x = 6;
-	pixel_y = 14
-	},
-/obj/item/shreddedp{
-	pixel_x = 7;
-	pixel_y = -10
-	},
-/obj/item/shreddedp{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/item/shreddedp{
-	pixel_y = -5;
-	pixel_x = -3
-	},
-/obj/machinery/door/firedoor,
-/turf/floor/tiled/stone,
-/area/ministation/enclave/atrium)
-"zH" = (
-/obj/structure/lattice,
-/obj/machinery/firealarm{
-	pixel_y = 21
-	},
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -23
-	},
-/obj/structure/bed/holobed,
-/obj/item/bedsheet/rainbow,
-/obj/item/synthesized_instrument/guitar/multi,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"zL" = (
-/obj/structure/lattice,
-/obj/effect/floor_decal/industrial/warning,
-/turf/floor/tiled/airless,
-/area/space)
-"zR" = (
-/obj/structure/table,
-/obj/random/plushie,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Ae" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/structure/yinglet_nest/empty,
-/obj/item/food/dairy/cheese/wedge{
-	name = "yinglet egg?";
-	desc = "A soft-shelled... uh... wait a minute..."
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"Af" = (
-/obj/machinery/door/airlock/external/glass{
-	autoset_access = 0;
-	name = "External Airlock Hatch";
-	req_access = list("ACCESS_EXTERNAL");
-	locked = 1;
-	id_tag = "eggclave_airlock_exterior"
-	},
-/obj/machinery/button/access/interior{
-	id_tag = "eggclave_airlock";
-	name = "exterior access button";
-	pixel_x = 24;
-	pixel_y = -7;
-	command = "cycle_exterior"
-	},
-/turf/floor/plating,
-/area/ministation/enclave/eggclave)
 "Ai" = (
 /obj/structure/lattice,
 /obj/item/food/meatball{
@@ -1640,64 +477,12 @@
 /obj/structure/cable,
 /turf/floor/plating,
 /area/space)
-"An" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"AJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/turf/wall/r_wall/hull,
-/area/ministation/sciencetesting)
 "AT" = (
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/solar,
 /turf/floor/plating,
-/area/space)
-"AZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 22
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"Bc" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/camera/network/hallway,
-/turf/floor,
-/area/ministation/enclave/sleepingroom)
-"Bm" = (
-/obj/structure/lattice,
-/obj/item/box/fancy/crayons{
-	pixel_y = 10;
-	pixel_x = -6
-	},
-/obj/machinery/light{
-	dir = 8;
-	flickering = 1
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"Bx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"BP" = (
-/turf/wall,
 /area/space)
 "Cd" = (
 /obj/structure/cable{
@@ -1716,23 +501,6 @@
 /obj/structure/lattice,
 /turf/floor/reinforced/airless,
 /area/space)
-"Ci" = (
-/obj/machinery/door/airlock/external/glass{
-	autoset_access = 0;
-	name = "External Airlock Hatch";
-	req_access = list("ACCESS_EXTERNAL");
-	locked = 1;
-	id_tag = "eggclave_airlock_interior"
-	},
-/obj/machinery/button/access/interior{
-	id_tag = "eggclave_airlock";
-	name = "interior access button";
-	pixel_x = -18;
-	pixel_y = 30;
-	dir = 4
-	},
-/turf/floor/plating,
-/area/ministation/enclave/eggclave)
 "Cl" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1754,21 +522,6 @@
 	},
 /turf/open,
 /area/ministation/maint/l4overpass)
-"CH" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"CI" = (
-/obj/machinery/shieldwallgen,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "CJ" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -1776,30 +529,6 @@
 /obj/machinery/power/solar,
 /turf/floor/plating/airless,
 /area/space)
-"CM" = (
-/obj/structure/table/reinforced,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"CS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"CV" = (
-/obj/structure/table/reinforced,
-/obj/machinery/button/blast_door{
-	id_tag = "gasventdoor";
-	name = "Gas vent control"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "CY" = (
 /obj/machinery/vending/cigarette{
 	dir = 4;
@@ -1840,46 +569,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"Dk" = (
-/obj/effect/wingrille_spawn/reinforced_borosilicate/full,
-/obj/machinery/door/firedoor,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"DB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"DE" = (
-/obj/structure/lattice,
-/obj/structure/dogbed{
-	pixel_y = -1;
-	pixel_x = -9
-	},
-/obj/item/shreddedp{
-	pixel_y = -3;
-	pixel_x = -8
-	},
-/obj/item/shreddedp{
-	pixel_y = -3;
-	pixel_x = 8
-	},
-/obj/item/shreddedp{
-	pixel_y = 5;
-	pixel_x = -8
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"DI" = (
-/obj/structure/table/reinforced,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4;
-	icon_state = "warningcorner"
-	},
-/obj/item/box/animal_cubes/monkeys,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "DX" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -1901,204 +590,22 @@
 	},
 /turf/floor/plating,
 /area/space)
-"Ef" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/structure/yinglet_nest,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
 "EA" = (
 /obj/structure/flora/bush/ppflowers,
 /turf/floor/grass,
 /area/ministation/observation_deck)
-"EL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/vending/wallmed1{
-	pixel_y = 32
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"EX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "Fa" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4overpass)
-"Fm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/firealarm{
-	pixel_y = 21
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"FD" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "FF" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"FH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"FU" = (
-/obj/structure/lattice,
-/obj/item/shreddedp{
-	pixel_y = -3;
-	pixel_x = -8
-	},
-/obj/item/trash/mollusc_shell/clam{
-	pixel_y = 11;
-	pixel_x = 11
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"FV" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Gg" = (
-/obj/structure/table/bench,
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Gj" = (
-/obj/structure/lattice,
-/obj/structure/dogbed{
-	pixel_y = 10;
-	pixel_x = -8
-	},
-/obj/item/shreddedp{
-	pixel_y = 4;
-	pixel_x = -11
-	},
-/obj/item/shreddedp{
-	pixel_y = 9;
-	pixel_x = 6
-	},
-/obj/item/trash/mollusc_shell/clam{
-	pixel_x = 8
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"Gv" = (
-/obj/structure/lattice,
-/obj/structure/dogbed{
-	pixel_y = -7;
-	pixel_x = 3
-	},
-/obj/item/shreddedp{
-	pixel_y = -13;
-	pixel_x = 5
-	},
-/obj/item/shreddedp{
-	pixel_y = -6;
-	pixel_x = -3
-	},
-/obj/item/shreddedp{
-	pixel_y = -1;
-	pixel_x = 5
-	},
-/obj/item/shreddedp{
-	pixel_y = 7;
-	pixel_x = 5
-	},
-/obj/item/trash/mollusc_shell/barnacle{
-	pixel_y = 12;
-	pixel_x = 11
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"Gy" = (
-/obj/structure/dogbed{
-	pixel_x = -5;
-	pixel_y = 16
-	},
-/obj/item/shreddedp{
-	pixel_y = 14;
-	pixel_x = 5
-	},
-/obj/item/shreddedp{
-	pixel_x = -7;
-	pixel_y = 9
-	},
-/obj/item/shreddedp{
-	pixel_y = 9;
-	pixel_x = 9
-	},
-/obj/item/shreddedp{
-	pixel_y = 1;
-	pixel_x = -9
-	},
-/obj/item/shreddedp{
-	pixel_y = -5;
-	pixel_x = -9
-	},
-/obj/item/mollusc/clam{
-	pixel_y = 4;
-	pixel_x = 4
-	},
-/obj/item/mollusc/clam{
-	pixel_y = -4;
-	pixel_x = -4
-	},
-/obj/item/mollusc/clam{
-	pixel_x = 12;
-	pixel_y = 5
-	},
-/turf/floor/tiled/white,
-/area/ministation/enclave/sleepingroom)
 "GD" = (
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0;
@@ -2133,19 +640,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"Hg" = (
-/obj/effect/floor_decal/industrial/hatch/orange,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"Hi" = (
-/obj/effect/wingrille_spawn/reinforced_borosilicate/full,
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment/bent{
-	dir = 8
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
 "Hm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -2164,63 +658,15 @@
 	},
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"Hy" = (
-/obj/structure/lattice,
-/obj/item/shreddedp{
-	pixel_y = 5;
-	pixel_x = 6
-	},
-/obj/item/shreddedp{
-	pixel_y = 10;
-	pixel_x = -9
-	},
-/obj/item/shreddedp{
-	pixel_y = 15;
-	pixel_x = 4
-	},
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 4
-	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "_North APC";
-	pixel_y = 24
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/mollusc/clam{
-	pixel_y = 7;
-	pixel_x = -6
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "HM" = (
 /obj/machinery/network/relay{
 	initial_network_id = "molluscnet"
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"HR" = (
-/obj/structure/reagent_dispensers/water_cooler/ascent,
-/turf/floor/plating/airless,
-/area/space)
 "Id" = (
 /turf/floor/grass,
 /area/ministation/observation_deck)
-"In" = (
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/light_switch{
-	pixel_y = 25
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/floor/tiled,
-/area/ministation/enclave/eggclave)
 "IZ" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
@@ -2228,71 +674,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"Jg" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/tiled,
-/area/ministation/enclave/eggclave)
-"Jj" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/structure/yinglet_nest,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"Jp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"JK" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"JO" = (
-/obj/effect/wingrille_spawn/reinforced_borosilicate/full,
-/obj/machinery/door/blast/regular/open,
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"JR" = (
-/obj/structure/table/bench,
-/obj/machinery/camera/autoname{
-	dir = 1
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Ks" = (
-/obj/structure/lattice,
-/obj/item/radio/intercom{
-	dir = 4;
-	pixel_y = 1;
-	pixel_x = -23
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"Kw" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/closet/bombcloset,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "KM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2306,16 +687,6 @@
 /obj/machinery/door/airlock/glass,
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"KS" = (
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"Lm" = (
-/obj/structure/lattice,
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/turf/floor/tiled/techfloor,
-/area/ministation/enclave/eggclave)
 "Lu" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -2335,32 +706,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"LI" = (
-/obj/structure/table/reinforced,
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"LM" = (
-/obj/structure/lattice,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/trash/mollusc_shell/clam{
-	pixel_y = 11;
-	pixel_x = 11
-	},
-/obj/item/trash/mollusc_shell/barnacle{
-	pixel_y = 6;
-	pixel_x = 6
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "Mj" = (
 /obj/structure/bed/chair/comfy/beige{
 	dir = 4
@@ -2370,18 +715,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"Mt" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Mw" = (
-/obj/machinery/door/firedoor,
-/obj/effect/wallframe_spawn/reinforced,
-/turf/floor/plating,
-/area/ministation/enclave/sleepingroom)
 "MF" = (
 /obj/machinery/power/solar,
 /obj/structure/cable{
@@ -2389,38 +722,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"MQ" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/item/trash/mollusc_shell/clam{
-	pixel_y = 16;
-	pixel_x = -5
-	},
-/obj/random/trash,
-/turf/floor/tiled/stone,
-/area/ministation/enclave/atrium)
-"MT" = (
-/obj/structure/lattice,
-/obj/item/mollusc/clam{
-	pixel_y = 2;
-	pixel_x = -10
-	},
-/obj/item/trash/mollusc_shell/barnacle{
-	pixel_y = 6;
-	pixel_x = 6
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "MU" = (
 /obj/abstract/landmark{
 	name = "carpspawn"
@@ -2436,26 +737,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"Ns" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/plating,
-/area/ministation/science2nddeck)
-"Ny" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "Nz" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2465,117 +746,10 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"NJ" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	level = 2
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
 "NO" = (
 /obj/abstract/level_data_spawner/main_level,
 /turf/space,
 /area/space)
-"NT" = (
-/obj/structure/lattice,
-/obj/structure/hygiene/sink{
-	dir = 8;
-	pixel_y = 12;
-	pixel_x = -13
-	},
-/obj/machinery/light{
-	dir = 2
-	},
-/turf/floor/tiled,
-/area/ministation/enclave/eggclave)
-"OQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"OR" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Pb" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/wall,
-/area/ministation/enclave/sleepingroom)
-"Pc" = (
-/obj/structure/lattice,
-/obj/structure/railing/mapped{
-	icon_state = "railing0-0";
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/floor/tiled/airless,
-/area/space)
-"Pi" = (
-/obj/structure/lattice,
-/obj/structure/dogbed{
-	pixel_y = 16
-	},
-/obj/item/shreddedp{
-	pixel_y = 12;
-	pixel_x = -12
-	},
-/obj/item/shreddedp{
-	pixel_y = 14;
-	pixel_x = 7
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light_switch{
-	pixel_y = 25
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"Pm" = (
-/obj/structure/rack,
-/obj/item/target,
-/obj/item/target/alien,
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/alien,
-/obj/item/target/alien,
-/obj/item/target/alien,
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Pt" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"PH" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/wall,
-/area/ministation/enclave/sleepingroom)
 "Qh" = (
 /obj/machinery/door/airlock/hatch/maintenance,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2586,60 +760,6 @@
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"Qz" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
-"QL" = (
-/obj/structure/lattice,
-/obj/item/trash/mollusc_shell/clam{
-	pixel_y = 16;
-	pixel_x = -5
-	},
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
-"QM" = (
-/obj/effect/wingrille_spawn/reinforced_borosilicate/full,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment/bent{
-	dir = 4
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"QR" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
-	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/space,
-/area/space)
-"QW" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible/supply,
-/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/space,
-/area/space)
-"Rx" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4;
-	icon_state = "warningcorner"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "RD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2651,13 +771,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"RO" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
 "RY" = (
 /obj/machinery/vending/coffee{
 	dir = 4;
@@ -2686,67 +799,9 @@
 	},
 /turf/floor/plating,
 /area/space)
-"SM" = (
-/obj/structure/lattice,
-/turf/wall/r_wall,
-/area/ministation/enclave/atrium)
 "SN" = (
 /turf/floor/glass/boro,
 /area/space)
-"SO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"ST" = (
-/obj/machinery/door/airlock/hatch/maintenance,
-/obj/machinery/door/firedoor{
-	dir = 8
-	},
-/turf/floor/plating,
-/area/ministation/science2nddeck)
-"Tg" = (
-/obj/structure/railing/mapped,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/science2nddeck)
-"Ts" = (
-/obj/machinery/door/blast/regular/open,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
-/obj/effect/wingrille_spawn/reinforced_borosilicate/full,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"TO" = (
-/obj/structure/table/reinforced,
-/obj/item/box/animal_cubes/monkeys,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"TT" = (
-/obj/structure/lattice,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/floor/tiled/airless,
-/area/space)
-"Ul" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
-/obj/machinery/disposal,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "Uw" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -2761,70 +816,6 @@
 	},
 /turf/open,
 /area/ministation/maint/l4central)
-"US" = (
-/obj/structure/table/reinforced,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/button/blast_door{
-	desc = "A remote control-switch for the engine control room blast doors.";
-	id_tag = "Blastroomwindows";
-	name = "Blast Monitoring Room Blast Doors";
-	pixel_y = -3;
-	pixel_x = -5
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"UW" = (
-/obj/machinery/door/airlock{
-	name = "Blast Testing Room"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Vc" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"Vw" = (
-/obj/structure/lattice,
-/turf/floor/tiled/airless,
-/area/space)
-"Vx" = (
-/obj/structure/disposalpipe/trunk,
-/obj/structure/disposaloutlet{
-	dir = 1
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"VH" = (
-/obj/structure/reagent_dispensers/fueltank,
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"VN" = (
-/obj/structure/lattice,
-/obj/machinery/firealarm{
-	pixel_y = 21
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 24
-	},
-/obj/structure/yinglet_nest,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/eggclave)
 "VO" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -2849,10 +840,6 @@
 	},
 /turf/floor/plating,
 /area/space)
-"Wk" = (
-/obj/structure/lattice,
-/turf/wall,
-/area/ministation/enclave/sleepingroom)
 "Wl" = (
 /obj/machinery/power/smes/buildable/preset,
 /obj/structure/cable{
@@ -2860,33 +847,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"Wr" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"WG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -5;
-	pixel_y = 30
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "WI" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 5;
@@ -2901,43 +861,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"WQ" = (
-/obj/structure/lattice,
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/wall/r_wall,
-/area/ministation/enclave/eggclave)
-"WW" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
-	},
-/turf/space,
-/area/ministation/sciencetesting)
-"Xq" = (
-/turf/open,
-/area/ministation/enclave/sleepingroom)
-"Xs" = (
-/turf/wall,
-/area/ministation/sciencetesting)
-"Xw" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
 "XA" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -2966,32 +889,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"XK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"XN" = (
-/obj/structure/lattice,
-/obj/structure/hygiene/toilet{
-	pixel_y = 14
-	},
-/obj/structure/emergency_dispenser/south,
-/obj/structure/mirror{
-	pixel_y = 29
-	},
-/turf/floor/tiled,
-/area/ministation/enclave/eggclave)
-"XQ" = (
-/turf/wall/r_wall,
-/area/ministation/sciencetesting)
-"XY" = (
-/obj/structure/lattice,
-/turf/floor/wood/bamboo,
-/area/ministation/enclave/sleepingroom)
 "XZ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor{
@@ -2999,16 +896,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/observation_deck)
-"Yt" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/wall/r_wall,
-/area/ministation/enclave/eggclave)
 "Yv" = (
 /turf/wall,
 /area/ministation/maint/l4central)
@@ -3018,61 +905,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/observation_deck)
-"YJ" = (
-/obj/machinery/door/blast/regular/open,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
-"YK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/turf/floor/tiled,
-/area/ministation/sciencetesting)
-"Zd" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/zpipe/down/supply{
-	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "32-8"
-	},
-/obj/structure/ladder,
-/turf/open,
-/area/ministation/science2nddeck)
-"Zs" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/floor/plating,
-/area/ministation/science2nddeck)
-"ZJ" = (
-/obj/structure/lattice,
-/obj/structure/hygiene/shower{
-	pixel_y = 10;
-	dir = 8
-	},
-/obj/structure/curtain/open/shower,
-/turf/floor/tiled,
-/area/ministation/enclave/eggclave)
-"ZK" = (
-/obj/machinery/airlock_sensor{
-	id_tag = "eggclave_sensor";
-	pixel_y = -1;
-	pixel_x = -18;
-	dir = 4
-	},
-/turf/floor/plating,
-/area/ministation/enclave/eggclave)
-"ZM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/reinforced,
-/area/ministation/sciencetesting)
 
 (1,1,1) = {"
 aa
@@ -12160,7 +9992,7 @@ aa
 aa
 aa
 aa
-aa
+uh
 aa
 aa
 aa
@@ -12674,15 +10506,15 @@ aa
 af
 af
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -12931,15 +10763,15 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13188,15 +11020,15 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13445,15 +11277,15 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13702,15 +11534,15 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13959,15 +11791,15 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14216,15 +12048,15 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+aa
+af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14473,15 +12305,15 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+af
+af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14730,17 +12562,17 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+af
+af
+af
+af
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14987,19 +12819,19 @@ aa
 aa
 ab
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
 aa
 aa
+af
+af
+af
+af
+aa
+aa
+aa
+aa
+aa
+aa
+af
 aa
 aa
 aa
@@ -15244,20 +13076,20 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -15501,21 +13333,21 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
-aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -15758,21 +13590,21 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+af
+af
+af
+af
 aa
 aa
 aa
 aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -16015,17 +13847,17 @@ aa
 aa
 aa
 aa
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
-Cg
+aa
+aa
+aa
+aa
+af
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -16259,13 +14091,6 @@ aa
 af
 oP
 oP
-uh
-uh
-uh
-uh
-uh
-uh
-bl
 aa
 aa
 aa
@@ -16277,6 +14102,13 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
 aa
 aa
 aa
@@ -16514,16 +14346,7 @@ aa
 aa
 aa
 aa
-uG
 uh
-uh
-Bm
-Ks
-ve
-NT
-uh
-Vw
-bl
 aa
 aa
 aa
@@ -16552,6 +14375,15 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
 aa
 aa
 aa
@@ -16772,16 +14604,6 @@ aa
 aa
 aa
 uh
-uh
-zH
-Qz
-nZ
-uh
-XN
-uh
-TT
-Vw
-bl
 aa
 aa
 aa
@@ -16810,6 +14632,16 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -17029,16 +14861,18 @@ aa
 aa
 aa
 uh
-rR
-bA
-kI
-mk
-uh
-ZJ
-uh
-Vw
-Vw
-Pc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
 aa
 aa
 aa
@@ -17061,11 +14895,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -17286,16 +15118,18 @@ aa
 aa
 aa
 uh
-ve
-uh
-Yt
-uh
-uh
-uh
-uh
-Vw
-Vw
-Pc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
+af
 aa
 aa
 aa
@@ -17311,17 +15145,15 @@ aa
 aa
 aa
 aa
-uG
 aa
 aa
 aa
+af
+af
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+af
 aa
 aa
 aa
@@ -17543,17 +15375,6 @@ aa
 aa
 aa
 uh
-In
-Jg
-gn
-Ci
-eN
-ZK
-Af
-Vw
-Vw
-zL
-fw
 aa
 aa
 aa
@@ -17562,18 +15383,29 @@ aa
 aa
 aa
 aa
-cw
-cw
-cw
-cw
-cw
-cw
-cw
-uG
+aa
+af
+af
+af
 aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
 aa
 aa
 aa
@@ -17800,16 +15632,6 @@ af
 aa
 uG
 uh
-ve
-uh
-Yt
-uh
-df
-uh
-uh
-Vw
-Vw
-Pc
 aa
 aa
 aa
@@ -17819,18 +15641,28 @@ aa
 aa
 aa
 aa
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+af
+af
+af
 aa
 aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
+af
 aa
 aa
 aa
@@ -18057,37 +15889,37 @@ oP
 uG
 uG
 uh
-rR
-bA
-oE
-Ae
-ql
-jD
-uh
-Vw
-Vw
-Pc
-aa
-aa
-aa
-aa
-ly
-ly
-ly
-ly
-ly
-ly
-cw
-cw
-cw
-cw
-cw
-cw
 aa
 aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+af
+af
+af
+aa
+aa
+aa
+aa
+af
+af
+af
+af
+af
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
+af
 aa
 aa
 aa
@@ -18314,32 +16146,32 @@ af
 af
 oP
 uh
-uh
-VN
-Jj
-NJ
-uh
-vK
-uh
-TT
-Vw
-xc
 aa
 aa
 aa
 aa
-ly
-fG
-fG
-fG
-fG
-ly
-cw
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+af
+aa
+af
+af
+af
+aa
+aa
+af
+af
+af
+af
+af
+af
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -18570,33 +16402,33 @@ af
 af
 af
 oP
-uG
 uh
-uh
-Ef
-gB
-Lm
-pN
-WQ
-Vw
-xc
 aa
 aa
 aa
 aa
 aa
-ly
-fG
-fG
-fG
-fG
-ly
-cw
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
+af
+af
+af
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -18827,33 +16659,33 @@ af
 af
 af
 af
-aa
-aa
 uh
-uh
-uh
-uh
-uh
-gZ
-xc
-uG
 aa
 aa
 aa
 aa
 aa
-ly
-fG
-fG
-fG
-fG
-ly
-Cg
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -19084,33 +16916,33 @@ af
 af
 af
 aa
+uh
 aa
 aa
 aa
-uG
-uG
 aa
 aa
-bn
-QW
-QW
-QW
-QW
-QR
 aa
 aa
-SM
-sR
-MQ
-zz
-iD
-SM
-Cg
-Cg
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -19353,22 +17185,22 @@ aa
 uG
 uG
 oP
-eJ
 aa
 aa
-Wk
-lf
-Gy
-fE
-eW
-Wk
-jo
-jo
-jo
-jo
-jo
-jo
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -19610,22 +17442,22 @@ aa
 af
 af
 af
-eJ
 aa
 aa
-PH
-Pi
-zn
-DE
-aw
-jA
-XY
-yr
-pW
-bU
-XY
-Mw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -19867,22 +17699,22 @@ af
 af
 af
 oP
-bn
-QW
-QW
-fW
-Hy
-LM
-ue
-XY
-XY
-XY
-XY
-XY
-XY
-QL
-Mw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+af
+aa
+aa
 aa
 aa
 aa
@@ -20124,22 +17956,22 @@ aa
 af
 oP
 Ai
-uG
 aa
 aa
-Pb
-wm
-yL
-Gv
-Gj
-XY
-FU
-mM
-MT
-XY
-yq
-Mw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -20384,19 +18216,19 @@ uG
 aa
 aa
 aa
-Wk
-Bc
-lX
-lX
-jo
-Wk
-jo
-jo
-jo
-jo
-jo
-jo
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -20641,19 +18473,19 @@ aa
 aa
 aa
 aa
-jo
-qq
-Xq
-vG
-jo
-cw
 aa
 aa
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+af
+af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -20898,19 +18730,19 @@ aa
 aa
 aa
 aa
-jo
-Mw
-Mw
-Mw
-jo
-cw
 aa
 aa
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+af
+af
+af
+af
+aa
+aa
+aa
 aa
 aa
 aa
@@ -21159,22 +18991,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-cw
-cw
-cw
-cw
-cw
-aa
-aa
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+af
 aa
 aa
 aa
@@ -21431,8 +19263,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -21928,7 +19760,7 @@ aa
 aa
 aa
 oP
-uG
+uh
 aa
 aa
 aa
@@ -22182,12 +20014,12 @@ aa
 uG
 uG
 aa
-uG
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -22440,11 +20272,11 @@ oP
 aa
 aa
 aa
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -22695,13 +20527,13 @@ aa
 aa
 af
 aa
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -22952,13 +20784,13 @@ aa
 aa
 aa
 aa
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -23209,13 +21041,13 @@ aa
 aa
 aa
 aa
-cw
-cw
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -23466,12 +21298,6 @@ aa
 aa
 aa
 aa
-cw
-cw
-cw
-cw
-cw
-cw
 aa
 aa
 aa
@@ -23486,6 +21312,12 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+af
 aa
 aa
 aa
@@ -23723,12 +21555,10 @@ aa
 aa
 aa
 aa
-cw
-cw
-cw
-cw
-cw
-cw
+aa
+aa
+af
+af
 aa
 aa
 aa
@@ -23743,7 +21573,9 @@ aa
 aa
 aa
 aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -23980,12 +21812,12 @@ aa
 aa
 af
 aa
-cw
-cw
-cw
-cw
-cw
-cw
+aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -23996,11 +21828,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -24237,12 +22069,12 @@ aa
 af
 af
 aa
-cw
-cw
-cw
-cw
-cw
-cw
+aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -24252,12 +22084,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -24495,26 +22327,26 @@ aa
 aa
 aa
 aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -24754,6 +22586,10 @@ aa
 aa
 aa
 aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -24762,14 +22598,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
 aa
 aa
 aa
@@ -25021,12 +22853,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -25277,11 +23109,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
@@ -26558,8 +24390,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+af
 aa
 aa
 aa
@@ -26815,9 +24647,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -27073,9 +24905,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+af
+af
+af
 aa
 aa
 aa
@@ -38655,7 +36487,7 @@ cw
 aa
 aa
 aa
-uG
+aa
 cw
 cw
 cw
@@ -38912,7 +36744,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 cw
 cw
 cw
@@ -39169,7 +37001,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 cw
 cw
 cw
@@ -39426,7 +37258,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 cw
 cw
 cw
@@ -39683,7 +37515,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 cw
 cw
@@ -39940,7 +37772,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 cw
 cw
@@ -40197,7 +38029,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -40454,7 +38286,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -40711,7 +38543,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -40968,7 +38800,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -41225,7 +39057,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -41482,7 +39314,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -41739,7 +39571,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -41996,7 +39828,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -42253,7 +40085,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -42510,7 +40342,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -42767,7 +40599,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -43024,7 +40856,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -43281,7 +41113,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -43538,7 +41370,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -43795,7 +41627,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -44052,7 +41884,7 @@ aa
 aa
 aa
 aa
-uG
+aa
 aa
 aa
 aa
@@ -44082,11 +41914,11 @@ cw
 cw
 cw
 cw
-pB
-pB
-Zs
-pB
-pB
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -44300,50 +42132,50 @@ aa
 aa
 aa
 aa
-gb
-gb
-gb
-gb
-gb
-gb
-gb
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-pB
-pB
-jt
-fo
-cK
-pB
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -44557,50 +42389,50 @@ aa
 aa
 aa
 aa
-gb
-ko
-nT
-nT
-nT
-nT
-Pm
-Xw
-ev
-ev
-Jp
-OQ
-dO
-ux
-An
-An
-tg
-An
-An
-fJ
-An
-An
-dC
-An
-An
-AZ
-An
-An
-rW
-An
-An
-dv
-An
-An
-dC
-An
-An
-An
-tO
-jg
-Tg
-pS
-cQ
-Zs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -44814,50 +42646,50 @@ aa
 aa
 aa
 aa
-gb
-ko
-nT
-nT
-nT
-nT
-ev
-yB
-vn
-vn
-kg
-ev
-CM
-Xs
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-ST
-pB
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-Zs
-Zs
-pB
-pB
-Ns
-pB
-pS
-cQ
-Zs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -45071,20 +42903,6 @@ aa
 aa
 aa
 aa
-gb
-ko
-nT
-nT
-nT
-nT
-ev
-Ny
-ev
-ev
-mG
-ev
-CM
-Xs
 aa
 aa
 aa
@@ -45093,10 +42911,24 @@ aa
 aa
 aa
 aa
-pB
-ll
-vb
-pB
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 cw
@@ -45109,12 +42941,12 @@ cw
 cw
 cw
 cw
-pB
-Zd
-pB
-KS
-rZ
-pB
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -45328,20 +43160,6 @@ aa
 aa
 aa
 aa
-gb
-ko
-nT
-aW
-nT
-nT
-CM
-CH
-FH
-FH
-eQ
-ev
-CM
-Xs
 aa
 aa
 aa
@@ -45350,10 +43168,24 @@ aa
 aa
 aa
 aa
-pB
-pB
-pB
-pB
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 cw
@@ -45366,12 +43198,12 @@ cw
 cw
 cw
 cw
-pB
-pB
-pB
-Zs
-pB
-pB
+cw
+cw
+cw
+cw
+cw
+cw
 cw
 cw
 cw
@@ -45581,24 +43413,6 @@ aa
 aa
 aa
 aa
-XQ
-XQ
-XQ
-XQ
-gb
-gb
-gb
-gb
-gb
-gb
-gb
-OR
-ev
-Mt
-mG
-ev
-TO
-Xs
 aa
 aa
 aa
@@ -45607,10 +43421,28 @@ aa
 aa
 aa
 aa
-BP
-HR
-ap
-BP
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 cw
@@ -45838,24 +43670,24 @@ aa
 aa
 aa
 aa
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-mG
-ev
-LI
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -46095,24 +43927,24 @@ aa
 aa
 aa
 aa
-XQ
-XQ
-nT
-nT
-nT
-nT
-nT
-nT
-fv
-XQ
-CI
-Kw
-US
-XQ
-WG
-ev
-kq
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -46353,23 +44185,23 @@ aa
 aa
 aa
 aa
-as
-nT
-nT
-nT
-nT
-nT
-nT
-gr
-Ts
-Rx
-vn
-uo
-XQ
-aS
-ev
-ev
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -46610,23 +44442,23 @@ aa
 aa
 aa
 aa
-as
-nT
-nT
-Hg
-nT
-nT
-nT
-nT
-YJ
-Ny
-ev
-iP
-XQ
-mG
-ev
-yI
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -46867,23 +44699,23 @@ aa
 aa
 aa
 aa
-as
-nT
-nT
-nT
-nT
-nT
-nT
-Vc
-JO
-FD
-FH
-aq
-XQ
-mG
-ev
-JR
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -47123,24 +44955,24 @@ aa
 aa
 aa
 aa
-XQ
-XQ
-nT
-nT
-nT
-nT
-nT
-nT
-fv
-XQ
-CI
-pP
-lk
-XQ
-EL
-ev
-zR
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -47380,24 +45212,24 @@ aa
 aa
 aa
 aa
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-UW
-XQ
-Fm
-ev
-Gg
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -47637,24 +45469,24 @@ aa
 aa
 aa
 aa
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-XQ
-hY
-vq
-Wr
-CS
-ev
-ev
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -47897,21 +45729,21 @@ aa
 aa
 aa
 aa
-hQ
-nT
-RO
-SO
-ZM
-XK
-ZM
-QM
-Ul
-YK
-hW
-EX
-FH
-Pt
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -48154,21 +45986,21 @@ aa
 aa
 aa
 aa
-hQ
-nT
-nT
-yD
-nT
-nT
-Vx
-Hi
-CV
-ev
-ev
-DB
-ev
-jS
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -48411,21 +46243,21 @@ aa
 aa
 aa
 aa
-hQ
-nT
-hd
-nT
-nT
-hd
-nT
-Dk
-DI
-ev
-ev
-DB
-ev
-VH
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -48668,21 +46500,21 @@ aa
 aa
 aa
 aa
-eT
-nT
-Bx
-nT
-nT
-Bx
-rT
-bX
-FV
-yY
-tG
-JK
-ev
-qG
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -48925,21 +46757,21 @@ aa
 aa
 aa
 aa
-eT
-eT
-AJ
-eT
-eT
-AJ
-eT
-eT
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
-Xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -49184,9 +47016,9 @@ aa
 aa
 aa
 aa
-WW
-vH
-qa
+aa
+aa
+aa
 gE
 aa
 aa

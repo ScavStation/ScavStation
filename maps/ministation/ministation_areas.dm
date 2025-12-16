@@ -245,15 +245,6 @@
 	secure = TRUE
 	icon_state = "pink"
 
-/area/ministation/contracter_bunk
-	name = "\improper Contracter's Bunk"
-	turf_initializer = /decl/turf_initializer/maintenance
-	icon_state = "green"
-
-/area/ministation/illegal_hideaway
-	name = "\improper Illegal Hideout"
-	icon_state = "green"
-
 /area/ministation/library
 	name = "\improper Library"
 	icon_state = "LIB"
@@ -279,11 +270,6 @@
 	req_access = list(access_robotics)
 	secure = TRUE
 	icon_state = "dark_blue"
-
-/area/ministation/biodome
-	name = "\improper Science Biodome"
-
-	icon_state = "white"
 
 /area/ministation/eva
 	name = "\improper EVA Storage"
@@ -340,7 +326,7 @@
 
 /area/ministation/hydro
 	name = "\improper Hydroponics"
-	req_access = list(access_hydroponics)
+//	req_access = list(access_hydroponics) -- given public access so players can grow things
 	icon_state = "green"
 
 /area/ministation/cafe // no access requirement to get in. inner doors need access kitchen
@@ -392,96 +378,6 @@
 	icon_state = "white"
 	secure = FALSE
 
-/area/ministation/enclave/gatehouse
-	name = "\improper Enclave Gatehouse"
-	req_access = list()
-	icon_state = "light_blue"
-	secure = FALSE
-
-/area/ministation/enclave/tower
-	name = "\improper Enclave Tower"
-	req_access = list()
-	icon_state = "dark_blue"
-	secure = FALSE
-
-/area/ministation/enclave/scikitchen
-	name = "\improper Enclave SCI-Kitchen"
-	req_access = list()
-	icon_state = "green"
-	secure = FALSE
-
-/area/ministation/enclave/evacloset
-	name = "\improper Enclave EVA Closet"
-	req_access = list()
-	icon_state = "brown"
-	secure = FALSE
-
-/area/ministation/enclave/engineering
-	name = "\improper Enclave Engineering"
-	req_access = list()
-	icon_state = "yellow"
-	secure = FALSE
-
-/area/ministation/enclave/airroom
-	name = "\improper Enclave Air Room"
-	req_access = list()
-	icon_state = "light_blue"
-	secure = FALSE
-
-/area/ministation/enclave/messhall
-	name = "\improper Enclave Mess Hall"
-	req_access = list()
-	icon_state = "red"
-	secure = FALSE
-
-/area/ministation/enclave/foyer
-	name = "\improper Enclave Foyer"
-	req_access = list()
-	icon_state = "yellow"
-	secure = FALSE
-
-/area/ministation/enclave/sleepingroom
-	name = "\improper Enclave Sleeping Room"
-	req_access = list()
-	icon_state = "pink"
-	secure = FALSE
-
-/area/ministation/enclave/atrium
-	name = "\improper Enclave Atrium"
-	req_access = list()
-	icon_state = "white"
-	secure = FALSE
-
-/area/ministation/enclave/armory
-	name = "\improper Enclave Armory"
-	req_access = list(access_security)
-	icon_state = "dark_blue"
-	secure = TRUE
-
-/area/ministation/enclave/badclamrock
-	name = "\improper Bad Clam Rock"
-	req_access = list(access_security)
-	icon_state = "brown"
-	secure = TRUE
-
-/area/ministation/enclave/matriarch
-	name = "\improper Matriarch's Chambers"
-	req_access = list(access_heads)
-	icon_state = "green"
-	secure = TRUE
-
-/area/ministation/enclave/eggclave
-	name = "\improper Eggclave"
-	req_access = list(access_medical)
-	icon_state = "white"
-	secure = TRUE
-
-/area/ministation/enclave/conference
-	name = "\improper Table of Meeting"
-	req_access = list(access_security)
-	icon_state = "green"
-	secure = TRUE
-
 /area/ministation/Arrival
 	name = "\improper Arrival Shuttle" // I hate this ugly thing
 	icon_state = "white"
@@ -495,14 +391,6 @@
 /area/ministation/shuttle/outgoing
 	name = "\improper Science Shuttle"
 	icon_state = "shuttle"
-
-/*/area/ministation/shuttle/outgoing_visitors1
-	name = "\improper Visitors Bay 1"
-	icon_state = "shuttle"
-
-/area/ministation/shuttle/outgoing_visitors2
-	name = "\improper Visitors Bay 2"
-	icon_state = "shuttle"*/
 
 
 // CENTCOMMS AREAS
@@ -552,7 +440,6 @@
 /area/ministation/centcomm/ghost_halls_2
 	name = "\improper CentComm Ghost Halls"
 	icon_state = "pink"
-
 
 /area/ministation/centcomm/halls
 	name = "\improper CentComm Hallways"
@@ -708,39 +595,10 @@
 /area/ministation/Murphy/bedroom/Vayryn
 	name = "\improper Murphy - Vayryn's Room"
 	icon_state = "dark_blue"
-/*
-
-/area/ministation/Murphy/library
-	name = "\improper Murphy Library"
-	icon_state = "dark_blue"
-
-
-
-/area/ministation/Murphy/maint2
-	name = "\improper Murphy Maintenance Corridor 2"
-	icon_state = "dark_blue"
-
-/area/ministation/Murphy/maint3
-	name = "\improper Murphy Maintenance Corridor 3"
-	icon_state = "dark_blue"
-
-/area/ministation/Murphy/maint4
-	name = "\improper Murphy Maintenance Corridor 4"
-	icon_state = "dark_blue"
-
-/area/ministation/Murphy/classroom
-	name = "\improper Murphy Classroom"
-	icon_state = "dark_blue"
-
-/area/ministation/Murphy/engineroom
-	name = "\improper Murphy Engine Room"
-	icon_state = "dark_blue"
-*/
 
 /area/ministation/Murphy/meeting
 	name = "\improper Murphy Meeting Room"
 	icon_state = "dark_blue"
-
 
 
 //satellite
