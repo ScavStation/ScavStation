@@ -23,9 +23,8 @@
 		/datum/job/ministation/librarian,
 		/datum/job/ministation/tradehouse/rep,
 		/datum/job/ministation/warden,
-		/datum/job/ministation/lawyer,
-		/datum/job/yinglet/matriarch,
-		)
+		/datum/job/ministation/lawyer
+	)
 
 	species_to_job_whitelist = list(
 		/decl/species/yinglet = list(
@@ -49,8 +48,7 @@
 			/datum/job/ministation/librarian,
 			/datum/job/ministation/tradehouse/rep,
 			/datum/job/ministation/warden,
-			/datum/job/ministation/lawyer,
-			/datum/job/yinglet/matriarch,
+			/datum/job/ministation/lawyer
 		)
 	)
 
