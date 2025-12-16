@@ -1213,13 +1213,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
-"dR" = (
-/obj/structure/hygiene/sink{
-	dir = 1;
-	pixel_y = 26
-	},
-/turf/floor/tiled/white,
-/area/ministation/science)
 "dS" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2436,6 +2429,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/turf/floor/tiled/white,
+/area/ministation/science)
+"ii" = (
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
@@ -6509,6 +6508,13 @@
 /obj/structure/ladder,
 /turf/open,
 /area/ministation/maint/l3ne)
+"xd" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/abstract/landmark{
+	name = "blobstart"
+	},
+/turf/floor/plating,
+/area/ministation/maint/l3se)
 "xf" = (
 /obj/structure/closet/secure_closet/counselor,
 /turf/floor/wood,
@@ -6673,11 +6679,6 @@
 	},
 /turf/floor/wood/usedup,
 /area/ministation/maint/l3ne)
-"xM" = (
-/obj/effect/floor_decal/corner/green/full,
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/floor/tiled/white,
-/area/ministation/science)
 "xN" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8450,6 +8451,10 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l3se)
+"DZ" = (
+/obj/structure/table/woodentable/mahogany,
+/turf/floor/tiled/white,
+/area/ministation/science)
 "Eb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -9218,6 +9223,13 @@
 /obj/structure/closet/crate/med_crate/toxin,
 /turf/floor,
 /area/ministation/Murphy/maint)
+"Hg" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	pixel_y = 26
+	},
+/turf/floor/tiled/white,
+/area/ministation/science)
 "Hj" = (
 /obj/structure/closet/emcloset,
 /turf/floor/tiled,
@@ -10921,6 +10933,11 @@
 	},
 /turf/floor/wood/yew,
 /area/ministation/court)
+"Oe" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/floor/tiled/white,
+/area/ministation/science)
 "Of" = (
 /obj/structure/bed/chair/padded/brown{
 	dir = 1
@@ -13045,12 +13062,6 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /turf/floor/tiled/white,
 /area/ministation/science)
-"VE" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/floor/tiled/white,
-/area/ministation/science)
 "VG" = (
 /turf/wall,
 /area/ministation/Murphy/bedroom/Vayryn)
@@ -13207,10 +13218,6 @@
 /obj/structure/cable,
 /turf/floor,
 /area/ministation/Murphy/maint/Vayryn)
-"Wm" = (
-/obj/structure/table/woodentable/mahogany,
-/turf/floor/tiled/white,
-/area/ministation/science)
 "Wn" = (
 /obj/effect/floor_decal/carpet/blue{
 	dir = 1
@@ -49433,10 +49440,10 @@ ku
 NM
 lC
 ae
-Wm
+DZ
 db
 db
-xM
+Oe
 ae
 Qk
 oc
@@ -49690,10 +49697,10 @@ kv
 NM
 lD
 ae
-Wm
+DZ
 db
 db
-xM
+Oe
 ae
 nJ
 oc
@@ -49947,10 +49954,10 @@ kw
 NM
 lE
 ae
-Wm
+DZ
 db
 db
-xM
+Oe
 ae
 ua
 oc
@@ -50204,14 +50211,14 @@ kx
 NM
 rQ
 ae
-xM
+Oe
 db
 db
-xM
+Oe
 ae
 DX
 op
-IX
+xd
 oc
 aa
 aa
@@ -50461,10 +50468,10 @@ ZO
 EE
 ZO
 ae
-xM
+Oe
 db
 db
-xM
+Oe
 ae
 oc
 oc
@@ -50718,7 +50725,7 @@ kz
 NM
 db
 ae
-dR
+Hg
 db
 db
 db
@@ -56093,7 +56100,7 @@ db
 db
 vE
 db
-VE
+ii
 db
 db
 db
