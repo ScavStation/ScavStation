@@ -724,6 +724,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/abstract/landmark/latejoin/cryo/enclave,
 /turf/floor/plating,
 /area/ministation/Arrival)
 "cg" = (
@@ -10805,6 +10806,14 @@
 "Ep" = (
 /turf/floor/tiled/steel_grid,
 /area/ministation/perma)
+"Eq" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/abstract/landmark/latejoin,
+/obj/abstract/landmark/latejoin/cryo/contractor,
+/turf/floor/plating,
+/area/ministation/Arrival)
 "Er" = (
 /obj/effect/floor_decal/carpet/red{
 	dir = 4
@@ -12757,6 +12766,12 @@
 	},
 /turf/floor/path/running_bond,
 /area/ministation/hall/w2)
+"Ks" = (
+/obj/machinery/cryopod,
+/obj/abstract/landmark/latejoin,
+/obj/abstract/landmark/latejoin/cryo/enclave,
+/turf/floor/plating,
+/area/ministation/Arrival)
 "Kt" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/white/mono,
@@ -43625,8 +43640,8 @@ Pf
 Ie
 Pf
 Rk
-Rk
-Rk
+Eq
+Eq
 cq
 UZ
 aa
@@ -44139,8 +44154,8 @@ ed
 iR
 Pf
 cf
-Ww
-Ww
+Ks
+Ks
 eo
 UZ
 aa
