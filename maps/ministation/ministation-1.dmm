@@ -122,6 +122,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/floor/plating,
 /area/ministation/maint/l2central)
+"au" = (
+/obj/structure/sign/warning/lethal_turrets,
+/turf/wall/r_wall,
+/area/ministation/armory)
 "av" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -327,6 +331,12 @@
 	},
 /turf/floor/carpet/red,
 /area/ministation/detective)
+"ba" = (
+/obj/structure/table/reinforced,
+/obj/item/camera/loaded,
+/obj/item/taperecorder,
+/turf/floor/tiled/steel_grid,
+/area/ministation/security)
 "bb" = (
 /obj/abstract/landmark/start{
 	name = "Security Officer"
@@ -870,6 +880,13 @@
 	},
 /turf/floor/wood/walnut,
 /area/ministation/Murphy/living)
+"cD" = (
+/obj/item/radio/intercom{
+	dir = 4;
+	pixel_x = -22
+	},
+/turf/floor/tiled/steel_grid,
+/area/ministation/security)
 "cE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -1008,13 +1025,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/perma)
-"di" = (
-/obj/effect/floor_decal/corner/white/mono,
-/obj/machinery/fabricator{
-	initial_network_id = "molluscnet"
-	},
-/turf/floor/tiled/white/monotile,
-/area/ministation/medical)
 "dj" = (
 /obj/abstract/landmark{
 	name = "bluespace_a"
@@ -1570,11 +1580,6 @@
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
 /area/ministation/maint/hydromaint)
-"eI" = (
-/obj/effect/floor_decal/corner/white/mono,
-/obj/structure/bed/chair/wheelchair,
-/turf/floor/tiled/white/monotile,
-/area/ministation/medical)
 "eK" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -4672,13 +4677,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/fake_grass,
 /area/ministation/hall/w2)
-"nE" = (
-/obj/item/radio/intercom{
-	dir = 4;
-	pixel_x = -22
-	},
-/turf/floor/tiled/steel_grid,
-/area/ministation/security)
 "nF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -6822,6 +6820,11 @@
 	},
 /turf/floor/path/running_bond,
 /area/ministation/hall/e2)
+"tF" = (
+/obj/effect/floor_decal/corner/white/mono,
+/obj/structure/bed/chair/wheelchair,
+/turf/floor/tiled/white/monotile,
+/area/ministation/medical)
 "tG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -7459,6 +7462,13 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
+"vo" = (
+/obj/structure/rack/dark,
+/obj/item/roller,
+/obj/item/roller,
+/obj/item/roller,
+/turf/floor/tiled/white/monotile,
+/area/ministation/medical)
 "vp" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor{
@@ -10604,6 +10614,45 @@
 	},
 /turf/floor/reinforced/nitrogen/engine,
 /area/ministation/Murphy/smresearch)
+"DN" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/box/ammo/stunshells/large,
+/obj/item/box/ammo/stunshells/large,
+/obj/item/box/ammo/beanbags,
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag;
+	name = "sawn-off shotgun SN 101"
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag;
+	name = "sawn-off shotgun SN 102"
+	},
+/obj/item/gun/energy/taser{
+	name = "electrolaser SN 22"
+	},
+/obj/item/gun/energy/taser{
+	name = "electrolaser SN 21"
+	},
+/obj/item/gun/energy/gun/secure{
+	name = "smartgun SN 11"
+	},
+/obj/item/gun/energy/gun/secure{
+	name = "smartgun SN 12"
+	},
+/obj/item/gun/energy/gun/secure{
+	name = "smartgun SN 13"
+	},
+/obj/item/gun/energy/gun/secure{
+	name = "smartgun SN 14"
+	},
+/obj/item/ammo_magazine/shotholder/beanbag,
+/obj/item/ammo_magazine/shotholder/beanbag,
+/obj/item/ammo_magazine/shotholder/beanbag,
+/obj/item/ammo_magazine/shotholder/beanbag,
+/obj/item/box/ammo/beanbags,
+/obj/item/box/ammo/beanbags,
+/turf/floor/tiled/dark,
+/area/ministation/armory)
 "DO" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/borderfloorblack{
@@ -10738,12 +10787,6 @@
 /obj/machinery/computer/log_printer/prof1,
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
-"Eo" = (
-/obj/structure/table/reinforced,
-/obj/item/camera/loaded,
-/obj/item/taperecorder,
-/turf/floor/tiled/steel_grid,
-/area/ministation/security)
 "Ep" = (
 /turf/floor/tiled/steel_grid,
 /area/ministation/perma)
@@ -11471,6 +11514,13 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/surgicaln)
+"GH" = (
+/obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/floor/tiled/white/monotile,
+/area/ministation/medical)
 "GJ" = (
 /obj/machinery/vending/snack,
 /turf/floor/tiled/dark,
@@ -12390,10 +12440,6 @@
 "Js" = (
 /turf/floor/tiled/white,
 /area/ministation/surgicals)
-"Jt" = (
-/obj/structure/sign/warning/lethal_turrets,
-/turf/wall/r_wall,
-/area/ministation/armory)
 "Ju" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 6
@@ -12494,45 +12540,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/tiled/white,
 /area/ministation/Murphy/medical)
-"JO" = (
-/obj/structure/closet/secure_closet/guncabinet,
-/obj/item/box/ammo/stunshells/large,
-/obj/item/box/ammo/stunshells/large,
-/obj/item/box/ammo/beanbags,
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag;
-	name = "sawn-off shotgun SN 101"
-	},
-/obj/item/gun/projectile/shotgun/doublebarrel/sawn{
-	ammo_type = /obj/item/ammo_casing/shotgun/beanbag;
-	name = "sawn-off shotgun SN 102"
-	},
-/obj/item/gun/energy/taser{
-	name = "electrolaser SN 22"
-	},
-/obj/item/gun/energy/taser{
-	name = "electrolaser SN 21"
-	},
-/obj/item/gun/energy/gun/secure{
-	name = "smartgun SN 11"
-	},
-/obj/item/gun/energy/gun/secure{
-	name = "smartgun SN 12"
-	},
-/obj/item/gun/energy/gun/secure{
-	name = "smartgun SN 13"
-	},
-/obj/item/gun/energy/gun/secure{
-	name = "smartgun SN 14"
-	},
-/obj/item/ammo_magazine/shotholder/beanbag,
-/obj/item/ammo_magazine/shotholder/beanbag,
-/obj/item/ammo_magazine/shotholder/beanbag,
-/obj/item/ammo_magazine/shotholder/beanbag,
-/obj/item/box/ammo/beanbags,
-/obj/item/box/ammo/beanbags,
-/turf/floor/tiled/dark,
-/area/ministation/armory)
 "JQ" = (
 /obj/effect/floor_decal/corner/green/half{
 	dir = 1
@@ -12542,13 +12549,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/hydro)
-"JS" = (
-/obj/effect/floor_decal/corner/white/mono,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/floor/tiled/white/monotile,
-/area/ministation/medical)
 "JU" = (
 /obj/machinery/light{
 	dir = 1
@@ -12832,6 +12832,13 @@
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
 /area/ministation/medical/nursery)
+"KM" = (
+/obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/fabricator{
+	initial_network_id = "molluscnet"
+	},
+/turf/floor/tiled/white/monotile,
+/area/ministation/medical)
 "KN" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -14389,6 +14396,10 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/Murphy/chem)
+"PE" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/floor/tiled,
+/area/ministation/security)
 "PF" = (
 /obj/structure/sign/warning/fire{
 	dir = 8;
@@ -15133,10 +15144,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/window/brigdoor/eastright{
-	id_tag = "Main Holding";
 	autoset_access = 0;
 	req_access = list("ACCESS_BRIG");
-	dir = 2
+	dir = 2;
+	id_tag = "Cell 2"
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/perma)
@@ -15161,10 +15172,6 @@
 	},
 /turf/floor/path/running_bond,
 /area/ministation/hall/w2)
-"RX" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/floor/tiled,
-/area/ministation/security)
 "RZ" = (
 /obj/machinery/light{
 	dir = 8;
@@ -16335,13 +16342,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/hydro)
-"VF" = (
-/obj/structure/rack/dark,
-/obj/item/roller,
-/obj/item/roller,
-/obj/item/roller,
-/turf/floor/tiled/white/monotile,
-/area/ministation/medical)
 "VI" = (
 /obj/machinery/light{
 	dir = 2
@@ -54640,8 +54640,8 @@ cY
 gb
 Nd
 pB
-nE
-RX
+cD
+PE
 sV
 GE
 tA
@@ -54897,8 +54897,8 @@ cY
 gc
 iD
 gc
-Eo
-RX
+ba
+PE
 sW
 OZ
 aC
@@ -55396,7 +55396,7 @@ Jn
 KS
 Vi
 SE
-JO
+DN
 Te
 Cz
 QR
@@ -56935,7 +56935,7 @@ SE
 SE
 SE
 SE
-Jt
+au
 SE
 uO
 SE
@@ -62877,7 +62877,7 @@ WS
 WS
 oz
 fT
-JS
+GH
 pD
 pD
 QM
@@ -63135,9 +63135,9 @@ HO
 vK
 pZ
 pD
-di
-eI
-VF
+KM
+tF
+vo
 vK
 HO
 aa

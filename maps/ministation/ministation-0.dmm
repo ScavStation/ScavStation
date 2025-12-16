@@ -1655,22 +1655,8 @@
 /turf/floor/tiled/steel_grid,
 /area/ministation/engine)
 "eY" = (
-/obj/structure/rack{
-	dir = 8
-	},
-/obj/item/stack/material/ingot/mapped/osmium/forty,
-/obj/item/stack/material/ingot/mapped/iron/fifty,
-/obj/item/stack/material/ingot/mapped/copper/fifty,
-/obj/item/stack/material/ingot/mapped/chromium/fifty,
-/obj/item/stack/material/ingot/mapped/brass/fifty,
-/obj/item/stack/material/ingot/mapped/blackbronze/fifty,
-/obj/item/stack/material/ingot/mapped/gold/fifty,
-/obj/item/stack/material/ingot/mapped/platinum/twenty,
-/obj/item/stack/material/ingot/mapped/silver/fifty,
-/obj/item/stack/material/ingot/mapped/stainlesssteel/forty,
-/obj/item/stack/material/ingot/mapped/tin/fifty,
-/obj/item/stack/material/ingot/mapped/zinc/fifty,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/rack,
 /turf/floor/tiled,
 /area/ministation/cargo)
 "eZ" = (
