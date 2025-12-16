@@ -837,6 +837,14 @@
 "cw" = (
 /turf/floor/wood/walnut,
 /area/ministation/medical/nursery)
+"cx" = (
+/obj/machinery/cryopod{
+	dir = 4
+	},
+/obj/abstract/landmark/latejoin,
+/obj/abstract/landmark/latejoin/cryo/contractor,
+/turf/floor/plating,
+/area/ministation/Arrival)
 "cz" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -4434,9 +4442,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
 	icon_state = "4-8"
-	},
-/obj/machinery/door_timer/cell_2{
-	pixel_z = -30
 	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
@@ -10806,14 +10811,6 @@
 "Ep" = (
 /turf/floor/tiled/steel_grid,
 /area/ministation/perma)
-"Eq" = (
-/obj/machinery/cryopod{
-	dir = 4
-	},
-/obj/abstract/landmark/latejoin,
-/obj/abstract/landmark/latejoin/cryo/contractor,
-/turf/floor/plating,
-/area/ministation/Arrival)
 "Er" = (
 /obj/effect/floor_decal/carpet/red{
 	dir = 4
@@ -10954,6 +10951,12 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/surgicaln)
+"EP" = (
+/obj/machinery/cryopod,
+/obj/abstract/landmark/latejoin,
+/obj/abstract/landmark/latejoin/cryo/enclave,
+/turf/floor/plating,
+/area/ministation/Arrival)
 "ER" = (
 /obj/structure/ladder,
 /obj/structure/cable{
@@ -12766,12 +12769,6 @@
 	},
 /turf/floor/path/running_bond,
 /area/ministation/hall/w2)
-"Ks" = (
-/obj/machinery/cryopod,
-/obj/abstract/landmark/latejoin,
-/obj/abstract/landmark/latejoin/cryo/enclave,
-/turf/floor/plating,
-/area/ministation/Arrival)
 "Kt" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/white/mono,
@@ -43640,8 +43637,8 @@ Pf
 Ie
 Pf
 Rk
-Eq
-Eq
+cx
+cx
 cq
 UZ
 aa
@@ -44154,8 +44151,8 @@ ed
 iR
 Pf
 cf
-Ks
-Ks
+EP
+EP
 eo
 UZ
 aa
