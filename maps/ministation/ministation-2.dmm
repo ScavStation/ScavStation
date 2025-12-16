@@ -1213,6 +1213,13 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
+"dR" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	pixel_y = 26
+	},
+/turf/floor/tiled/white,
+/area/ministation/science)
 "dS" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3575,10 +3582,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
-"lF" = (
-/obj/structure/table/woodentable/mahogany,
-/turf/floor/tiled/white,
-/area/ministation/science)
 "lG" = (
 /obj/effect/floor_decal/industrial/loading,
 /turf/floor/tiled/white,
@@ -5642,6 +5645,12 @@
 /obj/machinery/door/airlock/hatch/maintenance,
 /turf/floor/plating,
 /area/ministation/court)
+"ua" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/plating,
+/area/ministation/maint/l3se)
 "ud" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor{
@@ -5770,12 +5779,6 @@
 	},
 /turf/floor/tiled/freezer,
 /area/ministation/Murphy/bathroom)
-"uD" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/plating,
-/area/ministation/maint/l3se)
 "uE" = (
 /obj/machinery/door/airlock{
 	dir = 4
@@ -6312,12 +6315,6 @@
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/floor/tiled/freezer,
 /area/ministation/Murphy/kitchen)
-"wv" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/floor/tiled/white,
-/area/ministation/science)
 "ww" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/corner/green/full,
@@ -6676,6 +6673,11 @@
 	},
 /turf/floor/wood/usedup,
 /area/ministation/maint/l3ne)
+"xM" = (
+/obj/effect/floor_decal/corner/green/full,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/floor/tiled/white,
+/area/ministation/science)
 "xN" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -6855,7 +6857,6 @@
 	req_access = list("ACCESS_XENOBIO")
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/disposalpipe/segment,
 /turf/floor/plating,
 /area/ministation/science)
 "yx" = (
@@ -8346,15 +8347,6 @@
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
 /area/ministation/maint/l3sw)
-"Dx" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
-/turf/floor/tiled,
-/area/ministation/hall/s3)
 "Dy" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -9770,11 +9762,6 @@
 	},
 /turf/floor/tiled,
 /area/ministation/hall/n3)
-"Ju" = (
-/obj/effect/floor_decal/corner/green/full,
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/floor/tiled/white,
-/area/ministation/science)
 "Jv" = (
 /turf/wall{
 	can_open = 1;
@@ -9918,13 +9905,6 @@
 /obj/item/clothing/dress/avian_smock/stylish_command,
 /turf/floor/wood,
 /area/ministation/Murphy/bedroom/Karlawa_Haven)
-"JV" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/turf/floor/tiled/white,
-/area/ministation/science)
 "JW" = (
 /obj/machinery/door/blast/shutters{
 	id_tag = "mech2";
@@ -11253,9 +11233,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 1;
-	icon_state = "pipe-j2"
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
@@ -12879,6 +12859,15 @@
 "UY" = (
 /turf/wall,
 /area/ministation/Murphy/maint/guest)
+"UZ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/floor/tiled,
+/area/ministation/hall/s3)
 "Vb" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
@@ -13056,6 +13045,12 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /turf/floor/tiled/white,
 /area/ministation/science)
+"VE" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/ministation/science)
 "VG" = (
 /turf/wall,
 /area/ministation/Murphy/bedroom/Vayryn)
@@ -13212,6 +13207,10 @@
 /obj/structure/cable,
 /turf/floor,
 /area/ministation/Murphy/maint/Vayryn)
+"Wm" = (
+/obj/structure/table/woodentable/mahogany,
+/turf/floor/tiled/white,
+/area/ministation/science)
 "Wn" = (
 /obj/effect/floor_decal/carpet/blue{
 	dir = 1
@@ -13742,13 +13741,6 @@
 /obj/structure/displaycase,
 /obj/item/rig/hazard,
 /turf/floor/tiled/techfloor,
-/area/ministation/science)
-"Yc" = (
-/obj/structure/hygiene/sink{
-	dir = 1;
-	pixel_y = 26
-	},
-/turf/floor/tiled/white,
 /area/ministation/science)
 "Yd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -46105,7 +46097,7 @@ CD
 CV
 Dh
 Dk
-Dx
+UZ
 Zv
 cw
 cw
@@ -47133,7 +47125,7 @@ CE
 SI
 tt
 oN
-Dx
+UZ
 Zv
 cw
 cw
@@ -47647,7 +47639,7 @@ nr
 MF
 oB
 ae
-uD
+ua
 yh
 ty
 oc
@@ -48161,7 +48153,7 @@ db
 As
 ww
 ae
-uD
+ua
 oc
 aa
 aa
@@ -48418,7 +48410,7 @@ db
 As
 oB
 ae
-uD
+ua
 oc
 aa
 aa
@@ -48675,7 +48667,7 @@ db
 As
 oB
 ae
-uD
+ua
 oc
 aa
 aa
@@ -48932,7 +48924,7 @@ db
 As
 DB
 ae
-uD
+ua
 hq
 aa
 aa
@@ -49187,7 +49179,7 @@ mf
 mE
 nt
 Po
-JV
+dx
 yu
 ki
 oc
@@ -49441,10 +49433,10 @@ ku
 NM
 lC
 ae
-lF
+Wm
 db
 db
-Ju
+xM
 ae
 Qk
 oc
@@ -49698,10 +49690,10 @@ kv
 NM
 lD
 ae
-lF
+Wm
 db
 db
-Ju
+xM
 ae
 nJ
 oc
@@ -49955,12 +49947,12 @@ kw
 NM
 lE
 ae
-lF
+Wm
 db
 db
-Ju
+xM
 ae
-uD
+ua
 oc
 oc
 oc
@@ -50212,10 +50204,10 @@ kx
 NM
 rQ
 ae
-Ju
+xM
 db
 db
-Ju
+xM
 ae
 DX
 op
@@ -50469,10 +50461,10 @@ ZO
 EE
 ZO
 ae
-Ju
+xM
 db
 db
-Ju
+xM
 ae
 oc
 oc
@@ -50726,7 +50718,7 @@ kz
 NM
 db
 ae
-Yc
+dR
 db
 db
 db
@@ -56101,7 +56093,7 @@ db
 db
 vE
 db
-wv
+VE
 db
 db
 db

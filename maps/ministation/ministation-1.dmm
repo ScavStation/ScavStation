@@ -914,6 +914,13 @@
 	can_open = 1
 	},
 /area/ministation/perma)
+"cK" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/coatrack,
+/turf/floor/tiled/dark/monotile,
+/area/ministation/security)
 "cL" = (
 /obj/machinery/firealarm{
 	dir = 8;
@@ -12944,13 +12951,6 @@
 "Ld" = (
 /turf/floor/carpet/red,
 /area/ministation/Murphy/living)
-"Lg" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/structure/coatrack,
-/turf/floor/tiled/dark/monotile,
-/area/ministation/security)
 "Lh" = (
 /turf/wall{
 	can_open = 1
@@ -52080,7 +52080,7 @@ cY
 FU
 bf
 ca
-Lg
+cK
 FU
 bb
 mL

@@ -135,9 +135,6 @@
 	},
 /turf/floor/plating,
 /area/ministation/maint/l4central)
-"gE" = (
-/turf/space,
-/area/ministation/sciencetesting)
 "hx" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -47019,7 +47016,7 @@ aa
 aa
 aa
 aa
-gE
+aa
 aa
 aa
 aa
