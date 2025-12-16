@@ -128,12 +128,6 @@
 	name = "\improper Observation Deck"
 	icon_state = "white"
 
-/area/ministation/science2nddeck
-	name = "\improper 2nd Floor Research & Development Laboratory"
-	req_access = list(access_robotics)
-	secure = TRUE
-	icon_state = "purple"
-
 /area/ministation/sciencetesting
 	name = "\improper 2nd Floor Testing Rooms"
 	req_access = list(access_robotics)

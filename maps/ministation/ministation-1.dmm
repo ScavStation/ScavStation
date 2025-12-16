@@ -12480,11 +12480,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/floor/fake_grass,
 /area/ministation/hall/e2)
-"JB" = (
-/turf/wall/r_wall{
-	can_open = 1
-	},
-/area/ministation/maint/nebypass)
 "JF" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -59050,7 +59045,7 @@ In
 mx
 OG
 vX
-JB
+Ji
 zQ
 ad
 aa
