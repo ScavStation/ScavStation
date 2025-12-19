@@ -22,7 +22,7 @@
 "bh" = (
 /mob/living/simple_animal/lizard,
 /turf/floor/clay,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "bt" = (
 /mob/living/simple_animal/fowl/chicken,
 /turf/floor/grass/wild,
@@ -38,7 +38,7 @@
 "cI" = (
 /mob/living/simple_animal/lizard,
 /turf/floor/mud,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "cO" = (
 /turf/floor/barren,
 /area/valSal_port/caves/entrance)
@@ -117,12 +117,12 @@
 /area/valSal_port/outside/enclave)
 "jU" = (
 /turf/floor/mud/water,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "ki" = (
 /mob/living/simple_animal/aquatic/fish/large,
 /obj/structure/flora/seaweed/mid,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "kz" = (
 /mob/living/simple_animal/passive/rabbit,
 /turf/floor/grass/wild,
@@ -135,13 +135,13 @@
 "lm" = (
 /mob/living/simple_animal/aquatic/fish/large/bass,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "lu" = (
 /turf/floor/rock/basalt,
 /area/valSal_port/caves/deep)
 "lA" = (
 /turf/floor/mud,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "lE" = (
 /turf/floor/mud/water/deep,
 /area/valSal_port/caves/river)
@@ -190,7 +190,7 @@
 "oF" = (
 /mob/living/simple_animal/aquatic/fish/large/javelin,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "pK" = (
 /obj/structure/flora/bush/ywflowers,
 /turf/floor/grass/wild,
@@ -236,7 +236,7 @@
 /area/valSal_port/outside/enclave)
 "vw" = (
 /turf/unsimulated/dark_filler,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "vD" = (
 /obj/structure/flora/plant/random_mushroom,
 /turf/wall/natural/random/high_chance/basalt,
@@ -252,7 +252,7 @@
 "xl" = (
 /mob/living/simple_animal/fowl/duck,
 /turf/floor/clay,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "xT" = (
 /obj/structure/flora/bush/fullgrass,
 /obj/structure/flora/tree/hardwood/ebony,
@@ -294,11 +294,11 @@
 "BN" = (
 /mob/living/simple_animal/frog,
 /turf/floor/mud,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "BT" = (
 /obj/structure/flora/seaweed/glow,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "BY" = (
 /mob/living/simple_animal/skittercrab,
 /turf/floor/rock/basalt,
@@ -356,7 +356,7 @@
 "FM" = (
 /mob/living/simple_animal/aquatic/fish/large/trout/river,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "Gh" = (
 /obj/abstract/landmark/start/valSal_port/forester,
 /turf/floor/grass/wild,
@@ -384,10 +384,10 @@
 "In" = (
 /obj/structure/flora/seaweed/large,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "Io" = (
 /turf/floor/grass/wild,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "Jd" = (
 /obj/structure/flora/bush/fernybush,
 /obj/structure/flora/bush/fullgrass,
@@ -402,11 +402,11 @@
 "Kj" = (
 /obj/structure/flora/seaweed,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "Km" = (
 /obj/structure/flora/bush/fullgrass,
 /turf/floor/grass/wild,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "KC" = (
 /turf/floor/mud/water,
 /area/valSal_port/caves/river)
@@ -427,7 +427,7 @@
 "LT" = (
 /mob/living/simple_animal/aquatic/fish/large/salmon,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "Mj" = (
 /obj/structure/flora/bush/fullgrass,
 /mob/living/simple_animal/fowl/chicken,
@@ -440,7 +440,7 @@
 "Mt" = (
 /mob/living/simple_animal/fowl/duck,
 /turf/floor/mud,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "Mu" = (
 /obj/abstract/landmark/start/valSal_port/traveller,
 /turf/floor/grass/wild,
@@ -452,7 +452,7 @@
 /mob/living/simple_animal/aquatic/fish/large,
 /obj/structure/flora/seaweed,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "NT" = (
 /obj/structure/flora/bush/leafybush,
 /obj/structure/flora/tree/hardwood/walnut,
@@ -479,15 +479,15 @@
 /area/valSal_port/caves/deep)
 "PP" = (
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "PW" = (
 /mob/living/simple_animal/aquatic/fish/large,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "Ry" = (
 /mob/living/simple_animal/snail,
 /turf/floor/clay,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "RL" = (
 /obj/structure/flora/bush/ywflowers,
 /mob/living/simple_animal/grub_bear,
@@ -512,7 +512,7 @@
 "ST" = (
 /mob/living/simple_animal/lizard,
 /turf/floor/mud/water,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "SW" = (
 /obj/abstract/landmark/latejoin,
 /turf/floor/grass/wild,
@@ -525,7 +525,7 @@
 "Tq" = (
 /mob/living/simple_animal/fowl/duck,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "Tx" = (
 /obj/vehicle/train/cargo/trolley,
 /obj/structure/closet/crate/chest,
@@ -575,7 +575,7 @@
 "UA" = (
 /obj/structure/flora/seaweed/mid,
 /turf/floor/mud/water/deep,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "UX" = (
 /obj/structure/flora/bush/fullgrass,
 /obj/structure/flora/tree/hardwood/mahogany,
@@ -598,7 +598,7 @@
 /area/valSal_port/outside/enclave)
 "Zx" = (
 /turf/floor/clay,
-/area/valSal_port/outside/river)
+/area/valSal_port/outside/enclave/river)
 "ZO" = (
 /obj/structure/flora/bush/fullgrass,
 /turf/floor/grass/wild,
