@@ -1,11 +1,11 @@
 /obj/abstract/map_data/valSal_port
 	height = 2
 
-/datum/level_data/player_level/valSal_port
+/datum/level_data/main_level/valSal_port
 	use_global_exterior_ambience = FALSE
 	base_area = null
 	base_turf = /turf/floor/dirt
-	abstract_type = /datum/level_data/player_level/valSal_port
+	abstract_type = /datum/level_data/main_level/valSal_port
 	ambient_light_level = 1
 	ambient_light_color = "#f3e6ca"
 	strata = /decl/strata/valSal_port
@@ -29,16 +29,16 @@
 	time_in_cycle = rand(cycle_duration)
 	..()
 
-/datum/level_data/player_level/valSal_port/get_subtemplate_areas(template_category, blacklist, whitelist)
+/datum/level_data/main_level/valSal_port/get_subtemplate_areas(template_category, blacklist, whitelist)
 	return submap_area ? (islist(submap_area) ? submap_area : list(submap_area)) : null
 
-/datum/level_data/player_level/valSal_port/get_subtemplate_budget()
+/datum/level_data/main_level/valSal_port/get_subtemplate_budget()
 	return submap_budget
 
-/datum/level_data/player_level/valSal_port/get_subtemplate_category()
+/datum/level_data/main_level/valSal_port/get_subtemplate_category()
 	return submap_category
 
-/datum/level_data/player_level/valSal_port/after_generate_level()
+/datum/level_data/main_level/valSal_port/after_generate_level()
 	. = ..()
 	if(length(mobs_to_spawn))
 		for(var/list/mob_category in mobs_to_spawn)
@@ -55,7 +55,7 @@
 					mob_count--
 					CHECK_TICK
 
-/datum/level_data/player_level/valSal_port/town
+/datum/level_data/main_level/valSal_port/town
 	name = "ValSalian Port - Town"
 	level_id = "valSal_port_town"
 	level_generators = list(
@@ -84,7 +84,7 @@
 	)
 
 
-/datum/level_data/player_level/valSal_port/enclave
+/datum/level_data/main_level/valSal_port/enclave
 	name = "ValSalian Port - Enclave"
 	level_id = "valSal_port_enclave"
 	connected_levels = list(
@@ -126,7 +126,7 @@
 		)
 	)
 
-/datum/level_data/player_level/valSal_port/undertown
+/datum/level_data/main_level/valSal_port/undertown
 	name = "ValSalian Port - undertown"
 	level_id = "valSal_port_undertown"
 	connected_levels = list(
@@ -137,10 +137,10 @@
 	)
 
 /obj/abstract/level_data_spawner/valSal_port_town
-	level_data_type = /datum/level_data/player_level/valSal_port/town
+	level_data_type = /datum/level_data/main_level/valSal_port/town
 
 /obj/abstract/level_data_spawner/valSal_port_enclave
-	level_data_type = /datum/level_data/player_level/valSal_port/enclave
+	level_data_type = /datum/level_data/main_level/valSal_port/enclave
 
 /obj/abstract/level_data_spawner/valSal_port_undertown
-	level_data_type = /datum/level_data/player_level/valSal_port/undertown
+	level_data_type = /datum/level_data/main_level/valSal_port/undertown
