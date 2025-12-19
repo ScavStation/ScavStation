@@ -68,7 +68,6 @@
 	)
 	submap_budget = 5
 	submap_category = MAP_TEMPLATE_CATEGORY_SH_GRASSLAND
-//	submap_area = /area/valSal_port/outside/poi
 
 	mobs_to_spawn = list(
 		list(

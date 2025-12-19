@@ -1,6 +1,6 @@
 /datum/map/valSal_port
-	id_hud_icons            = 'maps/valSal_port/icons/hud.dmi'
-	allowed_jobs            = list(
+	id_hud_icons = 'maps/valSal_port/icons/hud.dmi'
+	allowed_jobs = list(
 		/datum/job/valSal_port/visitor/traveller,
 		/datum/job/valSal_port/visitor/traveller/learned,
 		/datum/job/valSal_port/visitor/beggar_knight,
