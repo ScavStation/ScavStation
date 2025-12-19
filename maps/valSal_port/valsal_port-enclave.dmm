@@ -47,10 +47,6 @@
 /mob/living/simple_animal/passive/deer,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
-"cR" = (
-/obj/abstract/landmark/latejoin/cryo/enclave,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/enclave)
 "dq" = (
 /obj/structure/flora/plant/random_mushroom,
 /mob/living/simple_animal/skittercrab,
@@ -514,7 +510,7 @@
 /turf/floor/mud/water,
 /area/valSal_port/outside/enclave/river)
 "SW" = (
-/obj/abstract/landmark/latejoin,
+/obj/abstract/landmark/start/valSal_port,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "Tb" = (
@@ -9845,9 +9841,9 @@ iB
 iB
 iB
 iB
-cR
-cR
-cR
+iB
+iB
+iB
 iB
 dS
 iB
@@ -9949,7 +9945,7 @@ vK
 iB
 SW
 SW
-SW
+iB
 iB
 iB
 iB

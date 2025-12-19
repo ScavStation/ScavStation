@@ -17,6 +17,7 @@
 	allowed_latejoin_spawns = list(
 		/decl/spawnpoint/arrivals
 	)
+
 	map_tech_level          = MAP_TECH_LEVEL_MEDIEVAL
 	survival_box_choices    = list()
 	passport_type           = null

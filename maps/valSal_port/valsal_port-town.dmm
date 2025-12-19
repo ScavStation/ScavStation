@@ -716,10 +716,6 @@
 "ss" = (
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
-"su" = (
-/obj/abstract/landmark/latejoin,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
 "sD" = (
 /turf/floor/path/herringbone/granite,
 /area/valSal_port/town/general_store)
@@ -1134,10 +1130,6 @@
 /obj/structure/flora/bush/stalkybush,
 /turf/floor/mud,
 /area/valSal_port/outside/river)
-"CK" = (
-/obj/abstract/landmark/latejoin,
-/turf/floor/barren,
-/area/valSal_port/outside/outer_town)
 "CM" = (
 /turf/floor/dirt,
 /area/valSal_port/town/slaughterhouse)
@@ -1548,29 +1540,6 @@
 /obj/structure/flora/plant/large,
 /turf/floor/grass/wild,
 /area/valSal_port/town/house)
-"OG" = (
-/obj/structure/closet/cabinet/wooden/ebony,
-/obj/item/seeds/aloe,
-/obj/item/seeds/aloe,
-/obj/item/seeds/aloe,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/turf/floor/grass/wild,
-/area/valSal_port/town/farmhouse)
 "Po" = (
 /obj/structure/door/basalt,
 /turf/floor/wood/mahogany,
@@ -1686,9 +1655,28 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
 "RJ" = (
-/obj/abstract/landmark/latejoin,
-/turf/floor/path,
-/area/valSal_port/outside/outer_town)
+/obj/structure/closet/cabinet/wooden/ebony,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/turf/floor/grass/wild,
+/area/valSal_port/town/farmhouse)
 "RX" = (
 /obj/structure/bed/chair/wood/wings/ebony,
 /obj/item/remains/human,
@@ -5680,7 +5668,7 @@ UW
 "}
 (37,1,1) = {"
 UW
-su
+UW
 mD
 ZD
 mD
@@ -5782,7 +5770,7 @@ UW
 "}
 (38,1,1) = {"
 UW
-RJ
+Fr
 UW
 fe
 Fr
@@ -5884,7 +5872,7 @@ UW
 "}
 (39,1,1) = {"
 mD
-CK
+mD
 mD
 Ay
 YB
@@ -7230,7 +7218,7 @@ Kt
 lD
 UW
 xv
-OG
+RJ
 mv
 It
 ym
