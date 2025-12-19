@@ -47,6 +47,10 @@
 /mob/living/simple_animal/passive/deer,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
+"cR" = (
+/obj/abstract/landmark/latejoin/cryo/enclave,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/enclave)
 "dq" = (
 /obj/structure/flora/plant/random_mushroom,
 /mob/living/simple_animal/skittercrab,
@@ -9841,9 +9845,9 @@ iB
 iB
 iB
 iB
-iB
-iB
-iB
+cR
+cR
+cR
 iB
 dS
 iB

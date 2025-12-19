@@ -554,25 +554,6 @@
 /obj/item/food/grown/yarrow,
 /obj/item/food/grown/yarrow,
 /obj/item/food/grown/yarrow,
-/obj/item/seeds/aloe,
-/obj/item/seeds/aloe,
-/obj/item/seeds/aloe,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
 /obj/item/seeds/extracted/wheat,
 /obj/item/seeds/extracted/wheat,
 /obj/item/seeds/hemp,
@@ -735,6 +716,29 @@
 "ss" = (
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
+"st" = (
+/obj/structure/closet/cabinet/wooden/ebony,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/turf/floor/grass/wild,
+/area/valSal_port/town/farmhouse)
 "su" = (
 /obj/abstract/landmark/latejoin,
 /turf/floor/grass/wild,
@@ -7231,7 +7235,7 @@ Kt
 lD
 UW
 xv
-aC
+st
 mv
 It
 ym
