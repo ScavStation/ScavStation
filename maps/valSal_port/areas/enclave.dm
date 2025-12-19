@@ -1,5 +1,8 @@
+/area/valSal_port/outside/enclave
+	name = "Zhe Enclave"
+
 // Woodland areas.
-/area/valSal_port/outside/river
+/area/valSal_port/outside/enclave/river
 	name = "River"
 	color = COLOR_BLUE
 	description = "The soft susurration of running water mingles with the hum of insects and croak of frogs."
@@ -10,9 +13,3 @@
 		/mob/living/simple_animal/aquatic/fish/large/trout  = 5,
 		/mob/living/simple_animal/aquatic/fish/large/pike   = 3
 	)
-
-/area/valSal_port/outside/enclave
-	name = "Zhe Enclave"
-
-///area/valSal_port/enclave
-	//name = "Zhe Enclave"
