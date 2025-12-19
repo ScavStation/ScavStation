@@ -15,8 +15,6 @@
 	#include "areas/town.dm"
 
 	#include "jobs/_jobs.dm"
-	#include "jobs/caves.dm"
-	#include "jobs/inn.dm"
 	#include "jobs/shrine.dm"
 	#include "jobs/visitors.dm"
 	#include "jobs/wilderness.dm"
