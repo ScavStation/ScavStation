@@ -48,7 +48,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "cR" = (
-/obj/abstract/landmark/latejoin/observer,
+/obj/abstract/landmark/start/valSal_port,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "dq" = (
@@ -234,6 +234,10 @@
 /mob/living/simple_animal/chorp,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
+"vk" = (
+/obj/abstract/landmark/start,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/enclave)
 "vw" = (
 /turf/unsimulated/dark_filler,
 /area/valSal_port/outside/enclave/river)
@@ -336,10 +340,6 @@
 "EU" = (
 /obj/structure/flora/bush/fullgrass,
 /mob/living/simple_animal/chorp,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/enclave)
-"Fa" = (
-/obj/abstract/landmark/start,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "Ff" = (
@@ -462,6 +462,10 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
+"NX" = (
+/obj/abstract/landmark/latejoin/observer,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/enclave)
 "Oe" = (
 /mob/living/simple_animal/passive/fox/silver,
 /turf/floor/grass/wild,
@@ -518,7 +522,7 @@
 /turf/floor/mud/water,
 /area/valSal_port/outside/enclave/river)
 "SW" = (
-/obj/abstract/landmark/start/valSal_port,
+/obj/abstract/landmark/latejoin,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "Tb" = (
@@ -7988,7 +7992,7 @@ iB
 iB
 dS
 iB
-cR
+NX
 iB
 iB
 iB
@@ -9943,7 +9947,7 @@ iB
 iB
 iB
 iB
-iB
+SW
 iB
 ri
 iB
@@ -9951,9 +9955,9 @@ Mu
 Mu
 vK
 iB
-SW
-SW
-Fa
+cR
+cR
+vk
 iB
 iB
 iB
