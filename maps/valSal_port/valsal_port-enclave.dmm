@@ -253,10 +253,6 @@
 /obj/structure/flora/tree/hardwood/ebony,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
-"Bf" = (
-/obj/abstract/landmark/start/valSal_port/cave_dweller,
-/turf/floor/barren,
-/area/valSal_port/caves)
 "BE" = (
 /obj/structure/flora/bush/ywflowers,
 /obj/structure/flora/tree/hardwood/ebony,
@@ -1111,7 +1107,7 @@ Nc
 Nc
 XB
 Nc
-Bf
+XB
 XB
 XB
 KL

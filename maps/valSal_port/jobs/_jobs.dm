@@ -11,8 +11,8 @@
 		/datum/job/valSal_port/inn/innkeeper,
 		/datum/job/valSal_port/inn/inn_worker,
 		/datum/job/valSal_port/inn/bartender,
-		/datum/job/valSal_port/inn/farmer,*/
-		/datum/job/valSal_port/caves/dweller,
+		/datum/job/valSal_port/inn/farmer,
+		/datum/job/valSal_port/caves/dweller,*/
 		/datum/job/valSal_port/shrine/keeper,
 		/datum/job/valSal_port/shrine/attendant,
 		/datum/job/valSal_port/visitor/traveller/cleric
@@ -21,16 +21,16 @@
 	default_department_type = /decl/department/valSal_port/visitors
 	species_to_job_whitelist = list(
 		/decl/species/grafadreka = list(
-			/datum/job/valSal_port/caves/dweller,
+			///datum/job/valSal_port/caves/dweller,
 			/datum/job/valSal_port/visitor/traveller
 		)
 	)
-	job_to_species_blacklist = list(
+	/*job_to_species_blacklist = list(
 		/datum/job/valSal_port/caves/dweller = list(
 			/decl/species/human,
 			/decl/species/hnoll
 		),
-	)
+	)*/
 	species_to_job_blacklist = list(
 		/decl/species/kobaloi = list(
 			/datum/job/valSal_port/visitor/beggar_knight,

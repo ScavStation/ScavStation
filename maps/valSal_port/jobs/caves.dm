@@ -1,4 +1,4 @@
-/datum/job/valSal_port/caves
+/*/datum/job/valSal_port/caves
     abstract_type = /datum/job/valSal_port/caves
 
 /datum/job/valSal_port/caves/dweller
@@ -14,4 +14,4 @@
     skill_points = 24
 
 /obj/abstract/landmark/start/valSal_port/cave_dweller
-    name = "Cave Dweller"
+    name = "Cave Dweller"*/
