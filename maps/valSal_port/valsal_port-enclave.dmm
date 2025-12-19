@@ -48,7 +48,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "cR" = (
-/obj/abstract/landmark/start/valSal_port,
+/obj/abstract/landmark/latejoin/observer,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "dq" = (
@@ -149,6 +149,10 @@
 /obj/structure/flora/seaweed/glow,
 /turf/floor/mud/water/deep,
 /area/valSal_port/caves/river)
+"lW" = (
+/obj/abstract/map_data/valSal_port,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/enclave)
 "mi" = (
 /mob/living/simple_animal/passive/deer,
 /turf/floor/grass/wild,
@@ -234,10 +238,6 @@
 /mob/living/simple_animal/chorp,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
-"vk" = (
-/obj/abstract/landmark/start,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/enclave)
 "vw" = (
 /turf/unsimulated/dark_filler,
 /area/valSal_port/outside/enclave/river)
@@ -247,6 +247,10 @@
 /area/valSal_port/caves)
 "vK" = (
 /obj/abstract/landmark/start/valSal_port/traveller/learned,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/enclave)
+"wX" = (
+/obj/abstract/landmark/start/valSal_port,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "xb" = (
@@ -462,10 +466,6 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
-"NX" = (
-/obj/abstract/landmark/latejoin/observer,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/enclave)
 "Oe" = (
 /mob/living/simple_animal/passive/fox/silver,
 /turf/floor/grass/wild,
@@ -600,6 +600,10 @@
 "XB" = (
 /turf/floor/barren,
 /area/valSal_port/caves)
+"Yx" = (
+/obj/abstract/landmark/start,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/enclave)
 "Yz" = (
 /obj/structure/flora/tree/hardwood/ebony,
 /turf/floor/grass/wild,
@@ -7992,7 +7996,7 @@ iB
 iB
 dS
 iB
-NX
+cR
 iB
 iB
 iB
@@ -9690,7 +9694,7 @@ iB
 iB
 iB
 iB
-iB
+lW
 iB
 iB
 iB
@@ -9955,9 +9959,9 @@ Mu
 Mu
 vK
 iB
-cR
-cR
-vk
+wX
+wX
+Yx
 iB
 iB
 iB

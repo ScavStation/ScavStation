@@ -716,6 +716,29 @@
 "ss" = (
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
+"su" = (
+/obj/structure/closet/cabinet/wooden/ebony,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/turf/floor/grass/wild,
+/area/valSal_port/town/farmhouse)
 "sD" = (
 /turf/floor/path/herringbone/granite,
 /area/valSal_port/town/general_store)
@@ -1540,6 +1563,11 @@
 /obj/structure/flora/plant/large,
 /turf/floor/grass/wild,
 /area/valSal_port/town/house)
+"OG" = (
+/obj/structure/flora/bush/genericbush,
+/obj/abstract/map_data/valSal_port,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outer_town)
 "Po" = (
 /obj/structure/door/basalt,
 /turf/floor/wood/mahogany,
@@ -1654,29 +1682,6 @@
 /mob/living/simple_animal/grub_bear,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
-"RJ" = (
-/obj/structure/closet/cabinet/wooden/ebony,
-/obj/item/seeds/aloe,
-/obj/item/seeds/aloe,
-/obj/item/seeds/aloe,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/turf/floor/grass/wild,
-/area/valSal_port/town/farmhouse)
 "RX" = (
 /obj/structure/bed/chair/wood/wings/ebony,
 /obj/item/remains/human,
@@ -7218,7 +7223,7 @@ Kt
 lD
 UW
 xv
-RJ
+su
 mv
 It
 ym
@@ -11781,7 +11786,7 @@ UW
 UW
 tF
 UW
-Lr
+OG
 VO
 UW
 UW
