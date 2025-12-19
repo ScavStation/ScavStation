@@ -23,19 +23,6 @@
 	sound_env = ROOM
 	turf_initializer = /decl/turf_initializer/spiderwebs
 
-/*/area/valSal_port/town/general_store/porch
-	name = "\improper General Store Porch"
-	interior_ambient_light_modifier = -0.3 // night is pitch-black on the porch
-	sound_env = FOREST*/
-
-
-/area/valSal_port/town/stable
-	name = "\improper Stable"
-	fishing_failure_prob = 100
-	fishing_results = list()
-	sound_env = ROOM
-	turf_initializer = /decl/turf_initializer/spiderwebs
-
 /area/valSal_port/town/house
 	name = "\improper House"
 	fishing_failure_prob = 100
@@ -57,20 +44,8 @@
 	sound_env = ROOM
 	turf_initializer = /decl/turf_initializer/spiderwebs
 
-/area/valSal_port/town/farmhouse/porch
-	name = "\improper Farmhouse Porch"
-	interior_ambient_light_modifier = -0.3 // night is pitch-black on the porch
-	sound_env = FOREST
-
 /area/valSal_port/town/slaughterhouse
 	name = "\improper Slaughterhouse"
-	fishing_failure_prob = 100
-	fishing_results = list()
-	sound_env = ROOM
-	turf_initializer = /decl/turf_initializer/spiderwebs
-
-/area/valSal_port/town/storehouse
-	name = "\improper Storehouse"
 	fishing_failure_prob = 100
 	fishing_results = list()
 	sound_env = ROOM
@@ -83,9 +58,6 @@
 	area_flags = AREA_FLAG_HOLY
 	sound_env = ROOM
 	turf_initializer = /decl/turf_initializer/spiderwebs
-
-/area/valSal_port/town/shrine/kitchen
-	name = "\improper Shrine Kitchen"
 
 /area/valSal_port/town/outside/shrine
 	name = "\improper Shrine Grounds"

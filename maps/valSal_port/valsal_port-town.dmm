@@ -28,6 +28,10 @@
 "bz" = (
 /turf/floor/grass/wild,
 /area/valSal_port/town/mansion)
+"bU" = (
+/obj/structure/flora/bush/sunnybush,
+/turf/floor/grass/wild,
+/area/valSal_port/town/outside/shrine)
 "cd" = (
 /obj/structure/flora/plant,
 /turf/floor/grass/wild,
@@ -223,6 +227,10 @@
 "fR" = (
 /turf/floor/dirt,
 /area/valSal_port/town/house)
+"fT" = (
+/obj/structure/flora/seaweed/large,
+/turf/floor/mud/water/deep,
+/area/valSal_port/outside/outer_town)
 "fZ" = (
 /obj/structure/flora/tree/hardwood/yew,
 /mob/living/simple_animal/chorp,
@@ -248,7 +256,8 @@
 /turf/floor/grass/wild,
 /area/valSal_port/town/shrine)
 "gC" = (
-/turf/floor/mud/water,
+/obj/structure/flora/seaweed/glow,
+/turf/floor/mud/water/deep,
 /area/valSal_port/outside/outer_town)
 "gD" = (
 /obj/structure/flora/tree/hardwood/walnut,
@@ -339,10 +348,6 @@
 "iO" = (
 /turf/wall/log/maple,
 /area/valSal_port/outside/inner_town)
-"iQ" = (
-/obj/effect/decal/cleanable/ash,
-/turf/floor/wood,
-/area/valSal_port/outside/outer_town)
 "iV" = (
 /turf/unsimulated/dark_filler,
 /area/valSal_port/outside/river)
@@ -403,6 +408,10 @@
 /obj/structure/door/wood/saloon/walnut,
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
+"ki" = (
+/obj/effect/decal/cleanable/ash,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outer_town)
 "kn" = (
 /obj/item/clothing/suit/holidaypriest{
 	desc = "Blessed are the peacemakers.";
@@ -615,9 +624,6 @@
 "os" = (
 /turf/unsimulated/floor/carpet,
 /area/valSal_port/town/mansion)
-"ow" = (
-/turf/floor/wood,
-/area/valSal_port/outside/river)
 "oz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -653,6 +659,10 @@
 /area/valSal_port/town/shrine)
 "pu" = (
 /turf/floor/mud,
+/area/valSal_port/outside/outer_town)
+"pE" = (
+/obj/structure/flora/seaweed,
+/turf/floor/mud/water/deep,
 /area/valSal_port/outside/outer_town)
 "pM" = (
 /obj/effect/decal/cleanable/ash,
@@ -754,9 +764,9 @@
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
 "tl" = (
-/obj/structure/flora/bush/reedbush,
-/turf/floor/mud,
-/area/valSal_port/outside/outer_town)
+/obj/structure/flora/bush/fernybush,
+/turf/floor/grass/wild,
+/area/valSal_port/town/outside/shrine)
 "tx" = (
 /obj/abstract/level_data_spawner/valSal_port_town,
 /turf/floor/grass/wild,
@@ -816,10 +826,6 @@
 /obj/effect/decal/cleanable/filth,
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
-"uR" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/floor/wood/broken,
-/area/valSal_port/outside/inner_town)
 "uT" = (
 /obj/structure/bed/chair/wood/wings/ebony,
 /turf/floor/wood/mahogany,
@@ -1029,6 +1035,10 @@
 /obj/structure/flora/bush/fernybush,
 /turf/floor/grass/wild,
 /area/valSal_port/town/mansion)
+"zB" = (
+/obj/structure/railing/mapped/wooden,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outer_town)
 "zK" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/unsimulated/floor/carpet,
@@ -1038,9 +1048,8 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
 "zZ" = (
-/obj/effect/decal/cleanable/ash,
 /turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
+/area/valSal_port/town/outside/shrine)
 "Ag" = (
 /turf/floor/grass/wild,
 /area/valSal_port/town/house)
@@ -1143,10 +1152,6 @@
 "CM" = (
 /turf/floor/dirt,
 /area/valSal_port/town/slaughterhouse)
-"Db" = (
-/obj/structure/flora/bush/sunnybush,
-/turf/floor/grass/wild,
-/area/valSal_port/town/outside/shrine)
 "Dc" = (
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass/wild,
@@ -1209,8 +1214,9 @@
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
 "EN" = (
-/turf/floor/dirt,
-/area/valSal_port/outside/inner_town)
+/obj/effect/decal/cleanable/ash,
+/turf/floor/wood,
+/area/valSal_port/outside/river)
 "ES" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1242,10 +1248,6 @@
 /obj/structure/flora/plant/large,
 /turf/floor/grass/wild,
 /area/valSal_port/town/farmhouse)
-"Fl" = (
-/obj/structure/railing/mapped/wooden,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
 "Fr" = (
 /turf/floor/path,
 /area/valSal_port/outside/outer_town)
@@ -1297,9 +1299,6 @@
 /obj/item/utensil/knife,
 /turf/unsimulated/floor/carpet,
 /area/valSal_port/town/mansion)
-"Gs" = (
-/turf/floor/wood/broken/three,
-/area/valSal_port/outside/outer_town)
 "GB" = (
 /obj/structure/flora/bush/genericbush,
 /obj/structure/flora/bush/genericbush,
@@ -1334,6 +1333,9 @@
 /obj/item/clothing/head/collectable/petehat,
 /turf/floor/grass/wild,
 /area/valSal_port/town/house)
+"Hq" = (
+/turf/floor/dirt,
+/area/valSal_port/outside/inner_town)
 "HD" = (
 /obj/structure/flora/seaweed/mid,
 /turf/floor/mud/water/deep,
@@ -1517,6 +1519,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/path/herringbone,
 /area/valSal_port/town/farmhouse)
+"Nf" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/floor/wood/broken,
+/area/valSal_port/outside/inner_town)
 "Nl" = (
 /obj/structure/flora/tree/hardwood/walnut,
 /mob/living/simple_animal/grub_bear,
@@ -1572,6 +1578,9 @@
 /obj/item/plate,
 /turf/floor/grass/wild,
 /area/valSal_port/town/mansion)
+"Pu" = (
+/turf/floor/wood,
+/area/valSal_port/outside/outer_town)
 "Py" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/bristleback,
@@ -1624,10 +1633,6 @@
 "Qr" = (
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/river)
-"Qu" = (
-/obj/structure/flora/seaweed,
-/turf/floor/mud/water/deep,
-/area/valSal_port/outside/outer_town)
 "Qy" = (
 /obj/structure/table/woodentable_reinforced/ebony,
 /obj/item/utensil/fork,
@@ -1669,7 +1674,7 @@
 /area/valSal_port/outside/inner_town)
 "Rm" = (
 /turf/floor/wood/broken/three,
-/area/valSal_port/outside/inner_town)
+/area/valSal_port/outside/river)
 "Rn" = (
 /obj/item/chems/glass/inkwell/quilled,
 /turf/floor/wood/mahogany,
@@ -1805,9 +1810,6 @@
 /obj/structure/closet/crate/chest/ebony,
 /turf/floor/wood,
 /area/valSal_port/town/farmhouse)
-"Vn" = (
-/turf/floor/wood,
-/area/valSal_port/outside/outer_town)
 "Vt" = (
 /obj/structure/flora/bush/genericbush,
 /obj/structure/flora/bush/sunnybush,
@@ -1860,10 +1862,6 @@
 	},
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
-"VW" = (
-/obj/structure/flora/seaweed/glow,
-/turf/floor/mud/water/deep,
-/area/valSal_port/outside/outer_town)
 "VX" = (
 /obj/structure/railing/mapped/wooden{
 	dir = 1
@@ -1873,10 +1871,6 @@
 "VZ" = (
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
-"Wg" = (
-/obj/structure/flora/seaweed/large,
-/turf/floor/mud/water/deep,
 /area/valSal_port/outside/outer_town)
 "Ws" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1944,8 +1938,8 @@
 /turf/unsimulated/floor/bcarpet,
 /area/valSal_port/town/shrine)
 "Xw" = (
-/turf/floor/grass/wild,
-/area/valSal_port/town/outside/shrine)
+/turf/floor/mud/water,
+/area/valSal_port/outside/outer_town)
 "XC" = (
 /obj/structure/flora/tree/hardwood/yew,
 /obj/structure/flora/bush/sunnybush,
@@ -1974,10 +1968,6 @@
 	},
 /turf/floor/mud/water,
 /area/valSal_port/outside/river)
-"Yv" = (
-/obj/structure/flora/bush/fernybush,
-/turf/floor/grass/wild,
-/area/valSal_port/town/outside/shrine)
 "Yz" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/wood/mahogany,
@@ -1987,6 +1977,9 @@
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
+"YD" = (
+/turf/floor/wood,
+/area/valSal_port/outside/river)
 "YJ" = (
 /obj/item/utensil/fork,
 /turf/floor/grass/wild,
@@ -6026,7 +6019,7 @@ Fr
 mD
 mD
 UW
-zZ
+ki
 UW
 IL
 IL
@@ -7046,7 +7039,7 @@ mD
 Fr
 mD
 mD
-zZ
+ki
 UW
 UW
 UW
@@ -7551,9 +7544,9 @@ UW
 UW
 UW
 UW
-Fl
+zB
 UU
-Vn
+Pu
 Gn
 Bu
 Bu
@@ -7654,8 +7647,8 @@ UW
 UW
 pu
 Km
-Vn
-Vn
+Pu
+Pu
 Yt
 Bu
 Qr
@@ -7756,8 +7749,8 @@ vp
 Fw
 Fw
 ej
-iQ
-Gs
+EN
+Rm
 VX
 Qr
 tV
@@ -7858,7 +7851,7 @@ Fw
 Bu
 Bu
 ej
-ow
+YD
 Qr
 oO
 Qr
@@ -7961,7 +7954,7 @@ Bu
 HD
 Qr
 Qr
-ow
+YD
 Yt
 Bu
 Bu
@@ -8063,7 +8056,7 @@ Qr
 Qr
 Ga
 Rm
-Mu
+YD
 Yt
 Fw
 Fw
@@ -8995,11 +8988,11 @@ dV
 sh
 dV
 dV
-Yv
+tl
 Ja
-Xw
+zZ
 Ja
-Xw
+zZ
 Ja
 sh
 Fw
@@ -9098,11 +9091,11 @@ yD
 Rk
 Yh
 HF
-Db
-Yv
-Xw
-Xw
-Xw
+bU
+tl
+zZ
+zZ
+zZ
 sh
 sh
 No
@@ -9199,11 +9192,11 @@ Sl
 Sl
 Sl
 Sl
-Xw
+zZ
 Ja
-Db
+bU
 Ja
-Xw
+zZ
 Ja
 sh
 sh
@@ -9302,11 +9295,11 @@ hk
 Sl
 Sl
 zu
-Xw
-Xw
-Xw
-Xw
-Xw
+zZ
+zZ
+zZ
+zZ
+zZ
 sh
 sh
 sh
@@ -9405,9 +9398,9 @@ Sl
 cz
 zu
 Ja
-Xw
+zZ
 Ja
-Xw
+zZ
 Ja
 sh
 sh
@@ -9500,17 +9493,17 @@ ND
 sh
 sh
 sh
-EN
+Hq
 iO
 sh
 iO
 iO
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+zZ
+zZ
+zZ
+zZ
+zZ
+zZ
 sh
 iZ
 iZ
@@ -9602,16 +9595,16 @@ sh
 sh
 sh
 sh
-EN
+Hq
 PE
-uR
+Nf
 Qq
 iO
-Xw
+zZ
 Ja
-Xw
+zZ
 Ja
-Xw
+zZ
 Ja
 sh
 sh
@@ -9709,12 +9702,12 @@ Mu
 PC
 Mu
 iX
-Xw
-Xw
-Xw
-Xw
-Xw
-Xw
+zZ
+zZ
+zZ
+zZ
+zZ
+zZ
 sh
 sh
 sh
@@ -9743,7 +9736,7 @@ Gf
 Gf
 WK
 WK
-Fd
+WK
 UW
 UW
 UW
@@ -9809,8 +9802,8 @@ sh
 iO
 oe
 jB
-uR
-EN
+Nf
+Hq
 sh
 sh
 sh
@@ -9870,7 +9863,7 @@ UW
 "}
 (78,1,1) = {"
 pu
-gC
+Xw
 Bu
 Bu
 tV
@@ -9911,8 +9904,8 @@ sh
 iO
 iO
 iX
-EN
-EN
+Hq
+Hq
 sh
 sh
 sh
@@ -9971,8 +9964,8 @@ UW
 UW
 "}
 (79,1,1) = {"
-gC
-gC
+Xw
+Xw
 Qr
 HD
 oO
@@ -10073,8 +10066,8 @@ UW
 UW
 "}
 (80,1,1) = {"
-gC
-Wg
+Xw
+fT
 fH
 Bu
 Bu
@@ -10156,8 +10149,8 @@ Qr
 Bu
 Bu
 Fw
-tl
-tl
+is
+is
 UW
 UW
 KM
@@ -10379,8 +10372,8 @@ UW
 UW
 "}
 (83,1,1) = {"
-gC
-gC
+Xw
+Xw
 Fw
 Fw
 Gf
@@ -10874,7 +10867,7 @@ Qr
 oO
 Qr
 Bu
-pu
+Fw
 UW
 UW
 UW
@@ -12093,12 +12086,12 @@ UW
 UW
 UW
 pu
-gC
-Kt
-VW
-Kt
+Xw
 Kt
 gC
+Kt
+Kt
+Xw
 pu
 UW
 UW
@@ -12195,12 +12188,12 @@ VZ
 UW
 UW
 pu
-gC
+Xw
 Kt
 Kt
-Qu
+pE
 Kt
-gC
+Xw
 pu
 UW
 UW
