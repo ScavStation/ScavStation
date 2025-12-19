@@ -716,29 +716,6 @@
 "ss" = (
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
-"st" = (
-/obj/structure/closet/cabinet/wooden/ebony,
-/obj/item/seeds/aloe,
-/obj/item/seeds/aloe,
-/obj/item/seeds/aloe,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/ambrosiavulgarisseed,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/valerian,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/foxglove,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/ginseng,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/obj/item/seeds/extracted/yarrow,
-/turf/floor/grass/wild,
-/area/valSal_port/town/farmhouse)
 "su" = (
 /obj/abstract/landmark/latejoin,
 /turf/floor/grass/wild,
@@ -1572,10 +1549,28 @@
 /turf/floor/grass/wild,
 /area/valSal_port/town/house)
 "OG" = (
-/obj/structure/flora/bush/genericbush,
-/obj/abstract/map_data/valSal_port,
+/obj/structure/closet/cabinet/wooden/ebony,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/aloe,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/valerian,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/foxglove,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/ginseng,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
+/obj/item/seeds/extracted/yarrow,
 /turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
+/area/valSal_port/town/farmhouse)
 "Po" = (
 /obj/structure/door/basalt,
 /turf/floor/wood/mahogany,
@@ -7235,7 +7230,7 @@ Kt
 lD
 UW
 xv
-st
+OG
 mv
 It
 ym
@@ -11798,7 +11793,7 @@ UW
 UW
 tF
 UW
-OG
+Lr
 VO
 UW
 UW
