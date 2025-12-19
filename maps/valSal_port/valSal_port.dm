@@ -62,5 +62,5 @@
 	#define USING_MAP_DATUM /datum/map/valSal_port
 
 #elif !defined(MAP_OVERRIDE)
-	#warn A map has already been included, ignoring Shaded Hills
+	#warn A map has already been included, ignoring ValSalPort
 #endif

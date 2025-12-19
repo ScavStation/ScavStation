@@ -9,7 +9,7 @@
     max_skill = list(
         SKILL_MEDICAL = SKILL_MAX,
         SKILL_ANATOMY = SKILL_MAX,
-        SKILL_CHEMISTRY = SKILL_MAX,
+        SKILL_CHEMISTRY = SKILL_MAX
     )
     skill_points = 24
 

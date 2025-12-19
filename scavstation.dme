@@ -4147,8 +4147,6 @@
 #include "maps\shaded_hills\shaded_hills_define.dm"
 #include "maps\tradeship\tradeship_define.dm"
 #include "maps\tradeship_alt\tradeship_alt_define.dm"
-#include "maps\valSal_port\valSal_port.dm"
-#include "maps\valSal_port\valSal_port_define.dm"
 #include "maps\~mapsystem\map_preferences.dm"
 #include "maps\~mapsystem\map_ranks.dm"
 #include "maps\~mapsystem\map_skills.dm"
