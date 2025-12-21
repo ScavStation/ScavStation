@@ -13,7 +13,6 @@
 	default_spawn = /decl/spawnpoint/arrivals
 
 	lobby_screens = list('maps/valSal_port/valSal_port_lobby.png')
-
 	allowed_latejoin_spawns = list(
 		/decl/spawnpoint/arrivals
 	)

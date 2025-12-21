@@ -198,13 +198,6 @@
 	speak_chance = 1
 	turns_per_wander = 6
 
-/datum/mob_controller/fowl/proc/get_bark_list()
-	return list(
-		"cluck" = 5,
-		"peck" = 3,
-		"idle" = 1
-	)
-
 /mob/living/simple_animal/fowl/Initialize()
 	if(!default_pixel_x)
 		default_pixel_x = rand(-6, 6)
