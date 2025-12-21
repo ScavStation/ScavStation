@@ -66,8 +66,6 @@
 	connected_levels = list(
 		"valSal_port_enclave" = WEST
 	)
-	submap_budget = 5
-	submap_category = MAP_TEMPLATE_CATEGORY_SH_GRASSLAND
 
 	mobs_to_spawn = list(
 		list(
@@ -95,9 +93,6 @@
 		/datum/random_map/noise/valSal_port/woods,
 		/datum/random_map/noise/forage/valSal_port/woods
 	)
-	submap_budget = 5
-	//submap_category = MAP_TEMPLATE_CATEGORY_SH_SWAMP
-	//submap_area = /area/valSal_port/outside/swamp/poi
 
 	mobs_to_spawn = list(
 		list(
