@@ -770,10 +770,6 @@
 /obj/effect/decal/cleanable/ash,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
-"tx" = (
-/obj/abstract/level_data_spawner/valSal_port_town,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
 "tF" = (
 /obj/structure/flora/bush/sunnybush,
 /turf/floor/grass/wild,
@@ -1563,11 +1559,6 @@
 /obj/structure/flora/plant/large,
 /turf/floor/grass/wild,
 /area/valSal_port/town/house)
-"OG" = (
-/obj/structure/flora/bush/genericbush,
-/obj/abstract/map_data/valSal_port,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
 "Po" = (
 /obj/structure/door/basalt,
 /turf/floor/wood/mahogany,
@@ -1682,6 +1673,10 @@
 /mob/living/simple_animal/grub_bear,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
+"RJ" = (
+/obj/abstract/level_data_spawner/valSal_port_town,
+/turf/unsimulated/dark_filler,
+/area/valSal_port/outside/outer_town)
 "RX" = (
 /obj/structure/bed/chair/wood/wings/ebony,
 /obj/item/remains/human,
@@ -2099,7 +2094,7 @@ Cl
 Cl
 Cl
 Cl
-Cl
+RJ
 "}
 (2,1,1) = {"
 Cl
@@ -11786,7 +11781,7 @@ UW
 UW
 tF
 UW
-OG
+Lr
 VO
 UW
 UW
@@ -11888,7 +11883,7 @@ gD
 UW
 UW
 UW
-tx
+UW
 UW
 UW
 UW
