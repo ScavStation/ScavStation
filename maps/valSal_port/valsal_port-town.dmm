@@ -33,7 +33,6 @@
 /turf/floor/wood,
 /area/valSal_port/outside/river)
 "cd" = (
-/obj/structure/flora/plant,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "cq" = (
