@@ -1358,9 +1358,7 @@
 /turf/floor/wood/mahogany,
 /area/ministation/securityoffice)
 "dZ" = (
-/obj/machinery/door/window/brigdoor/westleft{
-	req_access = list("ACCESS_KITCHEN")
-	},
+/obj/machinery/door/window/brigdoor/westleft,
 /obj/machinery/door/firedoor{
 	dir = 8
 	},

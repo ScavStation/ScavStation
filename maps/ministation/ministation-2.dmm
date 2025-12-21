@@ -9231,6 +9231,7 @@
 /turf/floor/tiled/white,
 /area/ministation/science)
 "Hj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/closet/emcloset,
 /turf/floor/tiled,
 /area/ministation/hall/s3)
@@ -45827,7 +45828,7 @@ Zv
 Zv
 Zv
 Mn
-Hj
+Zv
 Zv
 Zv
 Zv
@@ -46084,7 +46085,7 @@ JJ
 Mc
 we
 Kg
-uh
+Hj
 FC
 UB
 NJ
