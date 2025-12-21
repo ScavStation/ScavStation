@@ -193,6 +193,7 @@
 	abstract_type = /mob/living/simple_animal/fowl
 	var/body_color
 
+
 /datum/mob_controller/fowl
 	speak_chance = 1
 	turns_per_wander = 6
