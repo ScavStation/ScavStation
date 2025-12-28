@@ -16,6 +16,15 @@
 /area/valSal_port/outside/outer_town
 	name = "Val Salian Outer Port"
 
+/area/valSal_port/outside/eastside
+	name = "Val Salian Eastside"
+
+/area/valSal_port/outside/westside
+	name = "Val Salian Westside"
+
+/area/valSal_port/outside/southside
+	name = "Val Salian Southside"
+
 /area/valSal_port/town/general_store
 	name = "\improper General Store"
 	fishing_failure_prob = 100
@@ -58,6 +67,18 @@
 	area_flags = AREA_FLAG_HOLY
 	sound_env = ROOM
 	turf_initializer = /decl/turf_initializer/spiderwebs
+
+/area/valSal_port/town/hermit
+	name = "\improper Hermit's Hut"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+	turf_initializer = /decl/turf_initializer/spiderwebs
+
+/area/valSal_port/outside/camp
+	name = "\improper Bandit Camp"
+	fishing_failure_prob = 100
+	fishing_results = list()
 
 /area/valSal_port/town/outside/shrine
 	name = "\improper Shrine Grounds"
