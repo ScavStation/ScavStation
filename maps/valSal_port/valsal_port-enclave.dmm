@@ -774,7 +774,7 @@
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/enclave/river)
 "Tx" = (
-/obj/vehicle/train/cargo/trolley,
+/obj/vehicle/train/cargo/trolley_wood,
 /obj/structure/closet/crate/chest,
 /obj/item/stack/material/thread/mapped/dried_gut/fifteen,
 /obj/item/stack/material/thread/mapped/dried_gut/fifteen,
@@ -799,7 +799,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
 "TE" = (
-/obj/vehicle/train/cargo/trolley,
+/obj/vehicle/train/cargo/trolley_wood,
 /obj/structure/closet/crate/chest,
 /obj/item/tool/axe/ebony,
 /obj/item/tool/pickaxe/stone,
