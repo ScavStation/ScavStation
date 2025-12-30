@@ -832,10 +832,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/path/running_bond/basalt,
 /area/valSal_port/prison)
-"Ql" = (
-/obj/structure/table/desk/ebony,
-/turf/floor/path/herringbone/sandstone,
-/area/valSal_port/prison)
 "QS" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/path/herringbone/sandstone,
@@ -7236,7 +7232,7 @@ LW
 Lj
 rs
 Lj
-Ql
+Lj
 HD
 rs
 LW
