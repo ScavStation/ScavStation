@@ -26,6 +26,103 @@
 	sound_env = CAVE
 	area_flags = AREA_FLAG_IS_BACKGROUND
 
+/area/valSal_port/grove
+	name = "\improper Deep Grove"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
+	description = "The pond ripples unnaturally, a cool breeze blowing from it."
+	area_blurb_category = /area/valSal_port/caves
+	sound_env = CAVE
+	area_flags = AREA_FLAG_IS_BACKGROUND
+
+/area/valSal_port/nest
+	name = "\improper Spider Nest"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
+	description = "Scuttling legs crawl across the cavern walls."
+	ambience = list(
+		'sound/ambience/ambimine.ogg',
+		'sound/ambience/song_game.ogg'
+	)
+	area_blurb_category = /area/valSal_port/caves
+	sound_env = CAVE
+	area_flags = AREA_FLAG_IS_BACKGROUND
+
+/area/valSal_port/prison
+	name = "\improper Old Prison"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
+	description = "The air here is stale and rotten."
+	ambience = list(
+		'sound/ambience/ambimine.ogg',
+		'sound/ambience/song_game.ogg'
+	)
+	area_blurb_category = /area/valSal_port/caves
+	sound_env = CAVE
+	area_flags = AREA_FLAG_IS_BACKGROUND
+
+/area/valSal_port/library
+	name = "\improper Old Library"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
+	description = "The air here smells of stale paper."
+	ambience = list(
+		'sound/ambience/ambimine.ogg',
+		'sound/ambience/song_game.ogg'
+	)
+	area_blurb_category = /area/valSal_port/caves
+	sound_env = CAVE
+	area_flags = AREA_FLAG_IS_BACKGROUND
+
+/area/valSal_port/mineshaft
+	name = "\improper Mineshaft"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
+	description = "Pebbles tumble from the ceiling."
+	ambience = list(
+		'sound/ambience/ambimine.ogg',
+		'sound/ambience/song_game.ogg'
+	)
+	area_blurb_category = /area/valSal_port/caves
+	sound_env = CAVE
+	area_flags = AREA_FLAG_IS_BACKGROUND
+
+/area/valSal_port/miningcamp
+	name = "\improper Old Mining Camp"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
+	description = "The open ground here has been undisturbed for years."
+	ambience = list(
+		'sound/ambience/ambimine.ogg',
+		'sound/ambience/song_game.ogg'
+	)
+	area_blurb_category = /area/valSal_port/caves
+	sound_env = CAVE
+	area_flags = AREA_FLAG_IS_BACKGROUND
+
+/area/valSal_port/mushroom
+	name = "\improper Shroom Grove"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
+	description = "This place is funky."
+	ambience = list(
+		'sound/ambience/ambimine.ogg',
+		'sound/ambience/song_game.ogg'
+	)
+	area_blurb_category = /area/valSal_port/caves
+	sound_env = CAVE
+	area_flags = AREA_FLAG_IS_BACKGROUND
+
+/area/valSal_port/lab
+	name = "\improper Ancient Lab"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
+	description = "Everything here is ancient, and chills your bones."
+	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambigen7.ogg','sound/ambience/ambigen8.ogg','sound/ambience/ambigen9.ogg','sound/ambience/ambigen10.ogg','sound/ambience/ambigen11.ogg','sound/ambience/ambigen12.ogg')
+	area_blurb_category = /area/valSal_port/caves
+	sound_env = CAVE
+	area_flags = AREA_FLAG_IS_BACKGROUND
+
 /area/valSal_port/caves/deep
 	name = "\improper Deep Caverns"
 	ambience = list(

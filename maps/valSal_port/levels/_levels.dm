@@ -121,12 +121,9 @@
 		)
 	)
 
-/datum/level_data/main_level/valSal_port/undertown
-	name = "ValSalian Port - undertown"
-	level_id = "valSal_port_undertown"
-	connected_levels = list(
-		"valSal_port_underground" = WEST
-	)
+/datum/level_data/main_level/valSal_port/caverns
+	name = "ValSalian Port - caverns"
+	level_id = "caverns"
 	level_generators = list(
 		/datum/random_map/noise/ore/rich
 	)
@@ -137,5 +134,5 @@
 /obj/abstract/level_data_spawner/valSal_port_enclave
 	level_data_type = /datum/level_data/main_level/valSal_port/enclave
 
-/obj/abstract/level_data_spawner/valSal_port_undertown
-	level_data_type = /datum/level_data/main_level/valSal_port/undertown
+/obj/abstract/level_data_spawner/valSal_port_caverns
+	level_data_type = /datum/level_data/main_level/valSal_port/caverns

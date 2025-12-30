@@ -1,16 +1,16 @@
-//Space bristlebacks!
+// bristlebacks!
 /mob/living/simple_animal/hostile/bristleback
-	name = "space bristleback"
+	name = "Bristleback"
 	desc = "RawrRawr!!"
 	icon = 'mods/valsalia/icons/mobs/simple_animal/bristleback.dmi'
 	speak_emote  = list("growls", "roars")
 	see_in_dark = 6
 	response_harm = "pokes"
-	max_health = 60
-	natural_weapon = /obj/item/natural_weapon/claws/strong
+	max_health = 30
+	natural_weapon = /obj/item/natural_weapon/claws/weak
 	base_animal_type = /mob/living/simple_animal/hostile/bristleback
 
-	//Space bristlebacks aren't affected by atmos.
+	//bristlebacks aren't affected by atmos.
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
@@ -36,7 +36,7 @@
 		if(check_state_in_icon(check_icon_state, icon))
 			icon_state = check_icon_state
 
-//SPACE bristlebackS! SQUEEEEEEEE~	 OW! FUCK! IT BIT MY HAND OFF!!
+//bristlebackS! SQUEEEEEEEE~	 OW! FUCK! IT BIT MY HAND OFF!!
 /mob/living/simple_animal/hostile/bristleback/Hudson
 	name = "Hudson"
 	desc = ""
