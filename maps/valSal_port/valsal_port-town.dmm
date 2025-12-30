@@ -833,10 +833,6 @@
 /obj/structure/flora/bush/sunnybush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
-"rQ" = (
-/obj/item/stack/material/bone,
-/turf/floor/dirt,
-/area/valSal_port/outside/camp)
 "sa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/abstract/landmark/start/valSal_port/shrine_attendant,
@@ -6751,7 +6747,7 @@ MK
 jf
 jf
 jf
-rQ
+jf
 jf
 jf
 tQ
@@ -7054,11 +7050,11 @@ KI
 tQ
 ql
 tQ
-rQ
+jf
 jf
 iY
 jf
-rQ
+jf
 tQ
 tQ
 tQ
