@@ -7,14 +7,6 @@
 /obj/structure/flora/bush/leafybush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
-"an" = (
-/obj/structure/wall_sconce/torch{
-	dir = 1;
-	pixel_y = 20
-	},
-/obj/structure/flora/bush/fernybush,
-/turf/floor/grass,
-/area/valSal_port/outside/enclave)
 "at" = (
 /mob/living/simple_animal/grub_bear,
 /turf/floor/grass/wild,
@@ -101,7 +93,7 @@
 "eF" = (
 /obj/structure/flora/tree/hardwood/ebony,
 /turf/unsimulated/dark_filler,
-/area/valSal_port/outside/enclave)
+/area/valSal_port/outside/outdoors_enclave)
 "eM" = (
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
@@ -168,7 +160,7 @@
 /obj/abstract/level_data_spawner/valSal_port_enclave,
 /obj/abstract/map_data/valSal_port,
 /turf/unsimulated/dark_filler,
-/area/valSal_port/outside/enclave)
+/area/valSal_port/outside/outdoors_south)
 "jU" = (
 /turf/floor/mud/water,
 /area/valSal_port/outside/enclave/river)
@@ -348,10 +340,6 @@
 "vD" = (
 /turf/wall/natural/random/basalt/valSal_port,
 /area/valSal_port/caves)
-"vK" = (
-/obj/abstract/landmark/start/valSal_port/traveller/learned,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outdoors_enclave)
 "wQ" = (
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass,
@@ -389,13 +377,6 @@
 "yf" = (
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_south)
-"yg" = (
-/obj/structure/wall_sconce/torch{
-	dir = 1;
-	pixel_y = 20
-	},
-/turf/floor/grass,
-/area/valSal_port/outside/enclave)
 "yJ" = (
 /obj/structure/wall_sconce/torch{
 	dir = 4
@@ -540,7 +521,7 @@
 /area/valSal_port/outside/outdoors_cliff)
 "FG" = (
 /turf/unsimulated/dark_filler,
-/area/valSal_port/outside/enclave)
+/area/valSal_port/outside/outdoors_enclave)
 "FJ" = (
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
@@ -622,6 +603,9 @@
 "KL" = (
 /turf/floor/mud,
 /area/valSal_port/caves)
+"KP" = (
+/turf/unsimulated/dark_filler,
+/area/valSal_port/outside/outdoors_south)
 "KT" = (
 /obj/structure/flora/bush/fullgrass,
 /obj/structure/flora/bush/genericbush,
@@ -774,7 +758,7 @@
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/enclave/river)
 "Tx" = (
-/obj/vehicle/train/cargo/trolley_wood,
+/obj/vehicle/train/cargo/trolley,
 /obj/structure/closet/crate/chest,
 /obj/item/stack/material/thread/mapped/dried_gut/fifteen,
 /obj/item/stack/material/thread/mapped/dried_gut/fifteen,
@@ -799,7 +783,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
 "TE" = (
-/obj/vehicle/train/cargo/trolley_wood,
+/obj/vehicle/train/cargo/trolley,
 /obj/structure/closet/crate/chest,
 /obj/item/tool/axe/ebony,
 /obj/item/tool/pickaxe/stone,
@@ -7677,7 +7661,7 @@ FJ
 ZO
 FJ
 FJ
-an
+EG
 Mq
 FJ
 rx
@@ -7881,7 +7865,7 @@ ZO
 FJ
 FJ
 FJ
-yg
+FJ
 ZO
 FJ
 FJ
@@ -10213,9 +10197,9 @@ SW
 iB
 ri
 iB
+iB
 Mu
-Mu
-vK
+iB
 iB
 fl
 fl
@@ -10443,29 +10427,29 @@ vw
 vw
 vw
 vw
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
 "}
 (95,1,1) = {"
 FG
@@ -10545,29 +10529,29 @@ vw
 vw
 vw
 vw
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
 "}
 (96,1,1) = {"
 FG
@@ -10647,29 +10631,29 @@ vw
 vw
 vw
 vw
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
 "}
 (97,1,1) = {"
 FG
@@ -10749,29 +10733,29 @@ vw
 vw
 vw
 vw
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
 "}
 (98,1,1) = {"
 FG
@@ -10851,29 +10835,29 @@ vw
 vw
 vw
 vw
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
 "}
 (99,1,1) = {"
 FG
@@ -10953,29 +10937,29 @@ vw
 vw
 vw
 vw
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
 "}
 (100,1,1) = {"
 FG
@@ -11055,27 +11039,27 @@ vw
 vw
 vw
 vw
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
-FG
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
+KP
 jT
 "}
