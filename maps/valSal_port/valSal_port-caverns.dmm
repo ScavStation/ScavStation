@@ -377,7 +377,6 @@
 /turf/floor/tiled/steel_grid,
 /area/valSal_port/lab)
 "uv" = (
-/obj/structure/table/desk/ebony/right,
 /obj/item/paper/scroll,
 /obj/item/paper/scroll,
 /obj/item/paper/scroll,
@@ -690,10 +689,6 @@
 /obj/structure/boulder/basalt,
 /turf/floor/rock/basalt,
 /area/valSal_port/caves/deep)
-"JF" = (
-/obj/item/chems/glass/inkwell/quilled,
-/turf/floor/path/herringbone/sandstone,
-/area/valSal_port/prison)
 "JH" = (
 /turf/floor/path/herringbone/marble,
 /area/valSal_port/prison)
@@ -835,6 +830,7 @@
 /area/valSal_port/prison)
 "Ql" = (
 /obj/structure/table/desk/ebony,
+/obj/item/chems/glass/inkwell/quilled,
 /turf/floor/path/herringbone/sandstone,
 /area/valSal_port/prison)
 "QS" = (
@@ -7441,7 +7437,7 @@ LW
 ey
 QS
 QS
-JF
+Lj
 Lj
 QS
 LW
