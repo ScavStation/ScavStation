@@ -834,7 +834,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
 "rQ" = (
-/obj/item/stack/material/bone,
+/obj/item/stack/material/bone/mapped/bone/five,
 /turf/floor/dirt,
 /area/valSal_port/outside/camp)
 "sa" = (
@@ -7054,8 +7054,8 @@ KI
 tQ
 ql
 tQ
-rQ
 jf
+rQ
 iY
 jf
 rQ
