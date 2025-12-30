@@ -39,6 +39,12 @@
 	sound_env = ROOM
 	turf_initializer = /decl/turf_initializer/spiderwebs
 
+/area/valSal_port/town/outpost
+	name = "\improper Outpost"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+
 /area/valSal_port/town/mansion
 	name = "\improper House"
 	fishing_failure_prob = 100
