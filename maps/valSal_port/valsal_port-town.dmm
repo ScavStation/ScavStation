@@ -59,8 +59,11 @@
 /area/valSal_port/town/outpost)
 "cq" = (
 /obj/structure/closet/crate/chest/ebony,
-/obj/item/stack/material/bone/mapped/bone/ten,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/food/butchery/offal/beef,
+/obj/item/food/butchery/offal/beef,
+/obj/item/food/butchery/offal/small/beef,
+/obj/item/food/butchery/offal/small/beef,
 /turf/floor/path/basalt,
 /area/valSal_port/town/slaughterhouse)
 "cu" = (
@@ -833,10 +836,6 @@
 /obj/structure/flora/bush/sunnybush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
-"rQ" = (
-/obj/item/stack/material/bone/mapped/bone/five,
-/turf/floor/dirt,
-/area/valSal_port/outside/camp)
 "sa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/abstract/landmark/start/valSal_port/shrine_attendant,
@@ -931,7 +930,6 @@
 /area/valSal_port/outside/river)
 "tX" = (
 /obj/structure/table/woodentable/walnut,
-/obj/structure/flora/bush/sunnybush,
 /turf/floor/grass/wild,
 /area/valSal_port/town/slaughterhouse)
 "ue" = (
@@ -6751,7 +6749,7 @@ MK
 jf
 jf
 jf
-rQ
+jf
 jf
 jf
 tQ
@@ -7055,10 +7053,10 @@ tQ
 ql
 tQ
 jf
-rQ
+jf
 iY
 jf
-rQ
+jf
 tQ
 tQ
 tQ

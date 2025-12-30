@@ -55,7 +55,6 @@
 /turf/floor/rock/basalt,
 /area/valSal_port/miningcamp)
 "dp" = (
-/obj/item/stack/material/bone/mapped/bone/fifteen,
 /obj/effect/decal/cleanable/filth,
 /turf/floor/path/marble,
 /area/valSal_port/prison)
