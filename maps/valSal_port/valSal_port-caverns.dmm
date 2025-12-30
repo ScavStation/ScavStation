@@ -689,6 +689,11 @@
 /obj/structure/boulder/basalt,
 /turf/floor/rock/basalt,
 /area/valSal_port/caves/deep)
+"JF" = (
+/obj/abstract/map_data/valSal_port,
+/obj/abstract/level_data_spawner/valSal_port_caverns,
+/turf/wall/natural/basalt/valSal_port,
+/area/valSal_port/caves/deep)
 "JH" = (
 /turf/floor/path/herringbone/marble,
 /area/valSal_port/prison)
@@ -11217,5 +11222,5 @@ SU
 SU
 SU
 SU
-SU
+JF
 "}
