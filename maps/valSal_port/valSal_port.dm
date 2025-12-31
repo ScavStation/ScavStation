@@ -39,14 +39,12 @@
 	#include "valSal_port_testing.dm"
 	#include "valSal_port_turfs.dm"
 
-	// undertown are below town and must be compiled in that order for multiz.
-
-	//.#include "valSal_port-undertown.dmm"
+	// caverns are below enclave and must be compiled in that order for multiz.
+	#include "valSal_port-caverns.dmm"
+	#include "valsal_port-enclave.dmm"
 
 	#include "valsal_port-town.dmm"
 
-	#include "valSal_port-caverns.dmm"
-	#include "valsal_port-enclave.dmm"
 
 
 	#define USING_MAP_DATUM /datum/map/valSal_port
