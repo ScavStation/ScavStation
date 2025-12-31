@@ -7,10 +7,6 @@
 /obj/structure/flora/bush/leafybush,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_cliff)
-"aj" = (
-/obj/abstract/landmark/start/valSal_port/scout,
-/turf/floor/grass,
-/area/valSal_port/outside/enclave)
 "at" = (
 /mob/living/simple_animal/grub_bear,
 /turf/floor/grass/wild,
@@ -42,6 +38,11 @@
 /obj/structure/flora/bush/leafybush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
+"cs" = (
+/obj/structure/flora/tree/hardwood/yew,
+/obj/abstract/landmark/start/valSal_port/miner,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "cE" = (
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass/wild,
@@ -177,11 +178,6 @@
 /obj/abstract/landmark/start/valSal_port/matriarch,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
-"iS" = (
-/obj/structure/flora/tree/hardwood/mahogany,
-/obj/abstract/landmark/start/valSal_port/reedtender,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outdoors_enclave)
 "iT" = (
 /obj/structure/flora/bush/ywflowers,
 /turf/floor/grass,
@@ -190,6 +186,11 @@
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_south)
+"jS" = (
+/mob/living/simple_animal/fowl/chicken,
+/obj/abstract/landmark/start/valSal_port/patriarch,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "jT" = (
 /obj/abstract/level_data_spawner/valSal_port_enclave,
 /obj/abstract/map_data/valSal_port,
@@ -249,6 +250,11 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_south)
+"mP" = (
+/obj/structure/flora/bush/genericbush,
+/obj/abstract/landmark/start/valSal_port/miner,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "mT" = (
 /turf/floor/grass,
 /area/valSal_port/caves)
@@ -271,9 +277,9 @@
 /turf/floor/mud/water/deep,
 /area/valSal_port/caves/river)
 "nR" = (
-/obj/structure/flora/bush/genericbush,
-/obj/abstract/landmark/start/valSal_port/miner,
-/turf/floor/grass,
+/obj/structure/flora/tree/hardwood/mahogany,
+/obj/abstract/landmark/start/valSal_port/reedtender,
+/turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
 "oi" = (
 /turf/floor/rock/basalt,
@@ -315,6 +321,10 @@
 /obj/structure/flora/bush/fernybush,
 /obj/structure/flora/bush/ywflowers,
 /turf/floor/grass,
+/area/valSal_port/outside/outdoors_south)
+"qu" = (
+/obj/abstract/landmark/latejoin,
+/turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_south)
 "qJ" = (
 /obj/structure/flora/tree/hardwood/walnut,
@@ -412,11 +422,6 @@
 /mob/living/simple_animal/passive/fox/silver,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
-"vm" = (
-/mob/living/simple_animal/fowl/chicken,
-/obj/abstract/landmark/start/valSal_port/patriarch,
-/turf/floor/grass,
-/area/valSal_port/outside/outdoors_enclave)
 "vn" = (
 /mob/living/simple_animal/chorp,
 /turf/floor/grass/wild,
@@ -482,14 +487,17 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
+"zP" = (
+/obj/abstract/landmark/start/valSal_port/hunter,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "zV" = (
 /obj/structure/flora/plant/random_mushroom,
 /turf/floor/rock/basalt,
 /area/valSal_port/caves)
 "zW" = (
-/obj/structure/flora/bush/genericbush,
-/obj/abstract/landmark/start/valSal_port/miner,
-/turf/floor/grass/wild,
+/obj/abstract/landmark/start/valSal_port/reedtender,
+/turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "Aw" = (
 /obj/structure/flora/bush/fernybush,
@@ -534,7 +542,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
 "CH" = (
-/obj/structure/flora/tree/hardwood/yew,
+/obj/structure/flora/bush/genericbush,
 /obj/abstract/landmark/start/valSal_port/miner,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
@@ -592,8 +600,8 @@
 /obj/structure/flora/bush/fernybush,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
-"EI" = (
-/obj/abstract/landmark/start/valSal_port/reedtender,
+"EM" = (
+/obj/abstract/landmark/start/valSal_port/hunter,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "EP" = (
@@ -651,10 +659,6 @@
 "Gx" = (
 /turf/floor/mud/water/deep,
 /area/valSal_port/caves/entrance)
-"GM" = (
-/obj/abstract/landmark/latejoin,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outdoors_south)
 "GN" = (
 /mob/living/simple_animal/passive/wolf,
 /turf/floor/rock/basalt,
@@ -669,6 +673,10 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_cliff)
+"Hj" = (
+/obj/abstract/landmark/start/valSal_port/scout,
+/turf/floor/grass,
+/area/valSal_port/outside/enclave)
 "Hz" = (
 /mob/living/simple_animal/frog,
 /turf/floor/mud,
@@ -950,7 +958,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "TL" = (
-/obj/abstract/landmark/start/valSal_port/hunter,
+/obj/abstract/landmark/start/valSal_port/patriarch,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "TS" = (
@@ -986,14 +994,6 @@
 "WG" = (
 /mob/living/simple_animal/lizard,
 /turf/floor/grass,
-/area/valSal_port/outside/outdoors_enclave)
-"WJ" = (
-/obj/abstract/landmark/start/valSal_port/patriarch,
-/turf/floor/grass,
-/area/valSal_port/outside/outdoors_enclave)
-"WU" = (
-/obj/abstract/landmark/start/valSal_port/hunter,
-/turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
 "Xa" = (
 /obj/structure/flora/bush/ywflowers,
@@ -4952,11 +4952,11 @@ OH
 OH
 iB
 iB
-iB
+OH
 Op
 OH
 OH
-iB
+OH
 iB
 iB
 iB
@@ -9605,7 +9605,7 @@ yf
 qp
 yX
 yf
-GM
+qu
 "}
 (85,1,1) = {"
 SW
@@ -9773,7 +9773,7 @@ FJ
 FJ
 FJ
 FJ
-aj
+Hj
 iB
 iB
 iB
@@ -9873,7 +9873,7 @@ FJ
 FJ
 FJ
 KW
-aj
+Hj
 iB
 iB
 dS
@@ -10077,11 +10077,11 @@ OH
 iB
 cE
 iB
-iS
+nR
 iB
 iN
 iB
-zW
+mP
 iB
 OH
 OH
@@ -10179,11 +10179,11 @@ Sp
 OH
 OH
 OH
-EI
-vm
+zW
+jS
 TE
-vm
-nR
+jS
+CH
 kK
 OH
 OH
@@ -10281,11 +10281,11 @@ OH
 OH
 Ns
 OH
-EI
-WJ
+zW
+TL
 Tx
-WJ
-CH
+TL
+cs
 OH
 OH
 lA
@@ -10382,13 +10382,13 @@ fl
 cR
 iB
 iB
-WU
+zP
 iB
 iB
 iB
 OH
 Lg
-TL
+EM
 OH
 lA
 jU
@@ -10487,7 +10487,7 @@ iB
 iB
 iB
 iB
-WU
+zP
 Yz
 iB
 iB
