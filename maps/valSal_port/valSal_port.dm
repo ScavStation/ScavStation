@@ -43,10 +43,10 @@
 
 	//.#include "valSal_port-undertown.dmm"
 
-	#include "valsal_port-town.dmm"
+	#include "valSal_port-town.dmm"
 
-	#include "valsal_port-caverns.dmm"
-	#include "valsal_port-enclave.dmm"
+	#include "valSal_port-caverns.dmm"
+	#include "valSal_port-enclave.dmm"
 
 
 	#define USING_MAP_DATUM /datum/map/valSal_port
