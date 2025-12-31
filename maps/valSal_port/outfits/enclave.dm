@@ -1,7 +1,7 @@
 /decl/outfit/job/valSal_port/hunter
 	name  = "Yinglet Hunter"
 	hands = list(
-		/obj/item/bladed/polearm/spear,
+		/obj/item/bladed/polearm/spear/improvised,
 		/obj/item/knife/primitive
 	)
 	shoes = /obj/item/clothing/shoes/sandal/yinglet
@@ -62,7 +62,7 @@
 
 /decl/outfit/job/valSal_port/scout
 	name  = "Yinglet Scout"
-	hands = /obj/item/bladed/polearm/spear
+	hands = /obj/item/bladed/polearm/spear/improvised
 	shoes = /obj/item/clothing/shoes/sandal/yinglet
 	uniform = /obj/item/clothing/pants/loincloth/scout
 	head = /obj/item/clothing/head/yinglet/scout
