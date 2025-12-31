@@ -17,7 +17,7 @@
 	#include "jobs/_jobs.dm"
 	#include "jobs/shrine.dm"
 	#include "jobs/visitors.dm"
-	#include "jobs/wilderness.dm"
+	#include "jobs/enclave.dm"
 
 
 	#include "levels/_levels.dm"
@@ -29,7 +29,7 @@
 	#include "outfits/inn.dm"
 	#include "outfits/shrine.dm"
 	#include "outfits/visitors.dm"
-	#include "outfits/wilderness.dm"
+	#include "outfits/enclave.dm"
 
 	#include "valSal_port_currency.dm"
 	#include "valSal_port_events.dm"
@@ -45,7 +45,7 @@
 
 	#include "valsal_port-town.dmm"
 
-	#include "valsal_port-caverns.dmm"
+	#include "valSal_port-caverns.dmm"
 	#include "valsal_port-enclave.dmm"
 
 

@@ -38,6 +38,11 @@
 /obj/structure/flora/bush/leafybush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
+"cs" = (
+/obj/structure/flora/tree/hardwood/yew,
+/obj/abstract/landmark/start/valSal_port/miner,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "cE" = (
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass/wild,
@@ -170,6 +175,7 @@
 /obj/vehicle/train/cargo/engine{
 	dir = 8
 	},
+/obj/abstract/landmark/start/valSal_port/matriarch,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
 "iT" = (
@@ -180,6 +186,11 @@
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_south)
+"jS" = (
+/mob/living/simple_animal/fowl/chicken,
+/obj/abstract/landmark/start/valSal_port/patriarch,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "jT" = (
 /obj/abstract/level_data_spawner/valSal_port_enclave,
 /obj/abstract/map_data/valSal_port,
@@ -239,6 +250,11 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_south)
+"mP" = (
+/obj/structure/flora/bush/genericbush,
+/obj/abstract/landmark/start/valSal_port/miner,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "mT" = (
 /turf/floor/grass,
 /area/valSal_port/caves)
@@ -261,8 +277,9 @@
 /turf/floor/mud/water/deep,
 /area/valSal_port/caves/river)
 "nR" = (
-/obj/abstract/landmark/start/valSal_port/miner,
-/turf/floor/grass,
+/obj/structure/flora/tree/hardwood/mahogany,
+/obj/abstract/landmark/start/valSal_port/reedtender,
+/turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
 "oi" = (
 /turf/floor/rock/basalt,
@@ -304,6 +321,10 @@
 /obj/structure/flora/bush/fernybush,
 /obj/structure/flora/bush/ywflowers,
 /turf/floor/grass,
+/area/valSal_port/outside/outdoors_south)
+"qu" = (
+/obj/abstract/landmark/latejoin,
+/turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_south)
 "qJ" = (
 /obj/structure/flora/tree/hardwood/walnut,
@@ -466,12 +487,16 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
+"zP" = (
+/obj/abstract/landmark/start/valSal_port/hunter,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "zV" = (
 /obj/structure/flora/plant/random_mushroom,
 /turf/floor/rock/basalt,
 /area/valSal_port/caves)
 "zW" = (
-/obj/abstract/landmark/start/valSal_port/forester,
+/obj/abstract/landmark/start/valSal_port/reedtender,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "Aw" = (
@@ -517,7 +542,8 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
 "CH" = (
-/obj/abstract/landmark/start/valSal_port/herbalist,
+/obj/structure/flora/bush/genericbush,
+/obj/abstract/landmark/start/valSal_port/miner,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "CM" = (
@@ -574,6 +600,10 @@
 /obj/structure/flora/bush/fernybush,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
+"EM" = (
+/obj/abstract/landmark/start/valSal_port/hunter,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "EP" = (
 /mob/living/simple_animal/grub_bear,
 /turf/floor/grass/wild,
@@ -619,7 +649,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_south)
 "Gh" = (
-/obj/abstract/landmark/start/valSal_port/forester,
+/obj/abstract/landmark/start/valSal_port/scout,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
 "Gi" = (
@@ -643,6 +673,10 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_cliff)
+"Hj" = (
+/obj/abstract/landmark/start/valSal_port/scout,
+/turf/floor/grass,
+/area/valSal_port/outside/enclave)
 "Hz" = (
 /mob/living/simple_animal/frog,
 /turf/floor/mud,
@@ -924,8 +958,8 @@
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "TL" = (
-/obj/abstract/landmark/start/valSal_port/miner,
-/turf/floor/grass/wild,
+/obj/abstract/landmark/start/valSal_port/patriarch,
+/turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "TS" = (
 /obj/structure/flora/bush/fernybush,
@@ -4918,11 +4952,11 @@ OH
 OH
 iB
 iB
-iB
+OH
 Op
 OH
 OH
-iB
+OH
 iB
 iB
 iB
@@ -9335,7 +9369,7 @@ Fa
 Mq
 FJ
 FJ
-CH
+OH
 iB
 iB
 iB
@@ -9437,7 +9471,7 @@ FJ
 FJ
 FJ
 FJ
-CH
+OH
 iB
 iB
 iB
@@ -9571,10 +9605,10 @@ yf
 qp
 yX
 yf
-yf
+qu
 "}
 (85,1,1) = {"
-iB
+SW
 iB
 Es
 iB
@@ -9641,7 +9675,7 @@ FJ
 Mq
 iB
 iB
-nR
+OH
 OH
 OH
 pj
@@ -9739,11 +9773,11 @@ FJ
 FJ
 FJ
 FJ
-FJ
+Hj
 iB
 iB
 iB
-TL
+iB
 iB
 kK
 OH
@@ -9839,11 +9873,11 @@ FJ
 FJ
 FJ
 KW
-FJ
+Hj
 iB
 iB
 dS
-iB
+Gh
 iB
 cE
 iB
@@ -9947,7 +9981,7 @@ iB
 iB
 bt
 iB
-Gh
+iB
 iB
 OH
 OH
@@ -10043,13 +10077,13 @@ OH
 iB
 cE
 iB
-Xz
+nR
 iB
 iN
 iB
-cE
+mP
 iB
-zW
+OH
 OH
 OH
 lA
@@ -10145,11 +10179,11 @@ Sp
 OH
 OH
 OH
-OH
-Lg
+zW
+jS
 TE
-Lg
-kK
+jS
+CH
 kK
 OH
 OH
@@ -10247,11 +10281,11 @@ OH
 OH
 Ns
 OH
-OH
-OH
+zW
+TL
 Tx
-OH
-KS
+TL
+cs
 OH
 OH
 lA
@@ -10335,7 +10369,7 @@ OH
 OH
 OH
 OH
-SW
+iB
 iB
 ri
 iB
@@ -10348,13 +10382,13 @@ fl
 cR
 iB
 iB
-iB
+zP
 iB
 iB
 iB
 OH
 Lg
-OH
+EM
 OH
 lA
 jU
@@ -10453,7 +10487,7 @@ iB
 iB
 iB
 iB
-iB
+zP
 Yz
 iB
 iB
