@@ -9,12 +9,12 @@
 		/datum/job/valSal_port/enclave/scout,
 		/datum/job/valSal_port/enclave/hunter,
 		/datum/job/valSal_port/enclave/idiot,
+		/datum/job/valSal_port/tradehouse/surveyor,
+		/datum/job/valSal_port/tradehouse/generalrecruit,
 		/datum/job/valSal_port/visitor/traveller,
 		/datum/job/valSal_port/visitor/traveller/learned,
-		/datum/job/valSal_port/visitor/beggar_knight,
-		/datum/job/valSal_port/shrine/keeper,
-		/datum/job/valSal_port/shrine/attendant,
-		/datum/job/valSal_port/visitor/traveller/cleric
+		/datum/job/valSal_port/visitor/warrior,
+		/datum/job/valSal_port/visitor/traveller/merchant
 	)
 
 	default_job_type = /datum/job/valSal_port/visitor/traveller
@@ -31,9 +31,9 @@
 
 	species_to_job_blacklist = list(
 		/decl/species/kobaloi = list(
-			/datum/job/valSal_port/visitor/beggar_knight,
-			/datum/job/valSal_port/shrine/keeper,
-			/datum/job/valSal_port/visitor/traveller/cleric
+			/datum/job/valSal_port/visitor/warrior,
+			/datum/job/valSal_port/tradehouse/surveyor,
+			/datum/job/valSal_port/visitor/traveller/merchant
 		)
 	)
 

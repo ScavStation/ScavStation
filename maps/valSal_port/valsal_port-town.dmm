@@ -41,6 +41,7 @@
 "ba" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
+/obj/abstract/landmark/start/valSal_port/warrior,
 /turf/floor/wood/broken,
 /area/valSal_port/town/house)
 "bc" = (
@@ -164,11 +165,6 @@
 /mob/living/simple_animal/passive/ivenmoth,
 /turf/floor/grass,
 /area/valSal_port/outside/inner_town)
-"dN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/start/valSal_port/shrine_keeper,
-/turf/floor/holofloor/tiled/stone,
-/area/valSal_port/town/shrine)
 "dV" = (
 /obj/structure/railing/mapped/wooden/maple{
 	dir = 4
@@ -189,6 +185,10 @@
 /area/valSal_port/outside/river)
 "eo" = (
 /obj/structure/flora/bush/brflowers,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/westside)
+"ep" = (
+/obj/abstract/landmark/start/valSal_port/merchant,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
 "eu" = (
@@ -544,11 +544,11 @@
 /area/valSal_port/town/general_store)
 "jZ" = (
 /obj/structure/bed/bedroll,
-/obj/abstract/landmark/start/valSal_port/traveller,
 /obj/structure/wall_sconce/lantern{
 	dir = 1;
 	pixel_y = 22
 	},
+/obj/abstract/landmark/start/valSal_port/generalrecruit,
 /turf/floor/barren,
 /area/valSal_port/town/outpost)
 "kn" = (
@@ -886,6 +886,10 @@
 /mob/living/simple_animal/grub_bear,
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
+"qL" = (
+/obj/abstract/landmark/start/valSal_port/traveller,
+/turf/floor/barren,
+/area/valSal_port/outside/westside)
 "qT" = (
 /obj/structure/flora/tree/hardwood/mahogany,
 /turf/floor/grass/wild,
@@ -947,11 +951,6 @@
 /obj/structure/flora/bush/sunnybush,
 /turf/floor/grass,
 /area/valSal_port/outside/westside)
-"sa" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/abstract/landmark/start/valSal_port/shrine_attendant,
-/turf/floor/holofloor/tiled/stone,
-/area/valSal_port/town/shrine)
 "sh" = (
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
@@ -2007,9 +2006,11 @@
 /turf/floor/wood,
 /area/valSal_port/outside/inner_town)
 "Mw" = (
-/obj/abstract/landmark/start/valSal_port/cleric,
-/turf/floor/holofloor/tiled/stone,
-/area/valSal_port/town/shrine)
+/obj/structure/flora/bush/fernybush,
+/obj/structure/flora/bush/genericbush,
+/obj/abstract/landmark/start/valSal_port/traveller/learned,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/westside)
 "ME" = (
 /obj/structure/door/basalt,
 /turf/floor/holofloor/tiled/stone,
@@ -2642,11 +2643,11 @@
 /area/valSal_port/town/general_store)
 "XR" = (
 /obj/structure/bed/bedroll,
-/obj/abstract/landmark/start/valSal_port/traveller/learned,
 /obj/structure/wall_sconce/lantern{
 	dir = 1;
 	pixel_y = 22
 	},
+/obj/abstract/landmark/start/valSal_port/surveyor,
 /turf/floor/barren,
 /area/valSal_port/town/outpost)
 "XY" = (
@@ -6441,7 +6442,7 @@ EN
 EN
 Vu
 ZD
-Vu
+qL
 Vu
 Vu
 Vu
@@ -6541,7 +6542,7 @@ tQ
 (38,1,1) = {"
 EN
 Pj
-EN
+ep
 fe
 Pj
 Vu
@@ -6645,7 +6646,7 @@ Vu
 Vu
 Vu
 Ay
-Mk
+Mw
 EN
 Vu
 Vu
@@ -9026,11 +9027,11 @@ sh
 sh
 kA
 mW
-dN
+iM
 qo
 eV
 qo
-Mw
+eV
 eW
 eV
 eV
@@ -9230,7 +9231,7 @@ ND
 sh
 kA
 El
-sa
+iM
 qo
 Bg
 qo

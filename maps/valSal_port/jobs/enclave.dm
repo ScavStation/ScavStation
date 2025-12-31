@@ -10,7 +10,7 @@
 /datum/job/valSal_port/enclave/matriarch
 	title                   = "Matriarch"
 	description             = "You are the Matriarch, and it is your duty to watch over and nourish the Enclave. It's well-being is your responsibility."
-	supervisors             = "The Patriarchs and The Elders."
+	supervisors             = "The Patriarchs and The Elders"
 	required_gender         = FEMALE
 	spawn_positions         = 1
 	total_positions         = 1
@@ -31,7 +31,7 @@
 	title                   = "Patriarch"
 	alt_titles              = list("Patriarch of Farming", "Patriarch of Healing", "Patriarch of Construction", "Patriarch of Hunting", "Patriarch of Scavenging", "Patriarch of Scouting")
 	description             = "You are a Patriarch, a particularly talented individual who has been appointed by the Matriarch and other Patriarchs due to your skill. You set an example for the enclave."
-	supervisors             = "The Matriarch, your fellow Patriarchs and The Elders."
+	supervisors             = "The Matriarch, your fellow Patriarchs and The Elders"
 	required_gender         = MALE
 	spawn_positions         = 4
 	total_positions         = 4
@@ -52,7 +52,7 @@
 	title                   = "Daughter"
 	alt_titles              = list("Life-Giver", "Spear-Dancer" = /decl/outfit/job/valSal_port/dancer, "Culture-Keeper")
 	description             = "You are a daughter, a bearer of life for the enclave, and a keeper of your people's history. A main goal for you would to be to study and write, and you enjoy certain privileges over the rest of the enclave."
-	supervisors             = "The Matriarch, The Patriarchs and The Elders."
+	supervisors             = "The Matriarch, The Patriarchs and The Elders"
 	required_gender         = FEMALE
 	spawn_positions         = 3
 	total_positions         = 3
@@ -114,7 +114,7 @@
 	title                   = "Hunter"
 	alt_titles              = list("Tracker", "Warrior", "Stabber", "Fisherying")
 	description             = "You are a hunter, bred to track down and slaughter prey for your enclave to eat. Your duties are supplying food and skinning any animal you hunt."
-	supervisors             = "The Patriarchs, The Matriarch, and your natural impulses."
+	supervisors             = "The Patriarchs, The Matriarch, and your natural impulses"
 	spawn_positions         = 3
 	total_positions         = 3
 	outfit_type             = /decl/outfit/job/valSal_port/hunter
@@ -134,7 +134,7 @@
 	title                   = "Scout"
 	alt_titles              = list("Surveyor", "Searcher", "Spy")
 	description             = "You are a scout, and you're best at scoping out locations and finding things. It's your job to see what's ahead and to report back."
-	supervisors             = "The Patriarchs and The Matriarch."
+	supervisors             = "The Patriarchs and The Matriarch"
 	spawn_positions         = 3
 	total_positions         = 3
 	outfit_type             = /decl/outfit/job/valSal_port/scout
@@ -154,7 +154,7 @@
 	title                   = "Idiot"
 	alt_titles              = list("Problem", "Scav", "Dingus")
 	description             = "You are simply the worst."
-	supervisors             = "You answer to your primitive thoughts."
+	supervisors             = "You answer to your primitive thoughts"
 	spawn_positions         = 1
 	total_positions         = 1
 	outfit_type             = /decl/outfit/job/valSal_port/idiot

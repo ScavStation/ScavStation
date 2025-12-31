@@ -355,10 +355,6 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_cliff)
-"ri" = (
-/obj/abstract/landmark/start/valSal_port/beggar_knight,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outdoors_enclave)
 "ru" = (
 /obj/structure/flora/bush/fullgrass,
 /turf/floor/grass,
@@ -792,10 +788,6 @@
 /mob/living/simple_animal/fowl/duck,
 /turf/floor/mud,
 /area/valSal_port/outside/enclave/river)
-"Mu" = (
-/obj/abstract/landmark/start/valSal_port/traveller,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outdoors_enclave)
 "Nc" = (
 /turf/floor/rock/basalt,
 /area/valSal_port/caves)
@@ -10371,10 +10363,10 @@ OH
 OH
 iB
 iB
-ri
 iB
 iB
-Mu
+iB
+iB
 iB
 iB
 fl
