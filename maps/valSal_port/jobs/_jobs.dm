@@ -34,6 +34,36 @@
 			/datum/job/valSal_port/visitor/warrior,
 			/datum/job/valSal_port/tradehouse/surveyor,
 			/datum/job/valSal_port/visitor/traveller/merchant
+		),
+		/decl/species/human = list(
+			/datum/job/valSal_port/enclave/matriarch,
+			/datum/job/valSal_port/enclave/patriarch,
+			/datum/job/valSal_port/enclave/daughter,
+			/datum/job/valSal_port/enclave/digger,
+			/datum/job/valSal_port/enclave/reedtender,
+			/datum/job/valSal_port/enclave/scout,
+			/datum/job/valSal_port/enclave/hunter,
+			/datum/job/valSal_port/enclave/idiot
+		),
+		/decl/species/baxxid = list(
+			/datum/job/valSal_port/enclave/matriarch,
+			/datum/job/valSal_port/enclave/patriarch,
+			/datum/job/valSal_port/enclave/daughter,
+			/datum/job/valSal_port/enclave/digger,
+			/datum/job/valSal_port/enclave/reedtender,
+			/datum/job/valSal_port/enclave/scout,
+			/datum/job/valSal_port/enclave/hunter,
+			/datum/job/valSal_port/enclave/idiot
+		),
+		/decl/species/indrel = list(
+			/datum/job/valSal_port/enclave/matriarch,
+			/datum/job/valSal_port/enclave/patriarch,
+			/datum/job/valSal_port/enclave/daughter,
+			/datum/job/valSal_port/enclave/digger,
+			/datum/job/valSal_port/enclave/reedtender,
+			/datum/job/valSal_port/enclave/scout,
+			/datum/job/valSal_port/enclave/hunter,
+			/datum/job/valSal_port/enclave/idiot
 		)
 	)
 
