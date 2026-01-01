@@ -76,7 +76,7 @@
 	return ..()
 
 /datum/random_map/noise/forage/valSal_port/woods
-	tree_weight = 7
+	tree_weight = 3
 	trees = list(
 		/obj/structure/flora/tree/hardwood/walnut = 8,
 		/obj/structure/flora/tree/hardwood/yew = 8,

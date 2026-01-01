@@ -12,6 +12,7 @@
 	system_name   = "Southlands"
 	default_spawn = /decl/spawnpoint/arrivals
 
+	welcome_sound = 'sound/effects/Card6.ogg'
 	lobby_screens = list('maps/valSal_port/valSal_port_lobby.png')
 	allowed_latejoin_spawns = list(
 		/decl/spawnpoint/arrivals
@@ -31,7 +32,7 @@
 	credit_sound = list(
 		'sound/music/Miris-Magic-Dance.ogg'
 	)
-	game_year = -666 // in 2025, the year should be around 1359, the setting of the Out of Placers Web Comic by ValSalian
+	game_year = -667 // in 2026, the year should be around 1359, the setting of the Out of Placers Web Comic by ValSalian
 
 	char_preview_bgstate_options = list(
 		"000",

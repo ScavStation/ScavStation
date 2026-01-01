@@ -1,6 +1,6 @@
 /mob/living/simple_animal/grub_bear
-	name = "grub_bear"
-	desc = "Known for their milk, just don't tip them over."
+	name = "Grub Bear"
+	desc = "Why are they EVERYWHERE!?."
 	icon = 'mods/valsalia/icons/mobs/simple_animal/grub_bear.dmi'
 	speak_emote  = list("moos","moos hauntingly")
 	ai = /datum/mob_controller/grub_bear

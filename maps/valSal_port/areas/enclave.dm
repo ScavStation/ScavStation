@@ -1,6 +1,15 @@
 /area/valSal_port/outside/enclave
 	name = "Zhe Enclave"
 
+/area/valSal_port/outside/outdoors_enclave
+	name = "Outdoors"
+
+/area/valSal_port/outside/outdoors_south
+	name = "Outdoors South"
+
+/area/valSal_port/outside/outdoors_cliff
+	name = "Outdoors Cliff"
+
 // Woodland areas.
 /area/valSal_port/outside/enclave/river
 	name = "River"

@@ -37,6 +37,19 @@
 	load_offset_x = 0
 	load_offset_y = 4
 
+/obj/vehicle/train/cargo/trolley_wood
+	name = "wooden cargo train trolley"
+	icon = 'icons/obj/vehicles.dmi'
+	icon_state = "cargo_trailer_wood"
+	anchored = FALSE
+	passenger_allowed = 0
+	locked = 0
+	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 8)
+	//material                  = /decl/material/solid/organic/wood
+	color                     = /decl/material/solid/organic/wood::color
+	load_item_visible = 1
+	load_offset_x = 0
+	load_offset_y = 4
 
 //-------------------------------------------
 // Standard procs

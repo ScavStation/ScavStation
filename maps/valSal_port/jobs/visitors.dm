@@ -9,6 +9,7 @@
 
 /datum/job/valSal_port/visitor/traveller
 	title                   = "Traveller"
+	alt_titles              = list("Nomad", "Pilgrim", "Wanderer", "Exile","Vagabond", "Scoundrel", "Wayfarer", "Refugee", "Drifter", "Wretch")
 	supervisors             = "your conscience"
 	description             = "You have travelled to this area from elsewhere. You may be a vagabond, a wastrel, a nomad, or just passing through on your way to somewhere else. How long you're staying and where you're headed is up to you entirely."
 	spawn_positions         = -1
@@ -20,9 +21,9 @@
 	name                    = "Traveller"
 
 /datum/job/valSal_port/visitor/traveller/learned
-	title                   = "Itinerant Scholar"
+	title                   = "Scholar"
 	// todo: outfits for alt-titles?
-	alt_titles              = list("Itinerant Monk", "Travelling Doctor", "Dilettante")
+	alt_titles              = list("Monk", "Travelling Doctor" = /decl/outfit/job/valSal_port/traveller/doctor, "Dilettante", "Savant", "Philosopher", "Researcher", "Antiquarian")
 	supervisors             = "your conscience"
 	description             = "You are a skilled professional who has travelled to this area from elsewhere. You may be a doctor, a scholar, a monk, or some other highly-educated individual with rare skills. Whatever your reason for coming here, you are likely one of the only individuals in the area to possess your unique skillset."
 	spawn_positions         = 2
@@ -39,12 +40,13 @@
 	)
 
 /obj/abstract/landmark/start/valSal_port/traveller/learned
-	name                    = "Itinerant Scholar"
+	name                    = "Scholar"
 
-/datum/job/valSal_port/visitor/beggar_knight
-	title                   = "Beggar Knight"
+/datum/job/valSal_port/visitor/warrior
+	title                   = "Warrior"
+	alt_titles              = list("Mercenary", "Sellsword", "Fighter", "Brigand", "Myrmidon", "Bandit", "Soldier")
 	supervisors             = "your vows"
-	description             = "You are a wandering swordmaster sworn to a vow of poverty, with nothing to your name but the armour on your back and the blade at your hip. Beggar knights are tolerated due to their martial prowess, and are usually paid with food or new equipment as they are avowed against carrying coin."
+	description             = "You are a wanderer talented in the arts of combat. You make for a handy fighter, but there's not much else you really know apart from that."
 	spawn_positions         = 2
 	total_positions         = 2
 	outfit_type             = /decl/outfit/job/valSal_port/beggar_knight
@@ -65,13 +67,14 @@
 		SKILL_FINANCE       = SKILL_NONE
 	)
 
-/obj/abstract/landmark/start/valSal_port/beggar_knight
-	name                    = "Beggar Knight"
+/obj/abstract/landmark/start/valSal_port/warrior
+	name                    = "Warrior"
 
 
-/datum/job/valSal_port/visitor/traveller/cleric
-	title                   = "Travelling Cleric"
-	supervisors             = "your vows, and your faith"
+/datum/job/valSal_port/visitor/traveller/merchant
+	title                   = "Travelling Merchant"
+	alt_titles              = list("Peddler", "Trader", "Vendor", "Salesperson")
+	supervisors             = "your vows, and and the call of coin"
 	description             = "You are an ordained person of faith, travelling the lands on the business of your order, to preach, or simply to experience new people and cultures. You are battle-trained, but are also a healer."
 	spawn_positions         = 2
 	total_positions         = 2
@@ -80,17 +83,16 @@
 		SKILL_COMBAT        = SKILL_ADEPT,
 		SKILL_WEAPONS       = SKILL_ADEPT,
 		SKILL_ATHLETICS     = SKILL_ADEPT,
-		SKILL_MEDICAL       = SKILL_ADEPT,
-		SKILL_ANATOMY       = SKILL_ADEPT
+		SKILL_FINANCE      = SKILL_ADEPT,
+		SKILL_LITERACY      = SKILL_ADEPT
 	)
 	max_skill               = list(
 		SKILL_COMBAT        = SKILL_MAX,
 		SKILL_WEAPONS       = SKILL_MAX,
-		SKILL_MEDICAL       = SKILL_MAX,
-		SKILL_ANATOMY       = SKILL_MAX
+		SKILL_FINANCE       = SKILL_MAX,
+		SKILL_LITERACY       = SKILL_MAX
 	)
 	skill_points            = 22
 
-/obj/abstract/landmark/start/valSal_port/cleric
-	name                    = "Travelling Cleric"
-
+/obj/abstract/landmark/start/valSal_port/merchant
+	name                    = "Travelling Merchant"

@@ -18,5 +18,5 @@
 		SSweather.setup_weather_system(valsalport, banned_states = banned_weather)
 
 /decl/spawnpoint/arrivals
-	name = "Queens' Road"
+	name = "Frontier Enclave"
 	spawn_announcement = null

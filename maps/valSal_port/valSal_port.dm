@@ -15,9 +15,9 @@
 	#include "areas/town.dm"
 
 	#include "jobs/_jobs.dm"
-	#include "jobs/shrine.dm"
+	#include "jobs/tradehouse.dm"
 	#include "jobs/visitors.dm"
-	#include "jobs/wilderness.dm"
+	#include "jobs/enclave.dm"
 
 
 	#include "levels/_levels.dm"
@@ -27,9 +27,9 @@
 	#include "outfits/_outfits.dm"
 	#include "outfits/caves.dm"
 	#include "outfits/inn.dm"
-	#include "outfits/shrine.dm"
+	#include "outfits/tradehouse.dm"
 	#include "outfits/visitors.dm"
-	#include "outfits/wilderness.dm"
+	#include "outfits/enclave.dm"
 
 	#include "valSal_port_currency.dm"
 	#include "valSal_port_events.dm"
@@ -39,12 +39,13 @@
 	#include "valSal_port_testing.dm"
 	#include "valSal_port_turfs.dm"
 
-	// undertown are below town and must be compiled in that order for multiz.
-
-	//.#include "valSal_port-undertown.dmm"
+	// caverns are below enclave and must be compiled in that order for multiz.
+	#include "valSal_port-caverns.dmm"
+	#include "valsal_port-enclave.dmm"
 
 	#include "valsal_port-town.dmm"
-	#include "valsal_port-enclave.dmm"
+
+
 
 	#define USING_MAP_DATUM /datum/map/valSal_port
 
