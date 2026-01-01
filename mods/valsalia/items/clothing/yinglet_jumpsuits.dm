@@ -7,6 +7,13 @@
 	paint_color = COLOR_BEIGE
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
+/obj/item/clothing/jumpsuit/yinglet/yingjester
+	name = "small jester suit"
+	desc = "A jester suit for a funny little guy."
+	icon = 'mods/valsalia/icons/clothing/under/yingjester.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	_yinglet_icon = null
+
 /obj/item/clothing/jumpsuit/yinglet/hazard
 	name = "small hazard jumpsuit"
 	icon = 'mods/valsalia/icons/clothing/under/hazardjumpsuit_yinglet.dmi'

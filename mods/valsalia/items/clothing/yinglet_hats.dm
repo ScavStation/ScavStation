@@ -68,6 +68,39 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	_yinglet_icon = null
 
+/obj/item/clothing/head/yinglet/jesterhood
+	name = "small jester hood"
+	desc = "A hood that jingle, jangle, jingles."
+	icon = 'mods/valsalia/icons/clothing/head/yingjesterhood.dmi'
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	flags_inv = BLOCK_HEAD_HAIR
+	_yinglet_icon = null
+	var/tmp/dingaling_sound = list(
+		'mods/valsalia/sounds/dingaling1.ogg',
+		'mods/valsalia/sounds/dingaling2.ogg',
+		'mods/valsalia/sounds/dingaling3.ogg',
+		'mods/valsalia/sounds/dingaling4.ogg'
+	)
+	var/tmp/dingaling_volume = 80
+	var/tmp/dingaling_chance = 30
+	var/tmp/dingaling_vary = FALSE
+
+/obj/item/clothing/head/yinglet/jesterhood/Initialize()
+	. = ..()
+	if(dingaling_sound && dingaling_chance)
+		events_repository.register(/decl/observ/moved, src, src, .proc/dingaling)
+
+/obj/item/clothing/head/yinglet/jesterhood/Destroy()
+	events_repository.unregister(/decl/observ/moved, src, src)
+	return ..()
+
+/obj/item/clothing/head/yinglet/jesterhood/proc/dingaling()
+	if(dingaling_sound && prob(dingaling_chance))
+		if(islist(dingaling_sound) && length(dingaling_sound))
+			playsound(get_turf(src), pick(dingaling_sound), dingaling_volume, dingaling_vary)
+		else
+			playsound(get_turf(src), dingaling_sound, dingaling_volume, dingaling_vary)
+
 /obj/item/clothing/head/yinglet/scout_short
 	name = "scout hat"
 	desc = "A hat for traveling and seeing better in the sun. What are you even looking for?"
