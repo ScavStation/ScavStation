@@ -15,7 +15,7 @@
 	#include "areas/town.dm"
 
 	#include "jobs/_jobs.dm"
-	#include "jobs/shrine.dm"
+	#include "jobs/tradehouse.dm"
 	#include "jobs/visitors.dm"
 	#include "jobs/enclave.dm"
 
@@ -27,7 +27,7 @@
 	#include "outfits/_outfits.dm"
 	#include "outfits/caves.dm"
 	#include "outfits/inn.dm"
-	#include "outfits/shrine.dm"
+	#include "outfits/tradehouse.dm"
 	#include "outfits/visitors.dm"
 	#include "outfits/enclave.dm"
 
