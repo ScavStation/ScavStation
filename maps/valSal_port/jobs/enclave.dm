@@ -112,7 +112,7 @@
 
 /datum/job/valSal_port/enclave/hunter
 	title                   = "Hunter"
-	alt_titles              = list("Tracker", "Warrior", "Stabber", "Fisherying")
+	alt_titles              = list("Tracker", "Scrapper", "Stabber", "Fisherying")
 	description             = "You are a hunter, bred to track down and slaughter prey for your enclave to eat. Your duties are supplying food and skinning any animal you hunt."
 	supervisors             = "The Patriarchs, The Matriarch, and your natural impulses"
 	spawn_positions         = 3
