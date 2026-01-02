@@ -22,6 +22,7 @@
 /decl/loadout_option/head/jesterhood/fantasy
 	name = "small jesterhood"
 	path = /obj/item/clothing/head/yinglet/jesterhood
+	cost = 3
 	uid = "gear_jesterhood_fantasy"
 
 /decl/loadout_option/head/scoutshort/fantasy
