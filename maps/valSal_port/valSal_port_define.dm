@@ -24,7 +24,7 @@
 	_available_backpacks    = list(
 		/decl/backpack_outfit/sack,
 		/decl/backpack_outfit/tailbagsa,
-		/decl/backpack_outfit/tailbags,
+		/decl/backpack_outfit/tailbags
 	)
 	lobby_tracks = list(
 		/decl/music_track/dhaka,
