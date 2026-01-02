@@ -27,7 +27,6 @@
 #include "items\null_ammo.dm"
 #include "items\nullrod.dm"
 #include "items\soulstone.dm"
-#include "items\ritual_dagger.dm"
 #include "machines\psimeter.dm"
 #include "machines\psimonitor.dm"
 #include "system\subsystem_psi.dm"
@@ -65,5 +64,7 @@
 #include "system\psionics\null\turf_floor.dm"
 #include "system\psionics\null\turf_wall.dm"
 #include "system\psionics\null\~null.dm"
+#include "items\ritual_dagger.dm"
+
 // END_INCLUDE
 #endif
