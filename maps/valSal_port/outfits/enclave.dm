@@ -15,7 +15,7 @@
 		/obj/item/fleece
 	)
 	shoes = /obj/item/clothing/shoes/sandal/yinglet
-	uniform = /obj/item/clothing/suit/robe/yinglet/fancy
+	uniform = /obj/item/clothing/suit/robe/yinglet/patriarch
 
 /decl/outfit/job/valSal_port/matriarch
 	name = "Enclave Matriarch"
@@ -70,3 +70,5 @@
 /decl/outfit/job/valSal_port/idiot
 	name  = "Idiot"
 	head = /obj/item/clothing/head/yinglet/pekhat
+	uniform = /obj/item/clothing/pants/loincloth/scout
+	shoes = /obj/item/clothing/shoes/sandal/yinglet
