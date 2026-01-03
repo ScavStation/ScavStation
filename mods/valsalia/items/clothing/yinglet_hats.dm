@@ -109,7 +109,7 @@
 	_yinglet_icon = null
 
 /obj/item/clothing/head/yinglet/zmessenger
-	name = "Zmessenger hat"
+	name = "messenger hat"
 	desc = "A hat for messengers, important and busy folks"
 	icon = 'mods/valsalia/icons/clothing/head/zmessenger_hat.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
