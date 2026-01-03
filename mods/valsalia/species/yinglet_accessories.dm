@@ -151,6 +151,21 @@
 	icon_state = "hair_fonzie"
 	uid = "hair_ying_fonzie"
 
+/decl/sprite_accessory/hair/yinglet/short
+	name = "Ying Short Hair"
+	icon_state = "hair_short"
+	uid = "hair_ying_short"
+
+/decl/sprite_accessory/hair/yinglet/blastback
+	name = "Ying Blastback"
+	icon_state = "hair_blastback"
+	uid = "hair_ying_blastback"
+
+/decl/sprite_accessory/hair/yinglet/emo
+	name = "Ying Emo"
+	icon_state = "hair_emo"
+	uid = "hair_ying_emo"
+
 /decl/sprite_accessory/hair/yinglet/pompador
 	name = "Ying Pompador"
 	icon_state = "hair_pompador"

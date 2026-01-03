@@ -21,9 +21,7 @@
 	map_tech_level          = MAP_TECH_LEVEL_MEDIEVAL
 	survival_box_choices    = list()
 	passport_type           = null
-	_available_backpacks    = list(
-		/decl/backpack_outfit/sack
-	)
+	
 	lobby_tracks = list(
 		/decl/music_track/dhaka,
 		/decl/music_track/teller,
