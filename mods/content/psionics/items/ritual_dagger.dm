@@ -3,7 +3,7 @@
 	desc = "An inscription upon its blade reads: 'Need It Never Be Used'"
 	icon = 'icons/obj/items/weapon/knives/ritual.dmi'
 	material_alteration = MAT_FLAG_ALTERATION_NONE
-	var has_been_activated = FALSE
+	var/has_been_activated = FALSE
 
 /obj/item/knife/ritual_psionic/get_autopsy_descriptors()
 	. = ..()
