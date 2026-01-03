@@ -31,22 +31,22 @@
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_yinghood_fantasy"
 
-/decl/loadout_option/head/yinglet_cone/fantasy
+/decl/loadout_option/head/yinglet_cone
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_conehat_fantasy"
 
-/decl/loadout_option/head/scoutshort/fantasy
+/decl/loadout_option/head/scoutshort
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_scoutshort_fantasy"
 
-/decl/loadout_option/head/zmessenger/fantasy
+/decl/loadout_option/head/zmessenger
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_zmessenger_fantasy"
 
-/decl/loadout_option/head/peasant/fantasy
+/decl/loadout_option/head/peasant
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_peasant_fantasy"
@@ -76,22 +76,22 @@
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_yingrobe_fantasy"
 
-/decl/loadout_option/uniform/wild/fantasy
+/decl/loadout_option/uniform/wild
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_wildattire_fantasy"
 
-/decl/loadout_option/uniform/hunter/fantasy
+/decl/loadout_option/uniform/hunter
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_hunterattire_fantasy"
 
-/decl/loadout_option/uniform/jester/fantasy
+/decl/loadout_option/uniform/jester
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_jester_fantasy"
 
-/decl/loadout_option/head/jesterhood/fantasy
+/decl/loadout_option/head/jesterhood
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_jesterhood_fantasy"
@@ -101,32 +101,32 @@
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_yinglibrary_fantasy"
 
-/decl/loadout_option/suit/flowery/fantasy
+/decl/loadout_option/suit/flowery
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_flowery_fantasy"
 
-/decl/loadout_option/suit/sinistral/fantasy
+/decl/loadout_option/suit/sinistral
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_sinistral_fantasy"
 
-/decl/loadout_option/suit/rustic/fantasy
+/decl/loadout_option/suit/rustic
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_rustic_fantasy"
 
-/decl/loadout_option/suit/mantle/fantasy
+/decl/loadout_option/suit/mantle
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_mantle_fantasy"
 
-/decl/loadout_option/suit/countercoat/fantasy
+/decl/loadout_option/suit/countercoat
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_countercoat_fantasy"
 
-/decl/loadout_option/uniform/operative/fantasy
+/decl/loadout_option/uniform/operative
 	category = /decl/loadout_category/fantasy/clothing
 	whitelisted = list(SPECIES_YINGLET)
 	uid = "gear_operative_fantasy"
