@@ -10,7 +10,7 @@
 	name = "Indrel Mountains"
 	description = "Given its name by its native Indrel population, who guards their territory fiercely. \
 		Though they cooperate with travelers to lead them through their mountains (for a price), \
-        they are otherwise extremely secretive and isolationist."
+		they are otherwise extremely secretive and isolationist."
 	uid = "location_fantasy_indrel"
 
 /decl/background_detail/location/fantasy/valsal

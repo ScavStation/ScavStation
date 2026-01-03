@@ -19,7 +19,7 @@
 /decl/background_detail/faction/fantasy/merc
 	name = "Mercenary Kings"
 	description = "A loosely-affiliated partnership of mercenary lords who have claimed themselves as rulers over the northwest as they consolidated power. \
-    Although they've recently lost its eastern territories in a war to an alliance between Auhei and Brinnilee, they continue to employ \
+	Although they've recently lost its eastern territories in a war to an alliance between Auhei and Brinnilee, they continue to employ \
 	mercenaries for their own gain."
 	uid = "faction_fantasy_merc"
 
