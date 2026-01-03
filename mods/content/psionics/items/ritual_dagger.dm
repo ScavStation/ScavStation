@@ -15,8 +15,7 @@
 		has_been_activated = TRUE
 
 		// add telepathy
-		var/decl/genetic_condition/C = decls_repository.get_decl(/decl/genetic_condition/superpower/remotetalk)
-		user.add_genetic_condition(C)
+		user.add_genetic_condition(/decl/genetic_condition/superpower/remotetalk)
 
 		// set psi faculty and rank
 		user.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
