@@ -47,6 +47,10 @@
 /obj/structure/flora/tree/hardwood/mahogany,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
+"bq" = (
+/mob/living/simple_animal/hostile/thug/exile,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/eastside)
 "bz" = (
 /turf/floor/grass/wild,
 /area/valSal_port/town/mansion)
@@ -484,6 +488,7 @@
 /area/valSal_port/town/trapper)
 "iY" = (
 /obj/structure/bed/bedroll/fur,
+/mob/living/simple_animal/hostile/thug/bandit,
 /turf/floor/dirt,
 /area/valSal_port/outside/camp)
 "iZ" = (
@@ -1355,6 +1360,10 @@
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
+"yi" = (
+/mob/living/simple_animal/hostile/thug/exile,
+/turf/floor/grass,
+/area/valSal_port/outside/eastside)
 "yl" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/knife/hook,
@@ -12689,7 +12698,7 @@ tQ
 (97,1,1) = {"
 Fd
 Fd
-Fd
+bq
 Fd
 Fd
 Fd
@@ -12790,7 +12799,7 @@ tQ
 "}
 (98,1,1) = {"
 kv
-kv
+yi
 kv
 kv
 kv
@@ -12893,7 +12902,7 @@ tQ
 (99,1,1) = {"
 kv
 kv
-kv
+yi
 EB
 Fd
 Fd
