@@ -13,3 +13,4 @@ DEFINE_POSTER(scav/s4, "scav4", "Victorious Scavs", "A fine piece of yinglet art
 /decl/poster_design/scav_4
 	abstract_type = /decl/poster_design/scav/s4
 	icon = 'mods/valsalia/icons/posters.dmi'
+	icon_state = "scav4"
