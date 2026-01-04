@@ -108,8 +108,9 @@
 
 
 /mob/living/simple_animal/hostile/thug/wild_man
-	name = "Wild Man"
-	desc = "A wild man, lost again to nature. Do not go near!"
+	name = "Woodwose"
+	desc = "A Woodwose, lost again to nature. Do not go near!"
+	icon = 'mods/valsalia/icons/mobs/simple_animal/wild_man.dmi'
 	faction = "wild_man"
 	move_intents = list(
 		/decl/move_intent/walk/animal,
