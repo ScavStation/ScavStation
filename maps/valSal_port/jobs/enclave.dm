@@ -17,9 +17,7 @@
 	outfit_type             = /decl/outfit/job/valSal_port/matriarch
 	min_skill               = list(
 		SKILL_LITERACY      = SKILL_MAX, // reading and writing
-		SKILL_HUSBANDRY     = SKILL_BASIC, // handling and caring for animals
-		SKILL_MEDICAL       = SKILL_ADEPT, // tending to injuries
-		SKILL_COOKING       = SKILL_AVERAGE, // butchery
+		SKILL_COOKING       = SKILL_ADEPT, // butchery
 		SKILL_CHEMISTRY     = SKILL_ADEPT, // making medicines
 	)
 	skill_points            = 30
@@ -37,11 +35,8 @@
 	total_positions         = 4
 	outfit_type             = /decl/outfit/job/valSal_port/patriarch
 	min_skill               = list(
-		SKILL_LITERACY      = SKILL_AVERAGE, // reading and writing
-		SKILL_COMBAT        = SKILL_BASIC, // basic fighting skills
-		SKILL_MEDICAL       = SKILL_AVERAGE, // tending to injuries
-		SKILL_COOKING       = SKILL_AVERAGE, // butchery
-		SKILL_ARTIFICE     = SKILL_BASIC, // making things
+		SKILL_LITERACY      = SKILL_MAX, // reading and writing
+		SKILL_COMBAT        = SKILL_ADEPT, // basic fighting skills
 	)
 	skill_points            = 28
 
@@ -59,9 +54,8 @@
 	outfit_type             = /decl/outfit/job/valSal_port/daughter
 	min_skill               = list(
 		SKILL_LITERACY      = SKILL_MAX, // reading and writing
-		SKILL_MEDICAL       = SKILL_AVERAGE, // tending to injuries
 		SKILL_COOKING       = SKILL_AVERAGE, // butchery
-		SKILL_ARTIFICE     = SKILL_BASIC, // making things
+		SKILL_ARTIFICE     = SKILL_ADEPT // making things
 	)
 	skill_points            = 22
 
@@ -78,9 +72,9 @@
 	outfit_type             = /decl/outfit/job/valSal_port/miner
 	min_skill               = list(
 		SKILL_HAULING       = SKILL_ADEPT, // general physical activity
-		SKILL_METALWORK     = SKILL_BASIC, // ore smelting, metallurgy
-		SKILL_STONEMASONRY  = SKILL_BASIC, // experienced working with stone
-		SKILL_SCULPTING     = SKILL_BASIC, // producing clay molds, firing pottery
+		SKILL_METALWORK     = SKILL_ADEPT, // ore smelting, metallurgy
+		SKILL_STONEMASONRY  = SKILL_ADEPT, // experienced working with stone
+		SKILL_SCULPTING     = SKILL_BASIC // producing clay molds, firing pottery
 	)
 	skill_points            = 24
 
@@ -98,12 +92,12 @@
 	min_skill               = list(
 		SKILL_BOTANY        = SKILL_ADEPT, // growing, processing, and identifying plants
 		SKILL_MEDICAL       = SKILL_BASIC, // identifying illnesses and applying medicines
-		SKILL_CHEMISTRY     = SKILL_BASIC, // processing plant extracts into tinctures, ointments, etc
+		SKILL_CHEMISTRY     = SKILL_BASIC // processing plant extracts into tinctures, ointments, etc
 	)
 	max_skill               = list(
 		SKILL_MEDICAL       = SKILL_MAX,
 		SKILL_ANATOMY       = SKILL_MAX,
-		SKILL_CHEMISTRY     = SKILL_MAX,
+		SKILL_CHEMISTRY     = SKILL_MAX
 	)
 	skill_points            = 26
 
@@ -121,9 +115,9 @@
 	min_skill               = list(
 		SKILL_HAULING       = SKILL_ADEPT, // overall physical activity
 		SKILL_HUSBANDRY     = SKILL_BASIC, // handling and caring for animals
-		SKILL_COMBAT        = SKILL_ADEPT, // fighting against threats
-		SKILL_COOKING       = SKILL_BASIC, // butchery
-		SKILL_WEAPONS       = SKILL_ADEPT, // shooting accuracy
+		SKILL_COMBAT        = SKILL_MAX, // fighting against threats
+		SKILL_COOKING       = SKILL_MAX, // butchery
+		SKILL_WEAPONS       = SKILL_MAX // shooting accuracy
 	)
 	skill_points            = 24
 
@@ -143,7 +137,7 @@
 		SKILL_HUSBANDRY     = SKILL_BASIC, // handling and caring for animals
 		SKILL_WEAPONS       = SKILL_ADEPT, // fighting against threats
 		SKILL_COOKING       = SKILL_BASIC, // butchery
-		SKILL_CARPENTRY     = SKILL_ADEPT, // building camps
+		SKILL_CARPENTRY     = SKILL_ADEPT // building camps
 	)
 	skill_points            = 24
 

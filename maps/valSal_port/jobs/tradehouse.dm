@@ -20,18 +20,15 @@
 	total_positions         = 1
 	outfit_type             = /decl/outfit/job/valSal_port/tradehouse/surveyor
 	min_skill               = list(
-		SKILL_CARPENTRY     = SKILL_BASIC,
-		SKILL_TEXTILES      = SKILL_BASIC,
-		SKILL_COOKING       = SKILL_BASIC,
+		SKILL_CARPENTRY     = SKILL_AVERAGE,
 		SKILL_FINANCE       = SKILL_MAX,
-		SKILL_ATHLETICS     = SKILL_BASIC,
 		SKILL_LITERACY      = SKILL_ADEPT,
 		SKILL_MEDICAL       = SKILL_ADEPT,
-		SKILL_ANATOMY       = SKILL_ADEPT,
+		SKILL_ANATOMY       = SKILL_ADEPT
 	)
 	max_skill               = list(
 		SKILL_MEDICAL       = SKILL_MAX,
-		SKILL_ANATOMY       = SKILL_MAX,
+		SKILL_ANATOMY       = SKILL_MAX
 	)
 	skill_points            = 24
 
@@ -48,16 +45,14 @@
 	outfit_type             = /decl/outfit/job/valSal_port/tradehouse/generalrecruit
 	min_skill               = list(
 		SKILL_STONEMASONRY  = SKILL_BASIC,
-		SKILL_CARPENTRY     = SKILL_BASIC,,
+		SKILL_CARPENTRY     = SKILL_BASIC,
 		SKILL_ATHLETICS     = SKILL_ADEPT,
 		SKILL_COMBAT        = SKILL_ADEPT,
-		SKILL_WEAPONS       = SKILL_ADEPT,
+		SKILL_WEAPONS       = SKILL_ADEPT
 	)
 	max_skill               = list(
 		SKILL_COOKING       = SKILL_EXPERT,
-		SKILL_BOTANY        = SKILL_EXPERT,
-		SKILL_CARPENTRY     = SKILL_EXPERT,
-		SKILL_STONEMASONRY  = SKILL_EXPERT,
+		SKILL_BOTANY        = SKILL_EXPERT
 	)
 
 /obj/abstract/landmark/start/valSal_port/generalrecruit

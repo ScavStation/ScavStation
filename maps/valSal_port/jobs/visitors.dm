@@ -31,7 +31,7 @@
 	outfit_type             = /decl/outfit/job/valSal_port/traveller/scholar
 	skill_points            = 26
 	min_skill               = list(
-		SKILL_LITERACY      = SKILL_ADEPT
+		SKILL_LITERACY      = SKILL_MAX
 	)
 	max_skill               = list(
 		SKILL_CHEMISTRY     = SKILL_MAX,
@@ -82,9 +82,7 @@
 	min_skill               = list(
 		SKILL_COMBAT        = SKILL_ADEPT,
 		SKILL_WEAPONS       = SKILL_ADEPT,
-		SKILL_ATHLETICS     = SKILL_ADEPT,
-		SKILL_FINANCE      = SKILL_ADEPT,
-		SKILL_LITERACY      = SKILL_ADEPT
+		SKILL_ATHLETICS     = SKILL_ADEPT
 	)
 	max_skill               = list(
 		SKILL_COMBAT        = SKILL_MAX,

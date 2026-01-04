@@ -150,6 +150,7 @@
 /obj/structure/wall_sconce/torch{
 	dir = 4
 	},
+/obj/structure/working/spinning_wheel/twisting_bench/ebony,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/huntershut)
 "fz" = (
@@ -293,6 +294,9 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
+"jQ" = (
+/turf/wall/natural/random/basalt/valSal_port,
+/area/valSal_port/outside/outdoors_south)
 "jR" = (
 /turf/floor/carpet/rustic,
 /area/valSal_port/enclave/huntershut)
@@ -604,6 +608,9 @@
 /mob/living/simple_animal/passive/rabbit,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
+"tl" = (
+/turf/wall/natural/random/basalt/valSal_port,
+/area/valSal_port/outside/outdoors_cliff)
 "tm" = (
 /obj/abstract/landmark/start/valSal_port/scout,
 /turf/floor/dirt,
@@ -800,6 +807,9 @@
 /obj/structure/flora/tree/hardwood/ebony,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
+"yH" = (
+/turf/wall/natural/random/basalt/valSal_port,
+/area/valSal_port/outside/outdoors_enclave)
 "yI" = (
 /obj/structure/closet/crate/chest/ebony,
 /obj/item/ancient_surgery/bonesaw,
@@ -1014,6 +1024,14 @@
 /obj/structure/boulder/basalt,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_south)
+"EN" = (
+/obj/structure/wall_sconce/torch{
+	dir = 1;
+	pixel_y = 24
+	},
+/obj/item/stool/rustic,
+/turf/floor/wood/mahogany,
+/area/valSal_port/enclave/huntershut)
 "EP" = (
 /mob/living/simple_animal/grub_bear,
 /turf/floor/grass/wild,
@@ -1040,6 +1058,11 @@
 /obj/structure/table/woodentable,
 /obj/item/stack/material/thread/mapped/dried_gut/ten,
 /obj/item/stack/material/thread/mapped/dried_gut/five,
+/obj/item/basket,
+/obj/item/basket,
+/obj/item/basket,
+/obj/item/basket,
+/obj/item/basket,
 /turf/floor/carpet/rustic,
 /area/valSal_port/enclave/huntershut)
 "Fp" = (
@@ -1140,7 +1163,7 @@
 /area/valSal_port/outside/outdoors_enclave)
 "JE" = (
 /obj/structure/flora/bush/leafybush,
-/turf/wall/natural/basalt/valSal_port,
+/turf/wall/natural/random/basalt/valSal_port,
 /area/valSal_port/outside/outdoors_south)
 "JG" = (
 /obj/structure/wall_sconce/torch{
@@ -2169,8 +2192,8 @@ zl
 Pi
 Pi
 zl
-zl
-zl
+Pi
+Pi
 Pi
 zl
 zl
@@ -2271,8 +2294,8 @@ zl
 zl
 Pi
 Pi
-zl
-zl
+Pi
+Pi
 Pi
 zl
 zl
@@ -2288,14 +2311,14 @@ LI
 LI
 vD
 vD
-LI
-LI
-LI
-LI
 vD
 vD
 vD
-LI
+vD
+vD
+vD
+vD
+vD
 LI
 LI
 LI
@@ -2304,7 +2327,7 @@ LI
 Nc
 Nc
 Nc
-XB
+vD
 Fp
 XB
 Nc
@@ -2387,16 +2410,16 @@ zl
 LI
 LI
 LI
-LI
-LI
+vD
+vD
 vD
 vD
 LI
 LI
 vD
 vD
-LI
-LI
+vD
+vD
 LI
 LI
 LI
@@ -2475,7 +2498,7 @@ zl
 zl
 zl
 zl
-zl
+Pi
 zl
 Pi
 zl
@@ -2489,7 +2512,7 @@ zl
 LI
 LI
 LI
-LI
+vD
 LI
 LI
 vD
@@ -2497,8 +2520,8 @@ vD
 vD
 vD
 LI
-LI
-LI
+vD
+vD
 LI
 LI
 LI
@@ -2550,7 +2573,7 @@ LI
 LI
 Nc
 LI
-LI
+vD
 LI
 LI
 LI
@@ -2577,7 +2600,7 @@ lu
 zl
 zl
 zl
-zl
+Pi
 zl
 zl
 Pi
@@ -2590,7 +2613,7 @@ Pi
 Pi
 LI
 LI
-LI
+vD
 LI
 LI
 LI
@@ -2600,8 +2623,8 @@ vD
 vD
 LI
 LI
-LI
-LI
+vD
+vD
 LI
 vD
 Nc
@@ -2652,8 +2675,8 @@ LI
 LI
 Nc
 LI
-LI
-LI
+vD
+vD
 LI
 LI
 LI
@@ -2679,7 +2702,7 @@ xb
 zl
 zl
 zl
-zl
+Pi
 zl
 zl
 Pi
@@ -2692,19 +2715,19 @@ zl
 Pi
 vD
 vD
-LI
-LI
-LI
-vD
 vD
 LI
 LI
 vD
 vD
-vD
-vD
 LI
 LI
+vD
+vD
+vD
+vD
+vD
+vD
 Nc
 Nc
 Nc
@@ -2756,15 +2779,15 @@ BY
 Nc
 LI
 LI
+vD
+vD
+vD
+vD
+vD
+vD
 LI
 vD
 vD
-vD
-vD
-vD
-LI
-LI
-LI
 vD
 LI
 LI
@@ -2782,7 +2805,7 @@ zl
 zl
 zl
 zl
-zl
+Pi
 zl
 Pi
 zl
@@ -2800,7 +2823,7 @@ vD
 vD
 LI
 LI
-LI
+vD
 LI
 LI
 vD
@@ -2862,7 +2885,7 @@ vD
 vD
 LI
 LI
-LI
+vD
 vD
 vD
 LI
@@ -2895,14 +2918,14 @@ zl
 zl
 zl
 LI
-LI
+vD
 LI
 vD
 vD
 vD
 vD
-LI
-LI
+vD
+vD
 LI
 LI
 LI
@@ -2986,8 +3009,8 @@ lu
 Pi
 Pi
 Pi
-zl
-zl
+Pi
+Pi
 Pi
 Pi
 zl
@@ -2996,8 +3019,8 @@ lu
 zl
 zl
 zl
-LI
-LI
+vD
+vD
 LI
 vD
 LI
@@ -3089,7 +3112,7 @@ zl
 zl
 zl
 zl
-zl
+Pi
 Pi
 Pi
 zl
@@ -3098,13 +3121,13 @@ GN
 zl
 zl
 zl
-LI
+vD
 LI
 vD
 vD
 LI
 LI
-LI
+vD
 LI
 vD
 vD
@@ -3115,7 +3138,7 @@ zV
 LI
 LI
 LI
-LI
+vD
 vD
 vD
 vD
@@ -3199,13 +3222,13 @@ zl
 lu
 zl
 zl
-zl
-LI
+Pi
 vD
 vD
+vD
 LI
 LI
-LI
+vD
 LI
 LI
 LI
@@ -3217,8 +3240,8 @@ Nc
 LI
 LI
 LI
-LI
-LI
+vD
+vD
 vD
 vD
 LI
@@ -3301,7 +3324,7 @@ zl
 lu
 zl
 zl
-zl
+Pi
 vD
 vD
 LI
@@ -3320,10 +3343,10 @@ LI
 LI
 LI
 LI
-LI
 vD
 vD
-LI
+vD
+vD
 LI
 LI
 Nc
@@ -3403,7 +3426,7 @@ Pi
 lu
 zl
 zl
-zl
+Pi
 vD
 vD
 LI
@@ -3425,7 +3448,7 @@ LI
 vD
 vD
 vD
-LI
+vD
 LI
 LI
 LI
@@ -3507,9 +3530,9 @@ xb
 zl
 Pi
 vD
-LI
-LI
-LI
+vD
+vD
+vD
 LI
 LI
 LI
@@ -3525,8 +3548,8 @@ LI
 LI
 vD
 vD
-LI
-LI
+vD
+vD
 vD
 LI
 LI
@@ -3630,7 +3653,7 @@ LI
 LI
 LI
 vD
-LI
+vD
 LI
 LI
 Nc
@@ -3725,7 +3748,7 @@ LI
 vD
 LI
 LI
-LI
+vD
 vD
 vD
 LI
@@ -3795,15 +3818,15 @@ LI
 (22,1,1) = {"
 zl
 Pi
-zl
+Pi
 zl
 lu
 zl
 zl
 zl
 zl
-zl
-zl
+Pi
+Pi
 zl
 zl
 lu
@@ -3826,7 +3849,7 @@ LI
 LI
 vD
 vD
-LI
+vD
 vD
 vD
 LI
@@ -3905,9 +3928,9 @@ Pi
 Pi
 Pi
 zl
-zl
-zl
-zl
+Pi
+Pi
+Pi
 zl
 zl
 lu
@@ -3925,8 +3948,8 @@ LI
 LI
 LI
 LI
-LI
-LI
+vD
+vD
 vD
 vD
 vD
@@ -3941,7 +3964,7 @@ LI
 Nc
 Nc
 LI
-LI
+vD
 vD
 LI
 LI
@@ -4009,8 +4032,8 @@ Pi
 Pi
 Pi
 Pi
-zl
-zl
+Pi
+Pi
 zl
 zl
 zl
@@ -4026,8 +4049,8 @@ LI
 LI
 LI
 LI
-LI
-LI
+vD
+vD
 LI
 vD
 vD
@@ -4044,8 +4067,8 @@ Nc
 LI
 LI
 LI
-LI
-LI
+vD
+vD
 LI
 ZS
 ZS
@@ -4077,9 +4100,9 @@ JZ
 PB
 JZ
 eM
-iN
-iN
-iN
+tl
+tl
+tl
 eM
 eM
 zv
@@ -4180,8 +4203,8 @@ JZ
 eM
 zv
 eM
-iN
-iN
+tl
+tl
 eM
 eM
 qW
@@ -4405,7 +4428,7 @@ xq
 eM
 "}
 (28,1,1) = {"
-zl
+Pi
 Pi
 zl
 zl
@@ -4507,7 +4530,7 @@ eM
 JZ
 "}
 (29,1,1) = {"
-zl
+Pi
 Pi
 Pi
 zl
@@ -4702,16 +4725,16 @@ JZ
 JZ
 eM
 eM
-iN
-iN
-iN
+tl
+tl
+tl
 eM
 JZ
 JZ
 JZ
 "}
 (31,1,1) = {"
-zl
+Pi
 zl
 Pi
 zl
@@ -4805,7 +4828,7 @@ eM
 eM
 cT
 eM
-iN
+tl
 iN
 Ek
 JZ
@@ -4915,12 +4938,12 @@ JZ
 eM
 "}
 (33,1,1) = {"
-zl
+Pi
 zl
 zl
 Pi
 Pi
-zl
+Pi
 zl
 zl
 lu
@@ -5017,7 +5040,7 @@ eM
 Ek
 "}
 (34,1,1) = {"
-zl
+Pi
 zl
 zl
 zl
@@ -5119,10 +5142,10 @@ eM
 eM
 "}
 (35,1,1) = {"
+Pi
 zl
 zl
-zl
-zl
+Pi
 zl
 Pi
 Pi
@@ -5255,9 +5278,9 @@ OH
 OH
 OH
 OH
-Hj
-Hj
-Hj
+yH
+yH
+yH
 OH
 OH
 OH
@@ -5308,8 +5331,8 @@ eM
 JZ
 LD
 iN
-iN
-iN
+tl
+tl
 DF
 JZ
 JZ
@@ -5323,10 +5346,10 @@ eM
 eM
 "}
 (37,1,1) = {"
-zl
-zl
 Pi
 zl
+Pi
+Pi
 Pi
 Pi
 zl
@@ -5358,7 +5381,7 @@ Sp
 OH
 Hj
 Hj
-Hj
+yH
 OH
 lH
 OH
@@ -5425,10 +5448,10 @@ eM
 eM
 "}
 (38,1,1) = {"
-zl
-zl
 Pi
 zl
+Pi
+Pi
 zl
 zl
 zl
@@ -5530,7 +5553,7 @@ eM
 zl
 Pi
 Pi
-zl
+Pi
 zl
 zl
 lu
@@ -8245,7 +8268,7 @@ ZO
 YM
 FN
 FN
-pw
+EN
 MB
 MK
 FN
@@ -8472,8 +8495,8 @@ yf
 yf
 yf
 By
-vx
-vx
+jQ
+jQ
 vx
 By
 lC
@@ -8575,7 +8598,7 @@ By
 By
 vx
 vx
-vx
+jQ
 id
 yf
 yf
@@ -8615,7 +8638,7 @@ OH
 OH
 OH
 Hj
-Hj
+yH
 OH
 OH
 OH
@@ -8716,8 +8739,8 @@ OH
 Sp
 Hj
 Hj
-Hj
-Hj
+yH
+yH
 kK
 OH
 OH
@@ -8817,8 +8840,8 @@ OH
 OH
 OH
 Hj
-Hj
-Hj
+yH
+yH
 Hj
 OH
 OH
@@ -8919,7 +8942,7 @@ OH
 OH
 OH
 OH
-Hj
+yH
 Hj
 OH
 OH
@@ -9205,7 +9228,7 @@ TE
 TE
 OH
 Hj
-Hj
+yH
 iB
 sb
 sb
@@ -9305,9 +9328,9 @@ LI
 TE
 TE
 Hj
-Hj
-Hj
-Hj
+yH
+yH
+yH
 sb
 Gv
 sb
@@ -9407,7 +9430,7 @@ TE
 ue
 OH
 OH
-Hj
+yH
 Hj
 iB
 iB
@@ -9838,8 +9861,8 @@ Es
 sb
 OH
 OH
-Hj
-Hj
+yH
+yH
 Hj
 OH
 OH
@@ -9941,9 +9964,9 @@ iB
 iB
 OH
 Hj
-Hj
-Hj
-Hj
+yH
+yH
+yH
 OH
 OH
 OH
@@ -10007,8 +10030,8 @@ By
 By
 By
 yf
-vx
-vx
+jQ
+jQ
 By
 By
 EM
