@@ -21,10 +21,14 @@
 	map_tech_level          = MAP_TECH_LEVEL_MEDIEVAL
 	survival_box_choices    = list()
 	passport_type           = null
-	
+
 	lobby_tracks = list(
 		/decl/music_track/dhaka,
+		/decl/music_track/folk,
+		/decl/music_track/heavy_heart,
+		/decl/music_track/pyre,
 		/decl/music_track/teller,
+		/decl/music_track/thatched,
 		/decl/music_track/suonatore
 	)
 	credit_sound = list(
@@ -48,4 +52,4 @@
 
 /datum/map/valSal_port/get_map_info()
 	return "You're a yinglet caravan, heading to the mountains to establish a <b>[station_name]</b> on command of the [boss_name], nestled along a mountain and a river. On all sides, you are surrounded by untamed wilds, with only a small town built by humans nearby, though it's been long abandoned. \
-	Your first goal should be to establish a foyer for your Matriarch. Weh!"
+	Many threats pose a danger to your enclave. It is up to you to ensure it survives. Weh!"
