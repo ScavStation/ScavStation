@@ -66,6 +66,20 @@
 	sound_env = ROOM
 	turf_initializer = /decl/turf_initializer/spiderwebs
 
+/area/valSal_port/town/trapper
+	name = "\improper Trapper's Hut"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+	turf_initializer = /decl/turf_initializer/spiderwebs
+
+/area/valSal_port/town/den
+	name = "\improper Bear Den"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+	turf_initializer = /decl/turf_initializer/spiderwebs
+
 /area/valSal_port/town/shrine
 	name = "\improper Shrine"
 	fishing_failure_prob = 100
@@ -85,6 +99,3 @@
 	name = "\improper Bandit Camp"
 	fishing_failure_prob = 100
 	fishing_results = list()
-
-/area/valSal_port/town/outside/shrine
-	name = "\improper Shrine Grounds"

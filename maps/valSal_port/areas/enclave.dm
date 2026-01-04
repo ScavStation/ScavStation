@@ -1,6 +1,33 @@
 /area/valSal_port/outside/enclave
 	name = "Zhe Enclave"
 
+/area/valSal_port/enclave/huntershut
+	name = "\improper Hunter's Hut"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+
+/area/valSal_port/enclave/dininghut
+	name = "\improper Dining Hut"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+
+/area/valSal_port/enclave/medicinehut
+	name = "\improper Medicine Hut"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+
+/area/valSal_port/enclave/storehouse
+	name = "\improper Storehouse"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+
+/area/valSal_port/outside/enclave_farm
+	name = "Enclave Farm"
+
 /area/valSal_port/outside/outdoors_enclave
 	name = "Outdoors"
 

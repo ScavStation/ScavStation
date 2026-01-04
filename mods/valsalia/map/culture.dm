@@ -202,7 +202,7 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 /decl/background_detail/religion/dinnaism
 	name = "Dinnaism"
 	description = "Dinnaism is the national faith of the Dinnish people. It is the belief that the mythic founder and cultural ancestor of the Dinnish people, called \
-	Dinn, would descend from the Heavenly Veil and save Dinnlan in its greatest time of need."
+	Alsper of Dinn, would descend from the Heavenly Veil and save Dinnlan in its greatest time of need."
 	uid = "scav_background_religion_dinnaism"
 
 /decl/background_detail/religion/veil_worship
