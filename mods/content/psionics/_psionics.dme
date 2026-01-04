@@ -28,6 +28,7 @@
 #include "items\nullrod.dm"
 #include "items\ritual_dagger.dm"
 #include "items\soulstone.dm"
+#include "items\telepath_ring.dm"
 #include "machines\psimeter.dm"
 #include "machines\psimonitor.dm"
 #include "system\subsystem_psi.dm"
