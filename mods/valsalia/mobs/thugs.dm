@@ -39,10 +39,11 @@
 
 /decl/outfit/corpse/thug
 	name = "Dead thug"
-	uniform = /obj/item/clothing/gambeson/thug
+	uniform = /obj/item/clothing/jumpsuit/thug
+
 	shoes = /obj/item/clothing/shoes/workboots
 
-/obj/item/clothing/gambeson/thug
+/obj/item/clothing/jumpsuit/thug
 	name = "Leather Hunting Garb"
 	desc = "A standard leather hunting gambenson to help stop brush from cutting you up"
 	icon = 'icons/clothing/shirts/gambeson.dmi'
