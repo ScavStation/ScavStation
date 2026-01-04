@@ -136,7 +136,7 @@
 	dir = 1
 	},
 /turf/floor/grass,
-/area/valSal_port/outside/enclave_farm)
+/area/valSal_port/outside/enclave)
 "fe" = (
 /obj/structure/flora/bush/fullgrass,
 /mob/living/simple_animal/grub_bear,
@@ -333,7 +333,7 @@
 	dir = 4
 	},
 /turf/floor/grass/wild,
-/area/valSal_port/outside/enclave_farm)
+/area/valSal_port/outside/enclave)
 "kT" = (
 /obj/structure/wall_sconce/torch{
 	dir = 8
@@ -604,9 +604,6 @@
 /mob/living/simple_animal/passive/rabbit,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
-"tl" = (
-/turf/floor/grass,
-/area/valSal_port/outside/enclave_farm)
 "tm" = (
 /obj/abstract/landmark/start/valSal_port/scout,
 /turf/floor/dirt,
@@ -841,7 +838,7 @@
 	dir = 1
 	},
 /turf/floor/grass/wild,
-/area/valSal_port/outside/enclave_farm)
+/area/valSal_port/outside/enclave)
 "zF" = (
 /obj/structure/railing/mapped/wooden/yew{
 	dir = 1
@@ -980,7 +977,7 @@
 	dir = 8
 	},
 /turf/floor/grass/wild,
-/area/valSal_port/outside/enclave_farm)
+/area/valSal_port/outside/enclave)
 "DT" = (
 /obj/abstract/landmark/start/valSal_port/matriarch,
 /turf/floor/carpet/rustic,
@@ -6008,8 +6005,8 @@ Gh
 Gh
 Gh
 FJ
-sa
-sa
+lA
+lA
 jU
 PP
 PP
@@ -6111,7 +6108,7 @@ Gh
 Gh
 FJ
 FJ
-sa
+lA
 jU
 jU
 FM
@@ -6213,7 +6210,7 @@ Gh
 Gh
 Gh
 FJ
-sa
+lA
 lA
 jU
 BT
@@ -6321,7 +6318,7 @@ jU
 PP
 UA
 PP
-jU
+PP
 jU
 jU
 lA
@@ -6422,9 +6419,9 @@ lA
 jU
 jU
 PP
+PP
+PP
 jU
-jU
-lA
 lA
 xl
 Zx
@@ -6524,9 +6521,9 @@ lA
 lA
 jU
 UA
+PP
+PP
 jU
-jU
-lA
 Zx
 Zx
 Zx
@@ -6627,8 +6624,8 @@ ua
 jU
 PP
 PP
+PP
 jU
-lA
 Zx
 bh
 By
@@ -6729,7 +6726,7 @@ lA
 jU
 jU
 PP
-jU
+PP
 jU
 lA
 By
@@ -8762,12 +8759,12 @@ zP
 Tx
 zP
 zP
-tl
+FJ
 kP
 kP
 kP
 kP
-tl
+FJ
 FJ
 lA
 jU
@@ -9476,12 +9473,12 @@ Tx
 zP
 FJ
 FJ
-tl
+FJ
 DL
 DL
 DL
 DL
-tl
+FJ
 lA
 lA
 jU
