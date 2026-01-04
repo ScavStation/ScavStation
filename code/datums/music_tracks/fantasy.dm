@@ -12,6 +12,34 @@
 	license = /decl/license/cc_by_3_0
 	url = "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400003"
 
+/decl/music_track/thatched
+	artist = "Kevin Macleod"
+	title = "Thatched Villagers"
+	song = 'sound/music/thatched.ogg'
+	license = /decl/license/cc_by_3_0
+	url = "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100720&Search=Search"
+
+/decl/music_track/heavy_heart
+	artist = "Kevin Macleod"
+	title = "Heavy Heart"
+	song = 'sound/music/heavy_heart.ogg'
+	license = /decl/license/cc_by_3_0
+	url = "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1600002&Search=Search"
+
+/decl/music_track/folk
+	artist = "Kevin Macleod"
+	title = "Folk Round"
+	song = 'sound/music/folk.ogg'
+	license = /decl/license/cc_by_3_0
+	url = "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100357"
+
+/decl/music_track/pyre
+	artist = "Kevin Macleod"
+	title = "The Pyre"
+	song = 'sound/music/pyre.ogg'
+	license = /decl/license/cc_by_3_0
+	url = "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100846&Search=Search"
+
 /decl/music_track/suonatore
 	artist = "Kevin Macleod"
 	title = "Suonatore di Liuto"
