@@ -46,7 +46,7 @@
 /obj/item/clothing/jumpsuit/thug
 	name = "Leather Hunting Garb"
 	desc = "A standard leather hunting gambenson to help stop brush from cutting you up"
-	icon = 'icons/clothing/shirts/gambeson.dmi'
+	icon = 'icons/clothing/jumpsuits/jumpsuit.dmi'
 	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
 	armor = list(
 		ARMOR_MELEE  = ARMOR_MELEE_KNIVES
