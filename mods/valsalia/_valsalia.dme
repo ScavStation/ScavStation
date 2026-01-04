@@ -63,6 +63,7 @@
 #include "mobs\chorp.dm"
 #include "mobs\grub_bear.dm"
 #include "mobs\skittercrab.dm"
+#include "mobs\thugs.dm"
 #include "species\languageOldYing.dm"
 
 // END_INCLUDE
