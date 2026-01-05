@@ -12,7 +12,7 @@
 	backpack_contents = list(
 		/obj/item/mollusc/clam,
 		/obj/item/bladed/knife,
-		/obj/item/fleece
+		/obj/item/fleece,
 		/obj/item/flame/torch
 	)
 	shoes = /obj/item/clothing/shoes/sandal/yinglet
@@ -20,15 +20,15 @@
 
 /decl/outfit/job/valSal_port/matriarch
 	name = "Enclave Matriarch"
-	hands = list(
-		/obj/item/pen/fancy/quill,
-		/obj/item/paper/scroll
-	)
 	backpack_contents = list(
 		/obj/item/stack/medical/bandage/crafted/five = 1,
 		/obj/item/stack/medical/ointment/crafted/five   = 1,
-		/obj/item/stack/medical/splint/crafted/five       = 1
+		/obj/item/stack/medical/splint/crafted/five       = 1,
 		/obj/item/flame/torch
+	)
+	hands = list(
+		/obj/item/pen/fancy/quill,
+		/obj/item/paper/scroll
 	)
 	shoes = /obj/item/clothing/shoes/sandal/yinglet
 	uniform = /obj/item/clothing/suit/robe/yinglet/matriarch

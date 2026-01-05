@@ -18,12 +18,12 @@
 	min_skill               = list(
 		SKILL_LITERACY      = SKILL_MAX, // reading and writing
 		SKILL_COOKING       = SKILL_ADEPT, // butchery
-		SKILL_CHEMISTRY     = SKILL_ADEPT, // making medicines
+		SKILL_CHEMISTRY     = SKILL_ADEPT // making medicines
 	)
 	max_skill               = list(
 		SKILL_ANATOMY      = SKILL_MAX,
 		SKILL_MEDICINE        = SKILL_MAX,
-		SKILL_CHEMISTRY       = SKILL_MAX,
+		SKILL_CHEMISTRY       = SKILL_MAX
 	)
 	skill_points            = 30
 
@@ -42,13 +42,13 @@
 	min_skill               = list(
 		SKILL_LITERACY      = SKILL_AVERAGE, // reading and writing
 		SKILL_COMBAT        = SKILL_ADEPT, // basic fighting skills
-		SKILL_SCIENCE       = SKILL_ADEPT // research
+		SKILL_SCIENCE       = SKILL_ADEPT, // research
 		SKILL_FINANCE	    = SKILL_ADEPT // managing resources
 	)
 	max_skill               = list(
 		SKILL_ANATOMY      = SKILL_MAX,
 		SKILL_MEDICINE        = SKILL_MAX,
-		SKILL_CHEMISTRY       = SKILL_MAX,
+		SKILL_CHEMISTRY       = SKILL_MAX
 	)
 	skill_points            = 28
 
@@ -72,7 +72,7 @@
 	max_skill               = list(
 		SKILL_ANATOMY      = SKILL_MAX,
 		SKILL_MEDICINE        = SKILL_MAX,
-		SKILL_CHEMISTRY       = SKILL_MAX,
+		SKILL_CHEMISTRY       = SKILL_MAX
 	)
 	skill_points            = 22
 
