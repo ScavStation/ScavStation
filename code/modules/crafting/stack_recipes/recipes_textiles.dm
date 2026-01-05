@@ -32,7 +32,6 @@
 	crafting_extra_cost_factor = 1.2 // less material is lost because it's relatively simple
 	category              = "clothing"
 
-
 /decl/stack_recipe/textiles/leather
 	abstract_type         = /decl/stack_recipe/textiles/leather
 	craft_stack_types     = /obj/item/stack/material/skin
