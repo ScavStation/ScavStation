@@ -28,6 +28,12 @@
 	crafting_extra_cost_factor = 1.3
 	category              = "clothing"
 
+/decl/stack_recipe/textiles/yingcoat
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/robe/yinglet/countercoat
+	crafting_extra_cost_factor = 1.3
+	category              = "clothing"
+
 /decl/stack_recipe/textiles/operative
 	difficulty  = MAT_VALUE_HARD_DIY
 	result_type           = /obj/item/clothing/suit/robe/yinglet/operative
