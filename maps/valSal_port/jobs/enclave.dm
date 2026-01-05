@@ -20,6 +20,11 @@
 		SKILL_COOKING       = SKILL_ADEPT, // butchery
 		SKILL_CHEMISTRY     = SKILL_ADEPT, // making medicines
 	)
+	max_skill               = list(
+		SKILL_ANATOMY      = SKILL_MAX,
+		SKILL_MEDICINE        = SKILL_MAX,
+		SKILL_CHEMISTRY       = SKILL_MAX,
+	)
 	skill_points            = 30
 
 /obj/abstract/landmark/start/valSal_port/matriarch
@@ -35,8 +40,15 @@
 	total_positions         = 4
 	outfit_type             = /decl/outfit/job/valSal_port/patriarch
 	min_skill               = list(
-		SKILL_LITERACY      = SKILL_MAX, // reading and writing
+		SKILL_LITERACY      = SKILL_AVERAGE, // reading and writing
 		SKILL_COMBAT        = SKILL_ADEPT, // basic fighting skills
+		SKILL_SCIENCE       = SKILL_ADEPT // research
+		SKILL_FINANCE	    = SKILL_ADEPT // managing resources
+	)
+	max_skill               = list(
+		SKILL_ANATOMY      = SKILL_MAX,
+		SKILL_MEDICINE        = SKILL_MAX,
+		SKILL_CHEMISTRY       = SKILL_MAX,
 	)
 	skill_points            = 28
 
@@ -57,10 +69,15 @@
 		SKILL_COOKING       = SKILL_AVERAGE, // butchery
 		SKILL_ARTIFICE     = SKILL_ADEPT // making things
 	)
+	max_skill               = list(
+		SKILL_ANATOMY      = SKILL_MAX,
+		SKILL_MEDICINE        = SKILL_MAX,
+		SKILL_CHEMISTRY       = SKILL_MAX,
+	)
 	skill_points            = 22
 
-/obj/abstract/landmark/start/valSal_port/patriarch
-	name                    = "Patriarch"
+/obj/abstract/landmark/start/valSal_port/daughter
+	name                    = "Daughter"
 
 /datum/job/valSal_port/enclave/digger
 	title                   = "Rock Digger"
@@ -115,9 +132,9 @@
 	min_skill               = list(
 		SKILL_HAULING       = SKILL_ADEPT, // overall physical activity
 		SKILL_HUSBANDRY     = SKILL_BASIC, // handling and caring for animals
-		SKILL_COMBAT        = SKILL_MAX, // fighting against threats
-		SKILL_COOKING       = SKILL_MAX, // butchery
-		SKILL_WEAPONS       = SKILL_MAX // shooting accuracy
+		SKILL_COMBAT        = SKILL_AVERAGE, // fighting against threats
+		SKILL_COOKING       = SKILL_BASIC, // butchery
+		SKILL_WEAPONS       = SKILL_AVERAGE // shooting accuracy
 	)
 	skill_points            = 24
 
