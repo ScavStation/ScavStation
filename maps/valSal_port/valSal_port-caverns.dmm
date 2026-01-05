@@ -40,7 +40,7 @@
 "iY" = (/obj/effect/spider/spiderling,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
 "jg" = (/obj/item/frame/light/small{pixel_y = -14},/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
 "jC" = (/obj/item/remains/lizard,/obj/effect/spider/stickyweb,/turf/floor/rock/basalt,/area/valSal_port/nest)
-"jE" = (/turf/floor/dirt,/area/valSal_port/caves/deep)
+"jE" = (/obj/item/stack/material/gemstone/mapped/diamond,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
 "jF" = (/obj/effect/spider/spiderling,/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/dirt,/area/valSal_port/nest)
 "jN" = (/turf/floor/path/herringbone/marble,/area/valSal_port/library)
 "jQ" = (/obj/item/remains/lizard,/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/dirt,/area/valSal_port/nest)
@@ -66,6 +66,7 @@
 "pW" = (/obj/structure/boulder/basalt,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
 "qe" = (/mob/living/simple_animal/hostile/giant_spider/guard/cave,/turf/floor/dirt,/area/valSal_port/nest)
 "qt" = (/obj/effect/decal/cleanable/dirt,/turf/floor/tiled/stone,/area/valSal_port/library)
+"qJ" = (/obj/item/stack/material/ore/diamond,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
 "qK" = (/obj/item/cash/imperial/regalis,/turf/floor/dirt,/area/valSal_port/nest)
 "qO" = (/turf/floor/barren,/area/valSal_port/mushroom)
 "qQ" = (/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/turf/floor/dirt,/area/valSal_port/nest)
@@ -91,7 +92,6 @@
 "vO" = (/obj/effect/decal/cleanable/dirt,/obj/structure/wall_sconce/lantern{dir = 4},/turf/floor/path/running_bond/marble,/area/valSal_port/library)
 "vS" = (/obj/effect/decal/cleanable/dirt,/obj/structure/wall_sconce/lantern,/turf/floor/path/herringbone/marble,/area/valSal_port/library)
 "wp" = (/obj/structure/fire_source/firepit/granite,/obj/item/stack/material/log/mapped/walnut/fifteen,/turf/floor/rock/basalt,/area/valSal_port/miningcamp)
-"wS" = (/obj/item/zat_zhing{name = "emerald"; desc = "A green gemstone with some residue stuck to it."},/turf/floor/dirt,/area/valSal_port/caves/deep)
 "wW" = (/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/rock/basalt,/area/valSal_port/nest)
 "wZ" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/clothing/suit/armor/forged/brigandine,/obj/item/clothing/suit/armor/forged/brigandine,/obj/item/clothing/suit/armor/forged/brigandine,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
 "xc" = (/mob/living/simple_animal/mushroom{name = "Wimbly"},/turf/floor/barren,/area/valSal_port/mushroom)
@@ -102,7 +102,6 @@
 "yy" = (/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/regalis,/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/nest)
 "yL" = (/turf/floor/tiled/stone,/area/valSal_port/library)
 "yZ" = (/turf/floor/rock/basalt,/area/valSal_port/nest)
-"za" = (/obj/item/stack/material/gemstone/mapped/diamond,/turf/floor/dirt,/area/valSal_port/caves/deep)
 "zq" = (/obj/effect/wingrille_spawn/reinforced/full,/turf/floor/plating,/area/valSal_port/lab)
 "zw" = (/turf/wall/natural/volcanic,/area/valSal_port/caves/deep)
 "zP" = (/turf/floor/holofloor/beach/sand,/area/valSal_port/grove)
@@ -159,7 +158,9 @@
 "JH" = (/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
 "JK" = (/obj/item/bone/skull,/turf/floor/path/marble,/area/valSal_port/prison)
 "JN" = (/turf/floor/rock/basalt,/area/valSal_port/miningcamp)
+"JU" = (/obj/item/stack/material/gemstone/mapped/diamond,/turf/floor/dirt,/area/valSal_port/caves/deep)
 "Kf" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/structure/flora/plant/random_mushroom,/turf/floor/dirt,/area/valSal_port/nest)
+"Kq" = (/obj/item/zat_zhing{name = "emerald"; desc = "A green gemstone with some residue stuck to it."},/turf/floor/dirt,/area/valSal_port/caves/deep)
 "Kr" = (/obj/item/bladed/polearm/spear/improvised/steel,/turf/floor/dirt,/area/valSal_port/nest)
 "KK" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/nest)
 "Lh" = (/turf/floor/path/marble,/area/valSal_port/prison)
@@ -184,13 +185,13 @@
 "Ql" = (/obj/structure/table/desk/ebony,/obj/item/chems/glass/inkwell/quilled,/turf/floor/path/herringbone/sandstone,/area/valSal_port/prison)
 "QS" = (/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/herringbone/sandstone,/area/valSal_port/prison)
 "Rl" = (/obj/item/clothing/suit/armor/forged/brigandine,/turf/floor/dirt,/area/valSal_port/nest)
+"Rq" = (/obj/item/stack/material/ore/diamond,/turf/floor/dirt,/area/valSal_port/caves/deep)
 "RD" = (/obj/effect/decal/cleanable/filth,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
 "RR" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/wall_sconce/lantern,/turf/floor/path/herringbone/marble,/area/valSal_port/library)
 "RT" = (/obj/effect/spider/cocoon,/turf/floor/dirt,/area/valSal_port/nest)
 "Sz" = (/obj/item/cash/imperial/crown,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
 "SA" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
 "SB" = (/obj/structure/bed/chair/wood/wings/ebony{dir = 1},/obj/item/remains/human,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
-"SC" = (/obj/item/stack/material/gemstone/mapped,/turf/floor/dirt,/area/valSal_port/caves/deep)
 "SL" = (/obj/item/remains/mouse,/obj/item/cash/imperial/crown,/turf/floor/dirt,/area/valSal_port/nest)
 "SU" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/caves/deep)
 "Tc" = (/obj/item/clothing/suit/armor/forged/breastplate,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
@@ -199,7 +200,6 @@
 "Tn" = (/obj/item/bladed/shortsword,/turf/floor/dirt,/area/valSal_port/nest)
 "Tp" = (/obj/structure/flora/pottedplant/overgrown,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
 "Tu" = (/obj/effect/decal/cleanable/dirt/visible,/obj/item/debris/scraps/chemical,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
-"TE" = (/obj/item/stack/material/gemstone/mapped,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
 "TZ" = (/obj/effect/spider/spiderling,/turf/floor/dirt,/area/valSal_port/nest)
 "Ul" = (/obj/structure/door/sandstone{dir = 4},/turf/floor/path/marble,/area/valSal_port/prison)
 "UR" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/whip,/obj/item/whip,/obj/item/whip/chainofcommand,/obj/item/whip/tail,/obj/item/classic_baton,/obj/item/classic_baton,/obj/item/classic_baton,/obj/item/classic_baton,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
@@ -208,6 +208,7 @@
 "Vm" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/nest)
 "Vu" = (/obj/effect/spider/spiderling,/obj/effect/spider/stickyweb,/turf/wall/natural/dirt,/area/valSal_port/nest)
 "VE" = (/obj/item/debris/melted,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"VG" = (/turf/floor/dirt,/area/valSal_port/caves/deep)
 "VH" = (/obj/structure/boulder/basalt,/obj/structure/boulder/basalt,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
 "VW" = (/obj/effect/decal/cleanable/cobweb2{dir = 8},/turf/floor/rock/basalt,/area/valSal_port/nest)
 "VY" = (/obj/random/dungeon_bookcase,/turf/floor/path/running_bond/marble,/area/valSal_port/library)
@@ -237,13 +238,13 @@ SUSUSUhftGtGtGhfhfSUSUhfhfBQBQBQBQBQBQBQBQBQtGtGtGtGtGBIBIBIBIBIBIBIBIBIhfhfhfhf
 SUSUSUhftGtGggggSUSUggBQBQBQBQBQtGtGtGtGtGtGtGhfhfhfhfhfhfhfhfBIBIBIBIBIBIBIhfBISUSUSUSUBIBIBIBIBIBIBIggggtGtGtGtGtgtGtGtGjStGtGtGBIBIBIBISUSUBIBIBItGtGBQBQBQBQBQhfBISUSUSUSUSUSUtGSUSUSUSUnyMMMMMMljhf
 SUSUhftGtGhfSUSUSUBQBQBQBQBQBQtGjStGtGtGtGtgtGtGtGpWtGtGtGtGhfBIhfhfhfhfBIBIBISUSUBIBIBIhfhfhfggggggtGtGtGjStGtGtGtGpWtGPitGtGxmtGtGBIBIhfBISUSUSUBIBItGtGBQBQBQBQBQhfBIBISUBISUSUtGSUSUhfSUnyhjljljljhf
 SUhfhftGtGhfggggBQBQBQtGtGtGtGtGtGSUSUSUSUSUtGtGtGtGtGjSPitGtGtGtGtGhfhfhfhfhfSUhfhfhfhfhftGtGtGtGtGtGtGtGtGtGtGtGtGhftGSUSUtGtGtGtGtGhfBIBIBIBISUSUBIBItGtGtGBQBQBQhfhfBISUSUSUSUSUSUSUhfSUnyhjhjljljhf
-SUhfhftGhfhfggBQBQBQtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUSUSUSUSUSUtGtGtGtGtGjStGtGtGtGtGtGtGtGtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUtGSUSUSUtGtGpWtGtGhfBIBIBIBISUSUBIBIhftGtGBQBQBQhfBISUhfSUSUtGTEtGSUSUnyAoljljljhf
-SUhftGtGhfhfBQBQBQtGtGtGhfSUBISUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUtGtGtGtGpWtGtGabtGtGjStGtGhfSUSUSUSUhfSUSUhfSUSUSUyZalKKSUSUSUtGtGjStGtGBIBIBISUSUSUBIBIhftGtGBQBQhfBISUBISUtGjEjEtGSUSUnyEcMMEcljhf
-SUhftGtGggBQBQBQBQtGPihfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBIBIBISUSUSUSUSUSUSUSUSUSUSUBIBISUSUBIhfSUSUKKyZyZKKKKSUSUSUSUtGtGtGBIBIBISUSUSUBIBIhftGBQBQhfSUSUBITEjEzajETESUSUnyljljhjljhf
-SUhftGggggBQBQBQjStGtGSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUSUSUSUSUSUSUSUSUSUBIBIBIBISUKKyZyZyZKKSUhfSUSUpWtGtGBIBIBISUSUBIBIhftGBQBQBQSUSUtGjEwSjEtGSUSUSUnyljhjMMljhf
-SUhftGggBQBQBQtGpWabBISUSUSUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBIBISUSUSUSUSUSUSUBIBISUBIBISUKKJpyZKKhfhfhfSUSUabtGtGhfBIBISUBIBIBItGtGBQBQSUTEjESCjEtGSUSUSUSUnyljhjljljhf
-SUtGtGggBQBQBQtGtGBIBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUSUSUSUBIBImxyZKKhfhfhfhfSUSUtGtGPihfBISUSUhfBIhftGBQBQBItGjEjEtGSUSUSUSUSUnyljMMMMljhf
-SUtGggggBQBQtGtGSUBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBTBTBTBTBTBTBTBTBTSUBIBISUhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBImxmxmxmxJpKKlClClClCKKSUSUtGtGtGhfBISUSUhfBItGBQBQSUtGTEtGSUSUSUSUSUSUnyEcMMEcljhf
+SUhfhftGhfhfggBQBQBQtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUSUSUSUSUSUtGtGtGtGtGjStGtGtGtGtGtGtGtGtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUtGSUSUSUtGtGpWtGtGhfBIBIBIBISUSUBIBIhftGtGBQBQBQhfBISUhfSUSUtGtGjESUSUnyAoljljljhf
+SUhftGtGhfhfBQBQBQtGtGtGhfSUBISUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUtGtGtGtGpWtGtGabtGtGjStGtGhfSUSUSUSUhfSUSUhfSUSUSUyZalKKSUSUSUtGtGjStGtGBIBIBISUSUSUBIBIhftGtGBQBQhfBISUBISUtGRqJUqJSUSUnyEcMMEcljhf
+SUhftGtGggBQBQBQBQtGPihfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBIBIBISUSUSUSUSUSUSUSUSUSUSUBIBISUSUBIhfSUSUKKyZyZKKKKSUSUSUSUtGtGtGBIBIBISUSUSUBIBIhftGBQBQhfSUSUBItGVGVGVGtGSUSUnyljljhjljhf
+SUhftGggggBQBQBQjStGtGSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUSUSUSUSUSUSUSUSUSUBIBIBIBISUKKyZyZyZKKSUhfSUSUpWtGtGBIBIBISUSUBIBIhftGBQBQBQSUSUtGVGKqRqtGSUSUSUnyljhjMMljhf
+SUhftGggBQBQBQtGpWabBISUSUSUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBIBISUSUSUSUSUSUSUBIBISUBIBISUKKJpyZKKhfhfhfSUSUabtGtGhfBIBISUBIBIBItGtGBQBQSUtGJUVGVGjESUSUSUSUnyljhjljljhf
+SUtGtGggBQBQBQtGtGBIBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUSUSUSUBIBImxyZKKhfhfhfhfSUSUtGtGPihfBISUSUhfBIhftGBQBQBItGRqVGtGSUSUSUSUSUnyljMMMMljhf
+SUtGggggBQBQtGtGSUBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBTBTBTBTBTBTBTBTBTSUBIBISUhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBImxmxmxmxJpKKlClClClCKKSUSUtGtGtGhfBISUSUhfBItGBQBQSUqJtGtGSUSUSUSUSUSUnyEcMMEcljhf
 SUtGggBQBQtGtGSUBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBISUSUBTeBoDFVjNjNoZjNBTSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUmxmxmxNOJpmxmxalKKlClCalJplClCBItGSUtGtGhfBISUhfBItGBQBQSUSUSUSUSUSUSUSUhfSUnyljhjljljhf
 SUtGggBQBQtGhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUhfBTfxEzVYZVEzEzoaBTSUSUSUSUBIBIBIBISUSUSUSUSUSUSUBISUhfhfmxmxxHskNOalyZyZyZwWyZyZalJpJpJpmxSUSUSUtGtGBIhfSUSUtGBQBQSUSUSUSUSUSUSUSUSUSUnyhjhjhjljhf
 SUtGggBQBQtGhfSUSUSUSUSUSUSUSUSUSUSUBIBISUSUSUSUhfSUhfBTqteKqtyLqtqtqtBTtGtGtGtGtGtGtGtGtGtGhfSUBISUBIhfhfhfmxmxJpPkjCJpaifJjQFPFPFPFPjCalalJpJpmxSUtGtGtGhfBIhfBItGBQBQSUSUSUSUSUSUSUSUSUSUnyljljMMljhf
