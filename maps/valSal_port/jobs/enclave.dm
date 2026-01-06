@@ -45,7 +45,7 @@
 		SKILL_FINANCE	    = SKILL_ADEPT // managing resources
 	)
 	max_skill               = list(
-		SKILL_COMBAT          = SKILL_MAX
+		SKILL_COMBAT          = SKILL_MAX,
 		SKILL_ANATOMY         = SKILL_MAX,
 		SKILL_MEDICINE        = SKILL_MAX,
 		SKILL_CHEMISTRY       = SKILL_MAX
