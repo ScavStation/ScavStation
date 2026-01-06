@@ -30,7 +30,7 @@
 		SKILL_MEDICAL       = SKILL_MAX,
 		SKILL_ANATOMY       = SKILL_MAX
 	)
-	skill_points            = 24
+	skill_points            = 18
 
 /obj/abstract/landmark/start/valSal_port/surveyor
 	name                    = "Tradehouse Surveyor"
