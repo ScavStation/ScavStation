@@ -53,6 +53,10 @@
 "bJ" = (
 /turf/floor/grass,
 /area/valSal_port/outside/river)
+"bP" = (
+/obj/structure/boulder/sandstone,
+/turf/floor/grass,
+/area/valSal_port/town/den)
 "bR" = (
 /turf/floor/grass,
 /area/valSal_port/outside/outer_town)
@@ -341,6 +345,10 @@
 /obj/item/chems/cooking_vessel/skillet/iron,
 /turf/floor/wood/yew,
 /area/valSal_port/town/hermit)
+"gn" = (
+/obj/structure/boulder/sandstone,
+/turf/floor/dirt,
+/area/valSal_port/town/den)
 "gq" = (
 /obj/structure/flora/tree/hardwood/mahogany,
 /obj/structure/flora/bush/brflowers,
@@ -881,7 +889,9 @@
 /turf/floor/grass,
 /area/valSal_port/outside/inner_town)
 "qi" = (
-/mob/living/simple_animal/hostile/commanded/bear,
+/mob/living/simple_animal/hostile/bear{
+	name = "bear"
+	},
 /turf/floor/dirt,
 /area/valSal_port/town/den)
 "ql" = (
@@ -11575,7 +11585,7 @@ kv
 Px
 Px
 pE
-nt
+gn
 NF
 UH
 dW
@@ -11684,7 +11694,7 @@ Px
 SP
 ly
 fC
-pj
+bP
 Ru
 sI
 sh
