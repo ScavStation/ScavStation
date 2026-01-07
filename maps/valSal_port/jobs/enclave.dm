@@ -25,7 +25,7 @@
 		SKILL_MEDICINE        = SKILL_MAX,
 		SKILL_CHEMISTRY       = SKILL_MAX
 	)
-	skill_points            = 26
+	skill_points            = 30
 
 /obj/abstract/landmark/start/valSal_port/matriarch
 	name                    = "Matriarch"
@@ -50,7 +50,7 @@
 		SKILL_MEDICINE        = SKILL_MAX,
 		SKILL_CHEMISTRY       = SKILL_MAX
 	)
-	skill_points            = 22
+	skill_points            = 26
 
 /obj/abstract/landmark/start/valSal_port/patriarch
 	name                    = "Patriarch"
@@ -93,7 +93,7 @@
 		SKILL_STONEMASONRY  = SKILL_ADEPT, // experienced working with stone
 		SKILL_SCULPTING     = SKILL_BASIC // producing clay molds, firing pottery
 	)
-	skill_points            = 16
+	skill_points            = 22
 
 /obj/abstract/landmark/start/valSal_port/miner
 	name                    = "Rock Digger"
@@ -116,7 +116,7 @@
 		SKILL_ANATOMY       = SKILL_MAX,
 		SKILL_CHEMISTRY     = SKILL_MAX
 	)
-	skill_points            = 16
+	skill_points            = 22
 
 /obj/abstract/landmark/start/valSal_port/reedtender
 	name                    = "Reed Tender"
@@ -136,7 +136,7 @@
 		SKILL_COOKING       = SKILL_BASIC, // butchery
 		SKILL_WEAPONS       = SKILL_AVERAGE // shooting accuracy
 	)
-	skill_points            = 18
+	skill_points            = 24
 
 /obj/abstract/landmark/start/valSal_port/hunter
 	name                    = "Hunter"
@@ -156,7 +156,7 @@
 		SKILL_COOKING       = SKILL_BASIC, // butchery
 		SKILL_CARPENTRY     = SKILL_ADEPT // building camps
 	)
-	skill_points            = 16
+	skill_points            = 26
 
 /obj/abstract/landmark/start/valSal_port/scout
 	name                    = "Scout"
