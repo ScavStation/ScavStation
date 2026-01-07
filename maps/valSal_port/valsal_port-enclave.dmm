@@ -8,6 +8,7 @@
 "aO" = (/mob/living/simple_animal/passive/rabbit,/turf/floor/grass,/area/valSal_port/outside/enclave)
 "aQ" = (/mob/living/simple_animal/chorp,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
 "bf" = (/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/turf/floor/dirt,/area/valSal_port/enclave/dininghut)
+"bg" = (/obj/structure/fire_source/stove,/turf/floor/dirt,/area/valSal_port/outside/enclave)
 "bh" = (/mob/living/simple_animal/lizard,/turf/floor/clay,/area/valSal_port/outside/enclave/river)
 "bk" = (/obj/structure/boulder/basalt,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_enclave)
 "bt" = (/obj/structure/fire_source/firepit/granite,/turf/floor/dirt,/area/valSal_port/outside/enclave)
@@ -74,14 +75,14 @@
 "ix" = (/obj/structure/flora/bush/fernybush,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_south)
 "iB" = (/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_enclave)
 "iD" = (/mob/living/simple_animal/grub_bear,/turf/floor/grass,/area/valSal_port/outside/outdoors_enclave)
-"iJ" = (/obj/item/lute,/turf/floor/wood/mahogany,/area/valSal_port/enclave/dininghut)
+"iJ" = (/obj/structure/fire_source/kiln/oven,/turf/floor/dirt,/area/valSal_port/outside/enclave)
 "iK" = (/turf/floor/carpet/rustic,/area/valSal_port/enclave/dininghut)
 "iN" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/outside/outdoors_cliff)
 "iT" = (/obj/structure/flora/bush/ywflowers,/turf/floor/grass,/area/valSal_port/outside/enclave)
 "iU" = (/obj/structure/dogbed,/obj/structure/wall_sconce/torch{dir = 4},/obj/abstract/landmark/start/valSal_port/daughter,/turf/floor/wood,/area/valSal_port/enclave/daughter)
 "jj" = (/obj/structure/closet/crate/chest/ebony,/obj/item/food/butchery/offal,/obj/item/food/butchery/offal,/obj/item/food/butchery/offal/beef,/obj/item/food/butchery/offal/beef,/obj/item/food/butchery/offal/small,/obj/item/food/butchery/offal/small,/obj/item/food/butchery/offal/small/beef,/obj/item/food/butchery/offal/small/beef,/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
 "jl" = (/obj/structure/flora/bush/genericbush,/turf/floor/grass,/area/valSal_port/outside/outdoors_south)
-"jo" = (/obj/structure/meat_hook/improvised,/obj/structure/wall_sconce/torch,/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
+"jo" = (/obj/structure/meat_hook/improvised,/obj/structure/wall_sconce/torch,/turf/floor/path,/area/valSal_port/enclave/huntershut)
 "jt" = (/obj/abstract/landmark/start/valSal_port/hunter,/turf/floor/carpet/rustic,/area/valSal_port/enclave/huntershut)
 "jM" = (/obj/structure/flora/tree/hardwood/walnut,/turf/floor/grass/wild,/area/valSal_port/outside/enclave)
 "jQ" = (/turf/wall/natural/random/basalt/valSal_port,/area/valSal_port/outside/outdoors_south)
@@ -134,7 +135,7 @@
 "pj" = (/obj/structure/flora/bush/ywflowers,/turf/floor/grass,/area/valSal_port/outside/outdoors_enclave)
 "pw" = (/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
 "py" = (/obj/structure/wall_sconce/torch{dir = 8},/turf/floor/wood/walnut,/area/valSal_port/enclave/patriarch)
-"pI" = (/obj/structure/wall_sconce/torch,/obj/item/lute,/obj/structure/table/woodentable/ebony,/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
+"pI" = (/obj/structure/wall_sconce/torch,/obj/structure/table/woodentable/ebony,/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
 "pJ" = (/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "pK" = (/obj/structure/flora/bush/ywflowers,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_enclave)
 "pN" = (/obj/structure/reagent_dispensers/barrel/ebony/wine,/turf/floor/wood/yew,/area/valSal_port/enclave/storehouse)
@@ -337,7 +338,7 @@
 "LI" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/caves)
 "LS" = (/obj/structure/flora/bush/fernybush,/obj/structure/flora/bush/fullgrass,/turf/floor/grass,/area/valSal_port/outside/outdoors_cliff)
 "LT" = (/mob/living/simple_animal/aquatic/fish/large/salmon,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
-"LV" = (/obj/structure/drying_rack,/turf/floor/wood/mahogany,/area/valSal_port/enclave/dininghut)
+"LV" = (/obj/structure/drying_rack/ebony,/turf/floor/wood/mahogany,/area/valSal_port/enclave/dininghut)
 "Mb" = (/turf/floor/mud/water,/area/valSal_port/outside/enclave/riverborder)
 "Md" = (/obj/structure/railing/mapped/wooden/walnut{dir = 8},/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
 "Mf" = (/obj/item/stool/wood,/obj/abstract/landmark/start/valSal_port/patriarch,/turf/floor/wood/walnut,/area/valSal_port/enclave/patriarch)
@@ -375,7 +376,7 @@
 "PP" = (/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/river)
 "PW" = (/mob/living/simple_animal/aquatic/fish/large,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
 "PX" = (/turf/wall/log/mahogany,/area/valSal_port/outside/enclave)
-"PY" = (/obj/structure/meat_hook/improvised,/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
+"PY" = (/obj/structure/meat_hook/improvised,/turf/floor/path,/area/valSal_port/enclave/huntershut)
 "Qb" = (/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/obj/structure/drying_rack/ebony,/turf/floor/dirt,/area/valSal_port/enclave/dininghut)
 "Qg" = (/obj/item/stool/rustic,/obj/structure/wall_sconce/torch{dir = 8},/turf/floor/wood/mahogany,/area/valSal_port/enclave/dininghut)
 "Qv" = (/turf/wall/log/yew,/area/valSal_port/enclave/dininghut)
@@ -383,6 +384,7 @@
 "QG" = (/obj/item/stool/rustic,/obj/abstract/landmark/start/valSal_port/miner,/turf/floor/wood/mahogany,/area/valSal_port/enclave/dininghut)
 "QS" = (/obj/structure/wall_sconce/torch,/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "QY" = (/obj/structure/flora/bush/leafybush,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_south)
+"Rg" = (/obj/item/stool/wood,/turf/floor/wood/yew,/area/valSal_port/enclave/foyer)
 "Rw" = (/obj/structure/flora/seaweed/mid,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
 "Ry" = (/mob/living/simple_animal/snail,/turf/floor/clay,/area/valSal_port/outside/enclave/river)
 "RL" = (/obj/structure/flora/bush/ywflowers,/mob/living/simple_animal/grub_bear,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
@@ -491,13 +493,13 @@ LIvDvDLILINcNcLILILILILIvDvDvDLIvDvDvDvDLIvDvDvDNcLILITEOHiBiBiBiBOHOHOHruiBOHOH
 LILIvDvDLINcvDLILILILIvDvDLILILILILILIvDvDLILILINcLILITEOHiBiBiBRPiBOHruOHiBiBOHCkOHiBiBiBiBYzFJaOFJFJFJFJFJZOFJZOFJFJFJFJFJFJFJFJFJFJFJFJZOFJFJFJFJFJFJkKOHOHOHOHOHOHOHruruOHkKOHiBiBNsiBFGFGFGFGFGFGFG
 LILILIvDvDNcFpLILIvDvDvDLILILILILILILILILILILINcNcLILITEOHiBiBiBiBiBOHsbOHOHiBiBOHOHOHOHiBGhFJFJFJFJFJFJFJFJFJFJFJFJFJFJrxFJFJFJFJFJFJZOFJFJFJFJFJFJFJFJFJFJFJFJOHSpOHOHOHOHcPOHOHiBiBOHiBFGFGFGFGFGFGFG
 LILILILIvDNcXBLIvDvDLILILINcNczVNcLILILILILINcNcLILITETEOHiBiBsbiBiBOHiBOHOHiBiBiBOHOHOHFJGhZOFJFJFJFJFJZOFJFJFJFJFJFJFJFJKWFJZOZOZOZOFJFJFJFJFJFJMqFJFJFJFJFJFJFJFJOHOHOHOHOHruruiBEsOHiBFGFGFGFGFGFGFG
-LILILILILIXBNcvDvDLILILINcNcLILINcNcNcNcNcNcNcLILILITEOHOHiBiBiBiBdSOHOHOHOHOHiBiBiBiBFJFJFJFJFJFJFJFJKWZOFJFJFJFJFJFJFJZhBKTxbtTxBKZhFJFJFJFJFJFJFJFJFJFJFJFJFJFJMqFJOHOHOHOHOHruiBiBOHiBFGFGFGFGFGFGFG
+LILILILILIXBNcvDvDLILILINcNcLILINcNcNcNcNcNcNcLILILITEOHOHiBiBiBiBdSOHOHOHOHOHiBiBiBiBFJFJFJFJFJFJFJFJKWZOFJFJFJFJFJFJFJZhBKiJbtbgBKZhFJFJFJFJFJFJFJFJFJFJFJFJFJFJMqFJOHOHOHOHOHruiBiBOHiBFGFGFGFGFGFGFG
 LILILILINcNcXBNcXBNcNcNcNcLILILILILIvDvDvDLILILILILITEOHiBiBcEiBiBOHOHOHOHOHNsiBiBiBiBCHFJFJFJFJFJrxFJEGZOrxFJFJFJFJFJFJQbBKBKBKBKBKbfFJFJFJFJFJFJFJFJwUEGFJFJRSFJFJFJFJOHOHOHOHOHiBpjOHiBFGFGFGFGFGFGFG
 LILILILINcXBhtXBNcLILILILILILILILILILILIvDvDvDLILILITEOHiBiBiBiBiBOHOHOHiBiBOHOHsbiBGhGhGhGhZOFJFJFJFJFJFJFJFJFJwUFJFJFJxxQFBKBKBKQFBKCNFJFJMqFJFaFJFJFJFJFJFJMqFJFJFJFJFJOHOHOHOHYzOHOHiBFGFGFGFGFGFGFG
 LILILICWoicOcOoioiZSZSZSZSZSZSZSZSZSLILILIvDvDvDLILITEOHiBiBiBiBiBOHOHOHpKiBOHOHOHiBGhjMGhGhFJFJFJFJFJFJFJFJFJFJFJFJFJFJQvZhvLGRvLZhQvFJFJFJFJFJFJFJFJFJFJFJFJFJZOFJwQFJFJNsOHOHOHYzOHiBEsFGFGFGFGFGFGFG
 XBXBEFCWcOcOcOcOcOcOcOcOcOcOcOCWCWCWZSZSZSZSLIvDLILITEOHiBiBiBiBYzkKOHOHiBiBiBOHOHOHGhGhGhGhFJFJFJFJFJFJFJFJFJFJFJtdFJFJZhZhLVihSZZhZhFJFJEGFJFJqTFJFaFJFJFJFJFJFJFJFJFJgWFJOHOHOHiBOHiBiBFGFGFGFGFGFGFG
 KLKLaIaIaIaIaIaIaIaIaIaIaIaIaIaIaICWcOcOcOZSLILILILITEOHiBiBcEcEiBlHOHiBiBiBiBOHruOHyCGhGhGhFJFJFJFJFJFJFJFJMqFJFJFJFJFJZhZzihiKihAAZhFJFJFJFJFJFJiTFJFJFJFJFJFJFJFJZOFJFJFJFJOHiBiBOHiBiBFGFGFGFGFGFGFG
-OMOMKCKCKCKCKCKCKCKCKCKCKCKCKCKCHzaIaIaIcOcOZSZSLILITEOHiBdSiBiBiBiBOHOHiBiBiBOHOHruqTGhGhGhZOFJFJFJMqFJFaPXPXPXPXPXFJFJvLiJihiKihihvLFJZONTNTNTNTaCNTNTNTNTFJFJFJFJFJZOFJMqFJOHiBOHOHiBiBFGFGFGFGFGFGFG
+OMOMKCKCKCKCKCKCKCKCKCKCKCKCKCKCHzaIaIaIcOcOZSZSLILITEOHiBdSiBiBiBiBOHOHiBiBiBOHOHruqTGhGhGhZOFJFJFJMqFJFaPXPXPXPXPXFJFJvLihihiKihihvLFJZONTNTNTNTaCNTNTNTNTFJFJFJFJFJZOFJMqFJOHiBOHOHiBiBFGFGFGFGFGFGFG
 DmDmlOlEnMlEMkGilElOlElEOxlElEKCKCKCKCaIaIcOcOZSZSLITEOHiBiBiBiBiBiBOHpjiBatiBOHOHOHFJGhGhGhFJFJrxFJTxTxTxTxTxTxTxPXFJFJZhQgihiKihmWZhFJFJNTpNtANTcCNTnRnRNTFJFJFJFJFJZOFJMqFJOHsbOHOHiBiBFGFGFGFGFGFGFG
 OMOMKCKCKCKCKCKCKCKCKCKCKCKClOlElElEKCKCaIqScOcOcOLITEOHbkiBiBqXiBiBkKNsiBiBkzOHOHruFJFJGhGhEGFJTxTxTxTxTxTxTxTxTxPXEGMqZhVKlkiKQGVKZhFJFJNTJGFuNTSANTJGFuNTFJFJrxFJFJZOZOFJFJFJiBOHOHiBdSFGFGFGFGFGFGFG
 KLKLaIaIaIaIaIaIaIaIaIaIaIKCKCKCKClElEKCKCqSqSqScOTETEOHiBiBiBiBiBiBOHOHiBiBbkiBSpOHZOFJGhUnTxTxTxTxTxTxTxTxTxTxTxPXFJFJvLVKlkiKQGVKvLCMFJaCVPcCvlcCvlcCnRaCFJMqrxFJFJZOFJFJFJFJsbOHOHiBiBFGFGFGFGFGFGFG
@@ -536,7 +538,7 @@ LINcLIvDvDLILILILILIvDvDLINcNcNcLIjSjSJZXizveMzvqWeMeMMweMzvJZJZJZTbJZLDJZJZJZcn
 LINcLILIvDLILILILILIvDvDLILIBYLILILIjSjSJZeMeMeMeMeMeMeMeMXiLDJZJZJZJZiNiNJZJZeMJZlAjUjUUAjUjUlAgpgpXpDTTrHaDTDTDTGhGhDGDGflDGDGmxGPqruHqrXumxAMAMVLAMAMGhGhXajlByByyfyfyfyflCEMyfjlByByyfKPKPKPKPKPKPKP
 LINcLILIvDvDLILILILIvDLILILIdqLILILILIjSJZJZeMzveMeMeMcnEkXieMJZeMJZiNtliNJZJZeMJZlAlAjUTqPPjUlAlAgpDTDTDTDTDTTrDTGhDGDGDqMffQyTmxKBqruHqrGamxPLBJdkRVAMAMGhyfByByyfyfyfyfozyfyfixByyfByyfKPKPKPKPKPKPKP
 LINcNcLILIvDvDLILILIvDLILILINcNcLILILIjSjSJZJZeMFweMeMhjJZXiJZJZeMdvJZtlXiXiCaeMJZJZlAjUjUBTjUjUMtgpgpDTDTDTDTDTyhGhDGpyMfSbSbyTmxqrqruHqrqrmxdkhWhWdkiUAMEGyfByByozyfyfyfQYyfyfByByyfByyfKPKPKPKPKPKPKP
-LILINcLILILIvDvDvDLIvDvDLILILINcLILILILIjSjSJZPBeMzveMrhJZJZJZJZeMeMJZDFJZXiJZCCeMJZlAlAjUPPPPjUlABNgpkdgpJcDTDTDTGhflyTMfSbyTyTEKDNKVuHqrDNKtdkhWhWdkOkVLFJByByByUqyfyfEYQYyfyfByByByByozKPKPKPKPKPKPKP
+LILINcLILILIvDvDvDLIvDvDLILILINcLILILILIjSjSJZPBeMzveMrhJZJZJZJZeMeMJZDFJZXiJZCCeMJZlAlAjUPPPPjUlABNgpkdgpJcDTDTDTGhflyTMfSbyTyTEKDNKVuHRgDNKtdkhWhWdkOkVLFJByByByUqyfyfEYQYyfyfByByByByozKPKPKPKPKPKPKP
 LILIBYLILILILILILIvDvDvDLILILINcNcLILILILIjSjSJZeMeMJZJZadJZeMCCZHeMJZJZJZeMXiJZJZJZJZlAjUjUoFjUjUlAZxbhkdDTDTDTtcGhDGpyMfSbSbyThlhlhlZChlhlhlWFhWhWdkiUAMGhByFWByByyfyfyfyfjlByjlByOmyfyfKPKPKPKPKPKPKP
 LINcBYLILILILILILILILIvDvDLILILINcNcLILILILIjSJZJZJZJZJZeMeMeMeMeMeMgiJZeMeMzvJZJZEkJZlAlAjUPPPPjUlAlAZxgpDTDTDTDTuIDGDGaBMfgOyThleEmZHcUiiohluJOUdkhsAMAMFJByByJNByByByByByByByByByByixyfKPKPKPKPKPKPKP
 LINcBYBYLILILILILILIvDLIvDvDLILILINcLILILILIjSjSJZJZJZeMeMeMcTeMeMeMXiJZeMEkeMeMeMeMJZZxlAjUjUKjjUjUlAZxgpDTDTXpDTKTuIDGDGflDGDGhlKIHcggHcsShlAMAMVLAMAMFJFJqgyfyfByByjlByByixyfByByyfyfyfKPKPKPKPKPKPKP
