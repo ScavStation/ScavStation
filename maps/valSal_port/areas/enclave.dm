@@ -37,6 +37,18 @@
 	fishing_results = list()
 	sound_env = ROOM
 
+/area/valSal_port/enclave/nursery
+	name = "\improper Nursery"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+
+/area/valSal_port/enclave/commonhouse
+	name = "\improper Common House"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+
 /area/valSal_port/enclave/daughter
 	name = "\improper Female Dwellings"
 	fishing_failure_prob = 100

@@ -80,6 +80,13 @@
 	sound_env = ROOM
 	turf_initializer = /decl/turf_initializer/spiderwebs
 
+/area/valSal_port/town/dogden
+	name = "\improper DogB Den"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	sound_env = ROOM
+	turf_initializer = /decl/turf_initializer/spiderwebs
+
 /area/valSal_port/town/shrine
 	name = "\improper Shrine"
 	fishing_failure_prob = 100
