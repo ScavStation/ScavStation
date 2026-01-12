@@ -687,9 +687,6 @@
 /obj/structure/flora/seaweed/glow,
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/river)
-"lZ" = (
-/turf/floor/grass,
-/area/valSal_port/town/outpost)
 "mf" = (
 /obj/structure/flora/bush/stalkybush,
 /turf/floor/grass,
@@ -1079,7 +1076,7 @@
 "sL" = (
 /obj/structure/banner_frame/red,
 /turf/floor/grass,
-/area/valSal_port/town/outpost)
+/area/valSal_port/outside/westside)
 "sO" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/wood/broken,
@@ -1383,6 +1380,9 @@
 /area/valSal_port/outside/eastside)
 "xZ" = (
 /obj/structure/reagent_dispensers/compost_bin/ebony,
+/obj/item/tool/shovel,
+/obj/item/scythe,
+/obj/item/tool/hoe,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "ye" = (
@@ -1612,9 +1612,18 @@
 /area/valSal_port/outside/southside)
 "Cg" = (
 /obj/structure/reagent_dispensers/barrel/ebony,
-/obj/item/tool/shovel,
-/obj/item/tool/hoe,
-/obj/item/scythe,
+/obj/item/seeds/bruisegrassseed,
+/obj/item/seeds/bruisegrassseed,
+/obj/item/seeds/bruisegrassseed,
+/obj/item/seeds/bruisegrassseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/ambrosiavulgarisseed,
+/obj/item/seeds/glowberryseed,
+/obj/item/seeds/glowberryseed,
+/obj/item/seeds/glowberryseed,
+/obj/item/seeds/glowberryseed,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "Cl" = (
@@ -2511,9 +2520,9 @@
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "SN" = (
-/obj/structure/flora/tree/hardwood/mahogany,
-/turf/floor/grass,
-/area/valSal_port/town/outpost)
+/obj/structure/boulder/sandstone,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/southside)
 "SP" = (
 /turf/floor/grass/wild,
 /area/valSal_port/town/den)
@@ -2707,10 +2716,6 @@
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
-"Wi" = (
-/obj/structure/flora/tree/hardwood/ebony,
-/turf/floor/grass,
-/area/valSal_port/town/outpost)
 "Wo" = (
 /turf/wall/natural/basalt/valSal_port,
 /area/valSal_port/town/den)
@@ -3885,13 +3890,13 @@ tQ
 EN
 EN
 EN
-lZ
-lZ
-lZ
-lZ
-lZ
-lZ
-lZ
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
+Gf
 EN
 EN
 EN
@@ -3987,14 +3992,14 @@ Wx
 EN
 EN
 EN
-lZ
+Gf
 MT
 MT
 db
 MT
 MT
-lZ
-lZ
+Gf
+Gf
 Aj
 EN
 EN
@@ -4089,7 +4094,7 @@ Wx
 EN
 EN
 EN
-SN
+OG
 MT
 XR
 iv
@@ -4191,14 +4196,14 @@ Wx
 EN
 EN
 EN
-lZ
+Gf
 db
 iv
 iv
 iv
 iv
 vX
-lZ
+Gf
 Gf
 Gf
 Gf
@@ -4293,7 +4298,7 @@ Wx
 EN
 EN
 xq
-lZ
+Gf
 MT
 jZ
 iv
@@ -4395,14 +4400,14 @@ Wx
 EN
 EN
 EN
-lZ
+Gf
 MT
 MT
 db
 MT
 MT
-Wi
-lZ
+rf
+Gf
 EN
 Gf
 QG
@@ -4498,12 +4503,12 @@ EN
 EN
 EN
 Ze
-lZ
+Gf
 jI
 eT
 jI
-lZ
-lZ
+Gf
+Gf
 EN
 EN
 Gf
@@ -4600,11 +4605,11 @@ EN
 EN
 EN
 EN
-lZ
+Gf
 Jx
 eT
 QQ
-lZ
+Gf
 EN
 EN
 EN
@@ -4702,11 +4707,11 @@ EN
 EN
 EN
 EN
-SN
+OG
 ol
 eT
 cn
-lZ
+Gf
 EN
 Aj
 EN
@@ -4804,11 +4809,11 @@ EN
 EN
 EN
 EN
-lZ
-lZ
-lZ
-lZ
-lZ
+Gf
+Gf
+Gf
+Gf
+Gf
 EN
 EN
 WO
@@ -10809,7 +10814,7 @@ tQ
 ij
 tQ
 Ns
-Ns
+SN
 tQ
 TH
 tQ
