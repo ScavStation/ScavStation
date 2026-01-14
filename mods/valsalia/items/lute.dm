@@ -191,27 +191,25 @@
 	id = "boomtastic"
 	item_path = /obj/item/lute
 
-
-
-
-
 var/global/list/music_tracks_valsalia_fantasy = list(
 	"Adventure" = /decl/music_track/adventure,
 	"Ancient Lyre" = /decl/music_track/ancientlyre,
 	"Butt Music From Hell" = /decl/music_track/buttmusicfromhell,
-	"Epitath Of Siekilos" = /decl/music_track/epitathofseikilos,
+	"Cuggan's Cove" = /decl/music_track/cugganscove,
 	"Diggy Diggy Hole" = /decl/music_track/diggy_diggy_hole,
+	"Encounter" = /decl/music_track/encounter,
+	"Epitath Of Siekilos" = /decl/music_track/epitathofseikilos,
 	"Eranas Peace" = /decl/music_track/eranas_peace,
 	"Greensleeves" = /decl/music_track/greensleeves,
 	"Hurian Hymm" = /decl/music_track/hurrian_hymm,
 	"Lute Medley" = /decl/music_track/lute_medley,
 	"Lute Suite No. 1" = /decl/music_track/lute_suite_no1,
 	"Lute Suite No. 2" = /decl/music_track/lute_suite_no2,
+	"Mirie it is while sumer ilast" = /decl/music_track/merry,
 	"Palastinalied" = /decl/music_track/palastinalied,
+	"Rolandskvadet" = /decl/music_track/rolandskvadet,
 	"Santa Maria strela do dia" = /decl/music_track/santa_maria_strela_do_dia,
-	"Sofou Unga Astin Min" = /decl/music_track/sofou_unga_astin_min,
-	"Human" = /decl/music_track/human,
-	"Zazie (Scav Chorus Edition)" = /decl/music_track/zazie
+	"Sofou Unga Astin Min" = /decl/music_track/sofou_unga_astin_min
 )
 
 /proc/setup_music_tracks_fantasy(var/list/tracks)
