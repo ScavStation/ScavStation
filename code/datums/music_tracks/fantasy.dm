@@ -19,6 +19,13 @@
 	license = /decl/license/cc_by_3_0
 	url = "https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100720&Search=Search"
 
+/decl/music_track/art_of_ze_clam
+	artist = "Gustav Messner"
+	title = "Ze Art of Ze Clam"
+	song = 'mods/valsalia/sounds/music/ArtofZeClam.ogg'
+	license = /decl/license/grandfathered
+	url = "https://discord.com/channels/363422397648601108/363433892256153602/1460594540971819195"
+
 /decl/music_track/heavy_heart
 	artist = "Kevin Macleod"
 	title = "Heavy Heart"
