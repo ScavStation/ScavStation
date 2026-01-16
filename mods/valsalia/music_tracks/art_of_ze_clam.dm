@@ -1,5 +1,0 @@
-/decl/music_track/art_of_ze_clam
-	artist = "Gustav Messner"
-	title = "Ze Art of Ze Clam"
-	song = 'mods/valsalia/sounds/music/ArtofZeClam.ogg'
-	license = /decl/license/grandfathered
