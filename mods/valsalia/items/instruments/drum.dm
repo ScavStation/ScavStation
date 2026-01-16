@@ -192,13 +192,13 @@
 	item_path = /obj/item/drum
 
 var/global/list/music_tracks_valsalia_fantasy_drums = list(
-	"Bard Dance" = /decl/music_track/drum/bard_dance,
-	"Chime" = /decl/music_track/drum/chime,
-	"Coco Grove" = /decl/music_track/drum/coco_grove,
-	"Hilo" = /decl/music_track/drum/hilo,
-	"Jungle" = /decl/music_track/drum/jungle,
-	"Simple" = /decl/music_track/drum/simple,
-	"Tavern" = /decl/music_track/drum/tavern
+	"Bard Dance" = /decl/music_track/bard_dance,
+	"Chime" = /decl/music_track/chime,
+	"Coco Grove" = /decl/music_track/coco_grove,
+	"Hilo" = /decl/music_track/hilo,
+	"Jungle" = /decl/music_track/jungle,
+	"Simple" = /decl/music_track/simple,
+	"Tavern" = /decl/music_track/tavern
 )
 
 /proc/setup_music_tracks_fantasy_drum(var/list/tracks)

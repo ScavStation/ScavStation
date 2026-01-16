@@ -1,4 +1,4 @@
-/decl/music_track/lute/greensleeves
+/decl/music_track/greensleeves
 	artist = "Greensleeves"
 	title = "Greensleeves"
 	song = 'mods/valsalia/sounds/music/lute/Greensleeves.ogg'

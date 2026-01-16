@@ -1,4 +1,4 @@
-/decl/music_track/lute/adventure
+/decl/music_track/adventure
 	artist = "Adventure"
 	title = "Adventure"
 	song = 'mods/valsalia/sounds/music/lute/adventure.ogg'

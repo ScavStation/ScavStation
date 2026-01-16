@@ -192,23 +192,23 @@
 	item_path = /obj/item/lute
 
 var/global/list/music_tracks_valsalia_fantasy_lutes = list(
-	"Adventure" = /decl/music_track/lute/adventure,
-	"Ancient Lyre" = /decl/music_track/lute/ancientlyre,
-	"Butt Music From Hell" = /decl/music_track/lute/buttmusicfromhell,
-	"Cuggan's Cove" = /decl/music_track/lute/cugganscove,
-	"Encounter" = /decl/music_track/lute/encounter,
-	"Epitath Of Siekilos" = /decl/music_track/lute/epitathofseikilos,
-	"Eranas Peace" = /decl/music_track/lute/eranas_peace,
-	"Greensleeves" = /decl/music_track/lute/greensleeves,
-	"Hurian Hymm" = /decl/music_track/lute/hurrian_hymm,
-	"Lute Medley" = /decl/music_track/lute/lute_medley,
-	"Lute Suite No. 1" = /decl/music_track/lute/lute_suite_no1,
-	"Lute Suite No. 2" = /decl/music_track/lute/lute_suite_no2,
-	"Mirie it is while sumer ilast" = /decl/music_track/lute/merry,
-	"Palastinalied" = /decl/music_track/lute/palastinalied,
-	"Rolandskvadet" = /decl/music_track/lute/rolandskvadet,
-	"Santa Maria strela do dia" = /decl/music_track/lute/santa_maria_strela_do_dia,
-	"Sofou Unga Astin Min" = /decl/music_track/lute/sofou_unga_astin_min
+	"Adventure" = /decl/music_track/adventure,
+	"Ancient Lyre" = /decl/music_track/ancientlyre,
+	"Butt Music From Hell" = /decl/music_track/buttmusicfromhell,
+	"Cuggan's Cove" = /decl/music_track/cugganscove,
+	"Encounter" = /decl/music_track/encounter,
+	"Epitath Of Siekilos" = /decl/music_track/epitathofseikilos,
+	"Eranas Peace" = /decl/music_track/eranas_peace,
+	"Greensleeves" = /decl/music_track/greensleeves,
+	"Hurian Hymm" = /decl/music_track/hurrian_hymm,
+	"Lute Medley" = /decl/music_track/lute_medley,
+	"Lute Suite No. 1" = /decl/music_track/lute_suite_no1,
+	"Lute Suite No. 2" = /decl/music_track/lute_suite_no2,
+	"Mirie it is while sumer ilast" = /decl/music_track/merry,
+	"Palastinalied" = /decl/music_track/palastinalied,
+	"Rolandskvadet" = /decl/music_track/rolandskvadet,
+	"Santa Maria strela do dia" = /decl/music_track/santa_maria_strela_do_dia,
+	"Sofou Unga Astin Min" = /decl/music_track/sofou_unga_astin_min
 )
 
 /proc/setup_music_tracks_fantasy_lute(var/list/tracks)

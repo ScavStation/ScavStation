@@ -1,4 +1,4 @@
-/decl/music_track/lute/hurrian_hymm
+/decl/music_track/hurrian_hymm
 	artist = "Hurrian Hymm"
 	title = "Hurrian Hymm"
 	song = 'mods/valsalia/sounds/music/lute/HurrianHymm.ogg'

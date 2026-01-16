@@ -1,4 +1,4 @@
-/decl/music_track/drum/coco_grove
+/decl/music_track/coco_grove
 	artist = "Coco Grove"
 	title = "Coco Grove"
 	song = 'mods/valsalia/sounds/music/drum/CocoGrove.ogg'

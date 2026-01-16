@@ -1,4 +1,4 @@
-/decl/music_track/drum/tavern
+/decl/music_track/tavern
 	artist = "Tavern"
 	title = "Tavern"
 	song = 'mods/valsalia/sounds/music/drum/Tavern.ogg'

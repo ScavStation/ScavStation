@@ -1,4 +1,4 @@
-/decl/music_track/drum/hilo
+/decl/music_track/hilo
 	artist = "Hilo"
 	title = "Hilo"
 	song = 'mods/valsalia/sounds/music/drum/Hilo.ogg'

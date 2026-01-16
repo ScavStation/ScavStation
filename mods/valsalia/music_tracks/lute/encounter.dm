@@ -1,4 +1,4 @@
-/decl/music_track/lute/encounter
+/decl/music_track/encounter
 	artist = "Simon Swerwer"
 	title = "Encounter"
 	song = 'mods/valsalia/sounds/music/lute/encounter.ogg'
