@@ -19,10 +19,8 @@
 	is_outside = OUTSIDE_NO
 	description = "The deep dark brings distant, whispering echoes to your ears."
 	ambience = list(
-		'sound/ambience/ambimine.ogg',
 		'mods/valsalia/sounds/ambience/capital.ogg',
 		'mods/valsalia/sounds/ambience/dungeons.ogg',
-		'sound/ambience/song_game.ogg',
 		'mods/valsalia/sounds/ambience/tension.ogg',
 		'mods/valsalia/sounds/ambience/troubles.ogg'
 	)
@@ -45,10 +43,8 @@
 	is_outside = OUTSIDE_NO
 	description = "Scuttling legs crawl across the cavern walls."
 	ambience = list(
-		'sound/ambience/ambimine.ogg',
 		'mods/valsalia/sounds/ambience/capital.ogg',
 		'mods/valsalia/sounds/ambience/dungeons.ogg',
-		'sound/ambience/song_game.ogg',
 		'mods/valsalia/sounds/ambience/tension.ogg',
 		'mods/valsalia/sounds/ambience/troubles.ogg'
 	)
@@ -62,10 +58,8 @@
 	is_outside = OUTSIDE_NO
 	description = "The air here is stale and rotten."
 	ambience = list(
-		'sound/ambience/ambimine.ogg',
 		'mods/valsalia/sounds/ambience/capital.ogg',
 		'mods/valsalia/sounds/ambience/dungeons.ogg',
-		'sound/ambience/song_game.ogg',
 		'mods/valsalia/sounds/ambience/tension.ogg',
 		'mods/valsalia/sounds/ambience/troubles.ogg'
 	)
@@ -79,10 +73,8 @@
 	is_outside = OUTSIDE_NO
 	description = "The air here smells of stale paper."
 	ambience = list(
-		'sound/ambience/ambimine.ogg',
 		'mods/valsalia/sounds/ambience/capital.ogg',
 		'mods/valsalia/sounds/ambience/dungeons.ogg',
-		'sound/ambience/song_game.ogg',
 		'mods/valsalia/sounds/ambience/tension.ogg',
 		'mods/valsalia/sounds/ambience/troubles.ogg'
 	)
@@ -96,10 +88,8 @@
 	is_outside = OUTSIDE_NO
 	description = "Pebbles tumble from the ceiling."
 	ambience = list(
-		'sound/ambience/ambimine.ogg',
 		'mods/valsalia/sounds/ambience/capital.ogg',
 		'mods/valsalia/sounds/ambience/dungeons.ogg',
-		'sound/ambience/song_game.ogg',
 		'mods/valsalia/sounds/ambience/tension.ogg',
 		'mods/valsalia/sounds/ambience/troubles.ogg'
 	)
@@ -113,10 +103,8 @@
 	is_outside = OUTSIDE_NO
 	description = "The open ground here has been undisturbed for years."
 	ambience = list(
-		'sound/ambience/ambimine.ogg',
 		'mods/valsalia/sounds/ambience/capital.ogg',
 		'mods/valsalia/sounds/ambience/dungeons.ogg',
-		'sound/ambience/song_game.ogg',
 		'mods/valsalia/sounds/ambience/tension.ogg',
 		'mods/valsalia/sounds/ambience/troubles.ogg'
 	)
@@ -130,10 +118,8 @@
 	is_outside = OUTSIDE_NO
 	description = "This place is funky."
 	ambience = list(
-		'sound/ambience/ambimine.ogg',
 		'mods/valsalia/sounds/ambience/capital.ogg',
 		'mods/valsalia/sounds/ambience/dungeons.ogg',
-		'sound/ambience/song_game.ogg',
 		'mods/valsalia/sounds/ambience/tension.ogg',
 		'mods/valsalia/sounds/ambience/troubles.ogg'
 	)
@@ -154,13 +140,11 @@
 /area/valSal_port/caves/deep
 	name = "\improper Deep Caverns"
 	ambience = list(
-		'sound/ambience/ambimine.ogg',
 		'mods/valsalia/sounds/ambience/capital.ogg',
 		'mods/valsalia/sounds/ambience/dungeons.ogg',
 		'sound/ambience/ominous1.ogg',
 		'sound/ambience/ominous2.ogg',
 		'sound/ambience/ominous3.ogg',
-		'sound/ambience/song_game.ogg',
 		'mods/valsalia/sounds/ambience/tension.ogg',
 		'mods/valsalia/sounds/ambience/troubles.ogg'
 	)
