@@ -1,68 +1,152 @@
 /area/valSal_port/outside/enclave
 	name = "Zhe Enclave"
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 
 /area/valSal_port/enclave/huntershut
 	name = "\improper Hunter's Hut"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/dininghut
 	name = "\improper Dining Hut"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/medicinehut
 	name = "\improper Medicine Hut"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/storehouse
 	name = "\improper Storehouse"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/foyer
 	name = "\improper Foyer"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/matriarch
 	name = "\improper Matriarch's Room"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/nursery
 	name = "\improper Nursery"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/commonhouse
 	name = "\improper Common House"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/daughter
 	name = "\improper Female Dwellings"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/enclave/patriarch
 	name = "\improper Patriarch Meeting Room"
 	fishing_failure_prob = 100
 	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 	sound_env = ROOM
 
 /area/valSal_port/outside/enclave_farm
 	name = "Enclave Farm"
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
 
 /area/valSal_port/outside/outdoors_enclave
 	name = "Outdoors"
