@@ -28,6 +28,15 @@
 		'mods/valsalia/sounds/ambience/trader.ogg'
 	)
 
+/area/valSal_port/outside/merchantcamp
+	name = "Val Salian Merchant Camp"
+	ambience = list(
+		'mods/valsalia/sounds/ambience/angels.ogg',
+		'mods/valsalia/sounds/ambience/dreamtown.ogg',
+		'mods/valsalia/sounds/ambience/outofbusiness.ogg',
+		'mods/valsalia/sounds/ambience/trader.ogg'
+	)
+
 /area/valSal_port/outside/eastside
 	name = "Val Salian Eastside"
 
