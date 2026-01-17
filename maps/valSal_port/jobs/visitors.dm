@@ -78,7 +78,7 @@
 	description             = "You are an ordained person of faith, travelling the lands on the business of your order, to preach, or simply to experience new people and cultures. You are battle-trained, but are also a healer."
 	spawn_positions         = 2
 	total_positions         = 2
-	outfit_type             = /decl/outfit/job/valSal_port/traveller/cleric
+	outfit_type             = /decl/outfit/job/valSal_port/traveller/merchant
 	min_skill               = list(
 		SKILL_COMBAT        = SKILL_ADEPT,
 		SKILL_WEAPONS       = SKILL_ADEPT,
