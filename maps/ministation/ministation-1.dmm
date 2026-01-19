@@ -139,6 +139,7 @@
 /obj/effect/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "ax" = (
@@ -509,6 +510,9 @@
 	icon_state = "2-4"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "bB" = (
@@ -1126,10 +1130,12 @@
 /turf/floor/tiled/techfloor,
 /area/ministation/Murphy/smresearch)
 "dz" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
+/obj/machinery/door/airlock/external/glass{
+	locked = 1;
+	id_tag = "md_interior";
+	autoset_access = 0
 	},
-/turf/floor/tiled/dark,
+/turf/floor,
 /area/ministation/meddocking)
 "dA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1436,6 +1442,9 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "em" = (
@@ -1967,6 +1976,9 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "fM" = (
@@ -2433,21 +2445,12 @@
 /turf/floor/fake_grass,
 /area/ministation/hall/w2)
 "hm" = (
-/obj/structure/transit_tube/station{
-	dir = 8
+/obj/machinery/light/small,
+/turf/floor/tiled/freezer{
+	name = "kitchen freezer floor";
+	temperature = 263
 	},
-/obj/structure/transit_tube_pod{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/turf/floor,
-/area/ministation/hall/w2)
+/area/ministation/kitchen)
 "hn" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
@@ -2479,6 +2482,9 @@
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/effect/floor_decal/corner/paleblue/mono,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/floor/tiled/white,
@@ -2741,11 +2747,15 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "ib" = (
+/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
 	},
 /turf/floor/plating,
-/area/ministation/maint/hydromaint)
+/area/ministation/maint/secmaint)
 "ic" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3030,9 +3040,6 @@
 "iK" = (
 /obj/machinery/light/small{
 	dir = 1
-	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
 	},
 /turf/floor/plating,
 /area/ministation/maint/l2underpass)
@@ -3355,8 +3362,13 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	id_tag = "md_vent";
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	id_tag = "md_sensor";
+	pixel_y = 20
 	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
@@ -3776,7 +3788,7 @@
 	icon_state = "D-SE"
 	},
 /obj/structure/lattice,
-/turf/space,
+/turf/unsimulated/dark_filler,
 /area/space)
 "kQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4486,9 +4498,6 @@
 /area/ministation/medical)
 "mW" = (
 /obj/machinery/door/airlock/hatch/maintenance,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
 /area/ministation/maint/hydromaint)
@@ -4584,6 +4593,7 @@
 /obj/effect/floor_decal/corner/paleblue/border{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "no" = (
@@ -4806,6 +4816,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "nY" = (
@@ -4894,6 +4907,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/hall/w2)
+"oo" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "oq" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/plating,
@@ -4911,21 +4933,10 @@
 /turf/floor/plating,
 /area/ministation/maint/l2central)
 "os" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/transit_tube{
-	icon_state = "N-S"
-	},
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/plating,
-/area/ministation/hall/w2)
+/area/ministation/maint/secmaint)
 "ot" = (
 /turf/floor/tiled/old_tile,
 /area/ministation/perma)
@@ -4996,6 +5007,7 @@
 /obj/machinery/door/airlock/external/glass{
 	autoset_access = 0
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "oD" = (
@@ -5315,6 +5327,9 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/blood/oil,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "pD" = (
@@ -5490,6 +5505,16 @@
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/plating,
 /area/ministation/medical)
+"pV" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/ministation/maint/secmaint)
 "pZ" = (
 /obj/structure/table,
 /obj/item/belt/medical/emt,
@@ -5625,6 +5650,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "qr" = (
@@ -5637,6 +5665,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/white/mono,
 /obj/effect/floor_decal/corner/paleblue/border{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/floor/tiled/white/monotile,
@@ -5668,6 +5699,9 @@
 /obj/effect/floor_decal/corner/paleblue/border{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "qv" = (
@@ -5675,6 +5709,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "qw" = (
@@ -5917,6 +5954,9 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "rh" = (
@@ -6514,6 +6554,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
 "sK" = (
@@ -6735,12 +6778,11 @@
 /turf/floor/tiled/white,
 /area/ministation/detective)
 "tp" = (
-/obj/structure/transit_tube{
-	icon_state = "S-NE"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/obj/structure/lattice,
-/turf/space,
-/area/space)
+/turf/floor/carpet/blue2,
+/area/ministation/medical)
 "tq" = (
 /obj/structure/bed/sofa/left/unpadded{
 	dir = 1
@@ -7132,6 +7174,14 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/machinery/light/small/emergency,
+/obj/machinery/button/access/interior{
+	id_tag = "md_airlock";
+	name = "interior access button";
+	pixel_y = -25;
+	pixel_x = 10;
+	dir = 1
 	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
@@ -7687,6 +7737,9 @@
 	pixel_y = -30
 	},
 /obj/item/scanner/autopsy,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/medical)
 "vO" = (
@@ -7800,6 +7853,7 @@
 	autoset_access = 0
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/plating,
 /area/ministation/medical)
 "we" = (
@@ -8259,6 +8313,9 @@
 /area/ministation/maint/l2centrals)
 "xk" = (
 /obj/structure/bed/psych/leather,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/floor/carpet/blue,
 /area/ministation/medical/psychology)
 "xl" = (
@@ -8268,6 +8325,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "xm" = (
@@ -9058,12 +9116,10 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/floor/tiled/stone,
 /area/ministation/hall/e2)
 "zh" = (
@@ -9116,6 +9172,9 @@
 "zo" = (
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
@@ -9176,11 +9235,8 @@
 /turf/floor/path/running_bond,
 /area/ministation/hall/w2)
 "zz" = (
-/obj/structure/transit_tube{
-	icon_state = "N-S"
-	},
 /obj/structure/lattice,
-/turf/space,
+/turf/unsimulated/dark_filler,
 /area/space)
 "zA" = (
 /obj/machinery/door/airlock/glass,
@@ -9446,6 +9502,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "An" = (
@@ -10047,9 +10104,6 @@
 /turf/floor/path/running_bond,
 /area/ministation/hall/w2)
 "Ck" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
 /turf/floor/plating,
 /area/ministation/maint/l2underpass)
 "Cm" = (
@@ -10105,14 +10159,15 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "Cv" = (
-/obj/structure/cable/yellow{
-	icon_state = "16-0"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
+/obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/turf/wall,
-/area/ministation/maint/l2underpass)
+/turf/floor/tiled/white/monotile,
+/area/ministation/medical)
 "Cw" = (
 /turf/floor/tiled/freezer{
 	name = "kitchen freezer floor";
@@ -10346,6 +10401,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "Da" = (
@@ -10371,18 +10429,36 @@
 /obj/item/suit_cooling_unit,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
+"Dc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/white/monotile,
+/area/ministation/medical)
 "Dd" = (
 /obj/machinery/power/smes/buildable/max_cap_in_out,
 /obj/structure/cable,
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/Murphy/ai)
 "De" = (
-/obj/structure/transit_tube{
-	icon_state = "N-SW"
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/structure/lattice,
-/turf/space,
-/area/space)
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/ministation/maint/secmaint)
 "Df" = (
 /obj/machinery/door/airlock{
 	name = "Brig Restroom";
@@ -10599,6 +10675,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "DH" = (
@@ -10856,14 +10933,17 @@
 /turf/space,
 /area/space)
 "EC" = (
-/obj/structure/cable/yellow{
-	icon_state = "16-0"
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
 	},
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
+/obj/machinery/light/small/emergency{
+	dir = 1
 	},
-/turf/wall,
-/area/ministation/maint/l2underpass)
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "ED" = (
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/plating,
@@ -11041,6 +11121,21 @@
 	},
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
+"Fd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/fake_grass,
+/area/ministation/hall/e2)
 "Fe" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -11097,6 +11192,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
@@ -11326,9 +11424,6 @@
 "Ga" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
 	},
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -11653,6 +11748,9 @@
 /obj/structure/reagent_dispensers/water_cooler{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
 /turf/floor/carpet/blue2,
 /area/ministation/medical)
 "Hd" = (
@@ -11802,10 +11900,20 @@
 /turf/floor/tiled/dark,
 /area/ministation/cryo)
 "HA" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 8
+/obj/machinery/door/airlock/external/glass{
+	locked = 1;
+	id_tag = "md_exterior";
+	autoset_access = 0
 	},
-/turf/floor/tiled/dark,
+/obj/machinery/button/access/interior{
+	id_tag = "md_airlock";
+	name = "interior access button";
+	pixel_y = -25;
+	pixel_x = 10;
+	command = "cycle_exterior";
+	dir = 1
+	},
+/turf/floor,
 /area/ministation/meddocking)
 "HB" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -12059,6 +12167,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "Iq" = (
@@ -12087,6 +12196,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "Iu" = (
@@ -12198,6 +12310,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "IK" = (
@@ -12244,7 +12359,7 @@
 	icon_state = "D-NW"
 	},
 /obj/structure/lattice,
-/turf/space,
+/turf/unsimulated/dark_filler,
 /area/space)
 "IT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12256,6 +12371,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "IV" = (
@@ -12378,7 +12494,15 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
 	},
-/obj/machinery/light/small/emergency,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 1;
+	id_tag = "md";
+	tag_airpump = "md_vent";
+	tag_chamber_sensor = "md_sensor";
+	tag_exterior_door = "md_airlock_exterior";
+	tag_interior_door = "md_airlock_interior";
+	pixel_y = -27
+	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "Jl" = (
@@ -12770,6 +12894,9 @@
 "Kt" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "Ky" = (
@@ -13072,6 +13199,15 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/floor/wood/yew,
 /area/ministation/perma)
+"LC" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/ministation/maint/secmaint)
 "LD" = (
 /obj/structure/table/woodentable,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -13110,9 +13246,6 @@
 /obj/structure/ladder,
 /obj/machinery/light/small{
 	dir = 1
-	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
 	},
 /turf/floor/plating,
 /area/ministation/maint/l2underpass)
@@ -13327,9 +13460,6 @@
 "Mp" = (
 /obj/machinery/light/small{
 	dir = 8
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
 	},
 /turf/floor/plating,
 /area/ministation/maint/hydromaint)
@@ -13751,6 +13881,21 @@
 	},
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
+"Ns" = (
+/obj/machinery/door/airlock/external/glass{
+	locked = 1;
+	id_tag = "l2_murphy_west_airlock_exterior";
+	autoset_access = 0
+	},
+/obj/machinery/button/access/interior{
+	id_tag = "l2_murphy_west_airlock";
+	name = "interior access button";
+	pixel_y = 20;
+	pixel_x = -10;
+	command = "cycle_exterior"
+	},
+/turf/floor,
+/area/ministation/Murphy/common)
 "Nu" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "escape2_sensor";
@@ -14095,6 +14240,17 @@
 	},
 /turf/floor/tiled/dark,
 /area/ministation/armory)
+"OB" = (
+/obj/machinery/door/airlock/external/glass{
+	locked = 1;
+	id_tag = "md_interior";
+	autoset_access = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/floor,
+/area/ministation/meddocking)
 "OC" = (
 /turf/wall/r_wall,
 /area/ministation/Murphy/toxins)
@@ -14340,17 +14496,12 @@
 /turf/wall,
 /area/ministation/surgicals)
 "Pp" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 1
+/obj/machinery/door/airlock/external/glass{
+	locked = 1;
+	id_tag = "md_exterior";
+	autoset_access = 0
 	},
-/obj/machinery/button/access/interior{
-	id_tag = "l2_murphy_west_airlock";
-	name = "interior access button";
-	pixel_y = 20;
-	pixel_x = 10;
-	command = "cycle_exterior"
-	},
-/turf/floor/tiled/dark,
+/turf/floor,
 /area/ministation/meddocking)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -14647,6 +14798,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "Qf" = (
@@ -14869,6 +15023,9 @@
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "QN" = (
@@ -14900,6 +15057,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/white/mono,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "QQ" = (
@@ -15032,6 +15190,18 @@
 /obj/structure/hygiene/drain,
 /turf/floor/tiled,
 /area/ministation/hydro)
+"Rq" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/floor/tiled/dark,
+/area/ministation/meddocking)
 "Rr" = (
 /turf/floor/carpet/red,
 /area/ministation/medical/nursery)
@@ -15119,9 +15289,6 @@
 "RK" = (
 /obj/structure/lattice,
 /obj/structure/ladder,
-/obj/structure/cable{
-	icon_state = "32-1"
-	},
 /turf/open,
 /area/ministation/maint/hydromaint)
 "RL" = (
@@ -15186,6 +15353,7 @@
 	pixel_x = -29;
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "RW" = (
@@ -15729,6 +15897,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /turf/floor/tiled/dark,
@@ -16391,6 +16562,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "VL" = (
@@ -16436,6 +16608,13 @@
 	},
 /turf/floor/plating,
 /area/ministation/security)
+"VT" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/floor/plating,
+/area/ministation/maint/secmaint)
 "VU" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -17109,6 +17288,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "XW" = (
@@ -17230,6 +17412,9 @@
 "Yq" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
@@ -42831,8 +43016,8 @@ aa
 aa
 aa
 aa
-ad
-ad
+Sj
+zz
 cr
 aH
 hi
@@ -43088,10 +43273,10 @@ aa
 aa
 aa
 kP
-tp
-zz
-os
-hm
+aa
+aa
+cr
+aH
 Sq
 md
 Ca
@@ -43342,11 +43527,11 @@ aa
 aa
 aa
 aa
+aa
 zz
-zz
-De
+aa
 IR
-ad
+zz
 kZ
 Bv
 fe
@@ -43603,7 +43788,7 @@ aa
 aa
 aa
 aa
-ad
+aa
 kZ
 kC
 bo
@@ -48787,7 +48972,7 @@ HO
 HO
 HO
 bu
-EC
+bu
 bu
 HO
 HO
@@ -50304,7 +50489,7 @@ gz
 gz
 PR
 mH
-kr
+Wd
 Ib
 qf
 Ij
@@ -51075,7 +51260,7 @@ Hf
 Hf
 We
 mH
-Wd
+kr
 qf
 aa
 aa
@@ -51357,7 +51542,7 @@ HO
 HO
 HO
 bu
-Cv
+bu
 bu
 HO
 HO
@@ -51583,7 +51768,7 @@ cY
 cY
 lR
 mH
-Nz
+Fd
 Hf
 Yo
 Hf
@@ -53654,7 +53839,7 @@ ub
 gE
 Dk
 Cw
-Cw
+hm
 gE
 Af
 gE
@@ -56227,11 +56412,11 @@ Ai
 QO
 BJ
 Ga
-ib
+tX
 mW
-ib
+tX
 Mp
-ib
+tX
 RK
 Sa
 HO
@@ -56714,7 +56899,7 @@ va
 cY
 EH
 lJ
-CZ
+pV
 JZ
 qa
 to
@@ -56745,7 +56930,7 @@ tX
 tX
 tX
 rG
-tX
+Mp
 Fa
 Sa
 aa
@@ -56971,7 +57156,7 @@ ob
 cY
 tQ
 oE
-CZ
+ib
 JZ
 ae
 UB
@@ -57228,7 +57413,7 @@ cT
 cY
 tQ
 Ze
-zo
+De
 Rx
 oz
 oz
@@ -57485,8 +57670,8 @@ aa
 nu
 tQ
 oq
-zo
-oq
+LC
+os
 wd
 nn
 RU
@@ -57743,11 +57928,11 @@ nu
 tQ
 fU
 CZ
-oq
+VT
 oz
 LG
 jR
-qY
+tp
 Ic
 oz
 BS
@@ -58004,7 +58189,7 @@ tQ
 oz
 Ll
 qp
-qY
+tp
 qZ
 oz
 oz
@@ -58261,7 +58446,7 @@ Nb
 oz
 Fr
 qp
-qY
+tp
 qY
 rI
 oz
@@ -58518,7 +58703,7 @@ KU
 oz
 oz
 pG
-qY
+tp
 oF
 Ic
 oz
@@ -60060,7 +60245,7 @@ tB
 ts
 iJ
 pD
-oO
+Cv
 Jq
 rM
 oz
@@ -60831,7 +61016,7 @@ II
 VY
 lG
 pD
-aA
+Dc
 nc
 Vc
 pD
@@ -62622,8 +62807,8 @@ Up
 ad
 aa
 XP
-Yq
-XU
+oo
+Rq
 jr
 kg
 dw
@@ -62879,7 +63064,7 @@ aa
 ad
 aa
 jr
-jC
+EC
 hk
 jr
 pS
@@ -63649,8 +63834,8 @@ aa
 aa
 aa
 aa
-XP
-Yq
+jr
+OB
 dz
 jr
 HO
@@ -64421,7 +64606,7 @@ Fi
 Fi
 Fi
 Fi
-yW
+Ns
 yW
 cu
 cu
