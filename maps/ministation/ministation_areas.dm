@@ -524,8 +524,12 @@
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/maint
-	name = "\improper Murphy Maintenance Corridor"
+	name = "\improper Murphy Maintenance"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_MAINTENANCE
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/central
+	name = "\improper Murphy Maintenance Corridor"
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/maint/Eighteen
