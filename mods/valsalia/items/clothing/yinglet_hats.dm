@@ -45,6 +45,9 @@
 		I.pixel_y = 3
 	return I
 
+/obj/item/clothing/head/caphat/hop/tradehouse
+	icon = 'mods/valsalia/icons/clothing/head/hop2.dmi'
+
 /obj/item/clothing/head/quingsuithood
 	name = "quinglet enviromental hood"
 	desc = "A non-pressurized helmet designed to go along with an accompaning suit."

@@ -38,20 +38,14 @@
 	corpse_outfits = list(/decl/outfit/corpse/thug)
 
 /decl/outfit/corpse/thug
-	name = "Dead thug"
-	uniform = /obj/item/clothing/jumpsuit/thug
-
+	name = "Dead Thug"
+	uniform = /obj/item/clothing/suit/robe
+	head = /obj/item/clothing/head/hijab
 	shoes = /obj/item/clothing/shoes/workboots
 
-/obj/item/clothing/jumpsuit/thug
-	name = "Leather Hunting Garb"
-	desc = "A standard leather hunting gambenson to help stop brush from cutting you up"
-	icon = 'icons/clothing/jumpsuits/jumpsuit.dmi'
-	body_parts_covered = SLOT_UPPER_BODY|SLOT_LOWER_BODY|SLOT_LEGS|SLOT_ARMS
-	armor = list(
-		ARMOR_MELEE  = ARMOR_MELEE_KNIVES
-		)
-
+/decl/outfit/corpse/wodewose
+	name = "Dead Wodewose"
+	uniform = /obj/item/clothing/pants/loincloth
 
 /mob/living/simple_animal/hostile/thug/bandit
 	name = "Bandit"
@@ -132,3 +126,4 @@
 
 /obj/abstract/landmark/corpse/thug/wild_man
 	name = "wild man"
+	corpse_outfits = list(/decl/outfit/corpse/wodewose)
