@@ -267,7 +267,7 @@
 
 /area/ministation/medical
 	name = "\improper Infirmary"
-	req_access = list(access_medical)
+	req_access = list(access_medical_equip)
 	icon_state = "light_blue"
 	secure = TRUE
 
@@ -521,6 +521,10 @@
 
 /area/ministation/Murphy/atmos
 	name = "\improper Murphy Atmospherics"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/roof
+	name = "\improper Murphy Roof"
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/maint

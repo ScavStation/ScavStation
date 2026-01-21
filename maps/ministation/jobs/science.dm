@@ -100,6 +100,7 @@
 		access_kitchen,
 		access_hydroponics,
 		access_network,
+		access_medical,
 		access_cameras
 	)
 	minimal_access = list(
@@ -127,6 +128,7 @@
 		access_kitchen,
 		access_hydroponics,
 		access_network,
+		access_medical,
 		access_cameras
 	)
 	minimal_player_age = 14

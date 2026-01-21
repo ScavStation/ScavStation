@@ -443,7 +443,7 @@
 	},
 /obj/structure/lattice,
 /turf/space,
-/area/space)
+/area/ministation/Murphy/smresearch)
 "bo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5376,7 +5376,7 @@
 	},
 /obj/structure/lattice,
 /turf/space,
-/area/space)
+/area/ministation/Murphy/smresearch)
 "pz" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10656,8 +10656,8 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
 "Dp" = (
-/obj/structure/stairs/long/east,
 /obj/structure/railing/mapped,
+/obj/structure/stairs/east,
 /turf/floor,
 /area/ministation/Murphy/common)
 "Dq" = (
@@ -10970,9 +10970,9 @@
 /turf/floor/carpet,
 /area/ministation/hall/w2)
 "Ej" = (
-/obj/structure/railing/mapped,
-/turf/floor,
-/area/ministation/Murphy/common)
+/obj/structure/lattice,
+/turf/space,
+/area/ministation/Murphy/smresearch)
 "El" = (
 /turf/floor/tiled/dark/monotile,
 /area/ministation/hall/w2)
@@ -12852,7 +12852,7 @@
 	},
 /obj/structure/lattice,
 /turf/space,
-/area/space)
+/area/ministation/Murphy/smresearch)
 "Kb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -14937,7 +14937,7 @@
 	},
 /obj/structure/lattice,
 /turf/space,
-/area/space)
+/area/ministation/Murphy/smresearch)
 "Qg" = (
 /obj/structure/closet/secure_closet/security,
 /obj/item/clothing/pants/loincloth/scout,
@@ -15538,8 +15538,8 @@
 /turf/floor/path/running_bond,
 /area/ministation/hall/e2)
 "Sj" = (
-/turf/unsimulated/dark_filler,
-/area/space)
+/turf/floor/reinforced/airless,
+/area/ministation/Murphy/medical)
 "Sl" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -17397,7 +17397,7 @@
 	},
 /obj/structure/lattice,
 /turf/space,
-/area/space)
+/area/ministation/Murphy/smresearch)
 "XJ" = (
 /obj/structure/hygiene/toilet{
 	dir = 4
@@ -67089,7 +67089,7 @@ Dm
 Hu
 Dm
 Dm
-Ej
+KJ
 Nk
 ZG
 KJ
@@ -68625,8 +68625,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+Sj
+Sj
 oI
 cj
 cj
@@ -68882,10 +68882,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+Sj
+Sj
+Sj
+Sj
 aa
 aa
 aa
@@ -68922,7 +68922,7 @@ cu
 cu
 cu
 cu
-ad
+Ej
 py
 bn
 Ka
@@ -69139,6 +69139,10 @@ aa
 aa
 aa
 aa
+Sj
+Sj
+Sj
+Sj
 aa
 aa
 aa
@@ -69175,11 +69179,7 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-ad
+Ej
 py
 py
 py
@@ -69436,7 +69436,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -69693,7 +69693,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -69950,7 +69950,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -70207,7 +70207,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -70464,7 +70464,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -70721,7 +70721,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -70978,7 +70978,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -71235,7 +71235,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -71492,7 +71492,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -71749,7 +71749,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -72006,7 +72006,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -72263,7 +72263,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -72520,7 +72520,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -72777,7 +72777,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -73034,7 +73034,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -73291,7 +73291,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 py
 py
 py
@@ -73548,7 +73548,7 @@ aa
 aa
 aa
 aa
-ad
+Ej
 Qf
 XG
 Qf
