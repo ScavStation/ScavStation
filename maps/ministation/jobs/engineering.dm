@@ -18,6 +18,7 @@
 		access_construction,
 		access_atmospherics,
 		access_emergency_storage,
+		access_medical,
 		access_cameras
 	)
 	minimal_access = list(
@@ -30,6 +31,7 @@
 		access_construction,
 		access_atmospherics,
 		access_emergency_storage,
+		access_medical,
 		access_cameras
 	)
 	min_skill = list(
