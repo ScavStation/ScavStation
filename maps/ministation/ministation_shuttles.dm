@@ -53,7 +53,7 @@
 	shuttle_area = /area/ministation/shuttle/outgoing
 	dock_target = "science_shuttle"
 	current_location = "nav_ministation_science_dock_shuttle"
-
+//	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/science_dock
 	name = "Tradepost Science Department Docking Arm"
@@ -64,14 +64,11 @@
 	name = "Murphy docking console"
 	shuttle_tag = "Murphy"
 
-
-
 /datum/shuttle/autodock/overmap/murphy
 	name = "Murphy"
 	shuttle_area = list(/area/ministation/Murphy/bridge, /area/ministation/Murphy/roof, /area/ministation/Murphy/common, /area/ministation/Murphy/common/upper, /area/ministation/Murphy/medical, /area/ministation/Murphy/lounge, /area/ministation/Murphy/kitchen, /area/ministation/Murphy/chem, /area/ministation/Murphy/ai, /area/ministation/Murphy/living, /area/ministation/Murphy/rnd, /area/ministation/Murphy/hydro, /area/ministation/Murphy/toxins, /area/ministation/Murphy/smresearch, /area/ministation/Murphy/engineering, /area/ministation/Murphy/atmos, /area/ministation/Murphy/maint/central, /area/ministation/Murphy/maint/Eighteen, /area/ministation/Murphy/maint/Mawreek, /area/ministation/Murphy/maint/Vayryn, /area/ministation/Murphy/maint/guest, /area/ministation/Murphy/janitors, /area/ministation/Murphy/bathroom, /area/ministation/Murphy/bedroom, /area/ministation/Murphy/bedroom/guest, /area/ministation/Murphy/bedroom/Steph, /area/ministation/Murphy/bedroom/Karlawa_Haven, /area/ministation/Murphy/bedroom/Elicot, /area/ministation/Murphy/bedroom/Mawreek, /area/ministation/Murphy/bedroom/Kaawmer, /area/ministation/Murphy/bedroom/Vayryn, /area/ministation/Murphy/meeting)
 	dock_target = "l2_murphy_west_airlock"
 	current_location = "nav_ministation_medical_dock_shuttle"
-//	defer_initialisation = TRUE
 //	flags = SHUTTLE_FLAGS_PROCESS
 
 /obj/effect/shuttle_landmark/medical_dock
@@ -81,11 +78,13 @@
 
 /obj/effect/overmap/visitable/ship/landable/murphy
 	name = "Murphy"
-//	shuttle = "Murphy"
+	shuttle = "Murphy"
 	moving_state = "ship_moving"
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 15000
+	multiz = 3
+	use_mapped_z_levels = FALSE
 	fore_dir = NORTH
 	skill_needed = SKILL_BASIC
 	vessel_size = SHIP_SIZE_LARGE

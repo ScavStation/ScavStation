@@ -5339,6 +5339,7 @@
 /obj/structure/bed/chair/office/comfy/black{
 	dir = 1
 	},
+/obj/effect/shuttle_landmark/medical_dock,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 1;
 	id_tag = "l2_murphy_west_airlock";
@@ -5348,7 +5349,6 @@
 	tag_interior_door = "l2_murphy_west_airlock_interior";
 	pixel_y = -27
 	},
-/obj/effect/shuttle_landmark/medical_dock,
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
 "pu" = (
