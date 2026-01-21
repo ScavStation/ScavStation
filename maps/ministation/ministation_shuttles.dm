@@ -64,10 +64,7 @@
 	name = "Murphy docking console"
 	shuttle_tag = "Murphy"
 
-/obj/effect/shuttle_landmark/medical_dock
-	name = "Tradepost Medical Department Docking Arm"
-	docking_controller = "md_airlock"
-	landmark_tag = "nav_ministation_medical_dock_shuttle"
+
 
 /datum/shuttle/autodock/overmap/murphy
 	name = "Murphy"
@@ -75,7 +72,12 @@
 	dock_target = "l2_murphy_west_airlock"
 	current_location = "nav_ministation_medical_dock_shuttle"
 //	defer_initialisation = TRUE
-	flags = SHUTTLE_FLAGS_PROCESS
+//	flags = SHUTTLE_FLAGS_PROCESS
+
+/obj/effect/shuttle_landmark/medical_dock
+	name = "Tradepost Medical Department Docking Arm"
+	docking_controller = "md_airlock"
+	landmark_tag = "nav_ministation_medical_dock_shuttle"
 
 /obj/effect/overmap/visitable/ship/landable/murphy
 	name = "Murphy"
