@@ -297,7 +297,7 @@
 
 /area/ministation/medical/psychology
 	name = "\improper Psychology"
-	req_zccess = list(access_psychiatrist)
+	req_access = list(access_psychiatrist)
 	icon_state = "green"
 	secure = TRUE
 
