@@ -267,19 +267,19 @@
 
 /area/ministation/medical
 	name = "\improper Infirmary"
-	req_access = list(access_medical_equip)
+	req_access = list(access_medical)
 	icon_state = "light_blue"
 	secure = TRUE
 
 /area/ministation/surgicaln
 	name = "\improper Surgery North"
-	req_access = list(access_medical)
+	req_access = list(access_medical_equip)
 	icon_state = "yellow"
 	secure = TRUE
 
 /area/ministation/surgicals
 	name = "\improper Surgery South"
-	req_access = list(access_medical)
+	req_access = list(access_medical_equip)
 	icon_state = "purple"
 	secure = TRUE
 
@@ -297,6 +297,7 @@
 
 /area/ministation/medical/psychology
 	name = "\improper Psychology"
+	req_access = list(access_psychiatrist)
 	icon_state = "green"
 	secure = TRUE
 
