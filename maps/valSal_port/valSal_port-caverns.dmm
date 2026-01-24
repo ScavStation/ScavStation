@@ -44,7 +44,7 @@
 "jF" = (/obj/effect/spider/spiderling,/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/dirt,/area/valSal_port/nest)
 "jN" = (/turf/floor/path/herringbone/marble,/area/valSal_port/library)
 "jQ" = (/obj/item/remains/lizard,/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/dirt,/area/valSal_port/nest)
-"jR" = (/mob/living/simple_animal/familiar/horror,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"jR" = (/mob/living/simple_animal/hostile/antlion,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
 "jS" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
 "km" = (/turf/wall/natural/random/basalt/valSal_port,/area/valSal_port/mushroom)
 "kn" = (/obj/structure/flora/plant/random_mushroom/glowing,/mob/living/simple_animal/hostile/scarybat/cave,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
@@ -106,7 +106,7 @@
 "zw" = (/mob/living/simple_animal/koala,/turf/unsimulated/floor/grass,/area/valSal_port/grove)
 "zP" = (/turf/floor/holofloor/beach/sand,/area/valSal_port/grove)
 "Aj" = (/obj/item/remains/lizard,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
-"Ao" = (/obj/item/remains,/obj/item/gun/magnetic/railgun/flechette{name = "ancient antiquity"; desc = "An ancient antiquity from a bygone age. This one is almost like a crossbow, but far heavier."},/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"Ao" = (/obj/item/gun/magnetic/railgun/flechette{name = "ancient antiquity"; desc = "An ancient antiquity from a bygone age. This one is almost like a crossbow, but far heavier."},/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
 "AA" = (/obj/item/cash/imperial/crown,/obj/structure/flora/plant/random_mushroom,/turf/floor/dirt,/area/valSal_port/nest)
 "AH" = (/turf/unsimulated/floor/sand,/area/valSal_port/grove)
 "AI" = (/obj/item/clothing/glasses/meson/prescription{name = "ancient antiquity"; action_button_name = "Toggle Antiquity"; desc = "An ancient relic from a bygone age. This one looks like a pair of spectacles."},/turf/floor/dirt,/area/valSal_port/nest)
@@ -161,7 +161,6 @@
 "JN" = (/turf/floor/rock/basalt,/area/valSal_port/miningcamp)
 "JU" = (/obj/item/stack/material/gemstone/mapped/diamond,/turf/floor/dirt,/area/valSal_port/caves/deep)
 "Kf" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/structure/flora/plant/random_mushroom,/turf/floor/dirt,/area/valSal_port/nest)
-"Kq" = (/obj/item/zat_zhing{name = "emerald"; desc = "A green gemstone with some residue stuck to it."},/turf/floor/dirt,/area/valSal_port/caves/deep)
 "Kr" = (/obj/item/bladed/polearm/spear/improvised/steel,/turf/floor/dirt,/area/valSal_port/nest)
 "KK" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/nest)
 "Lh" = (/turf/floor/path/marble,/area/valSal_port/prison)
@@ -231,7 +230,7 @@ SUSUSUhfhfhfSUhfhfhfhfhfhfhfhfhfhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUSUtGtGtGtGtGtG
 SUSUhfSUSUSUSUhftGtGtGtGtGtGtGhfhfhfhfSUhfhfhfhfSUSUhfSUtGtGtGtGtGtGtGhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhftGhfhfhfhfhfhfSUSUSUBIBISUSUSUtGtGtGtGtGSUSUSUSUSUhfSUSUSUSUSUSUSUSUSUljljljljljhf
 SUSUSUSUSUSUhftGtGtGtGtGxmtGtGSUSUhfhfSUSUhfSUtGtGtGtGtGtGhfhfhfhfhfSUSUSUSUhfhfhfhfhfBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQhfhfhfBISUSUSUSUSUtGtGtGtGSUSUSUSUSUSUSUSUSUBISUSUljMMMMMMljhf
 SUSUSUSUSUhftGtGtGtGtGtGtGtGhfSUSUhfhftGtGtGtGtGSUSUSUhfhfhfBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQhfhfBIBISUSUSUSUtGtGtGtGtGtGSUSUSUSUSUSUSUSUnyMMjRMMljhf
-SUSUSUSUSUhftGxmtGtGtGtGtGtGtGtGtGtGtGtGhfhfhfhfhfhfhfBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGBQBQBQBQBQBQhfBISUSUSUSUSUSUSUSUxmtGtGtGSUSUSUSUSUSUnyMMMMMMljhf
+SUSUSUSUSUhftGxmtGtGtGtGtGtGtGtGtGtGtGtGhfhfhfhfhfhfhfBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGBQBQBQBQBQBQhfBISUSUSUSUSUSUSUSUxmtGtGtGSUSUSUSUSUSUnyMMAoMMljhf
 SUSUhfSUhfhftGtGtGtGtGtGhfSUSUhfhfSUSUSUhfhfhfhfhfBQBQBQBQBQBQBQhfhfBQBQBQBQBQtGtGtGtGhfhfBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIhfhftGtGtGBQBQBQBQBQhfhfSUSUSUSUSUSUSUSUSUSUtGtGSUSUSUSUSUnyljljljljhf
 SUSUSUSUhftGtGtGtGhfhfhfSUSUhfhfSUSUhfhfhfBQBQBQBQBQBQBQBQBQtGtGtGtGtGtGtGtGtGtGhfhfBIBIBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBIBIBIBIhfhftGtGtGBQBQBQBQhfhfhfBISUSUSUSUSUSUSUSUtGhfSUhfSUSUnyhjhjljljhf
 SUSUSUhfhftGtGtGhfhfSUSUSUhfhfBQBQBQBQBQBQBQBQBQBQBQtGtGtGtGtGhfBIBIBIBIBIBIBIBIBIBIhfSUSUSUSUSUSUhfhfhfhfBIBIBIBIhfhfhfhfSUSUSUSUSUSUSUSUBIBItGtGBQBQBQBQhfhfhfSUSUSUSUSUSUSUSUtGtGSUBISUSUnyuSljljljhf
@@ -239,10 +238,10 @@ SUSUSUhftGtGtGhfhfSUSUhfhfBQBQBQBQBQBQBQBQBQtGtGtGtGtGBIBIBIBIBIBIBIBIBIhfhfhfhf
 SUSUSUhftGtGggggSUSUggBQBQBQBQBQtGtGtGtGtGtGtGhfhfhfhfhfhfhfhfBIBIBIBIBIBIBIhfBISUSUSUSUBIBIBIBIBIBIBIggggtGtGtGtGtgtGtGtGjStGtGtGBIBIBIBISUSUBIBIBItGtGBQBQBQBQBQhfBISUSUSUSUSUSUtGSUSUSUSUnyMMMMMMljhf
 SUSUhftGtGhfSUSUSUBQBQBQBQBQBQtGjStGtGtGtGtgtGtGtGpWtGtGtGtGhfBIhfhfhfhfBIBIBISUSUBIBIBIhfhfhfggggggtGtGtGjStGtGtGtGpWtGPitGtGxmtGtGBIBIhfBISUSUSUBIBItGtGBQBQBQBQBQhfBIBISUBISUSUtGSUSUhfSUnyhjljljljhf
 SUhfhftGtGhfggggBQBQBQtGtGtGtGtGtGSUSUSUSUSUtGtGtGtGtGjSPitGtGxmtGtGhfhfhfhfhfSUhfhfhfhfhftGtGxmtGtGtGtGtGtGtGtGtGtGhftGSUSUtGtGtGtGtGhfBIBIBIBISUSUBIBItGtGtGBQBQBQhfhfBISUSUSUSUSUSUSUhfSUnyhjhjljljhf
-SUhfhftGhfhfggBQBQBQtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUSUSUSUSUSUtGtGtGtGtGjStGtGtGtGtGtGtGtGtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUtGSUSUSUtGtGpWtGtGhfBIBIBIBISUSUBIBIhftGtGBQBQBQhfBISUhfSUSUtGtGjESUSUnyAoljljljhf
+SUhfhftGhfhfggBQBQBQtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUSUSUSUSUSUtGtGtGtGtGjStGtGtGtGtGtGtGtGtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUtGSUSUSUtGtGpWtGtGhfBIBIBIBISUSUBIBIhftGtGBQBQBQhfBISUhfSUSUtGtGjESUSUnyuSljljljhf
 SUhftGtGhfhfBQBQBQtGtGtGhfSUBISUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUtGtGtGtGpWtGtGabtGtGjStGtGhfSUSUSUSUhfSUSUhfSUSUSUyZalKKSUSUSUtGtGjStGtGBIBIBISUSUSUBIBIhftGtGBQBQhfBISUBISUtGRqJUqJSUSUnyEcMMEcljhf
 SUhftGtGggBQBQBQBQtGPihfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBIBIBISUSUSUSUSUtGSUSUSUSUSUBIBISUSUBIhfSUSUKKyZyZKKKKSUSUSUSUtGtGtGBIBIBISUSUSUBIBIhftGBQBQhfSUSUBItGVGVGVGtGSUSUnyljljhjljhf
-SUhftGggggBQBQBQjSabBISUSUtGtGtGtGtGtGtGtGtGtGtGtGtGtGSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUtGtGtGSUSUSUSUSUSUSUSUSUBIBIBIBISUKKyZyZyZKKSUhfSUSUpWtGtGBIBIBISUSUBIBIhftGBQBQBQSUSUtGVGKqRqtGSUSUSUnyljhjMMljhf
+SUhftGggggBQBQBQjSabBISUSUtGtGtGtGtGtGtGtGtGtGtGtGtGtGSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUtGtGtGSUSUSUSUSUSUSUSUSUBIBIBIBISUKKyZyZyZKKSUhfSUSUpWtGtGBIBIBISUSUBIBIhftGBQBQBQSUSUtGVGVGRqtGSUSUSUnyljhjMMljhf
 SUhftGggBQBQBQtGpWBIBItGtGtGSUSUSUSUSUSUSUSUSUBISUSUtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGSUSUBIBISUSUSUSUSUSUSUBIBISUBIBISUKKJpyZKKhfhfhfSUSUFetGtGhfBIBISUBIBIBItGtGBQBQSUtGJUVGVGjESUSUSUSUnyljhjljljhf
 SUtGtGggBQBQBQtGBIBItGtGSUSUSUtGtGtGtGSUSUSUSUSUSUSUSUhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUSUSUSUBIBImxyZKKhfhfhfhfSUSUtGtGPihfBISUSUhfBIhftGBQBQBItGRqVGtGSUSUSUSUSUnyljMMMMljhf
 SUtGggggBQBQtGtGSUtGtGSUSUSUtGtGSUSUtGtGtGSUSUSUSUSUSUBTBTBTBTBTBTBTBTBTSUBIBISUhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBImxmxmxmxJpKKlClClClCKKSUSUtGtGtGhfBISUSUhfBItGBQBQSUqJtGtGSUSUSUSUSUSUnyEcMMEcljhf
