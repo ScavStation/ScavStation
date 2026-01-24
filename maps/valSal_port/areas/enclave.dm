@@ -112,6 +112,19 @@
 	)
 	sound_env = ROOM
 
+/area/valSal_port/enclave/mining
+	name = "\improper Mining Camp"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
+	sound_env = ROOM
+
 /area/valSal_port/enclave/daughter
 	name = "\improper Female Dwellings"
 	fishing_failure_prob = 100
@@ -140,6 +153,16 @@
 
 /area/valSal_port/outside/enclave_farm
 	name = "Enclave Farm"
+	ambience = list(
+		'mods/valsalia/sounds/ambience/canyon.ogg',
+		'mods/valsalia/sounds/ambience/caravans.ogg',
+		'mods/valsalia/sounds/ambience/contrasts.ogg',
+		'mods/valsalia/sounds/ambience/khans.ogg',
+		'mods/valsalia/sounds/ambience/tribe.ogg'
+	)
+
+/area/valSal_port/outside/food_farm
+	name = "Produce Farm"
 	ambience = list(
 		'mods/valsalia/sounds/ambience/canyon.ogg',
 		'mods/valsalia/sounds/ambience/caravans.ogg',
