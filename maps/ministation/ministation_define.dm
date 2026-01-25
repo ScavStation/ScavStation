@@ -1,11 +1,11 @@
 /datum/map/ministation
 	name = "Ministation"
-	full_name = "Tradepost Mollusc"
+	full_name = "Tradepost Mollusk"
 	path = "ministation"
 	ground_noun = "floor"
 
-	station_name = "Tradepost Mollusc"
-	station_short = "Mollusc"
+	station_name = "Tradepost Mollusk"
+	station_short = "Mollusk"
 
 	dock_name     = "Val Salia Station"
 	boss_name     = "Trademaster"
