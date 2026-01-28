@@ -232,6 +232,7 @@
 "wU" = (/obj/structure/boulder/basalt,/turf/floor/grass,/area/valSal_port/outside/enclave)
 "xb" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
 "xl" = (/mob/living/simple_animal/fowl/duck,/turf/floor/clay,/area/valSal_port/outside/enclave/river)
+"xm" = (/obj/structure/table/woodentable/ebony,/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "xp" = (/obj/structure/bed/simple/ebony/cloth,/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "xq" = (/obj/structure/flora/tree/hardwood/walnut,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
 "xs" = (/obj/item/chems/mould/crucible,/obj/item/chems/mould/crucible,/obj/item/chems/mould/crucible,/obj/item/chems/mould/ingot,/obj/item/chems/mould/ingot,/obj/item/chems/mould/ingot,/obj/item/chems/mould/rod,/obj/item/chems/mould/rod,/obj/item/chems/mould/rod,/turf/floor/dirt,/area/valSal_port/enclave/mining)
@@ -287,6 +288,7 @@
 "BY" = (/mob/living/simple_animal/skittercrab,/turf/floor/rock/basalt,/area/valSal_port/caves)
 "Ca" = (/obj/structure/flora/tree/hardwood/ebony,/turf/floor/grass,/area/valSal_port/outside/outdoors_cliff)
 "Ck" = (/obj/structure/flora/bush/leafybush,/turf/floor/grass,/area/valSal_port/outside/outdoors_enclave)
+"Cm" = (/obj/structure/wall_sconce/torch,/obj/structure/filter_stand/mapped,/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "Cr" = (/obj/structure/wall_sconce/lantern{dir = 8},/turf/floor/barren,/area/valSal_port/outside/outdoors_cliff)
 "CB" = (/obj/structure/flora/bush/fullgrass,/obj/structure/flora/bush/ywflowers,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
 "CC" = (/obj/structure/flora/bush/fernybush,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
@@ -427,6 +429,7 @@
 "PL" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/robe/yinglet/zhorin,/obj/item/clothing/suit/robe/yinglet/zhorin,/obj/item/clothing/head/yinglet,/obj/item/clothing/head/yinglet,/turf/floor/wood,/area/valSal_port/enclave/daughter)
 "PO" = (/obj/structure/flora/tree/hardwood/mahogany,/turf/floor/grass/wild,/area/valSal_port/outside/enclave)
 "PP" = (/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/river)
+"PV" = (/obj/structure/drying_rack/ebony,/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "PW" = (/mob/living/simple_animal/aquatic/fish/large,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
 "PX" = (/turf/wall/log/mahogany,/area/valSal_port/enclave/commonhouse)
 "PY" = (/obj/structure/meat_hook/improvised,/turf/floor/path,/area/valSal_port/enclave/huntershut)
@@ -437,7 +440,7 @@
 "QA" = (/obj/structure/railing/mapped/wooden/walnut,/turf/floor/grass,/area/valSal_port/outside/enclave)
 "QF" = (/obj/structure/wall_sconce/torch,/turf/floor/dirt,/area/valSal_port/enclave/dininghut)
 "QG" = (/obj/item/stool/rustic,/obj/abstract/landmark/start/valSal_port/miner,/turf/floor/wood/mahogany,/area/valSal_port/enclave/dininghut)
-"QS" = (/obj/structure/wall_sconce/torch,/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
+"QS" = (/obj/structure/filter_stand/mapped,/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "QY" = (/obj/structure/flora/bush/leafybush,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_south)
 "Rg" = (/obj/item/stool/wood,/turf/floor/wood/yew,/area/valSal_port/enclave/foyer)
 "Rw" = (/obj/structure/flora/seaweed/mid,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
@@ -575,12 +578,12 @@ LILIvDLILILINcNcNcvDvDLINcLIvDNcNcLILILILIjSqSqSUrjUPPPPjUjUlAlAOHOHiBOHOHOHiBiB
 LILIvDLILINcNcLILIvDLINcNcLIvDLINcLILILILIjScOqSqSjUjUPPPPjUjUlAlAOHOHOHOHiBiBiBiBiBUnGhGhFJFJFJGhFJFJFJMqFJFJFJeuYMMqcsTxTxcszPYMFJFJFJsWFJFJMqzPTxzPFJFJFJFJkmtzpJxTxpkmFJGhGhiBOHOHiBiBFGFGFGFGFGFGFG
 LILILILINcNcLILIvDvDLINcLIvDvDLINcLILILILIjSJZJZlAlAjUjUPPUAjUjUlAuaWGOHOHOHOHdSiBiBGhGhGhUnFJZOGhGhGhFJFJFaFJFJFaFNhEFNncncFNhEFNzPFJFJFJFJFJFJzPTxZOFJFJFJFJTLtzxTxTxpTLGhCHGhiBOHOHOHYzFGFGFGFGFGFGFG
 LILINcNcNcLILIvDvDLILINcLIvDLILINcLILILIjSjSTSJZJZlAlAjUjUPPPPjUjUlAlAZxZxZxOHOHiBiBGhCHGhGhFJFJhDGhUnGhiTFJFJFNhEFNYnpwMBMBpwjjFNhEFNzPFaFJZOzPzPTxZOFJFJFJyJkmkmOqxTmVkmGhGhGhcEkKKSOHiBFGFGFGFGFGFGFG
-LINcNczVLILIvDvDLILILINcLIvDLILINcLILILIjSJZJZeMJZJZlAlAjUjUPPPPjUjUlAlAlARyZxOHiBiBGhGhGhGhFJFJFJGhGhfzTxTxyzFNkTpwMBjtjRjRjtMBENfwFNMjTxzPzPzPTxTxTxTxTxTxTxTxLCxTxTxTTLGhGhGhiBkKOHOHiBFGFGFGFGFGFGFG
+LINcNczVLILIvDvDLILILINcLIvDLILINcLILILIjSJZJZeMJZJZlAlAjUjUPPPPjUjUlAlAlARyZxOHiBiBGhGhGhGhFJFJFJGhGhfzTxTxyzFNkTpwMBjtjRjRjtMBENfwFNMjTxzPzPzPTxTxTxTxTxTxTxTxLCxTxTQSTLGhGhGhiBkKOHOHiBFGFGFGFGFGFGFG
 LINcBYLILILIvDLILILINcNcLIvDLINcNcLILIjSjSJZeMeMeMPBJZlAlAjUjUUAPPjUjUjUlAlAZxOHYziBGhGhGhGhFJFJFJGhGhfzTxbtTxncMBMBjRWLgmFkzWjRMBMBmPTxTxTxTxTxTxrxzPzPzPzPyJkmkmOqxTuukmGhKTGhOHOHOHOHOHFGFGFGFGFGFGFG
 NcNcLILILIvDvDLILINcNcLIvDvDNcNcLILIjSjSJZJZeMeMeMeMgiJZlAlAjUjUPPPPPPjUjUlAlAOHOHOHGhGhGhGhFaMqFJGhGhfzsZTxyzFNwiMKMBjRjRjtjRMBpIoQFNMjTxTxTxTxFJFJFJFJFJEGFJTLLqxTxTyITLGhGhGhOHOHlpAUlpvwvwvwvwvwvwvw
-NcLILILILIvDLILINczVLIvDvDNcNcLILILIjSJZPBCCeMCBeMeMeMJZJZlABNjUjUjUPPPPjUjUlAlAlAOHFJFJGhGhFJFJGhKTCHGhzFzFzFFNhEFNPYjoNqNqnsiiFNhEFNzPTxzPzPTxFJFJFJFJFJKWFJkmFHQSxTZekmMqGhFJOHlplpMbMbvwvwvwvwvwvwvw
-NcLILILIvDLILILINcLIvDvDLIzVLILILIjSjSJZeMeMeMxqzveMeMeMJZJZlAlAlAjUjUPPKjjUjUjUlAlAlAFJFJFJFJFJGhGhGhGhGhGhGhGhKTFNFNhEFNFNhEFNFNzPzPzPTxFJvqSSzUzUzUzUFJFJGhkmkmkmTLkmkmFJGhFJlplpMbMbRwvwvwvwvwvwvwvw
-NcNcLILIvDLILINcNcLIvDLINcNcLILILIjSJZJZeMzveMeMeMeMeMeMeMJZJZJZlAlAjUjUPPPPPPjUjUjUlAlAlAFJFJFJFJGhGhGhGhGhGhGhGhKTGhGhFJFJFJKTGhGhGhzPTxkPqVSSqVqVqVqVDLGhGhGhKTCHGhGhFJFJFJFJlpMbMbhZrFvwvwvwvwvwvwvw
+NcLILILILIvDLILINczVLIvDvDNcNcLILILIjSJZPBCCeMCBeMeMeMJZJZlABNjUjUjUPPPPjUjUlAlAlAOHFJFJGhGhFJFJGhKTCHGhzFzFzFFNhEFNPYjoNqNqnsiiFNhEFNzPTxzPzPTxFJFJFJFJFJKWFJkmFHxTxTZekmMqGhFJOHlplpMbMbvwvwvwvwvwvwvw
+NcLILILIvDLILILINcLIvDvDLIzVLILILIjSjSJZeMeMeMxqzveMeMeMJZJZlAlAlAjUjUPPKjjUjUjUlAlAlAFJFJFJFJFJGhGhGhGhGhGhGhGhKTFNFNhEFNFNhEFNFNzPzPzPTxFJvqSSzUzUzUzUFJFJGhkmxmCmPVPVkmFJGhFJlplpMbMbRwvwvwvwvwvwvwvw
+NcNcLILIvDLILINcNcLIvDLINcNcLILILIjSJZJZeMzveMeMeMeMeMeMeMJZJZJZlAlAjUjUPPPPPPjUjUjUlAlAlAFJFJFJFJGhGhGhGhGhGhGhGhKTGhGhFJFJFJKTGhGhGhzPTxkPqVSSqVqVqVqVDLGhGhkmkmkmTLkmkmFJFJFJlpMbMbhZrFvwvwvwvwvwvwvw
 LINcNcLIvDLILINcLIvDvDLINcLILILILIjSJZcnzvEkeMeMeMCCeMRLFweMJZJZIolAlAjUjUjUPPInPPjUjUjUlAlAlAlAFJFJFJFJjMGhGhGhGhxEyCFJFJFJGhGhouGhGhzPTxkPWqhmSSSSSShmDLGhFJFJFJFJFJFJFJFJAUyZlpMbLTNfMbvwvwvwvwvwvwvw
 LILINcLILILINcNcLIvDLILIBYLILILIjSjSJZeMzveMeMeMeMeMeMeMeMEkeMJZIoKmlAlAlAjUjUjUPPPPPPjUjUjUjUlAualAlAFJFJFJFJGhGhGhFJFJFJGhGhGhCHGhGhTxTxkPPISSSShmSSSSDLOfFJzkzkzkzklpcIlplpMbMbMbhZMbMbvwvwvwvwvwvwvw
 LILIBYNcLILINcLILIvDLILINcLILILIjSJZJZzveMeMxweMEkeMeMeMeMeMJZJZJZXiJZZxlAlAlASTjUjUPPFMBTPPjUjUjUjUlAlAlAlAFJFJFJFJFJFJGhGhvbFJFJFJFJTxzPkPqVqVqVqVqVqVDLFJFJzkfklplplpMbMbMbMbPWhZhZMblpvwvwvwvwvwvwvw
