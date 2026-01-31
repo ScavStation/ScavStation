@@ -604,7 +604,7 @@
 "rj" = (/obj/machinery/atmospherics/unary/vent_pump/on{dir = 1; level = 2},/obj/machinery/computer/modular/preset/civilian{dir = 4},/turf/floor/tiled/white,/area/ministation/science)
 "rk" = (/obj/machinery/light/small{dir = 4},/turf/floor/plating,/area/ministation/maint/l3sw)
 "rl" = (/obj/machinery/atmospherics/pipe/simple/hidden/fuel{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 5},/obj/structure/cable{icon_state = "1-4"},/obj/structure/handrail{dir = 4},/obj/machinery/light,/obj/structure/cable{icon_state = "4-8"},/turf/floor/plating,/area/ministation/shuttle/outgoing)
-"rm" = (/obj/structure/closet/crate/bin,/turf/floor,/area/ministation/Murphy/maint/central)
+"rm" = (/obj/structure/closet/crate/bin,/obj/machinery/camera/network/hallway{dir = 8},/turf/floor,/area/ministation/Murphy/maint/central)
 "rn" = (/turf/wall,/area/ministation/Murphy/bedroom/Kaawmer)
 "rp" = (/obj/effect/floor_decal/corner/purple{dir = 9},/turf/floor/tiled/white,/area/ministation/science)
 "rq" = (/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,/obj/structure/cable{icon_state = "1-2"},/obj/structure/cable{icon_state = "1-4"},/obj/structure/cable{icon_state = "1-8"},/turf/floor/tiled,/area/ministation/Murphy/common/upper)
@@ -1032,7 +1032,7 @@
 "EE" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable{icon_state = "4-8"},/obj/machinery/door/firedoor,/turf/floor/tiled/white,/area/ministation/science)
 "EF" = (/obj/machinery/door/window/westleft{dir = 2},/obj/machinery/door/window/eastleft{dir = 1},/obj/machinery/atmospherics/pipe/simple/hidden,/turf/floor/tiled/white,/area/ministation/science)
 "EJ" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/turf/floor/tiled/white,/area/ministation/science)
-"EK" = (/obj/structure/closet/jcloset,/obj/structure/lattice,/obj/machinery/atmospherics/pipe/zpipe/down/supply,/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,/obj/structure/cable{icon_state = "32-1"},/turf/open,/area/ministation/Murphy/janitors)
+"EK" = (/obj/structure/closet/jcloset,/obj/structure/lattice,/obj/machinery/atmospherics/pipe/zpipe/down/supply,/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,/obj/structure/cable{icon_state = "32-1"},/obj/structure/ladder,/turf/open,/area/ministation/Murphy/janitors)
 "EN" = (/obj/machinery/fabricator/industrial{initial_network_id = "molluscnet"},/turf/floor/tiled/techfloor,/area/ministation/science)
 "EO" = (/turf/wall/titanium,/area/ministation/Murphy/bedroom/Steph)
 "EP" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 10},/obj/structure/cable{icon_state = "2-8"},/turf/floor/tiled/white,/area/ministation/science)
@@ -1156,7 +1156,7 @@
 "IS" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 5},/obj/item/radio/beacon,/turf/floor/lino,/area/ministation/telecomms)
 "IT" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 9},/turf/floor/tiled,/area/ministation/shuttle/outgoing)
 "IV" = (/obj/machinery/door/airlock/glass/command,/obj/machinery/door/firedoor,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/effect/floor_decal/corner/blue/mono,/turf/floor/tiled,/area/ministation/bridge)
-"IW" = (/obj/structure/closet/crate/med_crate/trauma,/turf/floor,/area/ministation/Murphy/maint/central)
+"IW" = (/obj/structure/closet/crate/med_crate/trauma,/obj/machinery/camera/network/hallway{dir = 1},/turf/floor,/area/ministation/Murphy/maint/central)
 "IX" = (/obj/effect/decal/cleanable/dirt/visible,/turf/floor/plating,/area/ministation/maint/l3se)
 "IZ" = (/turf/wall,/area/ministation/psion)
 "Ja" = (/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/floor/carpet/blue2,/area/ministation/Murphy/bedroom/Vayryn)
@@ -1266,6 +1266,7 @@
 "Ms" = (/obj/item/radio/intercom{dir = 8; pixel_x = 22},/obj/structure/table/woodentable_reinforced/walnut,/obj/item/folder,/turf/floor/wood/walnut,/area/ministation/court)
 "Mt" = (/turf/wall,/area/ministation/Murphy/bedroom/Karlawa_Haven)
 "Mu" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 9},/turf/floor/tiled/techfloor,/area/ministation/science)
+"Mx" = (/obj/machinery/light{dir = 4},/obj/machinery/camera/network/hallway{dir = 8; name = "murphy hallway"},/turf/floor/tiled,/area/ministation/Murphy/common/upper)
 "My" = (/obj/structure/cable{icon_state = "4-8"},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 9},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/floor/tiled/white,/area/ministation/science)
 "Mz" = (/obj/machinery/atmospherics/unary/tank/carbon_dioxide{start_pressure = 10000},/obj/structure/cable{icon_state = "4-8"},/turf/floor/tiled,/area/ministation/shuttle/outgoing)
 "MA" = (/obj/structure/bed/chair/armchair,/obj/abstract/landmark/start{name = "Lawyer"},/turf/floor/wood/walnut,/area/ministation/court)
@@ -1529,7 +1530,7 @@
 "Uk" = (/obj/item/stack/material/ingot/mapped/gold/forty{pixel_y = 8},/obj/item/stack/material/ingot/mapped/gold/forty{pixel_x = -9},/obj/item/stack/material/ingot/mapped/gold/forty{pixel_x = -9},/obj/item/stack/material/ingot/mapped/gold/forty{pixel_x = 9},/turf/floor/tiled/techfloor,/area/ministation/bridge/vault)
 "Ul" = (/obj/structure/disposalpipe/trunk{dir = 8},/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{current_health = 1e+007},/obj/structure/window/reinforced{dir = 8},/obj/structure/disposaloutlet{dir = 4},/turf/floor/plating,/area/ministation/science)
 "Um" = (/obj/effect/floor_decal/carpet/green/corners,/obj/effect/floor_decal/stoneborder/corner{dir = 8},/obj/structure/reagent_dispensers/water_cooler{dir = 4},/turf/floor/wood/walnut,/area/ministation/library)
-"Un" = (/obj/structure/bed/chair/armchair/black,/turf/floor/wood,/area/ministation/Murphy/lounge)
+"Un" = (/obj/structure/bed/chair/armchair/black,/obj/machinery/camera/autoname{dir = 4},/turf/floor/wood,/area/ministation/Murphy/lounge)
 "Uo" = (/obj/item/radio/intercom{pixel_y = 20},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 6},/turf/floor/tiled/white,/area/ministation/science)
 "Up" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/obj/structure/disposalpipe/segment{dir = 4},/turf/floor/wood/mahogany,/area/ministation/library)
 "Uq" = (/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{dir = 4},/obj/structure/disposalpipe/segment{dir = 2; icon_state = "pipe-c"},/turf/floor/wood/mahogany,/area/ministation/library)
@@ -1602,7 +1603,7 @@
 "WC" = (/obj/effect/floor_decal/corner/brown{dir = 9},/turf/floor/tiled,/area/ministation/Murphy/common/upper)
 "WE" = (/obj/item/synthesized_instrument/synthesizer,/turf/floor/carpet/blue2,/area/ministation/Murphy/bedroom/Steph)
 "WF" = (/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/structure/cable{icon_state = "4-8"},/turf/floor/tiled/freezer,/area/ministation/Murphy/bathroom)
-"WH" = (/obj/machinery/light{dir = 1},/turf/floor/wood,/area/ministation/Murphy/common/upper)
+"WH" = (/obj/machinery/light{dir = 1},/obj/machinery/camera/network/security,/turf/floor/wood,/area/ministation/Murphy/common/upper)
 "WI" = (/obj/item/radio/intercom{dir = 1; pixel_y = -30},/obj/structure/disposalpipe/trunk{dir = 4},/obj/machinery/disposal,/turf/floor/tiled/white,/area/ministation/science)
 "WJ" = (/obj/structure/cable{icon_state = "2-4"},/obj/machinery/alarm{pixel_y = 22},/turf/floor/plating,/area/ministation/maint/l3ne)
 "WK" = (/obj/machinery/artifact_analyser,/turf/floor/tiled/white,/area/ministation/science)
@@ -1859,7 +1860,7 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwcwcwcwcwcwcwcwcwcwcwCdLSCdJKIelpGuLqsDsDsDsDsDsDFtsCPRsCcpSaSaSaLMVlVlOMExLeEfOmRRSaSTnlcwcwcwcwcwcwcwcwcwcwCXRparararVVareccNAsAsmgAsFwIEIEIEIEIEhuEUaecwcwcwcwaaaairirqcLzLzLzLzXzXxyxrnrnrnrnrnaLaLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwCdLSCdCdCdCdCdxNsDPesCugsDsDQusCsCsCxsGDGDhvLMSPJiHKKUKUKUKUAjSaSTnlcwcwcwcwcwcwcwcwcwcwCXRparebarrfMOaeRLdbrzTKANNVHviLHvhPHvjUXPaecwcwcwaaaaaaaairKJuxHxlUSOtgXxNGVGNzkdvDVGaLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwCdLSLSzZLSLSLSxNGicgXAODXECyOWsCsCsCImGDGDhvLMFEJiUmTmTmTmTmXISaoOnlcwcwcwcwcwcwcwcwcwcwCXRparararrfeDaeuzSndzdzdzdzdzdzdzdzdzdzdzdzcwcwcwaaaaaaaairoufQBOoiSOpqVgtPHVpicGAztbaLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwCdCdCdCdCdCdCdynsDDoGDGDTPsDLIsCsCsCEbsDsDSaFVLMLZSaSaSaSaSaSaSaHznlcwcwcwcwcwcwcwcwcwcwaeZeuuuuuumObpaeRLdbdzwJyMpraeYFXRveiLFDiLdzcwcwcwaaaaaaaairouoJqQMTqBtPJIRWVGfxJayQtbaLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwCdCdCdCdCdCdCdynsDDoGDGDTPsDLIsCsCsCEbsDsDSaFVLMLZSaSaSaSaSaSaSaHznlcwcwcwcwcwcwcwcwcwcwaeZeuuuuuumObpaeRLdbdzwJyMpraeYFXRveiLFDiLdzcwcwcwaaaaaaaairouoJqQMTqBtPJIMxVGfxJayQtbaLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwCdsQDCRBFysDsDsDsDsDsDuVZJZJZJIasDsDSaSatqSaSaKPKGdtnzxLYJOaaeaeCXaeioaeaeaeCXaeCXaeaegGararaeaeaeRLdbdzPAILpmaeaNdyRDiLiLiLdzcwcwcwaaaaaaaairouzeWnQaSOZCyLyoVGGexCyQtbaLaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwcwCdCdCdCdlsNpcKcYdEBesDzshxhxwaLNsDXGYJRmSTczrMBJzjgFPZNTSTSTaekZiLdhiLhgXZkZiLHriLkZaeXrebMOaeaenmzqvEdzkcEFyKLKaNefzxtltlTjdzcwcwcwcwaaaaaaEQEQyCSOSOSOFqzECOVGVGVGZpFiFiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaacwcwcwcwcwcwcwcwcwXHcwcwcwXHcwcwcwXHCdCdCdCdCdIvAHsDIAGDGDGDnVsDNKIgYJYJYJrMrMrMWzrMrMNKYJaeMRMRrXMRMRwsMRMRbSMRMRaearararaeaeUfHQdbdzLvEJsWPYaNdzdzdzdzdzdzcwcwcwcwaaaaEQEQAeFPEQJlTeXWWHOrgEriFiWkQAFiFiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
