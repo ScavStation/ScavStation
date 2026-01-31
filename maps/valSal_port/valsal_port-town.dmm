@@ -358,8 +358,8 @@
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "gh" = (
-/mob/living/simple_animal/cow,
-/turf/floor/grass,
+/mob/living/simple_animal/fowl/chicken,
+/turf/floor/straw,
 /area/valSal_port/outside/inner_town)
 "gj" = (
 /obj/structure/bed/chair/wood/wings/ebony{
@@ -1022,6 +1022,9 @@
 /obj/abstract/landmark/start/valSal_port/traveller,
 /turf/floor/barren,
 /area/valSal_port/outside/westside)
+"qP" = (
+/turf/wall/brick/basalt,
+/area/valSal_port/outside/inner_town)
 "qT" = (
 /obj/structure/flora/tree/hardwood/mahogany,
 /turf/floor/grass/wild,
@@ -1180,6 +1183,9 @@
 	},
 /turf/floor/grass/wild,
 /area/valSal_port/outside/eastside)
+"tE" = (
+/turf/wall/brick/basalt,
+/area/valSal_port/outside/river)
 "tF" = (
 /obj/structure/flora/bush/sunnybush,
 /turf/floor/grass/wild,
@@ -1529,6 +1535,12 @@
 "yN" = (
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
+"yR" = (
+/obj/structure/table/woodentable_reinforced/ebony,
+/obj/item/chems/glass/handmade/cup/wood,
+/obj/item/flute,
+/turf/floor/wood,
+/area/valSal_port/town/general_store)
 "yS" = (
 /obj/structure/working/butter_churn/walnut,
 /turf/floor/wood,
@@ -2006,6 +2018,10 @@
 /mob/living/simple_animal/aquatic/fish/large/javelin,
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/river)
+"GP" = (
+/mob/living/simple_animal/passive/sheep,
+/turf/floor/straw,
+/area/valSal_port/outside/inner_town)
 "GR" = (
 /obj/structure/flora/tree/hardwood/ebony,
 /obj/structure/flora/bush/fernybush,
@@ -2812,8 +2828,7 @@
 /turf/floor/dirt,
 /area/valSal_port/town/den)
 "UN" = (
-/mob/living/simple_animal/passive/sheep,
-/turf/floor/grass,
+/turf/floor/straw,
 /area/valSal_port/outside/inner_town)
 "UO" = (
 /obj/structure/working/spinning_wheel/ebony,
@@ -7614,7 +7629,7 @@ oR
 cK
 XE
 fL
-tg
+yR
 rt
 oR
 jK
@@ -9140,7 +9155,7 @@ Yt
 Bu
 Bu
 Fw
-Fw
+tE
 Fw
 sI
 DD
@@ -9242,7 +9257,7 @@ Yt
 Fw
 Fw
 Fw
-sI
+qP
 sI
 sI
 kA
@@ -9342,9 +9357,9 @@ rl
 bT
 Gn
 Fw
-sI
-pZ
-pZ
+qP
+qP
+qP
 sh
 kA
 kA
@@ -9443,8 +9458,8 @@ Fw
 Fw
 WN
 sI
-sI
-sI
+qP
+qP
 mH
 sh
 sh
@@ -9544,8 +9559,8 @@ Fw
 sI
 ND
 WN
-sh
-sh
+qP
+qP
 ND
 pA
 WN
@@ -9634,19 +9649,19 @@ Pp
 fH
 fH
 Bu
-Bu
-Bu
-Bu
+wp
+wp
+wp
 Fw
 is
 is
+pZ
 sI
 sI
-sI
-sI
+qP
 ND
 ND
-sh
+qP
 ND
 pA
 WN
@@ -9735,17 +9750,17 @@ Qr
 Qr
 Bu
 Bu
-Bu
-Fw
-is
-is
-is
-sI
-sI
-pZ
-sh
-zW
-sh
+tE
+tE
+tE
+tE
+tE
+qP
+qP
+qP
+qP
+qP
+qP
 sh
 ND
 ND
@@ -9837,8 +9852,8 @@ Qr
 Bu
 Bu
 Fw
+tE
 Fw
-Fw
 sI
 sI
 sI
@@ -9846,7 +9861,7 @@ sI
 sh
 sh
 sh
-sh
+zW
 sh
 sh
 ND
@@ -9939,7 +9954,7 @@ Bu
 Bu
 Fw
 Fw
-WK
+tE
 sI
 mr
 mr
@@ -10860,10 +10875,10 @@ Qw
 sI
 sI
 fj
-sI
-sI
-sI
-sI
+UN
+UN
+UN
+UN
 Kz
 sh
 VF
@@ -10962,10 +10977,10 @@ sI
 sI
 sh
 fj
-sI
+UN
 gh
-sI
-sI
+UN
+UN
 Kz
 sh
 VF
@@ -11064,10 +11079,10 @@ dY
 sh
 sh
 fj
+GP
 UN
+gh
 UN
-sI
-sI
 Kz
 sh
 Ul
@@ -11166,10 +11181,10 @@ sI
 sh
 sh
 fj
-sI
-sI
-sI
-sI
+UN
+UN
+UN
+UN
 Kz
 sh
 VF
