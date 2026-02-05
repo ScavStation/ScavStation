@@ -26,7 +26,7 @@
 	if(!sharp && (istype(W, /obj/item/stack/material/bolt) || istype(W, /obj/item/stack/material/bundle)))
 
 		var/choice = input(user, "Do you want to make a torch, or a splint?", "Stick Crafting") as null|anything in list("Torch", "Splint")
-		if(!choice || QDELETED(user) || user.get_active_held_item() != W || QDELETED(W) || !QDELETED(src) || (loc != user && !Adjacent(user)) || sharp)
+		if(!choice || QDELETED(user) || user.get_active_held_item() != W || QDELETED(W) || QDELETED(src) || (loc != user && !Adjacent(user)) || sharp)
 			return TRUE
 
 		var/obj/item/stack/material/cloth = W
@@ -53,7 +53,11 @@
 		var/was_held = (loc == user)
 		cloth.use(cloth_cost)
 		if(!was_held || user.try_unequip(src))
-			var/obj/item/thing = new product_type(get_turf(src), material?.type, W.material?.type)
+			var/obj/item/thing
+			if(ispath(product_type, /obj/item/stack))
+				thing = new product_type(get_turf(src), 1, material?.type, W.material?.type)
+			else
+				thing = new product_type(get_turf(src), material?.type, W.material?.type)
 			if(was_held)
 				user.put_in_hands(thing)
 			to_chat(user, SPAN_NOTICE("You fashion \the [src] into \a [thing]."))
