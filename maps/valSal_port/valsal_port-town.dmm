@@ -1092,6 +1092,9 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/town/shrine)
+"sq" = (
+/turf/wall/brick/basalt,
+/area/valSal_port/outside/eastside)
 "ss" = (
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
@@ -9853,7 +9856,7 @@ Bu
 Bu
 Fw
 tE
-Fw
+bJ
 sI
 sI
 sI
@@ -10056,7 +10059,7 @@ Bu
 Fw
 Fw
 WK
-WK
+tE
 sI
 mr
 NG
@@ -10158,7 +10161,7 @@ Fw
 Fw
 WK
 WK
-sI
+qP
 sI
 mr
 wk
@@ -10260,7 +10263,7 @@ Fw
 WK
 bJ
 sI
-sI
+qP
 sh
 zq
 NB
@@ -10362,7 +10365,7 @@ sI
 sI
 sI
 sI
-sh
+qP
 sh
 mr
 NB
@@ -10464,7 +10467,7 @@ sI
 Dc
 sI
 Np
-sh
+qP
 sh
 mr
 mr
@@ -10566,7 +10569,7 @@ Dc
 Dc
 sI
 sI
-DD
+qP
 sh
 sh
 sh
@@ -10668,7 +10671,7 @@ Dc
 sh
 sI
 sI
-sI
+qP
 sh
 sh
 sh
@@ -10770,7 +10773,7 @@ sh
 sh
 sh
 pZ
-sI
+qP
 sh
 sh
 eX
@@ -10872,7 +10875,7 @@ sh
 sh
 sh
 Qw
-sI
+qP
 sI
 fj
 UN
@@ -10974,7 +10977,7 @@ dH
 dH
 pe
 sI
-sI
+qP
 sh
 fj
 UN
@@ -11076,7 +11079,7 @@ dH
 dH
 dH
 dY
-sh
+qP
 sh
 fj
 GP
@@ -11178,7 +11181,7 @@ sh
 sh
 dH
 sI
-sh
+qP
 sh
 fj
 UN
@@ -11280,7 +11283,7 @@ wh
 sh
 sI
 sI
-sh
+qP
 sh
 sh
 VV
@@ -11382,7 +11385,7 @@ mH
 sh
 sI
 sI
-sh
+qP
 sh
 zW
 sh
@@ -11484,7 +11487,7 @@ sh
 sh
 sI
 sI
-qZ
+qP
 sh
 dH
 dH
@@ -11586,7 +11589,7 @@ Wo
 Wo
 sI
 sI
-sh
+qP
 sh
 dH
 dH
@@ -11688,7 +11691,7 @@ Px
 Wo
 Wo
 sI
-sh
+qP
 sh
 sh
 sh
@@ -11790,7 +11793,7 @@ Px
 Px
 nI
 sI
-mH
+qP
 mH
 sh
 sh
@@ -11892,8 +11895,8 @@ xg
 Px
 Px
 sI
-sI
-sh
+qP
+qP
 sh
 sh
 sh
@@ -11995,7 +11998,7 @@ fC
 bP
 Ru
 sI
-sh
+qP
 zW
 sh
 sh
@@ -12097,8 +12100,8 @@ SP
 pj
 Px
 sI
-sI
-sI
+qP
+qP
 sh
 sh
 sh
@@ -12200,8 +12203,8 @@ pj
 Px
 sh
 sI
-sI
-sI
+qP
+qP
 sI
 sh
 sh
@@ -12303,7 +12306,7 @@ Px
 sh
 LY
 sI
-sI
+qP
 sI
 sI
 sh
@@ -12405,7 +12408,7 @@ Px
 sh
 sh
 sh
-sI
+qP
 pZ
 sI
 sI
@@ -12507,8 +12510,8 @@ Wo
 sh
 sh
 sh
-sh
-pZ
+qP
+qP
 sI
 sI
 sI
@@ -12610,7 +12613,7 @@ DD
 sh
 sh
 sh
-sh
+qP
 DD
 sI
 sI
@@ -12712,8 +12715,8 @@ kv
 kv
 Fd
 Fd
-vf
-kv
+sq
+sq
 kv
 kv
 Fd
@@ -12815,7 +12818,7 @@ xY
 kv
 Fd
 Is
-ye
+sq
 Fd
 kv
 kv
@@ -12917,10 +12920,10 @@ kv
 OD
 mf
 mf
-Fd
-Fd
-kv
-kv
+sq
+sq
+sq
+sq
 kv
 kv
 kv
