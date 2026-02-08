@@ -15,7 +15,9 @@
 "bh" = (/mob/living/simple_animal/lizard,/turf/floor/clay,/area/valSal_port/outside/enclave/river)
 "bk" = (/obj/structure/boulder/basalt,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_enclave)
 "bt" = (/obj/structure/fire_source/firepit/granite,/turf/floor/dirt,/area/valSal_port/outside/enclave)
+"bA" = (/obj/structure/railing/mapped/wooden/maple{dir = 1},/turf/floor/clay,/area/valSal_port/outside/enclave/river)
 "bO" = (/obj/structure/produce_bin/walnut,/turf/floor/wood/ebony,/area/valSal_port/enclave/nursery)
+"bP" = (/obj/structure/railing/mapped/wooden/maple{dir = 4},/turf/floor/mud/water,/area/valSal_port/outside/enclave)
 "bT" = (/obj/structure/railing/mapped/wooden/walnut{dir = 8},/obj/structure/railing/mapped/wooden/walnut{dir = 1},/turf/floor/grass,/area/valSal_port/outside/enclave)
 "bV" = (/mob/living/simple_animal/skittercrab,/turf/wall/natural/basalt/valSal_port,/area/valSal_port/caves)
 "ce" = (/obj/effect/departure_signpost/south{desc = "A tall lamplit signpost that shows you how to leave the area."},/turf/floor/clay,/area/valSal_port/outside/enclave)
@@ -31,12 +33,14 @@
 "cQ" = (/obj/structure/dogbed,/turf/floor/wood/mahogany,/area/valSal_port/enclave/matriarch)
 "cR" = (/obj/structure/railing/mapped/wooden/walnut{dir = 8},/turf/floor/mud/water,/area/valSal_port/outside/enclave/riverborder)
 "cT" = (/mob/living/simple_animal/passive/fox/silver,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
+"df" = (/obj/structure/fire_source/kiln/high_temperature,/turf/floor/path/basalt,/area/valSal_port/outside/enclave)
 "dk" = (/turf/floor/wood,/area/valSal_port/enclave/daughter)
 "dq" = (/obj/structure/flora/plant/random_mushroom,/mob/living/simple_animal/skittercrab,/turf/floor/rock/basalt,/area/valSal_port/caves)
 "dt" = (/obj/structure/flora/bush/leafybush,/mob/living/simple_animal/passive/rabbit,/turf/floor/grass,/area/valSal_port/outside/outdoors_cliff)
 "dv" = (/obj/structure/flora/bush/ywflowers,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
 "dA" = (/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/turf/floor/dirt,/area/valSal_port/outside/enclave)
 "dS" = (/obj/structure/flora/bush/fernybush,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_enclave)
+"dT" = (/obj/item/tool/hammer/sledge,/turf/floor/wood,/area/valSal_port/enclave/mining)
 "dU" = (/obj/structure/flora/bush/fullgrass,/obj/structure/flora/tree/hardwood/walnut,/turf/floor/grass,/area/valSal_port/outside/outdoors_south)
 "eo" = (/turf/wall/brick/basalt/shutter,/area/valSal_port/enclave/mining)
 "et" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 19},/turf/floor/wood/ebony,/area/valSal_port/enclave/nursery)
@@ -147,7 +151,7 @@
 "nM" = (/mob/living/simple_animal/aquatic/fish/large/trout/river,/turf/floor/mud/water/deep,/area/valSal_port/caves/river)
 "nR" = (/obj/structure/closet/cabinet/wooden/ebony,/turf/floor/wood/yew,/area/valSal_port/enclave/storehouse)
 "oi" = (/turf/floor/rock/basalt,/area/valSal_port/caves/entrance)
-"ou" = (/obj/structure/flora/bush/genericbush,/obj/structure/flora/tree/hardwood/ebony,/turf/floor/grass/wild,/area/valSal_port/outside/enclave)
+"ou" = (/obj/structure/railing/mapped/wooden/maple{dir = 1},/turf/floor/path/basalt,/area/valSal_port/outside/enclave)
 "oz" = (/obj/structure/flora/bush/genericbush,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_south)
 "oF" = (/mob/living/simple_animal/aquatic/fish/large/javelin,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/river)
 "oQ" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/structure/wall_sconce/torch{dir = 4},/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
@@ -187,7 +191,9 @@
 "sd" = (/mob/living/simple_animal/hostile/aquatic/carp,/turf/floor/mud/water/deep,/area/valSal_port/caves/river)
 "sf" = (/obj/abstract/landmark/start/valSal_port/idiot,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
 "sr" = (/obj/structure/table/woodentable/ebony,/obj/item/mollusc/clam,/obj/item/mollusc/clam,/obj/item/mollusc/clam,/turf/floor/wood/mahogany,/area/valSal_port/enclave/matriarch)
+"sy" = (/turf/floor/woven,/area/valSal_port/outside/enclave)
 "sD" = (/turf/wall/brick/basalt,/area/valSal_port/enclave/mining)
+"sE" = (/obj/structure/railing/mapped/wooden/maple{dir = 8},/turf/floor/barren,/area/valSal_port/outside/enclave)
 "sF" = (/obj/structure/railing/mapped/wooden/yew{dir = 8},/turf/floor/rock/basalt,/area/valSal_port/caves)
 "sO" = (/obj/structure/flora/bush/leafybush,/obj/structure/flora/tree/hardwood/ebony,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_enclave)
 "sS" = (/obj/structure/wall_sconce/torch{dir = 4},/turf/floor/wood/mahogany,/area/valSal_port/enclave/matriarch)
@@ -231,6 +237,7 @@
 "vL" = (/turf/wall/log/walnut/shutter/open,/area/valSal_port/enclave/dininghut)
 "vN" = (/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/turf/floor/wood/yew,/area/valSal_port/enclave/commonhouse)
 "wi" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/structure/wall_sconce/torch{dir = 8},/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
+"wB" = (/obj/structure/railing/mapped/wooden/maple{dir = 8},/turf/floor/dirt,/area/valSal_port/outside/enclave)
 "wQ" = (/obj/structure/flora/tree/hardwood/yew,/turf/floor/grass,/area/valSal_port/outside/enclave)
 "wU" = (/obj/structure/boulder/basalt,/turf/floor/grass,/area/valSal_port/outside/enclave)
 "xb" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
@@ -242,7 +249,7 @@
 "xv" = (/obj/structure/door/walnut,/turf/floor/wood,/area/valSal_port/enclave/mining)
 "xw" = (/mob/living/simple_animal/passive/deer,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
 "xx" = (/obj/structure/drying_rack/ebony,/turf/floor/dirt,/area/valSal_port/enclave/dininghut)
-"xE" = (/obj/structure/flora/bush/genericbush,/obj/structure/flora/bush/genericbush,/turf/floor/grass/wild,/area/valSal_port/outside/enclave)
+"xE" = (/obj/machinery/portable_atmospherics/hydroponics/soil,/turf/floor/mud,/area/valSal_port/outside/enclave)
 "xF" = (/obj/vehicle/train/cargo/trolley_wood,/turf/floor/barren,/area/valSal_port/outside/enclave)
 "xT" = (/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "xV" = (/turf/wall/log/walnut/shutter/open,/area/valSal_port/enclave/nursery)
@@ -251,6 +258,7 @@
 "yc" = (/turf/floor/wood/yew,/area/valSal_port/enclave/nursery)
 "yf" = (/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_south)
 "yh" = (/obj/structure/boulder/basalt,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_river)
+"ym" = (/turf/floor/path/basalt,/area/valSal_port/outside/enclave)
 "yt" = (/obj/item/chems/crucible,/obj/item/chems/crucible,/obj/item/chems/crucible,/turf/floor/dirt,/area/valSal_port/enclave/mining)
 "yu" = (/obj/structure/closet/crate/chest/ebony,/obj/structure/wall_sconce/torch{dir = 8},/obj/item/tool/axe/ebony,/turf/floor/wood/yew,/area/valSal_port/enclave/storehouse)
 "yz" = (/obj/structure/wall_sconce/torch{dir = 4},/turf/floor/dirt,/area/valSal_port/outside/enclave)
@@ -261,6 +269,7 @@
 "yR" = (/obj/structure/bed/bedroll,/turf/floor/barren,/area/valSal_port/caves/entrance)
 "yT" = (/turf/floor/wood/walnut,/area/valSal_port/enclave/patriarch)
 "yU" = (/obj/structure/wall_sconce/lantern{dir = 8},/turf/floor/dirt,/area/valSal_port/enclave/mining)
+"yV" = (/turf/floor/mud/water,/area/valSal_port/outside/enclave)
 "yX" = (/obj/structure/flora/bush/fullgrass,/obj/structure/flora/bush/genericbush,/turf/floor/grass,/area/valSal_port/outside/outdoors_south)
 "yZ" = (/mob/living/simple_animal/frog,/turf/floor/mud,/area/valSal_port/outside/enclave/riverborder)
 "za" = (/obj/structure/door/basalt,/turf/floor/wood/mahogany,/area/valSal_port/enclave/mining)
@@ -277,13 +286,14 @@
 "Aw" = (/obj/structure/flora/bush/fernybush,/obj/structure/flora/tree/hardwood/ebony,/turf/floor/grass,/area/valSal_port/outside/enclave)
 "AA" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/cooking_vessel/pot/iron,/obj/item/chems/cooking_vessel/skillet/iron,/obj/structure/wall_sconce/torch{dir = 4},/turf/floor/wood/mahogany,/area/valSal_port/enclave/dininghut)
 "AM" = (/turf/wall/log/yew,/area/valSal_port/enclave/daughter)
+"AN" = (/obj/structure/railing/mapped/wooden/maple{dir = 1},/turf/floor/clay,/area/valSal_port/outside/enclave)
 "AU" = (/obj/item/rock,/turf/floor/mud,/area/valSal_port/outside/enclave/riverborder)
 "Bd" = (/mob/living/simple_animal/passive/rabbit,/turf/floor/grass,/area/valSal_port/outside/outdoors_enclave)
 "Bh" = (/obj/structure/closet/crate/chest/ebony,/obj/item/tool/pickaxe/stone,/turf/floor/wood/yew,/area/valSal_port/enclave/storehouse)
 "Bq" = (/obj/structure/flora/pottedplant/smalltree,/turf/floor/wood/yew,/area/valSal_port/enclave/commonhouse)
 "By" = (/turf/floor/grass,/area/valSal_port/outside/outdoors_south)
 "BE" = (/obj/structure/flora/bush/ywflowers,/obj/structure/flora/tree/hardwood/ebony,/turf/floor/grass,/area/valSal_port/outside/enclave)
-"BJ" = (/obj/structure/closet/crate/chest,/obj/item/stack/material/thread/mapped/cotton/five,/obj/item/stack/material/bolt/beige/mapped/beige/five,/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/turf/floor/wood,/area/valSal_port/enclave/daughter)
+"BJ" = (/obj/structure/closet/crate/chest,/obj/item/stack/material/thread/mapped/cotton/five,/obj/item/stack/material/bolt/beige/mapped/beige/five,/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/obj/item/stack/material/bolt/beige/mapped/beige/five,/obj/item/stack/material/thread/mapped/cotton/five,/obj/item/stack/material/thread/mapped/cotton/five,/obj/item/stack/material/thread/mapped/cotton/five,/turf/floor/wood,/area/valSal_port/enclave/daughter)
 "BK" = (/turf/floor/dirt,/area/valSal_port/enclave/dininghut)
 "BL" = (/obj/abstract/landmark/start/valSal_port/matriarch,/turf/floor/carpet/green,/area/valSal_port/enclave/matriarch)
 "BN" = (/mob/living/simple_animal/frog,/turf/floor/mud,/area/valSal_port/outside/enclave/river)
@@ -337,6 +347,7 @@
 "FN" = (/turf/wall/log/yew,/area/valSal_port/enclave/huntershut)
 "FW" = (/obj/structure/curtain/bar,/turf/floor/wood,/area/valSal_port/enclave/commonhouse)
 "Ga" = (/obj/structure/wall_sconce/torch{dir = 4},/turf/floor/wood/yew,/area/valSal_port/enclave/foyer)
+"Ge" = (/obj/structure/railing/mapped/wooden/maple{dir = 1},/obj/structure/railing/mapped/wooden/maple{dir = 4},/turf/floor/mud/water,/area/valSal_port/outside/enclave)
 "Gh" = (/turf/floor/grass/wild,/area/valSal_port/outside/enclave)
 "Gi" = (/obj/structure/flora/seaweed/large,/turf/floor/mud/water/deep,/area/valSal_port/caves/river)
 "Gt" = (/obj/structure/door/mahogany,/turf/floor/rock/basalt,/area/valSal_port/enclave/mining)
@@ -385,6 +396,7 @@
 "KT" = (/obj/structure/flora/bush/genericbush,/turf/floor/grass/wild,/area/valSal_port/outside/enclave)
 "KV" = (/obj/structure/sign/poster/scav/s4,/turf/floor/wood/yew,/area/valSal_port/enclave/foyer)
 "KW" = (/obj/structure/flora/tree/hardwood/walnut,/turf/floor/grass,/area/valSal_port/outside/enclave)
+"Lb" = (/obj/structure/railing/mapped/wooden/maple,/turf/floor/barren,/area/valSal_port/outside/enclave)
 "Lg" = (/mob/living/simple_animal/fowl/chicken,/turf/floor/grass,/area/valSal_port/outside/outdoors_enclave)
 "Lq" = (/obj/structure/table/woodentable/ebony,/obj/item/chems/glass/handmade/bottle,/obj/item/chems/glass/handmade/bottle,/obj/item/chems/glass/handmade/bottle/tall,/obj/item/chems/glass/handmade/bottle/tall,/obj/item/chems/glass/handmade/bottle/wide,/obj/item/chems/glass/handmade/bottle/wide,/obj/item/chems/glass/handmade/jar,/obj/item/chems/glass/handmade/jar,/obj/item/chems/glass/mortar,/obj/item/rock/basalt,/turf/floor/wood/mahogany,/area/valSal_port/enclave/medicinehut)
 "Lt" = (/obj/structure/flora/tree/hardwood/ebony,/turf/floor/grass,/area/valSal_port/outside/outdoors_south)
@@ -410,6 +422,8 @@
 "MK" = (/obj/structure/wall_sconce/torch,/turf/floor/wood/mahogany,/area/valSal_port/enclave/huntershut)
 "Nc" = (/turf/floor/rock/basalt,/area/valSal_port/caves)
 "Nf" = (/mob/living/simple_animal/aquatic/fish/large,/obj/structure/flora/seaweed,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
+"Nl" = (/obj/structure/railing/mapped/wooden/maple{dir = 4},/turf/floor/grass/wild,/area/valSal_port/outside/enclave)
+"Nm" = (/obj/structure/reagent_dispensers/barrel,/turf/floor/woven,/area/valSal_port/enclave/huntershut)
 "Nq" = (/turf/floor/path/granite/water/deep,/area/valSal_port/enclave/huntershut)
 "Ns" = (/obj/structure/flora/bush/fernybush,/turf/floor/grass,/area/valSal_port/outside/outdoors_enclave)
 "NG" = (/turf/floor/dirt,/area/valSal_port/outside/food_farm)
@@ -453,6 +467,7 @@
 "Rg" = (/obj/item/stool/wood,/turf/floor/wood/yew,/area/valSal_port/enclave/foyer)
 "Rw" = (/obj/structure/flora/seaweed/mid,/turf/floor/mud/water/deep,/area/valSal_port/outside/enclave/riverborder)
 "Ry" = (/mob/living/simple_animal/snail,/turf/floor/clay,/area/valSal_port/outside/enclave/river)
+"RI" = (/turf/floor/woven,/area/valSal_port/enclave/huntershut)
 "RL" = (/obj/structure/flora/bush/ywflowers,/mob/living/simple_animal/grub_bear,/turf/floor/grass/wild,/area/valSal_port/outside/outdoors_cliff)
 "RO" = (/obj/structure/drying_rack/ebony,/turf/floor/wood,/area/valSal_port/enclave/mining)
 "RP" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/enclave/mining)
@@ -460,6 +475,7 @@
 "RV" = (/obj/structure/dogbed,/obj/structure/wall_sconce/torch{dir = 1; pixel_y = 24},/obj/abstract/landmark/start/valSal_port/daughter,/turf/floor/wood,/area/valSal_port/enclave/daughter)
 "Sb" = (/obj/structure/table/woodentable,/turf/floor/carpet/rustic,/area/valSal_port/enclave/patriarch)
 "Si" = (/mob/living/simple_animal/chorp,/turf/floor/grass,/area/valSal_port/outside/outdoors_south)
+"Sn" = (/obj/structure/railing/mapped/wooden/maple{dir = 1},/turf/floor/mud/water,/area/valSal_port/outside/enclave)
 "Sp" = (/obj/structure/flora/tree/hardwood/ebony,/turf/floor/grass,/area/valSal_port/outside/outdoors_enclave)
 "Su" = (/obj/structure/flora/bush/fernybush,/obj/structure/flora/bush/ywflowers,/turf/floor/grass/wild,/area/valSal_port/outside/enclave)
 "SA" = (/obj/structure/flora/pottedplant,/turf/floor/wood/yew,/area/valSal_port/enclave/commonhouse)
@@ -566,7 +582,7 @@ LILIvDvDLINcvDLILILILIvDvDLILILILILILIvDvDLILILINcLIRPeCeCeCeCsYnaiBOHruOHiBiBOH
 LILILIvDvDNcFpLILIvDvDvDLILILILILILILILILILILINcNcLIRPeCXoXovcsDiBiBOHsbOHOHiBiBOHOHOHOHiBGhFJFJFJFJFJFJFJFJFJIqIqFJFJFJrxFJFJFJFJFJFJZOFJFJFJFJFJFJFJFJFJFJFJFJOHSpOHOHOHOHcPOHOHiBiBOHiBFGFGFGFGFGFGFG
 LILILILIvDNcXBLIvDvDLILILINcNczVNcLILILILILINcNcLILIXTXTXTXTXTDMiBiBOHiBOHOHiBiBiBOHOHOHFJGhZOFJFJFJFJFJZOFJFJIqIqFJFJFJQAQAQAkkkkkkkkQAQAQAQAQAFJMqFJFJFJFJFJFJFJFJOHOHOHOHOHruruiBEsOHiBFGFGFGFGFGFGFG
 LILILILILIXBNcvDvDLILILINcNcLILINcNcNcNcNcNcNcNcNcGtXTXTXTXThIDMiBdSOHOHOHOHOHiBiBiBiBFJFJFJFJFJFJFJFJKWZOFJFJIqFJFJFJviZhBKiJbtbgBKZhaSIVIVIVIVgbFJFJFJFJFJFJFJFJMqFJOHOHOHOHOHruiBiBOHiBFGFGFGFGFGFGFG
-LILILILINcNcXBNcXBNcNcNcNcLILILILINcNcsDeosDsDsDeoRPUPXTXTXTXTxviBOHOHOHOHOHNsiBiBiBiBCHFJFJFJFJFJrxFJEGZOrxFJFJFJFJFJviQbBKBKBKBKBKbfNGNGNGNGNGgbFJFJwUEGFJFJRSFJFJFJFJOHOHOHOHOHiBpjOHiBFGFGFGFGFGFGFG
+LILILILINcNcXBNcXBNcNcNcNcLILILILINcNcsDeosDsDsDeoRPUPXTXTdTXTxviBOHOHOHOHOHNsiBiBiBiBCHFJFJFJFJFJrxFJEGZOrxFJFJFJFJFJviQbBKBKBKBKBKbfNGNGNGNGNGgbFJFJwUEGFJFJRSFJFJFJFJOHOHOHOHOHiBpjOHiBFGFGFGFGFGFGFG
 LILILILINcXBhtXBNcLILILILILILILILILINceoududududrrRPXTXTXTXTXTDMiBOHOHOHiBiBOHOHsbiBGhGhGhGhZOFJFJFJFJFJFJFJFJFJwUFJFJvixxQFBKBKBKQFBKCNIVIVIVIVgbFJFJFJFJFJFJMqFJFJFJFJFJOHOHOHOHYzOHOHiBFGFGFGFGFGFGFG
 LILILICWoicOcOoioiZSZSZSZSZSZSZSZSZSLIsDudududududnhXTXTktRORODMiBOHOHOHpKiBOHOHOHiBGhjMGhGhFJFJFJFJFJFJFJFJFJFJFJFJFJviQvZhvLGRvLZhQvbTGJGJGJGJFJFJFJFJFJFJFJFJZOFJwQFJFJNsOHOHOHYzOHiBEsFGFGFGFGFGFGFG
 XBXBEFCWcOcOcOcOcOcOcOcOcOcOcOCWCWCWZSRPudududududRPxvDMgtgtDMgtYzkKOHOHiBiBiBOHOHOHGhGhGhGhFJFJFJFJFJFJFJFJFJFJFJEGFJFJZhZhLVihSZZhZhFJFJEGFJFJFJFJFaFJFJFJFJFJFJFJFJFJFJFJOHOHOHiBOHiBiBFGFGFGFGFGFGFG
@@ -591,13 +607,13 @@ LINcNczVLILIvDvDLILILINcLIvDLILINcLILILIjSJZJZeMJZJZlAlAjUjUPPPPjUjUlAlAlARyZxOH
 LINcBYLILILIvDLILILINcNcLIvDLINcNcLILIjSjSJZeMeMeMPBJZlAlAjUjUUAPPjUjUjUlAlAZxOHYziBGhGhGhGhFJFJFJGhGhfzTxbtTxncMBMBjRWLgmFkzWjRMBMBmPTxTxTxTxTxTxrxzPzPzPzPyJkmkmOqxTuukmGhKTGhOHOHOHOHOHFGFGFGFGFGFGFG
 NcNcLILILIvDvDLILINcNcLIvDvDNcNcLILIjSjSJZJZeMeMeMeMgiJZlAlAjUjUPPPPPPjUjUlAlAOHOHOHGhGhGhGhFaMqFJGhGhfzsZTxyzFNwiMKMBjRjRjtjRMBpIoQFNMjTxTxTxTxFJFJFJFJFJEGFJTLLqxTxTyITLGhGhGhOHOHlpAUlpvwvwvwvwvwvwvw
 NcLILILILIvDLILINczVLIvDvDNcNcLILILIjSJZPBCCeMCBeMeMeMJZJZlABNjUjUjUPPPPjUjUlAlAlAOHFJFJGhGhFJFJGhKTCHGhzFzFzFFNhEFNPYjoNqNqnsiiFNhEFNzPTxzPzPTxFJFJFJFJFJKWFJkmFHxTxTZekmMqGhFJOHlplpMbMbvwvwvwvwvwvwvw
-NcLILILIvDLILILINcLIvDvDLIzVLILILIjSjSJZeMeMeMxqzveMeMeMJZJZlAlAlAjUjUPPKjjUjUjUlAlAlAFJFJFJFJFJGhGhGhGhGhGhGhGhKTFNFNhEFNFNhEFNFNzPzPzPTxFJvqSSzUzUzUzUFJFJGhkmxmCmPVPVkmFJGhFJlplpMbMbRwvwvwvwvwvwvwvw
-NcNcLILIvDLILINcNcLIvDLINcNcLILILIjSJZJZeMzveMeMeMeMeMeMeMJZJZJZlAlAjUjUPPPPPPjUjUjUlAlAlAFJFJFJFJGhGhGhGhGhGhGhGhKTGhGhFJFJFJKTGhGhGhzPTxkPqVSSqVqVqVqVDLGhGhkmkmkmTLkmkmFJFJFJlpMbMbhZrFvwvwvwvwvwvwvw
-LINcNcLIvDLILINcLIvDvDLINcLILILILIjSJZcnzvEkeMeMeMCCeMRLFweMJZJZIolAlAjUjUjUPPInPPjUjUjUlAlAlAlAFJFJFJFJjMGhGhGhGhxEyCFJFJFJGhGhouGhGhzPTxkPWqhmSSSSSShmDLGhFJFJFJFJFJFJFJFJAUyZlpMbLTNfMbvwvwvwvwvwvwvw
-LILINcLILILINcNcLIvDLILIBYLILILIjSjSJZeMzveMeMeMeMeMeMeMeMEkeMJZIoKmlAlAlAjUjUjUPPPPPPjUjUjUjUlAualAlAFJFJFJFJGhGhGhFJFJFJGhGhGhCHGhGhTxTxkPPISSSShmSSSSDLOfFJzkzkzkzklpcIlplpMbMbMbhZMbMbvwvwvwvwvwvwvw
-LILIBYNcLILINcLILIvDLILINcLILILIjSJZJZzveMeMxweMEkeMeMeMeMeMJZJZJZXiJZZxlAlAlASTjUjUPPFMBTPPjUjUjUjUlAlAlAlAFJFJFJFJFJFJGhGhvbFJFJFJFJTxzPkPqVqVqVqVqVqVDLFJFJzkfklplplpMbMbMbMbPWhZhZMblpvwvwvwvwvwvwvw
-LILILINcLINcNcLILIvDLILINcLILILIjSJZJZeMEkeMeMdveMgiJZJZMwXiJZJZeMeMJZRyZxZxlAlAlAjUjUjUPPUAPPUAPPjUjUjUjUBNlAlAlAlAlAFJFJFJiTFJZxZxtmTxFJFJzEzEzEzEzEeVFJFJlplplplpMbMbMbhZhZRwhZMbMbMblpvwvwvwvwvwvwvw
-LILIvDNcNcNcLILILIvDvDLINcLILILIjSJZzveMeMeMTSJZORJZJZJZJZXiJZJZeMEkJZJZJZTSJZJZlAlAlAjUPPPPPPPPPPPPPPPPjUjUjUjUjUjUlAlAlAlAlAlAlAZxtmtmceFJFJiTFJFJFJFJlplpAUMbMbMbMbhZhZLTMbMbMbMblplplpvwvwvwvwvwvwvw
+NcLILILIvDLILILINcLIvDvDLIzVLILILIjSjSJZeMeMeMxqzveMeMeMJZJZlAlAlAjUjUPPKjjUjUjUlAlAlAFJFJFJFJFJGhGhGhGhGhGhGhGhKTFNFNhEFNFNhEFNFNLbLbzPTxFJvqSSzUzUzUzUFJFJGhkmxmCmPVPVkmFJGhFJlplpMbMbRwvwvwvwvwvwvwvw
+NcNcLILIvDLILINcNcLIvDLINcNcLILILIjSJZJZeMzveMeMeMeMeMeMeMJZJZJZlAlAjUjUPPPPPPjUjUjUlAlAlAFJFJFJFJGhGhGhGhGhGhGhNlNmRIRIRIRIRIRIRIsysyzPTxkPqVSSqVqVqVqVDLGhGhkmkmkmTLkmkmFJFJFJlpMbMbhZrFvwvwvwvwvwvwvw
+LINcNcLIvDLILINcLIvDvDLINcLILILILIjSJZcnzvEkeMeMeMCCeMRLFweMJZJZIolAlAjUjUjUPPInPPjUjUjUlAlAlAlAFJFJFJFJjMGhGhGhbPxETxTxTxTxTxTxououousETxkPWqhmSSSSSShmDLGhFJFJFJFJFJFJFJFJAUyZlpMbLTNfMbvwvwvwvwvwvwvw
+LILINcLILILINcNcLIvDLILIBYLILILIjSjSJZeMzveMeMeMeMeMeMeMeMEkeMJZIoKmlAlAlAjUjUjUPPPPPPjUjUjUjUlAualAlAFJFJFJFJGhbPxExExExExExExEymdfymwBTxkPPISSSShmSSSSDLOfFJzkzkzkzklpcIlplpMbMbMbhZMbMbvwvwvwvwvwvwvw
+LILIBYNcLILINcLILIvDLILINcLILILIjSJZJZzveMeMxweMEkeMeMeMeMeMJZJZJZXiJZZxlAlAlASTjUjUPPFMBTPPjUjUjUjUlAlAlAlAFJFJyVSnSnSnSnSnSnGeymymymwBzPkPqVqVqVqVqVqVDLFJFJzkfklplplpMbMbMbMbPWhZhZMblpvwvwvwvwvwvwvw
+LILILINcLINcNcLILIvDLILINcLILILIjSJZJZeMEkeMeMdveMgiJZJZMwXiJZJZeMeMJZRyZxZxlAlAlAjUjUjUPPUAPPUAPPjUjUjUjUBNlAlAlAlAlAFJFJFJiTyVbAbAANTxFJFJzEzEzEzEzEeVFJFJlplplplpMbMbMbhZhZRwhZMbMbMblpvwvwvwvwvwvwvw
+LILIvDNcNcNcLILILIvDvDLINcLILILIjSJZzveMeMeMTSJZORJZJZJZJZXiJZJZeMEkJZJZJZTSJZJZlAlAlAjUPPPPPPPPPPPPPPPPjUjUjUjUjUjUlAlAlAlAlAjUlAZxtmtmceFJFJiTFJFJFJFJlplpAUMbMbMbMbhZhZLTMbMbMbMblplplpvwvwvwvwvwvwvw
 LILIvDLINcNcNcLILILIvDLINcNcLILIjSJZeMeMCaJZJZPBJZJZeMeMJZJZeMcneMeMeMeMeMeMeMJZJZlAjUjUPPPPPPPPPPPPPPPPKjPPBTPPlmjUjUjUjUjUjUjUuaXsmKmKmKuWlplplplplplplpMbMbMbhZrFhZlcMbMbMblplpzkcIByByKPKPKPKPKPKPKP
 LILIvDLILIzVNcNcLILIvDLILINcLILIjSJZgiJZJZXiJZJZeMzvzvaQgiJZDFeMeMeMeMzveMeMeMEkJZlAjUPPPPjUjUjUjUjUjUjUjUjUjUjUPPPPFMPPPPInPPjUjUtbmKmKmKcRMbMbMbMbMbMbMbMbhZhZhZMbMbMbMblplplpzkzkzkByyfKPKPKPKPKPKPKP
 LILIvDvDLILILINcLILIvDLILIdqLILIjSJZXiJZJZJZJZeMzveMdveMeMrhJZeMEkeMFwZHeMCCeMxqJZlAjUPPjUjUlAZxZxlAlAlAlAlAlAjUjUjUjUjUjUjUPPlmPPqJmKmKmKMdhZkihZhZsfhZhZhZryMbMbMblplplplpByByjlByByByyfKPKPKPKPKPKPKP
