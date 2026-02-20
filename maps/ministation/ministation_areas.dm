@@ -537,8 +537,8 @@
 	name = "\improper Murphy Maintenance Corridor"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/maint/Eighteen
-	name = "\improper Murphy - Eighteen's Nest"
+/area/ministation/Murphy/maint/midMaint
+	name = "\improper Murphy - Midpoint Maintenance Corridor"
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/maint/Mawreek
