@@ -72,6 +72,19 @@
 	sound_env = ROOM
 	turf_initializer = /decl/turf_initializer/spiderwebs
 
+/area/valSal_port/town/residence
+	name = "\improper Residence"
+	fishing_failure_prob = 100
+	fishing_results = list()
+	ambience = list(
+		'mods/valsalia/sounds/ambience/angels.ogg',
+		'mods/valsalia/sounds/ambience/dreamtown.ogg',
+		'mods/valsalia/sounds/ambience/outofbusiness.ogg',
+		'mods/valsalia/sounds/ambience/trader.ogg'
+	)
+	sound_env = ROOM
+	turf_initializer = /decl/turf_initializer/spiderwebs
+
 /area/valSal_port/town/outpost
 	name = "\improper Outpost"
 	fishing_failure_prob = 100
