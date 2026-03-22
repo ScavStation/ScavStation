@@ -31,15 +31,15 @@
 	outfit_type             = /decl/outfit/job/valSal_port/traveller/scholar
 	skill_points            = 51
 	min_skill               = list(
-		SKILL_LITERACY      = SKILL_MAX
+		SKILL_LITERACY      = SKILL_MAX,
 		SKILL_MEDICAL       = SKILL_ADEPT,
 		SKILL_ANATOMY       = SKILL_ADEPT
 	)
 	max_skill               = list(
-		SKILL_LITERACY       = SKILL_MAX,
-		SKILL_MEDICAL	   = SKILL_MAX,
-		SKILL_ANATOMY	   = SKILL_MAX,
-		SKILL_CHEMISTRY	   = SKILL_MAX
+		SKILL_LITERACY      = SKILL_MAX,
+		SKILL_MEDICAL	    = SKILL_MAX,
+		SKILL_ANATOMY	    = SKILL_MAX,
+		SKILL_CHEMISTRY	    = SKILL_MAX
 	)
 
 /obj/abstract/landmark/start/valSal_port/traveller/learned
