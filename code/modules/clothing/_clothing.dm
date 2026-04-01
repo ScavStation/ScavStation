@@ -219,12 +219,11 @@
 	if(should_use_combined_accessory_appearance())
 		var/image/I = get_mob_overlay(ismob(loc) ? loc : null, get_fallback_slot())
 		if(I?.icon) // Null or invisible overlay, we don't want to make our clothing invisible just because it has an accessory.
-			I.plane = plane
-			I.layer = layer
-			I.color = color
-			I.alpha = alpha
-			I.name  = name
-			appearance = I
+			icon = I.icon
+			icon_state = I.icon_state
+			underlays = I.underlays.Copy()
+			// we need to use the managed overlays system or else they will end up overwritten
+			set_overlays(I.overlays.Copy())
 			set_dir(SOUTH)
 			update_clothing_icon()
 			return
