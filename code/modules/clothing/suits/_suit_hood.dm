@@ -20,7 +20,7 @@
 // but that may change in the future
 /obj/item/clothing/suit/get_contained_external_atoms()
 	. = ..()
-	if(istype(hood)) // this is considered a component rather than a contained item
+	if(islist(.) && istype(hood)) // this is considered a component rather than a contained item
 		. -= hood
 
 /obj/item/clothing/suit/Initialize()
