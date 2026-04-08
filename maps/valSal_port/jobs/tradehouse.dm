@@ -26,10 +26,6 @@
 		SKILL_MEDICAL       = SKILL_ADEPT,
 		SKILL_ANATOMY       = SKILL_ADEPT
 	)
-	max_skill               = list(
-		SKILL_MEDICAL       = SKILL_MAX,
-		SKILL_ANATOMY       = SKILL_MAX
-	)
 	skill_points            = 18
 
 /obj/abstract/landmark/start/valSal_port/surveyor

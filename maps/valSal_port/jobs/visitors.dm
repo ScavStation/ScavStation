@@ -29,14 +29,17 @@
 	spawn_positions         = 2
 	total_positions         = 2
 	outfit_type             = /decl/outfit/job/valSal_port/traveller/scholar
-	skill_points            = 26
+	skill_points            = 51
 	min_skill               = list(
-		SKILL_LITERACY      = SKILL_MAX
+		SKILL_LITERACY      = SKILL_MAX,
+		SKILL_MEDICAL       = SKILL_ADEPT,
+		SKILL_ANATOMY       = SKILL_ADEPT
 	)
 	max_skill               = list(
-		SKILL_CHEMISTRY     = SKILL_MAX,
-		SKILL_MEDICAL       = SKILL_MAX,
-		SKILL_ANATOMY       = SKILL_MAX,
+		SKILL_LITERACY      = SKILL_MAX,
+		SKILL_MEDICAL	    = SKILL_MAX,
+		SKILL_ANATOMY	    = SKILL_MAX,
+		SKILL_CHEMISTRY	    = SKILL_MAX
 	)
 
 /obj/abstract/landmark/start/valSal_port/traveller/learned
@@ -56,8 +59,6 @@
 		SKILL_ATHLETICS     = SKILL_ADEPT
 	)
 	max_skill               = list(
-		SKILL_COMBAT        = SKILL_MAX,
-		SKILL_WEAPONS       = SKILL_MAX,
 		SKILL_CARPENTRY     = SKILL_BASIC,
 		SKILL_METALWORK     = SKILL_BASIC,
 		SKILL_TEXTILES      = SKILL_BASIC,
@@ -81,16 +82,16 @@
 	outfit_type             = /decl/outfit/job/valSal_port/traveller/merchant
 	min_skill               = list(
 		SKILL_COMBAT        = SKILL_ADEPT,
-		SKILL_WEAPONS       = SKILL_ADEPT,
+		SKILL_FINANCE       = SKILL_ADEPT,
 		SKILL_ATHLETICS     = SKILL_ADEPT
 	)
 	max_skill               = list(
-		SKILL_COMBAT        = SKILL_MAX,
-		SKILL_WEAPONS       = SKILL_MAX,
-		SKILL_FINANCE       = SKILL_MAX,
-		SKILL_LITERACY       = SKILL_MAX
+		SKILL_LITERACY       = SKILL_MAX,
+		SKILL_MEDICAL	   = SKILL_MAX,
+		SKILL_ANATOMY	   = SKILL_MAX,
+		SKILL_CHEMISTRY	   = SKILL_MAX
 	)
-	skill_points            = 22
+	skill_points            = 30
 
 /obj/abstract/landmark/start/valSal_port/merchant
 	name                    = "Travelling Merchant"
