@@ -51,6 +51,9 @@
 /obj/structure/boulder/basalt,
 /turf/floor/rock/basalt,
 /area/valSal_port/town/dogden)
+"bA" = (
+/turf/floor/wood,
+/area/valSal_port/town/residence)
 "bJ" = (
 /turf/floor/grass,
 /area/valSal_port/outside/river)
@@ -263,6 +266,9 @@
 /obj/structure/railing/mapped/wooden,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
+"fm" = (
+/turf/floor/clay,
+/area/valSal_port/outside/outer_town)
 "fq" = (
 /mob/living/simple_animal/hostile/bristleback,
 /turf/floor/rock/basalt,
@@ -278,7 +284,7 @@
 	},
 /obj/structure/wall_sconce/lantern,
 /turf/floor/wood,
-/area/valSal_port/town/general_store)
+/area/valSal_port/town/residence)
 "fC" = (
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass/wild,
@@ -624,6 +630,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/town/shrine)
+"kr" = (
+/obj/structure/door/walnut{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/valSal_port/town/residence)
 "ks" = (
 /obj/structure/closet/cabinet/wooden,
 /obj/item/box/checkers/chess,
@@ -1547,6 +1559,10 @@
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
+"yj" = (
+/obj/structure/closet/cabinet/wooden,
+/turf/floor/wood,
+/area/valSal_port/town/residence)
 "yl" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/knife/hook,
@@ -1651,6 +1667,10 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/carpet/rustic,
 /area/valSal_port/town/mansion)
+"Ax" = (
+/obj/structure/table/woodentable,
+/turf/floor/wood,
+/area/valSal_port/town/residence)
 "Ay" = (
 /obj/structure/flora/bush/stalkybush,
 /turf/floor/barren,
@@ -2129,6 +2149,9 @@
 /obj/structure/flora/tree/hardwood/walnut,
 /turf/floor/path,
 /area/valSal_port/outside/westside)
+"Ih" = (
+/turf/wall/log/walnut/shutter/open,
+/area/valSal_port/town/residence)
 "Ij" = (
 /mob/living/simple_animal/hostile/bristleback,
 /obj/item/stack/material/bone/mapped/bone/ten,
@@ -2181,6 +2204,11 @@
 "IL" = (
 /turf/wall/brick/granite,
 /area/valSal_port/town/general_store)
+"IV" = (
+/obj/item/bedsheet/yellowed,
+/obj/structure/bed/simple/ebony,
+/turf/floor/wood,
+/area/valSal_port/town/residence)
 "Ja" = (
 /turf/floor/mud,
 /area/valSal_port/outside/inner_town)
@@ -2991,6 +3019,9 @@
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
+"Wk" = (
+/turf/wall/log/walnut,
+/area/valSal_port/town/residence)
 "Wo" = (
 /turf/wall/natural/basalt/valSal_port,
 /area/valSal_port/town/den)
@@ -6965,11 +6996,11 @@ oR
 oR
 rt
 IG
-oR
-oR
-qz
-oR
-oR
+Wk
+Wk
+kr
+Wk
+Wk
 UW
 UW
 UW
@@ -7067,11 +7098,11 @@ oR
 oR
 rt
 lQ
-oR
-BG
-rt
+Wk
+yj
+bA
 fA
-oR
+Wk
 UW
 tF
 do
@@ -7169,11 +7200,11 @@ IL
 IL
 mP
 QS
-oR
-yR
-rt
-qD
-dz
+Wk
+IV
+bA
+Ax
+Ih
 UW
 UW
 UW
@@ -7271,11 +7302,11 @@ sD
 AC
 rt
 FM
-oR
-oR
-oR
-oR
-oR
+Wk
+Wk
+Wk
+Wk
+Wk
 oR
 UW
 UW
@@ -7988,10 +8019,10 @@ rt
 rt
 rt
 dz
-bJ
-bJ
-Fw
-Fw
+bR
+bR
+pu
+pu
 Fw
 Bu
 Bu
@@ -8090,7 +8121,7 @@ dz
 oR
 oR
 oR
-bJ
+bR
 Fw
 Fw
 Bu
@@ -8187,12 +8218,12 @@ UW
 UW
 LW
 bR
-WK
-WK
-WK
-Fw
-Fw
-Fw
+fm
+fm
+fm
+pu
+pu
+pu
 Fw
 Bu
 Bu
