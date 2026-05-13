@@ -50,11 +50,11 @@
 	var/obj/item/cell/my_cell = get_cell()
 	var/datum/extension/loaded_cell/panel/cell_loaded = get_extension(src, /datum/extension/loaded_cell)
 
-	if(cell_loaded.has_tool_unload_interaction(W))
+	if(cell_loaded?.has_tool_unload_interaction(W))
 		return cell_loaded.try_unload(user, W)
 
 	else if(!istype(my_cell) && istype(W, /obj/item/cell))
-		return cell_loaded.try_load(user, W)
+		return cell_loaded?.try_load(user, W)
 
 	else if(CannotUse(user) || recharge(W, user))
 		return TRUE
