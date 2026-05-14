@@ -29,7 +29,8 @@
 		/decl/music_track/pyre,
 		/decl/music_track/teller,
 		/decl/music_track/thatched,
-		/decl/music_track/suonatore
+		/decl/music_track/suonatore,
+		/decl/music_track/art_of_ze_clam
 	)
 	credit_sound = list(
 		'sound/music/Miris-Magic-Dance.ogg'

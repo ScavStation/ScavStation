@@ -66,6 +66,7 @@
 //cameras
 /obj/machinery/camera/network/ministation/sat
 	preset_channels = list("Satellite")
+	req_access = list(access_engine)
 
 /obj/machinery/camera/motion/ministation
 	preset_channels = list("Satellite")
@@ -73,6 +74,7 @@
 /obj/machinery/camera/network/command
 	preset_channels = list("Command")
 	initial_access = list(access_bridge)
+	req_access = list(access_bridge)
 
 /obj/machinery/camera/network/hallway
 	preset_channels = list("Hallway")

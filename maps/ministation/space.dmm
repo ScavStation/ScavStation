@@ -50,7 +50,9 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "an" = (
-/obj/machinery/computer/shuttle_control/emergency,
+/obj/machinery/computer/shuttle_control/emergency{
+	shuttle_tag = "Escape Shuttle"
+	},
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "ao" = (

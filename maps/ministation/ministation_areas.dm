@@ -273,13 +273,13 @@
 
 /area/ministation/surgicaln
 	name = "\improper Surgery North"
-	req_access = list(access_medical)
+	req_access = list(access_medical_equip)
 	icon_state = "yellow"
 	secure = TRUE
 
 /area/ministation/surgicals
 	name = "\improper Surgery South"
-	req_access = list(access_medical)
+	req_access = list(access_medical_equip)
 	icon_state = "purple"
 	secure = TRUE
 
@@ -297,6 +297,7 @@
 
 /area/ministation/medical/psychology
 	name = "\improper Psychology"
+	req_access = list(access_psychiatrist)
 	icon_state = "green"
 	secure = TRUE
 
@@ -523,13 +524,21 @@
 	name = "\improper Murphy Atmospherics"
 	icon_state = "dark_blue"
 
+/area/ministation/Murphy/roof
+	name = "\improper Murphy Roof"
+	icon_state = "dark_blue"
+
 /area/ministation/Murphy/maint
-	name = "\improper Murphy Maintenance Corridor"
+	name = "\improper Murphy Maintenance"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_MAINTENANCE
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/maint/Eighteen
-	name = "\improper Murphy - Eighteen's Nest"
+/area/ministation/Murphy/maint/central
+	name = "\improper Murphy Maintenance Corridor"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/maint/midMaint
+	name = "\improper Murphy - Midpoint Maintenance Corridor"
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/maint/Mawreek

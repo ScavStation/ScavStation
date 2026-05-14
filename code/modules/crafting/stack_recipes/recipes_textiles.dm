@@ -120,4 +120,4 @@
 /decl/stack_recipe/textiles/rag
 	result_type = /obj/item/chems/glass/rag
 	crafting_extra_cost_factor = 1 // whatever you produce is going to be a rag, there's no wastage
-	difficulty = MAT_VALUE_TRIVIAL_DIY
+
