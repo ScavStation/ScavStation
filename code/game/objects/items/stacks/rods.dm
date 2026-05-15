@@ -21,6 +21,51 @@
 	pickup_sound = 'sound/foley/tooldrop3.ogg'
 	drop_sound = 'sound/foley/tooldrop2.ogg'
 
+/obj/item/stack/material/rods/fifty
+	name = "rod"
+	desc = "Some rods. Can be used for building, or something."
+	singular_name = "rod"
+	plural_name = "rods"
+	icon_state = "rod"
+	plural_icon_state = "rod-mult"
+	max_icon_state = "rod-max"
+	w_class = ITEM_SIZE_LARGE
+	attack_cooldown = 21
+	melee_accuracy_bonus = -20
+	throw_speed = 5
+	amount = 50
+	throw_range = 20
+	max_amount = 100
+	attack_verb = list("hit", "bludgeoned", "whacked")
+	lock_picking_level = 3
+	matter_multiplier = 0.3
+	material = /decl/material/solid/metal/steel
+	is_spawnable_type = TRUE
+
+/obj/item/stack/material/rods/ten
+	name = "rod"
+	desc = "Some rods. Can be used for building, or something."
+	singular_name = "rod"
+	plural_name = "rods"
+	icon_state = "rod"
+	plural_icon_state = "rod-mult"
+	max_icon_state = "rod-max"
+	w_class = ITEM_SIZE_LARGE
+	attack_cooldown = 21
+	melee_accuracy_bonus = -20
+	throw_speed = 5
+	amount = 10
+	throw_range = 20
+	max_amount = 100
+	attack_verb = list("hit", "bludgeoned", "whacked")
+	lock_picking_level = 3
+	matter_multiplier = 0.3
+	material = /decl/material/solid/metal/steel
+	is_spawnable_type = TRUE
+
+	pickup_sound = 'sound/foley/tooldrop3.ogg'
+	drop_sound = 'sound/foley/tooldrop2.ogg'
+
 /obj/item/stack/material/rods/get_autopsy_descriptors()
 	. = ..()
 	. += "narrow"
