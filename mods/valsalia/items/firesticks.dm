@@ -34,6 +34,7 @@
 	safety_icon = "safety"
 	ammo_indicator = TRUE
 	w_class = ITEM_SIZE_SMALL
+	minimum_size_to_twohand = 3
 
 	firemodes = list(
 		list(mode_name="semi auto",      burst=1, fire_delay=null, one_hand_penalty=3, burst_accuracy=null, dispersion=null),
@@ -56,3 +57,33 @@
 	ammo_type = /obj/item/ammo_casing/pistol
 	max_ammo = 60
 	multiple_sprites = 1
+
+/obj/item/gun/projectile/pistol/holdout/service
+	name = "service pistol"
+	desc = "An Ivenco licensed copy of the P3 Whisper. Commonly used by tradehouse agents. This one is a little worn."
+
+	//Inherited values for future buffing/debuffing
+
+	//icon = 'icons/obj/guns/holdout_pistol.dmi'
+	//item_state = null
+	//ammo_indicator = FALSE
+	//w_class = ITEM_SIZE_SMALL
+	//caliber = CALIBER_PISTOL_SMALL
+	//fire_delay = 4
+	//origin_tech = @'{"combat":2,"materials":2,"esoteric":8}'
+	//magazine_type = /obj/item/ammo_magazine/pistol/small
+	//allowed_magazines = /obj/item/ammo_magazine/pistol/small
+
+/*
+/obj/item/gun/projectile/pistol/holdout/can_have_silencer()
+	return TRUE
+*/
+
+/obj/item/gun/energy/gun/reloadable/vayryn
+	name = "\proper Sword of Light"
+	desc = "It appears to be a modified LAEP90 Perun, a versatile energy based sidearm, capable of switching between low, medium and high power projectile settings. In other words: stun, shock or kill. The name \"Sword of Light\" has been etched into the plate where a serial number should be. <span class='danger'>It gives you a weird vibe.</span>"
+	self_recharge = 1 // Recharges itself slowly, not fast enough to sustain fire on a blob or anything.
+	// Every [recharge_time] (default 4) calls to Process(), it returns one shot worth (20 power) to the cell (Weapon energy cell holds 500 energy, or 25 shots)
+	// Testing results in it taking roughly 100 seconds to recharge all 25 shots, so roughly four seconds between shots.
+	// Sustained fire from a full charge allows roughly 34 shots before running dry.
+	// Setting charge_cost to 0 would make it infinitely firing.
