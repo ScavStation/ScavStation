@@ -14,3 +14,12 @@ DEFINE_POSTER(scav/s4, "scav4", "Victorious Scavs", "A fine piece of yinglet art
 	abstract_type = /decl/poster_design/scav/s4
 	icon = 'mods/valsalia/icons/posters.dmi'
 	icon_state = "scav4"
+
+/obj/item/toy/plushie/carp/silent/spookums
+	name = "Spookums the Teleporting Trout, by Yingksy"
+	desc = "Who put this here!?"
+
+/obj/random_multi/single_item/spookums
+	name = "Multi Point - Spookums the Teleporting Trout"
+	id = "Spookums plush"
+	item_path = /obj/item/toy/plushie/carp/silent/spookums

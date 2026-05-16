@@ -4,6 +4,7 @@
 #include "valsalia.dm"
 #include "overwrites.dm"
 #include "ai\ai_holo.dm"
+#include "items\books.dm"
 #include "items\booze_vend.dm"
 #include "items\chemistry.dm"
 #include "items\clothing\__clothing.dm"

@@ -472,6 +472,12 @@
 	name = "\improper Murphy Common Area"
 	icon_state = "dark_blue"
 
+/area/ministation/Murphy/ratcage
+	name = "\improper Murphy Rat Cage"
+	icon_state = "dark_blue"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	requires_power = 0 // There's one light bulb and I don't want to make a whole new APC that goes inside the cage just for it.
+
 /area/ministation/Murphy/common/upper
 	name = "\improper Murphy Upstairs Common Area"
 	icon_state = "dark_blue"
@@ -508,16 +514,16 @@
 	name = "\improper Murphy Hydroponics"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/toxins
-	name = "\improper Murphy Toxins Lab"
+/area/ministation/Murphy/robotics
+	name = "\improper Murphy Robotics Facilities"
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/smresearch
 	name = "\improper Murphy Supermatter Research Area"
 	icon_state = "dark_blue"
 
-/area/ministation/Murphy/engineering
-	name = "\improper Murphy Engineering"
+/area/ministation/Murphy/lowercommon
+	name = "\improper Murphy Lower Deck Common Area"
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/atmos
@@ -527,6 +533,7 @@
 /area/ministation/Murphy/roof
 	name = "\improper Murphy Roof"
 	icon_state = "dark_blue"
+	is_outside = TRUE
 
 /area/ministation/Murphy/maint
 	name = "\improper Murphy Maintenance"
@@ -593,10 +600,43 @@
 	name = "\improper Murphy - Vayryn's Room"
 	icon_state = "dark_blue"
 
+/area/ministation/Murphy/bedroom/Jackson
+	name = "\improper Murphy - Jackson Shaw's Room"
+	icon_state = "dark_blue"
+
 /area/ministation/Murphy/meeting
 	name = "\improper Murphy Meeting Room"
 	icon_state = "dark_blue"
 
+/area/ministation/Murphy/exterior
+	name = "\improper Murphy Exterior"
+	icon_state = "dark_blue"
+	is_outside = TRUE
+
+/area/ministation/Murphy/bedroom/Auciel
+	name = "\improper Murphy - Auciel's Room"
+	icon_state = "dark_blue"
+/area/ministation/Murphy/bedroom/Radina
+	name = "\improper Murphy - Radina's Room"
+	icon_state = "dark_blue"
+/area/ministation/Murphy/bedroom/Verity
+	name = "\improper Murphy - Verity's Room"
+	icon_state = "dark_blue"
+/area/ministation/Murphy/bedroom/James
+	name = "\improper Murphy - James' Room"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/unfinished
+	name = "\improper Murphy - Unfinished Area"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/lowerairlock
+	name = "\improper Murphy Lower Deck Airlock"
+	icon_state = "dark_blue"
+
+/area/ministation/Murphy/engineeringstorage
+	name = "\improper Murphy Engineering Storage"
+	icon_state = "dark_blue"
 
 //satellite
 /area/ministation/ai_sat
