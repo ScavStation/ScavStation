@@ -944,7 +944,7 @@
 "wG" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/unary/vent_scrubber/on{dir = 1},/turf/floor/tiled/dark,/area/ministation/Murphy/common)
 "wH" = (/obj/machinery/door/airlock/glass/research{dir = 4; icon_state = "closed"},/obj/machinery/atmospherics/pipe/simple/hidden/supply{dir = 4},/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{dir = 4},/turf/floor,/area/ministation/Murphy/common)
 "wI" = (/obj/machinery/light/small/emergency{dir = 8},/obj/effect/floor_decal/corner/paleblue{dir = 9},/turf/floor/tiled/dark,/area/ministation/medical/nursery)
-"wK" = (/obj/machinery/atmospherics/pipe/simple/visible/red{dir = 4},/obj/machinery/light{dir = 2},/obj/machinery/atmospherics/omni/filter{tag_east = 1; tag_south = 2; tag_west = 4; max_flow_rate = 1000; set_flow_rate = 1000; use_power = 0; name = "Hot Loop Waste Filter"},/turf/floor/tiled/techfloor,/area/ministation/Murphy/smresearch)
+"wK" = (/obj/machinery/light{dir = 2},/obj/machinery/atmospherics/omni/filter{tag_east = 1; tag_south = 2; tag_west = 4; max_flow_rate = 1000; set_flow_rate = 1000; use_power = 0; name = "Hot Loop Waste Filter"},/turf/floor/tiled/techfloor,/area/ministation/Murphy/smresearch)
 "wL" = (/obj/effect/decal/cleanable/dirt/visible,/obj/item/stool/padded,/turf/floor/tiled/dark/monotile,/area/ministation/cafe)
 "wN" = (/obj/effect/floor_decal/corner/green/half{dir = 1},/obj/structure/disposalpipe/segment{dir = 4},/turf/floor/tiled,/area/ministation/hydro)
 "wO" = (/obj/item/chems/condiment/small/peppermill,/obj/structure/table/gamblingtable,/turf/floor/glass/boro,/area/ministation/cafe)
