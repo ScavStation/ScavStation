@@ -20,6 +20,7 @@
 	icon_reinf = 'icons/turf/walls/reinforced_metal.dmi'
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
 	tensile_strength = 0.8 // metal wire is probably better than plastic?
+	wall_damage_threshold = 10
 
 /decl/material/solid/metal/uranium
 	name = "uranium"
