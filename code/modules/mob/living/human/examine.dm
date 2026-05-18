@@ -165,12 +165,15 @@
 				shown_objects += embedlist
 				var/parsedembed[0]
 				for(var/obj/embedded in embedlist)
-					if(!parsedembed.len || (!parsedembed.Find(embedded.name) && !parsedembed.Find("multiple [embedded.name]")))
-						parsedembed.Add(embedded.name)
-					else if(!parsedembed.Find("multiple [embedded.name]"))
-						parsedembed.Remove(embedded.name)
-						parsedembed.Add("multiple "+embedded.name)
-				wound_flavor_text["[E.name]"] += "The [wound.desc] on [use_his] [E.name] has \a [english_list(parsedembed, and_text = " and a ", comma_text = ", a ")] sticking out of it!<br>"
+					var/single_embed_string = "\a [embedded.name]"
+					var/plural_embed_string = "multiple [text_make_plural(embedded.name)]"
+					if(!parsedembed.len || (!parsedembed.Find(single_embed_string) && !parsedembed.Find(plural_embed_string)))
+						parsedembed.Add(single_embed_string)
+					else if(!parsedembed.Find(plural_embed_string))
+						parsedembed.Remove(single_embed_string)
+						parsedembed.Add(plural_embed_string)
+				wound_flavor_text[E.organ_tag] += SPAN_WARNING("The [wound.desc] on [pronouns.his] [E.name] has [english_list(parsedembed, and_text = " and ", comma_text = ", ")] sticking out of it!")
+
 	for(var/hidden in hidden_bleeders)
 		wound_flavor_text[hidden] = "[use_He] [use_has] blood soaking through [hidden] around [use_his] [english_list(hidden_bleeders[hidden])]!<br>"
 
