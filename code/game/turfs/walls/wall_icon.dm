@@ -11,7 +11,6 @@
 		material = get_default_material()
 	if(material)
 		explosion_resistance = material.explosion_resistance
-		hitsound = material.hitsound
 	if(reinf_material && reinf_material.explosion_resistance > explosion_resistance)
 		explosion_resistance = reinf_material.explosion_resistance
 	update_strings()
