@@ -18,6 +18,24 @@
 	mask_to_bodypart = FALSE
 	uid = "marking_yinglet_longtooth"
 
+/decl/sprite_accessory/marking/yinglet/dualtooth
+	name = "Dual Shelltooth"
+	icon_state = "dualtooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_dualtooth"
+
+/decl/sprite_accessory/marking/yinglet/righttooth
+	name = "Snaggletooth (Right)"
+	icon_state = "righttooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_righttooth"
+
+/decl/sprite_accessory/marking/yinglet/lefttooth
+	name = "Snaggletooth (Left)"
+	icon_state = "lefttooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_lefttooth"
+
 /decl/sprite_accessory/marking/yinglet/recolour_limb
 	name = "Body Colour (Left Arm)"
 	icon_state = "limbs"
