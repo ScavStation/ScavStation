@@ -142,7 +142,7 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/suit/jacket/winter/yinglet/captain
-	name = "small Matriarch's winter coat"
+	name = "small captain's winter coat"
 	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/cap.dmi'
 	hood = /obj/item/clothing/head/winterhood/yinglet/captain
 	bodytype_equip_flags = BODY_FLAG_YINGLET
@@ -155,7 +155,7 @@
 	)
 
 /obj/item/clothing/head/winterhood/yinglet/captain
-	name = "small Matriarch's winter hood"
+	name = "small captain's winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/cap.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
@@ -171,7 +171,7 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/suit/jacket/winter/yinglet/ce
-	name = "small Patriarch of Engineering's winter coat"
+	name = "small head of engineering's winter coat"
 	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/CE.dmi'
 	hood = /obj/item/clothing/head/winterhood/yinglet/ce
 	bodytype_equip_flags = BODY_FLAG_YINGLET
@@ -180,7 +180,7 @@
 	)
 
 /obj/item/clothing/head/winterhood/yinglet/ce
-	name = "small Patriarch of Engineering's winter hood"
+	name = "small head of engineering's winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/CE.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
@@ -199,7 +199,7 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/suit/jacket/winter/yinglet/cmo
-	name = "small Patriarch of Medicine's winter coat"
+	name = "small head of medicine's winter coat"
 	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/CMO.dmi'
 	hood = /obj/item/clothing/head/winterhood/yinglet/cmo
 	bodytype_equip_flags = BODY_FLAG_YINGLET
@@ -208,7 +208,7 @@
 	)
 
 /obj/item/clothing/head/winterhood/yinglet/cmo
-	name = "small Patriarch of Medicine's winter hood"
+	name = "small head of medicine's winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/CMO.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
@@ -227,18 +227,24 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/suit/jacket/winter/yinglet/HoP
-	name = "small Patriarch of Personnell's winter coat"
+	name = "small head of personnell's winter coat"
 	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/HoP.dmi'
 	hood = /obj/item/clothing/head/winterhood/yinglet/HoP
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/head/winterhood/yinglet/HoP
-	name = "small Patriarch of Personnell's winter hood"
+	name = "small head of personnell's winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/HoP.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
+/obj/item/clothing/suit/jacket/winter/yinglet/HoP2
+	name = "small head of personnell's winter coat"
+	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/HoP2.dmi'
+	hood = /obj/item/clothing/head/winterhood/yinglet/HoP
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
 /obj/item/clothing/suit/jacket/winter/yinglet/HoS
-	name = "small Patriarch of Security's winter coat"
+	name = "small head of security's winter coat"
 	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/HoS.dmi'
 	hood = /obj/item/clothing/head/winterhood/yinglet/HoS
 	bodytype_equip_flags = BODY_FLAG_YINGLET
@@ -251,7 +257,7 @@
 	)
 
 /obj/item/clothing/head/winterhood/yinglet/HoS
-	name = "small Patriarch of Security's winter hood"
+	name = "small head of security's winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/HoS.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
@@ -320,18 +326,18 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/suit/jacket/winter/yinglet/quartermaster
-	name = "small Patriarch of Logistic's winter coat"
+	name = "small quartermaster's winter coat"
 	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/QM.dmi'
 	hood = /obj/item/clothing/head/winterhood/yinglet/quartermaster
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/head/winterhood/yinglet/quartermaster
-	name = "small Patriarch of Logistic's winter hood"
+	name = "small quartermaster's winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/QM.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
 /obj/item/clothing/suit/jacket/winter/yinglet/rd
-	name = "small Patriarch of Science's winter coat"
+	name = "small research director's winter coat"
 	icon = 'mods/valsalia/icons/clothing/suit/wintercoat/RD.dmi'
 	hood = /obj/item/clothing/head/winterhood/yinglet/rd
 	bodytype_equip_flags = BODY_FLAG_YINGLET
@@ -340,7 +346,7 @@
 	)
 
 /obj/item/clothing/head/winterhood/yinglet/rd
-	name = "small Patriarch of Science's winter hood"
+	name = "small research director's winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/RD.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 

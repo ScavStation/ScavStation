@@ -18,6 +18,16 @@
 	desc = "A white and green robe tailored for a yinglet, often worn by avid book readers."
 	icon = 'mods/valsalia/icons/clothing/under/pekrobe.dmi'
 
+/obj/item/clothing/suit/robe/yinglet/patriarch
+	name = "patriarch robe"
+	desc = "A green tunic with a belt and a high collar often worn by patriarchs."
+	icon = 'mods/valsalia/icons/clothing/under/patriarchrobe.dmi'
+
+/obj/item/clothing/suit/robe/yinglet/operative
+	name = "operative robe"
+	desc = "A dark tunic and pants, often worn by sneakier scouts."
+	icon = 'mods/valsalia/icons/clothing/under/operative.dmi'
+
 /obj/item/clothing/suit/robe/yinglet/matriarch
 	name = "matriarch robe"
 	desc = "An expensive and well-made garment for the enclave matriarch."

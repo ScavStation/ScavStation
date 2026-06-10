@@ -19,3 +19,71 @@
 
 /datum/fabricator_recipe/protolathe/weapon/yar_grenade
 	path = /obj/item/gun/projectile/automatic/assault_rifle/grenade/yinglet
+
+
+/obj/item/gun/projectile/pistol/giggle
+	name = "Shiri"
+	desc = "An almost entirely custom made handgun with a selector switch. designed to be used with the new bluespace magazines."
+	icon = 'icons/obj/guns/pistol.dmi'
+	load_method = MAGAZINE
+	caliber = CALIBER_PISTOL
+	origin_tech = @'{"combat":5, "esoteric":8}'
+	magazine_type = /obj/item/ammo_magazine/pistol
+	allowed_magazines = /obj/item/ammo_magazine/pistol
+	accuracy_power = 7
+	safety_icon = "safety"
+	ammo_indicator = TRUE
+	w_class = ITEM_SIZE_SMALL
+	minimum_size_to_twohand = 3
+
+	firemodes = list(
+		list(mode_name="semi auto",      burst=1, fire_delay=null, one_hand_penalty=3, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, one_hand_penalty=4, burst_accuracy=list(0,-0.1,-0.5),       dispersion=list(0, 0.5, 1.1, 1.5)),
+		list(mode_name="full auto",      burst=1, fire_delay=0,    burst_delay=1,      one_hand_penalty=5,                 burst_accuracy=list(0,-0.1,-0.5,-0.8,-1), dispersion=list(0, 0.5, 1.1, 1.5, 2.1), autofire_enabled=1)
+	)
+
+
+
+/obj/item/gun/projectile/pistol/high_capacity
+	magazine_type = /obj/item/ammo_magazine/pistol/high_capacity
+
+/obj/item/ammo_magazine/pistol/high_capacity
+	name = "pistol magazine of holding"
+	icon_state = "pistol"
+	origin_tech = @'{"combat":2, "wormholes":5}'
+	mag_type = MAGAZINE
+	caliber = CALIBER_PISTOL
+	material = /decl/material/solid/metal/steel
+	ammo_type = /obj/item/ammo_casing/pistol
+	max_ammo = 60
+	multiple_sprites = 1
+
+/obj/item/gun/projectile/pistol/holdout/service
+	name = "service pistol"
+	desc = "An Ivenco licensed copy of the P3 Whisper. Commonly used by tradehouse agents. This one is a little worn."
+
+	//Inherited values for future buffing/debuffing
+
+	//icon = 'icons/obj/guns/holdout_pistol.dmi'
+	//item_state = null
+	//ammo_indicator = FALSE
+	//w_class = ITEM_SIZE_SMALL
+	//caliber = CALIBER_PISTOL_SMALL
+	//fire_delay = 4
+	//origin_tech = @'{"combat":2,"materials":2,"esoteric":8}'
+	//magazine_type = /obj/item/ammo_magazine/pistol/small
+	//allowed_magazines = /obj/item/ammo_magazine/pistol/small
+
+/*
+/obj/item/gun/projectile/pistol/holdout/can_have_silencer()
+	return TRUE
+*/
+
+/obj/item/gun/energy/gun/reloadable/vayryn
+	name = "\proper Sword of Light"
+	desc = "It appears to be a modified LAEP90 Perun, a versatile energy based sidearm, capable of switching between low, medium and high power projectile settings. In other words: stun, shock or kill. The name \"Sword of Light\" has been etched into the plate where a serial number should be. <span class='danger'>It gives you a weird vibe.</span>"
+	self_recharge = 1 // Recharges itself slowly, not fast enough to sustain fire on a blob or anything.
+	// Every [recharge_time] (default 4) calls to Process(), it returns one shot worth (20 power) to the cell (Weapon energy cell holds 500 energy, or 25 shots)
+	// Testing results in it taking roughly 100 seconds to recharge all 25 shots, so roughly four seconds between shots.
+	// Sustained fire from a full charge allows roughly 34 shots before running dry.
+	// Setting charge_cost to 0 would make it infinitely firing.

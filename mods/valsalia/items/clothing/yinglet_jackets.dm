@@ -14,6 +14,17 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/suit/suitcoat.dmi'
 
+/obj/item/clothing/suit/jacket/yinglet/flowery
+	name = "flowery gown"
+	desc = "A light blue gown with decorative floral motifs in yellow."
+	icon = 'mods/valsalia/icons/clothing/suit/flowery.dmi'
+
+/obj/item/clothing/suit/jacket/yinglet/sinistral
+	name = "small fancy attire"
+	desc = "An exceedingly fancy attire for a yinglet. Fits better when you're left-handed."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/sinistral.dmi'
+
 /obj/item/clothing/suit/jacket/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET

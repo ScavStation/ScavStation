@@ -2114,6 +2114,8 @@
 /obj/item/glass_extra/straw,
 /obj/item/tank/oxygen/yellow,
 /obj/structure/closet/emcloset,
+/obj/item/belt/medical/emt,
+/obj/item/belt/medical,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "fy" = (
@@ -7730,6 +7732,8 @@
 	pixel_x = -21
 	},
 /obj/structure/table,
+/obj/item/box/masks,
+/obj/item/box/gloves,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/surgery)
 "RW" = (

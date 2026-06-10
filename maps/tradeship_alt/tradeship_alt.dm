@@ -71,6 +71,7 @@
 	#include "tradeship_shuttles.dm"
 	#include "tradeship_spawnpoints.dm"
 	#include "tradeship_unit_testing.dm"
+	#include "tradeship_weapons.dm"
 	#include "tradeship-0.dmm"
 	#include "tradeship-1.dmm"
 	#include "tradeship-2.dmm"

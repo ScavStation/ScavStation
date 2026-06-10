@@ -161,6 +161,22 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/suit/fancy_clothes_yinglet.dmi'
 
+/obj/item/clothing/suit/rusticying
+	name = "yinglet rustic dress"
+	desc = "A cream coloured dress with some green highlights. Worn by rural cuties."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/rusticying.dmi'
+
+/obj/item/clothing/suit/robe/yinglet/mantleying
+	name = "yinglet mantle"
+	desc = "A blue mantle and skirt fitted for a yinglet. Quite fashionable."
+	icon = 'mods/valsalia/icons/clothing/suit/mantleying.dmi'
+
+/obj/item/clothing/suit/robe/yinglet/countercoat
+	name = "yinglet longcoat"
+	desc = "A leather coat with a green gown underneath. Usually worn by learned ones."
+	icon = 'mods/valsalia/icons/clothing/suit/countercoat.dmi'
+
 /obj/item/clothing/suit/yingjacket
 	name = "yinglet jacket"
 	desc = "A green jacket. It looks like it might fit a yinglet."

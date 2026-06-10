@@ -1,6 +1,6 @@
 /datum/map/valSal_port
 	default_liquid_fuel_type = /decl/material/liquid/nutriment/plant_oil
-	default_species = SPECIES_YINGLET //SPECIES_KOBALOI // ScavStation edit
+	default_species = SPECIES_HUMAN
 	loadout_categories = list(
 		/decl/loadout_category/fantasy/clothing,
 		/decl/loadout_category/fantasy/utility

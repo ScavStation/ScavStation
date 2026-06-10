@@ -442,7 +442,7 @@ SUBSYSTEM_DEF(jobs)
 			if(!istype(G))
 				continue
 			if(!G.is_permitted(H, job))
-				to_chat(H, SPAN_WARNING("Your current species, job, branch, skills or whitelist status does not permit you to spawn with [thing]!"))
+				to_chat(H, SPAN_WARNING("Your current species, job, branch, skills or whitelist status does not permit you to spawn with \a [G.name]!"))
 				continue
 			if(!G.slot || !G.spawn_on_mob(H, H.client.prefs.Gear()[G.uid]))
 				spawn_in_storage.Add(G)

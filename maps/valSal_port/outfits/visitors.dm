@@ -24,11 +24,13 @@
 		/obj/item/stack/medical/splint/crafted/five      = 1
 	)
 
-/decl/outfit/job/valSal_port/traveller/cleric
+/decl/outfit/job/valSal_port/traveller/merchant
 	name    = "Travelling Merchant"
 	backpack_contents = list(
 		/obj/item/stack/medical/bandage/crafted/ten = 1,
 		/obj/item/stack/medical/ointment/crafted/ten   = 1,
 		/obj/item/stack/medical/splint/crafted/five      = 1,
-		/obj/item/cash/imperial/regalis = 4
+		/obj/item/cash/imperial/regalis = 4,
+		/obj/item/knife/ritual,
+		/obj/item/clothing/webbing/holster/knife,
 	)

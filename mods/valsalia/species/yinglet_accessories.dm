@@ -18,6 +18,24 @@
 	mask_to_bodypart = FALSE
 	uid = "marking_yinglet_longtooth"
 
+/decl/sprite_accessory/marking/yinglet/dualtooth
+	name = "Dual Shelltooth"
+	icon_state = "dualtooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_dualtooth"
+
+/decl/sprite_accessory/marking/yinglet/righttooth
+	name = "Snaggletooth (Right)"
+	icon_state = "righttooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_righttooth"
+
+/decl/sprite_accessory/marking/yinglet/lefttooth
+	name = "Snaggletooth (Left)"
+	icon_state = "lefttooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_lefttooth"
+
 /decl/sprite_accessory/marking/yinglet/recolour_limb
 	name = "Body Colour (Left Arm)"
 	icon_state = "limbs"
@@ -150,6 +168,21 @@
 	name = "Ying Fonzie"
 	icon_state = "hair_fonzie"
 	uid = "hair_ying_fonzie"
+
+/decl/sprite_accessory/hair/yinglet/short
+	name = "Ying Short Hair"
+	icon_state = "hair_short"
+	uid = "hair_ying_short"
+
+/decl/sprite_accessory/hair/yinglet/blastback
+	name = "Ying Blastback"
+	icon_state = "hair_blastback"
+	uid = "hair_ying_blastback"
+
+/decl/sprite_accessory/hair/yinglet/emo
+	name = "Ying Emo"
+	icon_state = "hair_emo"
+	uid = "hair_ying_emo"
 
 /decl/sprite_accessory/hair/yinglet/pompador
 	name = "Ying Pompador"
