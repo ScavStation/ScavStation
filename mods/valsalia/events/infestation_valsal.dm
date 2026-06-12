@@ -2,19 +2,19 @@
 #define VERM_FROG 1
 #define VERM_SPIDERS 2
 
-/datum/event/infestation
+/datum/event/infestation_valsalia
 	announceWhen = 10
 	endWhen = 11
-	var/area/location_valsal
-	var/vermin_valsal
-	var/vermstring_valsal
+	var/area/location
+	var/vermin
+	var/vermstring
 
-/datum/event/infestation/start()
+/datum/event/infestation_valsalia/start()
 	var/list/vermin_turfs
 	var/attempts = 3
 	do
-		vermin_turfs = set_location_get_infestation_turfs_valsal()
-		if(!location_valsal)
+		vermin_turfs = set_location_get_infestation_turfs()
+		if(!location)
 			return
 	while(!vermin_turfs && --attempts > 0)
 
@@ -24,8 +24,8 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin_valsal = rand(0,2)
-	switch(vermin_valsal)
+	vermin = rand(0,2)
+	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(
 				/mob/living/simple_animal/passive/mouse/brown,
@@ -34,21 +34,21 @@
 				/mob/living/simple_animal/passive/mouse/rat
 			)
 			max_number = 12
-			vermstring_valsal = "mice"
+			vermstring = "mice"
 		if(VERM_FROG)
 			spawn_types = list(/mob/living/simple_animal/frog)
 			max_number = 14
-			vermstring_valsal = "frogs"
+			vermstring = "frogs"
 		if(VERM_SPIDERS)
 			spawn_types = list(/obj/effect/spider/spiderling)
 			max_number = 3
-			vermstring_valsal = "spiders"
+			vermstring = "spiders"
 
 	spawn(0)
 		var/num = 0
 		for(var/i = 1 to severity)
 			num += rand(2,max_number)
-		log_and_message_admins("Vermin infestation spawned ([vermstring_valsal] x[num]) in \the [location_valsal.proper_name]", location_valsal = pick_area_turf(location_valsal))
+		log_and_message_admins("Vermin infestation spawned ([vermstring] x[num]) in \the [location.proper_name]", location = pick_area_turf(location))
 		while(vermin_turfs.len && num > 0)
 			var/turf/T = pick_n_take(vermin_turfs)
 			num--
@@ -58,16 +58,16 @@
 			if(istype(S))
 				S.amount_grown = -1
 
-/datum/event/infestation/proc/set_location_get_infestation_turfs_valsal()
-	location_valsal = pick_area(list(/proc/is_not_space_area, /proc/is_valsalia_building_area))
-	if(!location_valsal)
+/datum/event/infestation_valsalia/proc/set_location_get_infestation_turfs()
+	location = pick_area(list(/proc/is_not_space_area, /proc/is_valsalia_building_area))
+	if(!location)
 		log_debug("Vermin infestation failed to find a viable area. Aborting.")
 		kill()
 		return
 
-	var/list/vermin_turfs = get_area_turfs(location_valsal, list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe))
+	var/list/vermin_turfs = get_area_turfs(location, list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe))
 	if(!vermin_turfs.len)
-		log_debug("Vermin infestation failed to find viable turfs in \the [location_valsal.proper_name].")
+		log_debug("Vermin infestation failed to find viable turfs in \the [location.proper_name].")
 		return
 	return vermin_turfs
 
