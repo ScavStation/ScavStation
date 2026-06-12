@@ -9,7 +9,7 @@
 	var/list/vermin_turfs
 	var/attempts = 3
 	do
-		vermin_turfs = set_location_get_infestation_turfs()
+		vermin_turfs = set_location_get_infestation_turfs_valsalia()
 		if(!location)
 			return
 	while(!vermin_turfs && --attempts > 0)
@@ -54,17 +54,22 @@
 			if(istype(S))
 				S.amount_grown = -1
 
-/datum/event/infestation_valsalia/proc/set_location_get_infestation_turfs()
-	location = pick_area(list(/proc/is_not_space_area, /proc/is_valsalia_building_area))
-	if(!location)
-		log_debug("Vermin infestation failed to find a viable area. Aborting.")
+/datum/event/infestation_valsalia/proc/set_location_get_infestation_turfs_valsalia()
+	// Main behavior: select all viable turfs anywhere that are NOT outside
+	var/list/vermin_turfs = list()
+	var/list/preds = list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe)
+	for(var/area/A in get_filtered_areas(list(/proc/is_area_with_turf)))
+		for(var/turf/T in A.contents)
+			if(all_predicates_true(list(T), preds) && T.is_outside() == OUTSIDE_NO)
+				LAZYADD(vermin_turfs, T)
+
+	if(!vermin_turfs.len)
+		log_debug("Vermin infestation failed to find viable non-outside turfs. Aborting.")
 		kill()
 		return
 
-	var/list/vermin_turfs = get_area_turfs(location, list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe))
-	if(!vermin_turfs.len)
-		log_debug("Vermin infestation failed to find viable turfs in \the [location.proper_name].")
-		return
+	var/turf/choose_turf = pick(vermin_turfs)
+	location = get_area(choose_turf)
 	return vermin_turfs
 
 /proc/is_valsalia_building_area(var/area/A)
