@@ -6,7 +6,11 @@
 // TODO: more appropriate events.
 /datum/event_container/mundane/fantasy
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing", /datum/event/nothing,	100)
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing", /datum/event/nothing,	100),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Vermin Infestation", /datum/event/infestation, 100,	list(ASSIGNMENT_JANITOR = 100)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Bristleback Attack", /datum/event/bristleback_attack, 10, list(ASSIGNMENT_SECURITY = 20)),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Bandit Attack", /datum/event/thug_attack, 10, list(ASSIGNMENT_SECURITY = 20))
+
 	)
 
 /datum/event_container/moderate/fantasy
@@ -19,5 +23,7 @@
 
 /datum/event_container/major/fantasy
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing", /datum/event/nothing,	100)
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing", /datum/event/nothing,	100),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Bristleback Attack", /datum/event/bristleback_attack, 0, list(ASSIGNMENT_SECURITY = 20)),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Bandit Attack", /datum/event/thug_attack, 0, list(ASSIGNMENT_SECURITY = 20))
 	)
