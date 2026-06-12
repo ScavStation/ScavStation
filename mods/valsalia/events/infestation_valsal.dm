@@ -1,7 +1,3 @@
-#define VERM_MICE 0
-#define VERM_FROG 1
-#define VERM_SPIDERS 2
-
 /datum/event/infestation_valsalia
 	announceWhen = 10
 	endWhen = 11
@@ -26,7 +22,7 @@
 	var/max_number
 	vermin = rand(0,2)
 	switch(vermin)
-		if(VERM_MICE)
+		if(0)
 			spawn_types = list(
 				/mob/living/simple_animal/passive/mouse/brown,
 				/mob/living/simple_animal/passive/mouse/gray,
@@ -35,11 +31,11 @@
 			)
 			max_number = 12
 			vermstring = "mice"
-		if(VERM_FROG)
+		if(1)
 			spawn_types = list(/mob/living/simple_animal/frog)
 			max_number = 14
 			vermstring = "frogs"
-		if(VERM_SPIDERS)
+		if(2)
 			spawn_types = list(/obj/effect/spider/spiderling)
 			max_number = 3
 			vermstring = "spiders"
@@ -75,7 +71,3 @@
 	if(!istype(A))
 		return FALSE
 	. = istype(A, /area/valSal_port/town) || istype(A, /area/valSal_port/enclave)
-
-#undef VERM_MICE
-#undef VERM_FROG
-#undef VERM_SPIDERS
