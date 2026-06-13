@@ -71,8 +71,3 @@
 	var/turf/choose_turf = pick(vermin_turfs)
 	location = get_area(choose_turf)
 	return vermin_turfs
-
-/proc/is_valsalia_building_area(var/area/A)
-	if(!istype(A))
-		return FALSE
-	. = istype(A, /area/valSal_port/town) || istype(A, /area/valSal_port/enclave)
