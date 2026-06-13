@@ -6,6 +6,7 @@
 #include "ai\ai_holo.dm"
 #include "events\bristleback_attack.dm"
 #include "events\bandit_attack.dm"
+#include "events\infestation_valsal.dm"
 #include "events\solar_storm_valsal.dm"
 #include "items\books.dm"
 #include "items\booze_vend.dm"
