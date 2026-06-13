@@ -278,6 +278,16 @@
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
+"fy" = (
+/obj/item/zat_zhing{
+	name = "pulsating growth";
+	desc = "A hard and crusty object. You can feel it throbbing.";
+	icon = 'icons/obj/projectiles.dmi';
+	icon_state = "toxin"
+	},
+/obj/structure/pit/closed/grave,
+/turf/floor/dirt,
+/area/valSal_port/town/den)
 "fA" = (
 /obj/structure/bed/chair/wood{
 	dir = 4
@@ -1909,11 +1919,13 @@
 /turf/floor/grass,
 /area/valSal_port/outside/eastside)
 "Ef" = (
-/obj/item/zat_zhing{
-	name = "emerald";
-	desc = "A green gemstone with some residue stuck to it."
-	},
 /obj/structure/pit/closed/grave,
+/obj/item/food/amanita_pie{
+	icon = 'mods/valsalia/icons/zat_zhing.dmi';
+	icon_state = "zatzhing";
+	name = "emerald";
+	desc = "I wouldn't eat that if I were you..."
+	},
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "Eh" = (
@@ -12370,7 +12382,7 @@ Fd
 Px
 Px
 nt
-nt
+fy
 TU
 nt
 Px
