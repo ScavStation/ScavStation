@@ -26,7 +26,7 @@
 
 // Randomized time of day to start at.
 /datum/daycycle/valSal_port/New()
-	time_in_cycle = rand(cycle_duration)
+	time_in_cycle = 0
 	..()
 
 /datum/level_data/main_level/valSal_port/get_subtemplate_areas(template_category, blacklist, whitelist)
