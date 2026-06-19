@@ -1,5 +1,5 @@
 /datum/event/bristleback_attack/start()
-	var/bristlebacks = severity * 2 - 1
+	var/bristlebacks = severity * 0.25 * 2 - 1
 	var/groups = rand(3,8)
 
 	var/list/spots
