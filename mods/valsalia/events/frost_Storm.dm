@@ -2,7 +2,7 @@
 	startWhen = 45
 	announceWhen = 1
 	var/const/rad_interval = 5
-	var/const/temp_dec = -100
+	var/const/temp_dec = -80
 	var/const/fire_loss = 40
 
 /datum/event/frost_storm/setup()
