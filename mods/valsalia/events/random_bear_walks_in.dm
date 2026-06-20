@@ -30,7 +30,7 @@
 			return
 		if(EVENT_LEVEL_MAJOR)
 			naming = "two bears"
-	command_announcement.Announce("The sounds of [naming] can be heard in the wild.")
+	priority_stealth.Announce_quiet("The sounds of [naming] can be heard in the wild.")
 
 /datum/event/random_bear_walks_in/proc/get_infestation_turfs()
 	var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))

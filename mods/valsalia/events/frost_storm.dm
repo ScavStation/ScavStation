@@ -9,8 +9,6 @@
 	endWhen = startWhen + rand(30,90) + rand(30,90)
 
 /datum/event/frost_storm/announce()
-	//for(var/mob/living/L in global.living_mob_list_)
-	//	to_chat(L, SPAN_NOTICE(FONT_SMALL("A Frost Storm is approaching [location_name()]. Please take shelter in buildings or caves if possible.")))
 	priority_stealth.Announce_quiet("A Frost Storm is approaching [location_name()]. Please take shelter in buildings or caves if possible.")
 
 /datum/event/frost_storm/start()

@@ -30,7 +30,7 @@ var/global/list/bandit_count = list() // Track spawned bandits by Z level
 			naming = "group"
 		if(EVENT_LEVEL_MAJOR)
 			naming = "division"
-	command_announcement.Announce("A bandit [naming] has been detected.")
+	priority_stealth.Announce_quiet("A bandit [naming] has been detected.")
 
 /datum/event/thug_attack/proc/spawn_bandits()
 	var/direction = pick(global.cardinal)
