@@ -22,7 +22,7 @@
 	var/list/mobs_to_spawn = list()
 
 /datum/daycycle/valSal_port
-	cycle_duration = 1 HOURS // 1 hour of daylight, 1 hour of night
+	cycle_duration = 2 HOURS // 1 hour of daylight, 1 hour of night
 
 // Randomized time of day to start at.
 /datum/daycycle/valSal_port/New()
