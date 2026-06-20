@@ -9,10 +9,10 @@
 	endWhen = startWhen + rand(30,90) + rand(30,90)
 
 /datum/event/frost_storm/announce()
-	command_announcement.Announce("A Frost Storm is approaching [location_name()]. Please take shelter in buildings or caves if possible.", "[location_name()] Sensor Array", zlevels = affecting_z)
+	priority_stealth.Announce_quiet("A Frost Storm is approaching [location_name()]. Please take shelter in buildings or caves if possible.")
 
 /datum/event/frost_storm/start()
-	command_announcement.Announce("The Frost Storm is now hitting [location_name()]. Buildings and caves should shield you.", "[location_name()] Sensor Array", zlevels = affecting_z)
+	priority_stealth.Announce_quiet("The Frost Storm is now hitting [location_name()]. Buildings and caves should shield you.")
 
 	// Set heavy snow weather on affected z-levels.
 	for(var/z in affecting_z)
@@ -46,5 +46,5 @@
 		L.take_damage(fire_loss / 2, BURN)
 
 /datum/event/frost_storm/end()
-	command_announcement.Announce("The Frost Storm has passed [location_name()]. It is now safer to move about in the open.", "[location_name()] Sensor Array", zlevels = affecting_z)
+	priority_stealth.Announce_quiet("The Frost Storm has passed [location_name()]. It is now safer to move about in the open.", "[location_name()] Sensor Array", zlevels = affecting_z)
 

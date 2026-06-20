@@ -25,7 +25,7 @@
 			naming = "pack pack"
 		if(EVENT_LEVEL_MAJOR)
 			naming = "big pack pack"
-	command_announcement.Announce("A bristleback [naming] has been detected.")
+	priority_stealth.Announce_quiet("A bristleback [naming] has been detected.")
 
 /datum/event/bristleback_attack/proc/get_infestation_turfs()
 	var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))

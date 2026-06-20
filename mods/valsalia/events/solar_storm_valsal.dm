@@ -9,10 +9,10 @@
 	endWhen = startWhen + rand(30,90) + rand(30,90)
 
 /datum/event/solar_storm_valsal/announce()
-	command_announcement.Announce("A solar flare is approaching [location_name()]. Please take shelter in buildings or caves if possible.", "[location_name()] Sensor Array", zlevels = affecting_z)
+	priority_stealth.Announce_quiet("A solar flare is approaching [location_name()]. Please take shelter in buildings or caves if possible.", "[location_name()] Sensor Array", zlevels = affecting_z)
 
 /datum/event/solar_storm_valsal/start()
-	command_announcement.Announce("The solar flare is now hitting [location_name()]. Buildings and caves should shield you.", "[location_name()] Sensor Array", zlevels = affecting_z)
+	priority_stealth.Announce_quiet("The solar flare is now hitting [location_name()]. Buildings and caves should shield you.", "[location_name()] Sensor Array", zlevels = affecting_z)
 
 /datum/event/solar_storm_valsal/tick()
 	if(activeFor % rad_interval == 0)
@@ -40,5 +40,5 @@
 		L.take_damage(fire_loss / 2, BURN)
 
 /datum/event/solar_storm_valsal/end()
-	command_announcement.Announce("The solar flare has passed [location_name()]. It is now safer to move about in the open.", "[location_name()] Sensor Array", zlevels = affecting_z)
+	priority_stealth.Announce_quiet("The solar flare has passed [location_name()]. It is now safer to move about in the open.", "[location_name()] Sensor Array", zlevels = affecting_z)
 
