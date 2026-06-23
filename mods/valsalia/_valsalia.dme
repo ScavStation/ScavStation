@@ -39,6 +39,7 @@
 #include "items\javelin.dm"
 #include "items\mollusc.dm"
 #include "items\prosthetics.dm"
+#include "items\medicines\pancea.dm"
 #include "items\sec_vend.dm"
 #include "items\med_vend.dm"
 #include "items\seed_storage.dm"
