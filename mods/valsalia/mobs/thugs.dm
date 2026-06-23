@@ -14,6 +14,24 @@
 	var/corpse = /obj/abstract/landmark/corpse/thug
 	var/weapon = /obj/item/bladed/shortsword
 
+
+/mob/living/simple_animal/hostile/thug_aggresive
+	name = "Thug"
+	desc = "A man looking thug. Don't get near..."
+	faction = "thug"
+	icon = 'mods/valsalia/icons/mobs/simple_animal/bandit.dmi'
+	move_intents = list(
+		/decl/move_intent/walk/animal,
+		/decl/move_intent/run/animal
+	)
+	max_health = 75
+	natural_weapon = /obj/item/natural_weapon/punch
+	ai = /datum/mob_controller/aggressive/thug_kill_on_sight
+	base_movement_delay = 1
+	var/corpse = /obj/abstract/landmark/corpse/thug
+	var/weapon = /obj/item/bladed/shortsword
+
+
 /mob/living/simple_animal/hostile/thug/bandit/Initialize()
 	. = ..()
 
@@ -23,6 +41,13 @@
 	emote_see    = list("looks around","sneezes", "stretches")
 	emote_hear   = list("walks around")
 	only_attack_enemies = TRUE
+
+/datum/mob_controller/aggressive/thug_kill_on_sight
+	speak_chance = 1.25
+	emote_speech = list("Hmm?","I hate this place!","Fuck off")
+	emote_see    = list("looks around","sneezes", "stretches")
+	emote_hear   = list("walks around")
+	only_attack_enemies = FALSE
 
 /mob/living/simple_animal/hostile/thug/death(gibbed)
 	. = ..()

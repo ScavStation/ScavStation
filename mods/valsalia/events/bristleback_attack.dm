@@ -14,9 +14,6 @@
 			new/mob/living/simple_animal/hostile/bristleback(T)
 
 /datum/event/bristleback_attack/announce()
-	var/stealth_chance = 70 - 20*severity
-	if(prob(stealth_chance))
-		return
 	var/naming
 	switch(severity)
 		if(EVENT_LEVEL_MUNDANE)
@@ -27,8 +24,11 @@
 			naming = "big pack pack"
 	priority_stealth.Announce_quiet("A bristleback [naming] has been detected.")
 
+/proc/is_outside_area(var/area/A)
+	. = istype(A) && (A.is_outside == OUTSIDE_YES)
+
 /datum/event/bristleback_attack/proc/get_infestation_turfs()
-	var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))
+	var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_outside_area))
 	if(!location)
 		log_debug("Bristleback attack failed to find a viable area. Aborting.")
 		kill()

@@ -9,6 +9,7 @@
 #include "events\bandit_attack.dm"
 #include "events\frost_storm.dm"
 #include "events\infestation_valsal.dm"
+#include "events\meteor_strike.dm"
 #include "events\random_bear_walks_in.dm"
 #include "events\solar_storm_valsal.dm"
 #include "items\books.dm"
