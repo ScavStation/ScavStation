@@ -20,7 +20,8 @@
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Bristleback Attack", /datum/event/bristleback_attack, 25, list(ASSIGNMENT_SECURITY = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Bandit Attack", /datum/event/thug_attack, 25, list(ASSIGNMENT_SECURITY = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Solar Storm", /datum/event/solar_storm_valsal, 25),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Frost Storm", /datum/event/frost_storm, 25)
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Frost Storm", /datum/event/frost_storm, 25),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Strike", /datum/event/meteor_strike, 25)
 	)
 
 /datum/event_container/major/fantasy
