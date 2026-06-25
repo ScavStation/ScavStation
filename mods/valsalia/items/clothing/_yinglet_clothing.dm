@@ -392,3 +392,8 @@
 	desc = "A well-made robe for a clan librarian."
 	icon = 'mods/valsalia/icons/clothing/under/librarian.dmi'
 	color = null
+
+/obj/item/clothing/gloves/yinglet/moon
+	name = "Moon Gloves"
+	desc = "A pair of gloves that once belonged to someone's son."
+	icon = 'mods/valsalia/icons/clothing/gloves/moongloves.dmi'

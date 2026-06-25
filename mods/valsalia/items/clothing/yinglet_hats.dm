@@ -26,6 +26,12 @@
 	icon = 'mods/valsalia/icons/clothing/head/pekhat.dmi'
 	paint_color = null
 
+/obj/item/clothing/head/yinglet/moon
+	name = "Moon Hat"
+	desc = "A hat that once belonged to someone's son."
+	icon = 'mods/valsalia/icons/clothing/head/moonhat.dmi'
+	paint_color = null
+
 /obj/item/clothing/head/yinglet/pekhat/painted
 	name = "painted sunhat"
 	desc = "A wooden sunhat common among yinglets. This one is painted with a smile."
