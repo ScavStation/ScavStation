@@ -41,19 +41,19 @@
 	#include "valSal_port_testing.dm"
 	#include "valSal_port_turfs.dm"
 
-	// caverns are below enclave and must be compiled in that order for multiz.
-	// -1 z
+	// load order is as such because it must start from the lowest z level going up.
+	// Any map loaded before another becomes the bottom z level for the next map UNLESS SPECIFIED IN _levels.dm
+	// THAT ITS CONNECTED VIA A CARDINAL DIRECTION
 	#include "valSal_port-caverns.dmm"
-	// 0 z
 	#include "valsal_port-enclave.dmm"
 	#include "valsal_port-mtntop.dmm"
 	#include "valsal_port-mtnpass.dmm"
 
-
+	// this is z_level = 1, same as enclave but its loaded after so mtntop can be loaded ontop of enclave
+	// and mtnpass can be loaded next to it. This works because _level.dm specifies this is connected to
+	// enclave via cardinal direction. Lengthy notes for future reference on sewing these maps together.
 	#include "valsal_port-town.dmm"
 
-	// mt top is above enclave and must be compiled below it in that order for multiz.
-	// 1 z
 
 
 	#define USING_MAP_DATUM /datum/map/valSal_port
