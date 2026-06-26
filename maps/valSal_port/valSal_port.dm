@@ -12,6 +12,8 @@
 	#include "areas/_areas.dm"
 	#include "areas/caverns.dm"
 	#include "areas/enclave.dm"
+	#include "areas/mtn_pass.dm"
+	#include "areas/mtn_top.dm"
 	#include "areas/town.dm"
 
 	#include "jobs/_jobs.dm"
@@ -40,11 +42,18 @@
 	#include "valSal_port_turfs.dm"
 
 	// caverns are below enclave and must be compiled in that order for multiz.
+	// -1 z
 	#include "valSal_port-caverns.dmm"
+	// 0 z
 	#include "valsal_port-enclave.dmm"
+	#include "valsal_port-mtntop.dmm"
+	#include "valsal_port-mtnpass.dmm"
+
 
 	#include "valsal_port-town.dmm"
 
+	// mt top is above enclave and must be compiled below it in that order for multiz.
+	// 1 z
 
 
 	#define USING_MAP_DATUM /datum/map/valSal_port
