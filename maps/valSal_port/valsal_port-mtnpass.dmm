@@ -234,6 +234,13 @@
 /obj/item/chems/pill/zoom,
 /turf/unsimulated/floor/cult,
 /area/valSal_port/outdoors_mtn_pass/temple)
+"nF" = (
+/obj/structure/boulder/basalt{
+	name = "collapsed rubble";
+	desc = "Collapsed rubble from the ceiling. A digging implement should be able to get rid of it."
+	},
+/turf/unsimulated/floor/cult,
+/area/valSal_port/outdoors_mtn_pass/temple)
 "oa" = (
 /obj/structure/table/woodentable,
 /turf/floor/woven,
@@ -448,6 +455,14 @@
 /obj/structure/fire_source/fireplace/marble,
 /turf/floor/path/marble,
 /area/valSal_port/outdoors_mtn_pass/camp1)
+"DR" = (
+/obj/structure/wall_sconce/candle,
+/obj/structure/boulder/basalt{
+	name = "collapsed rubble";
+	desc = "Collapsed rubble from the ceiling. A digging implement should be able to get rid of it."
+	},
+/turf/unsimulated/floor/cult,
+/area/valSal_port/outdoors_mtn_pass/temple)
 "Ec" = (
 /turf/wall/natural/dirt,
 /area/valSal_port/outdoors_mtn_pass/cave1)
@@ -622,8 +637,13 @@
 /turf/floor/straw,
 /area/valSal_port/outdoors_mtn_pass/camp1)
 "Qm" = (
-/turf/unsimulated/wall/cult,
-/area/valSal_port/outside/outdoors_mtn_pass)
+/obj/effect/floor_decal/rust,
+/obj/structure/boulder/basalt{
+	name = "collapsed rubble";
+	desc = "Collapsed rubble from the ceiling. A digging implement should be able to get rid of it."
+	},
+/turf/unsimulated/floor/cult,
+/area/valSal_port/outdoors_mtn_pass/temple)
 "Qp" = (
 /obj/effect/floor_decal/spline/fancy/black{
 	dir = 6
@@ -694,7 +714,14 @@
 /turf/unsimulated/floor/cult,
 /area/valSal_port/outdoors_mtn_pass/temple)
 "Tk" = (
-/obj/structure/loot_pile,
+/obj/structure/wall_sconce/candle{
+	dir = 1;
+	pixel_y = 17
+	},
+/obj/structure/boulder/basalt{
+	name = "collapsed rubble";
+	desc = "Collapsed rubble from the ceiling. A digging implement should be able to get rid of it."
+	},
 /turf/unsimulated/floor/cult,
 /area/valSal_port/outdoors_mtn_pass/temple)
 "Tt" = (
@@ -727,7 +754,7 @@
 /turf/unsimulated/floor/cult,
 /area/valSal_port/outdoors_mtn_pass/temple)
 "Vi" = (
-/obj/structure/loot_pile/surface,
+/obj/structure/loot_pile/maint/trash,
 /turf/unsimulated/floor/cult,
 /area/valSal_port/outdoors_mtn_pass/temple)
 "Vv" = (
@@ -1755,10 +1782,10 @@ kg
 kg
 SD
 SD
-eY
+Tk
 Uf
 Uf
-vO
+DR
 SD
 SD
 kg
@@ -1959,10 +1986,10 @@ kg
 kg
 kg
 SD
-Sk
+Qm
 Sk
 Uf
-Uf
+nF
 SD
 kg
 kg
@@ -2367,12 +2394,12 @@ sF
 Sk
 Sk
 Wj
-Uf
+nF
 SX
 Sk
 Uf
 xE
-Uf
+nF
 Uf
 KO
 jC
@@ -2892,7 +2919,7 @@ SD
 SD
 SD
 SD
-Qm
+SD
 kg
 kg
 kg
@@ -2994,7 +3021,7 @@ Uf
 Bn
 Uf
 Sk
-Qm
+SD
 kg
 kg
 kg
@@ -3071,7 +3098,7 @@ kg
 kg
 SD
 ry
-Tk
+mg
 Uf
 Uf
 Sk
@@ -3096,7 +3123,7 @@ Uf
 Uf
 Sk
 Sn
-Qm
+SD
 kg
 kg
 kg
@@ -3198,7 +3225,7 @@ Uf
 WA
 Uf
 Uf
-Qm
+SD
 kg
 kg
 kg
@@ -3300,7 +3327,7 @@ SD
 SD
 SD
 SD
-Qm
+SD
 kg
 kg
 kg
@@ -6906,7 +6933,7 @@ UA
 UA
 kg
 Ce
-UA
+Ce
 UA
 UA
 UA
@@ -7212,7 +7239,7 @@ UA
 UA
 UA
 kg
-kg
+Ce
 UA
 UA
 UA
