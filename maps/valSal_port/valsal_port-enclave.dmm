@@ -1169,6 +1169,7 @@
 /area/valSal_port/outside/enclave/river)
 "xm" = (
 /obj/structure/table/woodentable/ebony,
+/obj/item/chems/drinks/cans/panacea,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/medicinehut)
 "xp" = (
