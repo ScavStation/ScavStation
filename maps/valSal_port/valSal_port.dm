@@ -12,8 +12,8 @@
 	#include "areas/_areas.dm"
 	#include "areas/caverns.dm"
 	#include "areas/enclave.dm"
-	#include "areas/mtn_pass.dm"
-	#include "areas/mtn_top.dm"
+	//#include "areas/mtn_pass.dm"
+	//#include "areas/mtn_top.dm"
 	#include "areas/town.dm"
 
 	#include "jobs/_jobs.dm"
