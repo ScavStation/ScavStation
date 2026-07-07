@@ -68,6 +68,8 @@
 	if(!istype(move_intent))
 		move_intent = GET_DECL(move_intent)
 	. = ..()
+	if(. == INITIALIZE_HINT_QDEL)
+		return
 	ability_master = new(null, src)
 	refresh_ai_handler()
 	START_PROCESSING(SSmobs, src)
