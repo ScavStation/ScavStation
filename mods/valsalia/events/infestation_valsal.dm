@@ -32,7 +32,12 @@
 			max_number = 12
 			vermstring = "mice"
 		if(1)
-			spawn_types = list(/mob/living/simple_animal/frog)
+			spawn_types = list(
+				/mob/living/simple_animal/frog,
+				/mob/living/simple_animal/frog/brown,
+				/mob/living/simple_animal/frog/yellow,
+				/mob/living/simple_animal/frog/purple
+			)
 			max_number = 14
 			vermstring = "frogs"
 		if(2)
