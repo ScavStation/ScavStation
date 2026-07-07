@@ -58,6 +58,7 @@
 /datum/level_data/main_level/valSal_port/town
 	name = "ValSalian Port - Town"
 	level_id = "valSal_port_town"
+	ignore_multiz_outside_stacking = TRUE
 	level_generators = list(
 		/datum/random_map/noise/ore/poor,
 		/datum/random_map/noise/valSal_port/woods,
@@ -85,6 +86,7 @@
 /datum/level_data/main_level/valSal_port/enclave
 	name = "ValSalian Port - Enclave"
 	level_id = "valSal_port_enclave"
+	ignore_multiz_outside_stacking = TRUE
 	connected_levels = list(
 		"valSal_port_town" = EAST
 	)
