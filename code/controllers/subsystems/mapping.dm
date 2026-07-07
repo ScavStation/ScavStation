@@ -250,22 +250,28 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/proc/get_connected_levels(z, include_lateral = TRUE)
 	if(z <= 0  || z > length(levels_by_z))
 		CRASH("Invalid z-level supplied to get_connected_levels: [isnull(z) ? "NULL" : z]")
-	var/list/root_stack = list(z)
-	// Traverse up and down to get the multiz stack.
-	for(var/level = z, HasBelow(level), level--)
-		root_stack |= level-1
-	for(var/level = z, HasAbove(level), level++)
-		root_stack |= level+1
-	. = list()
-	// Check stack for any laterally connected neighbors.
-	if(include_lateral)
-		for(var/tz in root_stack)
+	// Worklist traversal: keep expanding both vertically and laterally until nothing new turns up.
+	// A single vertical pass followed by a  single lateral pass isn't enough,
+	// a level found laterally can itself have its own vertical stack and that would otherwise never get discovered.
+	var/list/found = list(z)
+	var/list/to_check = list(z)
+	while(length(to_check))
+		var/tz = to_check[to_check.len]
+		to_check.len--
+		if(HasBelow(tz) && !((tz - 1) in found))
+			found += (tz - 1)
+			to_check += (tz - 1)
+		if(HasAbove(tz) && !((tz + 1) in found))
+			found += (tz + 1)
+			to_check += (tz + 1)
+		if(include_lateral)
 			var/datum/level_data/level = levels_by_z[tz]
 			if(level)
-				var/list/cur_connected = level.get_all_connected_level_z()
-				if(length(cur_connected))
-					. |= cur_connected
-	. |= root_stack
+				for(var/cz in level.get_all_connected_level_z())
+					if(!(cz in found))
+						found += cz
+						to_check += cz
+	. = found
 
 ///Returns a list of all the level data of all the connected z levels to the given z.DBColumn
 /datum/controller/subsystem/mapping/proc/get_connected_levels_data(z)

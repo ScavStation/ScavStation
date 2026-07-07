@@ -570,7 +570,8 @@
 
 	// If we are in a multiz volume and not already inside, we return
 	// the outside value of the highest unenclosed turf in the stack.
-	if(HasAbove(z))
+	var/datum/level_data/level = SSmapping.levels_by_z[z]
+	if(HasAbove(z) && !level?.ignore_multiz_outside_stacking)
 		. =  OUTSIDE_YES // assume for the moment we're unroofed until we learn otherwise.
 		var/turf/top_of_stack = src
 		while(HasAbove(top_of_stack.z))

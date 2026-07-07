@@ -45,15 +45,18 @@ SUBSYSTEM_DEF(weather)
 
 ///Registers a given weather system obj for getting updates by SSweather.
 /datum/controller/subsystem/weather/proc/register_weather_system(var/obj/abstract/weather_system/WS)
+	//Mark all affected z-levels
+	var/list/affected = SSmapping.get_connected_levels(WS.z)
 	if(weather_by_z[WS.z])
 		CRASH("Trying to register another weather system on the same z-level([WS.z]) as an existing one!")
 	weather_systems |= WS
 
-	//Mark all affected z-levels
-	var/list/affected = SSmapping.get_connected_levels(WS.z)
 	for(var/Z in affected)
 		if(weather_by_z[Z])
 			CRASH("Trying to register another weather system on the same z-level([Z]) as an existing one!")
+		// weather_by_z is a plain list, writing to a numeric index past its current length silently no-ops instead of extending it, so grow it first.
+		if(weather_by_z.len < Z)
+			weather_by_z.len = Z
 		weather_by_z[Z] = WS
 
 ///Remove a weather systeam from the processing lists.
