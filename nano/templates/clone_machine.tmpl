@@ -1,0 +1,19 @@
+{{if data.state == 0}}
+	<b>Biomass:</b> {{:data.stored_meat}} / {{:data.required_meat}}<br>
+	<b>Genetic sample:</b>
+	{{if data.has_brain}}
+		{{:data.brain_name}}
+		<div class='item'>
+			{{:helper.link('Eject Sample', 'arrowreturn-1-w', {"action": "eject"}, null)}}
+		</div>
+	{{else}}
+		<span style='color: red'>None loaded — insert a brain (species only) or a whole severed head (full appearance).</span>
+	{{/if}}
+	<HR>
+	<div class='item'>
+		{{:helper.link('Begin Cloning', null, {"action": "start"}, (data.stored_meat >= data.required_meat && data.has_brain) ? null : "disabled")}}
+	</div>
+{{/if}}
+{{if data.state == 1}}
+	<span style='color: red'>Growing body for {{:data.brain_name}}... please wait.</span>
+{{/if}}

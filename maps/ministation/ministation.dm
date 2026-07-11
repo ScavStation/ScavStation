@@ -28,6 +28,7 @@ Twice...
 	#include "../random_ruins/exoplanet_ruins/crashed_pod/crashed_pod.dm"
 	#include "../random_ruins/exoplanet_ruins/summit/summit.dm"
 
+	#include "../../mods/cloning/_cloning.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/corporate/_corporate.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
