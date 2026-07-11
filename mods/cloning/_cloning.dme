@@ -1,0 +1,6 @@
+#ifndef MODPACK_CLONING
+#define MODPACK_CLONING
+// BEGIN_INCLUDE
+#include "basic_cloning.dm"
+// END_INCLUDE
+#endif
