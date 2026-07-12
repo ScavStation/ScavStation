@@ -82,8 +82,9 @@
 
 /obj/item/robot_module/drone/fibbot
 	hide_on_manifest  = 1
-	name = "custom robot module"
-	display_name = "Fib's custom module set"
+	icon_state        = "nomod"
+	name = "custom"
+	display_name = null
 	channels = list(
 		"Engineering" = 1
 	)
