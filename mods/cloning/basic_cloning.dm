@@ -57,6 +57,10 @@
 		/obj/item/stock_parts/power/apc/buildable = 1
 	)
 
+// Makes the circuitboard above printable at a circuit imprinter, same as any other buildable machine
+/datum/fabricator_recipe/imprinter/circuit/clone_machine
+	path = /obj/item/stock_parts/circuitboard/clone_machine
+
 #define CM_IDLE 0
 #define CM_BUILDING 1
 
