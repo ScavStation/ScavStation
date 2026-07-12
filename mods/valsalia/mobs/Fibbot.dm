@@ -1,4 +1,5 @@
 
+
 /obj/item/gun/energy/captain/fibgun
 	name = "integrated laser gun"
 	icon = 'icons/obj/guns/caplaser.dmi'
@@ -18,7 +19,11 @@
 		list(mode_name="kill", projectile_type=/obj/item/projectile/beam, indicator_color=COLOR_RED),
 		)
 
+/datum/matter_synth/fiberglass
+	name = "fiberglass Synthesizer"
 
+/datum/matter_synth/aluminium
+	name = "aluminium Synthesizer"
 
 /obj/item/robot_module/drone/fibbot
 	hide_on_manifest  = 1
@@ -36,6 +41,7 @@
 	)
 	has_nonslip_feet  = TRUE
 	has_magnetic_feet = TRUE
+
 	equipment = list(
 		/obj/item/gun/energy/captain/fibgun,
 		/obj/item/baton,
@@ -53,6 +59,8 @@
 		/obj/item/geiger,
 		/obj/item/stack/tape_roll/barricade_tape/engineering,
 		/obj/item/stack/tape_roll/barricade_tape/atmos,
+		/obj/item/organ/internal/augment/active/polytool/surgical,
+		/obj/item/gripper/organ,
 		/obj/item/gripper,
 		/obj/item/gripper/no_use/loader,
 		/obj/item/lightreplacer,
@@ -109,7 +117,7 @@
 	integrated_light_power = 2.5
 	integrated_light_range = 10
 	max_health = 65
-	speed = 2
+	speed = -2
 
 
 
@@ -176,3 +184,39 @@
 		SKILL_COMPUTER     = SKILL_EXPERT
 	)
 
+/obj/item/robot_module/drone/fibbot/finalize_synths()
+
+	var/datum/matter_synth/metal/metal =           locate() in synths
+	var/datum/matter_synth/glass/glass =           locate() in synths
+	var/datum/matter_synth/plasteel    =           locate() in synths
+	var/datum/matter_synth/wire/wire   =           locate() in synths
+
+	var/obj/item/matter_decompiler/MD = locate() in equipment
+	MD.metal = metal
+	MD.glass = glass
+
+	for(var/thing in list(
+		 /obj/item/stack/material/cyborg/steel,
+		 /obj/item/stack/material/cyborg/aluminium,
+		 /obj/item/stack/material/rods/cyborg,
+		 /obj/item/stack/tile/floor/cyborg,
+		 /obj/item/stack/tile/roof/cyborg,
+		 /obj/item/stack/material/cyborg/glass/reinforced
+		))
+		var/obj/item/stack/stack = locate(thing) in equipment
+		LAZYDISTINCTADD(stack.synths, metal)
+
+	for(var/thing in list(
+		 /obj/item/stack/material/cyborg/glass/reinforced,
+		 /obj/item/stack/material/cyborg/glass,
+		 /obj/item/stack/material/cyborg/fiberglass,
+		 /obj/item/stack/material/cyborg/plasteel
+		))
+		var/obj/item/stack/stack = locate(thing) in equipment
+		LAZYDISTINCTADD(stack.synths, glass)
+
+	var/obj/item/stack/cable_coil/cyborg/C = locate() in equipment
+	C.synths = list(wire)
+
+	var/obj/item/stack/material/cyborg/plasteel/PL = locate() in equipment
+	PL.synths = list(plasteel)
