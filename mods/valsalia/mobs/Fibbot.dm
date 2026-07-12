@@ -213,30 +213,6 @@
 
 
 
-
-
-
-
-/obj/item/robot_module/drone/construction
-	name = "construction drone module"
-	hide_on_manifest = 1
-	channels = list(
-		"Engineering" = 1
-	)
-
-	skills = list(
-		SKILL_LITERACY     = SKILL_ADEPT,
-		SKILL_ATMOS        = SKILL_EXPERT,
-		SKILL_ENGINES      = SKILL_EXPERT,
-		SKILL_CONSTRUCTION = SKILL_EXPERT,
-		SKILL_ELECTRICAL   = SKILL_EXPERT,
-		SKILL_PILOTING     = SKILL_EXPERT,
-		SKILL_CONSTRUCTION = SKILL_EXPERT,
-		SKILL_COMBAT       = SKILL_ADEPT,
-		SKILL_WEAPONS      = SKILL_ADEPT,
-		SKILL_COMPUTER     = SKILL_EXPERT
-	)
-
 /obj/item/robot_module/drone/fibbot/finalize_synths()
 
 	var/datum/matter_synth/metal/metal =           locate() in synths
