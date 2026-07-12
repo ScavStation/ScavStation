@@ -1,5 +1,61 @@
 
 
+/obj/item/gripper/no_use/attack_self(mob/user)
+	drop_gripped_item()
+	return
+
+
+
+/obj/item/gripper/fipper/resolve_attackby(atom/target, mob/living/user, params)
+	if(!wrapped)
+		if(istype(target, /mob/living))
+			user.attempt_hug(target)
+	. = ..()
+
+/obj/item/gripper/fipper
+	name = "modified robotic gripper"
+	desc = "modified robotic grasping tool. Seems to be made from two different units."
+	icon = 'mods/valsalia/icons/mob/robots/fipper.dmi'
+	icon_state = "fipper"
+	max_health = ITEM_HEALTH_NO_DAMAGE
+	item_flags = ITEM_FLAG_NO_BLUDGEON
+
+	//Has a list of items that it can hold.
+	can_hold = list(
+		/obj/item/card,
+		/obj/item/cash,
+		/obj/item/cell,
+		/obj/item/chems,
+		/obj/item/chems/ivbag,
+		/obj/item/disk,
+		/obj/item/drain,
+		/obj/item/frame,
+		/obj/item/fuel_assembly,
+		/obj/item/light,
+		/obj/item/organ,
+		/obj/item/parcel,
+		/obj/item/pill_bottle,
+		/obj/item/pipe,
+		/obj/item/radio,
+		/obj/item/remains,
+		/obj/item/robot_parts,
+		/obj/item/stack/cable_coil,
+		/obj/item/stack/material,
+		/obj/item/stack/material/aerogel/mapped/deuterium,
+		/obj/item/stack/material/aerogel/mapped/tritium,
+		/obj/item/stack/tile,
+		/obj/item/stock_parts,
+		/obj/item/stock_parts/circuitboard/airlock_electronics,
+		/obj/item/tank,
+		/obj/item/tracker_electronics,
+
+		)
+
+	wrapped = null // Item currently being held.
+
+
+
+
 /obj/item/gun/energy/captain/fibgun
 	name = "integrated laser gun"
 	icon = 'icons/obj/guns/caplaser.dmi'
@@ -59,9 +115,7 @@
 		/obj/item/geiger,
 		/obj/item/stack/tape_roll/barricade_tape/engineering,
 		/obj/item/stack/tape_roll/barricade_tape/atmos,
-		/obj/item/organ/internal/augment/active/polytool/surgical,
-		/obj/item/gripper/organ,
-		/obj/item/gripper,
+		/obj/item/gripper/fipper,
 		/obj/item/gripper/no_use/loader,
 		/obj/item/lightreplacer,
 		/obj/item/paint_sprayer,
@@ -103,7 +157,7 @@
 		SKILL_ELECTRICAL   = SKILL_PROF,
 		SKILL_COMBAT       = SKILL_ADEPT,
 		SKILL_WEAPONS      = SKILL_ADEPT,
-		SKILL_PILOTING     = SKILL_EXPERT,
+		SKILL_PILOT        = SKILL_EXPERT,
 		SKILL_COMPUTER     = SKILL_EXPERT
 	)
 
@@ -115,7 +169,7 @@
 	can_pull_size = ITEM_SIZE_STRUCTURE
 	can_pull_mobs = MOB_PULL_LARGER
 	integrated_light_power = 2.5
-	integrated_light_range = 10
+	integrated_light_range = 12
 	max_health = 65
 	speed = -2
 
