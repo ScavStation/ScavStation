@@ -16,7 +16,6 @@
 	name = "modified robotic gripper"
 	desc = "modified robotic grasping tool. Seems to be made from two different units."
 	icon = 'mods/valsalia/icons/mob/robots/fipper.dmi'
-	icon_state = "fipper"
 	max_health = ITEM_HEALTH_NO_DAMAGE
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 
@@ -157,8 +156,8 @@
 		SKILL_ELECTRICAL   = SKILL_PROF,
 		SKILL_COMBAT       = SKILL_ADEPT,
 		SKILL_WEAPONS      = SKILL_ADEPT,
-		SKILL_PILOT        = SKILL_EXPERT,
-		SKILL_COMPUTER     = SKILL_EXPERT
+		SKILL_COMPUTER     = SKILL_EXPERT,
+		SKILL_PILOT        = SKILL_EXPERT
 	)
 
 /mob/living/silicon/robot/drone/construction/fibbot
