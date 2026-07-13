@@ -546,6 +546,7 @@
 
 /area/ministation/Murphy/maint/midMaint
 	name = "\improper Murphy - Midpoint Maintenance Corridor"
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_MAINTENANCE
 	icon_state = "dark_blue"
 
 /area/ministation/Murphy/maint/Mawreek
