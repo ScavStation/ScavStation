@@ -173,6 +173,10 @@
 	// Whether or not this level permits things like graffiti and filth to persist across rounds.
 	var/permit_persistence = FALSE
 
+	/// Maps stack levels on top of each other at compile-time
+	/// Set this to make turf/is_outside() ignore whatever is directly above this level when deciding if a turf here is exposed to the sky
+	var/ignore_multiz_outside_stacking = FALSE
+
 /datum/level_data/New(var/_z_level, var/defer_level_setup = FALSE)
 	. = ..()
 	level_z = _z_level

@@ -22,11 +22,11 @@
 	var/list/mobs_to_spawn = list()
 
 /datum/daycycle/valSal_port
-	cycle_duration = 1 HOURS // 1 hour of daylight, 1 hour of night
+	cycle_duration = 2 HOURS // 1 hour of daylight, 1 hour of night
 
 // Randomized time of day to start at.
 /datum/daycycle/valSal_port/New()
-	time_in_cycle = rand(cycle_duration)
+	time_in_cycle = 0
 	..()
 
 /datum/level_data/main_level/valSal_port/get_subtemplate_areas(template_category, blacklist, whitelist)
@@ -58,6 +58,7 @@
 /datum/level_data/main_level/valSal_port/town
 	name = "ValSalian Port - Town"
 	level_id = "valSal_port_town"
+	ignore_multiz_outside_stacking = TRUE
 	level_generators = list(
 		/datum/random_map/noise/ore/poor,
 		/datum/random_map/noise/valSal_port/woods,
@@ -85,6 +86,7 @@
 /datum/level_data/main_level/valSal_port/enclave
 	name = "ValSalian Port - Enclave"
 	level_id = "valSal_port_enclave"
+	ignore_multiz_outside_stacking = TRUE
 	connected_levels = list(
 		"valSal_port_town" = EAST
 	)
@@ -128,6 +130,34 @@
 		/datum/random_map/noise/ore/rich
 	)
 
+/datum/level_data/main_level/valSal_port/above_town
+	name = "ValSalian Port - Above Town"
+	level_id = "valSal_port_above_town"
+	connected_levels = list(
+		"valSal_port_mtntop" = EAST
+	)
+
+/datum/level_data/main_level/valSal_port/mtntop
+	name = "ValSalian Port - mountain top"
+	level_id = "valSal_port_mtntop"
+	connected_levels = list(
+		//"valSal_port_above_town" = EAST,
+		"valSal_port_mtnpass" = WEST
+	)
+	level_generators = list(
+		/datum/random_map/noise/ore/rich
+	)
+
+/datum/level_data/main_level/valSal_port/mtnpass
+	name = "ValSalian Port - mountain pass"
+	level_id = "valSal_port_mtnpass"
+	connected_levels = list(
+		"valSal_port_mtntop" = EAST
+	)
+	level_generators = list(
+		/datum/random_map/noise/ore/rich
+	)
+
 /obj/abstract/level_data_spawner/valSal_port_town
 	level_data_type = /datum/level_data/main_level/valSal_port/town
 
@@ -136,3 +166,9 @@
 
 /obj/abstract/level_data_spawner/valSal_port_caverns
 	level_data_type = /datum/level_data/main_level/valSal_port/caverns
+
+/obj/abstract/level_data_spawner/valSal_port_mtntop
+	level_data_type = /datum/level_data/main_level/valSal_port/mtntop
+
+/obj/abstract/level_data_spawner/valSal_port_mtnpass
+	level_data_type = /datum/level_data/main_level/valSal_port/mtnpass

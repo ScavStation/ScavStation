@@ -14,6 +14,12 @@
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/suit/suitcoat.dmi'
 
+/obj/item/clothing/suit/jacket/yinglet/moon
+	name = "Moon Vest"
+	desc = "A vest that once belonged to someone's son."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/moonvest.dmi'
+
 /obj/item/clothing/suit/jacket/yinglet/flowery
 	name = "flowery gown"
 	desc = "A light blue gown with decorative floral motifs in yellow."

@@ -25,17 +25,16 @@ INITIALIZE_IMMEDIATE(/obj/abstract/weather_system)
 	if(SSweather.initialized)
 		addtimer(CALLBACK(src, PROC_REF(init_weather)), 0)
 
-// Start the weather effects from the highest point; they will propagate downwards during update.
+// Update every affected z-level so that each turf decides for itself whether it's actually exposed, so levels below/above an outdoor level are not affected.
 /obj/abstract/weather_system/proc/init_weather()
 	// Track all z-levels.
-	for(var/highest_z in affecting_zs)
+	for(var/target_z in affecting_zs)
 		var/turfcount = 0
-		if(HasAbove(highest_z))
-			continue
-		// Update turf weather.
-		var/datum/level_data/level = SSmapping.levels_by_z[highest_z]
-		for(var/turf/T as anything in block(level.level_inner_min_x, level.level_inner_min_y, highest_z, level.level_inner_max_x, level.level_inner_max_y, highest_z))
+		var/datum/level_data/level = SSmapping.levels_by_z[target_z]
+		for(var/turf/T as anything in block(level.level_inner_min_x, level.level_inner_min_y, target_z, level.level_inner_max_x, level.level_inner_max_y, target_z))
+			// Force a fresh is_outside() read. A stale cached value from before the level's area status was finalized would otherwise stick permanently.
+			T.last_outside_check = OUTSIDE_UNCERTAIN
 			T.update_weather(src)
 			turfcount++
 			CHECK_TICK
-		log_debug("Initialized weather for [turfcount] turf\s from z[highest_z].")
+		log_debug("Initialized weather for [turfcount] turf\s from z[target_z].")
