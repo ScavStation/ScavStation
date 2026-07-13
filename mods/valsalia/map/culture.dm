@@ -69,6 +69,14 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		"t"
 	)
 
+/decl/background_detail/heritage/yinglet/misc
+	name = "Miscellaneous Faction Yinglet"
+	description = "You come from some major group that isn't the main Enclave system, isn't one of the main Arcologies, and isn't a tiny rural colony world. \
+	But you also aren't a lone wanderer through the void with no homeland to call your own. It's probably a decently-sized faction, one you are probably proud of, \
+	and others likely have heard of it."
+	uid = "scav_background_heritage_misc_faction"
+
+
 /decl/background_detail/heritage/yinglet/get_random_name(var/gender)
 	// First syllable.
 	. = pick(global.alphabet_no_vowels)
