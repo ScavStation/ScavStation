@@ -115,7 +115,6 @@
 #include "music_tracks\lute\sofou_unga_astin_min.dm"
 #include "music_tracks\lute\unser_liebe_fraue.dm"
 #include "species\languageOldYing.dm"
-#include "mobs\Fibbot.dm"
 
 // END_INCLUDE
 #endif
