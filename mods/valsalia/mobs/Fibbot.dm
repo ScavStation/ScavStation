@@ -62,17 +62,13 @@
 	desc = "modified two shot energy gun"
 	slot_flags = SLOT_LOWER_BODY //too unusually shaped to fit in a holster
 	w_class = ITEM_SIZE_NORMAL
-	projectile_type = /obj/item/projectile/beam/stun
+	projectile_type = /obj/item/projectile/beam/stun/shock
 	origin_tech = null
 	max_shots = 2 //to compensate a bit for self-recharging
 	one_hand_penalty = 0
 	self_recharge = 1
 
-	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, indicator_color=COLOR_CYAN),
-		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock, indicator_color=COLOR_YELLOW),
-		list(mode_name="kill", projectile_type=/obj/item/projectile/beam, indicator_color=COLOR_RED),
-		)
+	firemodes = list()
 
 /datum/matter_synth/fiberglass
 	name = "fiberglass Synthesizer"
@@ -140,13 +136,15 @@
 
 	)
 	synths = list(
+	synths = list(
 		/datum/matter_synth/fiberglass =    12000,
-		/datum/matter_synth/aluminium =    12000,
-		/datum/matter_synth/metal =   55000,
-		/datum/matter_synth/glass =   55000,
-		/datum/matter_synth/wood =    12000,
-		/datum/matter_synth/plastic = 22000,
-		/datum/matter_synth/wire =    60
+		/datum/matter_synth/aluminium =     12000,
+		/datum/matter_synth/metal =   25000,
+		/datum/matter_synth/glass =   25000,
+		/datum/matter_synth/wood =    10000,
+		/datum/matter_synth/plastic = 10000,
+		/datum/matter_synth/wire =    30
+	)
 	)
 	emag = /obj/item/baton/robot/electrified_arm
 	skills = list(

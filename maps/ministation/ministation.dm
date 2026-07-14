@@ -73,6 +73,7 @@ Twice...
 	#include "../away/smugglers/smugglers.dm"
 	#include "../away/slavers/slavers_base.dm"
 	#include "../away/unishi/unishi.dm"
+	#include "../away/murphy/murphy.dm"
 	#include "../away/yacht/yacht.dm"
 	#include "../away/liberia/liberia.dm"
 

@@ -1,0 +1,13798 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/space,
+/area/space)
+"ab" = (
+/obj/machinery/recharger/wallcharger,
+/turf/wall/titanium,
+/area/Murphy/ai)
+"ac" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "room_fibonacci"
+	},
+/turf/floor/plating,
+/area/Murphy/ai)
+"ad" = (
+/turf/wall/titanium,
+/area/Murphy/common)
+"ae" = (
+/obj/item/book/manual/medical_diagnostics_manual,
+/obj/item/cell/super/empty,
+/obj/item/mollusc/clam,
+/obj/structure/table/holotable,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"af" = (
+/obj/structure/bed/chair/comfy/brown{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"ah" = (
+/obj/machinery/media/jukebox,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"ai" = (
+/obj/random/pottedplant,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"aj" = (
+/obj/structure/closet/crate,
+/obj/random/powercell,
+/obj/random/powercell,
+/obj/random/maintenance,
+/obj/random/maintenance,
+/obj/random/maintenance/cargo,
+/obj/random/maintenance/engineering,
+/obj/random/tech_supply,
+/obj/random/useful,
+/obj/item/modular_computer/holotablet,
+/obj/random/mre/drink,
+/obj/random/mre/drink,
+/obj/item/rig/industrial,
+/obj/item/rig_module/ai_container,
+/obj/item/rig_module/datajack,
+/obj/item/rig_module/device/rcd,
+/obj/item/rig_module/vision/multi,
+/obj/item/rig_module/maneuvering_jets,
+/obj/item/rig_module/grenade_launcher/cleaner,
+/obj/item/rig_module/cooling_unit,
+/obj/item/clothing/glasses/chameleon,
+/obj/item/clothing/glasses/welding/superior,
+/obj/machinery/button/windowtint{
+	id_tag = "room_fibonacci";
+	dir = 8;
+	range = 9
+	},
+/obj/item/stock_parts/circuitboard/teleporter,
+/obj/item/stock_parts/circuitboard/teleporter,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"ak" = (
+/obj/machinery/recharge_station,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/Murphy/ai)
+"al" = (
+/turf/floor/carpet/blue2,
+/area/Murphy/ai)
+"am" = (
+/obj/item/chems/drinks/cans/thirteenloko,
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"an" = (
+/turf/floor/greengrid,
+/area/Murphy/ai)
+"ao" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"ap" = (
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"ar" = (
+/turf/wall,
+/area/Murphy/ai)
+"as" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"at" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/table/reinforced,
+/obj/item/duct_tape,
+/obj/item/stack/tape_roll/duct_tape,
+/obj/item/toolbox/repairs{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/obj/random/toolbox{
+	pixel_x = 7;
+	pixel_y = -3
+	},
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"au" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/item/mollusc/clam/fished,
+/obj/item/mollusc/clam/fished,
+/obj/item/mollusc/clam/fished,
+/obj/item/mollusc/clam/fished,
+/obj/item/mollusc/clam/fished,
+/obj/item/mollusc/clam/fished,
+/obj/item/mollusc/clam/fished,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"av" = (
+/obj/machinery/cryopod/robot,
+/obj/machinery/computer/cryopod/robot{
+	pixel_x = -5;
+	pixel_y = -27
+	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/ai)
+"aw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"ax" = (
+/turf/wall/titanium,
+/area/Murphy/chem)
+"ay" = (
+/turf/wall/r_wall,
+/area/Murphy/chem)
+"az" = (
+/obj/machinery/door/airlock/glass/research,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor,
+/area/Murphy/ai)
+"aA" = (
+/obj/structure/closet/secure_closet/chemical{
+	req_access = newlist()
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	req_access = newlist()
+	},
+/obj/item/box/pillbottles,
+/obj/item/box/beakers,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"aB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/closet/crate/rcd,
+/obj/machinery/camera/network/medbay{
+	name = "Murphy medbay"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"aC" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"aD" = (
+/obj/machinery/door/airlock/glass/research{
+	dir = 4;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor,
+/area/Murphy/chem)
+"aE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/camera/network/hallway{
+	name = "murphy hallway"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"aF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"aG" = (
+/turf/wall,
+/area/Murphy/medical)
+"aH" = (
+/obj/structure/iv_drip,
+/obj/structure/closet/secure_closet/medical1{
+	req_access = newlist()
+	},
+/obj/item/bodybag,
+/obj/item/bodybag,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/belt/medical/emt,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"aI" = (
+/obj/structure/table,
+/obj/item/box/freezer,
+/obj/item/firstaid/adv,
+/obj/item/firstaid/adv,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"aJ" = (
+/obj/structure/table,
+/obj/structure/closet/medical_wall/filled{
+	pixel_y = 32
+	},
+/obj/item/defibrillator/loaded,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/camera/network/medbay{
+	name = "Murphy medbay"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"aK" = (
+/obj/machinery/sleeper/standard,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"aL" = (
+/obj/structure/rack,
+/obj/item/chems/chem_disp_cartridge/eyedrops,
+/obj/item/chems/chem_disp_cartridge/copper,
+/obj/item/chems/chem_disp_cartridge/acetone,
+/obj/item/chems/syringe/antitoxin,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"aM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"aN" = (
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"aO" = (
+/obj/machinery/smartfridge/chemistry,
+/turf/floor/tiled/dark,
+/area/Murphy/chem)
+"aP" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"aQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"aR" = (
+/obj/structure/hygiene/sink{
+	dir = 8;
+	pixel_x = -11
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"aT" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"aU" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"aV" = (
+/obj/structure/table/reinforced,
+/obj/item/chems/spray/cleaner,
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/chem)
+"aW" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"aX" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"aY" = (
+/obj/machinery/door/airlock/glass/research{
+	dir = 4;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor,
+/area/Murphy/medical)
+"aZ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"ba" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"bb" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"bc" = (
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24;
+	req_access = newlist()
+	},
+/obj/structure/table/reinforced,
+/obj/item/chems/glass/beaker/large,
+/obj/item/chems/dropper,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"bd" = (
+/turf/wall,
+/area/Murphy/chem)
+"be" = (
+/obj/structure/closet/firecloset,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bg" = (
+/obj/machinery/bodyscanner{
+	dir = 8;
+	id_tag = "mediscanner1"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"bh" = (
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"bi" = (
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"bj" = (
+/obj/machinery/chem_master,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"bk" = (
+/obj/machinery/network/relay,
+/turf/floor,
+/area/Murphy/common)
+"bl" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/floor/plating,
+/area/Murphy/common)
+"bm" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 4
+	},
+/obj/structure/bed/chair/armchair/black,
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"bn" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/random/snack,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"bo" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bp" = (
+/obj/machinery/vending/wallmed1{
+	markup = 0;
+	pixel_y = 32
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bq" = (
+/obj/structure/railing/mapped,
+/obj/structure/stairs/east,
+/turf/floor,
+/area/Murphy/common)
+"br" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/closet/hydrant,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bs" = (
+/obj/machinery/camera/network/engineering,
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/down/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/zpipe/down/supply{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "32-2"
+	},
+/obj/structure/ladder,
+/turf/open,
+/area/Murphy/common)
+"bt" = (
+/obj/structure/bed/sofa/left/black,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/item/food/popcorn,
+/turf/floor/carpet/red,
+/area/Murphy/living)
+"bu" = (
+/obj/structure/table/glass,
+/obj/item/chems/glass/rag,
+/obj/item/box/gloves{
+	pixel_x = 1
+	},
+/obj/item/box/masks{
+	pixel_x = -3;
+	pixel_y = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"bv" = (
+/obj/effect/floor_decal/carpet/red,
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"bw" = (
+/obj/machinery/vending/coffee{
+	markup = 0
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"bx" = (
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24;
+	req_access = newlist()
+	},
+/obj/random/clothing,
+/obj/random/clothing,
+/obj/random/clothing,
+/obj/random/clothing,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/random/drinkbottle,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/rods/ten,
+/obj/machinery/network/relay{
+	initial_network_id = "molluscnet"
+	},
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"by" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/hatch,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bC" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bE" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 8
+	},
+/obj/structure/bed/chair/armchair/black{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"bG" = (
+/turf/wall/r_wall,
+/area/Murphy/living)
+"bH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bI" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bJ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/sign/warning/nosmoking_1{
+	dir = 8;
+	pixel_x = 32
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bK" = (
+/obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/zpipe/up/supply{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "16-0"
+	},
+/obj/structure/cable/yellow,
+/obj/structure/ladder,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bL" = (
+/turf/floor/reinforced/airless,
+/area/Murphy/exterior)
+"bO" = (
+/obj/machinery/floodlight,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bP" = (
+/turf/open,
+/area/Murphy/common)
+"bQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/floor/carpet/red,
+/area/Murphy/living)
+"bR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor/carpet/red,
+/area/Murphy/living)
+"bS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor/carpet/red,
+/area/Murphy/living)
+"bT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet/red{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"bU" = (
+/obj/machinery/door/airlock/glass/research{
+	dir = 4;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/living)
+"bV" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"bW" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 8
+	},
+/obj/machinery/camera/network/security{
+	dir = 8;
+	name = "Murphy Living Room"
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"bX" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/floor,
+/area/Murphy/common)
+"bY" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/camera/network/engineering,
+/turf/floor,
+/area/Murphy/common)
+"bZ" = (
+/obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor,
+/area/Murphy/common)
+"ca" = (
+/turf/floor/carpet/red,
+/area/Murphy/living)
+"cb" = (
+/obj/structure/sign/department/chemistry{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"cc" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24;
+	req_access = newlist()
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"cd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"ce" = (
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/floor,
+/area/Murphy/common)
+"cf" = (
+/obj/machinery/portable_atmospherics/canister/chlorine,
+/turf/floor,
+/area/Murphy/common)
+"cg" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/floor,
+/area/Murphy/common)
+"ch" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"ci" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"cj" = (
+/obj/machinery/door/airlock/glass/research{
+	dir = 4;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor,
+/area/Murphy/common)
+"ck" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor,
+/area/Murphy/common)
+"cl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/floor,
+/area/Murphy/common)
+"cm" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/floor,
+/area/Murphy/common)
+"cn" = (
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet/red{
+	dir = 1
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"co" = (
+/obj/machinery/computer/modular/telescreen/preset/generic{
+	dir = 1
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"cp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"cq" = (
+/obj/structure/tank_rack,
+/turf/floor,
+/area/Murphy/common)
+"cr" = (
+/turf/wall/r_wall,
+/area/Murphy/meeting)
+"cs" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/port_gen/pacman/super/potato,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"ct" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"cu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"cv" = (
+/obj/machinery/camera/network/security,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"cw" = (
+/obj/structure/bed/sofa/middle/black,
+/turf/floor/carpet/red,
+/area/Murphy/living)
+"cx" = (
+/turf/wall/r_wall,
+/area/Murphy/robotics)
+"cy" = (
+/obj/machinery/floorlayer,
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"cz" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cA" = (
+/obj/structure/bed/chair/office/comfy/black,
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cB" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = newlist()
+	},
+/obj/structure/closet/crate/bin,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/obj/item/pen/fancy,
+/obj/item/pen/fancy,
+/obj/item/pen/green,
+/obj/item/pen/green,
+/obj/item/pen/green,
+/obj/item/folder/yellow,
+/obj/item/folder/yellow,
+/obj/item/folder/yellow,
+/obj/item/folder/cyan,
+/obj/item/pen/reagent/sleepy,
+/obj/random/clipboard,
+/obj/item/pen/fancy,
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cC" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/floor/plating,
+/area/Murphy/meeting)
+"cD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"cE" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"cF" = (
+/obj/structure/table,
+/obj/machinery/button/windowtint{
+	id_tag = "room_chemistry"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"cG" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = newlist()
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/obj/machinery/recycler{
+	uncreated_component_parts = list(/obj/item/stock_parts/micro_laser/ultra=1,/obj/item/stock_parts/matter_bin/super=1,/obj/item/stock_parts/manipulator/pico=2);
+	maximum_component_parts = list(/obj/item/stock_parts = 15)
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"cH" = (
+/obj/machinery/recharge_station,
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"cI" = (
+/turf/wall,
+/area/Murphy/meeting)
+"cJ" = (
+/obj/machinery/drone_fabricator/maintenance,
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"cK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "bulb1"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"cL" = (
+/turf/wall/titanium,
+/area/Murphy/robotics)
+"cM" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 4
+	},
+/obj/machinery/camera/network/security{
+	dir = 4;
+	name = "Murphy Meeting Room"
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cN" = (
+/obj/structure/table/woodentable,
+/obj/item/paper_bin,
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cO" = (
+/obj/structure/table/woodentable,
+/obj/item/deck/cards,
+/obj/item/dice/d4{
+	pixel_x = 11
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cP" = (
+/obj/structure/table/woodentable,
+/obj/item/dice/d100,
+/obj/item/dice/d12{
+	pixel_x = -9;
+	pixel_y = -9
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cQ" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cR" = (
+/obj/machinery/door/airlock/glass/research{
+	dir = 4;
+	icon_state = "closed"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor,
+/area/Murphy/meeting)
+"cS" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/floor/plating,
+/area/Murphy/robotics)
+"cT" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"cU" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"cV" = (
+/turf/wall/titanium,
+/area/Murphy/medical)
+"cW" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cX" = (
+/obj/structure/table/woodentable,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/dice,
+/obj/item/dice{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cY" = (
+/obj/structure/table/woodentable,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/board{
+	pixel_y = 4
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"cZ" = (
+/obj/structure/table/woodentable,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/item/dice/d10{
+	pixel_x = -14
+	},
+/obj/item/dice/d20{
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/obj/item/dice/d8{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"da" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"db" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/plating,
+/area/Murphy/meeting)
+"dc" = (
+/obj/machinery/fabricator/pipe/filled{
+	anchored = 1
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"dd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"de" = (
+/obj/random/plush/fox,
+/turf/floor/carpet/blue2,
+/area/Murphy/ai)
+"df" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 1
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"dg" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22;
+	req_access = newlist()
+	},
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"dh" = (
+/turf/floor/tiled,
+/area/Murphy/meeting)
+"di" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "room_theater"
+	},
+/turf/floor/plating,
+/area/Murphy/living)
+"dj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"dk" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "prototype_chamber_blast"
+	},
+/obj/machinery/door/airlock/glass/research{
+	dir = 4;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor,
+/area/Murphy/robotics)
+"dl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"dm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"dn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"do" = (
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"dp" = (
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"dq" = (
+/turf/wall,
+/area/Murphy/rnd)
+"dr" = (
+/turf/wall/r_wall,
+/area/Murphy/common)
+"ds" = (
+/turf/floor,
+/area/Murphy/common)
+"dt" = (
+/obj/machinery/light,
+/obj/machinery/camera/network/engineering{
+	dir = 1;
+	name = "Murphy Lab"
+	},
+/obj/machinery/fabricator/pipe/disposal/filled{
+	anchored = 1
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"du" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22;
+	req_access = newlist()
+	},
+/obj/structure/table/glass,
+/obj/item/rcd{
+	pixel_y = 5
+	},
+/obj/item/rcd_ammo/large,
+/obj/item/rcd_ammo/large{
+	pixel_x = -8;
+	pixel_y = -6
+	},
+/obj/item/rcd_ammo/large{
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"dv" = (
+/obj/machinery/drone_fabricator/construction,
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"dw" = (
+/obj/effect/shuttle_landmark/nav_unishi/nav2,
+/turf/space,
+/area/space)
+"dx" = (
+/obj/machinery/computer/modular/preset/aislot/research,
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dy" = (
+/obj/machinery/computer/design_console{
+	initial_network_id = "molluscnet"
+	},
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dz" = (
+/obj/machinery/fabricator,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dA" = (
+/obj/machinery/design_database,
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dB" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = newlist()
+	},
+/obj/machinery/fabricator/robotics{
+	initial_network_id = "molluscnet"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dC" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/floor/plating,
+/area/Murphy/rnd)
+"dD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"dE" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/bluegrid,
+/area/Murphy/ai)
+"dF" = (
+/turf/wall,
+/area/Murphy/hydro)
+"dG" = (
+/turf/unsimulated/dark_filler,
+/area/space)
+"dH" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/camera/network/command{
+	dir = 1;
+	initial_access = null;
+	name = "murphy AI Core"
+	},
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"dI" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"dJ" = (
+/turf/wall/titanium,
+/area/Murphy/hydro)
+"dK" = (
+/obj/structure/bed/chair/office{
+	dir = 1
+	},
+/obj/machinery/camera/network/research{
+	dir = 4;
+	name = "Murphy Research"
+	},
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dL" = (
+/obj/structure/bed/chair/office{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dN" = (
+/obj/structure/bed/chair/office{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dP" = (
+/obj/machinery/door/airlock/glass/research{
+	dir = 4;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor,
+/area/Murphy/rnd)
+"dQ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"dR" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/turf/floor/plating,
+/area/Murphy/hydro)
+"dS" = (
+/obj/machinery/vending/hydroseeds,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = newlist()
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"dT" = (
+/obj/machinery/vending/hydronutrients,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"dU" = (
+/mob/living/simple_animal/passive/mouse{
+	name = "Li'l Turing"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"dV" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"dW" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "room_hydroponics"
+	},
+/turf/floor/plating,
+/area/Murphy/hydro)
+"dX" = (
+/obj/machinery/fabricator/imprinter,
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dY" = (
+/obj/machinery/destructive_analyzer,
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"dZ" = (
+/obj/machinery/fabricator/protolathe,
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"ea" = (
+/obj/structure/table/glass,
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22;
+	req_access = newlist()
+	},
+/obj/item/stack/material/gemstone/mapped/diamond/ten,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/ingot/mapped/silver/ten,
+/obj/item/stack/material/pane/mapped/glass/fifty,
+/obj/item/stack/material/sheet/reinforced/mapped/fiberglass/fifty,
+/obj/item/integrated_circuit_printer,
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"eb" = (
+/obj/machinery/fabricator/replicator,
+/turf/floor/tiled,
+/area/Murphy/rnd)
+"ec" = (
+/obj/random/plush,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"ed" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"ee" = (
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"ef" = (
+/obj/machinery/smartfridge,
+/turf/floor,
+/area/Murphy/hydro)
+"eg" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/medbay{
+	name = "Murphy Hydro";
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"eh" = (
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"ei" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/machinery/button/windowtint{
+	id_tag = "room_theater";
+	dir = 4;
+	pixel_y = 10;
+	pixel_x = -24
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"ej" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/plantspray/weeds,
+/obj/item/plantspray/weedkiller,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"ek" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"el" = (
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"em" = (
+/obj/structure/window/borosilicate_reinforced{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"en" = (
+/turf/floor/reinforced/airless,
+/area/Murphy/ai)
+"eo" = (
+/obj/machinery/door/firedoor,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"ep" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	target_pressure = 200;
+	dir = 8
+	},
+/obj/machinery/button/access/interior{
+	id_tag = "l2_murphy_west_airlock";
+	name = "interior access button";
+	pixel_y = -20;
+	dir = 1;
+	pixel_x = -10
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"eq" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"er" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"es" = (
+/mob/living/simple_animal/passive/mouse/snaprat{
+	name = "Li'l Ritchie"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"et" = (
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
+	},
+/obj/item/trash/snack_bowl,
+/mob/living/simple_animal/passive/mouse/snaprat{
+	name = "Li'l Leibniz"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"eu" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/carpet,
+/area/Murphy/common)
+"ev" = (
+/obj/machinery/alarm{
+	req_access = newlist();
+	pixel_y = 23
+	},
+/obj/structure/bed/chair/armchair/black,
+/turf/floor/carpet,
+/area/Murphy/common)
+"ew" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = newlist()
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/structure/table/glass,
+/obj/structure/flora/pottedplant/bamboo{
+	pixel_y = 12
+	},
+/turf/floor/carpet,
+/area/Murphy/common)
+"ex" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/obj/effect/floor_decal/carpet/red{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"ey" = (
+/turf/wall/titanium,
+/area/Murphy/meeting)
+"ez" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced,
+/turf/floor/plating,
+/area/Murphy/hydro)
+"eA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"eB" = (
+/mob/living/simple_animal/passive/mouse/snaprat{
+	name = "Li'l Pascal"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"eC" = (
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
+	},
+/mob/living/simple_animal/passive/mouse/snaprat{
+	name = "Li'l Euclid"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"eD" = (
+/turf/floor/carpet,
+/area/Murphy/common)
+"eE" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/floor/carpet,
+/area/Murphy/common)
+"eF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet/red{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"eG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"eH" = (
+/obj/machinery/door/airlock/glass/research{
+	dir = 4;
+	icon_state = "closed"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/floor,
+/area/Murphy/hydro)
+"eI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"eJ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"eK" = (
+/mob/living/simple_animal/passive/mouse/snaprat{
+	name = "L'il Fermat"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"eL" = (
+/mob/living/simple_animal/passive/mouse{
+	name = "Li'l Dijkstra VI"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"eM" = (
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
+	},
+/obj/structure/window/borosilicate_reinforced,
+/mob/living/simple_animal/passive/mouse/snaprat{
+	name = "L'il Lovelace"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"eN" = (
+/obj/structure/closet/crate/bin,
+/obj/item/circular_saw,
+/obj/item/scalpel,
+/obj/random/smokes,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/box/animal_cubes/monkeys,
+/obj/item/scanner/xenobio,
+/obj/item/chems/spray/extinguisher,
+/obj/item/chems/spray/extinguisher,
+/turf/floor/carpet,
+/area/Murphy/common)
+"eO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/floor/tiled/white,
+/area/Murphy/common)
+"eP" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"eQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "bulb1"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"eR" = (
+/obj/structure/sign/warning/radioactive,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"eS" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"eT" = (
+/obj/machinery/botany/editor,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"eU" = (
+/mob/living/simple_animal/passive/mouse/snaprat{
+	name = "Li'l Euler"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"eV" = (
+/obj/machinery/door/window/eastleft,
+/obj/machinery/door/window/westleft,
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"eW" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"eX" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet/red{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"eY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet/red{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"eZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fa" = (
+/obj/machinery/vending/snack{
+	markup = 0
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fb" = (
+/obj/machinery/seed_extractor,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"fc" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"fd" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22;
+	req_access = newlist()
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"fe" = (
+/obj/machinery/teleport/station{
+	dir = 4
+	},
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"ff" = (
+/obj/machinery/botany/extractor,
+/obj/machinery/light,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"fg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/hallway{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fh" = (
+/obj/structure/closet/hydrant,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/aquatic,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fj" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fk" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fl" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fm" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fn" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/vending/wallmed1{
+	markup = 0;
+	pixel_y = 32
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fp" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/mob/living/simple_animal/passive/mouse/snaprat{
+	name = "Li'l Elicot XXXVII"
+	},
+/turf/floor/straw,
+/area/Murphy/ratcage)
+"fq" = (
+/obj/machinery/door/airlock/external/glass{
+	autoset_access = 0;
+	id_tag = "l2_murphy_west_airlock_interior";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/floor,
+/area/Murphy/common)
+"fr" = (
+/obj/machinery/chemical_dispenser/full,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"fs" = (
+/turf/wall,
+/area/Murphy/common)
+"ft" = (
+/obj/machinery/door/airlock/science,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/white,
+/area/Murphy/common)
+"fu" = (
+/obj/machinery/door/airlock/external/glass{
+	locked = 1;
+	id_tag = "l2_murphy_west_airlock_exterior";
+	autoset_access = 0
+	},
+/turf/floor,
+/area/Murphy/common)
+"fv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fx" = (
+/obj/machinery/computer/shuttle_control/explore/murphy,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fy" = (
+/obj/structure/table/woodentable,
+/obj/item/flashlight/lamp,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fz" = (
+/obj/structure/closet/jcloset,
+/turf/floor/tiled/white,
+/area/Murphy/common)
+"fA" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/mirror{
+	pixel_y = 34
+	},
+/obj/structure/hygiene/sink{
+	pixel_y = 11
+	},
+/obj/structure/table/marble,
+/turf/floor/tiled/white,
+/area/Murphy/common)
+"fB" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 1;
+	id_tag = "l2_murphy_west_vent"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fC" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 1;
+	id_tag = "l2_murphy_west_vent"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fD" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/external_air{
+	dir = 1;
+	id_tag = "l2_murphy_west_vent"
+	},
+/obj/machinery/airlock_sensor{
+	id_tag = "l2_murphy_west_sensor";
+	pixel_y = -19;
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fE" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 1
+	},
+/obj/effect/shuttle_landmark/medical_dock,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 1;
+	id_tag = "l2_murphy_west_airlock";
+	tag_airpump = "l2_murphy_west_vent";
+	tag_chamber_sensor = "l2_murphy_west_sensor";
+	tag_exterior_door = "l2_murphy_west_airlock_exterior";
+	tag_interior_door = "l2_murphy_west_airlock_interior";
+	pixel_y = -27
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fF" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/sign/warning/radioactive{
+	dir = 8;
+	pixel_x = 34
+	},
+/obj/structure/sign/warning/high_voltage{
+	dir = 4;
+	pixel_x = -34
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"fH" = (
+/obj/structure/hygiene/toilet{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/floor/tiled/white,
+/area/Murphy/common)
+"fI" = (
+/obj/machinery/light,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/floor/tiled/white,
+/area/Murphy/common)
+"fJ" = (
+/turf/floor/tiled/white,
+/area/Murphy/common)
+"fK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"fL" = (
+/turf/wall/r_wall,
+/area/Murphy/smresearch)
+"fM" = (
+/obj/machinery/door/blast/regular/open{
+	id_tag = "Biohazard";
+	name = "Biohazard Shutter"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/machinery/door/airlock/highsecurity{
+	name = "DANGER - SUPERMATTER"
+	},
+/turf/floor,
+/area/Murphy/smresearch)
+"fN" = (
+/turf/wall/titanium,
+/area/Murphy/ai)
+"fO" = (
+/obj/structure/sign/warning/radioactive{
+	dir = 4
+	},
+/turf/wall/ocp_wall,
+/area/Murphy/smresearch)
+"fP" = (
+/obj/structure/closet/radiation,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/smresearch)
+"fQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/smresearch)
+"fR" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = newlist()
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/smresearch)
+"fS" = (
+/obj/structure/closet/radiation,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	req_access = newlist()
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/smresearch)
+"fT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/smresearch)
+"fU" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/closet/crate/bin,
+/obj/item/stock_parts/circuitboard/gyrotron_control,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/floor/tiled/dark,
+/area/Murphy/smresearch)
+"fV" = (
+/obj/machinery/network/relay,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"fW" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"fX" = (
+/obj/machinery/camera/network/engineering{
+	name = "engineering murphy"
+	},
+/obj/machinery/power/smes/buildable/max_cap_in_out{
+	RCon_tag = "MURPHY_SMES";
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/super_io = 1)
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"fY" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/Murphy/smresearch)
+"fZ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"ga" = (
+/obj/machinery/computer/modular/preset/engineering{
+	icon_state = "console"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gb" = (
+/obj/structure/table,
+/obj/item/clothing/glasses/meson{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/obj/item/clothing/glasses/meson/prescription{
+	pixel_x = 4;
+	pixel_y = 8;
+	desc = "Optical meson scanner with prescription lenses.  The name \"Mawreek\" is written in marker along the head strap."
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gc" = (
+/obj/machinery/computer/air_control/supermatter_core{
+	input_tag = "unishi_cooling_in";
+	name = "Supermatter Test Room Cooling Control";
+	output_tag = "unishi_cooling_out";
+	pressure_setting = 100;
+	sensor_name = "Engine Core";
+	sensor_tag = "engine_sensor"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gd" = (
+/obj/machinery/atmospherics/unary/tank/nitrogen{
+	start_pressure = 15000;
+	level = 2
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"ge" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/tank/nitrogen{
+	start_pressure = 15000;
+	level = 2;
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gf" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "Biohazard";
+	name = "Biohazard Shutter"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gg" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gh" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gi" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gk" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gl" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"gm" = (
+/obj/effect/floor_decal/industrial/loading,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gn" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/space,
+/area/space)
+"go" = (
+/obj/machinery/door/firedoor,
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "room_chemistry"
+	},
+/turf/floor/plating,
+/area/Murphy/chem)
+"gp" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gq" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gr" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"gt" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/item/mollusc/clam/fished,
+/obj/item/mollusc/clam/fished,
+/obj/machinery/drone_fabricator/fibbot,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"gu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"gv" = (
+/obj/machinery/button/mass_driver{
+	id_tag = "Murphy_sm_eject";
+	pixel_x = 30;
+	dir = 8
+	},
+/obj/machinery/camera/network/engineering{
+	dir = 8;
+	name = "Murphy SM"
+	},
+/obj/machinery/atmospherics/binary/pump{
+	target_pressure = 1000;
+	name = "Cold Loop Pressurization Pump"
+	},
+/obj/machinery/button/blast_door{
+	id_tag = "Murphy_eject";
+	pixel_x = 22;
+	dir = 8;
+	name = "Supermatter Eject Door"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gw" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/black{
+	dir = 8
+	},
+/turf/wall/r_wall,
+/area/Murphy/smresearch)
+"gx" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/trash/snack_bowl,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"gy" = (
+/turf/wall/titanium,
+/area/Murphy/rnd)
+"gz" = (
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gA" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gB" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 6
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gC" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gD" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gE" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/random/plush/animal,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"gF" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/terminal,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/emitter{
+	anchored = 1;
+	state = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gG" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan,
+/obj/machinery/button/blast_door{
+	desc = "A remote control-switch for the engine charging port.";
+	id_tag = "MurphySupermatter";
+	name = "Reactor Blast Doors";
+	pixel_x = 22;
+	pixel_y = 7;
+	dir = 8
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gH" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/wall/r_wall,
+/area/Murphy/smresearch)
+"gI" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 10
+	},
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"gJ" = (
+/turf/floor/bluegrid,
+/area/Murphy/ai)
+"gK" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/floor,
+/area/Murphy/smresearch)
+"gL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gN" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gO" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/meter,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/machinery/atmospherics/valve/digital{
+	name = "Emergency Cooling Valve"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gQ" = (
+/obj/machinery/door/firedoor{
+	dir = 8
+	},
+/obj/effect/wallframe_spawn/reinforced/polarized/full{
+	id = "room_surgery"
+	},
+/turf/floor/plating,
+/area/Murphy/medical)
+"gR" = (
+/obj/structure/sign/warning/radioactive,
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"gS" = (
+/obj/structure/closet/crate/hydroponics/beekeeping,
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"gT" = (
+/obj/effect/wingrille_spawn/reinforced_borosilicate/full,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id_tag = "MurphySupermatter";
+	name = "Reactor Blast Door"
+	},
+/turf/floor,
+/area/Murphy/smresearch)
+"gU" = (
+/obj/structure/window/reinforced{
+	current_health = 1e+007
+	},
+/obj/item/roller{
+	pixel_y = 10
+	},
+/obj/item/roller{
+	pixel_y = 10
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"gV" = (
+/obj/structure/bookcase/manuals/medical,
+/obj/random/accessory,
+/obj/random/action_figure,
+/obj/item/mollusc/clam,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"gW" = (
+/obj/structure/sign/warning/radioactive,
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"gX" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 4;
+	target_pressure = 750;
+	name = "Hot Loop Pressurization Pump"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gY" = (
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"gZ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"ha" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	target_pressure = 15000;
+	name = "Cold Loop Circulation Pump"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hb" = (
+/obj/item/book/manual/engineering_construction,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/machinery/atmospherics/pipe/manifold/visible/red,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hc" = (
+/obj/machinery/door/airlock/hatch{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/turf/floor/reinforced/airless,
+/area/Murphy/smresearch)
+"hd" = (
+/obj/machinery/atmospherics/unary/outlet_injector/engine{
+	dir = 8;
+	icon_state = "map_injector";
+	id_tag = "unishi_cooling_in";
+	name = "Coolant Injector";
+	pixel_y = 1;
+	power_rating = 30000;
+	use_power = 1;
+	volume_rate = 700
+	},
+/turf/floor/reinforced/airless,
+/area/Murphy/smresearch)
+"he" = (
+/obj/machinery/light{
+	dir = 2
+	},
+/obj/machinery/atmospherics/omni/filter{
+	tag_east = 1;
+	tag_south = 2;
+	tag_west = 4;
+	max_flow_rate = 1000;
+	set_flow_rate = 1000;
+	use_power = 0;
+	name = "Hot Loop Waste Filter"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"hg" = (
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"hh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hi" = (
+/obj/machinery/atmospherics/binary/circulator{
+	anchored = 1;
+	dir = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hj" = (
+/obj/machinery/generator{
+	dir = 4;
+	anchored = 1
+	},
+/obj/structure/cable/green,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hk" = (
+/obj/machinery/atmospherics/binary/circulator{
+	anchored = 1
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hm" = (
+/obj/effect/wingrille_spawn/reinforced_borosilicate/full,
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id_tag = "MurphySupermatter";
+	name = "Reactor Blast Door"
+	},
+/turf/floor,
+/area/Murphy/smresearch)
+"hn" = (
+/turf/floor/reinforced/airless,
+/area/Murphy/smresearch)
+"ho" = (
+/obj/machinery/mass_driver{
+	id_tag = "Murphy_sm_eject"
+	},
+/obj/machinery/power/supermatter,
+/turf/floor/reinforced/airless,
+/area/Murphy/smresearch)
+"hp" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "Biohazard";
+	name = "Biohazard Shutter"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hq" = (
+/obj/machinery/camera/network/engineering{
+	dir = 1;
+	name = "Murphy SM"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hr" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 5
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hs" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"ht" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/machinery/atmospherics/tvalve/mirrored/digital{
+	dir = 8;
+	name = "Emergency Vent to Space"
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"hu" = (
+/obj/machinery/atmospherics/unary/vent_pump/engine{
+	dir = 8;
+	external_pressure_bound = 100;
+	external_pressure_bound_default = 0;
+	icon_state = "map_vent_in";
+	id_tag = "unishi_cooling_out";
+	initialize_directions = 1;
+	pump_direction = 0;
+	use_power = 1
+	},
+/turf/floor/reinforced/airless,
+/area/Murphy/smresearch)
+"hv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"hw" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/turf/wall/r_wall,
+/area/Murphy/smresearch)
+"hx" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 9
+	},
+/turf/floor,
+/area/Murphy/smresearch)
+"hy" = (
+/obj/machinery/door/blast/regular{
+	id_tag = "Murphy_eject"
+	},
+/turf/floor/reinforced/nitrogen,
+/area/Murphy/smresearch)
+"hz" = (
+/turf/wall/ocp_wall,
+/area/Murphy/smresearch)
+"hA" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "bulb1"
+	},
+/turf/floor,
+/area/Murphy/smresearch)
+"hB" = (
+/turf/floor,
+/area/Murphy/smresearch)
+"hC" = (
+/obj/structure/window/borosilicate_reinforced{
+	dir = 4
+	},
+/turf/floor,
+/area/Murphy/smresearch)
+"hD" = (
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"hE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 5
+	},
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"hF" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/zpipe/up/cyan{
+	dir = 8
+	},
+/turf/space,
+/area/Murphy/smresearch)
+"hG" = (
+/obj/structure/lattice,
+/turf/space,
+/area/Murphy/smresearch)
+"ip" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"ja" = (
+/obj/structure/closet/crate/bin,
+/obj/structure/sign/warning/nosmoking_1{
+	dir = 8;
+	pixel_x = 32
+	},
+/obj/item/stock_parts/circuitboard/solar_control,
+/obj/item/stock_parts/circuitboard/helm,
+/obj/item/bot_kit,
+/obj/item/stock_parts/circuitboard/robotics,
+/obj/item/stock_parts/circuitboard/protolathe,
+/obj/item/stock_parts/circuitboard/helm,
+/obj/item/integrated_circuit/converter/text2num,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"jA" = (
+/obj/machinery/teleport/hub,
+/turf/wall/titanium,
+/area/Murphy/ai)
+"mq" = (
+/obj/machinery/atmospherics/pipe/zpipe/up/cyan{
+	dir = 1
+	},
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"oB" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	req_access = newlist()
+	},
+/obj/random/hat,
+/obj/random/hat,
+/obj/random/hat,
+/obj/random/hat,
+/obj/random/hat,
+/obj/random/shoes,
+/obj/structure/closet/wardrobe/black,
+/obj/item/clothing/head/fancyhat,
+/obj/item/clothing/head/hardhat/dblue,
+/obj/item/clothing/head/santahat,
+/obj/item/clothing/head/that,
+/obj/item/clothing/head/yinglet/pekhat,
+/obj/item/clothing/head/yinglet/pekhat/painted,
+/obj/item/clothing/head/collectable,
+/obj/item/clothing/head/collectable/wizard,
+/obj/item/clothing/head/collectable/petehat,
+/obj/item/clothing/head/collectable/welding,
+/obj/item/clothing/head/cowboy_hat,
+/obj/item/clothing/head/hairflower/blue,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"oJ" = (
+/mob/living/simple_animal/passive/mouse{
+	name = "Li'l Erdös"
+	},
+/turf/floor/reinforced,
+/area/Murphy/ratcage)
+"pb" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 4
+	},
+/obj/structure/bed/chair/armchair/black{
+	dir = 8
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"qW" = (
+/obj/structure/table,
+/obj/machinery/reagent_temperature/cooler,
+/obj/machinery/light,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"wE" = (
+/obj/structure/table,
+/obj/item/med_pouch/radiation,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"xD" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 1
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"xE" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/floor/tiled/techmaint,
+/area/Murphy/robotics)
+"xS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/Murphy/smresearch)
+"yG" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/hologram/holopad,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/floor/greengrid,
+/area/Murphy/ai)
+"zx" = (
+/obj/machinery/optable,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"zK" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/button/windowtint{
+	id_tag = "room_hydroponics"
+	},
+/turf/floor/tiled,
+/area/Murphy/hydro)
+"Bf" = (
+/obj/structure/bed/chair/office/comfy/black{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"Bm" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"Dy" = (
+/obj/abstract/submap_landmark/spawnpoint/murphy_crew,
+/turf/floor/carpet,
+/area/Murphy/common)
+"Ge" = (
+/turf/wall/titanium,
+/area/Murphy/ratcage)
+"GZ" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "Biohazard";
+	name = "Biohazard Shutter"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/loading{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"He" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/abstract/submap_landmark/joinable_submap/murphy,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"HJ" = (
+/obj/structure/table,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"Jn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"KA" = (
+/obj/effect/floor_decal/carpet/red,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"KN" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/canteen,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"KO" = (
+/obj/structure/bed/sofa/right/black,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/floor/carpet/red,
+/area/Murphy/living)
+"LT" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/item/robotanalyzer,
+/obj/structure/table/reinforced,
+/obj/item/stack/nanopaste,
+/obj/item/inducer,
+/obj/item/circular_saw,
+/obj/machinery/recharger,
+/turf/floor/shuttle/blue,
+/area/Murphy/ai)
+"Mu" = (
+/obj/structure/table,
+/obj/machinery/reagentgrinder,
+/obj/machinery/light,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"Nq" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"Nr" = (
+/obj/machinery/door/airlock/science,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/floor,
+/area/Murphy/common)
+"NZ" = (
+/obj/machinery/door/airlock/external/glass{
+	locked = 1;
+	id_tag = "l2_murphy_west_airlock_exterior";
+	autoset_access = 0
+	},
+/obj/machinery/button/access/interior{
+	id_tag = "l2_murphy_west_airlock";
+	name = "interior access button";
+	pixel_y = 20;
+	pixel_x = -10;
+	command = "cycle_exterior"
+	},
+/turf/floor,
+/area/Murphy/common)
+"Of" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"OW" = (
+/obj/structure/table,
+/obj/machinery/reagent_temperature,
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"Pe" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/light,
+/obj/machinery/camera/network/security{
+	name = "Murphy Dock";
+	dir = 9
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"Ps" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/book/fluff,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = newlist()
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"PN" = (
+/obj/structure/closet/crate/bin,
+/obj/random/smokes,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"PS" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/powercell,
+/obj/structure/closet/crate/freezer,
+/obj/item/organ/internal/cell/adherent,
+/obj/item/organ/internal/cell,
+/obj/item/seeds/clam,
+/obj/item/food/butchery/meat/fish/mollusc/clam,
+/obj/item/food/butchery/meat/fish/mollusc/clam,
+/obj/item/food/butchery/meat/fish/mollusc/clam,
+/obj/item/food/butchery/meat/fish/mollusc/clam,
+/obj/item/food/butchery/meat/fish/mollusc/clam,
+/obj/item/food/butchery/meat/fish/mollusc/clam,
+/obj/item/food/butchery/meat/fish/mollusc/clam,
+/obj/item/food/butchery/meat/fish/mollusc/clam,
+/obj/item/chems/drinks/juicebox/grape,
+/obj/item/chems/drinks/juicebox/grape,
+/obj/random/mre/drink,
+/obj/random/mre/drink,
+/turf/floor/carpet/blue3,
+/area/Murphy/ai)
+"Qe" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"Qt" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/turf/wall/titanium,
+/area/Murphy/smresearch)
+"SO" = (
+/obj/effect/floor_decal/carpet/red{
+	dir = 4
+	},
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"SY" = (
+/obj/machinery/power/smes/buildable/max_cap_in_out,
+/obj/structure/cable,
+/turf/floor/tiled/techfloor/grid,
+/area/Murphy/ai)
+"TD" = (
+/obj/item/radio/intercom{
+	name = "Common Channel";
+	pixel_x = -25;
+	pixel_y = 7
+	},
+/obj/item/radio/intercom{
+	frequency = 1447;
+	name = "Private Channel";
+	pixel_x = 25;
+	pixel_y = 7
+	},
+/obj/machinery/newscaster{
+	pixel_x = -38;
+	pixel_y = -4
+	},
+/obj/machinery/status_display{
+	pixel_y = -5;
+	pixel_x = 31
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
+	},
+/obj/abstract/submap_landmark/spawnpoint/murphy_core,
+/turf/floor/bluegrid,
+/area/Murphy/ai)
+"TF" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/floor/tiled/white,
+/area/Murphy/chem)
+"TK" = (
+/obj/machinery/cryopod,
+/obj/machinery/computer/cryopod{
+	pixel_x = 30
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/Murphy/ai)
+"UU" = (
+/obj/structure/table/glass,
+/obj/item/firstaid/surgery,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/button/windowtint{
+	id_tag = "room_surgery"
+	},
+/turf/floor/tiled/white,
+/area/Murphy/medical)
+"VH" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/slide_projector,
+/turf/floor/wood/walnut,
+/area/Murphy/living)
+"VZ" = (
+/obj/item/flashlight/upgraded,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"WA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/uranium,
+/obj/item/chems/drinks/bottle/vodka,
+/obj/item/chems/drinks/bottle/vodka,
+/turf/floor/tiled/techfloor,
+/area/Murphy/smresearch)
+"WI" = (
+/obj/machinery/door/airlock/hatch,
+/turf/floor,
+/area/Murphy/smresearch)
+"XM" = (
+/obj/machinery/door/blast/regular{
+	id_tag = "Murphy_eject"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 4
+	},
+/turf/floor/reinforced/nitrogen,
+/area/Murphy/smresearch)
+"XS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/camera/network/hallway{
+	dir = 4;
+	name = "murphy hallway"
+	},
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+"ZF" = (
+/obj/structure/closet/crate/bin,
+/obj/random/powercell,
+/turf/floor/tiled/dark,
+/area/Murphy/common)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bG
+cr
+ey
+ey
+ey
+ey
+gy
+gy
+gy
+gy
+ad
+Ge
+Ge
+Ge
+Ge
+ad
+ad
+ad
+NZ
+fu
+hD
+hD
+hD
+hD
+hD
+hD
+aa
+aa
+aa
+gn
+gn
+gn
+gn
+gn
+gn
+gn
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ax
+ax
+go
+go
+go
+ay
+bG
+di
+di
+di
+di
+bG
+bG
+cr
+cI
+cI
+cI
+cI
+dq
+dq
+dq
+dq
+fs
+dU
+fp
+eK
+oJ
+el
+Nq
+ad
+fv
+fB
+hD
+hD
+hD
+hD
+hD
+hD
+hD
+hD
+hD
+gW
+gW
+hD
+hD
+hD
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ax
+ax
+ax
+ax
+cF
+HJ
+Mu
+ay
+gx
+do
+pb
+SO
+bm
+ei
+co
+cr
+cz
+cM
+cW
+cz
+dq
+dx
+dK
+dX
+fs
+es
+eB
+eL
+eU
+em
+fi
+bl
+He
+fC
+fL
+hz
+hz
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+fL
+hD
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+fN
+ac
+fN
+fN
+fN
+ax
+aA
+aL
+aT
+bb
+xD
+bj
+ay
+Ps
+KA
+bQ
+bt
+ca
+ca
+cn
+cr
+cA
+cN
+cX
+df
+dq
+dy
+dL
+dY
+fs
+et
+eC
+eM
+eV
+em
+fj
+fq
+Qe
+fD
+fL
+hz
+hz
+fL
+fL
+cs
+wE
+WA
+fL
+ge
+fL
+cK
+fL
+hD
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+fN
+ab
+KN
+oB
+PS
+bx
+bd
+aB
+aM
+gu
+TF
+aN
+fr
+ay
+VH
+bv
+bR
+cw
+ca
+ca
+cn
+cr
+cA
+cO
+cY
+dg
+dq
+dz
+dM
+dZ
+fs
+eu
+eD
+eN
+eW
+ee
+ep
+fs
+bl
+bl
+fL
+hz
+hz
+fL
+fL
+gf
+gz
+hp
+fL
+GZ
+fL
+hp
+fL
+hD
+hD
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ae
+al
+de
+au
+gt
+bd
+aC
+aN
+aU
+bc
+OW
+qW
+ay
+bn
+bv
+bS
+KO
+ca
+ca
+cn
+cr
+cA
+cP
+cZ
+df
+dq
+dA
+dN
+ea
+fs
+ev
+Dy
+eD
+eX
+ee
+fk
+bl
+fx
+fE
+fL
+hz
+hz
+fL
+fV
+gg
+gz
+gz
+gL
+gX
+hh
+hq
+fL
+hD
+gW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+af
+am
+fe
+ao
+dH
+bd
+aD
+aO
+aV
+bd
+bd
+bd
+ay
+bG
+bw
+bT
+bW
+cc
+bE
+co
+cr
+cB
+cQ
+da
+dh
+dq
+dB
+dO
+eb
+fs
+ew
+eE
+eD
+eY
+ee
+fl
+Nr
+fw
+Pe
+fL
+fO
+hz
+fL
+fW
+gh
+gp
+gz
+gM
+gY
+hi
+hr
+fL
+hD
+gW
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ai
+gJ
+ar
+dE
+aw
+ar
+aE
+aP
+aW
+cb
+eo
+bo
+be
+bG
+bG
+bU
+bG
+bG
+bG
+bG
+cr
+cC
+cR
+db
+cC
+dq
+dC
+dP
+dC
+fs
+ex
+eF
+eP
+eZ
+ee
+dj
+fs
+fs
+fs
+fL
+fP
+fS
+fL
+fX
+gi
+gq
+gA
+gN
+gZ
+hj
+he
+gw
+Qt
+gK
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(50,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ah
+an
+TD
+yG
+as
+az
+dQ
+aQ
+aX
+dD
+bf
+dD
+by
+bH
+dD
+dQ
+dD
+cd
+Bm
+XS
+Jn
+cD
+hf
+bV
+by
+cd
+dD
+dQ
+ed
+cu
+ip
+ch
+dD
+ct
+fg
+fm
+bf
+eQ
+fG
+fM
+fQ
+fT
+fM
+xS
+fY
+gr
+gB
+gO
+ha
+hk
+hs
+hw
+eS
+hE
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(51,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+ai
+gJ
+ar
+dE
+at
+aG
+aG
+aG
+aY
+aG
+aG
+bp
+bz
+bI
+ee
+ee
+ee
+ee
+ci
+ee
+eo
+cE
+gl
+ee
+eG
+ee
+ee
+ee
+ee
+eo
+ee
+eG
+ee
+fa
+fs
+dj
+fs
+fs
+fs
+fL
+fR
+fU
+fL
+fZ
+gj
+gz
+gC
+gP
+hb
+hl
+ht
+hx
+hA
+eR
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(52,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+gE
+hg
+hg
+ao
+LT
+aG
+aH
+aR
+aF
+bg
+aG
+bq
+bz
+bJ
+bO
+dr
+dr
+dr
+cj
+dr
+cx
+cS
+cS
+cS
+dk
+cS
+dF
+dR
+ef
+dR
+ez
+eH
+dR
+ez
+fs
+dj
+bl
+fy
+Bf
+fL
+hz
+hz
+fL
+ga
+gj
+gz
+gD
+hm
+hc
+hm
+gT
+hz
+hB
+eR
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(53,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ac
+aj
+ap
+ap
+ec
+av
+aG
+aI
+gs
+dI
+bh
+aG
+fs
+bA
+fs
+fs
+fs
+bX
+ce
+ck
+bk
+cx
+cG
+cT
+cT
+dl
+dc
+dF
+dS
+eq
+eq
+eg
+eI
+eh
+fb
+fs
+fn
+Nr
+fw
+fF
+fL
+hz
+hz
+fL
+gb
+gk
+gz
+gD
+hm
+hd
+hn
+hu
+WI
+hC
+Of
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(54,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+fN
+jA
+gV
+ak
+TK
+SY
+aG
+aJ
+cp
+aZ
+bi
+aG
+br
+bB
+bK
+ee
+fs
+bY
+cf
+cl
+ds
+cx
+cH
+cU
+dd
+dm
+dt
+dF
+dT
+eh
+er
+eA
+eJ
+eh
+fc
+fs
+hv
+fs
+fs
+fs
+fL
+hz
+hz
+fL
+gc
+gz
+gz
+gF
+hm
+hn
+ho
+hn
+hy
+hy
+XM
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(55,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+fN
+ac
+fN
+fN
+fN
+cV
+aK
+gU
+zx
+ba
+aG
+bs
+bC
+bP
+bP
+fs
+bZ
+cg
+cm
+cq
+cx
+cH
+dp
+dp
+dn
+du
+dF
+dV
+eh
+dV
+eh
+dV
+eh
+fd
+fs
+fo
+fs
+fz
+fH
+fL
+hz
+hz
+fL
+gd
+gm
+gv
+gG
+hm
+hn
+hn
+hn
+hz
+hD
+hF
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(56,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+en
+cV
+gQ
+cV
+UU
+bu
+aG
+ZF
+PN
+VZ
+ja
+ad
+ad
+ad
+ad
+ad
+cx
+cJ
+dp
+dp
+dn
+dv
+dF
+dV
+ej
+dV
+eh
+dV
+eh
+eh
+fs
+cv
+ft
+eO
+fI
+fL
+hz
+hz
+fL
+fL
+fL
+fL
+gH
+hz
+hz
+hz
+hz
+hz
+hD
+hG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(57,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cV
+gQ
+gQ
+cV
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+cx
+dp
+dp
+cy
+xE
+dp
+dJ
+zK
+gS
+dV
+ek
+dV
+eT
+ff
+fs
+fh
+ad
+fA
+fJ
+hD
+hD
+hD
+hD
+hD
+hD
+hD
+gI
+eS
+gR
+gR
+fK
+fK
+mq
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(58,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bL
+bL
+bL
+bL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+cL
+cL
+cL
+cL
+cL
+cL
+dJ
+dW
+dW
+dW
+dW
+dW
+dW
+dW
+ad
+ad
+ad
+ad
+ad
+hD
+hD
+hD
+hD
+hD
+hD
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(59,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+bL
+bL
+bL
+bL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(60,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(61,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(62,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(63,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(64,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(65,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(66,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(67,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(68,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(69,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(70,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(71,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(72,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(73,1,1) = {"
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+dG
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(74,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(75,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+dw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(76,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(77,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(78,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(79,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(80,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(81,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(82,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(83,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(84,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(85,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(86,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(87,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(88,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(89,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(90,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(91,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(92,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(93,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(94,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(95,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(96,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(97,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(98,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(99,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(100,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
