@@ -66,17 +66,17 @@
 
 /datum/shuttle/autodock/overmap/murphy
 	name = "Murphy"
-	shuttle_area = list(/area/ministation/Murphy/bridge, /area/ministation/Murphy/roof, /area/ministation/Murphy/common, /area/ministation/Murphy/common/upper,
-	/area/ministation/Murphy/medical, /area/ministation/Murphy/lounge, /area/ministation/Murphy/kitchen, /area/ministation/Murphy/chem, /area/ministation/Murphy/ai,
-	/area/ministation/Murphy/living, /area/ministation/Murphy/rnd, /area/ministation/Murphy/hydro, /area/ministation/Murphy/robotics, /area/ministation/Murphy/smresearch,
-	/area/ministation/Murphy/lowercommon, /area/ministation/Murphy/atmos, /area/ministation/Murphy/maint/central, /area/ministation/Murphy/maint/midMaint,
-	/area/ministation/Murphy/maint/Mawreek, /area/ministation/Murphy/maint/Vayryn, /area/ministation/Murphy/maint/guest, /area/ministation/Murphy/janitors,
-	/area/ministation/Murphy/bathroom, /area/ministation/Murphy/bedroom, /area/ministation/Murphy/bedroom/guest, /area/ministation/Murphy/bedroom/Steph,
-	/area/ministation/Murphy/bedroom/Karlawa_Haven, /area/ministation/Murphy/bedroom/Elicot, /area/ministation/Murphy/bedroom/Mawreek,
-	/area/ministation/Murphy/bedroom/Kaawmer, /area/ministation/Murphy/bedroom/Vayryn, /area/ministation/Murphy/bedroom/Jackson, /area/ministation/Murphy/meeting,
-	/area/ministation/Murphy/ratcage, /area/ministation/Murphy/exterior, /area/ministation/Murphy/bedroom/Auciel, /area/ministation/Murphy/bedroom/Radina,
-	/area/ministation/Murphy/bedroom/Verity, /area/ministation/Murphy/bedroom/James, /area/ministation/Murphy/unfinished, /area/ministation/Murphy/lowerairlock,
-	/area/ministation/Murphy/engineeringstorage)
+	shuttle_area = list(/area/Murphy/bridge, /area/Murphy/roof, /area/Murphy/common, /area/Murphy/common/upper,
+	/area/Murphy/medical, /area/Murphy/lounge, /area/Murphy/kitchen, /area/Murphy/chem, /area/Murphy/ai,
+	/area/Murphy/living, /area/Murphy/rnd, /area/Murphy/hydro, /area/Murphy/robotics, /area/Murphy/smresearch,
+	/area/Murphy/lowercommon, /area/Murphy/atmos, /area/Murphy/maint/central, /area/Murphy/maint/midMaint,
+	/area/Murphy/maint/Mawreek, /area/Murphy/maint/Vayryn, /area/Murphy/maint/guest, /area/Murphy/janitors,
+	/area/Murphy/bathroom, /area/Murphy/bedroom, /area/Murphy/bedroom/guest, /area/Murphy/bedroom/Steph,
+	/area/Murphy/bedroom/Karlawa_Haven, /area/Murphy/bedroom/Elicot, /area/Murphy/bedroom/Mawreek,
+	/area/Murphy/bedroom/Kaawmer, /area/Murphy/bedroom/Vayryn, /area/Murphy/bedroom/Jackson, /area/Murphy/meeting,
+	/area/Murphy/ratcage, /area/Murphy/exterior, /area/Murphy/bedroom/Auciel, /area/Murphy/bedroom/Radina,
+	/area/Murphy/bedroom/Verity, /area/Murphy/bedroom/James, /area/Murphy/unfinished, /area/Murphy/lowerairlock,
+	/area/Murphy/engineeringstorage)
 	dock_target = "l2_murphy_west_airlock"
 	current_location = "nav_ministation_medical_dock_shuttle"
 //	flags = SHUTTLE_FLAGS_PROCESS
