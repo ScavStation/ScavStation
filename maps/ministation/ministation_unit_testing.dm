@@ -18,8 +18,5 @@
 		/area/ministation/mining = NO_SCRUBBER|NO_VENT,
 		/area/ministation/bombrange = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/ministation/atmospump = NO_SCRUBBER|NO_VENT,
-		/area/ministation/mining = NO_SCRUBBER|NO_VENT,
-		/area/ministation/Murphy/roof = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/ministation/Murphy/ratcage = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/ministation/Murphy/exterior = NO_SCRUBBER|NO_VENT|NO_APC
+		/area/ministation/mining = NO_SCRUBBER|NO_VENT
 	)
