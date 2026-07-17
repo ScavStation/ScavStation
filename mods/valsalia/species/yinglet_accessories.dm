@@ -36,6 +36,12 @@
 	mask_to_bodypart = FALSE
 	uid = "marking_yinglet_lefttooth"
 
+/decl/sprite_accessory/marking/yinglet/innerear
+	name = "Ear Innards"
+	icon_state = "innerear"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_innerear"
+
 /decl/sprite_accessory/marking/yinglet/recolour_limb
 	name = "Body Colour (Left Arm)"
 	icon_state = "limbs"
