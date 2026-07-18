@@ -136,7 +136,7 @@
 		/obj/item/tank/jetpack/carbondioxide,
 
 	)
-	synths = list(
+
 	synths = list(
 		/datum/matter_synth/fiberglass =    12000,
 		/datum/matter_synth/aluminium =     12000,
@@ -146,7 +146,7 @@
 		/datum/matter_synth/plastic = 10000,
 		/datum/matter_synth/wire =    30
 	)
-	)
+
 	emag = /obj/item/baton/robot/electrified_arm
 	skills = list(
 		SKILL_LITERACY     = SKILL_ADEPT,
