@@ -49,6 +49,7 @@
 		/obj/item/tank,
 		/obj/item/tracker_electronics,
 
+
 		)
 
 	wrapped = null // Item currently being held.
@@ -128,6 +129,8 @@
 		/obj/item/stack/material/cyborg/glass,
 		/obj/item/stack/material/cyborg/glass/reinforced,
 		/obj/item/stack/material/cyborg/fiberglass,
+		/obj/item/stack/tile/wood/cyborg,
+		/obj/item/stack/material/cyborg/wood,
 		/obj/item/stack/cable_coil/cyborg,
 		/obj/item/stack/material/cyborg/plasteel,
 		/obj/item/chems/spray/cleaner/drone,
@@ -217,12 +220,15 @@
 
 	var/datum/matter_synth/metal/metal =           locate() in synths
 	var/datum/matter_synth/glass/glass =           locate() in synths
+	var/datum/matter_synth/wood/wood =       locate() in synths
 	var/datum/matter_synth/plasteel    =           locate() in synths
 	var/datum/matter_synth/wire/wire   =           locate() in synths
 
 	var/obj/item/matter_decompiler/MD = locate() in equipment
 	MD.metal = metal
 	MD.glass = glass
+	MD.wood = wood
+	MD.plastic = plastic
 
 	for(var/thing in list(
 		 /obj/item/stack/material/cyborg/steel,
