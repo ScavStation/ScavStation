@@ -124,15 +124,16 @@
 		/obj/item/stack/material/cyborg/steel,
 		/obj/item/stack/material/cyborg/aluminium,
 		/obj/item/stack/material/rods/cyborg,
+		/obj/item/stack/tile/wood/cyborg,
 		/obj/item/stack/tile/floor/cyborg,
 		/obj/item/stack/tile/roof/cyborg,
 		/obj/item/stack/material/cyborg/glass,
 		/obj/item/stack/material/cyborg/glass/reinforced,
 		/obj/item/stack/material/cyborg/fiberglass,
-		/obj/item/stack/tile/wood/cyborg,
 		/obj/item/stack/material/cyborg/wood,
-		/obj/item/stack/cable_coil/cyborg,
 		/obj/item/stack/material/cyborg/plasteel,
+		/obj/item/stack/material/cyborg/plastic,
+		/obj/item/stack/cable_coil/cyborg,
 		/obj/item/chems/spray/cleaner/drone,
 		/obj/item/borg/sight/hud/jani,
 		/obj/item/mop/advanced,
@@ -223,6 +224,7 @@
 	var/datum/matter_synth/wood/wood =       locate() in synths
 	var/datum/matter_synth/plasteel    =           locate() in synths
 	var/datum/matter_synth/wire/wire   =           locate() in synths
+	var/datum/matter_synth/plastic/plastic = locate() in synths
 
 	var/obj/item/matter_decompiler/MD = locate() in equipment
 	MD.metal = metal
