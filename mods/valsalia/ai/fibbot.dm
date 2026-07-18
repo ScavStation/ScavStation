@@ -64,7 +64,7 @@
 	desc = "modified two shot energy gun"
 	slot_flags = SLOT_LOWER_BODY //too unusually shaped to fit in a holster
 	w_class = ITEM_SIZE_NORMAL
-	projectile_type = /obj/item/projectile/beam/stun/shock
+	projectile_type = /obj/item/projectile/beam/stun/heavy
 	origin_tech = null
 	max_shots = 2 //to compensate a bit for self-recharging
 	one_hand_penalty = 0
@@ -98,7 +98,6 @@
 
 	equipment = list(
 		/obj/item/gun/energy/captain/fibgun,
-		/obj/item/baton,
 		/obj/item/flash,
 		/obj/item/borg/sight/meson,
 		/obj/item/chems/spray/extinguisher,
