@@ -16,8 +16,8 @@
 	lobby_screens = list('maps/ministation/ministation_lobby.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
-	num_exoplanets = 0
-	away_site_budget = 0
+	num_exoplanets = 3
+	away_site_budget = 3
 	lobby_tracks = list(
 		/decl/music_track/absconditus,
 		/decl/music_track/level3_mod,
