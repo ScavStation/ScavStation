@@ -5508,6 +5508,19 @@
 /obj/effect/floor_decal/techfloor/orange,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/port)
+"tL" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "scraplock";
+	name = "scraplock"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/plating,
+/area/ship/trade/hangout)
 "tO" = (
 /obj/effect/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8094,6 +8107,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
@@ -13009,7 +13025,7 @@ aa
 lZ
 lZ
 YS
-YS
+tL
 YS
 YS
 Bx
