@@ -276,14 +276,6 @@
 /area/ship/trade/crew/hallway/port)
 "aF" = (
 /obj/item/stool/padded,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "Crew Areas APC";
-	pixel_x = -21
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "bulb1"
@@ -4808,13 +4800,13 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/crew/hallway/body)
 "pM" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/effect/floor_decal/carpet/green{
 	dir = 10;
 	pixel_x = 25;
 	pixel_y = 25
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
@@ -5957,9 +5949,6 @@
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "wp" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/carpet/green{
 	dir = 8;
 	pixel_x = 25
@@ -6073,12 +6062,6 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
-"xx" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/floor/wood/maple,
-/area/ship/trade/crew/saloon)
 "xz" = (
 /obj/structure/closet/crate,
 /obj/item/tank/oxygen,
@@ -6811,6 +6794,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -22
+	},
+/obj/structure/cable,
 /turf/floor/wood/maple,
 /area/ship/trade/crew/saloon)
 "CV" = (
@@ -6962,9 +6950,6 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/shuttle/outgoing/general)
 "DJ" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/carpet/green{
 	dir = 8;
 	pixel_x = 25
@@ -7776,9 +7761,6 @@
 /turf/wall/titanium,
 /area/ship/trade/shuttle/rescue)
 "Ja" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -8259,9 +8241,6 @@
 /obj/item/stool/padded,
 /obj/abstract/landmark/start{
 	name = "Junior Doctor"
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
@@ -9377,9 +9356,6 @@
 	dir = 9;
 	pixel_x = 25;
 	pixel_y = -25
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
@@ -14959,7 +14935,7 @@ sM
 sM
 Pa
 MB
-xx
+on
 op
 on
 PF
