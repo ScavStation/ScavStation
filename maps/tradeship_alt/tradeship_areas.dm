@@ -194,6 +194,9 @@
 /area/ship/trade/maintenance/hallway
 	name = "\improper Maintenance Corridors"
 
+/area/ship/trade/maintenance/crewhallway
+	name = "\improper Crew Corridors"
+
 /area/ship/trade/maintenance/lower
 	name = "\improper Lower Deck Maintenance Compartments"
 	icon_state = "sub_maint_aft"

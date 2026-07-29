@@ -143,7 +143,7 @@
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "aq" = (
 /obj/effect/paint/black,
 /turf/wall,
@@ -503,6 +503,11 @@
 /obj/item/chems/glass/bucket/paint/random,
 /turf/floor/concrete/reinforced/road,
 /area/ship/trade/cargo/lower)
+"bf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/lower)
 "bg" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -545,7 +550,7 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/techfloor/orange/corner,
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "bj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -557,7 +562,7 @@
 "bl" = (
 /obj/effect/paint/blue,
 /turf/wall,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "bm" = (
 /obj/machinery/door/window{
 	dir = 4
@@ -648,7 +653,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "bB" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -966,7 +971,7 @@
 	dir = 6
 	},
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "cE" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -992,7 +997,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "cJ" = (
 /obj/machinery/light,
 /obj/machinery/fabricator/imprinter,
@@ -1259,7 +1264,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "du" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/light{
@@ -2031,6 +2036,21 @@
 	},
 /turf/floor/wood/mahogany,
 /area/ship/trade/crew/dorms1)
+"jO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/crewhallway)
 "jV" = (
 /obj/item/radio/intercom{
 	dir = 8;
@@ -2059,6 +2079,12 @@
 "kA" = (
 /turf/floor/concrete,
 /area/ship/trade/cargo/lower)
+"kB" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "kP" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
@@ -2110,12 +2136,12 @@
 /turf/floor/concrete/reinforced/road,
 /area/ship/trade/cargo/lower)
 "lA" = (
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
-/turf/floor/concrete,
-/area/ship/trade/cargo/lower)
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/lower)
 "lD" = (
 /turf/floor/reinforced,
 /area/ship/trade/artifact_storage)
@@ -2176,7 +2202,7 @@
 	icon_state = "1-8"
 	},
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "nb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2263,7 +2289,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "ox" = (
 /obj/item/radio/intercom{
 	dir = 8;
@@ -2273,7 +2299,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "oC" = (
 /obj/machinery/conveyor{
 	id_tag = "con"
@@ -2294,6 +2320,17 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/lower)
+"pg" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/lower)
 "pn" = (
 /obj/structure/cable{
@@ -2357,6 +2394,9 @@
 	},
 /turf/floor/wood/mahogany,
 /area/ship/trade/crew/dorms2)
+"pQ" = (
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/crewhallway)
 "qb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2383,6 +2423,15 @@
 "qr" = (
 /turf/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
+"qy" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/lower)
 "qF" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -2418,6 +2467,10 @@
 /obj/machinery/mining_drill,
 /turf/floor/concrete/reinforced/road,
 /area/ship/trade/cargo/lower)
+"rM" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/lower)
 "rN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -2429,7 +2482,7 @@
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "rP" = (
 /obj/structure/handrail{
 	dir = 4
@@ -2462,7 +2515,7 @@
 	dir = 1
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "sM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/fabricator/industrial,
@@ -2472,6 +2525,16 @@
 /obj/effect/paint/blue,
 /turf/wall/r_wall,
 /area/ship/trade/escape_port)
+"tp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/decal/cleanable/dirt/visible,
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/crewhallway)
 "tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2483,7 +2546,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "tz" = (
 /obj/machinery/material_processing/smeltery,
 /turf/floor/plating,
@@ -2552,7 +2615,7 @@
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
 /turf/floor/tiled,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "uz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -2614,7 +2677,7 @@
 	},
 /obj/effect/floor_decal/techfloor/orange,
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "vI" = (
 /obj/structure/emergency_dispenser/east,
 /obj/effect/floor_decal/techfloor/orange{
@@ -2657,6 +2720,12 @@
 	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
+"wm" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "wu" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/floor/tiled/techfloor,
@@ -2736,7 +2805,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "yT" = (
 /obj/structure/sign/warning/caution{
 	dir = 4;
@@ -2744,6 +2813,13 @@
 	},
 /turf/floor/reinforced,
 /area/ship/trade/artifact_storage)
+"yW" = (
+/obj/effect/floor_decal/techfloor/orange,
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "zb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2785,7 +2861,13 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
+"zz" = (
+/obj/effect/floor_decal/techfloor/orange/corner{
+	dir = 8
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "zC" = (
 /obj/machinery/conveyor{
 	backwards = 8;
@@ -2835,6 +2917,23 @@
 /obj/effect/paint/blue,
 /turf/wall,
 /area/ship/trade/escape_star)
+"BB" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 10
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
+"BD" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -22
+	},
+/obj/structure/cable,
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "BT" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 10
@@ -2889,7 +2988,7 @@
 	dir = 8
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "DL" = (
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/eva)
@@ -2899,7 +2998,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "DQ" = (
 /obj/machinery/door/airlock/hatch/autoname/engineering,
 /obj/machinery/door/firedoor,
@@ -2940,6 +3039,15 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/lower)
+"Ez" = (
+/obj/machinery/light{
+	icon_state = "bulb1"
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "EB" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2950,7 +3058,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/techfloor/orange,
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "EL" = (
 /obj/item/mollusc/barnacle{
 	pixel_x = 18
@@ -2967,7 +3075,7 @@
 	icon_state = "1-8"
 	},
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "Fw" = (
 /obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3018,6 +3126,16 @@
 /obj/effect/paint/black,
 /turf/wall/r_wall,
 /area/ship/trade/maintenance/eva)
+"Gt" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
+"GX" = (
+/obj/effect/paint/sun,
+/turf/wall,
+/area/ship/trade/maintenance/crewhallway)
 "Hb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -3105,7 +3223,7 @@
 	icon_state = "1-2"
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "Jb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3229,7 +3347,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/wallframe_spawn/reinforced,
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "Ml" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3245,7 +3363,7 @@
 	dir = 9
 	},
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "Mx" = (
 /obj/effect/paint/black,
 /turf/wall,
@@ -3302,7 +3420,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "OB" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3312,7 +3430,7 @@
 	icon_state = "4-8"
 	},
 /turf/floor/tiled/techfloor,
-/area/ship/trade/maintenance/lower)
+/area/ship/trade/maintenance/crewhallway)
 "OS" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -3538,6 +3656,12 @@
 /obj/machinery/material_processing/unloader,
 /turf/floor/plating,
 /area/ship/trade/cargo/lower)
+"SO" = (
+/obj/effect/floor_decal/techfloor/orange/corner{
+	dir = 1
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "Tb" = (
 /obj/machinery/botany/editor,
 /turf/floor/tiled/white,
@@ -3560,6 +3684,13 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/lower)
+"To" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "Tp" = (
 /turf/floor/plating/airless,
 /area/ship/trade/escape_star)
@@ -3611,6 +3742,10 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/crew/morgue)
+"Va" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/lower)
 "Vb" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3745,6 +3880,10 @@
 	},
 /turf/space,
 /area/space)
+"XO" = (
+/obj/effect/floor_decal/techfloor/orange,
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/crewhallway)
 "XZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -3762,6 +3901,13 @@
 /obj/item/stock_parts/circuitboard/unary_atmos/heater,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
+"YH" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/concrete,
+/area/ship/trade/cargo/lower)
 "Za" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -8589,7 +8735,7 @@ kA
 dK
 kA
 dK
-lA
+YH
 Dh
 bv
 dK
@@ -9108,7 +9254,7 @@ pr
 pr
 pr
 pr
-pr
+qy
 pr
 ZA
 zj
@@ -9205,15 +9351,15 @@ Zd
 bg
 Cr
 On
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-cP
-pt
+rM
+Va
+Va
+Va
+Va
+lA
+bf
+bf
+pg
 cP
 ed
 hn
@@ -9406,8 +9552,8 @@ rB
 od
 jV
 Cr
-Cr
-Cr
+GX
+GX
 bl
 bl
 bl
@@ -9510,11 +9656,11 @@ ZJ
 ZJ
 bi
 rN
-HK
-HK
-HK
-HK
-pr
+To
+To
+To
+To
+wm
 ap
 Ps
 cP
@@ -9616,7 +9762,7 @@ Ot
 yL
 DP
 cC
-bP
+tp
 Mb
 bP
 hH
@@ -9716,7 +9862,7 @@ cG
 Dl
 ot
 ox
-BT
+BB
 tq
 Mr
 uw
@@ -9818,9 +9964,9 @@ aX
 aX
 aX
 aX
-On
+XO
 dt
-ed
+kB
 bl
 Cd
 Pb
@@ -9920,9 +10066,9 @@ jD
 bB
 Qh
 aX
-On
+XO
 dt
-ed
+kB
 bl
 dm
 dy
@@ -10024,7 +10170,7 @@ bj
 bQ
 IU
 EV
-tE
+Ez
 bl
 Nb
 dA
@@ -10124,9 +10270,9 @@ bS
 XZ
 yb
 aX
-On
+XO
 dt
-ed
+kB
 bl
 do
 dA
@@ -10226,9 +10372,9 @@ bS
 cO
 Lb
 aX
-On
-dt
-ed
+yW
+jO
+BD
 bl
 wI
 dB
@@ -10430,9 +10576,9 @@ cn
 cE
 cM
 cm
-On
+XO
 dt
-ed
+kB
 bl
 aa
 aa
@@ -10534,7 +10680,7 @@ iQ
 kP
 IU
 mO
-ed
+kB
 bl
 aa
 aa
@@ -10634,9 +10780,9 @@ cp
 ZY
 pG
 cm
-On
-cP
-tE
+XO
+pQ
+Ez
 bl
 aa
 aa
@@ -10736,9 +10882,9 @@ cp
 Mz
 PJ
 cm
-nq
-ef
-WZ
+zz
+Gt
+SO
 bl
 aa
 aa
