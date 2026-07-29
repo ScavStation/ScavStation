@@ -4322,6 +4322,19 @@
 "lH" = (
 /turf/wall/r_wall,
 /area/ship/trade/shieldbay)
+"lI" = (
+/obj/effect/wallframe_spawn/reinforced,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "scraplock";
+	name = "scraplock"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/plating,
+/area/ship/trade/hangout)
 "lJ" = (
 /obj/structure/table,
 /obj/machinery/light{
@@ -5508,19 +5521,6 @@
 /obj/effect/floor_decal/techfloor/orange,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/port)
-"tL" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	id_tag = "scraplock";
-	name = "scraplock"
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/floor/plating,
-/area/ship/trade/hangout)
 "tO" = (
 /obj/effect/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7631,9 +7631,6 @@
 /area/ship/trade/crew/hallway/port)
 "Il" = (
 /obj/item/stool/padded,
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /turf/floor/wood/maple,
 /area/ship/trade/crew/saloon)
 "Im" = (
@@ -8258,7 +8255,7 @@
 	name = "Junior Doctor"
 	},
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "6-8"
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
@@ -9370,13 +9367,13 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
 "TS" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/carpet/green{
 	dir = 9;
 	pixel_x = 25;
 	pixel_y = -25
+	},
+/obj/structure/cable{
+	icon_state = "2-9"
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
@@ -13025,7 +13022,7 @@ aa
 lZ
 lZ
 YS
-tL
+lI
 YS
 YS
 Bx
