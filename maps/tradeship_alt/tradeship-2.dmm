@@ -1429,6 +1429,7 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
 	},
+/obj/structure/emergency_dispenser/east,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/port)
 "dP" = (
@@ -1448,6 +1449,11 @@
 /obj/structure/emergency_dispenser/west,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	on = 1;
+	pixel_x = -25;
 	dir = 4
 	},
 /turf/floor/tiled/techfloor/grid,
@@ -1479,12 +1485,12 @@
 /turf/wall,
 /area/ship/trade/crew/kitchen)
 "ea" = (
-/obj/structure/emergency_dispenser/east,
-/obj/effect/floor_decal/techfloor/orange{
-	dir = 8
+/obj/machinery/light_switch{
+	pixel_y = -20;
+	dir = 1
 	},
-/turf/floor/tiled/techfloor/grid,
-/area/ship/trade/crew/hallway/port)
+/turf/floor/tiled/white,
+/area/ship/trade/crew/medsupply)
 "eb" = (
 /obj/effect/paint/blue,
 /turf/wall,
@@ -1500,11 +1506,6 @@
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/cargo)
 "ed" = (
-/obj/machinery/light_switch{
-	on = 1;
-	pixel_x = -25;
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1539,6 +1540,10 @@
 	},
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-2";
+	pixel_y = 1
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/port)
@@ -1745,6 +1750,9 @@
 	},
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/port)
@@ -2276,6 +2284,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
 /turf/space,
 /area/space)
 "gA" = (
@@ -2378,6 +2389,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
@@ -2643,6 +2657,9 @@
 /obj/effect/floor_decal/techfloor/orange,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/hallway)
@@ -4140,6 +4157,9 @@
 /area/ship/trade/maintenance/engine/aft)
 "kC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
 "kD" = (
@@ -4256,6 +4276,14 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/engine/aft)
+"lh" = (
+/obj/effect/decal/cleanable/dirt/visible,
+/obj/effect/decal/cleanable/filth,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/tiled/techfloor,
+/area/ship/trade/crew/hallway/starboard)
 "lj" = (
 /obj/machinery/button/access/interior{
 	dir = 8;
@@ -4426,6 +4454,9 @@
 /area/ship/trade/shuttle/outgoing/engineering)
 "mt" = (
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/crew/hallway/port)
 "mw" = (
@@ -4693,6 +4724,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/handrail{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/space,
 /area/ship/trade/maintenance/engine/starboard)
@@ -5716,11 +5750,11 @@
 /area/ship/trade/crew/kitchen)
 "vt" = (
 /obj/item/radio,
-/obj/structure/cable{
-	icon_state = "4-9"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
 	},
 /turf/floor/plating/airless,
 /area/ship/trade/maintenance/engine/starboard)
@@ -6186,6 +6220,21 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/starboard)
+"yY" = (
+/obj/machinery/light{
+	icon_state = "bulb1"
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
 "yZ" = (
@@ -6201,7 +6250,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6229,6 +6277,9 @@
 	},
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
@@ -6306,7 +6357,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -6319,6 +6369,9 @@
 /obj/effect/floor_decal/carpet/red{
 	dir = 8;
 	pixel_x = 25
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
@@ -6610,10 +6663,6 @@
 "Cc" = (
 /obj/structure/table,
 /obj/machinery/reagent_temperature,
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1
-	},
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
 "Cd" = (
@@ -7885,6 +7934,9 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 9
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/port)
 "Kd" = (
@@ -8068,6 +8120,9 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/body)
 "Lu" = (
@@ -8195,12 +8250,24 @@
 /obj/effect/paint/blue,
 /turf/wall,
 /area/ship/trade/crew/wash)
+"ME" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/port)
 "MF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /obj/effect/floor_decal/techfloor/orange/corner{
 	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
@@ -8589,6 +8656,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/floor/tiled/techmaint,
 /area/ship/trade/crew/hallway/starboard)
 "Po" = (
@@ -8905,6 +8975,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/space,
 /area/space)
 "RL" = (
@@ -8922,6 +8995,12 @@
 /obj/machinery/door/firedoor,
 /turf/floor/plating,
 /area/ship/trade/shuttle/rescue)
+"RN" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/carpet/red,
+/area/ship/trade/hangout)
 "RT" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -8979,7 +9058,8 @@
 "Se" = (
 /obj/structure/iv_drip,
 /obj/machinery/light_switch{
-	pixel_y = -25
+	pixel_y = -20;
+	dir = 1
 	},
 /turf/floor/tiled/white,
 /area/ship/trade/crew/surgery)
@@ -9736,6 +9816,10 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 4
 	},
+/obj/structure/cable{
+	icon_state = "32-1"
+	},
+/obj/structure/cable,
 /turf/open,
 /area/ship/trade/crew/hallway/starboard)
 "Xc" = (
@@ -10069,12 +10153,12 @@
 	dir = 4;
 	pixel_x = -25
 	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
 "Zu" = (
-/obj/machinery/light_switch{
-	pixel_y = -25
-	},
 /obj/machinery/cloning/clone_machine,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medsupply)
@@ -13129,7 +13213,7 @@ aa
 gu
 nW
 XJ
-gP
+RN
 gP
 gP
 Yk
@@ -13231,7 +13315,7 @@ aa
 gu
 nH
 XJ
-gP
+RN
 QD
 em
 QH
@@ -13333,7 +13417,7 @@ aa
 gu
 nH
 XJ
-gP
+RN
 gP
 Fa
 NU
@@ -14554,9 +14638,9 @@ cW
 aE
 eC
 dO
-ea
-el
 eC
+el
+ME
 eT
 mt
 Kc
@@ -15891,7 +15975,7 @@ YN
 cG
 cG
 qd
-YN
+lh
 cG
 cG
 cG
@@ -16808,7 +16892,7 @@ co
 gx
 dC
 dC
-dC
+ea
 GF
 oQ
 oQ
@@ -17415,7 +17499,7 @@ AI
 EU
 QJ
 cG
-qe
+yY
 co
 dh
 dC
