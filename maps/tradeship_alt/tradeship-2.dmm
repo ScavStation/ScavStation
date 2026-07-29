@@ -1797,6 +1797,9 @@
 /area/ship/trade/crew/saloon)
 "fe" = (
 /obj/item/stool/padded,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
 "ff" = (
@@ -4608,6 +4611,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/crew/hallway/starboard)
+"od" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/floor/wood/maple,
+/area/ship/trade/crew/saloon)
 "of" = (
 /obj/effect/paint/silver,
 /turf/wall/r_wall,
@@ -7622,6 +7631,9 @@
 /area/ship/trade/crew/hallway/port)
 "Il" = (
 /obj/item/stool/padded,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/floor/wood/maple,
 /area/ship/trade/crew/saloon)
 "Im" = (
@@ -8242,6 +8254,9 @@
 /obj/abstract/landmark/start{
 	name = "Junior Doctor"
 	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
 "MD" = (
@@ -8288,6 +8303,9 @@
 /obj/effect/floor_decal/carpet/green{
 	dir = 1;
 	pixel_y = -25
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
@@ -8578,6 +8596,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/floor/wood/maple,
 /area/ship/trade/crew/saloon)
@@ -9314,6 +9335,16 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/engine/aft)
+"TF" = (
+/obj/effect/floor_decal/carpet/green{
+	dir = 1;
+	pixel_y = -25
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/floor/wood/maple,
+/area/ship/trade/crew/saloon)
 "TL" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 5
@@ -9356,6 +9387,9 @@
 	dir = 9;
 	pixel_x = 25;
 	pixel_y = -25
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
@@ -14935,7 +14969,7 @@ sM
 sM
 Pa
 MB
-on
+od
 op
 on
 PF
@@ -15139,7 +15173,7 @@ qi
 sM
 Pa
 fe
-pj
+TF
 dy
 dy
 bT
