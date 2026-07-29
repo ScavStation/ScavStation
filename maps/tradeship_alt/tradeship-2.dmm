@@ -7753,6 +7753,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
+/obj/structure/synthesized_instrument/synthesizer/piano,
 /turf/floor/wood/maple,
 /area/ship/trade/crew/saloon)
 "IT" = (
@@ -8179,9 +8180,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
-"LA" = (
-/turf/unsimulated/dark_filler,
-/area/space)
 "LC" = (
 /obj/machinery/light{
 	dir = 8
@@ -14136,7 +14134,7 @@ aa
 aa
 aa
 aa
-LA
+aa
 aa
 aa
 aa
@@ -14238,7 +14236,7 @@ aa
 aa
 aa
 aa
-LA
+aa
 aa
 aa
 aa
