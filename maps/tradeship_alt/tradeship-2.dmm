@@ -525,6 +525,9 @@
 	pixel_x = 32;
 	dir = 8
 	},
+/obj/machinery/light{
+	icon_state = "bulb1"
+	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/hallway)
 "bg" = (
@@ -2813,6 +2816,16 @@
 /obj/effect/paint/blue,
 /turf/wall/r_wall,
 /area/ship/trade/maintenance/power)
+"hN" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "bulb1"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/starboard)
 "hO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -5071,6 +5084,9 @@
 	dir = 8;
 	pixel_x = -21
 	},
+/obj/machinery/light{
+	icon_state = "bulb1"
+	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/hallway)
 "qW" = (
@@ -6118,6 +6134,23 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/hallway)
+"xC" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "bulb1"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/port)
 "xI" = (
 /obj/machinery/light,
 /turf/floor/tiled/techfloor,
@@ -6355,6 +6388,16 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/dock)
+"zU" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "bulb1"
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/port)
 "zY" = (
 /obj/structure/lattice,
 /obj/structure/handrail{
@@ -8391,6 +8434,10 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "bulb1"
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/hallway)
@@ -14489,7 +14536,7 @@ MX
 Iw
 Ti
 cE
-cE
+zU
 cE
 cE
 cE
@@ -14697,7 +14744,7 @@ un
 un
 un
 un
-un
+xC
 dI
 hi
 hr
@@ -16122,7 +16169,7 @@ hs
 xO
 ds
 zg
-wl
+hN
 wl
 wl
 wl
