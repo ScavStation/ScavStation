@@ -4,7 +4,7 @@
 	head_position = 0
 	supervisors = "the Head Doctor and the Captain"
 	alt_titles = list()
-	skill_points = 32
+	skill_points = 40
 	min_skill = list(
 		SKILL_LITERACY  = SKILL_ADEPT,
 	    SKILL_MEDICAL   = SKILL_EXPERT,
@@ -51,7 +51,7 @@
 	alt_titles = list("Surgeon")
 	total_positions = 1
 	spawn_positions = 1
-	skill_points = 40
+	skill_points = 46
 	guestbanned = 1
 	must_fill = 1
 	not_random_selectable = 1

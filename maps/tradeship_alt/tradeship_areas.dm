@@ -28,6 +28,9 @@
 /area/ship/trade/crew/hallway/starboard
 	name = "\improper Crew Hallway - Starboard"
 
+/area/ship/trade/crew/hallway/body
+	name = "\improper Crew Hallway - Body"
+
 /area/ship/trade/crew/kitchen
 	name = "\improper Galley"
 	icon_state = "kitchen"
@@ -63,6 +66,12 @@
 
 /area/ship/trade/crew/surgery
 	name = "\improper Operating Room"
+	icon_state = "medbay"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
+
+/area/ship/trade/crew/medsupply
+	name = "\improper Medical Supply"
 	icon_state = "medbay"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
