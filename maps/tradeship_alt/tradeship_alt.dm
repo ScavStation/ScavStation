@@ -3,7 +3,7 @@
 	#ifdef UNIT_TEST
 		#include "../../code/unit_tests/offset_tests.dm"
 	#endif
-
+	#include "../../mods/cloning/_cloning.dme"
 	#include "../../mods/gamemodes/cult/_cult.dme"
 	#include "../../mods/gamemodes/heist/_heist.dme"
 	#include "../../mods/gamemodes/ninja/_ninja.dme"
