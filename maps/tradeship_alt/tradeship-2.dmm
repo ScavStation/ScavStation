@@ -10075,6 +10075,7 @@
 /obj/machinery/light_switch{
 	pixel_y = -25
 	},
+/obj/machinery/cloning/clone_machine,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medsupply)
 "Zv" = (
@@ -17112,7 +17113,7 @@ eN
 Hs
 dC
 om
-bl
+dC
 Zu
 GF
 aa
@@ -17419,7 +17420,7 @@ co
 dh
 dC
 dC
-dC
+bl
 GF
 aa
 aa
