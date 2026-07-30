@@ -27,7 +27,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/autoset,
-/turf/floor,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/undercomms)
 "ad" = (
 /obj/structure/door/wood{
@@ -1204,7 +1204,10 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/floor/wood,
+/obj/machinery/network/relay{
+	initial_network_id = "tradenet"
+	},
+/turf/floor/bluegrid,
 /area/ship/trade/fore_port_underside_maint)
 "hc" = (
 /obj/effect/paint/green,
@@ -1220,7 +1223,7 @@
 "hg" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
-/turf/floor,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/loading_bay)
 "hF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2177,7 +2180,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/floor/tiled/techfloor/grid,
+/obj/machinery/network/relay{
+	initial_network_id = "tradenet"
+	},
+/turf/floor/bluegrid,
 /area/ship/trade/aft_starboard_underside_maint)
 "IG" = (
 /obj/structure/bed/chair/comfy/green{
@@ -2532,7 +2538,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/blood/oil,
-/turf/floor/plating,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/loading_bay)
 "SS" = (
 /obj/item/radio/intercom{
