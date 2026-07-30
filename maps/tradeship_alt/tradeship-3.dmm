@@ -535,6 +535,7 @@
 	pixel_x = 24;
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/navyblue/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "cO" = (
@@ -587,6 +588,10 @@
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
+"ef" = (
+/obj/effect/floor_decal/ss13/l6,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "ex" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -661,6 +666,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/ss13/l1,
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "hJ" = (
@@ -672,6 +684,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/ss13/l8,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "ip" = (
@@ -737,13 +750,11 @@
 /area/ship/trade/comms)
 "jG" = (
 /obj/machinery/computer/ship/sensors,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/effect/floor_decal/corner/blue/diagonal{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/navyblue/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "jJ" = (
+/obj/effect/floor_decal/ss13/l4,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "jM" = (
@@ -764,6 +775,10 @@
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
 /area/ship/trade/drunk_tank)
+"kY" = (
+/obj/effect/floor_decal/ss13/l11,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "lQ" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -800,6 +815,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/outline/blue,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "mD" = (
@@ -817,12 +833,7 @@
 /obj/item/radio,
 /obj/random/drinkbottle,
 /obj/abstract/landmark/paperwork_spawn_tradeship,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
+/obj/effect/floor_decal/corner/red/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "mV" = (
@@ -933,6 +944,12 @@
 	},
 /turf/floor/reinforced/airless,
 /area/space)
+"qv" = (
+/obj/machinery/network/telecomms_hub{
+	initial_network_id = "tradenet"
+	},
+/turf/floor/bluegrid,
+/area/ship/trade/maintenance/solars)
 "qw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -979,6 +996,13 @@
 /obj/effect/floor_decal/corner/red/mono,
 /turf/floor/tiled/dark/monotile,
 /area/ship/trade/bridge_security)
+"rM" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/ss13/l10,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "rR" = (
 /obj/machinery/shipsensors,
 /obj/structure/cable{
@@ -1030,14 +1054,16 @@
 /obj/item/documents/tradehouse/account,
 /obj/item/documents/tradehouse/personnel,
 /obj/abstract/landmark/paperwork_spawn_tradeship,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/effect/floor_decal/corner/blue/diagonal{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/navyblue/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "tG" = (
 /obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/danger,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
+"tL" = (
+/obj/effect/floor_decal/industrial/danger,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "um" = (
@@ -1049,10 +1075,15 @@
 /obj/item/stack/cable_coil/single/yellow,
 /turf/floor/reinforced/airless,
 /area/space)
+"uI" = (
+/obj/effect/floor_decal/ss13/l3,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "uM" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/ss13/l12,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "uT" = (
@@ -1148,6 +1179,7 @@
 	pixel_x = 32;
 	dir = 4
 	},
+/obj/effect/floor_decal/ss13/l16,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "xr" = (
@@ -1207,11 +1239,11 @@
 	icon_state = "1-2"
 	},
 /obj/effect/overmap/visitable/ship/tradeship,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/navyblue{
 	dir = 6
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
@@ -1307,11 +1339,16 @@
 /obj/random/voidhelmet,
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
+/obj/effect/floor_decal/ss13/l2,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "BQ" = (
 /turf/unsimulated/dark_filler,
 /area/space)
+"CD" = (
+/obj/effect/floor_decal/ss13/l5,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "Db" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -1322,6 +1359,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/danger/corner,
+/obj/effect/floor_decal/industrial/danger/corner{
+	dir = 1
 	},
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
@@ -1363,13 +1404,8 @@
 /turf/floor/reinforced/airless,
 /area/ship/trade/comms)
 "EA" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
 /obj/machinery/computer/ship/engines,
+/obj/effect/floor_decal/corner/red/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "EO" = (
@@ -1378,6 +1414,13 @@
 	},
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
+"ES" = (
+/obj/effect/floor_decal/corner/navyblue/diagonal,
+/obj/effect/floor_decal/corner/navyblue{
+	dir = 4
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "Fe" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -1397,18 +1440,10 @@
 /turf/floor/reinforced/airless,
 /area/space)
 "Gn" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
 /obj/structure/bed/chair{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/red/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "GP" = (
@@ -1448,6 +1483,10 @@
 	},
 /turf/floor/bluegrid,
 /area/ship/trade/command/bridge)
+"It" = (
+/obj/effect/floor_decal/ss13/l9,
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "IK" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1470,6 +1509,15 @@
 	},
 /turf/floor/reinforced/airless,
 /area/space)
+"Kt" = (
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/floor/tiled/dark,
+/area/ship/trade/command/bridge)
 "KG" = (
 /obj/random/trash,
 /obj/structure/closet/secure_closet/security,
@@ -1525,6 +1573,7 @@
 	dir = 4;
 	pixel_x = -21
 	},
+/obj/effect/floor_decal/corner/red/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "Lx" = (
@@ -1610,6 +1659,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/ss13/l7,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "OA" = (
@@ -1643,16 +1693,13 @@
 /area/ship/trade/command/bridge_upper)
 "Ql" = (
 /obj/machinery/computer/modular/preset/cardslot/command,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/effect/floor_decal/corner/blue/diagonal{
-	dir = 4
-	},
 /obj/machinery/keycard_auth{
 	pixel_y = 28
 	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/navyblue/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "Qt" = (
@@ -1740,18 +1787,13 @@
 /area/ship/trade/bridge_security)
 "Tx" = (
 /obj/machinery/computer/modular/preset/engineering,
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
 /obj/machinery/keycard_auth{
 	pixel_y = 28
 	},
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/red/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "Ty" = (
@@ -1826,13 +1868,10 @@
 /turf/wall/r_wall,
 /area/ship/trade/bridge_security)
 "Wp" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/effect/floor_decal/corner/blue/diagonal{
-	dir = 4
-	},
 /obj/structure/bed/chair{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/navyblue/full,
 /turf/floor/tiled/dark,
 /area/ship/trade/command/bridge)
 "WX" = (
@@ -1905,6 +1944,11 @@
 	pixel_x = 24
 	},
 /obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/ss13/l15,
+/obj/effect/floor_decal/corner/navyblue/diagonal,
+/obj/effect/floor_decal/corner/navyblue{
 	dir = 4
 	},
 /turf/floor/tiled/dark,
@@ -6787,10 +6831,10 @@ YA
 YA
 EA
 Gn
+Kt
+uI
 jJ
-jJ
-jJ
-jJ
+tL
 xu
 xu
 Xb
@@ -6888,10 +6932,10 @@ aa
 YA
 zr
 mG
-jJ
+Kt
 Sm
-jJ
-jJ
+CD
+ef
 tG
 KK
 KK
@@ -6943,7 +6987,7 @@ WY
 Pg
 XM
 XM
-ao
+qv
 Pg
 ax
 ax
@@ -7092,10 +7136,10 @@ aa
 YA
 ml
 tu
-jJ
+ES
 ow
-jJ
-uM
+It
+rM
 tG
 KK
 KK
@@ -7195,10 +7239,10 @@ YA
 YA
 jG
 Wp
-jJ
-jJ
+ES
+kY
 uM
-jJ
+tL
 IK
 IK
 Xb

@@ -142,7 +142,7 @@
 "ap" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
-/turf/floor/plating,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/maintenance/crewhallway)
 "aq" = (
 /obj/effect/paint/black,
@@ -735,7 +735,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/crew/dorms1)
 "bS" = (
 /obj/structure/curtain/open/bed,
@@ -1800,6 +1800,9 @@
 /obj/machinery/suit_cycler/tradeship,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/eva)
+"fm" = (
+/turf/wall/r_wall,
+/area/ship/trade/maintenance/crewhallway)
 "fs" = (
 /obj/structure/closet/wardrobe/mixed,
 /obj/item/backpack/dufflebag,
@@ -2090,7 +2093,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/tiled,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/crew/dorms2)
 "lb" = (
 /obj/machinery/power/apc{
@@ -2155,7 +2158,10 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/turf/floor/concrete,
+/obj/machinery/network/relay{
+	initial_network_id = "tradenet"
+	},
+/turf/floor/bluegrid,
 /area/ship/trade/cargo/lower)
 "lK" = (
 /turf/floor/tiled/steel_grid,
@@ -2454,6 +2460,10 @@
 /obj/effect/paint/black,
 /turf/wall/r_wall,
 /area/ship/trade/maintenance/techstorage)
+"rx" = (
+/obj/effect/paint/blue,
+/turf/wall/r_wall,
+/area/ship/trade/maintenance/crewhallway)
 "rA" = (
 /obj/structure/sign/department/science_1{
 	pixel_x = -32;
@@ -2559,6 +2569,12 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/lower)
+"ua" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Relay"
+	},
+/turf/floor/tiled/steel_ridged,
+/area/ship/trade/maintenance/crewhallway)
 "ub" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2611,9 +2627,10 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/lower)
 "uw" = (
-/obj/machinery/door/airlock/hatch/autoname/general,
-/obj/machinery/door/firedoor,
-/turf/floor/tiled,
+/obj/machinery/network/relay{
+	initial_network_id = "tradenet"
+	},
+/turf/floor/bluegrid,
 /area/ship/trade/maintenance/crewhallway)
 "uz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -2694,7 +2711,7 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/floor/plating,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/escape_star)
 "wd" = (
 /obj/machinery/light{
@@ -3410,7 +3427,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/floor/tiled/dark,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/crew/morgue)
 "Ps" = (
 /obj/effect/decal/cleanable/dirt/visible,
@@ -9818,7 +9835,7 @@ ox
 na
 tq
 Mr
-uw
+ap
 wd
 wG
 VX
@@ -10320,7 +10337,7 @@ gX
 aq
 aA
 aA
-aX
+aY
 bS
 cO
 Lb
@@ -10422,7 +10439,7 @@ rP
 gX
 gX
 gX
-cm
+cq
 cm
 cm
 cm
@@ -10524,7 +10541,7 @@ aa
 aa
 aa
 aa
-cm
+cq
 cn
 cE
 cM
@@ -10532,9 +10549,9 @@ cm
 lA
 rM
 pg
-bl
-aa
-aa
+ua
+uw
+fm
 aa
 aa
 aa
@@ -10626,7 +10643,7 @@ aa
 aa
 aa
 aa
-cm
+cq
 Ib
 cF
 iQ
@@ -10634,9 +10651,9 @@ kP
 IU
 mO
 pg
-bl
-aa
-aa
+rx
+fm
+fm
 aa
 aa
 aa
@@ -10728,7 +10745,7 @@ aa
 aa
 aa
 aa
-cm
+cq
 cp
 ZY
 pG
@@ -10736,7 +10753,7 @@ cm
 lA
 Mf
 YH
-bl
+rx
 aa
 aa
 aa
@@ -10838,7 +10855,7 @@ cm
 PL
 AQ
 zO
-bl
+rx
 aa
 aa
 aa
@@ -10935,12 +10952,12 @@ aa
 cq
 cq
 an
-cm
 cq
-bl
+cq
+rx
 zx
-bl
-bl
+rx
+rx
 aa
 aa
 aa

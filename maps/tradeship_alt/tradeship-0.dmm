@@ -27,7 +27,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor/autoset,
-/turf/floor,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/undercomms)
 "ad" = (
 /obj/structure/door/wood{
@@ -335,6 +335,7 @@
 	dir = 1;
 	icon_state = "warning"
 	},
+/obj/structure/fence/door,
 /turf/floor,
 /area/ship/trade/loading_bay)
 "aG" = (
@@ -568,6 +569,9 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8;
 	icon_state = "warningcorner"
+	},
+/obj/structure/fence{
+	dir = 4
 	},
 /turf/floor,
 /area/ship/trade/loading_bay)
@@ -1204,7 +1208,10 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/floor/wood,
+/obj/machinery/network/relay{
+	initial_network_id = "tradenet"
+	},
+/turf/floor/bluegrid,
 /area/ship/trade/fore_port_underside_maint)
 "hc" = (
 /obj/effect/paint/green,
@@ -1220,7 +1227,7 @@
 "hg" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
 /obj/machinery/door/firedoor,
-/turf/floor,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/loading_bay)
 "hF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1234,6 +1241,12 @@
 /obj/effect/paint/black,
 /turf/wall,
 /area/ship/trade/aft_port_underside_maint)
+"hX" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/turf/floor,
+/area/ship/trade/loading_bay)
 "hZ" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -2177,7 +2190,10 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/floor/tiled/techfloor/grid,
+/obj/machinery/network/relay{
+	initial_network_id = "tradenet"
+	},
+/turf/floor/bluegrid,
 /area/ship/trade/aft_starboard_underside_maint)
 "IG" = (
 /obj/structure/bed/chair/comfy/green{
@@ -2532,7 +2548,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/blood/oil,
-/turf/floor/plating,
+/turf/floor/tiled/steel_ridged,
 /area/ship/trade/loading_bay)
 "SS" = (
 /obj/item/radio/intercom{
@@ -2720,6 +2736,9 @@
 "ZC" = (
 /obj/structure/window/reinforced{
 	dir = 1
+	},
+/obj/structure/fence{
+	dir = 4
 	},
 /turf/floor,
 /area/ship/trade/loading_bay)
@@ -7382,7 +7401,7 @@ ax
 pU
 zi
 lB
-sO
+hX
 sO
 sO
 sO
@@ -7484,7 +7503,7 @@ az
 eu
 cd
 kS
-sO
+hX
 sO
 sO
 sO
@@ -7586,7 +7605,7 @@ iy
 ZR
 cd
 hZ
-sO
+hX
 sO
 sO
 sO
@@ -7688,7 +7707,7 @@ lg
 eu
 iD
 pg
-sO
+hX
 sO
 sO
 sO
