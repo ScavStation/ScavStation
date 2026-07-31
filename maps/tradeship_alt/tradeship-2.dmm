@@ -1674,6 +1674,10 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
 	},
+/obj/machinery/computer/cryopod{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
 "eC" = (
@@ -6961,6 +6965,16 @@
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
+"Cx" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/computer/cryopod{
+	dir = 4;
+	pixel_x = -25
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/port)
 "Cz" = (
 /obj/structure/shuttle/engine/propulsion/burst,
 /turf/floor/plating/airless,
@@ -14874,7 +14888,7 @@ Ti
 cE
 zU
 cE
-cE
+Cx
 cE
 cE
 aI
