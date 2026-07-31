@@ -6965,16 +6965,6 @@
 	},
 /turf/floor/wood/ebony,
 /area/ship/trade/crew/saloon)
-"Cx" = (
-/obj/effect/floor_decal/techfloor/orange{
-	dir = 4
-	},
-/obj/machinery/computer/cryopod{
-	dir = 4;
-	pixel_x = -25
-	},
-/turf/floor/tiled/techfloor/grid,
-/area/ship/trade/crew/hallway/port)
 "Cz" = (
 /obj/structure/shuttle/engine/propulsion/burst,
 /turf/floor/plating/airless,
@@ -8114,11 +8104,10 @@
 /area/ship/trade/dock)
 "Jp" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/meat_hook,
-/obj/item/drain,
 /obj/effect/floor_decal/corner/lightgrey/diagonal{
 	dir = 8
 	},
+/obj/structure/hygiene/sink/kitchen,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "Jr" = (
@@ -8580,15 +8569,15 @@
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/hallway)
 "MP" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/floor_decal/corner/lightgrey/diagonal{
-	dir = 8
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
 	},
-/obj/structure/hygiene/sink{
-	pixel_y = -18
+/obj/machinery/computer/cryopod{
+	dir = 4;
+	pixel_x = -25
 	},
-/turf/floor/tiled,
-/area/ship/trade/crew/kitchen)
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/port)
 "MU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9033,6 +9022,7 @@
 /obj/abstract/landmark/start{
 	name = "Cook"
 	},
+/obj/structure/hygiene/drain,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "PB" = (
@@ -14888,7 +14878,7 @@ Ti
 cE
 zU
 cE
-Cx
+MP
 cE
 cE
 aI
@@ -15990,7 +15980,7 @@ Ui
 sM
 vq
 Ho
-MP
+sM
 yf
 zW
 on
