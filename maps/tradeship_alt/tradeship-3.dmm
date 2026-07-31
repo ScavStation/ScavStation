@@ -67,6 +67,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/machinery/cryopod/robot,
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "al" = (
@@ -148,6 +149,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
+	},
+/obj/machinery/computer/cryopod{
+	dir = 1;
+	pixel_y = -22
 	},
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)

@@ -590,6 +590,10 @@
 /obj/machinery/light{
 	icon_state = "bulb1"
 	},
+/obj/structure/closet/medical_wall/filled{
+	pixel_y = -21;
+	dir = 1
+	},
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medsupply)
 "bm" = (
@@ -1417,6 +1421,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
+/obj/item/book/manual/chemistry_recipes,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
 "dK" = (
@@ -1669,6 +1674,10 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
 	},
+/obj/machinery/computer/cryopod{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
 "eC" = (
@@ -1845,6 +1854,11 @@
 /area/ship/trade/crew/saloon)
 "fc" = (
 /obj/machinery/door/airlock/hatch/autoname/general,
+/obj/structure/sign/directions/medical{
+	dir = 4;
+	pixel_x = 32;
+	pixel_y = -4
+	},
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/crew/saloon)
 "fe" = (
@@ -2168,6 +2182,7 @@
 /obj/machinery/light{
 	icon_state = "bulb1"
 	},
+/obj/item/chewables/candy/medicallollis,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay)
 "gd" = (
@@ -2298,7 +2313,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/turf/floor/tiled/white,
+/turf/floor/bluegrid,
 /area/ship/trade/crew/medsupply)
 "gu" = (
 /obj/machinery/door/firedoor,
@@ -2367,6 +2382,8 @@
 	dir = 1;
 	level = 2
 	},
+/obj/structure/bed/roller/ironingboard,
+/obj/item/ironingiron,
 /turf/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
 "gC" = (
@@ -2375,6 +2392,7 @@
 /obj/item/chems/spray/cleaner,
 /obj/item/laundry_basket,
 /obj/random_multi/single_item/captains_spare_id,
+/obj/item/box/detergent,
 /turf/floor/tiled/freezer,
 /area/ship/trade/crew/wash)
 "gE" = (
@@ -3623,6 +3641,11 @@
 	},
 /turf/floor/wood/maple,
 /area/ship/trade/crew/saloon)
+"jc" = (
+/obj/machinery/door/window/brigdoor/westright,
+/obj/machinery/cryopod/robot,
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/starboard)
 "jd" = (
 /obj/structure/emergency_dispenser/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
@@ -4375,6 +4398,7 @@
 	pixel_x = -22
 	},
 /obj/structure/table,
+/obj/random_multi/single_item/captains_spare_id,
 /turf/floor/tiled/techmaint,
 /area/ship/trade/shieldbay)
 "lC" = (
@@ -4828,12 +4852,10 @@
 /turf/wall/r_wall,
 /area/ship/trade/maintenance/engine/port)
 "pt" = (
-/obj/structure/hygiene/sink{
-	pixel_y = 11
-	},
-/obj/effect/paint/green,
-/turf/wall,
-/area/ship/trade/crew/kitchen)
+/obj/machinery/cryopod/robot,
+/obj/machinery/door/window/eastright,
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/port)
 "px" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5695,13 +5717,10 @@
 /turf/wall/titanium,
 /area/ship/trade/shuttle/outgoing/engineering)
 "ul" = (
-/obj/machinery/network/relay{
-	initial_network_id = "tradenet"
-	},
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/turf/floor/bluegrid,
+/turf/floor/tiled/white,
 /area/ship/trade/crew/medsupply)
 "un" = (
 /obj/structure/disposalpipe/segment,
@@ -6006,6 +6025,14 @@
 /obj/item/boombox,
 /obj/item/stack/tape_roll/barricade_tape/bureaucracy,
 /obj/machinery/keycard_auth,
+/obj/item/clothing/costume/captain_suit,
+/obj/item/clothing/costume/captainformal,
+/obj/item/clothing/costume/centcom_captain,
+/obj/item/clothing/jumpsuit/captain,
+/obj/item/clothing/head/collectable/captain,
+/obj/item/clothing/suit/cloak/captain,
+/obj/item/clothing/suit/jacket/captain,
+/obj/item/clothing/suit/jacket/winter/yinglet/captain,
 /turf/floor/wood,
 /area/ship/trade/command/captain)
 "vS" = (
@@ -8077,11 +8104,10 @@
 /area/ship/trade/dock)
 "Jp" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/meat_hook,
-/obj/item/drain,
 /obj/effect/floor_decal/corner/lightgrey/diagonal{
 	dir = 8
 	},
+/obj/structure/hygiene/sink/kitchen,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "Jr" = (
@@ -8468,6 +8494,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
+/obj/item/book/manual/surgical,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/surgery)
 "Mp" = (
@@ -8541,6 +8568,16 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/hallway)
+"MP" = (
+/obj/effect/floor_decal/techfloor/orange{
+	dir = 4
+	},
+/obj/machinery/computer/cryopod{
+	dir = 4;
+	pixel_x = -25
+	},
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/crew/hallway/port)
 "MU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8660,6 +8697,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
+/obj/item/book/skill/medical/anatomy/adept,
+/obj/item/book/skill/medical/medicine/basic,
+/obj/item/chems/hypospray/vial,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medsupply)
 "Nx" = (
@@ -8884,6 +8924,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
 	},
+/obj/random/medical/pillbottle,
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
 "Pa" = (
@@ -8981,6 +9022,7 @@
 /obj/abstract/landmark/start{
 	name = "Cook"
 	},
+/obj/structure/hygiene/drain,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "PB" = (
@@ -9875,6 +9917,8 @@
 /obj/effect/floor_decal/corner/lightgrey/diagonal{
 	dir = 8
 	},
+/obj/item/book/manual/barman_recipes,
+/obj/item/book/manual/chef_recipes,
 /turf/floor/tiled,
 /area/ship/trade/crew/kitchen)
 "Vd" = (
@@ -10060,6 +10104,10 @@
 	},
 /turf/floor/tiled,
 /area/ship/trade/garden)
+"Wg" = (
+/obj/random_multi/single_item/captains_spare_id,
+/turf/floor/plating,
+/area/ship/trade/hidden)
 "Wk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	level = 2
@@ -14627,7 +14675,7 @@ fE
 IK
 Ll
 IK
-oQ
+IK
 mb
 qb
 vb
@@ -14729,7 +14777,7 @@ MD
 IK
 dD
 IK
-IK
+pt
 mb
 mb
 wb
@@ -14830,7 +14878,7 @@ Ti
 cE
 zU
 cE
-cE
+MP
 cE
 cE
 aI
@@ -15933,7 +15981,7 @@ sM
 vq
 Ho
 sM
-pt
+yf
 zW
 on
 SE
@@ -16547,7 +16595,7 @@ VW
 VW
 VW
 VM
-VM
+jc
 ee
 ee
 ee
@@ -16648,8 +16696,8 @@ cy
 cy
 cy
 cy
-aa
-aa
+VM
+VM
 KJ
 iX
 Dc
@@ -16875,7 +16923,7 @@ oQ
 oQ
 oQ
 gQ
-sS
+Wg
 AY
 qg
 sI

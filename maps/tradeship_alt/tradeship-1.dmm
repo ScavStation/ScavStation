@@ -333,6 +333,7 @@
 	id_tag = "eva_sensor";
 	pixel_y = 24
 	},
+/obj/random_multi/single_item/captains_spare_id,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/eva)
 "aK" = (
@@ -676,9 +677,12 @@
 /turf/floor/wood/mahogany,
 /area/ship/trade/crew/dorms1)
 "bD" = (
-/obj/effect/paint/silver,
-/turf/wall/r_wall,
-/area/space)
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/techstorage)
 "bI" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/techfloor/orange{
@@ -904,6 +908,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/random_multi/single_item/captains_spare_id,
 /turf/floor/wood/mahogany,
 /area/ship/trade/crew/dorms2)
 "cp" = (
@@ -1208,6 +1213,13 @@
 /obj/item/box/bodybags,
 /turf/floor/tiled/dark,
 /area/ship/trade/crew/morgue)
+"dn" = (
+/obj/machinery/computer/cryopod{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/floor/concrete,
+/area/ship/trade/cargo/lower)
 "do" = (
 /obj/effect/floor_decal/borderfloorblack/full,
 /obj/machinery/button/crematorium{
@@ -1703,8 +1715,8 @@
 /turf/space,
 /area/space)
 "eJ" = (
-/obj/machinery/vending/materials{
-	dir = 4
+/obj/machinery/vending/tool{
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -1856,6 +1868,13 @@
 	},
 /turf/floor/plating,
 /area/ship/trade/cargo/lower)
+"gn" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/drone_fabricator/construction,
+/turf/floor/tiled/techfloor,
+/area/ship/trade/maintenance/techstorage)
 "gp" = (
 /obj/effect/paint/sun,
 /turf/wall,
@@ -1968,15 +1987,28 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/lower)
 "iH" = (
-/obj/item/toolbox/mechanical{
-	pixel_x = 5;
-	pixel_y = -7
-	},
-/obj/item/toolbox/mechanical,
-/obj/item/clothing/head/welding,
-/obj/item/scanner/gas,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/micro_laser/ultra,
 /obj/structure/rack,
-/obj/item/inflatable_dispenser,
+/obj/machinery/power/apc{
+	name = "south bump";
+	pixel_y = -22
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/item/flashlight,
+/obj/item/flashlight,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "iI" = (
@@ -2122,6 +2154,9 @@
 /obj/item/radio,
 /obj/item/radio,
 /obj/item/radio,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "lw" = (
@@ -2191,8 +2226,24 @@
 /turf/wall/r_wall,
 /area/ship/trade/cargo/lower)
 "my" = (
-/obj/machinery/cryopod/robot,
-/obj/abstract/landmark/latejoin/cyborg,
+/obj/item/stack/tape_roll/duct_tape,
+/obj/item/stack/material/sheet/reinforced/mapped/plasteel/fifty,
+/obj/item/stack/material/ingot/mapped/copper/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/item/stack/material/panel/mapped/plastic/fifty,
+/obj/item/stack/material/sheet/mapped/steel/fifty,
+/obj/structure/closet/crate,
+/obj/item/stack/material/pane/mapped/glass/fifty,
+/obj/item/stack/material/pane/mapped/glass/fifty,
+/obj/item/stack/material/pane/mapped/rglass/fifty,
+/obj/item/stack/material/sheet/reinforced/mapped/fiberglass/fifty,
+/obj/item/clothing/head/welding,
+/obj/item/stack/material/cardstock/mapped/cardboard/fifty,
+/obj/item/stack/tape_roll/duct_tape,
+/obj/item/stack/tape_roll/barricade_tape/engineering,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "mN" = (
@@ -2247,15 +2298,11 @@
 /turf/floor/concrete,
 /area/ship/trade/cargo/lower)
 "ni" = (
-/obj/structure/rack,
-/obj/item/stock_parts/circuitboard/pacman/super/potato,
-/obj/item/stack/material/pane/mapped/rborosilicate/ten,
-/obj/item/stack/material/sheet/reinforced/mapped/ocp/ten,
-/obj/item/stock_parts/circuitboard/unary_atmos/engine,
-/obj/item/stock_parts/circuitboard/unary_atmos/engine,
-/obj/item/stock_parts/circuitboard/unary_atmos/engine,
-/obj/item/box/lights/mixed,
-/obj/item/box/lights/bulbs,
+/obj/machinery/cryopod/robot,
+/obj/abstract/landmark/latejoin/cyborg,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "nn" = (
@@ -2270,12 +2317,11 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/lower)
 "nz" = (
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -24
 	},
-/obj/machinery/vending/tool{
-	dir = 4
-	},
+/obj/machinery/drone_fabricator/maintenance,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "nG" = (
@@ -2920,12 +2966,23 @@
 /obj/machinery/light{
 	icon_state = "bulb1"
 	},
+/obj/machinery/cryopod/robot,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/floor/concrete,
 /area/ship/trade/cargo/lower)
 "Bq" = (
 /obj/effect/paint/blue,
 /turf/wall,
 /area/ship/trade/escape_star)
+"Bt" = (
+/obj/effect/paint/brown,
+/turf/wall/r_wall,
+/area/space)
 "BT" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 10
@@ -3304,9 +3361,8 @@
 /turf/floor/concrete/reinforced/road,
 /area/ship/trade/cargo/lower)
 "LE" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -24
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
@@ -3532,25 +3588,12 @@
 /turf/floor/wood/mahogany,
 /area/ship/trade/crew/dorms1)
 "QK" = (
-/obj/item/stock_parts/console_screen,
-/obj/item/stock_parts/console_screen,
-/obj/item/stock_parts/console_screen,
-/obj/item/stock_parts/micro_laser,
-/obj/item/stock_parts/micro_laser,
-/obj/item/stock_parts/micro_laser,
-/obj/item/stock_parts/micro_laser/ultra,
-/obj/structure/rack,
-/obj/machinery/power/apc{
-	name = "south bump";
-	pixel_y = -22
+/obj/machinery/vending/materials{
+	dir = 1
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	level = 2
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
 	},
-/obj/item/flashlight,
-/obj/item/flashlight,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "QV" = (
@@ -3664,7 +3707,18 @@
 /turf/floor/plating/airless,
 /area/ship/trade/escape_star)
 "TC" = (
-/obj/machinery/recharge_station,
+/obj/structure/rack,
+/obj/item/stock_parts/circuitboard/pacman/super/potato,
+/obj/item/stack/material/pane/mapped/rborosilicate/ten,
+/obj/item/stack/material/sheet/reinforced/mapped/ocp/ten,
+/obj/item/stock_parts/circuitboard/unary_atmos/engine,
+/obj/item/stock_parts/circuitboard/unary_atmos/engine,
+/obj/item/stock_parts/circuitboard/unary_atmos/engine,
+/obj/item/box/lights/mixed,
+/obj/item/box/lights/bulbs,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "TZ" = (
@@ -3758,21 +3812,18 @@
 /turf/floor/tiled/white,
 /area/ship/trade/science)
 "Vm" = (
-/obj/item/stack/tape_roll/duct_tape,
-/obj/item/stack/material/sheet/reinforced/mapped/plasteel/fifty,
-/obj/item/stack/material/ingot/mapped/copper/fifty,
-/obj/item/stack/material/sheet/mapped/steel/fifty,
-/obj/item/stack/material/panel/mapped/plastic/fifty,
-/obj/item/stack/material/sheet/mapped/steel/fifty,
-/obj/structure/closet/crate,
-/obj/item/stack/material/pane/mapped/glass/fifty,
-/obj/item/stack/material/pane/mapped/glass/fifty,
-/obj/item/stack/material/pane/mapped/rglass/fifty,
-/obj/item/stack/material/sheet/reinforced/mapped/fiberglass/fifty,
+/obj/item/toolbox/mechanical{
+	pixel_x = 5;
+	pixel_y = -7
+	},
+/obj/item/toolbox/mechanical,
 /obj/item/clothing/head/welding,
-/obj/item/stack/material/cardstock/mapped/cardboard/fifty,
-/obj/item/stack/tape_roll/duct_tape,
-/obj/item/stack/tape_roll/barricade_tape/engineering,
+/obj/item/scanner/gas,
+/obj/structure/rack,
+/obj/item/inflatable_dispenser,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/techstorage)
 "Vr" = (
@@ -3834,6 +3885,10 @@
 /obj/effect/floor_decal/techfloor/orange/corner{
 	dir = 1
 	},
+/obj/machinery/computer/cryopod{
+	dir = 8;
+	pixel_x = 24
+	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/lower)
 "XA" = (
@@ -3878,6 +3933,11 @@
 	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/crewhallway)
+"YN" = (
+/obj/machinery/cryopod/robot,
+/obj/machinery/door/window/northleft,
+/turf/floor/tiled/techfloor/grid,
+/area/ship/trade/maintenance/lower)
 "Za" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -7700,7 +7760,7 @@ fL
 fL
 fL
 De
-bD
+iW
 aa
 aa
 aa
@@ -7802,12 +7862,12 @@ dq
 dD
 fL
 ch
-bD
-XF
-aa
-aa
-aa
-aa
+iW
+rv
+rv
+rv
+rv
+rv
 aa
 aa
 aa
@@ -7905,12 +7965,12 @@ dE
 Tb
 yJ
 dZ
+se
+se
+se
+se
+se
 rv
-rv
-rv
-rv
-aa
-aa
 aa
 aa
 aa
@@ -8007,13 +8067,13 @@ cS
 nn
 cS
 yF
-se
-se
-se
+wl
+nz
+gn
+eN
+QK
 se
 rv
-aa
-aa
 aa
 aa
 aa
@@ -8109,13 +8169,13 @@ dk
 HK
 HH
 yF
-wl
 LE
-nz
+eN
+eN
+eN
 eJ
 se
 rv
-aa
 aa
 aa
 aa
@@ -8214,10 +8274,10 @@ yF
 Yb
 et
 mN
-QK
+mN
+iH
 se
 rv
-aa
 aa
 aa
 aa
@@ -8316,10 +8376,10 @@ yF
 rb
 eu
 eN
-ni
+eN
+TC
 se
 rv
-aa
 aa
 aa
 aa
@@ -8418,10 +8478,10 @@ yF
 Wm
 pn
 eN
-Vm
+eN
+my
 se
 rv
-aa
 aa
 aa
 aa
@@ -8520,10 +8580,10 @@ am
 uj
 Za
 eN
-iH
+eN
+Vm
 se
 rv
-aa
 aa
 aa
 aa
@@ -8622,10 +8682,10 @@ yF
 Zb
 ew
 eV
-TC
+eN
+bD
 se
 rv
-aa
 aa
 aa
 aa
@@ -8724,10 +8784,10 @@ yF
 lg
 ew
 eW
-my
+eN
+ni
 se
 rv
-aa
 aa
 aa
 aa
@@ -8828,8 +8888,8 @@ ey
 se
 se
 se
+se
 rv
-aa
 aa
 aa
 aa
@@ -9216,7 +9276,7 @@ dK
 dK
 dK
 kA
-kA
+dn
 Cr
 AO
 pr
@@ -9842,7 +9902,7 @@ VX
 Vc
 ef
 WZ
-hn
+YN
 hn
 aI
 hn
@@ -9944,7 +10004,7 @@ AM
 Cd
 Cd
 Cd
-hn
+Bt
 hn
 aJ
 er
