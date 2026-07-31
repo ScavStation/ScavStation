@@ -67,6 +67,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/machinery/cryopod/robot,
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "al" = (
