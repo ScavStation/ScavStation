@@ -1213,6 +1213,13 @@
 /obj/item/box/bodybags,
 /turf/floor/tiled/dark,
 /area/ship/trade/crew/morgue)
+"dn" = (
+/obj/machinery/computer/cryopod{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/floor/concrete,
+/area/ship/trade/cargo/lower)
 "do" = (
 /obj/effect/floor_decal/borderfloorblack/full,
 /obj/machinery/button/crematorium{
@@ -1979,13 +1986,6 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techfloor,
 /area/ship/trade/maintenance/lower)
-"iu" = (
-/obj/machinery/computer/cryopod{
-	dir = 1;
-	pixel_y = -22
-	},
-/turf/floor/concrete,
-/area/ship/trade/cargo/lower)
 "iH" = (
 /obj/item/stock_parts/console_screen,
 /obj/item/stock_parts/console_screen,
@@ -2979,6 +2979,10 @@
 /obj/effect/paint/blue,
 /turf/wall,
 /area/ship/trade/escape_star)
+"Bt" = (
+/obj/effect/paint/brown,
+/turf/wall/r_wall,
+/area/space)
 "BT" = (
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 10
@@ -3933,7 +3937,7 @@
 /obj/machinery/cryopod/robot,
 /obj/machinery/door/window/northleft,
 /turf/floor/tiled/techfloor/grid,
-/area/ship/trade/maintenance/eva)
+/area/ship/trade/maintenance/lower)
 "Za" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -9272,7 +9276,7 @@ dK
 dK
 dK
 kA
-iu
+dn
 Cr
 AO
 pr
@@ -10000,7 +10004,7 @@ AM
 Cd
 Cd
 Cd
-hn
+Bt
 hn
 aJ
 er
