@@ -823,7 +823,6 @@
 /area/ship/trade/loading_bay)
 "bH" = (
 /obj/structure/bookcase/ebony,
-/obj/item/book/manual/atmospipes,
 /turf/floor/wood/mahogany,
 /area/ship/trade/unused)
 "bJ" = (
@@ -1083,11 +1082,6 @@
 	},
 /turf/floor/tiled,
 /area/ship/trade/enclave)
-"cY" = (
-/obj/structure/bookcase/ebony,
-/obj/item/book/fluff/nt_regs,
-/turf/floor/wood/mahogany,
-/area/ship/trade/unused)
 "ds" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1136,7 +1130,6 @@
 "fl" = (
 /obj/structure/bookcase/manuals,
 /obj/item/book/fluff/materials_chemistry_analysis,
-/obj/item/book/manual/engineering_construction,
 /turf/floor/wood/mahogany,
 /area/ship/trade/unused)
 "fp" = (
@@ -1161,7 +1154,6 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/item/book/manual/evaguide,
 /turf/floor/wood/mahogany,
 /area/ship/trade/unused)
 "fU" = (
@@ -1261,7 +1253,6 @@
 "hs" = (
 /obj/structure/bookcase/manuals,
 /obj/item/book/fluff/anomaly_testing,
-/obj/item/book/manual/engineering_singularity_safety,
 /turf/floor/wood/mahogany,
 /area/ship/trade/unused)
 "hF" = (
@@ -1573,7 +1564,6 @@
 /area/ship/trade/fore_port_underside_maint)
 "pz" = (
 /obj/structure/bookcase/manuals,
-/obj/item/book/fluff/magshield_manual,
 /turf/floor/wood/mahogany,
 /area/ship/trade/unused)
 "pG" = (
@@ -2359,7 +2349,6 @@
 "KO" = (
 /obj/structure/bookcase/ebony,
 /obj/item/book/fluff/stasis,
-/obj/item/book/manual/engineering_hacking,
 /obj/item/book/virtues,
 /turf/floor/wood/mahogany,
 /area/ship/trade/unused)
@@ -2516,7 +2505,6 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/item/book/fluff/psionics,
 /turf/floor/wood/mahogany,
 /area/ship/trade/unused)
 "Nq" = (
@@ -2652,7 +2640,6 @@
 "Sw" = (
 /obj/structure/bookcase/manuals,
 /obj/item/book/fluff/anomaly_spectroscopy,
-/obj/item/book/manual/engineering_particle_accelerator,
 /turf/floor/wood/mahogany,
 /area/ship/trade/unused)
 "SC" = (
@@ -7414,7 +7401,7 @@ aa
 aa
 hc
 hc
-cY
+bH
 yT
 fR
 bH
