@@ -89,6 +89,7 @@ var/global/list/music_tracks = list(
 	"Memories of Lysendraa" = /decl/music_track/lysendraa,
 	"Marhaba" = /decl/music_track/marhaba,
 	"Space Asshole" = /decl/music_track/space_asshole,
+	"Space Harrier" = /decl/music_track/spaceharrier,
 	"Space Oddity" = /decl/music_track/space_oddity,
 	"THUNDERDOME" = /decl/music_track/thunderdome,
 	"Treacherous Voyage" = /decl/music_track/treacherous_voyage,
@@ -107,7 +108,10 @@ var/global/list/music_tracks = list(
 	"Unatco" = /decl/music_track/unatco,
 	"DEMON PUNCHER" = /decl/music_track/DEMON_PUNCHER,
 	"Zazie (Scav Chorus Edition)" = /decl/music_track/zazie,
-	"CleanRooms" = /decl/music_track/cleanrooms
+	"CleanRooms" = /decl/music_track/cleanrooms,
+	"Dawson's Christian" = /decl/music_track/dawsons_christian,
+	"The Settler" = /decl/music_track/the_settler,
+	"The Wizard" = /decl/music_track/the_wizard
 )
 
 /proc/setup_music_tracks(var/list/tracks)
