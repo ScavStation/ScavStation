@@ -3,3 +3,4 @@
 	title = "I Was the Sun"
 	song = "sound/music/i_was_the_sun.ogg"
 	license = /decl/license/cc_by_nc_sa_3_0
+	url = "https://soundcloud.com/sjnevers-1/i-was-the-sun-before-it-was"
