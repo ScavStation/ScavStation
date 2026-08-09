@@ -20,13 +20,18 @@
 /decl/stack_recipe/rods/stick/staff
 	result_type                 = /obj/item/staff
 	difficulty                  = MAT_VALUE_NORMAL_DIY
+	one_per_turf                = FALSE
+	on_floor                    = FALSE
 
 /decl/stack_recipe/rods/stick/cane
 	result_type                 = /obj/item/cane
 	difficulty                  = MAT_VALUE_NORMAL_DIY
+	one_per_turf                = FALSE
+	on_floor                    = FALSE
 
 /decl/stack_recipe/rods/railing
 	result_type                 = /obj/structure/railing
+	req_amount                  = 10000
 
 /decl/stack_recipe/rods/ladder
 	result_type                 = /obj/structure/ladder
@@ -45,6 +50,7 @@
 /decl/stack_recipe/rods/table_frame
 	result_type                 = /obj/structure/table/frame
 	category                    = "furniture"
+	req_amount                  = 10000
 
 /decl/stack_recipe/rods/rack
 	result_type                 = /obj/structure/rack
@@ -55,18 +61,26 @@
 	one_per_turf                = TRUE
 	difficulty                  = MAT_VALUE_NORMAL_DIY
 	category                    = "furniture"
+	req_amount                  = 16000
 
 /decl/stack_recipe/rods/bed
 	result_type                 = /obj/structure/bed
 	required_integrity          = 50
 	required_min_hardness       = MAT_VALUE_FLEXIBLE + 10
 	category                    = "furniture"
+	req_amount                  = 10000
 
 /decl/stack_recipe/rods/machine
 	result_type                 = /obj/machinery/constructable_frame/machine_frame
 	req_amount                  = 5 * SHEET_MATERIAL_AMOUNT // Arbitrary value since machines don't handle matter properly yet.
 	required_material           = /decl/material/solid/metal/steel
 	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE
+
+/decl/stack_recipe/rods/grille
+	result_type                 = /obj/structure/grille
+	one_per_turf                = TRUE
+	difficulty                  = MAT_VALUE_NORMAL_DIY
+	req_amount                  = 2000
 
 /decl/stack_recipe/rods/machine/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color, spent_type, spent_amount = 1)
 	return ..(user, location, amount, null, null, paint_color, spent_type, spent_amount)
