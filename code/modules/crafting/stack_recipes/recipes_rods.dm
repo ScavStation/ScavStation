@@ -31,7 +31,7 @@
 
 /decl/stack_recipe/rods/railing
 	result_type                 = /obj/structure/railing
-	req_amount                  = 6000
+	req_amount                  = 10000
 
 /decl/stack_recipe/rods/ladder
 	result_type                 = /obj/structure/ladder
@@ -50,7 +50,7 @@
 /decl/stack_recipe/rods/table_frame
 	result_type                 = /obj/structure/table/frame
 	category                    = "furniture"
-	req_amount                  = 6000
+	req_amount                  = 10000
 
 /decl/stack_recipe/rods/rack
 	result_type                 = /obj/structure/rack
@@ -81,7 +81,6 @@
 	one_per_turf                = TRUE
 	difficulty                  = MAT_VALUE_NORMAL_DIY
 	req_amount                  = 2000
-	test_result_type            = /obj/item/stack/material/rods
 
 /decl/stack_recipe/rods/machine/spawn_result(mob/user, location, amount, decl/material/mat, decl/material/reinf_mat, paint_color, spent_type, spent_amount = 1)
 	return ..(user, location, amount, null, null, paint_color, spent_type, spent_amount)
