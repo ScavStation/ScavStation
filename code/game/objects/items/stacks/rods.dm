@@ -14,9 +14,10 @@
 	max_amount = 100
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
-	matter_multiplier = 0.3
+	matter_multiplier = 0.5
 	material = /decl/material/solid/metal/steel
 	is_spawnable_type = TRUE
+	crafting_stack_type = /obj/item/stack/material/rods
 
 	pickup_sound = 'sound/foley/tooldrop3.ogg'
 	drop_sound = 'sound/foley/tooldrop2.ogg'
@@ -129,5 +130,4 @@
 
 /obj/item/stack/material/rods/attack_self(mob/user)
 	add_fingerprint(user)
-	if(isturf(user.loc))
-		place_grille(user, user.loc, src)
+	list_recipes(user)
