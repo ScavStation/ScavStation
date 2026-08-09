@@ -46,6 +46,7 @@
 #include "items\suit_cycler.dm"
 #include "items\supply.dm"
 #include "items\tailbags.dm"
+#include "items\that_thing.dm"
 #include "items\turfs.dm"
 #include "items\voidsuits.dm"
 #include "items\zat_zhing.dm"
