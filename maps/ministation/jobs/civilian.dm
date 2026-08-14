@@ -22,10 +22,10 @@
 
 /datum/job/ministation/bartender
 	title = "Bartender"
-	alt_titles = list("Cook","Barista")
+	alt_titles = list("Cook","Barista","Gardener")
 	supervisors = "the Head of Personnel and the Captain"
-	total_positions = 2
-	spawn_positions = 1
+	total_positions = 3
+	spawn_positions = 2
 	outfit_type = /decl/outfit/job/ministation/bartender
 	department_types = list(/decl/department/service)
 	selection_color = "#3fbe4a"
