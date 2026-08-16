@@ -22,6 +22,13 @@
 /obj/effect/spider/stickyweb,
 /turf/floor/ice,
 /area/valSal_port/outside/valley)
+"aZ" = (
+/obj/structure/bookcase/ebony,
+/obj/item/book/spell/apprentice,
+/obj/item/book/spell/spatial,
+/obj/item/book/spell/student,
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
 "bn" = (
 /obj/item/remains/human,
 /obj/item/remains/xeno,
@@ -62,10 +69,17 @@
 "cX" = (
 /turf/floor/wood/bamboo,
 /area/valSal_port/valley/quarter3)
+"dd" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/bookcase/ebony,
+/obj/item/book/skill/service/botany/expert,
+/obj/item/book/spell/druid,
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
 "dk" = (
 /mob/living/simple_animal/hostile/thug/bandit,
 /turf/floor/ice,
-/area/space)
+/area/valSal_port/outside/clearing)
 "dQ" = (
 /obj/abstract/level_data_spawner/valSal_port_mtnpass,
 /turf/unsimulated/dark_filler)
@@ -81,8 +95,18 @@
 /area/valSal_port/valley/lair)
 "fn" = (
 /obj/item/bone/skull/deer,
+/obj/item/chems/glass/bottle/mutagenics,
+/obj/item/chems/glass/bottle/mutagenics,
 /turf/floor/path/herringbone,
 /area/valSal_port/valley/library)
+"fr" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 1;
+	start_lit = 1;
+	pixel_y = 18
+	},
+/turf/floor/path/granite,
+/area/valSal_port/valley/halls)
 "fy" = (
 /obj/item/cash/imperial/quin,
 /obj/item/cash/imperial/crown,
@@ -95,7 +119,7 @@
 "fH" = (
 /obj/structure/flora/bush/snow,
 /turf/floor/snow,
-/area/space)
+/area/valSal_port/outside/clearing)
 "fN" = (
 /obj/structure/bed/chair/wood/wings/walnut,
 /turf/floor/wood/bamboo,
@@ -107,7 +131,7 @@
 "fZ" = (
 /obj/structure/pit/closed/grave,
 /turf/floor/snow,
-/area/space)
+/area/valSal_port/outside/clearing)
 "gb" = (
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/valley/throneroom)
@@ -130,6 +154,10 @@
 /mob/living/simple_animal/hostile/thug/bandit{
 	name = "Quartermaster";
 	desc = "They keep stock of the meat here in the keep."
+	},
+/obj/structure/wall_sconce/lantern{
+	dir = 8;
+	start_lit = 1
 	},
 /turf/floor/path/herringbone,
 /area/valSal_port/valley/library)
@@ -191,6 +219,13 @@
 "kg" = (
 /turf/wall/natural/random/basalt,
 /area/valSal_port/valley/lair)
+"ki" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 4;
+	start_lit = 1
+	},
+/turf/floor/carpet/rustic,
+/area/valSal_port/valley/quarter4)
 "ko" = (
 /turf/floor/barren,
 /area/valSal_port/outside/caldera)
@@ -204,6 +239,12 @@
 "kT" = (
 /turf/wall/natural/ice,
 /area/valSal_port/valley/chapel)
+"kV" = (
+/obj/structure/wall_sconce/lantern{
+	start_lit = 1
+	},
+/turf/floor/carpet,
+/area/valSal_port/valley/chapel)
 "li" = (
 /obj/structure/closet/crate/chest/ebony,
 /obj/item/cash/imperial/quin,
@@ -212,6 +253,13 @@
 /obj/item/clothing/head/richard,
 /turf/unsimulated/floor/carpet,
 /area/valSal_port/valley/quarter2)
+"lt" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 8;
+	start_lit = 1
+	},
+/turf/floor/path/granite,
+/area/valSal_port/valley/halls)
 "lK" = (
 /turf/wall/brick/sandstone,
 /area/valSal_port/valley/library)
@@ -221,6 +269,13 @@
 	},
 /turf/floor/carpet,
 /area/valSal_port/valley/chapel)
+"mi" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 4;
+	start_lit = 1
+	},
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
 "mG" = (
 /obj/structure/door/sandstone{
 	dir = 4
@@ -244,7 +299,7 @@
 "oc" = (
 /obj/structure/flora/tree/pine,
 /turf/floor/snow,
-/area/space)
+/area/valSal_port/outside/clearing)
 "oU" = (
 /turf/floor/ice,
 /area/valSal_port/outside/valley)
@@ -253,7 +308,7 @@
 /area/valSal_port/valley/chapel)
 "pY" = (
 /turf/wall/natural/ice,
-/area/space)
+/area/valSal_port/outside/clearing)
 "qv" = (
 /obj/structure/door/silver,
 /turf/unsimulated/floor/cult,
@@ -331,6 +386,13 @@
 /obj/item/cash/imperial/quin,
 /turf/floor/ice,
 /area/valSal_port/valley/nest)
+"wX" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 8;
+	start_lit = 1
+	},
+/turf/floor/woven,
+/area/valSal_port/valley/quarter1)
 "xh" = (
 /turf/floor/carpet/rustic,
 /area/valSal_port/valley/quarter4)
@@ -341,6 +403,19 @@
 "xE" = (
 /turf/floor/dirt,
 /area/valSal_port/valley/farm)
+"xK" = (
+/obj/structure/bookcase/ebony,
+/obj/item/book/skill/medical/anatomy/adept,
+/obj/item/book/skill/medical/anatomy/expert,
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
+"xN" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 4;
+	start_lit = 1
+	},
+/turf/floor/path/running_bond/sandstone,
+/area/valSal_port/valley/quarter5)
 "xX" = (
 /turf/floor/carpet/red,
 /area/valSal_port/valley/throneroom)
@@ -376,6 +451,13 @@
 /obj/item/remains/xeno,
 /turf/floor/wood/broken/one,
 /area/valSal_port/valley/massacre)
+"Ah" = (
+/obj/effect/floor_decal/corner/black/mono,
+/obj/structure/wall_sconce/lantern{
+	start_lit = 1
+	},
+/turf/floor/holofloor/tiled/stone,
+/area/valSal_port/valley/throneroom)
 "AC" = (
 /obj/structure/door/gold,
 /turf/floor/holofloor/tiled/stone,
@@ -392,6 +474,11 @@
 	},
 /turf/floor/path/herringbone/marble/water/deep,
 /area/valSal_port/valley/outpost)
+"BB" = (
+/obj/structure/bookcase/ebony,
+/obj/item/book/spell/cleric,
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
 "Cb" = (
 /obj/item/cash/imperial/crown,
 /turf/unsimulated/floor/cult,
@@ -465,7 +552,7 @@
 /area/valSal_port/valley/massacre)
 "EG" = (
 /turf/floor/ice,
-/area/space)
+/area/valSal_port/outside/clearing)
 "ES" = (
 /obj/structure/door/sandstone{
 	dir = 4
@@ -523,6 +610,10 @@
 	name = "The Friar";
 	desc = "The spiritual voice of the flock."
 	},
+/obj/structure/wall_sconce/lantern{
+	dir = 8;
+	start_lit = 1
+	},
 /turf/floor/carpet,
 /area/valSal_port/valley/chapel)
 "Hz" = (
@@ -543,6 +634,13 @@
 /obj/structure/door/sandstone,
 /turf/floor/carpet/rustic,
 /area/valSal_port/valley/quarter4)
+"Ib" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 8;
+	start_lit = 1
+	},
+/turf/unsimulated/floor/carpet,
+/area/valSal_port/valley/quarter2)
 "Ih" = (
 /mob/living/simple_animal/hostile/thug/bandit,
 /turf/floor/carpet/rustic,
@@ -554,6 +652,14 @@
 "Ip" = (
 /turf/wall/log,
 /area/valSal_port/valley/massacre)
+"IJ" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 1;
+	start_lit = 1;
+	pixel_y = 18
+	},
+/turf/floor/carpet,
+/area/valSal_port/valley/chapel)
 "Jy" = (
 /turf/floor/ice,
 /area/valSal_port/valley/nest)
@@ -585,7 +691,22 @@
 /area/valSal_port/valley/chapel)
 "Km" = (
 /turf/floor/snow,
-/area/space)
+/area/valSal_port/outside/clearing)
+"Kn" = (
+/obj/effect/floor_decal/corner/black/mono,
+/obj/structure/loot_pile/bookcase/ebony,
+/obj/structure/wall_sconce/lantern{
+	dir = 4;
+	start_lit = 1
+	},
+/turf/floor/holofloor/tiled/stone,
+/area/valSal_port/valley/throneroom)
+"Kp" = (
+/obj/structure/wall_sconce/lantern{
+	start_lit = 1
+	},
+/turf/floor/path/granite,
+/area/valSal_port/valley/halls)
 "KO" = (
 /turf/floor/woven,
 /area/valSal_port/valley/quarter1)
@@ -618,6 +739,13 @@
 /obj/structure/boulder,
 /turf/floor/ice,
 /area/valSal_port/valley/nest)
+"OU" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 4;
+	start_lit = 1
+	},
+/turf/floor/path/granite,
+/area/valSal_port/valley/halls)
 "Pq" = (
 /obj/item/remains/human,
 /obj/item/remains/xeno,
@@ -650,12 +778,27 @@
 /obj/item/cash/imperial/regalis,
 /turf/floor/wood/bamboo,
 /area/valSal_port/valley/quarter3)
+"QN" = (
+/obj/structure/bookcase/fancy/ebony,
+/obj/structure/wall_sconce/lantern{
+	dir = 1;
+	start_lit = 1;
+	pixel_y = 18
+	},
+/turf/floor/holofloor/tiled/stone,
+/area/valSal_port/valley/throneroom)
 "Ri" = (
 /turf/wall/brick/marble,
 /area/valSal_port/valley/outpost)
 "Rq" = (
 /turf/floor/path/granite,
 /area/valSal_port/valley/halls)
+"Rs" = (
+/obj/structure/wall_sconce/lantern{
+	start_lit = 1
+	},
+/turf/floor/holofloor/tiled/stone,
+/area/valSal_port/valley/throneroom)
 "RB" = (
 /obj/structure/closet/cabinet/wooden/ebony,
 /obj/item/bladed/longsword,
@@ -689,6 +832,16 @@
 /obj/structure/bed/chair/wood/wings/walnut,
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/valley/quarter5)
+"Sx" = (
+/obj/effect/floor_decal/corner/black/mono,
+/obj/structure/bookcase/fancy/ebony,
+/obj/structure/wall_sconce/lantern{
+	dir = 1;
+	start_lit = 1;
+	pixel_y = 18
+	},
+/turf/floor/holofloor/tiled/stone,
+/area/valSal_port/valley/throneroom)
 "SD" = (
 /obj/structure/closet/crate/chest/ebony,
 /obj/item/cash/imperial/quin,
@@ -743,7 +896,7 @@
 "UO" = (
 /obj/structure/flora/grass/brown,
 /turf/floor/snow,
-/area/space)
+/area/valSal_port/outside/clearing)
 "US" = (
 /turf/wall/natural/ice,
 /area/valSal_port/valley/stonenorth)
@@ -755,6 +908,12 @@
 /obj/item/remains/human,
 /turf/floor/dirt,
 /area/valSal_port/valley/farm)
+"VM" = (
+/obj/structure/wall_sconce/lantern{
+	start_lit = 1
+	},
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
 "VR" = (
 /obj/structure/door/sandstone,
 /turf/floor/wood/bamboo,
@@ -784,9 +943,29 @@
 "WC" = (
 /turf/wall/brick/sandstone,
 /area/valSal_port/valley/farm)
+"WN" = (
+/obj/structure/bookcase/ebony,
+/obj/item/book/skill/general/hauling/adept,
+/obj/item/book/skill/general/hauling/prof,
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
 "WV" = (
 /turf/wall/brick/sandstone,
 /area/valSal_port/valley/kitchen)
+"XT" = (
+/obj/structure/loot_pile/bookcase/ebony,
+/obj/structure/wall_sconce/lantern{
+	dir = 8;
+	start_lit = 1
+	},
+/turf/floor/holofloor/tiled/stone,
+/area/valSal_port/valley/throneroom)
+"Yt" = (
+/obj/structure/bookcase/ebony,
+/obj/item/book/manual/chemistry_recipes,
+/obj/item/book/manual/detective,
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
 "Yx" = (
 /obj/structure/bed/bedroll,
 /turf/floor/carpet/rustic,
@@ -795,9 +974,24 @@
 /mob/living/simple_animal/hostile/thug/bandit,
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/valley/quarter5)
+"Ze" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/wall_sconce/lantern{
+	dir = 4;
+	start_lit = 1
+	},
+/turf/floor/path/herringbone,
+/area/valSal_port/valley/library)
 "Zh" = (
 /turf/floor/path/herringbone,
 /area/valSal_port/valley/library)
+"Zk" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 4;
+	start_lit = 1
+	},
+/turf/floor/wood/bamboo,
+/area/valSal_port/valley/quarter3)
 "Zn" = (
 /mob/living/simple_animal/hostile/thug/bandit,
 /turf/floor/wood/bamboo,
@@ -1617,14 +1811,14 @@ vr
 vr
 vr
 vr
-vr
-vr
-vr
-vr
-vr
-vr
-vr
-vr
+Ce
+Ce
+Ce
+Ce
+Ce
+Ce
+Ce
+Ce
 vr
 vr
 vr
@@ -1718,15 +1912,15 @@ vr
 vr
 vr
 oU
-oU
-oU
 Ce
 Ce
 Ce
 Ce
 Ce
-vr
-vr
+Ce
+Ce
+Ce
+Ce
 vr
 vr
 vr
@@ -1828,8 +2022,8 @@ vr
 vr
 Ce
 Ce
-vr
-vr
+Ce
+Ce
 vr
 vr
 vr
@@ -1931,7 +2125,7 @@ vr
 vr
 Ce
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2033,7 +2227,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2135,7 +2329,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2237,7 +2431,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2339,7 +2533,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2441,7 +2635,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2644,7 +2838,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2746,7 +2940,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2848,7 +3042,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -2950,7 +3144,7 @@ vr
 vr
 Ce
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -3052,7 +3246,7 @@ vr
 vr
 Ce
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -3154,7 +3348,7 @@ vr
 vr
 Ce
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -3256,7 +3450,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -3461,7 +3655,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -3563,7 +3757,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 vr
@@ -3666,7 +3860,7 @@ vr
 vr
 Ce
 Ce
-vr
+Ce
 vr
 vr
 "}
@@ -3768,7 +3962,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 "}
@@ -3870,7 +4064,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 "}
@@ -3972,7 +4166,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 "}
@@ -4074,7 +4268,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 "}
@@ -4176,7 +4370,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 "}
@@ -4278,7 +4472,7 @@ vr
 vr
 vr
 Ce
-bT
+Ce
 bT
 vr
 "}
@@ -4380,7 +4574,7 @@ vr
 vr
 vr
 Ce
-bT
+Ce
 vr
 vr
 "}
@@ -4482,7 +4676,7 @@ vr
 vr
 vr
 Ce
-vr
+Ce
 vr
 vr
 "}
@@ -4584,7 +4778,7 @@ vr
 bT
 Ce
 Ce
-vr
+Ce
 vr
 vr
 "}
@@ -4685,8 +4879,8 @@ vr
 bT
 bT
 Ce
-vr
-vr
+Ce
+Ce
 vr
 vr
 "}
@@ -4787,7 +4981,7 @@ vr
 bT
 bT
 Ce
-vr
+Ce
 vr
 vr
 bT
@@ -4889,7 +5083,7 @@ bT
 bT
 bT
 Ce
-vr
+Ce
 vr
 bT
 bT
@@ -4991,7 +5185,7 @@ bT
 bT
 bT
 Ce
-vr
+Ce
 vr
 bT
 bT
@@ -5093,7 +5287,7 @@ bT
 bT
 bT
 Ce
-vr
+Ce
 vr
 bT
 bT
@@ -5196,7 +5390,7 @@ bT
 bT
 Ce
 Ce
-vr
+Ce
 bT
 bT
 "}
@@ -5298,7 +5492,7 @@ bT
 bT
 vr
 Ce
-bT
+Ce
 bT
 bT
 "}
@@ -5400,7 +5594,7 @@ bT
 bT
 vr
 Ce
-bT
+Ce
 bT
 bT
 "}
@@ -5502,7 +5696,7 @@ bT
 bT
 vr
 Ce
-bT
+Ce
 bT
 bT
 "}
@@ -5705,7 +5899,7 @@ bT
 bT
 Ce
 Ce
-pY
+vr
 bT
 bT
 bT
@@ -6112,7 +6306,7 @@ pf
 MS
 tS
 Rq
-Rq
+Kp
 tS
 bT
 bT
@@ -6309,11 +6503,11 @@ xE
 xE
 xE
 MS
+IJ
 CN
 CN
 CN
-CN
-CN
+kV
 tS
 qO
 Rq
@@ -6418,7 +6612,7 @@ mg
 mg
 tS
 Rq
-Rq
+Kp
 tS
 bT
 bT
@@ -6825,7 +7019,7 @@ Rq
 tS
 tS
 Rq
-Rq
+Kp
 WV
 FB
 FB
@@ -7010,7 +7204,7 @@ uE
 uE
 ry
 Uf
-ry
+XT
 Uf
 ry
 Uf
@@ -7020,15 +7214,15 @@ uE
 vr
 tS
 Rq
-Rq
+Kp
 tS
 Ok
 Ok
 tS
-Rq
+fr
 tS
 tS
-Rq
+fr
 Rq
 WV
 aD
@@ -7211,7 +7405,7 @@ bT
 bT
 bT
 uE
-Cu
+Sx
 Tk
 HK
 Tk
@@ -7219,11 +7413,11 @@ HK
 Tk
 HK
 Tk
-HK
+Ah
 uE
 tS
 tS
-Rq
+fr
 Rq
 tS
 tS
@@ -7430,13 +7624,13 @@ Rq
 Rq
 Rq
 Rq
+OU
 Rq
 Rq
 Rq
 Rq
 Rq
-Rq
-Rq
+OU
 Rq
 tS
 bT
@@ -7517,7 +7711,7 @@ bT
 bT
 bT
 uE
-un
+QN
 Hw
 gb
 Hw
@@ -7525,7 +7719,7 @@ gb
 Hw
 gb
 Hw
-gb
+Rs
 uE
 tS
 tS
@@ -7724,7 +7918,7 @@ uE
 uE
 Uf
 ry
-Uf
+Kn
 ry
 Uf
 ry
@@ -7835,7 +8029,7 @@ bT
 bT
 bT
 tS
-Rq
+fr
 Rq
 VR
 cX
@@ -7848,7 +8042,7 @@ Zh
 lK
 lK
 Zh
-Zh
+Yt
 Zh
 iN
 "}
@@ -7941,7 +8135,7 @@ Rq
 Rq
 Hu
 co
-cX
+Zk
 hd
 Hu
 lK
@@ -7950,8 +8144,8 @@ Zh
 Zh
 Zh
 Zh
-Sp
-Zh
+dd
+VM
 iN
 "}
 (71,1,1) = {"
@@ -8040,7 +8234,7 @@ Dk
 Dk
 Dk
 Rq
-Rq
+Kp
 Hu
 Hu
 Hu
@@ -8049,10 +8243,10 @@ Hu
 lK
 EY
 Zh
-Zh
-Zh
-Zh
-Zh
+aZ
+WN
+BB
+xK
 Zh
 iN
 "}
@@ -8138,7 +8332,7 @@ bT
 bT
 Dk
 gg
-KO
+wX
 SX
 Dk
 Rq
@@ -8252,10 +8446,10 @@ xh
 nd
 lK
 EY
+mi
 Zh
 Zh
-Zh
-Sp
+Ze
 Zh
 lK
 iN
@@ -8349,7 +8543,7 @@ Rq
 Rq
 nd
 qR
-xh
+ki
 Yx
 nd
 lK
@@ -8447,7 +8641,7 @@ Dk
 Dk
 Dk
 Dk
-Rq
+fr
 Rq
 ZZ
 ZZ
@@ -8546,7 +8740,7 @@ bT
 bT
 iZ
 uW
-Nr
+Ib
 RB
 iZ
 Rq
@@ -8662,7 +8856,7 @@ Ok
 Ok
 tS
 Rq
-Rq
+Kp
 tS
 bT
 bT
@@ -8743,7 +8937,7 @@ Km
 Km
 Km
 pY
-vr
+pY
 bT
 bT
 bT
@@ -8757,7 +8951,7 @@ Rq
 Rq
 ZZ
 Sa
-qM
+xN
 xt
 ZZ
 Ok
@@ -8957,7 +9151,7 @@ tS
 tS
 tS
 tS
-Rq
+fr
 Rq
 tS
 tS
@@ -9055,7 +9249,7 @@ Rq
 Rq
 Rq
 Rq
-Rq
+lt
 Rq
 Rq
 Rq
@@ -9153,7 +9347,7 @@ Km
 Km
 yb
 Rq
-Rq
+OU
 Rq
 Rq
 Rq
@@ -9164,13 +9358,13 @@ Rq
 Rq
 Rq
 Rq
+OU
 Rq
 Rq
 Rq
 Rq
 Rq
-Rq
-Rq
+OU
 Rq
 Rq
 tS
