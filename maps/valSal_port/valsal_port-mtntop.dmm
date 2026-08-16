@@ -15,6 +15,10 @@
 /obj/item/flame/match,
 /turf/floor/barren,
 /area/valSal_port/outside/outdoors_mtn_top)
+"h" = (
+/obj/structure/flora/tree/pine,
+/turf/wall/natural/basalt/valSal_port,
+/area/valSal_port/outside/outdoors_mtn_top)
 "i" = (
 /obj/abstract/map_data/valSal_port,
 /turf/unsimulated/dark_filler,
@@ -29,6 +33,14 @@
 "p" = (
 /obj/item/flame/match,
 /turf/floor/barren,
+/area/valSal_port/outside/outdoors_mtn_top)
+"t" = (
+/obj/structure/flora/tree/pine,
+/turf/floor/barren,
+/area/valSal_port/outside/outdoors_mtn_top)
+"v" = (
+/obj/structure/flora/tree/pine,
+/turf/floor/snow,
 /area/valSal_port/outside/outdoors_mtn_top)
 "w" = (
 /turf/floor/barren,
@@ -844,7 +856,7 @@ N
 N
 N
 N
-J
+v
 w
 J
 w
@@ -1051,43 +1063,43 @@ N
 J
 J
 w
+v
+J
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
 J
 J
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
 J
-J
-J
-J
+v
 J
 N
 N
@@ -1289,13 +1301,13 @@ J
 J
 J
 w
-J
+v
 w
 w
 J
 J
 J
-J
+v
 J
 J
 J
@@ -1321,7 +1333,7 @@ N
 N
 N
 N
-J
+v
 J
 J
 J
@@ -1350,7 +1362,7 @@ J
 J
 J
 J
-J
+v
 J
 J
 J
@@ -1373,7 +1385,7 @@ N
 N
 J
 J
-J
+v
 J
 J
 J
@@ -1401,7 +1413,7 @@ J
 J
 J
 J
-J
+v
 J
 J
 J
@@ -1431,7 +1443,7 @@ N
 J
 J
 J
-J
+v
 N
 N
 N
@@ -1471,7 +1483,7 @@ J
 N
 N
 J
-J
+v
 J
 J
 J
@@ -1484,7 +1496,7 @@ J
 J
 J
 J
-J
+v
 J
 J
 w
@@ -1566,7 +1578,7 @@ l
 w
 w
 w
-J
+v
 w
 J
 J
@@ -1610,7 +1622,7 @@ w
 w
 J
 J
-J
+v
 "}
 (16,1,1) = {"
 N
@@ -1647,7 +1659,7 @@ N
 N
 J
 J
-J
+v
 w
 w
 l
@@ -1676,14 +1688,14 @@ J
 w
 w
 w
-w
+t
 w
 w
 w
 l
 l
 w
-J
+v
 J
 J
 l
@@ -1724,7 +1736,7 @@ N
 N
 N
 J
-J
+v
 R
 w
 p
@@ -1740,7 +1752,7 @@ N
 N
 N
 N
-J
+v
 J
 J
 J
@@ -1810,7 +1822,7 @@ T
 l
 l
 l
-w
+t
 w
 w
 J
@@ -2036,21 +2048,21 @@ w
 w
 w
 w
+v
+J
+N
+N
+N
+N
+N
+N
+N
+N
+N
+N
 J
 J
-N
-N
-N
-N
-N
-N
-N
-N
-N
-N
-J
-J
-J
+v
 J
 w
 J
@@ -2120,7 +2132,7 @@ l
 T
 l
 l
-w
+t
 "}
 (21,1,1) = {"
 N
@@ -2250,7 +2262,7 @@ N
 N
 J
 J
-J
+v
 J
 w
 J
@@ -2547,8 +2559,8 @@ N
 N
 N
 N
-N
-J
+h
+v
 J
 J
 J
@@ -2757,7 +2769,7 @@ w
 w
 w
 w
-J
+v
 w
 l
 l
@@ -2953,7 +2965,7 @@ N
 J
 J
 J
-J
+v
 J
 J
 J
@@ -3046,7 +3058,7 @@ N
 N
 N
 J
-J
+v
 J
 N
 N
@@ -3153,7 +3165,7 @@ J
 J
 J
 J
-J
+v
 J
 w
 w
@@ -3657,7 +3669,7 @@ N
 N
 N
 J
-J
+v
 w
 w
 l
@@ -4272,7 +4284,7 @@ N
 N
 N
 J
-J
+v
 w
 l
 l
@@ -4784,7 +4796,7 @@ N
 J
 J
 w
-J
+v
 w
 l
 l
@@ -5393,7 +5405,7 @@ N
 N
 N
 J
-J
+v
 w
 l
 l
@@ -5901,7 +5913,7 @@ N
 N
 N
 J
-J
+v
 w
 J
 w
@@ -6208,7 +6220,7 @@ N
 J
 w
 w
-J
+v
 w
 l
 l
@@ -6613,7 +6625,7 @@ a
 (65,1,1) = {"
 N
 J
-J
+v
 w
 l
 l
@@ -7019,7 +7031,7 @@ a
 a
 "}
 (69,1,1) = {"
-J
+v
 l
 l
 w

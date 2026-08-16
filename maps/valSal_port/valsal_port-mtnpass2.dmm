@@ -171,6 +171,10 @@
 /obj/item/chems/glass/bowl/mapped/blood,
 /turf/floor/path/herringbone,
 /area/valSal_port/valley/library)
+"ii" = (
+/obj/structure/flora/tree/dead/ebony,
+/turf/floor/barren,
+/area/valSal_port/outside/valley)
 "iu" = (
 /obj/structure/boulder/excavated,
 /turf/floor/ice,
@@ -370,6 +374,10 @@
 /obj/structure/bed/bedroll,
 /turf/unsimulated/floor/carpet,
 /area/valSal_port/valley/quarter2)
+"ve" = (
+/obj/structure/flora/tree/dead/maple,
+/turf/floor/snow,
+/area/valSal_port/outside/valley)
 "vr" = (
 /turf/wall/natural/ice,
 /area/valSal_port/valley/stonesouth)
@@ -645,6 +653,10 @@
 /mob/living/simple_animal/hostile/thug/bandit,
 /turf/floor/carpet/rustic,
 /area/valSal_port/valley/quarter4)
+"Ii" = (
+/obj/structure/flora/tree/pine,
+/turf/floor/barren,
+/area/valSal_port/outside/valley)
 "Il" = (
 /obj/item/remains/human,
 /turf/floor/path/running_bond/basalt/water/deep,
@@ -735,6 +747,10 @@
 "Ok" = (
 /turf/wall/natural/basalt,
 /area/valSal_port/valley/halls)
+"Or" = (
+/obj/structure/flora/tree/dead/maple,
+/turf/floor/barren,
+/area/valSal_port/outside/caldera)
 "OE" = (
 /obj/structure/boulder,
 /turf/floor/ice,
@@ -778,6 +794,10 @@
 /obj/item/cash/imperial/regalis,
 /turf/floor/wood/bamboo,
 /area/valSal_port/valley/quarter3)
+"QJ" = (
+/obj/structure/flora/tree/dead/ebony,
+/turf/floor/barren,
+/area/valSal_port/outside/caldera)
 "QN" = (
 /obj/structure/bookcase/fancy/ebony,
 /obj/structure/wall_sconce/lantern{
@@ -922,6 +942,10 @@
 /mob/living/simple_animal/hostile/thug/bandit,
 /turf/unsimulated/floor/carpet,
 /area/valSal_port/valley/quarter2)
+"Wd" = (
+/obj/structure/flora/tree/dead/ebony,
+/turf/floor/snow,
+/area/valSal_port/outside/valley)
 "Wj" = (
 /obj/item/cash/imperial/quin,
 /turf/floor/ice,
@@ -960,6 +984,10 @@
 	},
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/valley/throneroom)
+"Ye" = (
+/obj/structure/flora/tree/pine,
+/turf/floor/snow,
+/area/valSal_port/outside/valley)
 "Yt" = (
 /obj/structure/bookcase/ebony,
 /obj/item/book/manual/chemistry_recipes,
@@ -1265,7 +1293,7 @@ US
 US
 Ce
 oU
-Ce
+Ye
 vr
 vr
 vr
@@ -1432,7 +1460,7 @@ ko
 ko
 ko
 ko
-ko
+Or
 Ce
 Ce
 Ce
@@ -1569,7 +1597,7 @@ US
 US
 US
 US
-Ce
+Ye
 oU
 Ce
 vr
@@ -1642,7 +1670,7 @@ ko
 ko
 ko
 ko
-ko
+QJ
 ko
 ko
 ko
@@ -1681,7 +1709,7 @@ oU
 oU
 Ce
 Ce
-Ce
+Ye
 vr
 vr
 vr
@@ -1811,12 +1839,12 @@ vr
 vr
 vr
 vr
+Ye
 Ce
 Ce
 Ce
 Ce
-Ce
-Ce
+Ye
 Ce
 Ce
 vr
@@ -1853,7 +1881,7 @@ Sk
 ko
 ko
 ko
-ko
+Or
 Ce
 Ce
 Ce
@@ -1874,7 +1902,7 @@ US
 US
 US
 US
-Ce
+Ye
 oU
 Ce
 Ce
@@ -1884,12 +1912,12 @@ vr
 vr
 vr
 vr
+Ye
 Ce
 Ce
 Ce
 Ce
-Ce
-Ce
+Ye
 vr
 vr
 vr
@@ -1936,7 +1964,7 @@ US
 US
 US
 US
-Ce
+Ye
 Ce
 ko
 ko
@@ -1979,7 +2007,7 @@ Ce
 Ce
 Ce
 Ce
-Ce
+Ye
 vr
 vr
 vr
@@ -1988,7 +2016,7 @@ vr
 vr
 vr
 vr
-Ce
+Ye
 Ce
 Ce
 oU
@@ -2008,7 +2036,7 @@ vr
 vr
 vr
 vr
-Ce
+Ye
 Ce
 Ce
 Ce
@@ -2148,8 +2176,8 @@ Ce
 ko
 ko
 ko
-ko
-ko
+QJ
+QJ
 ko
 ko
 Sk
@@ -2214,7 +2242,7 @@ Ce
 Ce
 Ce
 Ce
-Ce
+Ye
 vr
 vr
 vr
@@ -2226,7 +2254,7 @@ vr
 vr
 vr
 vr
-Ce
+Ye
 Ce
 vr
 vr
@@ -2269,18 +2297,18 @@ Sk
 Sk
 ko
 ko
+QJ
 ko
 ko
 ko
 ko
 ko
 ko
+Or
 ko
 ko
 ko
-ko
-ko
-ko
+QJ
 ko
 ko
 ko
@@ -2300,6 +2328,7 @@ vr
 vr
 vr
 Ce
+Ye
 Ce
 Ce
 Ce
@@ -2310,8 +2339,7 @@ Ce
 Ce
 Ce
 Ce
-Ce
-Ce
+Ye
 Ce
 Ce
 vr
@@ -2345,7 +2373,7 @@ US
 US
 US
 Ce
-Ce
+Ye
 US
 US
 US
@@ -2357,7 +2385,7 @@ Ce
 Ce
 Ce
 ko
-ko
+Or
 ko
 ko
 ko
@@ -2411,7 +2439,7 @@ vr
 vr
 vr
 vr
-Ce
+Ye
 Ce
 vr
 vr
@@ -2546,7 +2574,7 @@ US
 US
 US
 US
-Ce
+Ye
 Ce
 oU
 Ce
@@ -2594,7 +2622,7 @@ Gq
 Sk
 Sk
 ko
-Ce
+ve
 Ce
 vr
 vr
@@ -2854,7 +2882,7 @@ US
 Ce
 Ce
 oU
-Ce
+Ye
 US
 US
 rr
@@ -3003,7 +3031,7 @@ Gq
 Gq
 Sk
 ko
-ko
+QJ
 Ce
 Ce
 vr
@@ -3042,7 +3070,7 @@ vr
 vr
 vr
 Ce
-Ce
+Ye
 vr
 vr
 vr
@@ -3157,7 +3185,7 @@ US
 US
 US
 Ce
-Ce
+Ye
 oU
 oU
 US
@@ -3284,7 +3312,7 @@ US
 US
 Ce
 ko
-ko
+QJ
 ko
 Sk
 Gq
@@ -3312,7 +3340,7 @@ Sk
 Sk
 ko
 ko
-Ce
+ve
 vr
 vr
 vr
@@ -3346,7 +3374,7 @@ vr
 vr
 vr
 vr
-Ce
+Ye
 Ce
 Ce
 vr
@@ -3359,7 +3387,7 @@ US
 US
 US
 US
-Ce
+Ye
 Ce
 oU
 oU
@@ -3464,7 +3492,7 @@ US
 Ce
 Ce
 oU
-Ce
+Ye
 US
 US
 US
@@ -3563,7 +3591,7 @@ US
 US
 US
 US
-Ce
+Ye
 Ce
 oU
 Ce
@@ -3793,7 +3821,7 @@ US
 US
 US
 Ce
-ko
+Or
 ko
 Sk
 Gq
@@ -3824,8 +3852,8 @@ Gq
 Sk
 Sk
 ko
+QJ
 ko
-ko
 Ce
 Ce
 vr
@@ -3860,7 +3888,7 @@ vr
 vr
 Ce
 Ce
-Ce
+Ye
 vr
 vr
 "}
@@ -4177,7 +4205,7 @@ US
 US
 oU
 oU
-Ce
+Ye
 US
 cj
 cj
@@ -4240,7 +4268,7 @@ ko
 ko
 ko
 ko
-ko
+Or
 ko
 Ce
 Ce
@@ -4360,7 +4388,7 @@ ko
 ko
 ko
 ko
-ko
+QJ
 ko
 Ce
 vr
@@ -4381,7 +4409,7 @@ US
 US
 oU
 oU
-Ce
+Ye
 US
 US
 cj
@@ -4452,7 +4480,7 @@ ko
 ko
 ko
 ko
-ko
+Or
 ko
 ko
 ko
@@ -4573,7 +4601,7 @@ bT
 vr
 vr
 vr
-Ce
+Ye
 Ce
 vr
 vr
@@ -4707,7 +4735,7 @@ Ce
 Ce
 ko
 ko
-ko
+QJ
 Sk
 Sk
 Gq
@@ -4741,7 +4769,7 @@ Gq
 Gq
 Sk
 ko
-ko
+Or
 ko
 ko
 ko
@@ -4889,7 +4917,7 @@ cj
 cj
 cj
 US
-Ce
+Ye
 oU
 Ce
 US
@@ -4949,7 +4977,7 @@ ko
 ko
 Ce
 Ce
-Ce
+Wd
 ko
 ko
 ko
@@ -4958,7 +4986,7 @@ ko
 ko
 ko
 ko
-ko
+QJ
 ko
 ko
 ko
@@ -5054,7 +5082,7 @@ Ce
 Ce
 Ce
 ko
-ko
+Or
 ko
 ko
 ko
@@ -5082,7 +5110,7 @@ vr
 bT
 bT
 bT
-Ce
+Ye
 Ce
 vr
 bT
@@ -5120,12 +5148,12 @@ Gq
 Gq
 Sk
 Sk
+Or
 ko
 ko
 ko
 ko
-ko
-ko
+QJ
 ko
 Sk
 Sk
@@ -5169,7 +5197,7 @@ Ce
 Ce
 Ce
 Ce
-Ce
+ve
 Ce
 bT
 bT
@@ -5212,7 +5240,7 @@ Ce
 Ce
 ko
 ko
-ko
+Or
 Sk
 Gq
 Gq
@@ -5243,7 +5271,7 @@ ko
 ko
 ko
 ko
-ko
+Or
 ko
 ko
 ko
@@ -5251,10 +5279,10 @@ ko
 ko
 ko
 Tt
-Ce
+Ye
 Tt
 Tt
-Ce
+Ye
 bT
 bT
 bT
@@ -5323,7 +5351,7 @@ Sk
 Sk
 ko
 ko
-ko
+QJ
 Ce
 Ce
 Ce
@@ -5390,7 +5418,7 @@ bT
 bT
 Ce
 Ce
-Ce
+Ye
 bT
 bT
 "}
@@ -5412,7 +5440,7 @@ cj
 cj
 Ce
 Ce
-ko
+QJ
 ko
 ko
 Sk
@@ -5431,19 +5459,19 @@ cj
 Ce
 Tt
 Tt
+Ye
 Ce
 Ce
 Ce
 Ce
-Ce
+ko
+ko
+Or
 ko
 ko
 ko
 ko
-ko
-ko
-ko
-ko
+QJ
 ko
 Ce
 Ce
@@ -5503,7 +5531,7 @@ cj
 cj
 US
 oU
-Ce
+Ye
 US
 cj
 cj
@@ -5531,7 +5559,7 @@ Ce
 cj
 cj
 Ce
-Tt
+Ii
 Tt
 Tt
 Ce
@@ -5761,7 +5789,7 @@ Gj
 Gj
 Gj
 Gj
-Ce
+Wd
 Tt
 Tt
 Tt
@@ -5926,9 +5954,9 @@ Sk
 Gq
 Gq
 Sk
+Or
 ko
 ko
-ko
 Ce
 Ce
 cj
@@ -5939,12 +5967,12 @@ cj
 Ce
 Ce
 Tt
-Ce
+Ye
 Ce
 Tt
 Tt
 Tt
-Ce
+Ye
 Gj
 Gj
 Gj
@@ -5969,7 +5997,7 @@ Ce
 Tt
 Tt
 Tt
-Ce
+Ye
 bT
 bT
 bT
@@ -6169,7 +6197,7 @@ HO
 Ri
 Gj
 Gj
-Ce
+Ye
 Tt
 Tt
 Tt
@@ -6225,7 +6253,7 @@ cj
 cj
 Ce
 ko
-ko
+Or
 Sk
 Gq
 Gq
@@ -6333,7 +6361,7 @@ Gq
 Gq
 Sk
 ko
-ko
+QJ
 Ce
 Ce
 cj
@@ -6456,7 +6484,7 @@ Ce
 Ce
 Tt
 Tt
-Tt
+Ii
 Tt
 Tt
 Ce
@@ -6477,7 +6505,7 @@ Gj
 Gj
 Ce
 Tt
-Tt
+Ii
 Ce
 bT
 bT
@@ -6563,7 +6591,7 @@ Tt
 Tt
 Tt
 Ce
-Ce
+Ye
 Gj
 Gj
 Gj
@@ -6650,7 +6678,7 @@ cj
 Ce
 Tt
 Tt
-Ce
+Ye
 Gj
 Gj
 Gj
@@ -6681,8 +6709,8 @@ Gj
 Ce
 Tt
 Tt
-Tt
-Ce
+ii
+Wd
 bT
 bT
 bT
@@ -6749,7 +6777,7 @@ cj
 cj
 cj
 cj
-Ce
+Ye
 Tt
 Tt
 Ce
@@ -6784,7 +6812,7 @@ Ce
 Tt
 Tt
 Tt
-Ce
+Wd
 bT
 bT
 bT
@@ -6930,7 +6958,7 @@ cj
 cj
 cj
 US
-Ce
+Ye
 oU
 US
 cj
@@ -6938,7 +6966,7 @@ cj
 cj
 Ce
 ko
-ko
+QJ
 Sk
 Gq
 Sk
@@ -6968,7 +6996,7 @@ Ip
 Ip
 Gj
 Ce
-Ce
+Ye
 Tt
 Tt
 Tt
@@ -7089,7 +7117,7 @@ Ce
 Tt
 Tt
 Tt
-Ce
+Ye
 bT
 bT
 bT
@@ -7158,7 +7186,7 @@ cj
 Ce
 Tt
 Tt
-Ce
+Ye
 Gj
 Gj
 Gj
@@ -7176,7 +7204,7 @@ Ce
 Tt
 Tt
 Tt
-Tt
+Ii
 Ce
 Gj
 Ri
@@ -7186,7 +7214,7 @@ Ri
 Ri
 Ri
 Gj
-Ce
+Ye
 Tt
 Tt
 Tt
@@ -7461,7 +7489,7 @@ cj
 cj
 cj
 cj
-Ce
+Ye
 Tt
 Tt
 Ce
@@ -7586,7 +7614,7 @@ Ce
 Tt
 Tt
 Tt
-Ce
+Wd
 Gj
 Gj
 Gj
@@ -7682,7 +7710,7 @@ Ce
 Tt
 Tt
 Tt
-Ce
+Ye
 Ce
 Ce
 Ce
@@ -7694,7 +7722,7 @@ Gj
 Gj
 Gj
 Ce
-Ce
+Wd
 Tt
 Tt
 Tt
@@ -7747,9 +7775,9 @@ cj
 cj
 US
 US
-Ce
+Ye
 oU
-Ce
+Ye
 US
 US
 US
@@ -7770,7 +7798,7 @@ cj
 Ce
 Tt
 Tt
-Ce
+Ye
 Gj
 Gj
 Gj
@@ -7778,7 +7806,7 @@ Gj
 Gj
 Ce
 Ce
-Ce
+Ye
 Tt
 Tt
 Tt
@@ -7889,7 +7917,7 @@ cj
 cj
 cj
 cj
-Ce
+Wd
 Tt
 Tt
 Tt
@@ -7901,7 +7929,7 @@ Ce
 Tt
 Tt
 Tt
-Ce
+Wd
 bT
 bT
 bT
@@ -8001,7 +8029,7 @@ Gj
 Ce
 Ce
 Tt
-Tt
+Ii
 Ce
 Ce
 bT
@@ -8074,7 +8102,7 @@ US
 US
 cj
 cj
-Ce
+Ye
 Tt
 Ce
 Gj
@@ -8261,7 +8289,7 @@ US
 oU
 oU
 Ce
-Ce
+Ye
 US
 cj
 cj
@@ -8281,28 +8309,28 @@ cj
 Ce
 Tt
 Ce
-Ce
-Ce
-Tt
-Tt
-Tt
-Ce
-Ce
-cj
-cj
-cj
-cj
-cj
-cj
-cj
-cj
-cj
-cj
-Ce
+Ye
 Ce
 Tt
 Tt
+Ii
 Ce
+Ce
+cj
+cj
+cj
+cj
+cj
+cj
+cj
+cj
+cj
+cj
+Ce
+Ye
+Tt
+Tt
+Ye
 Tt
 Tt
 Tt
@@ -8408,7 +8436,7 @@ Tt
 Tt
 Tt
 Tt
-Ce
+Wd
 bT
 bT
 bT
@@ -8579,7 +8607,7 @@ Ce
 Ce
 Ce
 Ce
-Ce
+Ye
 Ce
 Ce
 Ce
@@ -8687,7 +8715,7 @@ Tt
 Tt
 Tt
 Tt
-Ce
+Ye
 Ce
 Ce
 cj
@@ -8713,7 +8741,7 @@ Tt
 Tt
 Tt
 Ce
-Ce
+Ye
 bT
 bT
 bT
@@ -8778,7 +8806,7 @@ cj
 cj
 Ce
 Ce
-Tt
+Ii
 Tt
 Tt
 Tt
@@ -8911,7 +8939,7 @@ cj
 cj
 cj
 cj
-Ce
+Ye
 Tt
 Tt
 Tt
@@ -8974,7 +9002,7 @@ cj
 US
 US
 US
-Ce
+Ye
 oU
 US
 cj
@@ -8985,7 +9013,7 @@ Tt
 Tt
 Tt
 Tt
-Tt
+Ii
 Ce
 Ce
 cj
@@ -9183,7 +9211,7 @@ US
 US
 cj
 cj
-Ce
+Ye
 Tt
 Tt
 Tt
@@ -9288,7 +9316,7 @@ cj
 Ce
 Tt
 Tt
-Tt
+Ii
 Ce
 Ce
 cj
@@ -9423,7 +9451,7 @@ cj
 cj
 Ce
 Tt
-Ce
+Ye
 bT
 bT
 bT
@@ -9829,7 +9857,7 @@ cj
 cj
 cj
 cj
-Ce
+Ye
 Tt
 Ce
 bT
@@ -9933,7 +9961,7 @@ cj
 cj
 Ce
 Tt
-Ce
+Wd
 bT
 bT
 bT
@@ -10239,7 +10267,7 @@ cj
 Ce
 Tt
 Tt
-Tt
+Ii
 Ce
 bT
 bT
@@ -10338,7 +10366,7 @@ cj
 cj
 cj
 cj
-Ce
+Ye
 Tt
 Tt
 Tt
