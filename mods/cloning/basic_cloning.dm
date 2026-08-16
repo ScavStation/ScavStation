@@ -150,6 +150,10 @@
 			updateUsrDialog()
 		return TRUE
 
+	if(istype(I, /obj/item/organ))
+		to_chat(user, SPAN_WARNING("\The [src] rejects \the [I] - it only accepts raw biomass, not body parts."))
+		return TRUE
+
 	if(istype(I, /obj/item/food/butchery) || istype(I.material, /decl/material/solid/organic/meat))
 		var/meat_amount = get_meat_matter_amount(I)
 		if(meat_amount <= 0)
