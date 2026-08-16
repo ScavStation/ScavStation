@@ -23,7 +23,7 @@
 /datum/job/valSal_port/visitor/traveller/learned
 	title                   = "Scholar"
 	// todo: outfits for alt-titles?
-	alt_titles              = list("Monk", "Travelling Doctor" = /decl/outfit/job/valSal_port/traveller/doctor, "Dilettante", "Savant", "Philosopher", "Researcher", "Antiquarian")
+	alt_titles              = list("Monk", "Travelling Doctor" = /decl/outfit/job/valSal_port/traveller/doctor, "Dilettante", "Savant", "Philosopher", "Researcher", "Antiquarian", "Noble", "Priest", "Hosteler")
 	supervisors             = "your conscience"
 	description             = "You are a skilled professional who has travelled to this area from elsewhere. You may be a doctor, a scholar, a monk, or some other highly-educated individual with rare skills. Whatever your reason for coming here, you are likely one of the only individuals in the area to possess your unique skillset."
 	spawn_positions         = 2

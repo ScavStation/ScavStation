@@ -1,11 +1,11 @@
 /datum/map/valSal_port
 	id_hud_icons = 'maps/valSal_port/icons/hud.dmi'
 	allowed_jobs = list(
-		/datum/job/valSal_port/enclave/matriarch,
-		/datum/job/valSal_port/enclave/farmpatriarch,
-		/datum/job/valSal_port/enclave/huntpatriarch,
-		/datum/job/valSal_port/enclave/healpatriarch,
-		/datum/job/valSal_port/enclave/craftpatriarch,
+		/datum/job/valSal_port/enclavecommand/matriarch,
+		/datum/job/valSal_port/enclavecommand/farmpatriarch,
+		/datum/job/valSal_port/enclavecommand/huntpatriarch,
+		/datum/job/valSal_port/enclavecommand/healpatriarch,
+		/datum/job/valSal_port/enclavecommand/craftpatriarch,
 		/datum/job/valSal_port/enclave/daughter,
 		/datum/job/valSal_port/enclave/digger,
 		/datum/job/valSal_port/enclave/reedtender,
@@ -40,11 +40,11 @@
 			/datum/job/valSal_port/visitor/traveller/merchant,
 			/datum/job/valSal_port/visitor/traveller,
 			/datum/job/valSal_port/visitor/traveller/learned,
-			/datum/job/valSal_port/enclave/matriarch,
-			/datum/job/valSal_port/enclave/farmpatriarch,
-			/datum/job/valSal_port/enclave/huntpatriarch,
-			/datum/job/valSal_port/enclave/healpatriarch,
-			/datum/job/valSal_port/enclave/craftpatriarch,
+			/datum/job/valSal_port/enclavecommand/matriarch,
+			/datum/job/valSal_port/enclavecommand/farmpatriarch,
+			/datum/job/valSal_port/enclavecommand/huntpatriarch,
+			/datum/job/valSal_port/enclavecommand/healpatriarch,
+			/datum/job/valSal_port/enclavecommand/craftpatriarch,
 			/datum/job/valSal_port/enclave/daughter,
 			/datum/job/valSal_port/enclave/digger,
 			/datum/job/valSal_port/enclave/reedtender,
@@ -59,11 +59,11 @@
 			/datum/job/valSal_port/visitor/traveller/merchant,
 			/datum/job/valSal_port/visitor/traveller,
 			/datum/job/valSal_port/visitor/traveller/learned,
-			/datum/job/valSal_port/enclave/matriarch,
-			/datum/job/valSal_port/enclave/farmpatriarch,
-			/datum/job/valSal_port/enclave/huntpatriarch,
-			/datum/job/valSal_port/enclave/healpatriarch,
-			/datum/job/valSal_port/enclave/craftpatriarch,
+			/datum/job/valSal_port/enclavecommand/matriarch,
+			/datum/job/valSal_port/enclavecommand/farmpatriarch,
+			/datum/job/valSal_port/enclavecommand/huntpatriarch,
+			/datum/job/valSal_port/enclavecommand/healpatriarch,
+			/datum/job/valSal_port/enclavecommand/craftpatriarch,
 			/datum/job/valSal_port/enclave/daughter,
 			/datum/job/valSal_port/enclave/digger,
 			/datum/job/valSal_port/enclave/reedtender,
@@ -78,11 +78,11 @@
 			/datum/job/valSal_port/visitor/traveller/merchant,
 			/datum/job/valSal_port/visitor/traveller,
 			/datum/job/valSal_port/visitor/traveller/learned,
-			/datum/job/valSal_port/enclave/matriarch,
-			/datum/job/valSal_port/enclave/farmpatriarch,
-			/datum/job/valSal_port/enclave/huntpatriarch,
-			/datum/job/valSal_port/enclave/healpatriarch,
-			/datum/job/valSal_port/enclave/craftpatriarch,
+			/datum/job/valSal_port/enclavecommand/matriarch,
+			/datum/job/valSal_port/enclavecommand/farmpatriarch,
+			/datum/job/valSal_port/enclavecommand/huntpatriarch,
+			/datum/job/valSal_port/enclavecommand/healpatriarch,
+			/datum/job/valSal_port/enclavecommand/craftpatriarch,
 			/datum/job/valSal_port/enclave/daughter,
 			/datum/job/valSal_port/enclave/digger,
 			/datum/job/valSal_port/enclave/reedtender,
@@ -91,11 +91,11 @@
 			/datum/job/valSal_port/enclave/idiot
 		),
 		/decl/species/human = list(
-			/datum/job/valSal_port/enclave/matriarch,
-			/datum/job/valSal_port/enclave/farmpatriarch,
-			/datum/job/valSal_port/enclave/huntpatriarch,
-			/datum/job/valSal_port/enclave/healpatriarch,
-			/datum/job/valSal_port/enclave/craftpatriarch,
+			/datum/job/valSal_port/enclavecommand/matriarch,
+			/datum/job/valSal_port/enclavecommand/farmpatriarch,
+			/datum/job/valSal_port/enclavecommand/huntpatriarch,
+			/datum/job/valSal_port/enclavecommand/healpatriarch,
+			/datum/job/valSal_port/enclavecommand/craftpatriarch,
 			/datum/job/valSal_port/enclave/daughter,
 			/datum/job/valSal_port/enclave/digger,
 			/datum/job/valSal_port/enclave/reedtender,
@@ -104,11 +104,11 @@
 			/datum/job/valSal_port/enclave/idiot
 		),
 		/decl/species/baxxid = list(
-			/datum/job/valSal_port/enclave/matriarch,
-			/datum/job/valSal_port/enclave/farmpatriarch,
-			/datum/job/valSal_port/enclave/huntpatriarch,
-			/datum/job/valSal_port/enclave/healpatriarch,
-			/datum/job/valSal_port/enclave/craftpatriarch,
+			/datum/job/valSal_port/enclavecommand/matriarch,
+			/datum/job/valSal_port/enclavecommand/farmpatriarch,
+			/datum/job/valSal_port/enclavecommand/huntpatriarch,
+			/datum/job/valSal_port/enclavecommand/healpatriarch,
+			/datum/job/valSal_port/enclavecommand/craftpatriarch,
 			/datum/job/valSal_port/enclave/daughter,
 			/datum/job/valSal_port/enclave/digger,
 			/datum/job/valSal_port/enclave/reedtender,
@@ -117,11 +117,11 @@
 			/datum/job/valSal_port/enclave/idiot
 		),
 		/decl/species/indrel = list(
-			/datum/job/valSal_port/enclave/matriarch,
-			/datum/job/valSal_port/enclave/farmpatriarch,
-			/datum/job/valSal_port/enclave/huntpatriarch,
-			/datum/job/valSal_port/enclave/healpatriarch,
-			/datum/job/valSal_port/enclave/craftpatriarch,
+			/datum/job/valSal_port/enclavecommand/matriarch,
+			/datum/job/valSal_port/enclavecommand/farmpatriarch,
+			/datum/job/valSal_port/enclavecommand/huntpatriarch,
+			/datum/job/valSal_port/enclavecommand/healpatriarch,
+			/datum/job/valSal_port/enclavecommand/craftpatriarch,
 			/datum/job/valSal_port/enclave/daughter,
 			/datum/job/valSal_port/enclave/digger,
 			/datum/job/valSal_port/enclave/reedtender,
@@ -140,7 +140,7 @@
 /datum/job/valSal_port
 	abstract_type           = /datum/job/valSal_port
 	department_types        = list(
-		/decl/department/valSal_port/yinglets
+		/decl/department/valSal_port/enclave
 	)
 	min_skill               = list()
 	// if you consider adding something like literacy to this list to make it rarer/more exclusive
