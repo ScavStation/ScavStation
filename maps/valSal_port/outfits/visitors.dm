@@ -26,6 +26,8 @@
 
 /decl/outfit/job/valSal_port/traveller/merchant
 	name    = "Travelling Merchant"
+	suit    = /obj/item/clothing/suit/robe/merchant
+	head    = /obj/item/clothing/head/merchantcap
 	backpack_contents = list(
 		/obj/item/stack/medical/bandage/crafted/ten = 1,
 		/obj/item/stack/medical/ointment/crafted/ten   = 1,

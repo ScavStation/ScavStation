@@ -406,3 +406,28 @@
 	name = "small Ivenmoth winter hood"
 	icon = 'mods/valsalia/icons/clothing/head/winterhood/red.dmi'
 	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/suit/robe/merchant
+	name = "\improper Merchant Coat"
+	icon = 'mods/valsalia/icons/clothing/suit/merchant.dmi'
+	desc = "A fanciful garb worn by burghers that displays wealth and status."
+	bodytype_equip_flags = BODY_EQUIP_FLAG_HUMANOID
+	_yinglet_icon = null
+
+/obj/item/clothing/suit/robe/merchant
+	name = "\improper Merchant Coat"
+	icon = 'mods/valsalia/icons/clothing/suit/merchant.dmi'
+	desc = "A fanciful garb worn by burghers that displays wealth and status."
+	bodytype_equip_flags = BODY_EQUIP_FLAG_HUMANOID
+	_yinglet_icon = null
+
+/obj/item/clothing/suit/robe/yinglet/merchant
+	name = "small Merchant Coat"
+	icon = 'mods/valsalia/icons/clothing/suit/smallmerchant.dmi'
+	desc = "A fanciful garb worn by burghers that displays wealth and status."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+
+/obj/item/clothing/head/merchantcap
+	name = "\improper Merchant Cap"
+	icon = 'mods/valsalia/icons/clothing/head/merchantcap.dmi'
+	desc = "A round red hat with a plume of feathers sticking out of the top."

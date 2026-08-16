@@ -154,6 +154,24 @@
 	crafting_extra_cost_factor = 1.3
 	category              = "clothing"
 
+/decl/stack_recipe/textiles/smallmerchant
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/robe/yinglet/merchant
+	crafting_extra_cost_factor = 1
+	category              = "clothing"
+
+/decl/stack_recipe/textiles/merchant
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/robe/merchant
+	crafting_extra_cost_factor = 1.4
+	category              = "clothing"
+
+/decl/stack_recipe/textiles/merchantcap
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/head/merchantcap
+	crafting_extra_cost_factor = 1
+	category              = "clothing"
+
 /decl/stack_recipe/textiles/redcape
 	difficulty  = MAT_VALUE_EASY_DIY
 	result_type           = /obj/item/clothing/suit/yinglet/cape
