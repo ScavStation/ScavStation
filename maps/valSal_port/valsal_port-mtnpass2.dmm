@@ -190,6 +190,7 @@
 /obj/structure/door/sandstone{
 	dir = 4
 	},
+/obj/abstract/landmark/lock_preset/valSal_port/library,
 /turf/floor/holofloor/concrete,
 /area/valSal_port/valley/library)
 "iT" = (
@@ -202,6 +203,7 @@
 "jl" = (
 /obj/effect/floor_decal/corner/black/mono,
 /obj/structure/door/gold,
+/obj/abstract/landmark/lock_preset/valSal_port/throne_room,
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/valley/throneroom)
 "jq" = (
@@ -284,6 +286,7 @@
 /obj/structure/door/sandstone{
 	dir = 4
 	},
+/obj/abstract/landmark/lock_preset/valSal_port/chapel,
 /turf/floor/path/granite,
 /area/valSal_port/valley/chapel)
 "nd" = (
@@ -468,6 +471,7 @@
 /area/valSal_port/valley/throneroom)
 "AC" = (
 /obj/structure/door/gold,
+/obj/abstract/landmark/lock_preset/valSal_port/throne_room,
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/valley/throneroom)
 "AF" = (
@@ -922,6 +926,9 @@
 /area/valSal_port/valley/stonenorth)
 "Vi" = (
 /obj/structure/table/woodentable/ebony,
+/obj/item/tool/hammer/jack{
+	name = "The Batterer"
+	},
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/valley/throneroom)
 "Vv" = (
