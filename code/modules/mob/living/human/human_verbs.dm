@@ -124,7 +124,7 @@
 
 	for(var/mob/living/h in global.living_mob_list_)
 		var/turf/temp_turf = get_turf(h)
-		if((temp_turf.z != 1 && temp_turf.z != 5) || h.stat!=CONSCIOUS) //Not on mining or the station. Or dead
+		if(!isStationLevel(temp_turf.z) || h.stat != CONSCIOUS) //Not on the main map. Or dead
 			continue
 		creatures += h
 

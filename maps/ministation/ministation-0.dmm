@@ -6486,6 +6486,7 @@
 /obj/structure/closet/jcloset,
 /obj/item/clothing/suit/jacket/winter/yinglet/janitor,
 /obj/item/clothing/suit/jacket/winter/yinglet/janitor,
+/obj/item/clothing/gloves/ring/seal/telepath_ring,
 /turf/floor/tiled,
 /area/ministation/janitor)
 "sz" = (
