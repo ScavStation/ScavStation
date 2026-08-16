@@ -124,7 +124,7 @@
 
 	for(var/mob/living/h in global.living_mob_list_)
 		var/turf/temp_turf = get_turf(h)
-		if((temp_turf.z != 1 && temp_turf.z != 5) || h.stat!=CONSCIOUS) //Not on mining or the station. Or dead
+		if(!isStationLevel(temp_turf.z) || h.stat != CONSCIOUS) //Not on the main map. Or dead
 			continue
 		creatures += h
 
@@ -136,6 +136,37 @@
 	else
 		remoteview_target = null
 		reset_view(0)
+
+/mob/living/human/get_remote_hearing_turf()
+	if(remoteview_target && client?.eye == remoteview_target)
+		return get_turf(remoteview_target)
+	return ..()
+
+// Being touched at all means the body needs its occupant's attention, since a remote-viewing mind can't perceive its own tile.
+/mob/living/human/proc/interrupt_remote_view()
+	if(!remoteview_target)
+		return
+	remoteview_target = null
+	reset_view(0)
+	to_chat(src, SPAN_WARNING("You are wrenched back into your body!"))
+
+/mob/living/human/attackby(obj/item/used_item, mob/user)
+	if(user != src)
+		interrupt_remote_view()
+	return ..()
+
+// only usable by typing the verb name directly into the command bar.
+/mob/living/human/verb/open_minds_eye()
+	set name = "Open Mind's Eye"
+	set category = null
+	set hidden = TRUE
+
+	if(has_genetic_condition(GENE_COND_REMOTE_VIEW))
+		to_chat(src, SPAN_WARNING("Your mind's eye is already open."))
+		return
+
+	if(!add_genetic_condition(GENE_COND_REMOTE_VIEW))
+		to_chat(src, SPAN_WARNING("Nothing happens."))
 
 /mob/living/human/proc/remove_splints()
 	set category = "Object"

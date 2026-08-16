@@ -13,3 +13,4 @@
 		// add telepathy and remove view
 		user.add_genetic_condition(/decl/genetic_condition/superpower/remotetalk)
 		user.add_genetic_condition(/decl/genetic_condition/superpower/remoteview)
+		to_chat(user, SPAN_NOTICE("You feel incredibly powerful."))
