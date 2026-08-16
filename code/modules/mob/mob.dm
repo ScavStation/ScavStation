@@ -337,6 +337,10 @@
 		client.perspective = EYE_PERSPECTIVE
 		client.eye = loc
 
+// Turf this mob's senses are currently extended to, for mobs that are being remote-viewers
+/mob/proc/get_remote_hearing_turf()
+	return null
+
 /mob/proc/get_descriptive_slot_name(var/slot)
 	return global.descriptive_slot_names[slot] || slot
 

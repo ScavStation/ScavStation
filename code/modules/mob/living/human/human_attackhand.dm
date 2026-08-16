@@ -237,6 +237,8 @@
 	return TRUE
 
 /mob/living/human/attack_hand(mob/user)
+	if(user != src)
+		interrupt_remote_view()
 
 	remove_cloaking_source(species)
 	if(user.a_intent != I_GRAB)
