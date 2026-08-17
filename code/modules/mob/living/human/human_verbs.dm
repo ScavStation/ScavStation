@@ -157,7 +157,7 @@
 
 // only usable by typing the verb name directly into the command bar.
 /mob/living/human/verb/open_minds_eye()
-	set name = "Open Mind's Eye"
+	set name = "Open-Mind's-Eye"
 	set category = null
 	set hidden = TRUE
 
