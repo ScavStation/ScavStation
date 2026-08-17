@@ -36,6 +36,12 @@
 	},
 /turf/floor/wood/ebony,
 /area/valSal_port/enclave/nursery)
+"aP" = (
+/obj/structure/table/woodentable,
+/obj/abstract/landmark/paperwork_spawn_valSal_port,
+/obj/item/paperwork/valSal_port,
+/turf/floor/carpet/rustic,
+/area/valSal_port/enclave/patriarch)
 "aQ" = (
 /mob/living/simple_animal/chorp,
 /turf/floor/grass/wild,
@@ -450,6 +456,7 @@
 /area/valSal_port/enclave/huntershut)
 "io" = (
 /obj/structure/closet/cabinet/wooden/ebony,
+/obj/abstract/landmark/paperwork_finish_valSal_port,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/matriarch)
 "ix" = (
@@ -8888,7 +8895,7 @@ yC
 fl
 Mf
 Sb
-Sb
+aP
 Sb
 sI
 fl

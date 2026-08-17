@@ -17,11 +17,11 @@
 	#include "areas/town.dm"
 
 	#include "jobs/_jobs.dm"
+	#include "jobs/_goals.dm"
 	#include "jobs/tradehouse.dm"
 	#include "jobs/visitors.dm"
 	#include "jobs/enclavecommon.dm"
 	#include "jobs/enclavecommand.dm"
-
 
 	#include "levels/_levels.dm"
 	#include "levels/random_map.dm"
@@ -35,6 +35,7 @@
 	#include "outfits/enclave.dm"
 
 	#include "valSal_port_currency.dm"
+	#include "valSal_port-departments.dm"
 	#include "valSal_port_events.dm"
 	#include "valSal_port_locks.dm"
 	#include "valSal_port_map.dm"

@@ -27,6 +27,7 @@
 		SKILL_ANATOMY       = SKILL_ADEPT
 	)
 	skill_points            = 18
+	department_types = list(/decl/department/tradehouse)
 
 /obj/abstract/landmark/start/valSal_port/surveyor
 	name                    = "Tradehouse Surveyor"
@@ -50,6 +51,7 @@
 		SKILL_COOKING       = SKILL_EXPERT,
 		SKILL_BOTANY        = SKILL_EXPERT
 	)
+	department_types = list(/decl/department/tradehouse)
 
 /obj/abstract/landmark/start/valSal_port/generalrecruit
 	name                    = "Tradehouse Redcoat"
