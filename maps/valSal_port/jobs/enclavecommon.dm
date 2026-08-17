@@ -3,7 +3,7 @@
 	colour                  = "#118a11"
 	display_color           = "#106826"
 
-/datum/job/valSal_port/enclave
+/datum/job/valSal_port/enclavecommon
 	abstract_type           = /datum/job/valSal_port/enclave
 	department_types        = list(/decl/department/valSal_port/enclave)
 
@@ -27,6 +27,7 @@
 		SKILL_CHEMISTRY       = SKILL_MAX
 	)
 	skill_points            = 18
+	department_types = list(/decl/department/enclavecommon)
 
 /obj/abstract/landmark/start/valSal_port/daughter
 	name                    = "Daughter"
@@ -46,6 +47,7 @@
 		SKILL_SCULPTING     = SKILL_BASIC // producing clay molds, firing pottery
 	)
 	skill_points            = 22
+	department_types = list(/decl/department/enclavecommon)
 
 /obj/abstract/landmark/start/valSal_port/miner
 	name                    = "Rock Digger"
@@ -69,6 +71,7 @@
 		SKILL_CHEMISTRY     = SKILL_MAX
 	)
 	skill_points            = 22
+	department_types = list(/decl/department/enclavecommon)
 
 /obj/abstract/landmark/start/valSal_port/reedtender
 	name                    = "Reed Tender"
@@ -89,6 +92,7 @@
 		SKILL_WEAPONS       = SKILL_AVERAGE // shooting accuracy
 	)
 	skill_points            = 24
+	department_types = list(/decl/department/enclavecommon)
 
 /obj/abstract/landmark/start/valSal_port/hunter
 	name                    = "Hunter"
@@ -109,6 +113,7 @@
 		SKILL_CARPENTRY     = SKILL_ADEPT // building camps
 	)
 	skill_points            = 26
+	department_types = list(/decl/department/enclavecommon)
 
 /obj/abstract/landmark/start/valSal_port/scout
 	name                    = "Scout"
@@ -122,6 +127,7 @@
 	total_positions         = 1
 	outfit_type             = /decl/outfit/job/valSal_port/idiot
 	skill_points            = 2
+	department_types = list(/decl/department/enclavecommon)
 
 /obj/abstract/landmark/start/valSal_port/idiot
 	name                    = "Idiot"

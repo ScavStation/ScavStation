@@ -3,7 +3,7 @@
 	colour                  = "#685b40"
 	display_color           = "#c4bc8c"
 
-/datum/job/valSal_port/visitor
+/datum/job/valSal_port/visitors
 	abstract_type           = /datum/job/valSal_port/visitor
 	department_types        = list(/decl/department/valSal_port/visitors)
 
@@ -16,7 +16,7 @@
 	total_positions         = -1
 	outfit_type             = /decl/outfit/job/valSal_port/traveller
 	skill_points            = 20
-
+	department_types = list(/decl/department/visitors)
 /obj/abstract/landmark/start/valSal_port/traveller
 	name                    = "Traveller"
 
@@ -41,7 +41,7 @@
 		SKILL_ANATOMY	    = SKILL_MAX,
 		SKILL_CHEMISTRY	    = SKILL_MAX
 	)
-
+	department_types = list(/decl/department/visitors)
 /obj/abstract/landmark/start/valSal_port/traveller/learned
 	name                    = "Scholar"
 
@@ -67,7 +67,7 @@
 		SKILL_ARTIFICE      = SKILL_BASIC,
 		SKILL_FINANCE       = SKILL_NONE
 	)
-
+	department_types = list(/decl/department/visitors)
 /obj/abstract/landmark/start/valSal_port/warrior
 	name                    = "Warrior"
 
@@ -92,6 +92,6 @@
 		SKILL_CHEMISTRY	   = SKILL_MAX
 	)
 	skill_points            = 30
-
+	department_types = list(/decl/department/visitors)
 /obj/abstract/landmark/start/valSal_port/merchant
 	name                    = "Travelling Merchant"

@@ -26,6 +26,7 @@
 		SKILL_CHEMISTRY       = SKILL_MAX
 	)
 	skill_points            = 30
+	department_types = list(/decl/department/enclavecommand)
 
 /obj/abstract/landmark/start/valSal_port/matriarch
 	name                    = "Matriarch"
@@ -52,6 +53,7 @@
 		SKILL_CHEMISTRY       = SKILL_MAX
 	)
 	skill_points            = 21
+	department_types = list(/decl/department/enclavecommand)
 
 /obj/abstract/landmark/start/valSal_port/patriarch
 	name                    = "Patriarch of Farming"
@@ -81,6 +83,7 @@
 		SKILL_CHEMISTRY       = SKILL_MAX
 	)
 	skill_points            = 26
+	department_types = list(/decl/department/enclavecommand)
 
 /obj/abstract/landmark/start/valSal_port/huntpatriarch
 	name                    = "Patriarch of Hunting"
@@ -108,6 +111,7 @@
 		SKILL_CHEMISTRY       = SKILL_MAX
 	)
 	skill_points            = 20
+	department_types = list(/decl/department/enclavecommand)
 
 /obj/abstract/landmark/start/valSal_port/craftpatriarch
 	name                    = "Patriarch of Construction"
@@ -135,6 +139,7 @@
 		SKILL_SCIENCE          = SKILL_ADEPT
 	)
 	skill_points            = 51
+	department_types = list(/decl/department/enclavecommand)
 
 /obj/abstract/landmark/start/valSal_port/healpatriarch
 	name                    = "Patriarch of Healing"
