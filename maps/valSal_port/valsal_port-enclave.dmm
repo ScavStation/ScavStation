@@ -90,6 +90,10 @@
 	},
 /turf/floor/clay,
 /area/valSal_port/outside/enclave/river)
+"bE" = (
+/obj/structure/storage_bin/valSal_port/resource,
+/turf/floor/barren,
+/area/valSal_port/caves/entrance)
 "bO" = (
 /obj/structure/produce_bin/walnut,
 /turf/floor/wood/ebony,
@@ -588,11 +592,6 @@
 /obj/structure/flora/seaweed/glow,
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/enclave/riverborder)
-"li" = (
-/obj/structure/flora/tree/hardwood/ebony,
-/obj/structure/storage_bin/valSal_port/resource,
-/turf/floor/grass,
-/area/valSal_port/outside/enclave)
 "lk" = (
 /obj/item/stool/rustic,
 /obj/abstract/landmark/start/valSal_port/scout,
@@ -1403,6 +1402,13 @@
 	},
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/dininghut)
+"AD" = (
+/obj/structure/wall_sconce/torch{
+	dir = 4
+	},
+/obj/structure/storage_bin/valSal_port/resource,
+/turf/floor/dirt,
+/area/valSal_port/outside/enclave)
 "AM" = (
 /turf/wall/log/yew,
 /area/valSal_port/enclave/daughter)
@@ -2139,10 +2145,6 @@
 "Pi" = (
 /turf/wall/natural/random/basalt/valSal_port,
 /area/valSal_port/caves/deep)
-"Pn" = (
-/obj/structure/storage_bin/valSal_port/resource,
-/turf/floor/barren,
-/area/valSal_port/caves/entrance)
 "Pp" = (
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass/wild,
@@ -4795,7 +4797,7 @@ ud
 ud
 ud
 RP
-Pn
+bE
 cO
 qS
 Ur
@@ -8179,7 +8181,7 @@ FJ
 FJ
 yz
 Tx
-yz
+AD
 zF
 Gh
 Gh
@@ -8379,7 +8381,7 @@ FJ
 Tx
 zP
 eu
-li
+Fa
 hE
 kT
 MB
