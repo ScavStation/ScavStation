@@ -1,5 +1,34 @@
-/decl/department/enclavecommand
-	goals = list(/datum/goal/department/paperwork/valSal_port)
+// The breeding schedule paperwork stays matriarch/patriarch-only. Everything else the enclave
+// works towards together lives on enclave_goals below, visible to every enclave member.
+/decl/department/valSal_port/patriarch
+	goals = list(
+		/datum/goal/department/paperwork/valSal_port
+	)
+
+// Not tied to any one job's department - shown to every enclave member (patriarch tier and
+// commoners alike) via public_goals, but not to tradehouse or visitors.
+/decl/department/valSal_port/enclave_goals
+	name = "the Enclave"
+	noun = "enclave"
+	noun_adj = "shared"
+	announce_channel = null
+	public_goals = TRUE
+	public_goals_audience = list(
+		/decl/department/valSal_port/patriarch,
+		/decl/department/valSal_port/enclave
+	)
+	// Medical fatalities is always tracked; of the four production goals below, at least 3 (up to all 4) are active each round.
+	mandatory_goals = list(
+		/datum/goal/department/medical_fatalities
+	)
+	min_goals = 3
+	max_goals = 4
+	goals = list(
+		/datum/goal/department/valSal_port/deposit_count/produce,
+		/datum/goal/department/valSal_port/deposit_count/game,
+		/datum/goal/department/valSal_port/deposit_count/wood,
+		/datum/goal/department/valSal_port/deposit_count/ore
+	)
 
 var/global/list/valSal_port_paperwork_spawn_turfs = list()
 var/global/list/valSal_port_paperwork_end_areas = list()

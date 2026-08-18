@@ -22,6 +22,7 @@
 	#include "jobs/visitors.dm"
 	#include "jobs/enclavecommon.dm"
 	#include "jobs/enclavecommand.dm"
+	#include "jobs/production_goals.dm"
 
 	#include "levels/_levels.dm"
 	#include "levels/random_map.dm"
