@@ -155,8 +155,8 @@
 /obj/item/pan_net_find/river_reeds
 	name = "tangle of river reeds"
 	desc = "A dripping clump of reeds and waterweed, pulled up along with everything else."
-	icon = 'icons/obj/items/passport.dmi' // placeholder art
-	icon_state = "passport"
+	icon = 'icons/obj/flora/ausflora.dmi'
+	icon_state = "reedbush_1"
 	material = /decl/material/solid/organic/wood
 	w_class = ITEM_SIZE_SMALL
 
