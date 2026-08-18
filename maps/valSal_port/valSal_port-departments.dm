@@ -1,6 +1,5 @@
 /decl/department/enclavecommand
 	name = "Patriarchs"
-	goals = list(/datum/goal/department/medical_fatalities)
 	announce_channel = "Patriarch"
 	colour = "#88b764"
 	display_color = "#d0f0c0"
