@@ -16,7 +16,7 @@
 	game_year = 294
 
 	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
-	lobby_screens = list('mods/valsalia/lobby/fishfinder.png')
+	lobby_screens = list('maps/tradeship_alt/lobbyscreen/fishfinder.png', 'maps/tradeship_alt/lobbyscreen/fishfinder2.png', 'maps/tradeship_alt/lobbyscreen/fishfinder3.png', 'maps/tradeship_alt/lobbyscreen/fishfinder4.png', 'maps/tradeship_alt/lobbyscreen/fishfinder5.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 4
