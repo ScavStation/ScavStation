@@ -13,7 +13,7 @@
 	default_spawn = /decl/spawnpoint/arrivals
 
 	welcome_sound = 'sound/effects/Card6.ogg'
-	lobby_screens = list('maps/valSal_port/valSal_port_lobby.png')
+	lobby_screens = list('maps/valSal_port/lobbyscreen/valSal_port_lobby.png', 'maps/valSal_port/lobbyscreen/valSal_port_lobby2.png', 'maps/valSal_port/lobbyscreen/valSal_port_lobby3.png', 'maps/valSal_port/lobbyscreen/valSal_port_lobby4.png', 'maps/valSal_port/lobbyscreen/valSal_port_lobby5.png')
 	allowed_latejoin_spawns = list(
 		/decl/spawnpoint/arrivals
 	)
