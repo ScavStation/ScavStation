@@ -63,6 +63,18 @@
 	body_parts = list(BP_R_LEG, BP_R_FOOT)
 	uid = "marking_yinglet_body_r_leg"
 
+/decl/sprite_accessory/marking/yinglet/lefthand
+	name = "Body Colour (Left Hand)"
+	icon_state = "lefthand"
+	body_parts = list(BP_L_HAND)
+	uid = "marking_yinglet_lefthand"
+
+/decl/sprite_accessory/marking/yinglet/righthand
+	name = "Body Colour (Right Hand)"
+	icon_state = "righthand"
+	body_parts = list(BP_R_HAND)
+	uid = "marking_yinglet_righthand"
+
 /decl/sprite_accessory/marking/yinglet/short_ears
 	name = "Ying Short Ears"
 	icon_state = "shortears"
@@ -88,12 +100,62 @@
 	mask_to_bodypart = TRUE
 	uid = "marking_yinglet_head_front"
 
+/decl/sprite_accessory/marking/yinglet/recolour_chest_top
+	name = "Chest Fluff Colour"
+	icon_state = "chestfluff"
+	mask_to_bodypart = TRUE
+	body_parts = list(BP_CHEST, BP_GROIN)
+	uid = "marking_yinglet_chest_top"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_top
+	name = "Head Colour (Top)"
+	icon_state = "facetop"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_face_top"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_bottom
+	name = "Head Colour (Bottom)"
+	icon_state = "facebottom"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_face_bottom"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_bandit
+	name = "Head Colour (Bandit)"
+	icon_state = "bandit"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_face_bandit"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_stripes
+	name = "Head Colour (Stripes)"
+	icon_state = "facestripes"
+	mask_to_bodypart = TRUE
+	uid = "marking_yinglet_face_stripes"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_wrap
+	name = "Head Colour (Snout Wrap)"
+	icon_state = "snoutwrap"
+	mask_to_bodypart = TRUE
+	uid = "marking_yinglet_face_wrap"
+
+/decl/sprite_accessory/marking/yinglet/recolour_eartips
+	name = "Ear Tips Colour"
+	icon_state = "eartips"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_eartips"
+
 /decl/sprite_accessory/marking/yinglet/recolour_front_torso
 	name = "Torso Colour (Front)"
 	icon_state = "torsofront"
 	mask_to_bodypart = TRUE
 	body_parts = list(BP_CHEST, BP_GROIN)
 	uid = "marking_yinglet_torso_front"
+
+/decl/sprite_accessory/marking/yinglet/recolour_bodystripes
+	name = "Torso Colour (Stripes)"
+	icon_state = "bodystripes"
+	mask_to_bodypart = TRUE
+	body_parts = list(BP_CHEST, BP_GROIN)
+	uid = "marking_yinglet_torso_stripes"
 
 // this doesnt function do to how the tail code works
 // /decl/sprite_accessory/marking/yinglet/recolour_under_tail
