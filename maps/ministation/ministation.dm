@@ -55,6 +55,7 @@ Twice...
 	#include "ministation_objects.dm"
 	#include "ministation_unit_testing.dm"
 	#include "ministation_overrides.dm"
+	#include "ministation_events.dm"
 
 	#include "ministation-0.dmm"
 	#include "ministation-1.dmm"

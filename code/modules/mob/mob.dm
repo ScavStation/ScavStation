@@ -39,6 +39,9 @@
 	ghostize()
 	return ..()
 
+/mob/proc/can_open_doors()
+	return TRUE
+
 /mob/proc/remove_screen_obj_references()
 	QDEL_NULL_SCREEN(internals)
 	QDEL_NULL_SCREEN(oxygen)
