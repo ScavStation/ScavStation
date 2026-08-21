@@ -156,17 +156,17 @@
 	return ..()
 
 // only usable by typing the verb name directly into the command bar.
-/mob/living/human/verb/open_minds_eye()
-	set name = "Open-Mind's-Eye"
-	set category = null
-	set hidden = TRUE
+///mob/living/human/verb/open_minds_eye()
+//	set name = "Open-Mind's-Eye"
+//	set category = null
+//	set hidden = TRUE
 
-	if(has_genetic_condition(GENE_COND_REMOTE_VIEW))
-		to_chat(src, SPAN_WARNING("Your mind's eye is already open."))
-		return
+//	if(has_genetic_condition(GENE_COND_REMOTE_VIEW))
+//		to_chat(src, SPAN_WARNING("Your mind's eye is already open."))
+//		return
 
-	if(!add_genetic_condition(GENE_COND_REMOTE_VIEW))
-		to_chat(src, SPAN_WARNING("Nothing happens."))
+//	if(!add_genetic_condition(GENE_COND_REMOTE_VIEW))
+//		to_chat(src, SPAN_WARNING("Nothing happens."))
 
 /mob/living/human/proc/remove_splints()
 	set category = "Object"
