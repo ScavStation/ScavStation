@@ -183,10 +183,13 @@
 	if(!move_only && same_z && !body.Adjacent(target) && body.has_ranged_attack() && get_dist(body, target) <= body.get_ranged_attack_distance())
 		open_fire()
 
-// It's untouchableso being attacked isn't a threat worth reacting to, never attacks whoever just hit it
-// and just keeps hunting its own hitlist below.
+// It's untouchable so being attacked isn't a threat worth reacting to, but retaliate() is required
+// to call its parent, and the parent retargets/moves toward whoever just hit it. So let it run, then
+// immediately restore whatever it was hunting before, undoing that retarget instead of skipping it.
 /datum/mob_controller/aggressive/stalker/retaliate(atom/source)
-	return
+	var/atom/original_target = get_target()
+	. = ..()
+	set_target(original_target)
 
 /datum/mob_controller/aggressive/stalker/list_targets(var/dist = 7)
 	. = list()
