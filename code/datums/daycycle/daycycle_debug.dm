@@ -28,7 +28,8 @@
 	// Land time_in_cycle in the middle of the chosen period's range so it doesn't sit right on a
 	// boundary and immediately roll into the next period on the following tick.
 	var/index = cycle.cycle_periods.Find(chosen)
-	var/lower_bound = (index > 1) ? cycle.cycle_periods[index - 1].period : 0
+	var/datum/daycycle_period/previous = (index > 1) ? cycle.cycle_periods[index - 1] : null
+	var/lower_bound = previous ? previous.period : 0
 	cycle.time_in_cycle = cycle.cycle_duration * ((lower_bound + chosen.period) / 2)
 	cycle.last_update = world.time
 	cycle.tick()
