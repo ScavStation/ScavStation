@@ -197,6 +197,10 @@
 /obj/structure/table/end,
 /turf/floor/carpet/rustic,
 /area/valSal_port/valley/quarter4)
+"iU" = (
+/obj/structure/boulder/sandstone,
+/turf/floor/dirt,
+/area/valSal_port/valley/farm)
 "iZ" = (
 /turf/wall/brick/sandstone,
 /area/valSal_port/valley/quarter2)
@@ -353,7 +357,8 @@
 	name = "Chieftain";
 	desc = "A mighty individual who has little qualms about what he did.";
 	icon_scale_x = 2;
-	icon_scale_y = 2
+	icon_scale_y = 2;
+	max_health = 250
 	},
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/valley/throneroom)
@@ -6628,8 +6633,8 @@ WC
 xE
 DQ
 xE
-xE
-xE
+iU
+iU
 Vv
 MS
 mg
