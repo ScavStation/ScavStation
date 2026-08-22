@@ -13,6 +13,12 @@
 	lock_preset_id  = "library"
 	lock_material   = /decl/material/solid/metal/iron
 
+
+/obj/abstract/landmark/lock_preset/valSal_port/meat
+	name = "Fortress locked door - Farm"
+	lock_preset_id  = "farm"
+	lock_material   = /decl/material/solid/metal/iron
+
 /obj/abstract/landmark/lock_preset/valSal_port/chapel
 	name = "Fortress locked door - chapel"
 	lock_preset_id  = "chapel"

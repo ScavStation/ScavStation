@@ -474,12 +474,6 @@
 /obj/abstract/landmark/lock_preset/valSal_port/throne_room,
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/valley/throneroom)
-"AF" = (
-/obj/structure/barricade/spike{
-	dir = 4
-	},
-/turf/floor/path/granite,
-/area/valSal_port/valley/halls)
 "Bn" = (
 /mob/living/simple_animal/hostile/carp/shark{
 	name = "The Mountainshark"
@@ -567,8 +561,10 @@
 /area/valSal_port/outside/clearing)
 "ES" = (
 /obj/structure/door/sandstone{
-	dir = 4
+	dir = 4;
+	lock = 1
 	},
+/obj/abstract/landmark/lock_preset/valSal_port/meat,
 /turf/floor/dirt,
 /area/valSal_port/valley/farm)
 "EY" = (
@@ -1035,10 +1031,6 @@
 /obj/structure/door/sandstone,
 /turf/unsimulated/floor/bcarpet,
 /area/valSal_port/valley/kitchen)
-"ZQ" = (
-/mob/living/simple_animal/hostile/aquatic/carp,
-/turf/floor/path/herringbone/marble/water/deep,
-/area/valSal_port/valley/outpost)
 "ZZ" = (
 /turf/wall/brick/sandstone,
 /area/valSal_port/valley/quarter5)
@@ -6434,7 +6426,7 @@ ku
 xE
 xE
 DQ
-ku
+xE
 MS
 pf
 pf
@@ -6502,7 +6494,7 @@ Gj
 Gj
 Ri
 GA
-ZQ
+GA
 GA
 GA
 GA
@@ -6533,7 +6525,7 @@ bT
 WC
 ku
 xE
-ku
+xE
 xE
 xE
 xE
@@ -6637,7 +6629,7 @@ xE
 DQ
 xE
 xE
-ku
+xE
 Vv
 MS
 mg
@@ -6840,8 +6832,8 @@ WC
 Vv
 xE
 tS
-AF
-AF
+Rq
+Rq
 tS
 MS
 MS
