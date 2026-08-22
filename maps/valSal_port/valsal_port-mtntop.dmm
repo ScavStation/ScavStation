@@ -61,10 +61,6 @@
 "E" = (
 /turf/floor/path/running_bond/basalt,
 /area/valSal_port/outside/outdoors_mtn_top)
-"F" = (
-/mob/living/simple_animal/passive/mouse/snaprat,
-/turf/floor/snow,
-/area/valSal_port/outside/outdoors_mtn_top)
 "J" = (
 /turf/floor/snow,
 /area/valSal_port/outside/outdoors_mtn_top)
@@ -78,10 +74,6 @@
 /area/valSal_port/outside/outdoors_mtn_top)
 "N" = (
 /turf/wall/natural/basalt/valSal_port,
-/area/valSal_port/outside/outdoors_mtn_top)
-"R" = (
-/mob/living/simple_animal/passive/mouse/snaprat,
-/turf/floor/barren,
 /area/valSal_port/outside/outdoors_mtn_top)
 "T" = (
 /obj/structure/boulder/basalt,
@@ -1737,7 +1729,7 @@ N
 N
 J
 v
-R
+w
 w
 p
 C
@@ -1844,7 +1836,7 @@ w
 f
 d
 p
-R
+w
 J
 J
 N
@@ -2148,7 +2140,7 @@ J
 J
 J
 J
-F
+J
 J
 J
 J
