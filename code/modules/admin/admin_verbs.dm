@@ -219,6 +219,7 @@ var/global/list/admin_verbs_debug = list(
 	/datum/admins/proc/force_weather_state,
 	/datum/admins/proc/force_kill_weather,
 	/datum/admins/proc/check_weather_exposure,
+	/datum/admins/proc/force_daycycle_period,
 	/client/proc/force_reload_theme_css,
 	)
 
