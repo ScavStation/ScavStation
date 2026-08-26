@@ -43,6 +43,9 @@
 /area/valSal_port/outside/westside
 	name = "Val Salian Westside"
 
+/area/valSal_port/outside/garden
+	name = "Val Salian Tavern Garden"
+
 /area/valSal_port/outside/southside
 	name = "Val Salian Southside"
 
