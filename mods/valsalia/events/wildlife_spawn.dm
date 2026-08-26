@@ -25,6 +25,7 @@
 		)
 	)
 
+
 // Place these in/around water. Fish don't care about event severity - always a school of 3-5.
 /obj/abstract/landmark/wildlife_spawn/valSal_port/fish
 	name = "fish spawn point"
