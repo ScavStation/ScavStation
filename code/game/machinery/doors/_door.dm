@@ -62,7 +62,7 @@
 	return blend_objects
 
 /obj/machinery/door/proc/can_operate(var/mob/user)
-	. = istype(user) && !user.restrained() && (!issmall(user) || ishuman(user) || issilicon(user) || isbot(user))
+	. = istype(user) && !user.restrained() && user.can_open_doors() && (!issmall(user) || ishuman(user) || issilicon(user) || isbot(user))
 
 /obj/machinery/door/attack_generic(var/mob/user, var/damage, var/attack_verb, var/environment_smash)
 	if(environment_smash >= 1)

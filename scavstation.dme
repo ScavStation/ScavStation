@@ -404,6 +404,7 @@
 #include "code\datums\config\config_types\config_server.dm"
 #include "code\datums\config\config_types\config_voting.dm"
 #include "code\datums\daycycle\daycycle.dm"
+#include "code\datums\daycycle\daycycle_debug.dm"
 #include "code\datums\daycycle\time_of_day.dm"
 #include "code\datums\extensions\_defines.dm"
 #include "code\datums\extensions\access_provider.dm"
