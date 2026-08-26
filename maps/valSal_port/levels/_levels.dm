@@ -24,9 +24,9 @@
 /datum/daycycle/valSal_port
 	cycle_duration = 2 HOURS // 1 hour of daylight, 1 hour of night
 
-// Starts partway into the night period (period > 0.6 of the cycle) rather than at sunrise.
+// Starts at sunrise.
 /datum/daycycle/valSal_port/New()
-	time_in_cycle = cycle_duration * 0.8
+	time_in_cycle = 0
 	..()
 
 /datum/level_data/main_level/valSal_port/get_subtemplate_areas(template_category, blacklist, whitelist)

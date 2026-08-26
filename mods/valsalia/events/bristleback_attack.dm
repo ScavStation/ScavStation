@@ -1,3 +1,7 @@
+/datum/event/bristleback_attack
+	var/list/spawned_bristlebacks = list()
+	var/retreat_delay = 5 MINUTES
+
 /datum/event/bristleback_attack/start()
 	var/bristlebacks = severity * 0.25 * 2 - 1
 	var/groups = rand(3,8)
@@ -11,7 +15,20 @@
 				continue
 
 			var/turf/T = pick_n_take(spots)
-			new/mob/living/simple_animal/hostile/bristleback(T)
+			spawned_bristlebacks += new/mob/living/simple_animal/hostile/bristleback(T)
+
+	addtimer(CALLBACK(src, PROC_REF(retreat)), retreat_delay)
+
+// Clears out any survivors after a while so they don't linger on the map forever, silent if they've all been killed.
+/datum/event/bristleback_attack/proc/retreat()
+	var/removed = 0
+	for(var/mob/living/simple_animal/hostile/bristleback/B in spawned_bristlebacks)
+		if(QDELETED(B) || B.stat == DEAD)
+			continue
+		qdel(B)
+		removed++
+	if(removed)
+		priority_stealth.Announce_quiet("The bristlebacks have retreated for now.")
 
 /datum/event/bristleback_attack/announce()
 	var/naming
