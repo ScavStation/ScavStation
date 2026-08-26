@@ -550,7 +550,7 @@
 	dir = 4
 	},
 /turf/floor/grass/wild,
-/area/valSal_port/outside/westside)
+/area/valSal_port/outside/outer_town)
 "jt" = (
 /obj/effect/departure_signpost/north,
 /turf/floor/grass/wild,
@@ -857,7 +857,7 @@
 	dir = 4
 	},
 /turf/floor/grass/wild,
-/area/valSal_port/outside/westside)
+/area/valSal_port/outside/outer_town)
 "oo" = (
 /turf/floor/path/basalt,
 /area/valSal_port/town/slaughterhouse)
@@ -988,9 +988,9 @@
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
 "qA" = (
-/obj/structure/railing/mapped/wooden/walnut,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/westside)
+/obj/structure/flora/bush/stalkybush,
+/turf/floor/grass,
+/area/valSal_port/outside/outer_town)
 "qB" = (
 /obj/structure/fire_source/kiln/oven,
 /turf/floor/path/herringbone,
@@ -1938,7 +1938,7 @@
 /obj/structure/flora/bush/fernybush,
 /obj/structure/flora/bush/stalkybush,
 /turf/floor/grass,
-/area/valSal_port/outside/westside)
+/area/valSal_port/outside/outer_town)
 "FZ" = (
 /obj/structure/reagent_dispensers/well/mapped,
 /turf/floor/dirt,
@@ -2689,7 +2689,7 @@
 	dir = 4
 	},
 /turf/floor/grass/wild,
-/area/valSal_port/outside/westside)
+/area/valSal_port/outside/outer_town)
 "To" = (
 /obj/structure/flora/tree/hardwood/walnut,
 /obj/structure/flora/bush/sunnybush,
@@ -6135,22 +6135,22 @@ Gf
 EN
 EN
 xq
-EN
-EN
+UW
+UW
 om
 js
 Tl
 om
 om
 om
-Pv
-EN
-EN
-EN
-WO
-VQ
-Gf
-VQ
+tF
+UW
+UW
+UW
+Fe
+qA
+bR
+qA
 FP
 Gf
 EN
@@ -6237,8 +6237,8 @@ EN
 EN
 EN
 EN
-EN
-qA
+UW
+yt
 fG
 EC
 fG
@@ -6253,7 +6253,7 @@ oR
 dz
 oR
 oR
-Gf
+bR
 Gf
 OG
 EN
