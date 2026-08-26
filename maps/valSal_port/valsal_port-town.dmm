@@ -169,6 +169,10 @@
 "dc" = (
 /turf/floor/dirt,
 /area/valSal_port/outside/merchantcamp)
+"dk" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass,
+/area/valSal_port/outside/westside)
 "dm" = (
 /obj/structure/table/woodentable,
 /obj/item/board,
@@ -205,6 +209,11 @@
 /obj/effect/spider/spiderling/mundane,
 /turf/floor/grass/wild,
 /area/valSal_port/town/den)
+"dX" = (
+/obj/structure/flora/seaweed,
+/obj/abstract/landmark/wildlife_spawn/valSal_port/fish,
+/turf/floor/mud/water/deep,
+/area/valSal_port/outside/river)
 "ej" = (
 /obj/structure/railing/mapped/wooden,
 /turf/floor/mud/water,
@@ -644,6 +653,11 @@
 /obj/item/bedsheet/brown,
 /turf/floor/wood/yew,
 /area/valSal_port/town/hermit)
+"ln" = (
+/obj/structure/flora/bush/genericbush,
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/southside)
 "lt" = (
 /obj/structure/bed/chair/wood{
 	dir = 8
@@ -827,6 +841,11 @@
 /obj/effect/departure_signpost/east,
 /turf/floor/grass,
 /area/valSal_port/outside/eastside)
+"oc" = (
+/obj/structure/flora/seaweed/mid,
+/obj/abstract/landmark/wildlife_spawn/valSal_port/fish,
+/turf/floor/mud/water/deep,
+/area/valSal_port/outside/river)
 "od" = (
 /turf/floor/wood/broken/one,
 /area/valSal_port/town/shrine)
@@ -1273,6 +1292,10 @@
 /obj/item/cash/imperial/regalis,
 /turf/floor/dirt,
 /area/valSal_port/town/den)
+"uK" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/eastside)
 "uM" = (
 /obj/structure/table/woodentable/ebony,
 /turf/floor/path/running_bond/granite,
@@ -1462,6 +1485,10 @@
 "xv" = (
 /turf/wall/log/maple,
 /area/valSal_port/town/farmhouse)
+"xw" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/southside)
 "xx" = (
 /obj/structure/door/walnut,
 /turf/floor/wood/yew,
@@ -1516,6 +1543,10 @@
 /obj/structure/railing/mapped/wooden/walnut,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
+"yz" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/westside)
 "yD" = (
 /obj/structure/table/woodentable_reinforced/ebony,
 /obj/item/tool/hammer,
@@ -1549,6 +1580,10 @@
 /obj/effect/decal/cleanable/ash,
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/town/shrine)
+"zp" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass,
+/area/valSal_port/outside/southside)
 "zq" = (
 /turf/wall/log/shutter,
 /area/valSal_port/town/slaughterhouse)
@@ -2272,6 +2307,10 @@
 /obj/structure/flora/bush/sunnybush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
+"Lv" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass,
+/area/valSal_port/outside/inner_town)
 "Ly" = (
 /obj/structure/reagent_dispensers/barrel/ebony/wine,
 /turf/floor/wood,
@@ -2509,6 +2548,10 @@
 	},
 /turf/floor/grass/wild,
 /area/valSal_port/outside/eastside)
+"Qi" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/fish,
+/turf/floor/mud/water/deep,
+/area/valSal_port/outside/river)
 "Qq" = (
 /obj/structure/meat_hook,
 /turf/floor/path/granite,
@@ -5099,7 +5142,7 @@ EN
 EN
 Gf
 Gf
-Gf
+dk
 Ji
 EN
 EN
@@ -5241,7 +5284,7 @@ Jz
 Gf
 Gf
 EN
-EN
+yz
 EN
 WO
 WO
@@ -5475,7 +5518,7 @@ tQ
 tQ
 KI
 tQ
-tQ
+xw
 Ns
 tQ
 ql
@@ -7282,7 +7325,7 @@ bR
 Fw
 Bu
 Bu
-HD
+oc
 Qr
 Bu
 Fw
@@ -8254,7 +8297,7 @@ Gf
 Mk
 Aj
 EN
-EN
+yz
 eo
 EN
 Gf
@@ -9689,7 +9732,7 @@ is
 Bu
 Bu
 Qr
-Qr
+Qi
 Qr
 Bu
 Bu
@@ -9966,7 +10009,7 @@ tQ
 tQ
 tQ
 tQ
-TH
+ln
 tQ
 Wx
 Wx
@@ -11488,7 +11531,7 @@ Bu
 Bu
 Qr
 Qr
-oO
+dX
 HD
 Qr
 Qr
@@ -12066,7 +12109,7 @@ Dc
 sI
 Np
 sh
-sI
+Lv
 sI
 sI
 wg
@@ -12185,7 +12228,7 @@ Fd
 Fd
 Fd
 Fd
-Fd
+uK
 Fd
 RU
 Fd
@@ -13035,7 +13078,7 @@ ij
 tQ
 tQ
 Wx
-Wx
+zp
 tQ
 tQ
 tQ

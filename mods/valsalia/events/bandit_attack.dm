@@ -2,6 +2,8 @@
 	announceWhen = 45
 	endWhen = 75
 	var/spawned_thugs = 0
+	var/list/spawned_thug_mobs = list()
+	var/retreat_delay = 5 MINUTES
 
 /datum/event/thug_attack/setup()
 	announceWhen = rand(30, 60)
@@ -9,6 +11,18 @@
 
 /datum/event/thug_attack/start()
 	spawn_bandits()
+	addtimer(CALLBACK(src, PROC_REF(retreat)), retreat_delay)
+
+// Clears out any survivors after a while so they don't linger on the map forever, silent if they've all been killed.
+/datum/event/thug_attack/proc/retreat()
+	var/removed = 0
+	for(var/mob/living/simple_animal/hostile/thug_aggresive/T in spawned_thug_mobs)
+		if(QDELETED(T) || T.stat == DEAD)
+			continue
+		qdel(T)
+		removed++
+	if(removed)
+		priority_stealth.Announce_quiet("The bandits have retreated for now.")
 
 /datum/event/thug_attack/announce()
 	var/naming
@@ -53,7 +67,7 @@
 		if(!LAZYLEN(spots))
 			break
 		var/turf/T = pick_n_take(spots)
-		new /mob/living/simple_animal/hostile/thug_aggresive(T)
+		spawned_thug_mobs += new /mob/living/simple_animal/hostile/thug_aggresive(T)
 		spawned_thugs++
 
 /datum/event/thug_attack/end()

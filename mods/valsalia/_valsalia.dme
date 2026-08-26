@@ -14,6 +14,7 @@
 #include "events\random_bear_walks_in.dm"
 #include "events\solar_storm_valsal.dm"
 #include "events\stalker_attack.dm"
+#include "events\wildlife_spawn.dm"
 #include "items\books.dm"
 #include "items\booze_vend.dm"
 #include "items\chemistry.dm"

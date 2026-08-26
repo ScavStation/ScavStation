@@ -743,6 +743,10 @@
 /obj/abstract/landmark/latejoin,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_south)
+"qC" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/fish,
+/turf/floor/mud/water/deep,
+/area/valSal_port/outside/enclave/riverborder)
 "qJ" = (
 /obj/structure/railing/mapped/wooden/walnut{
 	dir = 4
@@ -981,6 +985,10 @@
 /obj/structure/curtain/bar,
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/storehouse)
+"vm" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/fish,
+/turf/floor/mud/water/deep,
+/area/valSal_port/outside/enclave/river)
 "vq" = (
 /obj/structure/railing/mapped/wooden/ebony,
 /obj/structure/reagent_dispensers/barrel/ebony,
@@ -1687,6 +1695,10 @@
 "JV" = (
 /turf/floor/carpet/rustic,
 /area/valSal_port/enclave/commonhouse)
+"JX" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "JZ" = (
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_cliff)
@@ -2095,6 +2107,10 @@
 /obj/structure/flora/pottedplant,
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/commonhouse)
+"SO" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_south)
 "SS" = (
 /turf/floor/dirt,
 /area/valSal_port/outside/enclave_farm)
@@ -2255,6 +2271,10 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_cliff)
+"Xk" = (
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_cliff)
 "Xo" = (
 /obj/structure/table/woodentable/ebony,
 /obj/item/stack/material/brick/mapped/basalt/ten,
@@ -2292,6 +2312,11 @@
 /obj/structure/flora/bush/fullgrass,
 /obj/structure/flora/tree/hardwood/ebony,
 /turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_cliff)
+"Ya" = (
+/obj/structure/flora/bush/genericbush,
+/obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
+/turf/floor/grass,
 /area/valSal_port/outside/outdoors_cliff)
 "Yn" = (
 /obj/structure/closet/crate/chest/ebony,
@@ -5203,7 +5228,7 @@ eM
 eM
 JZ
 JZ
-eM
+Xk
 eM
 eM
 eM
@@ -5292,7 +5317,7 @@ lA
 jU
 jU
 PP
-PP
+vm
 jU
 jU
 lA
@@ -5935,7 +5960,7 @@ Tb
 Xi
 JZ
 JZ
-gi
+Ya
 JZ
 eM
 eM
@@ -6093,7 +6118,7 @@ OH
 iB
 pK
 iB
-iB
+JX
 iB
 iB
 iB
@@ -7038,7 +7063,7 @@ lA
 jU
 PP
 UA
-PP
+vm
 PP
 jU
 jU
@@ -8102,7 +8127,7 @@ iB
 OH
 OH
 iB
-iB
+JX
 iB
 sb
 iB
@@ -10508,7 +10533,7 @@ zk
 lp
 Mb
 Mb
-hZ
+qC
 Mb
 Mb
 lp
@@ -10950,7 +10975,7 @@ OH
 OH
 iB
 iB
-iB
+JX
 iB
 iB
 iB
@@ -11274,7 +11299,7 @@ iB
 sb
 sb
 iB
-iB
+JX
 iB
 iB
 iB
@@ -11338,7 +11363,7 @@ yf
 yf
 By
 By
-yf
+SO
 By
 qL
 By
