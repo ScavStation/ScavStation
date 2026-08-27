@@ -23,13 +23,13 @@
 	passport_type           = null
 
 	lobby_tracks = list(
-		/decl/music_track/dhaka,
-		/decl/music_track/folk,
+		/decl/music_track/kassen,
+		/decl/music_track/bugthoughts,
 		/decl/music_track/heavy_heart,
-		/decl/music_track/pyre,
+		/decl/music_track/theteeth,
 		/decl/music_track/teller,
-		/decl/music_track/thatched,
-		/decl/music_track/suonatore,
+		/decl/music_track/twovees,
+		/decl/music_track/oopstheme,
 		/decl/music_track/art_of_ze_clam
 	)
 	credit_sound = list(

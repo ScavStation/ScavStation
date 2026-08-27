@@ -169,6 +169,10 @@
 "dc" = (
 /turf/floor/dirt,
 /area/valSal_port/outside/merchantcamp)
+"dh" = (
+/obj/structure/banner_frame,
+/turf/floor/grass,
+/area/valSal_port/outside/westside)
 "dk" = (
 /obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
 /turf/floor/grass,
@@ -1735,6 +1739,10 @@
 /obj/structure/flora/bush/stalkybush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
+"Cc" = (
+/obj/item/stack/material/plank/mapped/wood/ten,
+/turf/floor/dirt,
+/area/valSal_port/town/outpost)
 "Cg" = (
 /obj/structure/reagent_dispensers/barrel/ebony,
 /obj/item/seeds/bruisegrassseed,
@@ -2200,6 +2208,10 @@
 /obj/structure/produce_bin/ebony,
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
+"JQ" = (
+/obj/structure/flora/bush/sunnybush,
+/turf/floor/barren,
+/area/valSal_port/outside/westside)
 "JY" = (
 /obj/structure/bed/bedroll,
 /turf/floor/dirt,
@@ -3009,6 +3021,10 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/floor/mud,
 /area/valSal_port/outside/inner_town)
+"Xm" = (
+/obj/effect/decal/cleanable/generic,
+/turf/floor/dirt,
+/area/valSal_port/town/outpost)
 "Xo" = (
 /obj/structure/bed/chair/wood{
 	dir = 4
@@ -3152,6 +3168,10 @@
 /obj/structure/meat_hook/improvised,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
+"YW" = (
+/obj/item/stack/material/plank/mapped/wood/ten,
+/turf/floor/barren,
+/area/valSal_port/town/outpost)
 "Ze" = (
 /obj/structure/flora/bush/fernybush,
 /turf/floor/grass,
@@ -3952,8 +3972,8 @@ EN
 EN
 EN
 EN
-EN
-EN
+Vu
+Vu
 EN
 EN
 EN
@@ -4054,8 +4074,8 @@ EN
 EN
 EN
 EN
-EN
-EN
+Vu
+Vu
 Aj
 EN
 EN
@@ -4155,9 +4175,9 @@ EN
 EN
 EN
 xq
-EN
-ZM
-ZM
+Vu
+Vu
+Vu
 ZM
 EN
 EN
@@ -4217,7 +4237,7 @@ Gf
 MT
 MT
 db
-MT
+Xm
 MT
 Gf
 Gf
@@ -4257,8 +4277,8 @@ AX
 AX
 AX
 ZM
-EN
-EN
+Vu
+Vu
 EN
 EN
 EN
@@ -4318,7 +4338,7 @@ EN
 OG
 MT
 XR
-iv
+YW
 Xp
 MT
 MT
@@ -4358,9 +4378,9 @@ Gf
 EN
 Pv
 Pv
-EN
-EN
-Pv
+Vu
+Vu
+JQ
 Og
 Gf
 Gf
@@ -4418,7 +4438,7 @@ EN
 EN
 EN
 Gf
-db
+eT
 iv
 iv
 iv
@@ -4458,10 +4478,10 @@ Gf
 Gf
 EN
 Gf
-VQ
-QG
-Gf
-Gf
+Vu
+Vu
+Vu
+Vu
 Gf
 nW
 nW
@@ -4525,8 +4545,8 @@ jZ
 iv
 Os
 MT
-MT
-sL
+Cc
+dh
 Gf
 Gf
 Gf
@@ -4559,11 +4579,11 @@ xq
 EN
 Gf
 Gf
-Gf
-Gf
-Er
-Gf
-Gf
+Vu
+Vu
+Vu
+Vu
+Vu
 VQ
 qt
 Gf
@@ -4660,10 +4680,10 @@ nW
 Gf
 Gf
 Gf
-Gf
-Gf
-Gf
-Gf
+Vu
+Vu
+Vu
+Vu
 Gf
 Gf
 Gf
@@ -4761,10 +4781,10 @@ Gf
 nW
 Gf
 Gf
-Gf
-Gf
-Ji
-Gf
+Vu
+Vu
+Vu
+Vu
 Gf
 EN
 EN
@@ -4862,10 +4882,10 @@ Gf
 EN
 Gf
 Er
-EN
-EN
-EN
-OG
+Vu
+Vu
+Vu
+Vu
 Gf
 Gf
 Gf
@@ -4963,10 +4983,10 @@ qT
 EN
 Gf
 ZM
-ZM
-Gf
-Gf
-EN
+Vu
+Vu
+Vu
+Vu
 EN
 AX
 Gf
@@ -5064,10 +5084,10 @@ Gf
 Gf
 EN
 Gf
-QG
-Gf
-Gf
-EN
+Vu
+Vu
+Vu
+Vu
 EN
 EN
 AX
@@ -5165,9 +5185,9 @@ EN
 Gf
 Gf
 Ji
-eo
-EN
-EN
+Vu
+Vu
+Vu
 EN
 EN
 EN
@@ -5266,9 +5286,9 @@ Gf
 Gf
 WO
 Ji
-Gf
-Gf
-EN
+Vu
+Vu
+Vu
 EN
 yh
 EN
@@ -5367,9 +5387,9 @@ EN
 EN
 Gf
 WO
-Gf
-rf
-Gf
+Vu
+Vu
+Vu
 EN
 EN
 EN
@@ -5468,10 +5488,10 @@ Bl
 Gf
 VQ
 WO
-Gf
-Gf
-Gf
-Gf
+Vu
+Vu
+Vu
+Vu
 Gf
 EN
 EN
@@ -5569,10 +5589,10 @@ VQ
 ZI
 EN
 EN
-EN
-EN
-EN
-Gf
+Vu
+Vu
+Vu
+Vu
 Gf
 Er
 Gf
@@ -5670,10 +5690,10 @@ Gf
 Gf
 HO
 EN
-EN
-EN
-EN
-ZM
+Vu
+Vu
+Vu
+Vu
 ZM
 QG
 Gf
@@ -5771,10 +5791,10 @@ QG
 QG
 Gf
 EN
-EN
-WO
-ZM
-ZM
+Vu
+Vu
+Vu
+Vu
 ZM
 EN
 eo
@@ -5872,9 +5892,9 @@ Gf
 Gf
 EN
 Gf
-EN
-EN
-EN
+Vu
+Vu
+Vu
 WO
 EN
 EN
@@ -5973,9 +5993,9 @@ Gf
 Gf
 Gf
 EN
-AX
-EN
-EN
+Vu
+Vu
+Vu
 Aj
 EN
 eo
@@ -6075,8 +6095,8 @@ Gf
 Gf
 EN
 EN
-EN
-EN
+Vu
+Vu
 EN
 EN
 EN
@@ -6177,8 +6197,8 @@ Gf
 Gf
 EN
 EN
-xq
-UW
+Vu
+mD
 UW
 om
 js
@@ -6279,8 +6299,8 @@ Gf
 EN
 EN
 EN
-EN
-UW
+Vu
+mD
 yt
 fG
 EC
@@ -6381,8 +6401,8 @@ bR
 UW
 UW
 UW
-UW
-UW
+mD
+mD
 yt
 fG
 uM
@@ -6483,8 +6503,8 @@ Ow
 UW
 UW
 UW
-UW
-VZ
+mD
+mD
 yt
 fG
 ha
@@ -6585,8 +6605,8 @@ bR
 UW
 UW
 UW
-UW
-UW
+mD
+mD
 yt
 fG
 fG
@@ -6687,8 +6707,8 @@ UW
 mD
 UW
 UW
-UW
-UW
+mD
+mD
 yt
 fG
 fG
@@ -6789,8 +6809,8 @@ Fr
 Fr
 UW
 UW
-bc
-UW
+mD
+mD
 sJ
 fG
 uM
@@ -6891,8 +6911,8 @@ Ej
 mD
 UW
 UW
-UW
-UW
+mD
+mD
 yt
 fG
 ha
@@ -11202,8 +11222,8 @@ sh
 iZ
 Fd
 RU
-Fd
-kv
+sq
+sq
 kv
 Fw
 Fw
@@ -11303,8 +11323,8 @@ sh
 qZ
 sh
 Fd
-Fd
-kv
+sq
+sq
 kv
 kv
 kv
@@ -11405,7 +11425,7 @@ sh
 sh
 sh
 Fd
-Fd
+sq
 kv
 kv
 kv
@@ -11505,9 +11525,9 @@ sh
 sh
 sh
 sh
-sh
-Fd
-kv
+qP
+sq
+sq
 kv
 Cm
 Fd
@@ -11606,8 +11626,8 @@ lC
 sh
 lC
 lC
-sh
-sI
+qP
+qP
 kv
 kv
 kv
@@ -11706,9 +11726,9 @@ sh
 sh
 sh
 sh
-sh
-sh
-sI
+qP
+qP
+qP
 Np
 kv
 Fd
@@ -11806,9 +11826,9 @@ sh
 sh
 sh
 sh
-sh
-sh
-sI
+qP
+qP
+qP
 sI
 sI
 sI
@@ -11908,7 +11928,7 @@ sh
 sh
 sh
 sh
-sI
+qP
 sI
 sI
 OI
@@ -12208,8 +12228,8 @@ sh
 sh
 iZ
 sI
-sI
-sI
+qP
+qP
 sI
 sI
 sI
@@ -12309,8 +12329,8 @@ sh
 sh
 sh
 eJ
-sI
-pZ
+qP
+qP
 Qw
 sI
 pZ
@@ -12410,8 +12430,8 @@ lC
 lC
 sh
 sI
-sI
-sI
+qP
+qP
 sI
 sh
 sh
@@ -12509,10 +12529,10 @@ sh
 sh
 sh
 sh
-sh
-sI
-sI
-sI
+qP
+qP
+qP
+qP
 sI
 sh
 dH
@@ -12610,8 +12630,8 @@ Dc
 sh
 sh
 sh
-sh
-sI
+qP
+qP
 BN
 sI
 sI
@@ -12710,9 +12730,9 @@ Fd
 Fd
 Fd
 Fd
-Fd
-Fd
-kv
+sq
+sq
+sq
 kv
 kv
 qE
@@ -12810,9 +12830,9 @@ Fd
 Fd
 Fd
 Fd
-Fd
-Fd
-Fd
+sq
+sq
+sq
 mf
 kv
 mf
@@ -12907,12 +12927,12 @@ sq
 sq
 sq
 sq
-kv
-kv
-kv
-kv
-Fd
-Mq
+sq
+sq
+sq
+sq
+sq
+sq
 Fd
 kv
 kv
