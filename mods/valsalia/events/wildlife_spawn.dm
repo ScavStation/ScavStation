@@ -2,8 +2,8 @@
 // the animals in directly - see /obj/abstract/landmark/wildlife_spawn.
 /obj/abstract/landmark/wildlife_spawn/valSal_port/forest
 	name = "forest wildlife spawn point"
-	spawn_groups_by_severity = alist(
-		EVENT_LEVEL_MUNDANE = alist(
+	spawn_groups_by_severity = list(
+		EVENT_LEVEL_MUNDANE = list(
 			list("type" = /mob/living/simple_animal/passive/rabbit,       "min" = 3, "max" = 5, "label" = "rabbits") = 10,
 			list("type" = /mob/living/simple_animal/passive/rabbit/brown, "min" = 3, "max" = 5, "label" = "rabbits") = 10,
 			list("type" = /mob/living/simple_animal/passive/rabbit/black, "min" = 3, "max" = 5, "label" = "rabbits") = 6,
@@ -15,7 +15,7 @@
 			list("type" = /mob/living/simple_animal/chorp,                "min" = 2, "max" = 3, "label" = "chorps") = 5,
 			list("type" = /mob/living/simple_animal/grub_bear,            "min" = 2, "max" = 3, "label" = "grub bears") = 4
 		),
-		EVENT_LEVEL_MODERATE = alist(
+		EVENT_LEVEL_MODERATE = list(
 			list("type" = /mob/living/simple_animal/passive/deer,        "min" = 2, "max" = 4, "label" = "deer") = 8,
 			list("type" = /mob/living/simple_animal/passive/fox,         "min" = 2, "max" = 4, "label" = "foxes") = 5,
 			list("type" = /mob/living/simple_animal/passive/fox/arctic,  "min" = 2, "max" = 4, "label" = "arctic foxes") = 1,
@@ -29,7 +29,7 @@
 // Place these in/around water. Fish don't care about event severity - always a school of 3-5.
 /obj/abstract/landmark/wildlife_spawn/valSal_port/fish
 	name = "fish spawn point"
-	spawn_groups = alist(
+	spawn_groups = list(
 		list("type" = /mob/living/simple_animal/aquatic/fish,                  "min" = 3, "max" = 5, "label" = "small fry") = 10,
 		list("type" = /mob/living/simple_animal/aquatic/fish/grump,            "min" = 3, "max" = 5, "label" = "small fish") = 8,
 		list("type" = /mob/living/simple_animal/aquatic/fish/large,            "min" = 3, "max" = 5, "label" = "bass") = 4,
