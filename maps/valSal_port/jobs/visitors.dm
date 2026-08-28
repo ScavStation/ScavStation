@@ -42,6 +42,8 @@
 		SKILL_CHEMISTRY	    = SKILL_MAX
 	)
 	department_types = list(/decl/department/visitors)
+	selection_color = "#485a80"
+
 /obj/abstract/landmark/start/valSal_port/traveller/learned
 	name                    = "Scholar"
 
@@ -68,6 +70,8 @@
 		SKILL_FINANCE       = SKILL_NONE
 	)
 	department_types = list(/decl/department/visitors)
+	selection_color = "#80582d"
+
 /obj/abstract/landmark/start/valSal_port/warrior
 	name                    = "Warrior"
 
@@ -93,5 +97,7 @@
 	)
 	skill_points            = 30
 	department_types = list(/decl/department/visitors)
+	selection_color = "#1c5880"
+
 /obj/abstract/landmark/start/valSal_port/merchant
 	name                    = "Travelling Merchant"
