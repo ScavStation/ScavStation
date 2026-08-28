@@ -28,6 +28,7 @@
 	)
 	skill_points            = 18
 	department_types = list(/decl/department/enclavecommon)
+	selection_color = "#33784b"
 
 /obj/abstract/landmark/start/valSal_port/daughter
 	name                    = "Daughter"
@@ -48,6 +49,7 @@
 	)
 	skill_points            = 22
 	department_types = list(/decl/department/enclavecommon)
+	selection_color = "#407538"
 
 /obj/abstract/landmark/start/valSal_port/miner
 	name                    = "Rock Digger"
@@ -72,6 +74,7 @@
 	)
 	skill_points            = 22
 	department_types = list(/decl/department/enclavecommon)
+	selection_color = "#407538"
 
 /obj/abstract/landmark/start/valSal_port/reedtender
 	name                    = "Reed Tender"
@@ -93,6 +96,7 @@
 	)
 	skill_points            = 24
 	department_types = list(/decl/department/enclavecommon)
+	selection_color = "#407538"
 
 /obj/abstract/landmark/start/valSal_port/hunter
 	name                    = "Hunter"
@@ -114,6 +118,7 @@
 	)
 	skill_points            = 26
 	department_types = list(/decl/department/enclavecommon)
+	selection_color = "#407538"
 
 /obj/abstract/landmark/start/valSal_port/scout
 	name                    = "Scout"
@@ -128,6 +133,7 @@
 	outfit_type             = /decl/outfit/job/valSal_port/idiot
 	skill_points            = 2
 	department_types = list(/decl/department/enclavecommon)
+	selection_color = "#407538"
 
 /obj/abstract/landmark/start/valSal_port/idiot
 	name                    = "Idiot"
