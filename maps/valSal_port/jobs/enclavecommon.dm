@@ -28,7 +28,7 @@
 	)
 	skill_points            = 18
 	department_types = list(/decl/department/enclavecommon)
-	selection_color = "#33784B"
+	selection_color = "#33784b"
 
 /obj/abstract/landmark/start/valSal_port/daughter
 	name                    = "Daughter"

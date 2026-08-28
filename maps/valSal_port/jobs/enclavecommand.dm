@@ -55,7 +55,7 @@
 	)
 	skill_points            = 21
 	department_types = list(/decl/department/enclavecommand)
-	selection_color = "#1F521B"
+	selection_color = "#1f521b"
 
 /obj/abstract/landmark/start/valSal_port/patriarch
 	name                    = "Patriarch of Farming"
@@ -86,7 +86,7 @@
 	)
 	skill_points            = 26
 	department_types = list(/decl/department/enclavecommand)
-	selection_color = "#1F521B"
+	selection_color = "#1f521b"
 
 /obj/abstract/landmark/start/valSal_port/huntpatriarch
 	name                    = "Patriarch of Hunting"
@@ -115,7 +115,7 @@
 	)
 	skill_points            = 20
 	department_types = list(/decl/department/enclavecommand)
-	selection_color = "#1F521B"
+	selection_color = "#1f521b"
 
 /obj/abstract/landmark/start/valSal_port/craftpatriarch
 	name                    = "Patriarch of Construction"
@@ -144,7 +144,7 @@
 	)
 	skill_points            = 51
 	department_types = list(/decl/department/enclavecommand)
-	selection_color = "#1F521B"
+	selection_color = "#1f521b"
 
 /obj/abstract/landmark/start/valSal_port/healpatriarch
 	name                    = "Patriarch of Healing"
