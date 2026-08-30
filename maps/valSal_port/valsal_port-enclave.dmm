@@ -127,8 +127,8 @@
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/storehouse)
 "cB" = (
-/obj/abstract/ramp_sculptor/north,
-/turf/wall/natural/basalt/valSal_port,
+/obj/structure/boulder/basalt,
+/turf/floor/rock/basalt,
 /area/valSal_port/caves/deep)
 "cC" = (
 /turf/floor/wood/yew,
@@ -4954,9 +4954,9 @@ zl
 zl
 zl
 zl
-lu
-lu
 cB
+cB
+zl
 zl
 zl
 zl
@@ -5056,9 +5056,9 @@ zl
 zl
 zl
 zl
-lu
-lu
 cB
+cB
+zl
 zl
 zl
 zl
@@ -5157,8 +5157,8 @@ xb
 zl
 zl
 zl
-lu
-lu
+cB
+cB
 zl
 zl
 zl
@@ -5259,8 +5259,8 @@ lu
 zl
 zl
 zl
-lu
-lu
+cB
+cB
 zl
 zl
 lu
