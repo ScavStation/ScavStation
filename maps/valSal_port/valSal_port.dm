@@ -12,8 +12,6 @@
 	#include "areas/_areas.dm"
 	#include "areas/caverns.dm"
 	#include "areas/enclave.dm"
-	#include "areas/mtn_pass2.dm"
-	#include "areas/mtn_top.dm"
 	#include "areas/town.dm"
 
 	#include "jobs/_jobs.dm"
@@ -49,8 +47,6 @@
 	// THAT ITS CONNECTED VIA A CARDINAL DIRECTION
 	#include "valsal_port-caverns.dmm"
 	#include "valsal_port-enclave.dmm"
-	#include "valsal_port-mtntop.dmm"
-	#include "valsal_port-mtnpass2.dmm"
 
 	// this is z_level = 1, same as enclave but its loaded after so mtntop can be loaded ontop of enclave
 	// and mtnpass can be loaded next to it. This works because _level.dm specifies this is connected to
