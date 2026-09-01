@@ -19,7 +19,8 @@
 	set_trait(TRAIT_POTENCY,20)
 	set_trait(TRAIT_PRODUCT_ICON,"eggtree")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ffffff") // no-op tint - the art is already fully coloured
-	set_trait(TRAIT_PLANT_ICON,"eggtree")
+	// TRAIT_PLANT_ICON intentionally left unset - it only matters to the base shared-sheet lookup,
+	// which get_growth_stage_overlay()/get_dead_appearance() below bypass entirely.
 	set_trait(TRAIT_IDEAL_HEAT, 298)
 	set_trait(TRAIT_IDEAL_LIGHT, 7)
 
@@ -42,6 +43,9 @@
 /obj/item/seeds/eggtreeseed
 	seed = "eggtree"
 	icon = EGGTREE_ICON
+
+/obj/item/seeds/eggtreeseed/get_seed_packet_state()
+	return "eggtree_seed"
 
 /obj/item/food/grown/eggtree
 	seed = "eggtree"

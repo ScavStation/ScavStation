@@ -50,7 +50,8 @@
 	set_trait(TRAIT_YIELD,2)
 	set_trait(TRAIT_POTENCY,10)
 	set_trait(TRAIT_PRODUCT_ICON,"whiteblood_stalk")
-	set_trait(TRAIT_PLANT_ICON,"whiteblood_stalk")
+	// TRAIT_PLANT_ICON intentionally left unset - it only matters to the base shared-sheet lookup,
+	// which get_growth_stage_overlay()/get_dead_appearance() below bypass entirely.
 
 /datum/seed/mushroom/whitebloodstalk/update_growth_stages()
 	growth_stages = 4
@@ -71,6 +72,9 @@
 /obj/item/seeds/whitebloodstalkseed
 	seed = "whitebloodstalk"
 	icon = WHITEBLOODSTALK_ICON
+
+/obj/item/seeds/whitebloodstalkseed/get_seed_packet_state()
+	return "whiteblood_stalk_seed"
 
 /obj/item/food/grown/whitebloodstalk
 	seed = "whitebloodstalk"

@@ -20,8 +20,9 @@
 	set_trait(TRAIT_PRODUCTION,5)
 	set_trait(TRAIT_YIELD,3)
 	set_trait(TRAIT_POTENCY,15)
-	set_trait(TRAIT_PRODUCT_ICON,"syrup_bloom")
-	set_trait(TRAIT_PLANT_ICON,"syrup_bloom")
+	set_trait(TRAIT_PRODUCT_ICON,"syrupbloom") // note: no underscore - matches the "syrupbloom-product" state, unlike the "syrup_bloom-N" growth states
+	// TRAIT_PLANT_ICON intentionally left unset - it only matters to the base shared-sheet lookup,
+	// which get_growth_stage_overlay()/get_dead_appearance() below bypass entirely.
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
 /datum/seed/syrupbloom/update_growth_stages()
@@ -37,22 +38,18 @@
 
 /datum/seed/syrupbloom/get_harvest_appearance()
 	if(!harvest_overlay)
-		harvest_overlay = image(SYRUPBLOOM_ICON, "syrupbloom_harvest")
+		harvest_overlay = image(SYRUPBLOOM_ICON, "syrupbloom-product")
 	return harvest_overlay
 
 /obj/item/seeds/syrupbloomseed
 	seed = "syrupbloom"
 	icon = SYRUPBLOOM_ICON
 
+/obj/item/seeds/syrupbloomseed/get_seed_packet_state()
+	return "syrup_bloom_seed"
+
 /obj/item/food/grown/syrupbloom
 	seed = "syrupbloom"
 	icon = SYRUPBLOOM_ICON
-
-// Base on_update_icon() appends "-product" to the product icon, but this sheet's harvest state is named "syrupbloom_harvest" instead.
-// TODO: fix
-/obj/item/food/grown/syrupbloom/on_update_icon()
-	. = ..()
-	if(!dry && !backyard_grilling_count)
-		icon_state = "syrupbloom_harvest"
 
 #undef SYRUPBLOOM_ICON
