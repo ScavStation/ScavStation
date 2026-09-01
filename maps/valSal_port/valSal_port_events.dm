@@ -20,8 +20,8 @@
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing", /datum/event/nothing,	100),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Bristleback Attack", /datum/event/bristleback_attack, 13, list(ASSIGNMENT_SECURITY = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Bandit Attack", /datum/event/thug_attack, 13, list(ASSIGNMENT_SECURITY = 20)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Solar Storm", /datum/event/solar_storm_valsal, 25),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Frost Storm", /datum/event/frost_storm, 25),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Heat Wave", /datum/event/heat_wave, 25),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Cold Front", /datum/event/cold_front, 25),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Strike", /datum/event/meteor_strike, 25),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Restless Shade", /datum/event/stalker_attack, 7, list(ASSIGNMENT_SECURITY = 20)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Wildlife Sighting", /datum/event/wildlife_spawn, 40)

@@ -157,6 +157,10 @@
 "dk" = (
 /turf/floor/wood,
 /area/valSal_port/enclave/daughter)
+"dn" = (
+/obj/structure/flora/tree/dead/corkwood,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "dv" = (
 /obj/structure/flora/bush/ywflowers,
 /turf/floor/grass/wild,
@@ -214,6 +218,10 @@
 "eM" = (
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
+"eO" = (
+/obj/structure/flora/stump/tree/cypress,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "eV" = (
 /obj/structure/railing/mapped/wooden/ebony{
 	dir = 1
@@ -419,6 +427,10 @@
 /area/valSal_port/outside/outdoors_south)
 "iB" = (
 /turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
+"iD" = (
+/obj/structure/flora/tree/dead/cypress,
+/turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "iJ" = (
 /obj/structure/fire_source/kiln/oven,
@@ -637,6 +649,10 @@
 /obj/structure/wall_sconce/torch,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/huntershut)
+"nD" = (
+/obj/structure/flora/tree/dead/cypress,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "nR" = (
 /obj/structure/closet/cabinet/wooden/ebony,
 /turf/floor/wood/yew,
@@ -654,6 +670,11 @@
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_south)
+"oM" = (
+/obj/structure/flora/bush/fernybush,
+/obj/structure/flora/stump/tree/willow,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "oQ" = (
 /obj/structure/closet/cabinet/wooden/ebony,
 /obj/structure/wall_sconce/torch{
@@ -668,6 +689,10 @@
 /area/valSal_port/outside/outdoors_enclave)
 "pj" = (
 /obj/structure/flora/bush/ywflowers,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
+"pk" = (
+/obj/structure/flora/stump/tree/mangrove,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "pw" = (
@@ -874,6 +899,10 @@
 "td" = (
 /turf/floor/barren,
 /area/valSal_port/outside/outdoors_river)
+"tg" = (
+/obj/structure/flora/stump/tree/corkwood,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "tl" = (
 /turf/wall/natural/random/basalt/valSal_port,
 /area/valSal_port/outside/outdoors_cliff)
@@ -1021,6 +1050,10 @@
 "vx" = (
 /turf/wall/natural/basalt/valSal_port,
 /area/valSal_port/outside/outdoors_south)
+"vB" = (
+/obj/structure/flora/tree/dead/willow,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "vD" = (
 /turf/wall/natural/random/basalt/valSal_port,
 /area/valSal_port/caves)
@@ -1041,6 +1074,11 @@
 	},
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/huntershut)
+"wm" = (
+/obj/structure/flora/bush/ywflowers,
+/obj/structure/flora/tree/hardwood/corkwood,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "wB" = (
 /obj/structure/railing/mapped/wooden/maple{
 	dir = 8
@@ -1055,6 +1093,10 @@
 /obj/structure/boulder/basalt,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
+"wW" = (
+/obj/structure/flora/tree/softwood/cypress,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "xb" = (
 /obj/structure/flora/plant/random_mushroom,
 /turf/floor/rock/basalt,
@@ -1104,6 +1146,10 @@
 /obj/vehicle/train/cargo/trolley_wood,
 /turf/floor/barren,
 /area/valSal_port/outside/enclave)
+"xO" = (
+/obj/structure/flora/tree/softwood/cypress,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "xT" = (
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/medicinehut)
@@ -1214,6 +1260,11 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
+"zA" = (
+/obj/item/food/grown/syrupbloom,
+/obj/item/food/grown/syrupbloom,
+/turf/floor/dirt,
+/area/valSal_port/outside/food_farm)
 "zE" = (
 /obj/structure/railing/mapped/wooden/ebony{
 	dir = 1
@@ -1457,6 +1508,11 @@
 /obj/structure/flora/bush/fernybush,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
+"EI" = (
+/obj/structure/flora/bush/fullgrass,
+/obj/structure/flora/tree/dead/mangrove,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "EK" = (
 /obj/structure/curtain/bar,
 /turf/floor/wood/walnut,
@@ -1508,6 +1564,14 @@
 /obj/structure/flora/tree/hardwood/ebony,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
+"Fy" = (
+/obj/structure/flora/stump/tree/willow,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
+"Fz" = (
+/obj/item/food/grown/eggtree,
+/turf/floor/dirt,
+/area/valSal_port/outside/food_farm)
 "FG" = (
 /turf/unsimulated/dark_filler,
 /area/valSal_port/outside/outdoors_enclave)
@@ -1659,6 +1723,10 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/floor/mud,
 /area/valSal_port/outside/food_farm)
+"IY" = (
+/obj/structure/flora/tree/hardwood/willow,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "Jb" = (
 /obj/structure/flora/bush/fullgrass,
 /obj/structure/closet/crate/chest,
@@ -1687,6 +1755,11 @@
 /obj/structure/flora/bush/fernybush,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_south)
+"JS" = (
+/obj/item/food/grown/whitebloodstalk,
+/obj/item/food/grown/whitebloodstalk,
+/turf/floor/dirt,
+/area/valSal_port/outside/food_farm)
 "JV" = (
 /turf/floor/carpet/rustic,
 /area/valSal_port/enclave/commonhouse)
@@ -2079,6 +2152,10 @@
 /obj/abstract/landmark/start/valSal_port/daughter,
 /turf/floor/wood,
 /area/valSal_port/enclave/daughter)
+"RW" = (
+/obj/structure/flora/tree/hardwood/mangrove,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "Sb" = (
 /obj/structure/table/woodentable,
 /turf/floor/carpet/rustic,
@@ -2153,6 +2230,10 @@
 /obj/item/stool/wood,
 /turf/floor/wood/walnut,
 /area/valSal_port/enclave/patriarch)
+"TJ" = (
+/obj/structure/flora/tree/dead/mangrove,
+/turf/floor/grass,
+/area/valSal_port/outside/outdoors_enclave)
 "TL" = (
 /turf/wall/log/yew/shutter,
 /area/valSal_port/enclave/medicinehut)
@@ -2193,6 +2274,19 @@
 	},
 /turf/floor/wood,
 /area/valSal_port/enclave/mining)
+"UT" = (
+/obj/structure/flora/tree/dead/mangrove,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
+"UV" = (
+/obj/item/seeds/eggtreeseed,
+/obj/item/seeds/eggtreeseed,
+/obj/item/seeds/syrupbloomseed,
+/obj/item/seeds/syrupbloomseed,
+/obj/item/seeds/whitebloodstalkseed,
+/obj/item/seeds/whitebloodstalkseed,
+/turf/floor/dirt,
+/area/valSal_port/outside/food_farm)
 "UX" = (
 /obj/structure/flora/bush/fullgrass,
 /obj/structure/flora/tree/hardwood/mahogany,
@@ -2202,6 +2296,10 @@
 /obj/structure/flora/bush/ywflowers,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
+"Vp" = (
+/obj/structure/flora/tree/hardwood/corkwood,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
 "VK" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/chems/glass/handmade/mug/wood,
@@ -2326,6 +2424,10 @@
 "Yz" = (
 /obj/structure/flora/tree/hardwood/ebony,
 /turf/floor/grass/wild,
+/area/valSal_port/outside/outdoors_enclave)
+"YL" = (
+/obj/structure/flora/stump/tree/cypress,
+/turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "YM" = (
 /obj/structure/wall_sconce/torch,
@@ -8429,7 +8531,7 @@ OH
 iB
 iB
 iB
-sb
+EI
 iB
 iB
 qX
@@ -8530,9 +8632,9 @@ OH
 hc
 sb
 iB
-sb
+EI
 iB
-iB
+UT
 iB
 sb
 OH
@@ -8631,11 +8733,11 @@ OH
 OH
 OH
 OH
-OH
+TJ
 iB
-iB
-iB
-iB
+RW
+RW
+RW
 sb
 OH
 OH
@@ -8735,8 +8837,8 @@ OH
 OH
 OH
 OH
-OH
-OH
+pk
+pk
 iB
 ru
 OH
@@ -8834,12 +8936,12 @@ bk
 iB
 iB
 OH
+iD
+YL
 OH
-OH
-OH
-OH
-OH
-OH
+Fy
+vB
+IY
 ru
 OH
 OH
@@ -8936,12 +9038,12 @@ iB
 na
 iB
 Sp
+nD
+eO
 iB
-iB
-iB
-Ns
-OH
-OH
+oM
+vB
+IY
 OH
 Sp
 OH
@@ -9038,8 +9140,8 @@ iB
 iB
 iB
 OH
-OH
-iB
+xO
+wW
 iB
 iB
 iB
@@ -9141,8 +9243,8 @@ iB
 iB
 OH
 OH
-pK
-iB
+wm
+Vp
 cE
 iB
 OH
@@ -9243,8 +9345,8 @@ iB
 iB
 OH
 kK
-iB
-iB
+dn
+dn
 iB
 iB
 OH
@@ -9345,8 +9447,8 @@ iB
 OH
 kK
 OH
-iB
-iB
+tg
+tg
 bk
 iB
 OH
@@ -9373,7 +9475,7 @@ FJ
 FJ
 QA
 IV
-NG
+UV
 IV
 GJ
 FJ
@@ -9475,7 +9577,7 @@ ZO
 FJ
 QA
 IV
-NG
+Fz
 IV
 GJ
 EG
@@ -9577,7 +9679,7 @@ FJ
 FJ
 QA
 IV
-NG
+zA
 IV
 GJ
 FJ
@@ -9679,7 +9781,7 @@ FJ
 FJ
 QA
 IV
-NG
+JS
 IV
 GJ
 FJ

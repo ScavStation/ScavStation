@@ -309,6 +309,19 @@
 	boiling_point = 373
 	allergen_flags = ALLERGEN_FRUIT
 
+/decl/material/liquid/nutriment/grapejelly
+	name = "grape jelly"
+	lore_text = "Sweet, thick, and purple. Best spread generously."
+	taste_description = "grape"
+	taste_mult = 1.3
+	nutriment_factor = 1
+	color = "#4a1259"
+	fruit_descriptor = "sweet"
+	uid = "chem_nutriment_grapejelly"
+	melting_point = 273
+	boiling_point = 373
+	allergen_flags = ALLERGEN_FRUIT
+
 /decl/material/liquid/nutriment/cornoil
 	name = "corn oil"
 	lore_text = "An oil derived from various types of corn."
