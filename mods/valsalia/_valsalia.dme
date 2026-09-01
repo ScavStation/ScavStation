@@ -73,6 +73,7 @@
 #include "species\yinglet_bodytype.dm"
 #include "species\yinglet_organs.dm"
 #include "structures\hoard.dm"
+#include "misc\admeme_thanos.dm"
 #include "mobs\snaprat.dm"
 #include "mobs\ivenmoth.dm"
 #include "mobs\buffdrones.dm"
