@@ -35,9 +35,11 @@
 		dead_overlay = image(EGGTREE_ICON, "eggtree-dead")
 	return dead_overlay
 
+// Uses the bare state, not "-product" - that suffix is reserved for the carried item's own icon,
+// this is just the ripe-fruit overlay shown on the plant itself while it's growing.
 /datum/seed/eggtree/get_harvest_appearance()
 	if(!harvest_overlay)
-		harvest_overlay = image(EGGTREE_ICON, "eggtree-product")
+		harvest_overlay = image(EGGTREE_ICON, "eggtree")
 	return harvest_overlay
 
 /obj/item/seeds/eggtreeseed

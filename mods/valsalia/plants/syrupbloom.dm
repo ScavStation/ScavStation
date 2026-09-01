@@ -36,9 +36,11 @@
 		dead_overlay = image(SYRUPBLOOM_ICON, "syrup_bloom-dead")
 	return dead_overlay
 
+// Uses the bare state, not "-product" - that suffix is reserved for the carried item's own icon,
+// this is just the ripe-fruit overlay shown on the plant itself while it's growing.
 /datum/seed/syrupbloom/get_harvest_appearance()
 	if(!harvest_overlay)
-		harvest_overlay = image(SYRUPBLOOM_ICON, "syrupbloom-product")
+		harvest_overlay = image(SYRUPBLOOM_ICON, "syrup_bloom")
 	return harvest_overlay
 
 /obj/item/seeds/syrupbloomseed

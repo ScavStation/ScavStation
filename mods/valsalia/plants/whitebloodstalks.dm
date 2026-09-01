@@ -64,9 +64,11 @@
 		dead_overlay = image(WHITEBLOODSTALK_ICON, "whiteblood_stalk-dead")
 	return dead_overlay
 
+// Uses the bare state, not "-product" - that suffix is reserved for the carried item's own icon,
+// this is just the ripe-fruit overlay shown on the plant itself while it's growing.
 /datum/seed/mushroom/whitebloodstalk/get_harvest_appearance()
 	if(!harvest_overlay)
-		harvest_overlay = image(WHITEBLOODSTALK_ICON, "whiteblood_stalk-product")
+		harvest_overlay = image(WHITEBLOODSTALK_ICON, "whiteblood_stalk")
 	return harvest_overlay
 
 /obj/item/seeds/whitebloodstalkseed
