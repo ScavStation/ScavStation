@@ -49,6 +49,8 @@
 	trees = list(
 		/obj/structure/flora/tree/hardwood/walnut = 1,
 		/obj/structure/flora/tree/dead/walnut = 2,
+		/obj/structure/flora/tree/softwood/cypress = 3,
+		/obj/structure/flora/tree/hardwood/mangrove = 3,
 		/obj/structure/flora/bush = 4,
 		/obj/structure/flora/bush/leafybush = 5,
 		/obj/structure/flora/bush/grassybush = 5,
@@ -81,6 +83,8 @@
 		/obj/structure/flora/tree/hardwood/walnut = 8,
 		/obj/structure/flora/tree/hardwood/yew = 8,
 		/obj/structure/flora/tree/hardwood/mahogany = 8,
+		/obj/structure/flora/tree/hardwood/corkwood = 6,
+		/obj/structure/flora/tree/hardwood/willow = 6,
 		/obj/structure/flora/bush/pointybush = 5,
 		/obj/structure/flora/tree/dead/walnut = 1,
 		/obj/structure/flora/tree/dead/yew = 1,

@@ -3,7 +3,7 @@
 	disabled = TRUE
 	why_disabled = "Intermittently flags armguards/legguards/reagent_dispensers/bandana recipes with phantom extra matter (steel/plastic) \
 	that static code review can't explain - every create_matter()/material path was traced clean. Needs a live debugging pass (or a \
-	rewritten check) before re-enabling; see PR discussion around 2026-08-26."
+	rewritten check) before re-enabling"
 
 /datum/unit_test/crafting_recipes_shall_not_have_inconsistent_materials/start_test()
 
