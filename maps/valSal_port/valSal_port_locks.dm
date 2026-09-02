@@ -19,6 +19,21 @@
 	lock_preset_id  = "farm"
 	lock_material   = /decl/material/solid/metal/iron
 
+/obj/abstract/landmark/lock_preset/valSal_port/armory
+	name = "Fortress locked door - Armory"
+	lock_preset_id  = "armory"
+	lock_material   = /decl/material/solid/metal/iron
+
+/obj/abstract/landmark/lock_preset/valSal_port/monolith
+	name = "Fortress locked door - Monolith"
+	lock_preset_id  = "monolith"
+	lock_material   = /decl/material/solid/metal/iron
+
+/obj/abstract/landmark/lock_preset/valSal_port/complex
+	name = "Fortress locked door - Complex"
+	lock_preset_id  = "complex"
+	lock_material   = /decl/material/solid/metal/iron
+
 /obj/abstract/landmark/lock_preset/valSal_port/chapel
 	name = "Fortress locked door - chapel"
 	lock_preset_id  = "chapel"

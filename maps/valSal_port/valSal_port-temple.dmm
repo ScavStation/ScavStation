@@ -1,0 +1,436 @@
+"aa" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"af" = (/turf/floor/path/running_bond/sandstone,/area/valSal_port/complex)
+"aj" = (/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"au" = (/obj/structure/door/basalt,/turf/floor/path/herringbone/sandstone,/area/valSal_port/bathhouse)
+"aD" = (/obj/structure/barricade/spike{dir = 4},/turf/floor/barren,/area/valSal_port/outside/the_bog)
+"aH" = (/obj/structure/door/basalt,/turf/floor/wood,/area/valSal_port/woodenroom)
+"aJ" = (/obj/structure/flora/bush/leafybush,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"aM" = (/obj/structure/closet/cabinet/wooden,/obj/item/bladed/longsword,/obj/item/shield/buckler,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"aN" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"ba" = (/obj/effect/floor_decal/spline/fancy/wood,/turf/floor/tiled/stone,/area/valSal_port/church)
+"bb" = (/obj/structure/bed/chair/rustic_fancy{dir = 1},/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"bd" = (/obj/structure/flora/tree/softwood/cypress,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"bg" = (/turf/floor/path/running_bond,/area/valSal_port/cattlestorage)
+"br" = (/obj/structure/reagent_dispensers/barrel/ebony/oil,/turf/floor/tiled/stone,/area/valSal_port/church)
+"bB" = (/obj/structure/closet/crate/chest/ebony{dir = 8},/obj/item/cash/imperial/regalis,/obj/item/cash/imperial/regalis,/obj/item/cash/imperial/regalis,/obj/item/cash/imperial/regalis,/obj/item/cash/imperial/regalis,/obj/item/cash/imperial/regalis,/obj/item/cash/imperial/regalis,/obj/effect/floor_decal/corner/black/mono,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"ce" = (/obj/structure/flora/plant,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"cf" = (/turf/floor/mud/water,/area/valSal_port/outside/the_bog)
+"cH" = (/obj/structure/fire_source/kiln/oven,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"cK" = (/obj/random/pottedplant,/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"cW" = (/turf/floor/path/basalt,/area/valSal_port/complex)
+"db" = (/obj/random/dungeon_bookcase,/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"du" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/armor/forged/banded,/obj/item/clothing/head/helmet/plumed,/obj/item/clothing/gloves/vambrace,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"dF" = (/obj/structure/flora/bush/leafybush,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"dT" = (/obj/effect/floor_decal/corner/black/mono,/obj/structure/fake_pylon,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"eg" = (/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"eq" = (/turf/wall/brick/sandstone,/area/valSal_port/monolith)
+"er" = (/obj/structure/displaycase,/obj/item/batterer,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"eu" = (/obj/structure/flora/tree/hardwood/willow,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"ey" = (/obj/structure/door/mahogany{dir = 4},/turf/floor/carpet/green,/area/valSal_port/outside/fortressentrance)
+"eE" = (/obj/random/dungeon_bookcase,/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"eO" = (/obj/structure/door/basalt{dir = 4},/obj/abstract/landmark/lock_preset/valSal_port/armory,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"fb" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 8},/obj/structure/decoration/gargoyle/plinth,/turf/floor/tiled/stone,/area/valSal_port/church)
+"fc" = (/obj/structure/table/woodentable,/obj/item/chems/glass/bucket/wood,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"fn" = (/obj/structure/flora/bush/fullgrass,/obj/structure/flora/bush/sunnybush,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"fs" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/clothing/head/richard,/obj/item/sword/replica/officersword/army,/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"ft" = (/obj/effect/floor_decal/corner/black/mono,/obj/structure/displaycase,/obj/item/grenade/decompiler,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"fu" = (/obj/structure/mineral_bath,/turf/floor/path/herringbone/sandstone,/area/valSal_port/bathhouse)
+"fI" = (/turf/wall/brick/basalt,/area/valSal_port/kingroom)
+"fR" = (/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"gb" = (/obj/effect/floor_decal/chapel{dir = 1},/obj/effect/floor_decal/spline/fancy/wood{dir = 6},/obj/item/stool/rustic,/mob/living/simple_animal/hostile/thug/wild_man{name = "Congregation"; desc = "Members of the Temple. They don't like being interrupted!"},/turf/floor/tiled/stone,/area/valSal_port/church)
+"gf" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/costume/captain_fly,/obj/item/bladed/longsword,/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"gl" = (/mob/living/simple_animal/fowl/chicken,/turf/floor/path/sandstone,/area/valSal_port/outside/fortressentrance)
+"go" = (/obj/structure/table/woodentable/ebony,/obj/item/clothing/gloves/ring/magic,/obj/item/tool/hammer/jack{name = "The Batterer"},/obj/effect/floor_decal/corner/black/mono,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"gp" = (/turf/floor/mud/water/deep,/area/valSal_port/outside/the_bog)
+"gQ" = (/obj/structure/table/woodentable,/obj/item/ancient_surgery/bonesetter,/obj/item/chems/drinks/cans/panacea,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"gW" = (/turf/wall/brick/pottery,/area/valSal_port/sticherroom)
+"ha" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/armor/forged/banded,/obj/item/clothing/head/helmet/gladiator,/obj/item/clothing/gloves/vambrace,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"hj" = (/obj/structure/flora/tree/hardwood/willow,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"hm" = (/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/floor/carpet/green,/area/valSal_port/outside/fortressentrance)
+"ht" = (/obj/structure/railing/mapped/wooden/ebony{dir = 1},/obj/structure/railing/mapped/wooden/ebony{dir = 4},/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"hu" = (/obj/structure/glass_tank/aquarium,/turf/floor/carpet,/area/valSal_port/outside/fortressentrance)
+"hB" = (/obj/structure/flora/bush/reedbush,/turf/floor/mud,/area/valSal_port/outside/the_bog)
+"hW" = (/obj/structure/door/basalt{dir = 4},/obj/abstract/landmark/lock_preset/valSal_port/meat,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"ie" = (/obj/item/stack/material/log/mapped/maple/twenty,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"ij" = (/obj/structure/table/woodentable,/obj/item/ancient_surgery/retractor,/obj/item/food/grown/aloe,/obj/item/food/grown/aloe,/obj/item/food/grown/aloe,/obj/item/food/grown/valerian,/obj/item/food/grown/valerian,/obj/item/food/grown/valerian,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"iq" = (/obj/structure/wall_sconce/lantern{simulated = 0; start_lit = 1},/turf/floor/tiled/stone,/area/valSal_port/church)
+"iw" = (/obj/structure/flora/tree/softwood/cypress,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"iJ" = (/mob/living/simple_animal/hostile/thug/wild_man{name = "Mad Cattle"; desc = "Captured for the service of this keep."},/turf/floor/path/running_bond,/area/valSal_port/cattlestorage)
+"iO" = (/mob/living/simple_animal/hostile/thug_aggresive,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"iP" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"iX" = (/obj/abstract/level_data_spawner/valSal_port_temple,/turf/unsimulated/dark_filler,/area/valSal_port/outside/the_bog)
+"iY" = (/turf/floor/rock/basalt,/area/valSal_port/northerncaves)
+"jf" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/path/sandstone,/area/valSal_port/outside/fortressentrance)
+"jm" = (/obj/structure/flora/bush/grassybush,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"jr" = (/obj/structure/bed/chair/rustic_fancy{dir = 1},/mob/living/simple_animal/hostile/thug_aggresive{name = "The Stockkeeper"; desc = "Keeping everything in order..."; max_health = 125; harm_intent_damage = 4},/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"jA" = (/turf/wall/brick/sandstone,/area/valSal_port/outside/fortressentrance)
+"jF" = (/turf/floor/tiled/stone,/area/valSal_port/church)
+"jH" = (/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/turf/floor/barren,/area/valSal_port/outside/the_bog)
+"jK" = (/obj/structure/table/woodentable,/obj/item/kitchen/rollingpin,/obj/item/knife/kitchen/cleaver/bronze,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"jP" = (/mob/living/simple_animal/hostile/thug_aggresive{name = "The Cook"; desc = "The one who feeds everyone. Their favourite meat is that of Mad Cattle."; max_health = 125; harm_intent_damage = 4},/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"jQ" = (/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"jR" = (/obj/effect/floor_decal/corner/black/mono,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"jU" = (/obj/structure/boulder/basalt,/turf/floor/rock/basalt,/area/valSal_port/complex)
+"kp" = (/turf/wall/brick/pottery,/area/valSal_port/church)
+"ky" = (/obj/structure/closet/crate/chest{dir = 1},/obj/item/stack/material/ingot/mapped/copper/twenty,/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"kM" = (/turf/wall/brick/pottery,/area/valSal_port/northerncaves)
+"kQ" = (/obj/item/cash/imperial/crown,/turf/unsimulated/floor/carpet,/area/valSal_port/kingroom)
+"kR" = (/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"lo" = (/obj/structure/door/basalt{dir = 4},/turf/floor/path/running_bond,/area/valSal_port/crypt)
+"lv" = (/obj/structure/railing/mapped/wooden/ebony{dir = 8},/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"lC" = (/obj/structure/door/basalt{dir = 4},/obj/abstract/landmark/lock_preset/valSal_port/monolith,/turf/floor/path/herringbone,/area/valSal_port/monolith)
+"lJ" = (/turf/floor/path/running_bond,/area/valSal_port/crypt)
+"lL" = (/obj/item/bedsheet/green,/obj/structure/bed/simple/ebony/cloth,/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"lO" = (/obj/structure/closet/crate/chest{dir = 1},/obj/item/stack/material/ingot/mapped/iron/thirty,/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"mb" = (/obj/structure/bed/chair/bench/mahogany{dir = 8},/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"mc" = (/obj/structure/closet/cabinet/wooden,/obj/item/bladed/shortsword,/obj/item/shield/buckler,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"mh" = (/obj/structure/displaycase,/obj/item/blackout,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"mJ" = (/obj/structure/flora/bush/sunnybush,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"mX" = (/obj/structure/closet/crate/chest{dir = 1},/obj/item/stack/material/ingot/mapped/gold/five,/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"nf" = (/obj/structure/flora/bush/ppflowers,/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"ng" = (/obj/structure/flora/tree/hardwood/mangrove,/obj/structure/flora/bush/fullgrass,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"nj" = (/obj/structure/flora/tree/hardwood/corkwood,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"nr" = (/turf/wall/natural/basalt,/area/valSal_port/northerncaves)
+"nA" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/floor/wood,/area/valSal_port/woodenroom)
+"nB" = (/obj/structure/railing/mapped/wooden/ebony,/obj/structure/railing/mapped/wooden/ebony{dir = 4},/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"nK" = (/obj/structure/closet/crate/chest,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/quin,/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"nY" = (/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"op" = (/turf/unsimulated/dark_filler,/area/valSal_port/northerncaves)
+"ov" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/turf/unsimulated/floor/carpet,/area/valSal_port/kingroom)
+"ow" = (/obj/structure/wall_sconce/lantern{simulated = 0; start_lit = 1},/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"oE" = (/obj/structure/railing/mapped/wooden/ebony{dir = 1},/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"ph" = (/obj/structure/fountain/mundane/sandstone,/turf/floor/holofloor/tiled/stone,/area/valSal_port/outside/courtyard)
+"pt" = (/obj/structure/fire_source/stove,/obj/item/stack/material/log/mapped/bamboo/twentyfive,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"pv" = (/obj/structure/railing/mapped/wooden{dir = 8},/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"pw" = (/obj/structure/pillar/triad,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"pz" = (/turf/floor/rock/basalt,/area/valSal_port/complex)
+"qv" = (/obj/structure/railing/mapped/wooden/ebony{dir = 4},/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"qz" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/armor/forged/breastplate,/obj/item/clothing/head/helmet/gladiator,/obj/item/clothing/gloves/armguards,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"qH" = (/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"qJ" = (/turf/wall/brick/sandstone,/area/valSal_port/outside/courtyard)
+"qK" = (/turf/wall/brick/pottery,/area/valSal_port/mahoganyroom)
+"qT" = (/turf/wall/brick/pottery,/area/valSal_port/armory)
+"ra" = (/mob/living/simple_animal/hostile/thug/bandit{name = "The Preacher"; desc = "They prepare the flock for their ultimate purpose."; max_health = 150},/turf/floor/tiled/stone,/area/valSal_port/church)
+"rh" = (/obj/structure/bed/chair/wood/wings{dir = 1},/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"ri" = (/obj/structure/railing/mapped/wooden/ebony,/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"rs" = (/obj/effect/floor_decal/corner/black/mono,/obj/item/cash/imperial/crown,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"rv" = (/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"rS" = (/turf/floor/mud,/area/valSal_port/outside/the_bog)
+"rU" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/armor/forged/cuirass,/obj/item/clothing/head/helmet/plumed,/obj/item/clothing/gloves/armguards,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"rZ" = (/turf/unsimulated/dark_filler,/area/valSal_port/outside/the_bog)
+"sd" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/tiled/stone,/area/valSal_port/church)
+"so" = (/obj/structure/displaycase,/obj/item/baseball_bat/uranium,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"sq" = (/obj/structure/reagent_dispensers/barrel/ebony/wine,/turf/floor/tiled/stone,/area/valSal_port/church)
+"ss" = (/obj/structure/bed/chair/rustic_fancy{dir = 8},/mob/living/simple_animal/hostile/thug_aggresive{name = "Chief"; desc = "The one in charge. Bigger than the others, and meaner too."; max_health = 400; icon_scale_x = 1.3; icon_scale_y = 1.3; harm_intent_damage = 5},/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"sy" = (/obj/structure/flora/bush/genericbush,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"sN" = (/turf/floor/wood,/area/valSal_port/woodenroom)
+"te" = (/obj/structure/closet/crate/chest{dir = 1},/obj/item/stack/material/ingot/mapped/bronze/twenty,/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"tC" = (/obj/structure/table/woodentable/walnut,/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"tI" = (/obj/structure/door/basalt,/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"ug" = (/obj/structure/reagent_dispensers/barrel,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"uu" = (/obj/structure/railing/mapped/wooden/ebony,/obj/structure/railing/mapped/wooden/ebony{dir = 8},/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"uv" = (/obj/structure/barricade,/turf/floor/path/running_bond,/area/valSal_port/cattlestorage)
+"uA" = (/turf/wall/brick/pottery,/area/valSal_port/yewroom)
+"uF" = (/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"uG" = (/obj/effect/floor_decal/corner/black/mono,/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"uI" = (/obj/structure/closet/crate/chest,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/quin,/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"uN" = (/obj/structure/flora/bush/palebush,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"uS" = (/obj/item/bedsheet/rd,/obj/structure/bed/simple/ebony/cloth,/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"uY" = (/obj/effect/floor_decal/chapel{dir = 4},/obj/effect/floor_decal/spline/fancy/wood{dir = 10},/obj/item/stool/rustic,/mob/living/simple_animal/hostile/thug/wild_man{name = "Congregation"; desc = "Members of the Temple. They don't like being interrupted!"},/turf/floor/tiled/stone,/area/valSal_port/church)
+"vf" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/clothing/armband,/obj/item/clothing/ears/dangle/diamond,/obj/item/clothing/glasses/eyepatch/monocle,/obj/item/clothing/gloves/ring/mariner{name = "University ring"; desc = "A ring commemorating graduation from a university."},/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"vv" = (/obj/structure/wall_sconce/lantern{simulated = 0; start_lit = 1},/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"vS" = (/obj/effect/floor_decal/chapel,/obj/effect/floor_decal/spline/fancy/wood{dir = 9},/obj/item/stool/rustic,/mob/living/simple_animal/hostile/thug/wild_man{name = "Congregation"; desc = "Members of the Temple. They don't like being interrupted!"},/turf/floor/tiled/stone,/area/valSal_port/church)
+"vV" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"wc" = (/obj/structure/table/woodentable,/obj/structure/fire_source/heater/mapped,/obj/item/chems/glass/mortar,/obj/item/rock/basalt,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"ws" = (/obj/structure/table/desk/right,/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"wz" = (/turf/wall/brick/sandstone,/area/valSal_port/outside/the_bog)
+"wF" = (/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"wH" = (/obj/item/chems/glass/handmade/jar,/obj/item/chems/glass/handmade/jar,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"wJ" = (/obj/structure/bookcase/ebony,/obj/item/book/manual/surgical,/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"wR" = (/turf/floor/barren,/area/valSal_port/outside/the_bog)
+"xa" = (/obj/structure/flora/bush/ywflowers,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"xl" = (/turf/floor/path/basalt/water,/area/valSal_port/complex)
+"xo" = (/obj/structure/bed/chair/bench/mahogany{dir = 8},/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"xq" = (/obj/structure/railing/mapped/wooden/ebony,/turf/floor/path/running_bond/sandstone,/area/valSal_port/complex)
+"xN" = (/obj/structure/flora/pottedplant/minitree,/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"yg" = (/obj/structure/glass_tank,/turf/floor/carpet,/area/valSal_port/outside/fortressentrance)
+"yj" = (/obj/structure/door/basalt,/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"yv" = (/obj/structure/flora/bush/stalkybush,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"yz" = (/obj/structure/door/sandstone{dir = 4; lock = 1},/obj/abstract/landmark/lock_preset/valSal_port/keep,/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"yB" = (/obj/structure/closet/coffin/wooden,/obj/item/remains/human,/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/path/running_bond,/area/valSal_port/crypt)
+"yZ" = (/obj/random/pottedplant,/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"zb" = (/obj/effect/floor_decal/corner/black/mono,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/regalis,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"zc" = (/turf/floor/barren,/area/valSal_port/outside/courtyard)
+"zd" = (/turf/floor/straw,/area/valSal_port/outside/courtyard)
+"ze" = (/obj/structure/flora/bush,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"zg" = (/turf/wall/brick/sandstone/shutter/open,/area/valSal_port/outside/fortressentrance)
+"zi" = (/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"zo" = (/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"zt" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/armor/forged/brigandine,/obj/item/clothing/head/helmet/plumed,/obj/item/clothing/gloves/armguards,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"zJ" = (/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"zU" = (/obj/structure/table/woodentable/mahogany,/turf/floor/wood,/area/valSal_port/woodenroom)
+"zW" = (/obj/structure/railing/mapped/wooden{dir = 1},/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Af" = (/obj/structure/wall_sconce/lantern,/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"Ai" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/quin,/turf/unsimulated/floor/carpet,/area/valSal_port/kingroom)
+"Al" = (/obj/effect/floor_decal/corner/black/mono,/obj/structure/displaycase,/obj/item/harpoon/bomb,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Au" = (/obj/structure/displaycase,/obj/item/cane/fancy/sword,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"AC" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 4},/obj/structure/decoration/gargoyle/plinth,/turf/floor/tiled/stone,/area/valSal_port/church)
+"AD" = (/obj/effect/floor_decal/chapel{dir = 8},/obj/effect/floor_decal/spline/fancy/wood{dir = 5},/obj/item/stool/rustic,/mob/living/simple_animal/hostile/thug/wild_man{name = "Congregation"; desc = "Members of the Temple. They don't like being interrupted!"},/turf/floor/tiled/stone,/area/valSal_port/church)
+"AG" = (/obj/structure/barricade/spike{dir = 4},/turf/floor/mud,/area/valSal_port/outside/the_bog)
+"Bb" = (/turf/wall/brick/pottery,/area/valSal_port/walnutroom)
+"Bd" = (/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"Bk" = (/obj/structure/flora/pottedplant/flower,/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"Bx" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/clothing/head/collectable/slime{name = "slime hat"},/obj/item/clothing/gloves/rig,/turf/floor/wood,/area/valSal_port/woodenroom)
+"BD" = (/obj/structure/flora/bush/ywflowers,/obj/structure/decoration/gargoyle/plinth{dir = 4},/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"BS" = (/obj/effect/floor_decal/spline/fancy/wood,/obj/item/stool/rustic,/mob/living/simple_animal/hostile/thug/wild_man{name = "Congregation"; desc = "Members of the Temple. They don't like being interrupted!"},/turf/floor/tiled/stone,/area/valSal_port/church)
+"BV" = (/obj/structure/bed/chair/wood/wings/walnut{dir = 1},/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"BW" = (/obj/structure/flora/bush/fernybush,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Cb" = (/obj/effect/decal/cleanable/crayon,/obj/structure/talisman_altar,/obj/item/clothing/gloves/ring/reagent/sleepy,/obj/item/clothing/suit/imperium_monk,/turf/floor/tiled/stone,/area/valSal_port/church)
+"Cf" = (/turf/unsimulated/wall/cult,/area/valSal_port/church)
+"Ct" = (/obj/structure/table/woodentable,/obj/item/ancient_surgery/cautery,/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"CA" = (/obj/item/bedsheet/brown,/obj/structure/bed/simple/ebony/cloth,/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"CH" = (/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"CP" = (/obj/structure/door/iron{dir = 4},/obj/abstract/landmark/lock_preset/valSal_port/keep,/turf/floor/holofloor/tiled/stone,/area/valSal_port/outside/courtyard)
+"Di" = (/obj/structure/door/basalt,/obj/abstract/landmark/lock_preset/valSal_port/complex,/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"Do" = (/obj/structure/table/woodentable,/obj/item/ancient_surgery/forceps,/obj/item/ancient_surgery/sutures,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"Dr" = (/obj/structure/door/basalt{dir = 4},/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"Dt" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"Dx" = (/obj/structure/bed/chair/wood/wings/maple{dir = 1},/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"DH" = (/obj/effect/floor_decal/corner/black/mono,/obj/structure/displaycase,/obj/item/scrying,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"DM" = (/obj/effect/floor_decal/corner/black/mono,/obj/structure/displaycase,/obj/item/clothing/head/xenos,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"DY" = (/obj/structure/flora/bush/sunnybush,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"Eb" = (/obj/structure/bed/chair/wood/wings/mahogany{dir = 1},/turf/floor/wood,/area/valSal_port/woodenroom)
+"Eg" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/armor/forged/brigandine,/obj/item/clothing/head/helmet/gladiator,/obj/item/clothing/gloves/armguards,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"Ep" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/path/herringbone/sandstone,/area/valSal_port/bathhouse)
+"Ex" = (/obj/item/cash/imperial/regalis,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"ED" = (/obj/structure/table/woodentable,/turf/floor/carpet,/area/valSal_port/outside/fortressentrance)
+"EE" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 8},/turf/floor/tiled/stone,/area/valSal_port/church)
+"EG" = (/obj/structure/door/basalt{dir = 4},/obj/abstract/landmark/lock_preset/valSal_port/complex,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"EN" = (/obj/structure/flora/bush/grassybush,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"EU" = (/obj/structure/closet/cabinet/wooden,/obj/item/chems/condiment/flour,/obj/item/chems/condiment/flour,/obj/item/box/fancy/egg_box/assorted,/obj/item/box/fancy/egg_box/assorted,/obj/item/chems/condiment/sugar,/obj/item/chems/condiment/sugar,/obj/item/chems/condiment/large/salt,/obj/item/chems/condiment/small/peppermill,/obj/item/chems/condiment/small/peppermill,/obj/item/chems/condiment/yeast,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"EX" = (/obj/structure/flora/tree/hardwood/mangrove,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"EZ" = (/obj/structure/flora/bush/leafybush,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"Fb" = (/turf/wall/brick/pottery,/area/valSal_port/bathhouse)
+"Fe" = (/obj/structure/flora/tree/hardwood/willow,/obj/structure/flora/bush/fullgrass,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"Fo" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 1},/turf/floor/tiled/stone,/area/valSal_port/church)
+"Fq" = (/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"Fr" = (/obj/structure/closet/crate/chest/ebony,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/regalis,/obj/item/cash/imperial/regalis,/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"Fs" = (/turf/wall/natural/dirt,/area/valSal_port/northerncaves)
+"FL" = (/obj/structure/flora/pottedplant/flower,/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"FS" = (/turf/floor/path/herringbone,/area/valSal_port/monolith)
+"FZ" = (/turf/wall/brick/pottery,/area/valSal_port/templekitchen)
+"Gh" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"Gk" = (/obj/structure/barricade/spike{dir = 4},/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"Gm" = (/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"GG" = (/obj/structure/monolith,/turf/floor/path/herringbone/sandstone,/area/valSal_port/bathhouse)
+"GL" = (/obj/structure/wall_sconce/lantern{simulated = 0; start_lit = 1},/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"GN" = (/obj/structure/pillar/triad,/obj/effect/floor_decal/corner/black/mono,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"GO" = (/turf/wall/brick/pottery,/area/valSal_port/complex)
+"GQ" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/carpet/green,/area/valSal_port/outside/fortressentrance)
+"GR" = (/obj/structure/flora/bush/brflowers,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Hf" = (/obj/structure/closet/cabinet/wooden,/obj/item/bladed/broadsword,/obj/item/shield/buckler,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"Hw" = (/obj/structure/flora/bush/stalkybush,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"HB" = (/obj/structure/closet/crate/chest/ebony,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/regalis,/turf/floor/wood,/area/valSal_port/woodenroom)
+"HE" = (/turf/wall/natural/basalt,/area/valSal_port/complex)
+"HG" = (/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"HI" = (/obj/structure/flora/tree/hardwood/willow,/turf/floor/mud,/area/valSal_port/outside/the_bog)
+"HQ" = (/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"Ip" = (/obj/structure/wall_sconce/lantern{simulated = 0; start_lit = 1},/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"IA" = (/obj/structure/door/mahogany{dir = 4},/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"IC" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/path/sandstone,/area/valSal_port/outside/fortressentrance)
+"IE" = (/obj/structure/fire_source/kiln/high_temperature,/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"IR" = (/obj/structure/flora/bush/ppflowers,/obj/structure/decoration/gargoyle/plinth{dir = 4},/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Je" = (/obj/structure/flora/bush/sparsegrass,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Ju" = (/obj/structure/door/basalt,/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"JW" = (/obj/structure/flora/bush/fullgrass,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"Kb" = (/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Kf" = (/obj/structure/flora/tree/hardwood/mangrove,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"Kx" = (/obj/structure/door/gold,/obj/abstract/landmark/lock_preset/valSal_port/chapel,/turf/floor/tiled/stone,/area/valSal_port/church)
+"KF" = (/obj/item/cash/imperial/regalis,/turf/unsimulated/floor/carpet,/area/valSal_port/kingroom)
+"KG" = (/obj/structure/bookcase/ebony,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Lc" = (/turf/unsimulated/floor/carpet,/area/valSal_port/kingroom)
+"Ld" = (/obj/effect/floor_decal/corner/black/mono,/obj/structure/displaycase,/obj/item/mirror,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Le" = (/obj/structure/meat_hook/improvised,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"Lk" = (/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Lz" = (/obj/structure/table/woodentable,/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"LJ" = (/obj/structure/crystal,/turf/floor/path/herringbone,/area/valSal_port/monolith)
+"LR" = (/turf/wall/brick/pottery,/area/valSal_port/templeforge)
+"LS" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/head/cakehat,/obj/item/food/onionrings,/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"LT" = (/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/turf/floor/mud,/area/valSal_port/outside/the_bog)
+"Mn" = (/obj/structure/table/gamblingtable,/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"Mz" = (/turf/floor/holofloor/tiled/stone,/area/valSal_port/outside/courtyard)
+"MT" = (/obj/structure/reagent_dispensers/barrel/ebony/water,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"MY" = (/obj/structure/railing/mapped/wooden,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Ne" = (/obj/structure/door/iron,/obj/abstract/landmark/lock_preset/valSal_port/complex,/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"Nf" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/path/herringbone,/area/valSal_port/monolith)
+"Nx" = (/turf/floor/wood/mahogany,/area/valSal_port/mahoganyroom)
+"NP" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/clothing/head/collectable/petehat,/obj/item/clothing/mask/smokable/pipe/cobpipe,/obj/item/clothing/medal/gold,/obj/item/clothing/suit/armor/crafted/leather,/obj/item/clothing/suit/chaplain_hoodie,/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"NR" = (/obj/structure/door/mahogany,/obj/abstract/landmark/lock_preset/valSal_port/library,/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"Oz" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 8},/obj/structure/decoration/gargoyle/plinth{dir = 1},/turf/floor/tiled/stone,/area/valSal_port/church)
+"OM" = (/obj/structure/flora/tree/softwood/cypress,/obj/structure/flora/bush/fullgrass,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"OR" = (/obj/structure/artifact,/turf/floor/path/herringbone,/area/valSal_port/monolith)
+"Pz" = (/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"PE" = (/obj/item/bedsheet/ce,/obj/structure/bed/simple/ebony/cloth,/turf/floor/wood,/area/valSal_port/woodenroom)
+"PM" = (/obj/structure/railing/mapped/wooden/ebony{dir = 1},/obj/structure/railing/mapped/wooden/ebony{dir = 8},/turf/floor/path/sandstone/water,/area/valSal_port/complex)
+"PW" = (/obj/structure/door/mahogany{dir = 4},/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"Qg" = (/obj/effect/floor_decal/corner/black/mono,/mob/living/simple_animal/hostile/thug_aggresive,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Qq" = (/obj/structure/table/desk,/obj/item/chems/glass/inkwell/quilled,/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"QV" = (/obj/structure/working/butter_churn,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"Rh" = (/obj/structure/bed/simple/crafted,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"Ri" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"Rl" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"Rx" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 22; simulated = 0; start_lit = 1},/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"RI" = (/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/wood/yew,/area/valSal_port/yewroom)
+"RK" = (/obj/structure/closet/crate/chest{dir = 1},/obj/item/stack/material/ingot/mapped/silver/ten,/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"RU" = (/obj/structure/drying_rack/ebony,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"RX" = (/turf/wall/brick/pottery,/area/valSal_port/woodenroom)
+"Se" = (/obj/structure/bed/simple/ebony/cloth,/obj/item/bedsheet/rd,/obj/structure/wall_sconce/lantern{dir = 4; start_lit = 1; simulated = 0},/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"So" = (/obj/structure/flora/bush/fullgrass,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"SB" = (/obj/structure/flora/pottedplant/overgrown,/turf/floor/path/running_bond/sandstone,/area/valSal_port/outside/fortressentrance)
+"SF" = (/obj/structure/table/end,/turf/floor/holofloor/wood,/area/valSal_port/outside/fortressentrance)
+"SK" = (/obj/structure/wall_sconce/lantern{simulated = 0; start_lit = 1},/turf/floor/path/herringbone,/area/valSal_port/monolith)
+"SQ" = (/obj/structure/table/woodentable/maple,/turf/floor/wood/walnut,/area/valSal_port/walnutroom)
+"ST" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 1},/obj/item/stool/rustic,/mob/living/simple_animal/hostile/thug/wild_man{name = "Congregation"; desc = "Members of the Temple. They don't like being interrupted!"},/turf/floor/tiled/stone,/area/valSal_port/church)
+"TR" = (/obj/structure/fake_pylon,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Ua" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/armor/forged/breastplate,/obj/item/clothing/head/helmet/thunderdome,/obj/item/clothing/gloves/armguards,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"Ud" = (/obj/structure/flora/bush/sunnybush,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Un" = (/obj/effect/floor_decal/corner/black/mono,/obj/item/cash/imperial/quin,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Ur" = (/obj/structure/bed/chair/wood{dir = 4},/turf/floor/carpet,/area/valSal_port/outside/fortressentrance)
+"UF" = (/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)
+"UK" = (/obj/structure/flora/bush/brflowers,/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"UU" = (/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"UW" = (/mob/living/simple_animal/hostile/thug_aggresive{name = "The Sticher"; desc = "Designated surgeon of the Temple."; max_health = 125; harm_intent_damage = 4},/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"Vh" = (/obj/structure/flora/bush/ppflowers,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Vv" = (/turf/floor/carpet,/area/valSal_port/outside/fortressentrance)
+"VC" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 4},/obj/structure/decoration/gargoyle/plinth{dir = 1},/turf/floor/tiled/stone,/area/valSal_port/church)
+"VP" = (/turf/wall/brick/pottery,/area/valSal_port/crypt)
+"VQ" = (/obj/item/cash/imperial/quin,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"VZ" = (/obj/structure/wall_sconce/lantern{dir = 8; start_lit = 1; simulated = 0},/mob/living/simple_animal/hostile/thug_aggresive{name = "Fortress Guard"; desc = "A rough looking individual patrolling the fortress grounds."},/turf/unsimulated/floor/cult,/area/valSal_port/complex)
+"Wa" = (/obj/structure/railing/mapped/wooden/ebony{dir = 8},/turf/floor/path/basalt/water,/area/valSal_port/complex)
+"Wd" = (/obj/structure/table/woodentable,/obj/item/ancient_surgery/bonesaw,/obj/item/ancient_surgery/scalpel,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"We" = (/turf/wall/brick/pottery,/area/valSal_port/library)
+"Wg" = (/obj/structure/closet/coffin/wooden,/obj/item/remains/human,/turf/floor/path/running_bond,/area/valSal_port/crypt)
+"Wi" = (/obj/structure/wall_sconce/lantern{simulated = 0; start_lit = 1},/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Wj" = (/obj/structure/door/gold{dir = 4},/obj/abstract/landmark/lock_preset/valSal_port/throne_room,/turf/unsimulated/floor/carpet,/area/valSal_port/kingroom)
+"Wn" = (/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll/teleportation,/turf/floor/path/running_bond/sandstone,/area/valSal_port/library)
+"Wu" = (/obj/structure/bookcase/ebony,/obj/effect/floor_decal/corner/black/mono,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"WE" = (/turf/floor/path/sandstone,/area/valSal_port/outside/fortressentrance)
+"WP" = (/turf/wall/brick/pottery,/area/valSal_port/cattlestorage)
+"Xj" = (/obj/item/cash/imperial/quin,/turf/unsimulated/floor/carpet,/area/valSal_port/kingroom)
+"Xm" = (/obj/structure/table/woodentable,/obj/item/tool/hammer,/turf/floor/path/running_bond,/area/valSal_port/templeforge)
+"XS" = (/obj/structure/displaycase,/obj/item/blob_tendril,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
+"Yc" = (/obj/structure/closet/cabinet/wooden,/obj/item/sword/replica/officersword,/obj/item/shield/buckler,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
+"Yn" = (/obj/structure/aliumizer,/turf/floor/path/herringbone,/area/valSal_port/monolith)
+"Zb" = (/obj/structure/closet/cabinet/wooden,/obj/item/chems/cooking_vessel/baking_dish/earthenware,/obj/item/chems/cooking_vessel/skillet/iron,/obj/item/chems/cooking_vessel/pot/iron,/obj/item/chems/glass/handmade/mug,/obj/item/chems/glass/handmade/mug,/obj/item/chems/glass/handmade/bowl,/obj/item/chems/glass/handmade/bowl,/obj/item/chems/glass/handmade/bowl,/obj/item/chems/glass/handmade/bowl,/obj/item/plate/tray/wood,/obj/item/plate/tray/wood,/obj/item/plate/tray/wood,/obj/item/plate/tray/wood,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"Zh" = (/turf/floor/path/herringbone/sandstone,/area/valSal_port/bathhouse)
+"Zl" = (/turf/floor/carpet/green,/area/valSal_port/outside/fortressentrance)
+"Zn" = (/obj/structure/table/woodentable,/turf/floor/path/running_bond,/area/valSal_port/templekitchen)
+"Zw" = (/obj/structure/flora/bush/pointybush,/turf/floor/grass,/area/valSal_port/outside/courtyard)
+"Zz" = (/obj/structure/flora/bush/grassybush,/obj/structure/flora/bush/leafybush,/turf/floor/grass,/area/valSal_port/outside/the_bog)
+"ZM" = (/obj/effect/floor_decal/spline/fancy/wood{dir = 4},/turf/floor/tiled/stone,/area/valSal_port/church)
+"ZQ" = (/obj/random/pottedplant,/turf/floor/carpet,/area/valSal_port/outside/fortressentrance)
+"ZW" = (/mob/living/simple_animal/cow,/turf/floor/straw,/area/valSal_port/outside/courtyard)
+"ZX" = (/obj/structure/table/woodentable,/obj/item/chems/glass/inkwell/quilled,/turf/floor/carpet,/area/valSal_port/outside/fortressentrance)
+
+(1,1,1) = {"
+nrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMkMnrnrnrnropopopopopopop
+nrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrGOzJzJaazJzJzJzJzJzJRlzJzJzJzJzJaazJzJzJzJzJzJaazJzJzJGOnrnrnrnropopopopopopop
+nrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrGOzJPMoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEhtzJGOnrnrnrnropopopopopopop
+nrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrGOzJlvFqririririririririririririririririririririFqqvzJGOnrnrnrnropopopopopopop
+nrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrGOzJlvqvzJzJzJzJzJzJzJzJzJzJzJzJqHzJzJzJzJzJzJzJlvqvzJGOnrnrnrnropopopopopopop
+nrnrGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOzJlvqvDtGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOzJlvqvDtGOnrnrnrnropopopopopopop
+nrnrGOzJzJzJzJqHzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJqHzJzJzJzJzJzJzJzJzJqHzJzJzJzJzJzJzJzJzJzJzJzJzJGOzJlvqvzJGOzJzJaazJzJzJzJzJzJaazJzJzJzJzJaazJzJlvqvzJGOnrnrnrnropopopopopopop
+nrnrGOzJPMoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEafoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEhtDtGOzJlvqvzJGOzJPMoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEFqqvzJGOnrnrnrnropopopopopopop
+nrnrGOzJlvFqririririririririririririririririririririririxqriririririFqFqririririririririririririririririririririririFqqvqHGOzJlvqvzJGOzJlvFqFqriririririririririririririririnBzJGOnrnrnrnropopopopopopop
+nrnrGOzJlvqvzJzJzJzJzJzJowzJowzJzJzJzJzJGLzJzJzJzJzJzJowzJowzJzJowzJlvqvqHowzJzJzJzJowzJzJzJzJzJowzJzJqHzJowzJzJzJzJlvqvzJGOzJlvqvzJGOzJlvFqqvzJzJzJzJzJGLzJzJzJzJzJowzJzJzJzJzJGOnrnrnrnropopopopopopop
+nrnrGOGmlvqvDtGOGOGOGOGOkpKxCfGOGOGOGOGOGOGOGOGOWeWeWeWeNRWeWeWeWezJlvqvzJGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGmlvqvzJGOzJlvqvDtGOVZlvFqqvDtGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOnrnrnrnropopopopopopop
+nrnrGOzJlvqvzJGOHEHEHEHECfjFCfHEHEHEHEGOGmzJzJDtWeQqWnWeHQdbHQdbWezJlvqvzJGOeqeqeqeqeqeqeqzJzJzJzJzJaazJqHzJzJzJzJzJlvqvzJGOzJlvqvqHGOzJlvFqqvzJGOHEHEHEHEHEHEHEHEHEHEHEHEHEHEHEHEnrnrnrnropopopopopopop
+nrnrGOzJlvqvzJGOHEHEHECfACjFfbCfHEHEHEGOzJPMhtzJWeHQjrWeHQdbHQdbWezJlvqvzJGOeqFSNfYnNfFSeqzJPMoEoEoEoEoEoEoEoEoEoEoEFqqvzJGOzJlvqvzJGOzJlvFqqvzJfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfInrnrnrnropopopopopopop
+nrnrGOzJlvqvzJGOHEHECfsdZMjFEEsdCfHEHEGOzJlvqvzJWeHGHQHQHQHQHQiPWezJlvqvzJGOeqFSFSORFSFSlCzJuuriririririririririririFqqvzJGOzJlvqvzJGOzJlvFqqvzJfITRuGsouGeruGmhuGXSuGAuuGLkuGKGfInrnrnrnropopopopopopop
+nrnrGOzJlvqvzJGOHECfBSbagbjFuYbaBSCfHEGOzJlvqvzJWewJHQHQIpdbdbdbWezJlvqvDtGOeqFSFSLJFSFSeqzJzJzJzJzJowzJqHzJzJzJzJzJlvqvDtGOzJlvqvzJGOGmlvFqqvDtfIUnpwrspwUnpwjRpwzbpwUnpwQgpwjRfInrnrnrnropopopopopopop
+nrnrGOGmlvqvDtGOCfbrjFjFjFCbjFjFjFsqCfGOGmlvqvDtqTqTqTqTqTqTqTqTqTzJlvqvzJGOeqFSSKYnSKFSeqGOGOGOGOGOGOFbFbauauFbFbGmlvqvzJzJqHlvqvDtGOzJlvFqqvzJWjLcLckQLcKFLcLckQAiLcLcLcLcgoLkfInrnrnrnropopopopopopop
+nrnrGOzJlvqvzJGOHECfSTFoADravSFoSTCfHEGOzJlvqvzJqThaduEgqzUaztrUqTzJlvqvzJGOjAjAjAjAjAjAjAjAjAjAjAjAjAFbEpZhZhEpFbzJlvFqoEoEoEFqqvzJGOzJlvFqqvzJWjLcXjkQLcLcAiXjLcLcLcKFovkQssbBfInrnrnrnropopopopopopop
+nrnrGOzJlvqvzJGOHEHECfiqZMjFEEiqCfHEHEGOzJlvqvzJeOfRfRfRfRfRfRfRqTzJlvqvzJGOjAcKMnMncKjAvfBdwsBdBdSejAFbZhZhZhZhFbzJuuriririririnBzJGOzJuurinBzJfIExGNLkGNVQGNLkGNLkGNLkGNiOGNLkfInrnrnrnropopopopopopop
+nrnrGOzJlvqvzJGOHEHEHECfVCjFOzCfHEHEHEGOzJlvqvzJqTajfRfRfRfRfRvVqTzJlvqvDtGOjArvZlZlZlIABdBdbbBdBdSFjAFbZhZhZhZhFbzJzJzJzJAfqHzJzJzJGOGmzJzJqHDtfIdTWiDHWiLdWiAlWiftWiDMWijRWiWufInrnrnrnropopopopopopop
+nrnrGOzJlvqvzJGOHEHEHEHECfjFCfHEHEHEHEGOGmlvqvDtqTaMaMmcmcHfHfYcqTqHlvqvzJGOjArvZlZlZlIABdBdBdBdBdmbjAFbGGfufuGGFbGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfIfInrnrnrwRrZrZrZrZrZrZrZ
+nrnrGOGmlvqvDtGOGOGOGOGOkpkpkpGOGOGOGOGOqHlvqvzJFZFZFZFZFZFZFZFZFZzJlvqvzJGOjArvZlZlrvjANPBdBdBdBdxojAFbFbFbFbFbFbnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRwRrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJlvqvzJFZLeLeRURUQVptcHFZzJlvqvzJGOjACHZlhmRijAjAjAjAzgjAjAjAnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRwRwRUFUFrZrZrZrZrZrZrZ
+nrnrGOqHlvFqoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEFqqvzJhWnYnYnYjPnYnYnYFZzJlvqvDtGOjArvZlZlrvjAKbKbzczczczcnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRwRwRwRwFeuwFUFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvFqririririririririririririririririnBzJFZnYnYfcjKZnnYZbFZzJlvqvzJGOjArvZlZlrvzgKbJeKbKbKbzczczczcnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRwRwRwRwRwRwRwRwRwRwFwFwFwFwFUFwFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJzJzJzJowzJqHzJzJzJzJowzJzJzJzJowzJFZMTnYnYvvnYnYEUFZzJlvqvzJGOjArvZlZlrvjAKbKbKbUdKbKbKbKbzcqJwzwRwRwRwRnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFUFUFKfUFUFUFUFUFhjSoUFrShBrSrSUFwFwFUFrZrZrZrZrZrZrZ
+nrnrGOGmlvqvDtVPVPVPVPVPVPVPGOGOGOGOGOGOGOGOGOGOFZFZFZFZFZFZFZFZFZzJlvqvzJGOjACHZlZlyZjAKbKbKbKbKbKbKbnjKbqJUFUFUFUFwRwRwRwRnrnrnrnrnrnrnrwRwRwRwRUFUFUFUFUFjmDYUFUFwFwFrSrScfcfrSUFUFiwUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJVPWgWgyBWgWgVPzJzJzJaazJzJzJzJaazJzJzJzJaazJzJzJzJaazJlvqvDtGOjArvZlZlMnjAKbKbBWMzMzMzsyKbKbqJwzUFUFUFwFwFwFwRwRwRwRwRwRwRwRwRUFDYUFUFUFUFENwFwFUFUFSowFrShBcfcfrShBhjUFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJlolJlJlJlJlJlozJPMoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEoEFqqvzJGOjArvZlZlMnzgnjKbMzMzMzMzMzKbJeqJUFUFHwwFKfUFiwwFwFwFwFUFUFUFUFUFUFmJwFwFwFwFUFUFwFwFwFwFUFrScfcfcfrSUFUFUFngUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJVPlJlJlJlJlJVPzJlvFqririririririririririririririririririnBzJGOjArvZlZlMnjAKbKbMzMzphMzMzKbKbqJwzJWwFUFUFUFDYUFUFUFUFwFEZwFwFwFwFwFUFUFjmUFKfUFwFwFdFUFUFhBrSrSrShBUFUFUFENUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJVPWgWgWgWgWgVPqHlvqvzJzJzJzJzJowzJzJqHzJowzJzJzJzJowzJzJzJzJGOjACHZlZlFLjAJeKbMzMzMzMzMzKbKbqJUFUFwFUFUFUFUFUFJWUFUFUFUFUFUFUFENJWKfUFUFUFUFwFwFjmUFUFUFUFUFUFUFUFUFUFEZwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJVPVPVPVPVPVPVPGmlvqvDtGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOjArvZlZlrvjAKbKbZwMzMzMzuNKbKbqJwzUFSowFUFjmUFUFUFyvUFKfUFUFUFDYiwUFUFUFUFUFwFwFUFUFUFhjUFUFUFhjUFUFjmUFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOGmlvqvDtLRLRLRLRLRLRLRzJlvqvzJGOjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjArvhmZlrvzgKbKbKbKbKbKbKbKbUdqJUFUFUFUFwFwFwFwFUFUFUFUFUFUFUFUFwFUFUFDYUFwFiwUFUFUFUFUFDYdFUFUFUFUFUFKfwFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJLRtekymXlORKLRzJlvqvzJGOjArvrvRxrvSBMnMncKrvRxrvrvjAICWEWEICjACHcKZlZlrvjAKbKbKbKbKbKbKbKbKbqJwzUFyvUFKfUFUFiwwFSowFwFwFEZwFUFENUFUFwFwFwFSowFwFUFUFUFUFUFUFUFUFJWUFUFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJDrUUUUUUUUUUDrzJlvqvzJGOjArvZlZlZlZlZlZlZlZlZlZlrvjAWEWEglWEjAZlZlZlZlrvjAKbUdKbKbnjJekRKbKbqJUFUFUFUFUFUFUFUFUFUFUFUFUFUFUFwFwFwFwFwFUFUFUFUFwFeuUFUFUFUFJWUFUFUFUFbdwFdFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJLRUUUUUUUUUULRGmlvqvDtGOjArvZlhmrvrvrvrvrvrvZlZlrvjAWEWEWEWEeyZlZlZlGQjAjAjAzgjAjAKbKbKbKbKbqJwzUFUFGkUFyvUFjmJWUFUFrSrSUFUFJWwFiwwFUFUFUFUFUFUFUFwFwFwFEXUFwFUFbdUFwFUFDYUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJLRIEXmugUUUULRzJlvqvzJGOjArvZlZlrvjAeEeEjACHZlZlRijAglWEWEWEjAZlZlZlZlPWrvrvrvrvzgKbKbKbKbKbqJrSrShBrSrSrSrSrSrSrShBrSUFdFKfUFUFwFUFUFhjrSrSrSrShBrSUFUFwFwFwFwFwFUFwFUFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJLRLRLRLRLRLRLRzJlvqvzJGOjACHZlZlRijAjAjAjArvZlZlrvjAWEWEWEjfjACHrvrvRijAhuVvEDRijAjABDGRnfxaqJwzjHwRwRaDwRwRrSwRrSrSUFUFUFUFUFUFwFUFUFUFrScfcfcfcfrSUFUFJWUFUFUFwFwFSowFjmUFrZrZrZrZrZrZrZ
+nrnrGOGmlvqvDtgWgWgWgWgWgWgWzJlvqvzJGOjArvZlZlrvjAnrnrjArvZlZlrvjAjAjAjAjAjAjAjAjAjAjAZQUrZXrvrvyzMzMzMzMzCPwRwRaDwRwRwRwRwRrSrSrSrSUFUFUFUFwFwFUFUFrShBcfgpgpcfhBUFUFUFUFUFmJwFUFUFUFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJgWgQWdCtDoijgWGmlvqvDtGOjArvZlZlrvjAnrnrjArvZlZlrvRxBkMnMnMnxNRxrvrvyZjAygVvEDRijAjAIRxaUKGRqJwzLTwRwRaDwRwRwRwRwRrSrSrSUFUFDYwFUFUFrSrScfcfgpcfcfrSUFhjUFUFUFENUFUFUFUFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJEGPzPzUWPzPzEGqHlvqvzJGOjArvZlZlrvjAnrnrjArvZlZlZlZlZlZlZlZlZlZlZlZlrvPWrvrvrvrvzgKbKbKbKbKbqJrSrSrSwRwRwRwRwRwRwRrSrSrSUFdFwFwFUFUFrScfcfcfcfcfrSrSUFUFUFwFwFEXUFUFUFKfwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJgWPzPzRhPzPzgWzJlvqvzJGOjACHZlZlRijAnrnrjArvZlZlZlZlZlZlZlZlZlhmZlZlRijAjAjAzgjAjAKbKbKbKbKbqJwzUFrSAGrShBrSrSrSwRrSrShBUFUFwFUFhjUFrSrSrShBrSrSrSUFUFUFUFwFUFUFUFUFUFwFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJgWwcwHPzPziegWzJlvqvzJGOjArvZlZlrvjAnrnrjAcKrvrvrvrvrvrvrvrvrvrvrvrvrvjAKbKbKbKbKbKbaJkRKbnjqJUFUFUFUFrSrSrSUFrSrSUFrSrSUFUFiwUFUFUFUFUFUFUFUFUFUFUFUFwFwFUFJWUFUFUFUFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOGmuunBDtgWgWgWgWgWgWgWGmlvqvDtGOjArvZlZlrvjAnrnrjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAjAKbzeKbKbKbKbKbKbxaKbqJwzUFUFUFUFUFrSUFUFUFjmUFUFJWwFwFUFDYUFUFUFhjUFUFUFhjUFUFwFUFUFUFUFUFUFbdwFUFJWrZrZrZrZrZrZrZ
+nrnrGOzJafafzJzJaazJzJzJaazJzJlvqvqHGOjArvZlZlrvjAnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrjAKbKbKbnjKbKbKbKbKbKbqJUFUFUFUFUFUFUFUFUFUFUFUFwFwFwFUFUFUFUFUFUFwFUFUFUFUFUFwFwFUFUFdFUFUFUFdFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJPMoEoEoEoEoEoEoEoEoEoEFqqvzJGOjACHZlZlRijAnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrjAMYMYMYMYsyKbKbKbKbKbqJwzUFUFKfUFJWUFwFwFwFHwwFZzSoUFUFUFUFUFUFwFwFwFwFwFiwwFwFUFUFDYUFUFUFUFUFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOqHlvFqririririririririririnBzJGOjArvZlZlrvjAnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrjAzdzdzdzdpvKbKbKbKbKbqJUFUFUFUFUFwFwFUFKfUFUFwFwFUFUFUFKfUFwFENwFwFUFjmUFUFUFwFwFUFUFUFUFKfUFUFENUFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJzJzJzJzJzJzJzJzJzJzJzJGOjAcKrvrvcKjAnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrjAZWzdzdzdpvKbVhKbKbKbqJwzUFUFUFwFUFUFUFUFwFwFwFwFwFwFwFwFwFwFUFwFdFUFUFUFUFUFUFeuwFwFUFUFUFUFUFwFDYUFrZrZrZrZrZrZrZ
+nrnrGOGmlvqvDtGOGOGOGOGOGOGOGOGOGOGOGOjAjANeNejAjAGOGOGOGOnrnrnrnrnrnrnrnrnrnrnrnrnrjAzdzdZWzdpvKbKbKbKbKbqJUFUFUFwFwFUFUFUFwFENENHwUFbdUFUFJWUFUFwFwFUFUFUFUFUFUFUFUFwFwFwFwFJWUFUFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJzJzJaazJzJzJRlzJzJzJzJzJzJaazJzJaazJzJzJzJGOnrnriYiYiYnrnrnrnrnrnrnrnrjAzdzdzdzdpvKbKbKbKbKbqJwzUFUFSoKfUFUFmJwFUFUFUFUFUFUFDYUFUFUFwFUFUFUFhjUFrSrSrSUFdFUFwFwFwFUFUFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvFqoEoEoEoEoEoEhtafPMoEoEoEoEoEoEoEoEoEoEoEhtDtGOnriYiYiYiYiYiYiYnrnrnrnrnrjAzWzWzWzWKbKbKbKbKbKbqJUFUFUFwFwFUFwFwFUFUFhjUFUFDYUFUFUFyvUFwFjmUFUFUFrSrScfhBUFUFUFUFmJwFiwUFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJuuriririririririnBafuuririririririririririFqqvzJGOnriYnrnrnriYiYiYnrnrnrnrnrjAKbKbKbsyKbKbxanjKbsyqJwzUFUFjmwFUFwFUFUFUFUFUFUFUFUFUFUFUFUFwFwFKfUFUFhBcfcfrSUFUFUFUFUFwFENwFwFUFUFrZrZrZrZrZrZrZ
+nrnrGOzJafafzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJlvqvzJGOnriYFsnrnrnrnriYiYnrnrnrnrjAzcKbKbKbKbKbKbKbKbKbqJUFUFUFUFwFUFSoyvUFUFrShBrSrSUFUFhjUFUFUFwFUFUFUFrScfcfrSUFhjUFUFUFUFwFwFUFEXJWrZrZrZrZrZrZrZ
+nrnrGOzJPMhtzJqKqKJuqKqKRXaHRXRXBbtIBbBbuAyjuAuAGmlvqvzJGOnrFsFsiYnrnrnriYiYiYnrnrnrnrzczczczczcKbKbKbKbKbqJwzUFUFUFUFwFwFUFUFUFrScfcfrShBrSrSUFUFUFwFUFUFrSrScfcfrSUFUFUFUFdFENwFwFUFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJqKLzNxuIqKzUsNHBRXSQuFnKBbtCzoFruAzJuunBzJGOnrjUjUFsnrnrnrnriYiYnrnrnrnrnrnrnrnrzczczczczczcqJUFjmUFUFUFwFwFUFUFUFrSrScfcfcfcfrShBUFUFwFwFUFrScfcfrSrSUFDYUFUFwFwFUFeuUFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJqKrhjQaNqKEbsNnARXDxegGhBbBVziRIuAzJafafqHGOjUjUjUnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrzcqJwzwRwRwRUFKfwFUFhjUFUFrShBcfcfcfcfrSUFUFUFeuUFhBcfcfhBUFUFUFUFwFSoUFUFUFwFwFUFrZrZrZrZrZrZrZ
+nrnrGOGmlvqvDtqKgfNxCAqKBxsNPERXLSuFlLBbfszouSuAzJPMhtzJGOpzjUjUjUjUnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRwRwFwFUFUFUFUFrSrSrShBrSrSUFUFmJUFUFrScfrSrSUFUFUFUFwFhjUFUFUFwFwFwFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJqKqKqKqKqKRXRXRXRXBbBbBbBbuAuAuAuAzJlvqvDtGOpzcWcWpzpznrnrnrnrnriYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRwFSoUFUFUFUFUFUFUFUFUFUFUFwFUFUFrShBrSUFUFdFUFwFrSrSrShBrSwFUFwFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvqHGOHEHEHEHEHEHEHEHEHEHEHEHEHEHEHEGOzJlvqvzJGOpzcWcWpzpznrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRwFwFwFJWUFUFUFhjUFUFUFwFUFUFUFUFUFhjUFUFUFeuwFrScfcfcfrSwFUFmJrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJGOHEHEHEHEHEHEHEHEHEHEHEHEHEHEHEGOzJlvqvzJGOpzcWcWpzpznrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFUFUFwFwFwFUFUFUFUFEXwFwFUFUFUFUFJWUFUFDYwFUFhBcfcfcfrSwFUFwFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJWPWPWPWPWPWPGOGOGOGOGOGOGOGOGOGOGOGmlvqvzJGOpzxlxlpzpznrnrnrnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRwRUFUFUFwFENwFwFmJUFUFUFwFwFiwUFUFUFUFSoUFUFrScfcfrSrShjwFwFrZrZrZrZrZrZrZ
+nrnrGOGmlvqvDtWPbgiJbgbgWPzJzJzJzJzJzJzJzJzJzJzJzJlvqvzJGOpzxlxlpzpznrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRUFKfUFUFwFUFUFUFUFUFUFUFwFUFUFUFEZwFUFUFrScfrSrSUFUFEZwFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJWPbgbgbgbgWPGmPMoEoEoEoEoEoEoEoEoEoEFqqvzJGOpzxlxlpzpznrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRUFUFUFwFJWUFUFUFUFJWUFmJwFUFwFwFdFUFUFrSrShBUFUFUFwFwFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJWPbgbgiJbguvzJlvFqririririririririririnBzJGOzJWaxlpzpznrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFUFUFwFUFUFUFDYUFUFUFUFwFwFiwUFUFUFhjUFUFUFUFUFUFSoUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJWPbgbgbgbgWPzJlvqvzJzJzJzJzJzJzJzJzJqHzJzJGOzJlvFqpzGOnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRUFjmwFhjUFUFUFUFUFhjUFwFUFUFUFUFUFUFUFDYUFUFUFjmwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJWPbgiJbgbgWPzJlvqvDtGOGOGOGOGOGOGOGOGOGOGOGOzJlvFqpzGOnrnrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFUFwFUFUFhBrSrShBUFUFwFwFUFDYUFUFJWUFDYUFUFOMUFwFJWrZrZrZrZrZrZrZ
+nrnrGOGmlvqvDtWPWPWPWPWPWPzJlvqvzJzJzJzJzJzJzJzJzJzJzJzJzJzJlvqvzJGOnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFUFwFUFUFrScfcfrSrSUFUFwFUFUFUFUFUFUFUFUFUFUFUFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJGOnrnrnrnrGOzJlvFqoEoEoEoEoEoEoEoEoEoEoEoEoEoEFqqvzJGOnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRUFUFwFUFrScfcfcfrSUFUFeuUFUFUFUFUFUFJWKfUFUFDYwFjmrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJGOnrnrnrnrGOGmuuririririririririririririririririnBqHGOnrnrnrnrnrnrnrnrnriYiYiYiYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFJWwFUFrSrScfcfrSjmUFwFUFwFeuwFwFwFwFwFUFUFUFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJGOnrnrnrnrGOzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJzJGOnrnrnrnrnrnrnriYiYiYiYiYiYnriYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFKfwFUFUFHIrShBrSUFUFwFwFwFwFUFUFUFiwcewFUFUFwFUFrZrZrZrZrZrZrZ
+nrnrGOzJlvqvzJGOnrnrnrnrGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOGOnrnrnrnrnrnriYiYiYnrnrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrwRwRUFwFUFUFUFUFUFdFUFwFSowFJWUFUFDYUFUFwFwFUFUFEZUFrZrZrZrZrZrZrZ
+nrnrGOGmuunBDtGOnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFwFSoUFdFUFjmUFUFwFwFUFUFUFUFUFUFUFUFwFwFhjwFUFrZrZrZrZrZrZrZ
+nrnrGOzJzJzJzJGOnrnrnrnrnrnriYiYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrwRUFUFwFwFUFUFUFUFwFwFUFrShBrSrShBrSUFUFcewFUFSoUFrZrZrZrZrZrZrZ
+nrnrGOGODiDiGOGOnrnrnriYiYiYiYnrnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYnrnrnrnrnrnrnrnrnrnrnrwRUFUFENwFUFUFUFUFFewFrSrScfcfcfcfrSrSrSwFUFDYwFUFrZrZrZrZrZrZrZ
+nrnrnriYiYiYiYiYiYiYiYiYnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrwRUFDYUFwFwFUFbdwFwFwFrScfcfcfcfcfcfcfrSwFUFUFwFUFrZrZrZrZrZrZrZ
+nrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnrnriYiYiYiYiYiYnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrwRUFUFUFwFwFUFUFwFwFUFrScfcfcfrSrSrSrShBEZUFUFwFUFrZrZrZrZrZrZrZ
+nrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrnriYiYiYiYnrnrnrnrnriYiYnrnriYiYiYiYiYnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrwRUFJWUFUFwFwFwFwFwFUFrSrShBrSrSUFUFUFUFEZUFUFENUFrZrZrZrZrZrZrZ
+nrnrnrnrnrnrnriYiYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnriYiYiYiYnrnriYiYiYiYnrnrnrnrnrnrnriYiYnrnrnrnrnrnriYiYiYnrnrnrnrnriYnrnrnrnrnrnrnrnrnrwRUFUFUFUFKfwFmJENUFUFUFUFUFUFjmUFUFUFUFwFwFEXUFUFrZrZrZrZrZrZrZ
+nrnrnrnrnrnrnriYiYnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnrnriYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnriYiYiYiYiYnrnrnrnriYiYiYnrnrnriYnrnrnrnrnrnrnrnrnrwRUFUFUFUFUFwFwFwFUFUFUFUFUFUFwFwFwFeuUFwFwFwFUFUFrZrZrZrZrZrZrZ
+nrnrnrnrnrnriYiYnrnrnrnrnrnriYiYiYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnriYiYiYnriYiYnrnrnrnrnrnrnrnrwRUFUFUFUFwFwFwFUFUFUFhjUFwFwFwFwFUFwFwFwFwFUFdFUFrZrZrZrZrZrZrZ
+nrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYiYiYiYnrnrnrnrnrnrnrnrnriYiYiYiYnrnrnrnrnrnrnrnrnriYiYiYiYnrnrnrnriYnriYiYnrnrnrnrnrnrnrnrwRUFUFbdUFwFENwFUFUFUFUFwFwFwFiwUFUFUFUFwFiwUFUFUFrZrZrZrZrZrZrZ
+nrnrnrnriYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYiYnrnrnrnrnriYiYiYiYnriYiYiYiYiYnrnrnrnrnrnrnrnrnriYiYnrnrnriYiYiYiYnrnrnrnrnrnrnrnrwRUFUFUFwFwFmJwFJWUFwFwFmJUFUFUFJWUFUFUFwFwFUFUFUFrZrZrZrZrZrZrZ
+nrnrnrnriYiYnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnriYiYiYiYnrnrnrnriYiYiYiYiYiYiYiYiYnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrwRUFUFEZwFwFwFwFwFwFwFUFUFUFUFUFUFUFUFUFwFUFUFjmUFrZrZrZrZrZrZrZ
+nrnrnrnriYnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrwRwRUFUFwFwFwFwFwFENwFUFUFUFUFUFUFUFUFUFKfUFwFUFUFUFrZrZrZrZrZrZrZ
+nrnrnrnriYnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrwRUFUFUFENwFEZEXUFUFUFUFUFjmUFbdUFUFUFUFUFUFwFjmUFUFrZrZrZrZrZrZrZ
+nrnrnrnriYnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnriYiYnrnrnrnrnrnrnrnrnrnrwRUFKfUFUFwFwFUFUFDYUFUFUFUFUFUFUFUFjmUFUFUFwFUFJWUFrZrZrZrZrZrZrZ
+nrnrnrnriYnrnrnrnrnrnriYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnriYiYnrnrnrnrnrnrnrnrwRwRJWUFUFwFwFUFUFUFUFUFJWUFUFUFUFjmUFwFwFwFiwUFDYUFUFrZrZrZrZrZrZrZ
+nrnrnrnriYnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnriYnrnrnrnrnrnrnrnrwRUFUFUFUFwFwFUFUFUFUFUFUFUFUFwFwFwFwFwFUFwFwFEZUFUFUFrZrZrZrZrZrZrZ
+nrnriYiYiYnrnrnrnrnrnrnriYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnriYnrnrnrnrnrnrnrnrwRUFUFUFiwwFwFSowFwFwFwFwFwFwFwFwFwFwFUFUFJWwFwFmJUFUFrZrZrZrZrZrZrZ
+nriYiYnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYnrnriYnrnrnrnrnrnrnrwRwRUFUFUFwFwFwFwFwFwFUFjmUFjmwFEZKfUFUFUFUFUFUFwFwFUFUFrZrZrZrZrZrZrZ
+nriYnrnrnrnrnrnrnrnrnrnrnrnrnrnriYnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnriYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnriYnrnrnrnrnrnrnrwRwFUFwFwFwFwFwFwFUFKfUFUFUFUFwFwFUFfnUFUFUFUFUFwFwFUFjmrZrZrZrZrZrZrZ
+nriYnrnrnrnrnrnrnrnrnrnrnrnrnrnriYnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnrnriYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYnriYnrnrnrnrnrnrwRwRwFwFwFwFwFwFSoUFDYUFUFUFUFUFUFwFwFwFUFUFUFUFUFEXwFUFUFrZrZrZrZrZrZrZ
+nriYnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnriYiYiYiYnrnrnriYiYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrwRwFwFwFEXwFwFwFUFUFUFUFUFUFUFjmUFwFwFwFdFUFUFUFUFwFwFUFUFrZrZrZrZrZrZrZ
+nriYnrnrnrnrnrnrnrnrnrnrnrnrnriYiYnrnrnrnrnrnrnrnrnrnriYiYiYiYnrnrnriYiYiYiYiYiYnrnrnrnrnrnrnrnrnrnrnrnrnrnrnriYiYiYnrnrnrnrnrnrwRwFwFwFwFwFwFUFUFUFUFUFUFUFUFUFUFwFwFwFUFUFUFUFUFwFwFUFUFrZrZrZrZrZrZrZ
+opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopoprZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZ
+opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopoprZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZ
+opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopoprZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZ
+opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopoprZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZ
+opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopoprZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZ
+opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopoprZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZ
+opopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopopoprZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZrZiX
+"}
