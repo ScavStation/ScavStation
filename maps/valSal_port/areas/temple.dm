@@ -180,8 +180,8 @@
 	sound_env = CAVE
 	area_flags = AREA_FLAG_IS_BACKGROUND
 
-/area/valSal_port/library
-	name = "\improper Library"
+/area/valSal_port/templelibrary
+	name = "\improper Temple Library"
 	color = COLOR_GRAY40
 	is_outside = OUTSIDE_NO
 	description = "The air smells like musty mildew..."
