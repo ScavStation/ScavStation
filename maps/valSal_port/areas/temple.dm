@@ -243,3 +243,5 @@
 
 /area/valSal_port/outside/fortressentrance
 	name = "The Fortress Entrance"
+	color = COLOR_GRAY40
+	is_outside = OUTSIDE_NO
