@@ -12,6 +12,7 @@
 	#include "areas/_areas.dm"
 	#include "areas/caverns.dm"
 	#include "areas/enclave.dm"
+	#include "areas/temple.dm"
 	#include "areas/town.dm"
 
 	#include "jobs/_jobs.dm"
@@ -53,7 +54,8 @@
 	// enclave via cardinal direction. Lengthy notes for future reference on sewing these maps together.
 	#include "valsal_port-town.dmm"
 
-
+	// this is a lateral map
+	#include "valSal_port-temple.dmm"
 
 	#define USING_MAP_DATUM /datum/map/valSal_port
 
