@@ -5,7 +5,7 @@
 	uid = "solid_corkwood"
 	adjective_name = "corkwood"
 	lore_text = "A light, spongy-barked hardwood. Its buoyant, airy grain makes it a favourite for insulation, floats, and stoppers."
-	color = "#e6d2ba"
+	color = "#d7a0b5"
 	weight = MAT_VALUE_VERY_LIGHT
 	value = 1.3
 
@@ -13,7 +13,7 @@
 	name = "cypress"
 	uid = "solid_cypress"
 	adjective_name = "cypress"
-	lore_text = "A durable, water-resistant softwood that thrives in the wetter reaches of valSal port. Rarely rots even when left exposed to the damp."
+	lore_text = "A durable, water-resistant softwood that thrives in the wetter reaches of the world. Rarely rots even when left exposed to the damp."
 	color = "#7d7259"
 	value = 1.4
 
@@ -32,7 +32,7 @@
 	uid = "solid_willow"
 	adjective_name = "willow"
 	lore_text = "A light, flexible hardwood pulled from the weeping trees along the riverbank. Easy to bend and work, prized for wicker and basketry."
-	color = "#c7c9a8"
+	color = "#6d6e56"
 	weight = MAT_VALUE_VERY_LIGHT
 	construction_difficulty = MAT_VALUE_EASY_DIY
 	value = 1.3
