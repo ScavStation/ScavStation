@@ -88,7 +88,8 @@
 	level_id = "valSal_port_enclave"
 	ignore_multiz_outside_stacking = TRUE
 	connected_levels = list(
-		"valSal_port_town" = EAST
+		"valSal_port_town" = EAST,
+		"valSal_port-temple" = NORTH
 	)
 	level_generators = list(
 		/datum/random_map/noise/ore/poor,
@@ -130,32 +131,44 @@
 		/datum/random_map/noise/ore/rich
 	)
 
-/datum/level_data/main_level/valSal_port/above_town
-	name = "ValSalian Port - Above Town"
-	level_id = "valSal_port_above_town"
+/datum/level_data/main_level/valSal_port/temple
+	name = "ValSalian Port - Temple"
+	level_id = "valSal_port-temple"
+	ignore_multiz_outside_stacking = TRUE
 	connected_levels = list(
-		"valSal_port_mtntop" = EAST
-	)
-
-/datum/level_data/main_level/valSal_port/mtntop
-	name = "ValSalian Port - mountain top"
-	level_id = "valSal_port_mtntop"
-	connected_levels = list(
-		//"valSal_port_above_town" = EAST,
-		"valSal_port_mtnpass" = WEST
+		"valSal_port_enclave" = SOUTH
 	)
 	level_generators = list(
-		/datum/random_map/noise/ore/rich
+		/datum/random_map/noise/ore/poor,
+		/datum/random_map/noise/valSal_port/woods,
+		/datum/random_map/noise/forage/valSal_port/woods
 	)
 
-/datum/level_data/main_level/valSal_port/mtnpass
-	name = "ValSalian Port - mountain pass"
-	level_id = "valSal_port_mtnpass"
-	connected_levels = list(
-		"valSal_port_mtntop" = EAST
-	)
-	level_generators = list(
-		/datum/random_map/noise/ore/rich
+	mobs_to_spawn = list(
+		list(
+			list(
+				/mob/living/simple_animal/passive/mouse        = 6,
+				/mob/living/simple_animal/passive/rabbit       = 2,
+				/mob/living/simple_animal/passive/rabbit/brown = 2,
+				/mob/living/simple_animal/passive/rabbit/black = 2,
+				/mob/living/simple_animal/frog                 = 3,
+				/mob/living/simple_animal/frog/brown           = 2,
+				/mob/living/simple_animal/frog/yellow          = 2,
+				/mob/living/simple_animal/frog/purple          = 1
+			),
+			/turf/floor/grass,
+			5
+		),
+		list(
+			list(
+				/mob/living/simple_animal/frog                 = 3,
+				/mob/living/simple_animal/frog/brown           = 2,
+				/mob/living/simple_animal/frog/yellow          = 2,
+				/mob/living/simple_animal/frog/purple          = 1
+			),
+			/turf/floor/mud,
+			10
+		)
 	)
 
 /obj/abstract/level_data_spawner/valSal_port_town
@@ -167,8 +180,5 @@
 /obj/abstract/level_data_spawner/valSal_port_caverns
 	level_data_type = /datum/level_data/main_level/valSal_port/caverns
 
-/obj/abstract/level_data_spawner/valSal_port_mtntop
-	level_data_type = /datum/level_data/main_level/valSal_port/mtntop
-
-/obj/abstract/level_data_spawner/valSal_port_mtnpass
-	level_data_type = /datum/level_data/main_level/valSal_port/mtnpass
+/obj/abstract/level_data_spawner/valSal_port_temple
+	level_data_type = /datum/level_data/main_level/valSal_port/temple
