@@ -53,6 +53,6 @@ lib/*.so
 # python
 *.pyc
 __pycache__
-maps/ministation/ministation-2BAK.dmm
+maps/mollusc_station/mollusc_station-2BAK.dmm
 # Running OpenDream locally
 nebula.json
