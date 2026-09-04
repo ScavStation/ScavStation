@@ -909,6 +909,8 @@
 /obj/structure/closet/crate/chest/ebony{
 	dir = 1
 	},
+/obj/item/seeds/onionseed,
+/obj/item/seeds/onionseed,
 /turf/floor/path/basalt,
 /area/valSal_port/outside/garden)
 "oO" = (
@@ -2214,6 +2216,7 @@
 /area/valSal_port/outside/westside)
 "JY" = (
 /obj/structure/bed/bedroll,
+/obj/item/clothing/suit/robe/yinglet/merchant,
 /turf/floor/dirt,
 /area/valSal_port/outside/merchantcamp)
 "Km" = (
@@ -9960,7 +9963,7 @@ sI
 mr
 mr
 mr
-mr
+zq
 mr
 mr
 mr
@@ -10269,7 +10272,7 @@ JD
 JD
 VI
 yl
-mr
+zq
 sh
 sh
 sh
@@ -10675,7 +10678,7 @@ sh
 sh
 mr
 mr
-mr
+zq
 mr
 mr
 sh
