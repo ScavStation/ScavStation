@@ -51,6 +51,12 @@
 /obj/item/seeds/tomatoseed,
 /obj/item/seeds/grapeseed,
 /obj/item/seeds/grapeseed,
+/obj/item/seeds/eggtreeseed,
+/obj/item/seeds/eggtreeseed,
+/obj/item/seeds/whitebloodstalkseed,
+/obj/item/seeds/whitebloodstalkseed,
+/obj/item/seeds/syrupbloomseed,
+/obj/item/seeds/syrupbloomseed,
 /turf/floor/dirt,
 /area/valSal_port/outside/food_farm)
 "bf" = (
@@ -1246,11 +1252,6 @@
 /obj/structure/flora/bush/fullgrass,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
-"zA" = (
-/obj/item/food/grown/syrupbloom,
-/obj/item/food/grown/syrupbloom,
-/turf/floor/dirt,
-/area/valSal_port/outside/food_farm)
 "zE" = (
 /obj/structure/railing/mapped/wooden/ebony{
 	dir = 1
@@ -1556,10 +1557,6 @@
 "Fy" = (
 /turf/floor/mud,
 /area/valSal_port/outside/outdoors_cliff)
-"Fz" = (
-/obj/item/food/grown/eggtree,
-/turf/floor/dirt,
-/area/valSal_port/outside/food_farm)
 "FG" = (
 /turf/unsimulated/dark_filler,
 /area/valSal_port/outside/outdoors_enclave)
@@ -1743,11 +1740,6 @@
 /obj/structure/flora/bush/fernybush,
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_south)
-"JS" = (
-/obj/item/food/grown/whitebloodstalk,
-/obj/item/food/grown/whitebloodstalk,
-/turf/floor/dirt,
-/area/valSal_port/outside/food_farm)
 "JV" = (
 /turf/floor/carpet/rustic,
 /area/valSal_port/enclave/commonhouse)
@@ -2257,15 +2249,6 @@
 /obj/structure/flora/tree/hardwood/mangrove,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
-"UV" = (
-/obj/item/seeds/eggtreeseed,
-/obj/item/seeds/eggtreeseed,
-/obj/item/seeds/syrupbloomseed,
-/obj/item/seeds/syrupbloomseed,
-/obj/item/seeds/whitebloodstalkseed,
-/obj/item/seeds/whitebloodstalkseed,
-/turf/floor/dirt,
-/area/valSal_port/outside/food_farm)
 "UX" = (
 /obj/structure/flora/tree/softwood/cypress,
 /turf/floor/grass,
@@ -9451,7 +9434,7 @@ FJ
 FJ
 QA
 IV
-UV
+NG
 IV
 GJ
 FJ
@@ -9553,7 +9536,7 @@ ZO
 FJ
 QA
 IV
-Fz
+NG
 IV
 GJ
 EG
@@ -9655,7 +9638,7 @@ FJ
 FJ
 QA
 IV
-zA
+NG
 IV
 GJ
 FJ
@@ -9757,7 +9740,7 @@ FJ
 FJ
 QA
 IV
-JS
+NG
 IV
 GJ
 FJ
