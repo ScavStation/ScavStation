@@ -4911,14 +4911,6 @@
 	},
 /turf/floor/tiled/white,
 /area/ministation/science)
-"qv" = (
-/obj/structure/bookcase/skill_books/random,
-/obj/item/book/skill/medical/medicine/adept,
-/obj/item/book/skill/medical/medicine/basic,
-/obj/item/book/skill/medical/medicine/expert,
-/obj/item/book/skill/medical/medicine/prof,
-/turf/floor/wood/mahogany,
-/area/ministation/library)
 "qx" = (
 /obj/machinery/keycard_auth{
 	pixel_x = -24
@@ -5352,19 +5344,6 @@
 	},
 /turf/floor/carpet/red,
 /area/ministation/bridge)
-"sd" = (
-/obj/structure/bookcase/manuals,
-/obj/item/book/skill/engineering/atmos/basic,
-/obj/item/book/skill/engineering/atmos/adept,
-/obj/item/book/skill/engineering/atmos/expert,
-/obj/item/book/skill/engineering/atmos/prof,
-/obj/item/book/skill/engineering/electrical,
-/obj/item/book/skill/engineering/electrical/adept,
-/obj/item/book/skill/engineering/electrical/basic,
-/obj/item/book/skill/engineering/electrical/expert,
-/obj/item/book/skill/engineering/electrical/prof,
-/turf/floor/wood/mahogany,
-/area/ministation/library)
 "se" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -5504,10 +5483,6 @@
 /area/ministation/Murphy/bathroom)
 "sy" = (
 /obj/structure/bookcase/skill_books/random,
-/obj/item/book/skill/research/science/adept,
-/obj/item/book/skill/research/science/basic,
-/obj/item/book/skill/research/science/expert,
-/obj/item/book/skill/research/science/prof,
 /turf/floor/tiled/white,
 /area/ministation/science)
 "sB" = (
@@ -9299,16 +9274,6 @@
 	},
 /turf/floor/wood/walnut,
 /area/ministation/bridge)
-"FZ" = (
-/obj/structure/bookcase/skill_books/random,
-/obj/item/book/skill/medical/anatomy/adept,
-/obj/item/book/skill/medical/anatomy/expert,
-/obj/item/book/skill/medical/anatomy/prof,
-/obj/item/book/skill/medical/chemistry/expert,
-/obj/item/book/skill/medical/chemistry/adept,
-/obj/item/book/skill/medical/chemistry/prof,
-/turf/floor/wood/mahogany,
-/area/ministation/library)
 "Gb" = (
 /turf/floor/bluegrid,
 /area/ministation/maint/l3ne)
@@ -10036,14 +10001,6 @@
 	},
 /turf/floor/carpet/blue2,
 /area/ministation/Murphy/bedroom/Vayryn)
-"Jb" = (
-/obj/structure/bookcase/manuals/xenoarchaeology,
-/obj/item/book/skill/research/devices/adept,
-/obj/item/book/skill/research/devices/basic,
-/obj/item/book/skill/research/devices/expert,
-/obj/item/book/skill/research/devices/prof,
-/turf/floor/tiled/white,
-/area/ministation/science)
 "Jd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -14062,19 +14019,6 @@
 	},
 /turf/floor/tiled/steel_grid,
 /area/ministation/science)
-"Xs" = (
-/obj/structure/bookcase/manuals,
-/obj/item/book/skill/engineering/construction/adept,
-/obj/item/book/skill/engineering/construction/basic,
-/obj/item/book/skill/engineering/construction/prof,
-/obj/item/book/skill/general/hauling/expert,
-/obj/item/book/skill/general/mech/basic,
-/obj/item/book/skill/general/mech/adept,
-/obj/item/book/skill/general/mech/expert,
-/obj/item/book/skill/general/mech/prof,
-/obj/item/book/skill/general/pilot/expert,
-/turf/floor/wood/mahogany,
-/area/ministation/library)
 "Xt" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/table/bench/wooden,
@@ -48964,9 +48908,9 @@ RG
 Jz
 LM
 LM
-FZ
+Vq
 LM
-sd
+Vq
 SP
 FE
 LM
@@ -49221,9 +49165,9 @@ UG
 Vq
 LM
 fV
-qv
+Vq
 PE
-Xs
+Vq
 Ji
 Ji
 LZ
@@ -53348,7 +53292,7 @@ kO
 Dl
 wg
 JX
-Jb
+sy
 dz
 cw
 cw
