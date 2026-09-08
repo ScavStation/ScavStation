@@ -156,6 +156,9 @@
 	min_skill = list(
 		SKILL_LITERACY = SKILL_ADEPT
 	)
+	max_skill = list(
+		SKILL_LITERACY = SKILL_MAX
+	)
 
 /datum/job/ministation/lawyer
 	title = "Lawyer"
