@@ -10001,10 +10001,6 @@
 	},
 /turf/floor/carpet/blue2,
 /area/ministation/Murphy/bedroom/Vayryn)
-"Jb" = (
-/obj/structure/bookcase/manuals/xenoarchaeology,
-/turf/floor/tiled/white,
-/area/ministation/science)
 "Jd" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -48914,7 +48910,7 @@ LM
 LM
 Vq
 LM
-Vl
+Vq
 SP
 FE
 LM
@@ -49171,7 +49167,7 @@ LM
 fV
 Vq
 PE
-Vl
+Vq
 Ji
 Ji
 LZ
@@ -53296,7 +53292,7 @@ kO
 Dl
 wg
 JX
-Jb
+sy
 dz
 cw
 cw

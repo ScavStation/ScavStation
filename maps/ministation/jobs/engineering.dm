@@ -135,7 +135,8 @@
 		SKILL_CONSTRUCTION = SKILL_MAX,
 		SKILL_ELECTRICAL   = SKILL_MAX,
 		SKILL_ATMOS        = SKILL_MAX,
-		SKILL_ENGINES      = SKILL_MAX
+		SKILL_ENGINES      = SKILL_MAX,
+		SKILL_LITERACY     = SKILL_MAX
 	)
 	skill_points = 40
 	alt_titles = list("Head Engineer", "Patriarch of Engineering", "Patriarch of Electricity")

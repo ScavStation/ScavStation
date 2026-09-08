@@ -19,7 +19,8 @@
 		SKILL_PILOT    = SKILL_MAX,
 		SKILL_FINANCE  = SKILL_MAX,
 		SKILL_MEDICAL  = SKILL_MAX,
-		SKILL_ANATOMY  = SKILL_EXPERT
+		SKILL_ANATOMY  = SKILL_EXPERT,
+		SKILL_LITERACY = SKILL_MAX
 	)
 	skill_points = 35
 	department_types = list(/decl/department/tradehouse)
