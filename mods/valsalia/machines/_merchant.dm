@@ -51,7 +51,7 @@
 /datum/vendor/New(atom/_holder)
 	holder = _holder
 	if(!istype(holder))
-		CRASH("/datum/vendor created without a holder atom.")
+		CRASH("[type] created without a holder atom.")
 	if(!ispath(vendor_currency, /decl/currency))
 		vendor_currency = global.using_map.default_currency
 	..()
