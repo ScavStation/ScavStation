@@ -31,6 +31,8 @@
 
 	// Used for slowdown.
 	var/movement_delay
+	// Whether wading through a fluid turf adds a movement penalty. Set FALSE for decorative water
+	var/fluid_movement_penalty = TRUE
 
 	var/fluid_can_pass
 	var/fluid_blocked_dirs = 0
@@ -209,7 +211,7 @@
 	if(weather)
 		. += weather.get_movement_delay(return_air(), travel_dir)
 	// TODO: check user species webbed feet, wearing swimming gear
-	if(!get_supporting_platform() && reagents?.total_volume > FLUID_PUDDLE)
+	if(fluid_movement_penalty && !get_supporting_platform() && reagents?.total_volume > FLUID_PUDDLE)
 		. += (reagents.total_volume > FLUID_SHALLOW) ? 6 : 3
 
 /turf/attack_hand(mob/user)
