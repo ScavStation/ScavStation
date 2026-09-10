@@ -41,6 +41,7 @@
 "ba" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
+/obj/structure/merchant/general,
 /turf/floor/wood,
 /area/valSal_port/town/house)
 "bc" = (
@@ -1580,6 +1581,10 @@
 /obj/structure/door/ebony,
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
+"zc" = (
+/obj/abstract/landmark/merchant_post/roadside,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outer_town)
 "zg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
@@ -6398,7 +6403,7 @@ bR
 bR
 UW
 UW
-UW
+zc
 mD
 mD
 yt
