@@ -83,6 +83,12 @@
 	color = COLOR_BLUE
 	height = -(FLUID_DEEP)
 
+// Shallow, murky standing water for swamps/marshes. Behaves like water but is not a slog to wade through.
+/turf/floor/mud/water/swamp
+	name = "swamp water"
+	color = COLOR_DARK_GREEN_GRAY
+	fluid_movement_penalty = FALSE
+
 /turf/floor/mud/flooded
 	flooded = /decl/material/liquid/water
 
@@ -107,6 +113,12 @@
 /turf/floor/rock/sand/water/deep
 	color = COLOR_BLUE
 	height = -(FLUID_DEEP)
+
+// Shallow water over sand that does not slow movement; for wadeable shallows and swampy edges.
+/turf/floor/rock/sand/water/swamp
+	name = "swamp water"
+	color = COLOR_DARK_GREEN_GRAY
+	fluid_movement_penalty = FALSE
 
 /turf/floor/seafloor
 	name = "sea floor"

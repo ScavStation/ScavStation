@@ -201,6 +201,9 @@
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
+"ey" = (
+/turf/floor/mud,
+/area/valSal_port/outside/outdoors_south)
 "eC" = (
 /turf/floor/dirt,
 /area/valSal_port/enclave/mining)
@@ -580,6 +583,10 @@
 /obj/structure/flora/seaweed/glow,
 /turf/floor/mud/water/deep,
 /area/valSal_port/caves/river)
+"mf" = (
+/obj/structure/flora/bush/genericbush,
+/turf/floor/mud,
+/area/valSal_port/outside/outdoors_south)
 "mu" = (
 /obj/structure/flora/seaweed,
 /turf/floor/mud/water/deep,
@@ -662,6 +669,10 @@
 "oi" = (
 /turf/floor/rock/basalt,
 /area/valSal_port/caves/entrance)
+"ot" = (
+/obj/structure/flora/bush/leafybush,
+/turf/floor/mud,
+/area/valSal_port/outside/enclave)
 "ou" = (
 /obj/structure/railing/mapped/wooden/maple{
 	dir = 1
@@ -744,6 +755,10 @@
 /obj/structure/table/woodentable/mahogany,
 /turf/floor/wood/ebony,
 /area/valSal_port/enclave/nursery)
+"qb" = (
+/obj/structure/flora/bush/fernybush,
+/turf/floor/mud,
+/area/valSal_port/outside/outdoors_enclave)
 "qc" = (
 /obj/structure/flora/pottedplant/bamboo,
 /turf/floor/wood/yew,
@@ -839,6 +854,10 @@
 /obj/item/mollusc/clam,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/matriarch)
+"sx" = (
+/obj/structure/flora/bush/fullgrass,
+/turf/floor/mud,
+/area/valSal_port/outside/enclave)
 "sy" = (
 /turf/floor/woven,
 /area/valSal_port/outside/enclave)
@@ -1093,6 +1112,10 @@
 /obj/structure/flora/tree/softwood/cypress,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
+"wZ" = (
+/obj/structure/flora/bush/leafybush,
+/turf/floor/mud,
+/area/valSal_port/outside/outdoors_south)
 "xb" = (
 /obj/structure/flora/plant/random_mushroom,
 /turf/floor/rock/basalt,
@@ -1544,6 +1567,10 @@
 /obj/item/basket,
 /turf/floor/carpet/rustic,
 /area/valSal_port/enclave/huntershut)
+"Fq" = (
+/obj/structure/flora/bush/fullgrass,
+/turf/floor/mud,
+/area/valSal_port/outside/outdoors_south)
 "Fu" = (
 /obj/structure/wall_sconce/torch{
 	dir = 4
@@ -1613,6 +1640,9 @@
 	},
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
+"GN" = (
+/turf/floor/mud/water/swamp,
+/area/valSal_port/outside/outdoors_south)
 "GP" = (
 /obj/structure/wall_sconce/torch{
 	dir = 1;
@@ -1694,6 +1724,9 @@
 /area/valSal_port/outside/enclave/river)
 "Iq" = (
 /turf/wall/natural/random/basalt/valSal_port,
+/area/valSal_port/outside/enclave)
+"Ix" = (
+/turf/floor/mud/water/swamp,
 /area/valSal_port/outside/enclave)
 "Iy" = (
 /obj/structure/bed/chair/bench/mahogany,
@@ -2106,6 +2139,10 @@
 "RI" = (
 /turf/floor/woven,
 /area/valSal_port/enclave/huntershut)
+"RL" = (
+/obj/structure/flora/bush/leafybush,
+/turf/floor/mud/water/swamp,
+/area/valSal_port/outside/enclave)
 "RO" = (
 /obj/structure/drying_rack/ebony,
 /turf/floor/wood,
@@ -2183,6 +2220,10 @@
 /area/valSal_port/outside/outdoors_river)
 "Ts" = (
 /obj/abstract/landmark/start/valSal_port,
+/turf/floor/mud,
+/area/valSal_port/outside/enclave)
+"Tu" = (
+/obj/structure/flora/bush/genericbush,
 /turf/floor/mud,
 /area/valSal_port/outside/enclave)
 "Tv" = (
@@ -7594,9 +7635,9 @@ OH
 OH
 OH
 FJ
-FJ
-FJ
-FJ
+sa
+sa
+sa
 FJ
 FJ
 FJ
@@ -7694,11 +7735,11 @@ OH
 OH
 OH
 OH
-OH
-rx
-FJ
-FJ
-FJ
+tg
+ot
+sa
+Ix
+sa
 FJ
 EG
 LG
@@ -7795,12 +7836,12 @@ OH
 OH
 XZ
 OH
-OH
-FJ
-FJ
-FJ
-FJ
-ZO
+tg
+sa
+Ix
+Ix
+Ix
+sx
 ZO
 ZO
 FJ
@@ -7897,12 +7938,12 @@ OH
 OH
 fA
 ru
-OH
-rx
-FJ
-FJ
-FJ
-FJ
+tg
+RL
+Ix
+Ix
+Ix
+sa
 FJ
 rx
 FJ
@@ -7999,12 +8040,12 @@ Ns
 OH
 ru
 Ns
-OH
-FJ
-FJ
-ZO
-FJ
-FJ
+tg
+Ix
+Ix
+sx
+sa
+sa
 FJ
 FJ
 FJ
@@ -8101,9 +8142,9 @@ OH
 OH
 OH
 OH
-OH
-FJ
-FJ
+tg
+sa
+sa
 Iq
 Iq
 Iq
@@ -10864,8 +10905,8 @@ OH
 FJ
 FJ
 FJ
-FJ
-FJ
+sa
+sa
 ZO
 FJ
 FJ
@@ -10904,9 +10945,9 @@ yf
 oz
 Pp
 yf
-yf
-yf
-yf
+ey
+ey
+ey
 eF
 By
 By
@@ -10965,11 +11006,11 @@ OH
 OH
 OH
 FJ
-FJ
-FJ
-FJ
-FJ
-ZO
+sa
+Ix
+sa
+sa
+sx
 ue
 ZO
 ZO
@@ -11005,10 +11046,10 @@ yf
 yf
 yf
 yf
-yf
-yf
-yf
-yf
+ey
+GN
+GN
+ey
 yf
 By
 jl
@@ -11066,12 +11107,12 @@ ru
 OH
 OH
 OH
-OH
-FJ
-FJ
-FJ
-FJ
-FJ
+tg
+Ix
+Ix
+Ix
+Ix
+sa
 FJ
 ZO
 zP
@@ -11106,11 +11147,11 @@ qX
 yf
 yf
 EY
-oz
-yf
-yf
-yf
-EY
+mf
+GN
+GN
+GN
+Fq
 yf
 By
 By
@@ -11169,11 +11210,11 @@ OH
 OH
 hc
 OH
-OH
-Ns
-FJ
-FJ
-Mq
+tg
+qb
+Ix
+Ix
+Tu
 Mq
 zP
 zP
@@ -11208,10 +11249,10 @@ yf
 yf
 yf
 yf
-yf
-yf
-oz
-QY
+ey
+GN
+mf
+wZ
 QY
 yf
 Lt
@@ -11273,9 +11314,9 @@ OH
 OH
 OH
 OH
-OH
-FJ
-FJ
+tg
+sa
+sa
 zP
 zP
 zP
@@ -11311,7 +11352,7 @@ yf
 ix
 qX
 yf
-yf
+ey
 qX
 yf
 yf
