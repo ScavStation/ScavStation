@@ -21,6 +21,7 @@
 //
 // Layout of this file:
 //   /datum/vendor                       - all the vend/pay/buy bookkeeping
+//   get_merchant_voicelines()           - loads merchant_voicelines.txt (ambient chatter, kept out of .dm files)
 //   /obj/structure/merchant             - the static body that owns a vendor datum
 //   /obj/abstract/landmark/merchant_post - optional timed come-and-go spawner
 
@@ -349,6 +350,64 @@
 	SSnano.update_uis(holder)
 
 
+// Ambient voicelines are kept out of the .dm files entirely - see merchant_voicelines.txt
+// (same folder as this file). Loaded once and cached; edit the .txt and restart the server
+// (no recompile needed) to pick up changes.
+//
+// Format: a line matching one of MERCHANT_VOICELINE_KEYS (case-insensitive, trailing ":"
+// optional) starts that merchant's section; every non-blank, non-"//" line after it belongs
+// to that merchant until the next recognised header. Lines before the first header, or under
+// an unrecognised header, are ignored. e.g.:
+//
+//   Tailor:
+//   Lovely bolts of cloth, fresh off the loom!
+//   Need a new coat? You've come to the right stall.
+//
+//   General
+//   Tools, trinkets, whatever you need.
+//
+#define MERCHANT_VOICELINE_KEYS list("tailor", "general", "apothecary", "butcher", "farmer", "roadside")
+
+var/global/list/merchant_voicelines_by_key
+
+// Strips a decorative trailing comma and a single wrapping pair of quotes (straight or curly) -
+// leftovers from voicelines pasted in from a DM-list-style draft, e.g. `"Some line,”,`.
+/proc/clean_voiceline_text(text)
+	text = trim(text)
+	if(copytext(text, -1) == ",")
+		text = trim(copytext(text, 1, -1))
+	if(length(text) >= 2)
+		var/first_char = copytext(text, 1, 2)
+		var/last_char = copytext(text, -1)
+		if((first_char == "\"" && last_char == "\"") || (first_char == "“" && last_char == "”"))
+			text = copytext(text, 2, -1)
+	return text
+
+// Returns the list of lines for the given merchant key (see /obj/structure/merchant/voiceline_key), or null.
+/proc/get_merchant_voicelines(key)
+	if(isnull(global.merchant_voicelines_by_key))
+		global.merchant_voicelines_by_key = list()
+		var/list/known_keys = MERCHANT_VOICELINE_KEYS
+		var/current_key
+		var/raw_text = safe_file2text("mods/valsalia/machines/merchant_voicelines.txt", FALSE)
+		for(var/line in splittext(raw_text, "\n"))
+			line = trim(line)
+			if(!length(line) || copytext(line, 1, 3) == "//")
+				continue
+			var/header_check = lowertext(line)
+			if(copytext(header_check, -1) == ":")
+				header_check = copytext(header_check, 1, -1)
+			if(header_check in known_keys)
+				current_key = header_check
+				continue
+			if(current_key)
+				var/cleaned = clean_voiceline_text(line)
+				if(length(cleaned))
+					LAZYADD(global.merchant_voicelines_by_key[current_key], cleaned)
+	return key ? global.merchant_voicelines_by_key[lowertext(key)] : null
+
+#undef MERCHANT_VOICELINE_KEYS
+
 // /obj/structure/merchant - the static body. Subtype it (in merchant.dm)
 // the bare type is abstract and shouldn't be mapped.
 
@@ -371,16 +430,17 @@
 	var/vendor_buy_budget                // Optional: coin-on-hand cap for buying. Null = unlimited. Always reset to this on a stock reroll.
 	var/vendor_buy_budget_grows = FALSE  // If TRUE, sales top the budget back up within a visit (still resets to vendor_buy_budget on reroll).
 	var/datum/vendor/shop
-	/// Deciseconds the "arrival"/"leaving" icon animations run for. Match to the dmi's frame count and delays.
-	var/travel_anim_time = 0.5 SECONDS
-	/// Deciseconds a "world-dead" corpse lingers before the body is cleared away.
-	var/death_linger_time = 5 SECONDS
-	/// TRUE while the departure animation (or death) is playing - blocks all trade until the body is gone.
-	var/leaving = FALSE
+	var/travel_anim_time = 0.5 SECONDS   // Deciseconds the "arrival"/"leaving" icon animations run for
+	var/death_linger_time = 5 SECONDS    // Deciseconds a "world-dead" corpse lingers before the body is cleared away.
+	var/leaving = FALSE // TRUE while death anim/icon is playing - blocks all trade until the body is gone.
+	/// This merchant's section header in merchant_voicelines.txt (case-insensitive). Null = no ambient chatter.
+	var/voiceline_key
+	var/voiceline_range = 2 // Tiles a living mob has to wander within before the merchant might say something
+	var/voiceline_cooldown = 30 SECONDS // Minimum deciseconds between ambient voicelines, so a lingering player doesn't get spammed.
+	var/tmp/next_voiceline_time = 0 // world.time of the next voiceline this merchant is allowed to say.
 
 /obj/structure/merchant/Initialize()
 	. = ..()
-	set_dir(SOUTH)
 	shop = new(src)
 	shop.name = vendor_name || name
 	shop.product_prices = vendor_prices?.Copy()
@@ -388,6 +448,7 @@
 	shop.reagent_buy_prices = vendor_reagent_buys?.Copy()
 	shop.grow_buy_budget_from_sales = vendor_buy_budget_grows
 	roll_stock()
+	START_PROCESSING(SSobj, src)
 
 // Pick what this merchant is carrying and refill their coin. Called on spawn;
 // safe to call again later to rotate stock on the same body (travelling merchant).
@@ -407,8 +468,24 @@
 	shop.build_inventory()
 
 /obj/structure/merchant/Destroy()
+	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(shop)
 	. = ..()
+
+// Ambient chatter: say a random line whenever a player wanders
+// within voiceline_range, paired with voiceline_cooldown so a lingering player isn't spammed.
+/obj/structure/merchant/Process()
+	if(leaving || !voiceline_key || world.time < next_voiceline_time)
+		return
+	var/list/lines = get_merchant_voicelines(voiceline_key)
+	if(!length(lines))
+		return
+	for(var/mob/living/nearby_mob in view(voiceline_range, src))
+		if(!nearby_mob.client)
+			continue
+		visible_message(SPAN_NOTICE("\The [src] says, \"[pick(lines)]\""))
+		next_voiceline_time = world.time + voiceline_cooldown
+		break
 
 // Play the "arrival" animation if the icon has that state. Called by the spawner
 // right after the body is created; a directly-mapped merchant just skips it.

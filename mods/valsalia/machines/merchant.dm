@@ -22,6 +22,7 @@
 	icon = 'mods/valsalia/icons/mobs/merchants/tailor_merchant.dmi'
 	icon_state = ICON_STATE_WORLD
 	vendor_name = "Trade-Post Tailor"
+	voiceline_key = "tailor"
 	vendor_products = list(
 		/obj/item/stack/material/thread/mapped/cotton      = 10,
 		/obj/item/stack/material/bolt/mapped/cloth         = 10,
@@ -91,6 +92,7 @@
 	icon = 'mods/valsalia/icons/mobs/merchants/general_merchant.dmi'
 	icon_state = ICON_STATE_WORLD
 	vendor_name = "Trade-Post General Store"
+	voiceline_key = "general"
 	vendor_products = list(
 		/obj/item/chems/glass/handmade/teapot                  = 3,
 		/obj/item/stack/material/brick/mapped/sandstone/five   = 3,
@@ -180,6 +182,7 @@
 	icon = 'mods/valsalia/icons/mobs/merchants/apothecary_merchant.dmi'
 	icon_state = ICON_STATE_WORLD
 	vendor_name = "Trade-Post Apothecary"
+	voiceline_key = "apothecary"
 	vendor_products = list(
 		/obj/item/food/grown/aloe                       = 4,
 		/obj/item/food/grown/valerian                   = 4,
@@ -221,6 +224,7 @@
 	icon = 'mods/valsalia/icons/mobs/merchants/butcher_merchant.dmi'
 	icon_state = ICON_STATE_WORLD
 	vendor_name = "Trade-Post Butcher"
+	voiceline_key = "butcher"
 	vendor_products = list(
 		/obj/item/stack/material/skin/mapped/leather/five     = 3,
 		/obj/item/food/butchery/meat/beef                     = 4,
@@ -254,6 +258,7 @@
 	icon = 'mods/valsalia/icons/mobs/merchants/farmer_merchant.dmi'
 	icon_state = ICON_STATE_WORLD
 	vendor_name = "Trade-Post Farmer"
+	voiceline_key = "farmer"
 	vendor_products = list(
 		/obj/item/seeds/extracted/yarrow                      = 4,
 		/obj/item/seeds/extracted/aloe                        = 4,
@@ -315,6 +320,7 @@
 	icon = 'mods/valsalia/icons/mobs/merchants/travelling_merchant.dmi'
 	icon_state = ICON_STATE_WORLD
 	vendor_name = "Roadside Pedlar"
+	voiceline_key = "roadside"
 	vendor_stock_slots = 4 // Carries 4 of the pool below on any given visit.
 	// Curios, not staples: 1 or 2 of anything (stock is re-rolled fresh each visit anyway)
 	vendor_stock_pool = list(

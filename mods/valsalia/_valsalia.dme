@@ -42,6 +42,7 @@
 #include "items\javelin.dm"
 #include "items\mollusc.dm"
 #include "items\pan_net.dm"
+#include "items\plasma_spear.dm"
 #include "items\prosthetics.dm"
 #include "items\medicines\healthy_healthy_juice.dm"
 #include "items\sec_vend.dm"
