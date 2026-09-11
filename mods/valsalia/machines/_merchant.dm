@@ -38,7 +38,9 @@
 	var/list/product_prices               // Assoc (type path = flat price in crowns). Every product should be listed. Init only.
 	var/list/product_records = list()      // Runtime list of /datum/stored_items/vending_products.
 	var/list/buy_prices                    // Optional assoc (type path = base buy offer in crowns). Non-empty => merchant buys. Init only.
+	var/list/reagent_buy_prices            // Optional assoc (reagent decl type = crowns per unit). Priced on top of the container's own buy_prices entry, if any.
 	var/buy_budget                         // Optional coin-on-hand cap for buying. Null = unlimited. Drains as the merchant buys.
+	var/grow_buy_budget_from_sales = FALSE // If TRUE, every crown a customer pays the merchant tops buy_budget back up.
 	var/vendor_currency                    // /decl/currency path. Defaults to the map currency.
 	var/categories = CAT_NORMAL            // Bitmask of product categories currently shown.
 	var/datum/stored_items/vending_products/currently_vending // Item awaiting payment, if any.
@@ -217,6 +219,8 @@
 /datum/vendor/proc/credit_purchase(target as text)
 	if(global.vendor_account && !global.vendor_account.suspended)
 		global.vendor_account.deposit(currently_vending.price, "Purchase of [currently_vending.item_name]", target)
+	if(grow_buy_budget_from_sales && !isnull(buy_budget))
+		buy_budget += currently_vending.price
 
 /datum/vendor/proc/vend(datum/stored_items/vending_products/R, mob/user)
 	if(!vend_ready)
@@ -262,13 +266,37 @@
 		return 1
 	return clamp(mat.get_value(), VENDOR_MAT_MULT_MIN, VENDOR_MAT_MULT_MAX)
 
-// Final crown offer for an item, or 0 if the merchant has no use for it.
+// Most specific matching entry in reagent_buy_prices for a single reagent type, or 0.
+/datum/vendor/proc/reagent_buy_price_per_unit(reagent_type)
+	. = 0
+	var/best_depth = -1
+	for(var/rtype in reagent_buy_prices)
+		if(!ispath(reagent_type, rtype))
+			continue
+		var/depth = length(splittext("[rtype]", "/"))
+		if(depth > best_depth)
+			best_depth = depth
+			. = reagent_buy_prices[rtype]
+
+// What's actually in the bottle/jar/whatever is worth on top of the container itself - e.g. a
+// jar of yarrow tincture is priced as "empty jar" (base_buy_price) plus whatever the tincture's
+// per-unit rate * volume comes to (reagent_buy_prices), not just whichever container type it is.
+/datum/vendor/proc/get_reagent_buy_offer(obj/item/W)
+	. = 0
+	if(!LAZYLEN(reagent_buy_prices) || !istype(W, /obj/item/chems) || !W.reagents?.total_volume)
+		return
+	for(var/rtype in W.reagents.reagent_volumes)
+		var/per_unit = reagent_buy_price_per_unit(rtype)
+		if(per_unit > 0)
+			. += per_unit * REAGENT_VOLUME(W.reagents, rtype)
+
+// Final crown offer for an item, or 0 if the merchant has no use for it (or what's in it).
 /datum/vendor/proc/get_buy_offer(obj/item/W)
 	var/base = base_buy_price(W)
-	if(base <= 0)
+	. = base > 0 ? (base * material_price_mult(W)) : 0
+	. += get_reagent_buy_offer(W)
+	if(. <= 0)
 		return 0
-	. = base
-	. *= material_price_mult(W)
 	. *= max(VENDOR_CONDITION_MULT_MIN, W.get_percent_health() / 100)
 	. = max(1, round(.))
 
@@ -321,15 +349,15 @@
 	SSnano.update_uis(holder)
 
 
-// /obj/structure/merchant - the static body. Subtype it (in merchant.dm) with a
-// product list; the bare type is abstract and shouldn't be mapped.
+// /obj/structure/merchant - the static body. Subtype it (in merchant.dm)
+// the bare type is abstract and shouldn't be mapped.
 
 /obj/structure/merchant
 	abstract_type = /obj/structure/merchant
 	name = "merchant"
 	desc = "A weathered trader, planted behind their wares and unwilling to move from the spot."
-	icon = 'mods/valsalia/icons/mobs/merchants/merchant.dmi' // Static stallholder; travelling subtypes swap in their own animated sheet.
-	icon_state = "tailor-world"
+	icon = 'mods/valsalia/icons/mobs/merchants/general_merchant.dmi' // Default only; every concrete merchant below sets its own dedicated sheet.
+	icon_state = ICON_STATE_WORLD
 	anchored = TRUE
 	density = TRUE
 	max_health = 200                     // Sturdier than furniture; a merchant shouldn't fall over to one stray hit.
@@ -339,11 +367,15 @@
 	var/vendor_stock_slots = 4           // How many distinct products to carry when drawing from vendor_stock_pool
 	var/list/vendor_prices               // Prices for all items, every product AND every stock-pool entry should be listed here.
 	var/list/vendor_buys                 // Optional: Non-empty => this merchant buys from players.
-	var/vendor_buy_budget                // Optional: coin-on-hand cap for buying. Null = unlimited. Reset on every stock roll
+	var/list/vendor_reagent_buys         // Optional: reagent decl type = crowns per unit, priced on top of the container's own vendor_buys entry (if any).
+	var/vendor_buy_budget                // Optional: coin-on-hand cap for buying. Null = unlimited. Always reset to this on a stock reroll.
+	var/vendor_buy_budget_grows = FALSE  // If TRUE, sales top the budget back up within a visit (still resets to vendor_buy_budget on reroll).
 	var/datum/vendor/shop
 	/// Deciseconds the "arrival"/"leaving" icon animations run for. Match to the dmi's frame count and delays.
 	var/travel_anim_time = 0.5 SECONDS
-	/// TRUE while the departure animation is playing - blocks all trade until the body is gone.
+	/// Deciseconds a "world-dead" corpse lingers before the body is cleared away.
+	var/death_linger_time = 5 SECONDS
+	/// TRUE while the departure animation (or death) is playing - blocks all trade until the body is gone.
 	var/leaving = FALSE
 
 /obj/structure/merchant/Initialize()
@@ -353,6 +385,8 @@
 	shop.name = vendor_name || name
 	shop.product_prices = vendor_prices?.Copy()
 	shop.buy_prices = vendor_buys?.Copy()
+	shop.reagent_buy_prices = vendor_reagent_buys?.Copy()
+	shop.grow_buy_budget_from_sales = vendor_buy_budget_grows
 	roll_stock()
 
 // Pick what this merchant is carrying and refill their coin. Called on spawn;
@@ -369,7 +403,7 @@
 	else
 		chosen = vendor_products?.Copy() || list()
 	shop.products = chosen
-	shop.buy_budget = vendor_buy_budget
+	shop.buy_budget = vendor_buy_budget // Always reset on reroll - sales grow the budget within a visit, but a fresh visit starts from scratch.
 	shop.build_inventory()
 
 /obj/structure/merchant/Destroy()
@@ -394,6 +428,29 @@
 		QDEL_IN(src, travel_anim_time)
 	else
 		qdel(src)
+
+// Death: play "leaving" if the sheet has it, else "world-dead" if the sheet has it, else fall
+// back to the default structure dismantle. Either way `leaving` locks out trade right away
+/obj/structure/merchant/physically_destroyed(skip_qdel)
+	if(leaving)
+		return
+	var/has_leaving_anim = check_state_in_icon("leaving", icon)
+	var/has_dead_state = check_state_in_icon("world-dead", icon)
+	if(!has_leaving_anim && !has_dead_state)
+		return ..() // No world-dead state yet for this merchant; use the default structure dismantle.
+
+	leaving = TRUE
+	set_density(FALSE)
+	SSnano.close_uis(src)
+
+	if(has_leaving_anim)
+		visible_message(SPAN_DANGER("\The [src] goes down, and is hastily dragged out of sight."))
+		flick("leaving", src)
+		addtimer(CALLBACK(src, PROC_REF(dismantle_structure)), travel_anim_time)
+	else
+		visible_message(SPAN_DANGER("\The [src] falls still."))
+		icon_state = "world-dead"
+		addtimer(CALLBACK(src, PROC_REF(dismantle_structure)), death_linger_time)
 
 /obj/structure/merchant/attack_hand(mob/user)
 	if(leaving || !CanPhysicallyInteract(user))
@@ -425,7 +482,7 @@
 
 /obj/abstract/landmark/merchant_post
 	name = "merchant post"
-	var/merchant_type = /obj/structure/merchant/general/roadside  // Merchant body to spawn here.
+	var/merchant_type = /obj/structure/merchant/roadside  // Merchant body to spawn here.
 	var/present_time = 15 MINUTES    // How long the merchant stays each visit.
 	var/absent_time = 10 MINUTES     // How long the spot sits empty between visits.
 	var/first_delay = 1 MINUTE       // Wait before the first arrival, so posts don't all pop at once on roundstart
@@ -459,9 +516,7 @@
 	if(QDELETED(src))
 		return
 	if(!QDELETED(active_merchant))
-		// Don't yank the merchant out from under a deal. currently_vending/currently_buying
-		// cover a selected-but-unpaid item and a standing buy offer; !vend_ready covers the
-		// gap between payment and the item actually being handed over (the vend_delay timer).
+		// Don't yank the merchant out from under a deal, give extra time to finish
 		var/datum/vendor/shop = active_merchant.shop
 		if(retries > 0 && shop && (shop.currently_vending || shop.currently_buying || !shop.vend_ready))
 			addtimer(CALLBACK(src, PROC_REF(depart), retries - 1), 1 MINUTE)

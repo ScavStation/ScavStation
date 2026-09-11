@@ -8,6 +8,7 @@
 	end_on_antag_death = FALSE
 	auto_recall_shuttle = FALSE
 	shuttle_delay = 2
+	votable = FALSE
 	associated_antags = list(
 		/decl/special_role/revolutionary,
 		/decl/special_role/loyalist,

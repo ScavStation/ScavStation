@@ -43,7 +43,7 @@
 #include "items\mollusc.dm"
 #include "items\pan_net.dm"
 #include "items\prosthetics.dm"
-#include "items\medicines\pancea.dm"
+#include "items\medicines\healthy_healthy_juice.dm"
 #include "items\sec_vend.dm"
 #include "items\med_vend.dm"
 #include "items\suit_cycler.dm"
