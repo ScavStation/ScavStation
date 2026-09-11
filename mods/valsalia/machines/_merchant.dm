@@ -441,7 +441,6 @@ var/global/list/merchant_voicelines_by_key
 
 /obj/structure/merchant/Initialize()
 	. = ..()
-	set_dir(SOUTH)
 	shop = new(src)
 	shop.name = vendor_name || name
 	shop.product_prices = vendor_prices?.Copy()
