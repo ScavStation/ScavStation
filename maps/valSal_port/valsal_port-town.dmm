@@ -41,6 +41,9 @@
 "ba" = (
 /obj/structure/table/woodentable/ebony,
 /obj/item/banner/woven,
+/obj/structure/merchant/tailor{
+	pixel_y = 33
+	},
 /turf/floor/wood,
 /area/valSal_port/town/house)
 "bc" = (
@@ -91,10 +94,14 @@
 /turf/floor/dirt,
 /area/valSal_port/town/outpost)
 "cq" = (
-/obj/structure/closet/crate/chest/ebony,
-/obj/item/stack/material/bone/mapped/bone/ten,
 /obj/effect/decal/cleanable/dirt,
-/turf/floor/path/basalt,
+/obj/structure/closet/cabinet/wooden,
+/obj/item/cash/imperial/regalis,
+/obj/item/cash/imperial/quin,
+/obj/item/cash/imperial/crown,
+/obj/item/cash/imperial/crown,
+/obj/item/cash/imperial/crown,
+/turf/floor/wood/yew,
 /area/valSal_port/town/slaughterhouse)
 "cu" = (
 /turf/unsimulated/dark_filler,
@@ -109,31 +116,8 @@
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
 "cz" = (
-/obj/structure/reagent_dispensers/barrel/ebony,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/obj/item/stack/material/ore/coal,
-/turf/floor/path/granite,
-/area/valSal_port/outside/inner_town)
+/turf/unsimulated/floor/carpet,
+/area/valSal_port/town/slaughterhouse)
 "cD" = (
 /obj/structure/flora/bush/sunnybush,
 /turf/floor/grass,
@@ -204,7 +188,7 @@
 /turf/floor/mud/water,
 /area/valSal_port/outside/garden)
 "dV" = (
-/obj/structure/railing/mapped/wooden/maple{
+/obj/structure/railing/mapped/wooden/mahogany{
 	dir = 4
 	},
 /turf/floor/grass/wild,
@@ -402,10 +386,9 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "gK" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/filth,
+/obj/structure/closet/cabinet/wooden,
 /turf/floor/wood,
-/area/valSal_port/town/farmhouse)
+/area/valSal_port/town/trapper)
 "gQ" = (
 /obj/structure/flora/bush/brflowers,
 /turf/floor/grass,
@@ -437,9 +420,8 @@
 /turf/floor/path/herringbone,
 /area/valSal_port/town/farmhouse)
 "hk" = (
-/obj/effect/decal/cleanable/ash,
-/turf/floor/path/granite,
-/area/valSal_port/outside/inner_town)
+/turf/floor/carpet/orange,
+/area/valSal_port/town/trapper)
 "hs" = (
 /turf/unsimulated/floor/bcarpet,
 /area/valSal_port/town/shrine)
@@ -507,7 +489,7 @@
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/town/shrine)
 "iO" = (
-/turf/wall/log/maple,
+/turf/wall/log/mahogany,
 /area/valSal_port/town/trapper)
 "iV" = (
 /turf/unsimulated/dark_filler,
@@ -521,7 +503,7 @@
 /turf/floor/path/herringbone,
 /area/valSal_port/town/farmhouse)
 "iX" = (
-/turf/wall/log/maple/shutter/open,
+/turf/wall/log/mahogany/shutter/open,
 /area/valSal_port/town/trapper)
 "iY" = (
 /obj/structure/bed/bedroll/fur,
@@ -565,8 +547,9 @@
 /turf/floor/barren,
 /area/valSal_port/outside/outer_town)
 "jB" = (
-/obj/structure/bed/simple,
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/displaycase,
+/obj/structure/wall_sconce/lantern,
+/obj/item/chems/cooking_vessel/pot/iron,
 /turf/floor/wood,
 /area/valSal_port/town/trapper)
 "jI" = (
@@ -661,6 +644,9 @@
 /obj/abstract/landmark/wildlife_spawn/valSal_port/forest,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
+"lo" = (
+/turf/floor/carpet/blue,
+/area/valSal_port/town/trapper)
 "lt" = (
 /obj/structure/bed/chair/wood{
 	dir = 8
@@ -721,11 +707,11 @@
 /area/valSal_port/outside/eastside)
 "mi" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
-/turf/floor/path/basalt,
+/obj/structure/curtain/bed,
+/turf/floor/wood/yew,
 /area/valSal_port/town/slaughterhouse)
 "mr" = (
-/turf/wall/log,
+/turf/wall/log/maple,
 /area/valSal_port/town/slaughterhouse)
 "ms" = (
 /turf/wall/brick/granite/shutter,
@@ -870,12 +856,9 @@
 /turf/floor/wood/broken/one,
 /area/valSal_port/town/shrine)
 "oe" = (
-/obj/structure/table/woodentable,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/wall_sconce/lantern{
-	dir = 1;
-	pixel_y = 22
-	},
+/obj/structure/displaycase,
+/obj/item/dice,
 /turf/floor/wood,
 /area/valSal_port/town/trapper)
 "oh" = (
@@ -901,7 +884,8 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "oo" = (
-/turf/floor/path/basalt,
+/obj/structure/curtain/bed,
+/turf/floor/wood/yew,
 /area/valSal_port/town/slaughterhouse)
 "or" = (
 /obj/structure/fire_source/stove,
@@ -945,9 +929,16 @@
 /turf/wall/log/walnut,
 /area/valSal_port/town/general_store)
 "pe" = (
-/obj/structure/flora/bush/stalkybush,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/inner_town)
+/obj/structure/closet/crate/chest{
+	dir = 4
+	},
+/obj/item/cash/imperial/quin,
+/obj/item/cash/imperial/quin,
+/obj/item/cash/imperial/regalis,
+/obj/item/cash/imperial/regalis,
+/obj/structure/wall_sconce/lantern,
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "pg" = (
 /obj/structure/flora/tree/hardwood/mahogany,
 /obj/structure/flora/bush/brflowers,
@@ -986,7 +977,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/eastside)
 "pD" = (
-/turf/wall/log/maple/shutter,
+/turf/wall/log/maple/shutter/open,
 /area/valSal_port/town/farmhouse)
 "pE" = (
 /obj/item/bone/skull,
@@ -1072,13 +1063,9 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
 "qW" = (
-/obj/structure/closet/crate/chest/ebony,
-/obj/item/bone/skull/deer,
-/obj/item/stack/material/bone/mapped/bone/five,
-/obj/effect/decal/cleanable/cobweb{
-	dir = 8
-	},
-/turf/floor/path/basalt,
+/obj/structure/bed/simple/ebony,
+/obj/item/bedsheet/furs,
+/turf/floor/wood/yew,
 /area/valSal_port/town/slaughterhouse)
 "qX" = (
 /turf/wall/log/walnut/shutter,
@@ -1170,8 +1157,14 @@
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/town/shrine)
 "sq" = (
-/turf/wall/brick/basalt,
-/area/valSal_port/outside/eastside)
+/obj/structure/table/woodentable/walnut,
+/obj/item/shears,
+/obj/structure/wall_sconce/lantern{
+	dir = 1;
+	pixel_y = 22
+	},
+/turf/unsimulated/floor/carpet,
+/area/valSal_port/town/slaughterhouse)
 "ss" = (
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
@@ -1270,9 +1263,9 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "tG" = (
-/obj/effect/decal/cleanable/filth,
-/turf/floor/path/herringbone,
-/area/valSal_port/town/farmhouse)
+/obj/structure/flora/tree/hardwood/yew,
+/turf/floor/grass,
+/area/valSal_port/outside/inner_town)
 "tJ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/path/herringbone,
@@ -1289,9 +1282,24 @@
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/river)
 "tX" = (
-/obj/structure/table/woodentable/walnut,
-/turf/floor/wood/yew,
-/area/valSal_port/town/slaughterhouse)
+/obj/structure/produce_bin,
+/obj/item/food/grown/apple,
+/obj/item/food/grown/apple,
+/obj/item/food/grown/apple,
+/obj/item/food/grown/apple,
+/obj/item/food/grown/apple,
+/obj/item/food/grown/cabbage,
+/obj/item/food/grown/cabbage,
+/obj/item/food/grown/cabbage,
+/obj/item/food/grown/cabbage,
+/obj/item/food/grown/cabbage,
+/obj/item/food/grown/carrot,
+/obj/item/food/grown/carrot,
+/obj/item/food/grown/carrot,
+/obj/item/food/grown/carrot,
+/obj/item/food/grown/carrot,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/outer_town)
 "tZ" = (
 /obj/item/food/butchery/meat/chicken,
 /obj/item/food/butchery/meat/chicken,
@@ -1393,7 +1401,6 @@
 /area/valSal_port/outside/westside)
 "vx" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/filth,
 /obj/structure/wall_sconce/lantern{
 	dir = 4
 	},
@@ -1435,10 +1442,9 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
 "wg" = (
-/obj/structure/flora/bush/brflowers,
-/obj/structure/flora/bush/stalkybush,
-/turf/floor/grass,
-/area/valSal_port/outside/inner_town)
+/obj/structure/flora/pottedplant/flower,
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "wh" = (
 /obj/structure/flora/tree/hardwood/walnut,
 /obj/structure/flora/bush/fernybush,
@@ -1582,11 +1588,9 @@
 /turf/floor/wood,
 /area/valSal_port/town/residence)
 "yl" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/knife/hook,
-/obj/item/shears,
-/turf/floor/wood/yew,
-/area/valSal_port/town/slaughterhouse)
+/obj/structure/merchant/farmer,
+/turf/floor/mud,
+/area/valSal_port/outside/outer_town)
 "ym" = (
 /obj/structure/table/woodentable/ebony,
 /turf/floor/wood,
@@ -1606,21 +1610,21 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
 "yD" = (
-/obj/structure/table/woodentable_reinforced/ebony,
-/obj/item/tool/hammer,
-/obj/item/chems/glass/mortar,
-/turf/floor/path/granite,
-/area/valSal_port/outside/inner_town)
-"yI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
-/turf/floor/path/herringbone,
-/area/valSal_port/town/farmhouse)
-"yK" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/merchant/tailor,
-/turf/floor/carpet/rustic,
+/turf/wall/log/yew/shutter/open,
 /area/valSal_port/town/house)
+"yI" = (
+/obj/structure/table/woodentable,
+/obj/structure/flora/pottedplant/deskferntrim,
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
+"yK" = (
+/obj/structure/table/woodentable,
+/obj/structure/merchant/general{
+	dir = 1;
+	pixel_y = -11
+	},
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "yN" = (
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
@@ -1661,14 +1665,12 @@
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "zq" = (
-/turf/wall/log/shutter,
+/turf/wall/log/maple/shutter/open,
 /area/valSal_port/town/slaughterhouse)
 "zu" = (
-/obj/structure/railing/mapped/wooden/maple{
-	dir = 1
-	},
-/turf/floor/dirt,
-/area/valSal_port/outside/inner_town)
+/obj/structure/table/woodentable,
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "zw" = (
 /obj/structure/flora/tree/softwood/cypress,
 /turf/floor/grass/wild,
@@ -1785,9 +1787,14 @@
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "BN" = (
-/obj/structure/flora/bush/stalkybush,
-/turf/floor/grass,
-/area/valSal_port/outside/inner_town)
+/obj/structure/displaycase,
+/obj/structure/wall_sconce/lantern{
+	dir = 1;
+	pixel_y = 22
+	},
+/obj/item/chems/glass/bowl/mapped,
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "BP" = (
 /obj/structure/flora/tree/hardwood/mahogany,
 /turf/floor/grass/wild,
@@ -2014,6 +2021,10 @@
 /obj/structure/flora/bush/sunnybush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
+"EZ" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/floor/carpet/blue,
+/area/valSal_port/town/trapper)
 "Fd" = (
 /turf/floor/grass/wild,
 /area/valSal_port/outside/eastside)
@@ -2090,12 +2101,16 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
 "GD" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/floor/path/basalt,
-/area/valSal_port/town/slaughterhouse)
-"GG" = (
-/turf/wall/log/yew,
+/obj/structure/wall_sconce/lantern{
+	dir = 8
+	},
+/turf/floor/wood,
 /area/valSal_port/town/trapper)
+"GG" = (
+/obj/structure/flora/tree/hardwood/walnut,
+/obj/structure/flora/bush/fernybush,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/eastside)
 "GJ" = (
 /obj/structure/flora/bush/genericbush,
 /obj/structure/flora/bush/sunnybush,
@@ -2355,9 +2370,10 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "KP" = (
-/obj/effect/decal/cleanable/ash,
+/obj/structure/bed/simple/ebony/cloth,
+/obj/item/bedsheet/ce,
 /turf/floor/wood,
-/area/valSal_port/town/farmhouse)
+/area/valSal_port/town/trapper)
 "KZ" = (
 /obj/structure/fire_source/kiln/oven,
 /turf/floor/wood,
@@ -2510,9 +2526,15 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
 "NB" = (
-/obj/structure/drying_rack,
-/turf/floor/wood/yew,
-/area/valSal_port/town/slaughterhouse)
+/obj/structure/bed/chair/wood{
+	dir = 4
+	},
+/obj/structure/wall_sconce/lantern{
+	dir = 1;
+	pixel_y = 22
+	},
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "ND" = (
 /turf/floor/barren,
 /area/valSal_port/outside/inner_town)
@@ -2521,9 +2543,11 @@
 /turf/floor/dirt,
 /area/valSal_port/town/den)
 "NG" = (
-/obj/structure/meat_hook,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb,
+/obj/structure/working/spinning_wheel/twisting_bench,
+/obj/structure/wall_sconce/lantern{
+	dir = 4
+	},
 /turf/floor/wood/yew,
 /area/valSal_port/town/slaughterhouse)
 "NH" = (
@@ -2571,9 +2595,27 @@
 /turf/floor/grass,
 /area/valSal_port/outside/westside)
 "OI" = (
-/obj/structure/flora/tree/hardwood/mahogany,
-/turf/floor/grass,
-/area/valSal_port/outside/inner_town)
+/obj/structure/bookcase,
+/obj/item/book/skill/organizational/finance/basic,
+/obj/item/book/skill/organizational/finance/basic,
+/obj/item/book/skill/organizational/finance/basic,
+/obj/item/book/skill/organizational/finance/basic,
+/obj/item/book/skill/organizational/finance/basic,
+/obj/item/book/skill/organizational/finance/adept,
+/obj/item/book/skill/organizational/finance/adept,
+/obj/item/book/skill/organizational/finance/adept,
+/obj/item/book/skill/organizational/finance/adept,
+/obj/item/book/skill/organizational/finance/adept,
+/obj/item/book/skill/organizational/finance/expert,
+/obj/item/book/skill/organizational/finance/expert,
+/obj/item/book/skill/organizational/finance/expert,
+/obj/item/book/skill/organizational/finance/expert,
+/obj/item/book/skill/organizational/finance/expert,
+/obj/item/book/skill/organizational/finance/prof,
+/obj/item/book/skill/organizational/finance/prof,
+/obj/item/book/skill/organizational/literacy/basic,
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "OO" = (
 /obj/structure/flora/tree/softwood/cypress,
 /turf/floor/grass/wild,
@@ -2607,7 +2649,9 @@
 /area/valSal_port/outside/southside)
 "PA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/wall_sconce/lantern,
+/obj/structure/wall_sconce/lantern{
+	dir = 4
+	},
 /turf/floor/wood,
 /area/valSal_port/town/trapper)
 "PC" = (
@@ -2618,9 +2662,8 @@
 /turf/floor/wood,
 /area/valSal_port/town/house)
 "PE" = (
-/obj/structure/closet/crate/chest,
-/obj/item/clothing/suit/armor/forged/banded,
-/obj/item/sword,
+/obj/structure/displaycase,
+/obj/item/bladed/rapier,
 /turf/floor/wood,
 /area/valSal_port/town/trapper)
 "PN" = (
@@ -2644,9 +2687,13 @@
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/river)
 "Qq" = (
-/obj/structure/meat_hook,
-/turf/floor/path/granite,
-/area/valSal_port/outside/inner_town)
+/obj/structure/table/woodentable/ebony,
+/obj/structure/merchant/apothecary{
+	pixel_y = 30;
+	pixel_x = -1
+	},
+/turf/floor/wood,
+/area/valSal_port/town/farmhouse)
 "Qr" = (
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/river)
@@ -2660,17 +2707,13 @@
 /area/valSal_port/outside/eastside)
 "Qv" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
-/obj/structure/wall_sconce/lantern{
-	dir = 4
-	},
-/turf/floor/wood/yew,
+/turf/wall/log/maple,
 /area/valSal_port/town/slaughterhouse)
 "Qw" = (
 /obj/structure/flora/tree/hardwood/walnut,
 /obj/structure/flora/bush/fernybush,
 /turf/floor/grass,
-/area/valSal_port/outside/inner_town)
+/area/valSal_port/outside/eastside)
 "Qy" = (
 /obj/structure/table/woodentable_reinforced/ebony,
 /obj/item/utensil/fork,
@@ -2726,9 +2769,12 @@
 /turf/floor/dirt,
 /area/valSal_port/outside/merchantcamp)
 "Rk" = (
-/obj/structure/fire_source/kiln/high_temperature,
-/turf/floor/path/granite,
-/area/valSal_port/outside/inner_town)
+/obj/structure/flora/pottedplant/drooping,
+/obj/structure/wall_sconce/lantern{
+	dir = 8
+	},
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "Rm" = (
 /obj/structure/wall_sconce/lantern{
 	dir = 1;
@@ -2745,9 +2791,9 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
 "Ru" = (
-/obj/structure/flora/bush/brflowers,
-/turf/floor/grass,
-/area/valSal_port/outside/inner_town)
+/obj/structure/curtain/bed,
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "RG" = (
 /obj/structure/flora/bush/stalkybush,
 /obj/structure/flora/bush/stalkybush,
@@ -2892,8 +2938,7 @@
 /area/valSal_port/town/mansion)
 "UB" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
-/turf/floor/wood/yew,
+/turf/unsimulated/floor/carpet,
 /area/valSal_port/town/slaughterhouse)
 "UH" = (
 /obj/structure/flora/bush/stalkybush,
@@ -2920,9 +2965,11 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "UX" = (
-/obj/structure/working/spinning_wheel/twisting_bench/ebony,
-/turf/floor/wood/yew,
-/area/valSal_port/town/slaughterhouse)
+/obj/structure/wall_sconce/lantern{
+	dir = 4
+	},
+/turf/floor/wood,
+/area/valSal_port/town/trapper)
 "Vb" = (
 /obj/structure/flora/bush/brflowers,
 /obj/structure/flora/bush/genericbush,
@@ -2970,8 +3017,12 @@
 /turf/wall/brick/basalt,
 /area/valSal_port/town/mansion)
 "VI" = (
-/obj/effect/decal/cleanable/ash,
-/turf/floor/wood/yew,
+/obj/structure/table/woodentable/walnut,
+/obj/structure/merchant/butcher{
+	dir = 8;
+	pixel_x = 28
+	},
+/turf/unsimulated/floor/carpet,
 /area/valSal_port/town/slaughterhouse)
 "VJ" = (
 /obj/structure/closet/cabinet/wooden/ebony,
@@ -3123,16 +3174,16 @@
 /turf/floor/barren,
 /area/valSal_port/town/outpost)
 "Xs" = (
-/turf/floor/path/granite/water/deep,
+/obj/structure/drying_rack/ebony,
+/turf/floor/wood/yew,
 /area/valSal_port/town/slaughterhouse)
 "Xt" = (
 /obj/effect/decal/cleanable/ash,
 /turf/unsimulated/floor/bcarpet,
 /area/valSal_port/town/shrine)
 "Xw" = (
-/obj/structure/drying_rack/ebony,
-/turf/floor/path/granite,
-/area/valSal_port/outside/inner_town)
+/turf/floor/carpet/red,
+/area/valSal_port/town/trapper)
 "XC" = (
 /obj/structure/flora/tree/hardwood/mangrove,
 /turf/floor/grass,
@@ -8325,7 +8376,7 @@ UW
 jp
 jp
 jp
-sx
+yD
 jp
 jp
 jp
@@ -8444,7 +8495,7 @@ XY
 UO
 vd
 Ja
-sx
+yD
 mD
 Fr
 mD
@@ -8672,7 +8723,7 @@ jp
 Yh
 VL
 GM
-yK
+hY
 ba
 oz
 Xj
@@ -8908,7 +8959,7 @@ Hj
 Hj
 oi
 mR
-sx
+yD
 UW
 UW
 UW
@@ -9021,7 +9072,7 @@ sx
 jp
 jp
 jp
-sx
+yD
 jp
 jp
 jp
@@ -9249,18 +9300,18 @@ UW
 UW
 UW
 UW
-UW
-UW
-bR
-bR
-bR
-bR
-bR
-bR
-bR
-bR
-bR
-UW
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
+mD
 mD
 FZ
 mD
@@ -9364,8 +9415,8 @@ UW
 UW
 UW
 UW
-UW
-UW
+mD
+mD
 UW
 Me
 Me
@@ -9477,9 +9528,9 @@ Gf
 Gf
 Gf
 UW
+tX
 UW
-UW
-UW
+mD
 UW
 UW
 UW
@@ -9593,7 +9644,7 @@ Gf
 Gf
 EN
 KM
-pu
+yl
 pu
 pu
 pu
@@ -9602,7 +9653,7 @@ QL
 cL
 rw
 tJ
-tG
+rw
 cL
 Tu
 tF
@@ -9833,7 +9884,7 @@ lD
 Cg
 xv
 VJ
-yI
+tJ
 iW
 xv
 pD
@@ -9949,7 +10000,7 @@ lD
 UW
 xv
 Vj
-gK
+sO
 mv
 ym
 mv
@@ -10063,13 +10114,13 @@ lD
 Kt
 lD
 UW
-xv
+pD
 su
 mv
 It
-ym
+Qq
 sO
-gK
+sO
 KJ
 Fr
 mD
@@ -10184,7 +10235,7 @@ np
 mv
 sO
 vx
-KP
+mv
 Ly
 xv
 Rm
@@ -11569,11 +11620,11 @@ Qi
 Qr
 Bu
 Bu
-tE
-tE
-tE
-tE
-tE
+qP
+qP
+qP
+qP
+qP
 qP
 qP
 qP
@@ -11685,8 +11736,8 @@ Qr
 Bu
 Bu
 Fw
-tE
-bJ
+qP
+sI
 sI
 sI
 sI
@@ -11801,8 +11852,8 @@ Bu
 Bu
 Fw
 Fw
-tE
-sI
+qP
+mr
 mr
 mr
 mr
@@ -11917,12 +11968,12 @@ Bu
 Fw
 Fw
 WK
-tE
-sI
+qP
 mr
-NG
+wk
+WB
 LJ
-UX
+JD
 WB
 JD
 io
@@ -12034,12 +12085,12 @@ Fw
 WK
 WK
 qP
-sI
 mr
 wk
-WB
+JD
+NG
 UB
-WB
+UB
 oC
 mr
 Lo
@@ -12056,7 +12107,7 @@ lC
 GJ
 GJ
 dV
-sh
+dV
 dV
 dV
 sh
@@ -12148,15 +12199,15 @@ Fw
 Fw
 WK
 bJ
-sI
+kv
 qP
-sh
-zq
-NB
-JD
-JD
+mr
+wk
+oC
+mr
+sq
 VI
-yl
+JD
 zq
 sh
 sh
@@ -12171,15 +12222,15 @@ ND
 sh
 sh
 sh
-Xw
-yD
-Rk
 Sl
-zu
-sh
-pA
-pA
-sh
+Sl
+Sl
+Sl
+iO
+iO
+iX
+iO
+iO
 sh
 sI
 sI
@@ -12261,18 +12312,18 @@ Bu
 Bu
 Fw
 Fw
-sI
-sI
-sI
-sI
+kv
+kv
+kv
+kv
 qP
-sh
 mr
-NB
+Xs
+JD
 Qv
+cz
+cz
 JD
-JD
-tX
 mr
 sh
 ND
@@ -12291,11 +12342,11 @@ Sl
 Sl
 Sl
 Sl
-pA
-sh
-sh
-sh
-sh
+iO
+gK
+GD
+KP
+iO
 sh
 sh
 sI
@@ -12376,20 +12427,20 @@ tV
 Bu
 Fw
 Fw
-sI
-sI
-Dc
-sI
-Np
+kv
+kv
+ye
+kv
+uW
 qP
-sh
 mr
-mr
+Xs
+JD
 mr
 oo
-GD
 mi
-zq
+mi
+mr
 wh
 sh
 ND
@@ -12404,14 +12455,14 @@ ND
 WN
 ND
 Sl
-hk
 Sl
 Sl
-zu
-pA
-sh
-pA
-sh
+Sl
+iO
+NB
+Xw
+pe
+iX
 sh
 sh
 sh
@@ -12493,17 +12544,17 @@ Bu
 Fw
 kv
 kv
-Dc
-Dc
-sI
-sI
+ye
+ye
+kv
+kv
 qP
-sh
-sh
-sh
+mr
+Xs
+JD
 mr
 qW
-Xs
+JD
 cq
 mr
 sh
@@ -12519,15 +12570,15 @@ ND
 sh
 sh
 sh
-Qq
+nl
 Sl
 nl
-cz
+Sl
+iO
 zu
-pA
-pA
-pA
-pA
+Mu
+Mu
+iO
 sh
 sh
 sh
@@ -12609,14 +12660,14 @@ is
 Fw
 kv
 Fd
-Dc
-sh
-sI
-sI
+ye
+Fd
+kv
+kv
 qP
-sh
-sh
-sh
+mr
+mr
+zq
 mr
 mr
 zq
@@ -12634,22 +12685,22 @@ ND
 sh
 sh
 sh
-GG
 iO
+iX
 zZ
+iX
 iO
-GG
-pA
-pA
-pA
-pA
-pA
+iO
+Ru
+Ru
+Ru
+iO
 sh
 sh
 iZ
 iZ
 sI
-kv
+sI
 is
 is
 Bu
@@ -12725,10 +12776,10 @@ is
 kv
 wA
 Fd
-sh
-sh
-sh
-pZ
+Fd
+Fd
+Fd
+On
 qP
 sh
 sh
@@ -12753,20 +12804,20 @@ sh
 iO
 PE
 jo
+Rk
 Mu
+zu
+hk
+Mu
+wg
 iO
-pA
-pA
-pA
-pA
-pA
 sh
 sh
 sh
 ie
 sh
-kv
-kv
+sI
+sI
 is
 is
 Bu
@@ -12841,9 +12892,9 @@ is
 kv
 Fd
 Fd
-sh
-sh
-sh
+Fd
+Fd
+Fd
 Qw
 qP
 sI
@@ -12867,23 +12918,23 @@ mH
 sh
 sh
 iX
+BN
+EZ
+lo
 Mu
-jo
+yK
+hk
 Mu
+jB
 iX
 pA
-pA
-pA
-pA
-pA
-pA
 sh
 sh
 sh
 sh
-Fd
-wA
-kv
+sh
+tG
+sI
 is
 Bu
 Bu
@@ -12957,10 +13008,10 @@ kv
 kv
 RU
 Fd
-dH
-dH
-pe
-sI
+NH
+NH
+Mq
+kv
 qP
 sh
 fj
@@ -12984,22 +13035,22 @@ sh
 sh
 iO
 oe
-jB
+jo
 PA
+Mu
+yI
+hk
+UX
+OI
 iO
-sh
-pA
-dH
-dH
-sh
 sh
 sh
 sh
 lC
 sh
-RU
-Fd
-kv
+iZ
+sh
+sI
 Fw
 is
 Bu
@@ -13073,10 +13124,10 @@ kv
 Fd
 nQ
 Fd
-dH
-dH
-dH
-sI
+NH
+NH
+NH
+kv
 qP
 sh
 fj
@@ -13098,25 +13149,25 @@ sI
 sI
 sI
 sh
-GG
+iO
 iO
 iX
 iO
-GG
-pA
-pA
-dH
-dH
-sh
+iO
+iX
+iO
+iX
+iO
+iO
 sh
 mH
 ie
 sh
 iZ
-RU
-RU
-kv
-kv
+iZ
+iZ
+sI
+sI
 is
 is
 Bu
@@ -13189,10 +13240,10 @@ kv
 Fd
 ye
 Fd
-sh
-sh
-dH
-sI
+Fd
+Fd
+NH
+kv
 qP
 sh
 fj
@@ -13229,10 +13280,10 @@ sh
 sh
 sh
 iZ
-Fd
-RU
-sq
-sq
+sh
+iZ
+qP
+qP
 kv
 Fw
 Fw
@@ -13305,10 +13356,10 @@ Fd
 Fd
 Fd
 Fd
-wh
-sh
-sI
-sI
+GG
+Fd
+kv
+kv
 qP
 sh
 sh
@@ -13345,9 +13396,9 @@ sh
 sh
 qZ
 sh
-Fd
-sq
-sq
+sh
+qP
+qP
 kv
 kv
 kv
@@ -13421,10 +13472,10 @@ Fd
 Fd
 pC
 BX
-mH
-sh
-sI
-sI
+PV
+Fd
+kv
+kv
 qP
 sh
 zW
@@ -13461,8 +13512,8 @@ sh
 sh
 sh
 sh
-Fd
-sq
+sh
+qP
 kv
 kv
 kv
@@ -13537,10 +13588,10 @@ Fd
 Fd
 Fd
 BX
-sh
-sh
-sI
-sI
+Fd
+Fd
+kv
+kv
 qP
 sh
 dH
@@ -13577,8 +13628,8 @@ sh
 sh
 sh
 qP
-sq
-sq
+qP
+qP
 kv
 Cm
 Fd
@@ -13655,8 +13706,8 @@ Fd
 JF
 Wo
 Wo
-sI
-sI
+kv
+kv
 qP
 sh
 dH
@@ -13772,7 +13823,7 @@ Px
 Px
 Wo
 Wo
-sI
+kv
 qP
 sh
 sh
@@ -13808,7 +13859,7 @@ sh
 qP
 qP
 qP
-Np
+uW
 kv
 Fd
 Fd
@@ -13888,7 +13939,7 @@ SP
 Px
 Px
 nI
-sI
+kv
 qP
 mH
 sh
@@ -13922,9 +13973,9 @@ sh
 qP
 qP
 qP
-sI
-sI
-sI
+kv
+kv
+kv
 Fd
 ye
 ye
@@ -14004,7 +14055,7 @@ SP
 xg
 Px
 Px
-sI
+kv
 qP
 qP
 sh
@@ -14036,11 +14087,11 @@ sh
 sh
 sh
 qP
-sI
-sI
-OI
-mH
-sh
+kv
+kv
+pv
+PV
+Fd
 Fd
 Fd
 Fd
@@ -14120,8 +14171,8 @@ SP
 ly
 fC
 bP
-Ru
-sI
+xY
+kv
 qP
 zW
 sh
@@ -14151,12 +14202,12 @@ sh
 sh
 sh
 sI
-BN
-sI
-sI
-sh
-mH
-sh
+mf
+kv
+kv
+Fd
+PV
+Fd
 Fd
 Fd
 PV
@@ -14237,7 +14288,7 @@ mT
 SP
 pj
 Px
-sI
+kv
 qP
 qP
 sh
@@ -14266,13 +14317,13 @@ Np
 sh
 Lv
 sI
-sI
-wg
-sh
-sh
-sh
-sh
-sh
+kv
+OD
+Fd
+Fd
+Fd
+Fd
+Fd
 Fd
 Fd
 Fd
@@ -14353,8 +14404,8 @@ SP
 SP
 pj
 Px
-sh
-sI
+Fd
+kv
 qP
 qP
 sI
@@ -14380,15 +14431,15 @@ sI
 qP
 qP
 sI
-sI
-sI
-sI
-Ru
-sh
-mH
-sh
-sh
-zW
+kv
+kv
+kv
+xY
+Fd
+PV
+Fd
+Fd
+ji
 Fd
 Fd
 Fd
@@ -14469,9 +14520,9 @@ SP
 SP
 Px
 Px
-sh
-LY
-sI
+Fd
+wt
+kv
 qP
 sI
 sI
@@ -14495,16 +14546,16 @@ eJ
 qP
 qP
 Qw
-sI
-pZ
-sI
-BN
-sh
-sh
-mH
-mH
-sh
-sh
+kv
+On
+kv
+mf
+Fd
+Fd
+PV
+PV
+Fd
+Fd
 Fd
 Fd
 Fd
@@ -14585,9 +14636,9 @@ Px
 BQ
 Px
 Px
-sh
-sh
-sh
+Fd
+Fd
+Fd
 qP
 pZ
 sI
@@ -14609,18 +14660,18 @@ sh
 sI
 qP
 qP
-sI
-sh
-sh
-mH
-pZ
-BN
-zW
-sh
-sh
-sh
-sh
-sh
+kv
+Fd
+Fd
+PV
+On
+mf
+ji
+Fd
+Fd
+Fd
+Fd
+Fd
 Fd
 Fd
 Fd
@@ -14701,9 +14752,9 @@ Px
 Px
 Px
 Wo
-sh
-sh
-sh
+Fd
+Fd
+Fd
 qP
 qP
 sI
@@ -14724,19 +14775,19 @@ qP
 qP
 qP
 qP
-sI
-sh
-dH
-dH
-dH
-sh
-sI
-sh
-sh
-sh
-sh
-sh
-sh
+kv
+Fd
+NH
+NH
+NH
+Fd
+kv
+Fd
+Fd
+Fd
+Fd
+Fd
+Fd
 Fd
 kv
 kv
@@ -14816,11 +14867,11 @@ Px
 Px
 Px
 Wo
-dH
-DD
-sh
-sh
-sh
+NH
+Cm
+Fd
+Fd
+Fd
 qP
 DD
 sI
@@ -14837,22 +14888,22 @@ sh
 sh
 qP
 qP
-BN
-sI
-sI
-sh
-sh
-dH
-dH
-dH
-sh
-sI
-sh
-sh
-sh
-sh
-sI
-sI
+mf
+kv
+kv
+Fd
+Fd
+NH
+NH
+NH
+Fd
+kv
+Fd
+Fd
+Fd
+Fd
+kv
+kv
 kv
 kv
 kv
@@ -14937,21 +14988,21 @@ kv
 kv
 Fd
 Fd
-sq
-sq
-kv
-kv
-Fd
-Fd
-Fd
-Fd
-Fd
-Fd
-Fd
-Fd
-sq
-sq
-sq
+qP
+qP
+sI
+sI
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+qP
+qP
+qP
 kv
 kv
 qE
@@ -15054,18 +15105,18 @@ xY
 kv
 Fd
 Fd
-sq
-Fd
-kv
-kv
-Fd
-Fd
-Fd
-Fd
-Fd
-sq
-sq
-sq
+qP
+sh
+sI
+sI
+sh
+sh
+sh
+sh
+sh
+qP
+qP
+qP
 mf
 kv
 mf
@@ -15170,16 +15221,16 @@ kv
 OD
 mf
 mf
-sq
-sq
-sq
-sq
-sq
-sq
-sq
-sq
-sq
-sq
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
+qP
 Fd
 kv
 kv
