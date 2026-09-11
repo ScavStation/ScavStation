@@ -7,7 +7,7 @@
 	invisibility = INVISIBILITY_ABSTRACT
 	// each entry: list("type" = mob typepath, "min" = X, "max" = Y, "label" = "rabbits") = weight
 	var/list/spawn_groups = list()
-	var/list/spawn_groups_by_severity = list() // EVENT_LEVEL_* = spawn_groups-formatted list
+	var/alist/spawn_groups_by_severity = alist() // EVENT_LEVEL_* = spawn_groups-formatted list
 
 // severity is optional - pass it to use spawn_groups_by_severity[severity] if set, otherwise falls back to spawn_groups.
 // Returns list("mobs" = list of spawned mobs, "label" = the group's label) - "mobs" is empty if nothing spawned.
