@@ -4,6 +4,7 @@
 	extended_round_description = "A heavily armed, high-tech covert infiltrator is on board pursuing their mysterious goals."
 	uid = "ninja"
 	required_players = 5
+	votable = FALSE
 	required_enemies = 1
 	end_on_antag_death = FALSE
 	associated_antags = list(/decl/special_role/ninja)

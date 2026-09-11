@@ -4,6 +4,7 @@
 	extended_round_description = "Traitors and renegades both spawn during this mode."
 	uid = "spyvspy"
 	required_players = 4
+	votable = FALSE
 	required_enemies = 4
 	end_on_antag_death = FALSE
 	associated_antags = list(

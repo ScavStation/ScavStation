@@ -43,7 +43,7 @@
 "gl" = (/mob/living/simple_animal/fowl/chicken,/turf/floor/path/sandstone,/area/valSal_port/outside/fortressentrance)
 "go" = (/obj/structure/table/woodentable/ebony,/obj/item/clothing/gloves/ring/magic,/obj/item/tool/hammer/jack{name = "The Batterer"},/obj/effect/floor_decal/corner/black/mono,/turf/floor/holofloor/tiled/stone,/area/valSal_port/kingroom)
 "gp" = (/turf/floor/mud/water/deep,/area/valSal_port/outside/the_bog)
-"gQ" = (/obj/structure/table/woodentable,/obj/item/ancient_surgery/bonesetter,/obj/item/chems/drinks/cans/panacea,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
+"gQ" = (/obj/structure/table/woodentable,/obj/item/ancient_surgery/bonesetter,/obj/item/chems/drinks/healthy_healthy_juice,/turf/floor/path/running_bond,/area/valSal_port/sticherroom)
 "gW" = (/turf/wall/brick/pottery,/area/valSal_port/sticherroom)
 "ha" = (/obj/structure/closet/cabinet/wooden,/obj/item/clothing/suit/armor/forged/banded,/obj/item/clothing/head/helmet/gladiator,/obj/item/clothing/gloves/vambrace,/turf/floor/path/running_bond/basalt,/area/valSal_port/armory)
 "hj" = (/obj/structure/flora/tree/hardwood/willow,/turf/floor/grass/wild,/area/valSal_port/outside/the_bog)

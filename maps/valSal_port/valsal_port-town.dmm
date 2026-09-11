@@ -1618,7 +1618,7 @@
 /area/valSal_port/town/farmhouse)
 "yK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/merchant/general,
+/obj/structure/merchant/tailor,
 /turf/floor/carpet/rustic,
 /area/valSal_port/town/house)
 "yN" = (

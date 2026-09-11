@@ -781,7 +781,7 @@
 /area/valSal_port/valley/kitchen)
 "Qm" = (
 /obj/structure/table/marble,
-/obj/item/chems/drinks/cans/panacea,
+/obj/item/chems/drinks/healthy_healthy_juice,
 /turf/floor/path/herringbone/marble/water/deep,
 /area/valSal_port/valley/outpost)
 "Qp" = (
