@@ -298,6 +298,9 @@
 	. += get_reagent_buy_offer(W)
 	if(. <= 0)
 		return 0
+	if(istype(W, /obj/item/stack))
+		var/obj/item/stack/stack = W
+		. *= stack.get_amount()
 	. *= max(VENDOR_CONDITION_MULT_MIN, W.get_percent_health() / 100)
 	. = max(1, round(.))
 
