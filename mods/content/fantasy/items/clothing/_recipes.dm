@@ -82,6 +82,18 @@
 	crafting_extra_cost_factor = 1.5
 	category              = "clothing"
 
+/decl/stack_recipe/textiles/dancewear
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/yinglet/dancewear
+	crafting_extra_cost_factor = 1.5
+	category              = "clothing"
+
+/decl/stack_recipe/textiles/prettygown
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/yinglet/prettygown
+	crafting_extra_cost_factor = 1.5
+	category              = "clothing"
+
 /decl/stack_recipe/textiles/fancyhat
 	difficulty  = MAT_VALUE_HARD_DIY
 	result_type           = /obj/item/clothing/head/yinglet/fancy
@@ -127,6 +139,24 @@
 /decl/stack_recipe/textiles/yingjacket
 	difficulty  = MAT_VALUE_HARD_DIY
 	result_type           = /obj/item/clothing/suit/jacket/yinglet
+	crafting_extra_cost_factor = 1.1
+	category              = "clothing"
+
+/decl/stack_recipe/textiles/yingpaunch
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/yinglet/paunch
+	crafting_extra_cost_factor = 1.1
+	category              = "clothing"
+
+/decl/stack_recipe/textiles/yingbountiful
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/yinglet/bountifuldress
+	crafting_extra_cost_factor = 1.1
+	category              = "clothing"
+
+/decl/stack_recipe/textiles/yingpao
+	difficulty  = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/yinglet/yingpao
 	crafting_extra_cost_factor = 1.1
 	category              = "clothing"
 
