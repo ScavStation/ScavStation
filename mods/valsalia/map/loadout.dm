@@ -162,6 +162,21 @@
 	path = /obj/item/clothing/suit/robe/yinglet/mantleying
 	uid = "gear_mantle_fantasy"
 
+/decl/loadout_option/suit/yingpao
+	name = "yinglet qipao"
+	path = /obj/item/clothing/suit/yinglet/yingpao
+	uid = "gear_yingpao_fantasy"
+
+/decl/loadout_option/suit/bountiful
+	name = "yinglet bountiful dress"
+	path = /obj/item/clothing/suit/yinglet/bountifuldress
+	uid = "gear_bountiful_fantasy"
+
+/decl/loadout_option/suit/paunch
+	name = "yinglet paunch"
+	path = /obj/item/clothing/suit/yinglet/paunch
+	uid = "gear_paunch_fantasy"
+
 /decl/loadout_option/suit/countercoat
 	name = "yinglet longercoat"
 	path = /obj/item/clothing/suit/robe/yinglet/countercoat

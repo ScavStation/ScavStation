@@ -87,6 +87,12 @@
 	mask_to_bodypart = FALSE
 	uid = "marking_yinglet_ears_long"
 
+/decl/sprite_accessory/marking/yinglet/tribal
+	name = "Tribal Markings"
+	icon_state = "tribal"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_tribal"
+
 /decl/sprite_accessory/marking/yinglet/recolour_front_body
 	name = "Body Colour (Front)"
 	icon_state = "frontfluff"

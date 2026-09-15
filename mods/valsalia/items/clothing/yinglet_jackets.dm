@@ -1,6 +1,10 @@
 /obj/item/clothing/suit/jacket
 	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/jacket_yinglet.dmi'
 
+// Bomber gets its own override rather than the generic jacket_yinglet.dmi above
+/obj/item/clothing/suit/jacket/bomber
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/bomber_yinglet.dmi'
+
 /obj/item/clothing/suit/jacket/yinglet
 	name = "small green jacket"
 	desc = "A green jacket. It looks like it might fit a yinglet."
