@@ -132,12 +132,12 @@
 		if(!istype(R) || !(R.category & categories))
 			return TOPIC_REFRESH
 		if(R.get_amount() <= 0)
-			to_chat(user, SPAN_WARNING("\The [name] has none of that left."))
+			holder.visible_message(SPAN_WARNING("\The [name] has none of that left."))
 			return TOPIC_REFRESH
 		if(R.price <= 0)
 			vend(R, user)
 		else if(issilicon(user))
-			to_chat(user, SPAN_WARNING("\The [name] recoils and refuses to deal with the likes of you."))
+			holder.visible_message(SPAN_WARNING("\The [name] recoils and refuses to deal with the likes of you."))
 		else
 			var/decl/currency/cur = GET_DECL(vendor_currency)
 			currently_vending = R
@@ -163,13 +163,13 @@
 		return FALSE
 
 	if(!vend_ready)
-		to_chat(user, SPAN_WARNING("\The [name] is still counting out the last sale."))
+		holder.visible_message(SPAN_WARNING("\The [name] is still counting out the last sale."))
 		return TRUE
 
 	// Stock can hit zero between selecting the item and paying (someone else, or
 	// the same person spamming coin at the body). Never take money for nothing.
 	if(currently_vending.get_amount() <= 0)
-		to_chat(user, SPAN_WARNING("\The [name] has none of \the [currently_vending.item_name] left, and waves your coin away."))
+		holder.visible_message(SPAN_WARNING("\The [name] has none of \the [currently_vending.item_name] left, and waves your coin away."))
 		currently_vending = null
 		status_message = ""
 		status_error = FALSE
@@ -311,18 +311,18 @@
 		return FALSE // Not something this merchant buys - let the holder handle the click.
 
 	if(!vend_ready)
-		to_chat(user, SPAN_WARNING("\The [name] is busy. Wait a moment."))
+		holder.visible_message(SPAN_WARNING("\The [name] is busy. Wait a moment."))
 		return TRUE
 
 	if(!isnull(buy_budget) && buy_budget < offer)
-		to_chat(user, SPAN_WARNING("\The [name] shows you an empty purse. \"Can't cover that just now.\""))
+		holder.visible_message(SPAN_WARNING("\The [name] shows you an empty purse. \"Can't cover that just now.\""))
 		currently_buying = null
 		return TRUE
 
 	// First touch with a given item: make a standing offer. Second touch: sell.
 	if(QDELETED(currently_buying) || currently_buying != W)
 		currently_buying = W
-		to_chat(user, SPAN_NOTICE("\The [name] turns \the [W] over. \"[cur.format_value(offer)]. Give it to me again if that'll do.\""))
+		holder.visible_message(SPAN_NOTICE("\The [name] turns \the [W] over. \"[cur.format_value(offer)]. Give it to me again if that'll do.\""))
 		return TRUE
 
 	if(!user.try_unequip(W))
