@@ -243,6 +243,41 @@
 	icon_state = "hair_fonzie"
 	uid = "hair_ying_fonzie"
 
+/decl/sprite_accessory/hair/yinglet/wild
+	name = "Ying Wild"
+	icon_state = "hair_wild"
+	uid = "hair_ying_wild"
+
+/decl/sprite_accessory/hair/yinglet/loopie
+	name = "Ying Loopie"
+	icon_state = "hair_loopie"
+	uid = "hair_ying_loopie"
+
+/decl/sprite_accessory/hair/yinglet/tied
+	name = "Ying Tied"
+	icon_state = "hair_tied"
+	uid = "hair_ying_tied"
+
+/decl/sprite_accessory/hair/yinglet/cube
+	name = "Ying Cube"
+	icon_state = "hair_cube"
+	uid = "hair_ying_cube"
+
+/decl/sprite_accessory/hair/yinglet/saucer
+	name = "Ying Saucer"
+	icon_state = "hair_saucer"
+	uid = "hair_ying_saucer"
+
+/decl/sprite_accessory/hair/yinglet/bowl
+	name = "Ying Bowl"
+	icon_state = "hair_bowl"
+	uid = "hair_ying_bowl"
+
+/decl/sprite_accessory/hair/yinglet/floozie
+	name = "Ying Floozie"
+	icon_state = "hair_floozie"
+	uid = "hair_ying_floozie"
+
 /decl/sprite_accessory/hair/yinglet/short
 	name = "Ying Short Hair"
 	icon_state = "hair_short"
