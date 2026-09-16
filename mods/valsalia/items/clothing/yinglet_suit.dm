@@ -13,6 +13,19 @@
 	_yinglet_icon = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
+// Vest gets its own override rather than the generic jacket_yinglet.dmi above
+/obj/item/clothing/suit/jacket/vest
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/yingvest.dmi'
+
+/obj/item/clothing/suit/jacket/vest/blue
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/yingvest.dmi'
+
+/obj/item/clothing/suit/jacket/vest/gray
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/yingvest.dmi'
+
+/obj/item/clothing/suit/jacket/vest/black
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/yingvest.dmi'
+
 /obj/item/clothing/suit/yinglet/cape
 	name = "small cape"
 	desc = "A short length of cloth worked into a cape. Some people would say it looks stupid."
