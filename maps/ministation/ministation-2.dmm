@@ -5775,6 +5775,10 @@
 	},
 /turf/floor,
 /area/ministation/Murphy/maint/central)
+"tM" = (
+/obj/structure/casino/oh_bandit,
+/turf/floor/wood,
+/area/ministation/maint/l3ne)
 "tN" = (
 /obj/item/clothing/head/cowboy_hat,
 /turf/floor/straw,
@@ -9193,6 +9197,7 @@
 /area/ministation/science)
 "FJ" = (
 /obj/machinery/light/small,
+/obj/structure/casino/roulette_chart,
 /turf/floor/wood/broken/two,
 /area/ministation/maint/l3ne)
 "FM" = (
@@ -12226,6 +12231,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/structure/casino/oh_bandit,
 /turf/floor/wood,
 /area/ministation/maint/l3ne)
 "Rp" = (
@@ -13520,6 +13526,10 @@
 /obj/item/clothing/shoes/sandal/yinglet,
 /turf/floor/tiled/white,
 /area/ministation/science)
+"VD" = (
+/obj/structure/casino/roulette,
+/turf/floor/wood,
+/area/ministation/maint/l3ne)
 "VG" = (
 /turf/wall,
 /area/ministation/Murphy/bedroom/Vayryn)
@@ -48401,7 +48411,7 @@ hv
 hv
 Sa
 Sa
-YJ
+tM
 Ig
 YJ
 YJ
@@ -48918,7 +48928,7 @@ tq
 YJ
 YJ
 YJ
-YJ
+VD
 nl
 zD
 zD
