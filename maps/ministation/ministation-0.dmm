@@ -1286,6 +1286,7 @@
 /obj/item/clothing/suit/jacket/winter/yinglet/redcoat,
 /obj/item/clothing/suit/yingcape,
 /obj/item/clothing/suit/yingcape,
+/obj/item/clothing/suit/yinglet/paunch,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "dO" = (
@@ -4817,6 +4818,7 @@
 /obj/item/clothing/suit/fancyrobe,
 /obj/item/clothing/dress/avian_smock/utility,
 /obj/item/clothing/shoes/avian/footwraps,
+/obj/item/clothing/suit/robe/yinglet/patriarch,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "nv" = (
@@ -5172,6 +5174,7 @@
 /obj/structure/closet/wardrobe/mixed,
 /obj/item/clothing/costume/yinglet/speardance,
 /obj/item/clothing/costume/yinglet/speardance,
+/obj/item/clothing/costume/yinglet/ball_gown,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "oE" = (
@@ -6487,6 +6490,7 @@
 /obj/item/clothing/suit/jacket/winter/yinglet/janitor,
 /obj/item/clothing/suit/jacket/winter/yinglet/janitor,
 /obj/item/clothing/gloves/ring/seal/telepath_ring,
+/obj/item/clothing/suit/apron/maid/yinglet,
 /turf/floor/tiled,
 /area/ministation/janitor)
 "sz" = (
@@ -9739,6 +9743,7 @@
 /obj/item/clothing/suit/fancyrobe,
 /obj/item/clothing/dress/avian_smock/utility/gray,
 /obj/item/clothing/shoes/avian/footwraps,
+/obj/item/clothing/suit/jacket/yinglet/sinistral,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "BV" = (
@@ -12119,6 +12124,7 @@
 	},
 /obj/item/clothing/costume/yinglet,
 /obj/item/clothing/costume/yinglet,
+/obj/item/clothing/suit/robe/yinglet/merchant,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "Ho" = (
@@ -12624,6 +12630,7 @@
 /obj/item/backpack/tailbags,
 /obj/item/backpack/tailbags/angled,
 /obj/item/backpack/tailbags/angled,
+/obj/item/clothing/suit/yinglet/yingpao,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "IQ" = (
@@ -15308,6 +15315,7 @@
 /obj/item/clothing/costume/yinglet/flexsuit{
 	markings_color = "#ceb689"
 	},
+/obj/item/clothing/suit/jacket/yinglet/flowery,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "PC" = (
@@ -17349,6 +17357,7 @@
 /obj/item/clothing/dress/avian_smock/worker,
 /obj/item/clothing/dress/avian_smock/worker,
 /obj/item/clothing/shoes/avian/footwraps,
+/obj/item/clothing/suit/yinglet/dancewear,
 /turf/floor/wood/walnut,
 /area/ministation/dorms)
 "Vm" = (
