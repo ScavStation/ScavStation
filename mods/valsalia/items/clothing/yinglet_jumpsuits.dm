@@ -7,6 +7,10 @@
 	paint_color = COLOR_BEIGE
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
+// Jumpsuits get their own override rather than the generic yinglet jumpsuit.dmi above
+/obj/item/clothing/jumpsuit/hydroponics
+	_yinglet_icon = 'mods/valsalia/icons/clothing/under/jumpsuit_hydro.dmi'
+
 /obj/item/clothing/jumpsuit/yinglet/yingjester
 	name = "small jester suit"
 	desc = "A jester suit for a funny little guy."

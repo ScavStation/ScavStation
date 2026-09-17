@@ -10577,6 +10577,7 @@
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn{
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	},
+/obj/item/clothing/jumpsuit/hydroponics,
 /turf/floor/carpet,
 /area/ministation/kitchen)
 "Cu" = (
@@ -17572,6 +17573,7 @@
 /obj/item/clothing/suit/jacket/winter/yinglet/hydroponics,
 /obj/structure/closet/chefcloset,
 /obj/item/clothing/shoes/sandal/yinglet,
+/obj/item/clothing/jumpsuit/hydroponics,
 /turf/floor/carpet,
 /area/ministation/kitchen)
 "Wu" = (
