@@ -213,3 +213,9 @@
 	result_type           = /obj/item/clothing/costume/yinglet/ball_gown
 	crafting_extra_cost_factor = 4
 	category              = "clothing"
+
+/decl/stack_recipe/textiles/maid
+	difficulty                 = MAT_VALUE_HARD_DIY
+	result_type           = /obj/item/clothing/suit/apron/maid/yinglet
+	crafting_extra_cost_factor = 2.2
+	category              = "clothing"
