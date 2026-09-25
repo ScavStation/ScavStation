@@ -838,6 +838,7 @@
 /obj/item/integrated_circuit_printer,
 /obj/machinery/cell_charger,
 /obj/item/clothing/glasses/science,
+/obj/machinery/recharger,
 /turf/floor/tiled/white,
 /area/ship/trade/science/fabricaton)
 "ce" = (
@@ -909,6 +910,9 @@
 	icon_state = "0-2"
 	},
 /obj/random_multi/single_item/captains_spare_id,
+/obj/item/clothing/suit/yinglet/bountifuldress,
+/obj/item/clothing/suit/yinglet/fancy_clothes,
+/obj/item/clothing/suit/yinglet/prettygown,
 /turf/floor/wood/mahogany,
 /area/ship/trade/crew/dorms2)
 "cp" = (
@@ -1218,6 +1222,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
+/obj/machinery/mech_recharger,
 /turf/floor/concrete,
 /area/ship/trade/cargo/lower)
 "do" = (
@@ -2077,6 +2082,10 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/item/clothing/suit/apron/maid/yinglet,
+/obj/item/clothing/suit/yinglet/dancewear,
+/obj/item/clothing/suit/yinglet/paunch,
+/obj/item/clothing/suit/yinglet/yingpao,
 /turf/floor/wood/mahogany,
 /area/ship/trade/crew/dorms1)
 "jV" = (
@@ -2326,7 +2335,6 @@
 /area/ship/trade/maintenance/techstorage)
 "nG" = (
 /obj/machinery/artifact_scanpad,
-/obj/machinery/light,
 /turf/floor/tiled/white,
 /area/ship/trade/artifact_storage)
 "od" = (
@@ -2966,13 +2974,13 @@
 /obj/machinery/light{
 	icon_state = "bulb1"
 	},
-/obj/machinery/cryopod/robot,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/recharge_station,
 /turf/floor/concrete,
 /area/ship/trade/cargo/lower)
 "Bq" = (
@@ -3598,6 +3606,7 @@
 /area/ship/trade/maintenance/techstorage)
 "QV" = (
 /obj/machinery/artifact_analyser,
+/obj/machinery/light,
 /turf/floor/tiled/white,
 /area/ship/trade/artifact_storage)
 "Rb" = (

@@ -3643,7 +3643,7 @@
 /area/ship/trade/crew/saloon)
 "jc" = (
 /obj/machinery/door/window/brigdoor/westright,
-/obj/machinery/cryopod/robot,
+/obj/machinery/recharge_station,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
 "jd" = (
@@ -4303,6 +4303,7 @@
 	icon_state = "bulb1"
 	},
 /obj/structure/table/woodentable,
+/obj/machinery/recharger,
 /turf/floor/wood/maple,
 /area/ship/trade/crew/saloon)
 "kM" = (
@@ -4852,8 +4853,8 @@
 /turf/wall/r_wall,
 /area/ship/trade/maintenance/engine/port)
 "pt" = (
-/obj/machinery/cryopod/robot,
 /obj/machinery/door/window/eastright,
+/obj/machinery/recharge_station,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/port)
 "px" = (
@@ -5834,6 +5835,7 @@
 	dir = 8;
 	icon_state = "bulb1"
 	},
+/obj/machinery/recharger,
 /turf/floor/tiled/dark,
 /area/ship/trade/hangout)
 "vb" = (
@@ -8177,6 +8179,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
+/obj/machinery/recharger,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
 "Kc" = (
