@@ -1218,10 +1218,6 @@
 /turf/floor/tiled/dark,
 /area/ship/trade/crew/morgue)
 "dn" = (
-/obj/machinery/computer/cryopod{
-	dir = 1;
-	pixel_y = -22
-	},
 /obj/machinery/mech_recharger,
 /turf/floor/concrete,
 /area/ship/trade/cargo/lower)

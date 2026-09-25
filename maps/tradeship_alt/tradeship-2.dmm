@@ -1674,10 +1674,6 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 8
 	},
-/obj/machinery/computer/cryopod{
-	dir = 8;
-	pixel_x = 24
-	},
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/crew/hallway/starboard)
 "eC" = (
@@ -8571,16 +8567,6 @@
 	},
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/hallway)
-"MP" = (
-/obj/effect/floor_decal/techfloor/orange{
-	dir = 4
-	},
-/obj/machinery/computer/cryopod{
-	dir = 4;
-	pixel_x = -25
-	},
-/turf/floor/tiled/techfloor/grid,
-/area/ship/trade/crew/hallway/port)
 "MU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14881,7 +14867,7 @@ Ti
 cE
 zU
 cE
-MP
+cE
 cE
 cE
 aI
