@@ -1,3 +1,12 @@
+---
+name: Issue report
+about: Create a report about a bug or other issue
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 <!--
 	Anything inside tags like these is a comment and will not be displayed in the final issue.
 	Be careful not to write inside them!
@@ -50,4 +59,4 @@
 - [ ] Issue could be reproduced by different players
 - [ ] Issue could be reproduced in multiple rounds
 - [ ] Issue happened in a recent (less than 7 days ago) round
-- [ ] [Couldn't find an existing issue about this](https://github.com/ScavStation/ScavStation/issues)
+- [ ] [Couldn't find an existing issue about this](https://github.com/NebulaSS13/Nebula/issues)
