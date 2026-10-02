@@ -6,6 +6,6 @@
 	. = ..()
 	.["embeds"] = list(list(
 		"title"       = LAZYACCESS(data, "title") || "undefined",
-		"description" = LAZYACCESS(data, "body") || "undefined",
+		"description" = strip_html_properly(LAZYACCESS(data, "body")) || "undefined",
 		"color" = COLOR_WEBHOOK_DEFAULT
 	))
