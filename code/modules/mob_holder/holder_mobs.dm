@@ -57,8 +57,8 @@
 		return FALSE
 	
 	// Fallback, with the visual build of the character. Should probably be some sort of function of build and height, buuut I don't know what that math should look like.
-	if(scooper.mob_size <= src.mob_size)
-		// world.log << "Scooper is smaller or equal to scooped in mob size, check appearance"
+	if(scooper.mob_size = src.mob_size)
+		// world.log << "Scooper is equal to scooped in mob size, check appearance"
 		if(scooper.appearance_descriptors && src.appearance_descriptors)
 			// world.log << "Both have appearance descriptors"
 			if(scooper.appearance_descriptors["build"] > src.appearance_descriptors["build"])
