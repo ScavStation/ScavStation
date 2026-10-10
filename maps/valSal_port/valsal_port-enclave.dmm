@@ -111,12 +111,6 @@
 	},
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
-"ce" = (
-/obj/effect/departure_signpost/south{
-	desc = "A tall lamplit signpost that shows you how to leave the area."
-	},
-/turf/floor/clay,
-/area/valSal_port/outside/enclave)
 "ci" = (
 /turf/floor/dirt,
 /area/valSal_port/outside/outdoors_cliff)
@@ -992,9 +986,11 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/dininghut)
 "uC" = (
-/obj/structure/flora/bush/fernybush,
-/turf/floor/grass,
-/area/valSal_port/outside/outdoors_river)
+/obj/effect/departure_signpost/south{
+	desc = "A tall lamplit signpost that shows you how to leave the area."
+	},
+/turf/floor/barren,
+/area/valSal_port/outside/enclave)
 "uH" = (
 /turf/floor/carpet/rustic,
 /area/valSal_port/enclave/foyer)
@@ -1552,10 +1548,9 @@
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
 "Fe" = (
-/obj/structure/dogbed,
 /obj/abstract/landmark/latejoin,
-/turf/floor/wood/yew,
-/area/valSal_port/enclave/commonhouse)
+/turf/floor/dirt,
+/area/valSal_port/outside/enclave)
 "Fk" = (
 /obj/structure/table/woodentable,
 /obj/item/stack/material/thread/mapped/dried_gut/ten,
@@ -8942,7 +8937,7 @@ eL
 qT
 eL
 PX
-Fe
+eL
 qT
 eL
 PX
@@ -9555,8 +9550,8 @@ DT
 DT
 Ha
 Ha
-DT
-DT
+td
+td
 jM
 DT
 DT
@@ -9670,11 +9665,11 @@ DT
 DT
 td
 Ha
+Ha
+Ha
+Ha
 td
-DT
-DT
-DT
-DT
+td
 DT
 nD
 DT
@@ -9786,14 +9781,14 @@ DT
 td
 Ha
 Ha
-Tr
-DT
-DT
-DT
-DT
-Xp
-DT
-gp
+td
+td
+Ha
+Ha
+Ha
+Ha
+td
+td
 gp
 gp
 DT
@@ -9866,7 +9861,7 @@ FJ
 FJ
 FJ
 PX
-Fe
+eL
 qT
 eL
 PX
@@ -9906,11 +9901,11 @@ DT
 yh
 DT
 tc
-DT
-DT
-DT
-gp
-uC
+td
+Ha
+Ha
+Ha
+td
 RS
 DT
 DT
@@ -10024,12 +10019,12 @@ Gh
 Gh
 uI
 KT
-FJ
-FJ
-FJ
-Gh
-Gh
-Gh
+zP
+Tx
+Tx
+Tx
+zP
+zP
 Gh
 KP
 KP
@@ -10141,12 +10136,12 @@ DG
 DG
 uI
 FJ
-FJ
-Gh
-Gh
-Gh
-Gh
-Gh
+zP
+zP
+Tx
+Tx
+Tx
+Fe
 KP
 KP
 KP
@@ -10260,9 +10255,9 @@ FJ
 FJ
 Gh
 Gh
-Gh
-CH
-Gh
+zP
+zP
+uC
 KP
 KP
 KP
@@ -11283,7 +11278,7 @@ Tx
 Tx
 zP
 FJ
-ce
+tm
 mK
 mK
 mK

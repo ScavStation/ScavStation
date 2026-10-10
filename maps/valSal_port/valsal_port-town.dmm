@@ -167,10 +167,8 @@
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
 "do" = (
-/obj/structure/flora/tree/hardwood/mahogany,
-/obj/structure/flora/bush/sunnybush,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
+/turf/wall/log/bamboo/shutter/open,
+/area/valSal_port/town/general_store)
 "dz" = (
 /turf/wall/log/walnut/shutter/open,
 /area/valSal_port/town/general_store)
@@ -214,6 +212,12 @@
 /obj/structure/flora/bush/brflowers,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
+"ey" = (
+/obj/structure/wall_sconce/lantern{
+	dir = 8
+	},
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "eB" = (
 /obj/structure/flora/bush/fernybush,
 /obj/structure/flora/bush/fernybush,
@@ -464,11 +468,8 @@
 /area/valSal_port/outside/inner_town)
 "if" = (
 /obj/structure/railing/mapped/wooden/walnut,
-/obj/structure/railing/mapped/wooden/walnut{
-	dir = 8
-	},
 /turf/floor/path/basalt,
-/area/valSal_port/outside/garden)
+/area/valSal_port/town/general_store)
 "ij" = (
 /obj/structure/flora/tree/hardwood/willow,
 /turf/floor/grass/wild,
@@ -916,6 +917,9 @@
 /obj/item/seeds/onionseed,
 /turf/floor/path/basalt,
 /area/valSal_port/outside/garden)
+"oI" = (
+/turf/wall/log/bamboo,
+/area/valSal_port/town/general_store)
 "oO" = (
 /obj/structure/flora/seaweed,
 /turf/floor/mud/water/deep,
@@ -1019,6 +1023,10 @@
 /obj/structure/flora/bush/stalkybush,
 /turf/floor/grass,
 /area/valSal_port/outside/westside)
+"qu" = (
+/obj/structure/flora/bush/genericbush,
+/turf/wall/log/bamboo,
+/area/valSal_port/town/general_store)
 "qy" = (
 /obj/structure/flora/tree/hardwood/willow,
 /turf/floor/grass,
@@ -1539,9 +1547,9 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
 "xs" = (
-/obj/structure/flora/tree/hardwood/willow,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
+/obj/structure/closet/cabinet/wooden/ebony,
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "xt" = (
 /obj/structure/flora/bush/genericbush,
 /turf/floor/dirt,
@@ -1770,6 +1778,10 @@
 "Bu" = (
 /turf/floor/mud/water,
 /area/valSal_port/outside/river)
+"Bv" = (
+/obj/structure/flora/tree/hardwood/ebony,
+/turf/floor/grass,
+/area/valSal_port/outside/outer_town)
 "BA" = (
 /obj/structure/flora/tree/hardwood/mahogany,
 /turf/floor/grass/wild,
@@ -1932,10 +1944,13 @@
 /turf/floor/barren,
 /area/valSal_port/outside/southside)
 "DY" = (
-/obj/structure/flora/tree/hardwood/ebony,
-/obj/structure/flora/bush/genericbush,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
+/obj/structure/closet/cabinet/wooden/ebony,
+/obj/structure/wall_sconce/lantern{
+	dir = 1;
+	pixel_y = 22
+	},
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "DZ" = (
 /obj/structure/flora/tree/hardwood/ebony,
 /turf/floor/grass/wild,
@@ -1984,7 +1999,7 @@
 	dir = 8
 	},
 /turf/floor/path/basalt,
-/area/valSal_port/outside/garden)
+/area/valSal_port/town/general_store)
 "EC" = (
 /obj/structure/bed/chair/wood/ebony{
 	dir = 4
@@ -2010,6 +2025,12 @@
 "EN" = (
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
+"EQ" = (
+/obj/structure/door/mahogany{
+	dir = 4
+	},
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "ES" = (
 /obj/structure/railing/mapped/wooden/walnut{
 	dir = 8
@@ -2119,6 +2140,13 @@
 "GM" = (
 /turf/floor/carpet/rustic,
 /area/valSal_port/town/house)
+"GP" = (
+/obj/structure/railing/mapped/wooden/walnut,
+/obj/structure/railing/mapped/wooden/walnut{
+	dir = 1
+	},
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "GR" = (
 /obj/structure/flora/tree/hardwood/ebony,
 /obj/structure/flora/bush/fernybush,
@@ -2554,9 +2582,9 @@
 /turf/wall/natural/basalt/valSal_port,
 /area/valSal_port/outside/eastside)
 "NR" = (
-/obj/structure/flora/bush/genericbush,
-/turf/floor/grass,
-/area/valSal_port/outside/outer_town)
+/obj/structure/closet/crate/chest/ebony,
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "Og" = (
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass,
@@ -2616,6 +2644,9 @@
 /obj/item/book/skill/organizational/literacy/basic,
 /turf/floor/wood,
 /area/valSal_port/town/trapper)
+"OM" = (
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "OO" = (
 /obj/structure/flora/tree/softwood/cypress,
 /turf/floor/grass/wild,
@@ -2627,6 +2658,10 @@
 /obj/structure/door/basalt,
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
+"Pp" = (
+/obj/structure/reagent_dispensers/compost_bin/ebony,
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "Pr" = (
 /obj/item/plate,
 /turf/floor/wood/mahogany,
@@ -2861,6 +2896,9 @@
 "SW" = (
 /turf/floor/carpet/rustic,
 /area/valSal_port/town/mansion)
+"Tc" = (
+/turf/wall/log/mahogany,
+/area/valSal_port/town/general_store)
 "Tl" = (
 /obj/structure/flora/bush/stalkybush,
 /obj/structure/railing/mapped/wooden/walnut{
@@ -2896,6 +2934,10 @@
 /obj/structure/flora/bush/genericbush,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
+"TN" = (
+/obj/structure/produce_bin/ebony,
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "TU" = (
 /obj/effect/spider/spiderling/mundane,
 /turf/floor/dirt,
@@ -3072,6 +3114,10 @@
 /obj/structure/flora/tree/hardwood/yew,
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
+"Wh" = (
+/obj/abstract/landmark/latejoin,
+/turf/floor/grass/wild,
+/area/valSal_port/outside/westside)
 "Wk" = (
 /turf/wall/log/walnut,
 /area/valSal_port/town/residence)
@@ -3272,10 +3318,10 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
 "YB" = (
-/obj/structure/flora/bush/fernybush,
-/obj/structure/flora/bush/genericbush,
-/turf/floor/grass/wild,
-/area/valSal_port/outside/outer_town)
+/obj/structure/closet/crate/chest/ebony,
+/obj/structure/wall_sconce/lantern,
+/turf/floor/path/basalt,
+/area/valSal_port/town/general_store)
 "YF" = (
 /obj/structure/flora/bush/fernybush,
 /obj/structure/flora/bush/sunnybush,
@@ -7705,12 +7751,12 @@ dz
 oR
 oR
 bR
-Gf
-OG
-EN
-EN
-EN
-Aj
+bR
+Cw
+UW
+UW
+UW
+gD
 Gf
 Gf
 Fw
@@ -7821,12 +7867,12 @@ rt
 yR
 dz
 bR
-bR
-bR
-bR
-Gf
-EN
-EN
+Tc
+oI
+do
+oI
+Tc
+UW
 Gf
 Fw
 Fw
@@ -7937,12 +7983,12 @@ rt
 BG
 oR
 UW
-UW
+oI
+xs
+ey
+NR
+oI
 bR
-bR
-bR
-bR
-Gf
 Gf
 Fw
 Bu
@@ -8053,12 +8099,12 @@ qz
 oR
 oR
 UW
-UW
+oI
 xs
-UW
+OM
 NR
-NR
-rf
+qu
+Bv
 Gf
 Fw
 Bu
@@ -8169,11 +8215,11 @@ rt
 rt
 dz
 UW
-Lr
+do
 DY
-UW
+OM
 YB
-UW
+do
 bR
 Fw
 Fw
@@ -8285,11 +8331,11 @@ rt
 rt
 dz
 UW
-UW
-UW
-UW
-UW
-xs
+oI
+TN
+OM
+TN
+oI
 bR
 Fw
 Fw
@@ -8401,11 +8447,11 @@ kr
 Wk
 Wk
 UW
-UW
-UW
-UW
-UW
-UW
+oI
+TN
+OM
+Pp
+oI
 bR
 Fw
 Bu
@@ -8470,7 +8516,7 @@ Cl
 Cl
 Cl
 Cl
-EN
+Wh
 Pj
 EN
 fe
@@ -8517,11 +8563,11 @@ bA
 fA
 Wk
 UW
-tF
+Tc
 do
-UW
-UW
-UW
+EQ
+do
+Tc
 bR
 Fw
 Bu
@@ -8635,8 +8681,8 @@ Ih
 UW
 UW
 UW
+GP
 UW
-gD
 bR
 bR
 Fw
@@ -8865,7 +8911,7 @@ la
 KZ
 yS
 oR
-LW
+OM
 Ht
 vn
 bR
@@ -8981,7 +9027,7 @@ FM
 Rf
 rt
 oR
-LW
+OM
 Ht
 vn
 bR
@@ -9097,7 +9143,7 @@ Rf
 VR
 Eo
 qX
-LW
+OM
 Ht
 vn
 is
@@ -9213,7 +9259,7 @@ cK
 oQ
 az
 oR
-LW
+OM
 Ht
 vn
 is
@@ -9329,7 +9375,7 @@ JI
 rt
 xm
 oR
-LW
+OM
 Ht
 vn
 Fw
@@ -9445,7 +9491,7 @@ oR
 Mj
 oR
 oR
-LW
+OM
 Ht
 dQ
 Bu
@@ -9558,10 +9604,10 @@ rt
 rt
 rt
 dz
-LW
-LW
-LW
-LW
+OM
+OM
+OM
+OM
 bL
 Bu
 Bu
