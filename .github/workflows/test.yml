@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
 
 env:
-  BYOND_MAJOR: "516"
-  BYOND_MINOR: "1685"
-  SPACEMAN_DMM_VERSION: suite-1.11
+  BYOND_MAJOR: "515"
+  BYOND_MINOR: "1643"
+  SPACEMAN_DMM_VERSION: suite-1.8
 
 jobs:
   DreamChecker:
