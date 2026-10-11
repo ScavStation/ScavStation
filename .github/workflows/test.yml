@@ -3,22 +3,22 @@ name: Run Tests
 on:
   push:
     branches:
-      - main
       - dev
+      - main
   pull_request:
     branches:
-      - main
       - dev
+      - main
   workflow_dispatch:
 
 env:
-  BYOND_MAJOR: "516"
-  BYOND_MINOR: "1685"
-  SPACEMAN_DMM_VERSION: suite-1.11
+  BYOND_MAJOR: "515"
+  BYOND_MINOR: "1647"
+  SPACEMAN_DMM_VERSION: suite-1.8
 
 jobs:
   DreamChecker:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Setup Cache
@@ -31,8 +31,7 @@ jobs:
       - name: Run Dreamchecker
         run: |
           set -o pipefail
-          ./test/lint-all-modpacks.sh scavstation.dme
-          ./test/lint-each-modpack.sh scavstation.dme
+          ~/dreamchecker 2>&1 | tee ${GITHUB_WORKSPACE}/output-annotations.txt
       - name: Annotate Lints
         uses: yogstation13/DreamAnnotate@v2
         if: always()
@@ -50,13 +49,18 @@ jobs:
           chmod +x send.sh
           ./send.sh failure $WEBHOOK_URL
   OpenDream:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Python setup
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+      - name: Setup Cache
+        uses: actions/cache@v3
+        with:
+          path: $HOME/spaceman_dmm/$SPACEMAN_DMM_VERSION
+          key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
       - name: Install OpenDream
         uses: robinraju/release-downloader@v1.9
         with:
@@ -65,9 +69,9 @@ jobs:
           fileName: "DMCompiler_linux-x64.tar.gz"
           extract: true
       - name: Run OpenDream
-        run: ./test/compile-od-all-modpacks.sh scavstation.dme
+        run: ./DMCompiler_linux-x64/DMCompiler nebula.dme --suppress-unimplemented --skip-anything-typecheck --version=${BYOND_MAJOR}.${BYOND_MINOR} | python tools/od_annotator/__main__.py "$@"
   Code:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Setup Cache
@@ -93,7 +97,7 @@ jobs:
           chmod +x send.sh
           ./send.sh failure $WEBHOOK_URL
   Maps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         map_path: [example, tradeship, exodus, ministation, shaded_hills, away_sites_testing, modpack_testing, planets_testing, valSal_port, tradeship_alt]
@@ -104,11 +108,6 @@ jobs:
         with:
           path: ~/BYOND-${{ env.BYOND_MAJOR }}.${{ env.BYOND_MINOR }}
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
-      - name: Install Dependencies
-        run: |
-          sudo dpkg --add-architecture i386
-          sudo apt update || true
-          sudo apt install -o APT::Immediate-Configure=false curl:i386
       - name: Run Tests
         env:
           TEST: MAP
