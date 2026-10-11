@@ -12,8 +12,8 @@ on:
   workflow_dispatch:
 
 env:
-  BYOND_MAJOR: "515"
-  BYOND_MINOR: "1647"
+  BYOND_MAJOR: "516"
+  BYOND_MINOR: "1687"
   SPACEMAN_DMM_VERSION: suite-1.8
 
 jobs:
