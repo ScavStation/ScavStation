@@ -18,6 +18,30 @@
 	mask_to_bodypart = FALSE
 	uid = "marking_yinglet_longtooth"
 
+/decl/sprite_accessory/marking/yinglet/dualtooth
+	name = "Dual Shelltooth"
+	icon_state = "dualtooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_dualtooth"
+
+/decl/sprite_accessory/marking/yinglet/righttooth
+	name = "Snaggletooth (Right)"
+	icon_state = "righttooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_righttooth"
+
+/decl/sprite_accessory/marking/yinglet/lefttooth
+	name = "Snaggletooth (Left)"
+	icon_state = "lefttooth"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_lefttooth"
+
+/decl/sprite_accessory/marking/yinglet/innerear
+	name = "Ear Innards"
+	icon_state = "innerear"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_innerear"
+
 /decl/sprite_accessory/marking/yinglet/recolour_limb
 	name = "Body Colour (Left Arm)"
 	icon_state = "limbs"
@@ -39,6 +63,18 @@
 	body_parts = list(BP_R_LEG, BP_R_FOOT)
 	uid = "marking_yinglet_body_r_leg"
 
+/decl/sprite_accessory/marking/yinglet/lefthand
+	name = "Body Colour (Left Hand)"
+	icon_state = "lefthand"
+	body_parts = list(BP_L_HAND)
+	uid = "marking_yinglet_lefthand"
+
+/decl/sprite_accessory/marking/yinglet/righthand
+	name = "Body Colour (Right Hand)"
+	icon_state = "righthand"
+	body_parts = list(BP_R_HAND)
+	uid = "marking_yinglet_righthand"
+
 /decl/sprite_accessory/marking/yinglet/short_ears
 	name = "Ying Short Ears"
 	icon_state = "shortears"
@@ -50,6 +86,12 @@
 	icon_state = "longears"
 	mask_to_bodypart = FALSE
 	uid = "marking_yinglet_ears_long"
+
+/decl/sprite_accessory/marking/yinglet/tribal
+	name = "Tribal Markings"
+	icon_state = "tribal"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_tribal"
 
 /decl/sprite_accessory/marking/yinglet/recolour_front_body
 	name = "Body Colour (Front)"
@@ -64,12 +106,62 @@
 	mask_to_bodypart = TRUE
 	uid = "marking_yinglet_head_front"
 
+/decl/sprite_accessory/marking/yinglet/recolour_chest_top
+	name = "Chest Fluff Colour"
+	icon_state = "chestfluff"
+	mask_to_bodypart = TRUE
+	body_parts = list(BP_CHEST, BP_GROIN)
+	uid = "marking_yinglet_chest_top"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_top
+	name = "Head Colour (Top)"
+	icon_state = "facetop"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_face_top"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_bottom
+	name = "Head Colour (Bottom)"
+	icon_state = "facebottom"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_face_bottom"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_bandit
+	name = "Head Colour (Bandit)"
+	icon_state = "bandit"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_face_bandit"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_stripes
+	name = "Head Colour (Stripes)"
+	icon_state = "facestripes"
+	mask_to_bodypart = TRUE
+	uid = "marking_yinglet_face_stripes"
+
+/decl/sprite_accessory/marking/yinglet/recolour_face_wrap
+	name = "Head Colour (Snout Wrap)"
+	icon_state = "snoutwrap"
+	mask_to_bodypart = TRUE
+	uid = "marking_yinglet_face_wrap"
+
+/decl/sprite_accessory/marking/yinglet/recolour_eartips
+	name = "Ear Tips Colour"
+	icon_state = "eartips"
+	mask_to_bodypart = FALSE
+	uid = "marking_yinglet_eartips"
+
 /decl/sprite_accessory/marking/yinglet/recolour_front_torso
 	name = "Torso Colour (Front)"
 	icon_state = "torsofront"
 	mask_to_bodypart = TRUE
 	body_parts = list(BP_CHEST, BP_GROIN)
 	uid = "marking_yinglet_torso_front"
+
+/decl/sprite_accessory/marking/yinglet/recolour_bodystripes
+	name = "Torso Colour (Stripes)"
+	icon_state = "bodystripes"
+	mask_to_bodypart = TRUE
+	body_parts = list(BP_CHEST, BP_GROIN)
+	uid = "marking_yinglet_torso_stripes"
 
 // this doesnt function do to how the tail code works
 // /decl/sprite_accessory/marking/yinglet/recolour_under_tail
@@ -150,6 +242,56 @@
 	name = "Ying Fonzie"
 	icon_state = "hair_fonzie"
 	uid = "hair_ying_fonzie"
+
+/decl/sprite_accessory/hair/yinglet/wild
+	name = "Ying Wild"
+	icon_state = "hair_wild"
+	uid = "hair_ying_wild"
+
+/decl/sprite_accessory/hair/yinglet/loopie
+	name = "Ying Loopie"
+	icon_state = "hair_loopie"
+	uid = "hair_ying_loopie"
+
+/decl/sprite_accessory/hair/yinglet/tied
+	name = "Ying Tied"
+	icon_state = "hair_tied"
+	uid = "hair_ying_tied"
+
+/decl/sprite_accessory/hair/yinglet/cube
+	name = "Ying Cube"
+	icon_state = "hair_cube"
+	uid = "hair_ying_cube"
+
+/decl/sprite_accessory/hair/yinglet/saucer
+	name = "Ying Saucer"
+	icon_state = "hair_saucer"
+	uid = "hair_ying_saucer"
+
+/decl/sprite_accessory/hair/yinglet/bowl
+	name = "Ying Bowl"
+	icon_state = "hair_bowl"
+	uid = "hair_ying_bowl"
+
+/decl/sprite_accessory/hair/yinglet/floozie
+	name = "Ying Floozie"
+	icon_state = "hair_floozie"
+	uid = "hair_ying_floozie"
+
+/decl/sprite_accessory/hair/yinglet/short
+	name = "Ying Short Hair"
+	icon_state = "hair_short"
+	uid = "hair_ying_short"
+
+/decl/sprite_accessory/hair/yinglet/blastback
+	name = "Ying Blastback"
+	icon_state = "hair_blastback"
+	uid = "hair_ying_blastback"
+
+/decl/sprite_accessory/hair/yinglet/emo
+	name = "Ying Emo"
+	icon_state = "hair_emo"
+	uid = "hair_ying_emo"
 
 /decl/sprite_accessory/hair/yinglet/pompador
 	name = "Ying Pompador"

@@ -16,7 +16,7 @@
 		SKILL_DEVICES  = SKILL_MAX,
 		SKILL_SCIENCE  = SKILL_MAX
 	)
-	skill_points = 28
+	skill_points = 34
 	department_types = list(/decl/department/science)
 	selection_color = "#633d63"
 	economic_power = 7
@@ -60,7 +60,7 @@
 		SKILL_DEVICES  = SKILL_MAX,
 		SKILL_SCIENCE  = SKILL_MAX
 	)
-	skill_points = 36
+	skill_points = 40
 	head_position = 1
 	department_types = list(
 		/decl/department/science,

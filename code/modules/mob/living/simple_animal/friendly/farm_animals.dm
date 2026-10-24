@@ -60,7 +60,7 @@
 	if(istype(food))
 		body.stop_automove()
 		body.a_intent = I_HELP
-		body.ClickOn(food)
+		body.try_click_on(food)
 	else if(!LAZYLEN(body.grabbed_by))
 		food = find_edible_atom(oview(5, body.loc))
 		if(istype(food))
@@ -192,6 +192,7 @@
 	ai = /datum/mob_controller/fowl
 	abstract_type = /mob/living/simple_animal/fowl
 	var/body_color
+
 
 /datum/mob_controller/fowl
 	speak_chance = 1

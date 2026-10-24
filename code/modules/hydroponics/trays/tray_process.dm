@@ -49,7 +49,7 @@
 
 	// Advance plant age.
 	var/cur_stage = seed.get_overlay_stage(age)
-	if(prob(30))
+	if(prob(50))
 		age += 1 * growth_rate
 		if(seed.get_overlay_stage(age) != cur_stage)
 			needs_icon_update |= 1

@@ -35,7 +35,7 @@
 		SKILL_WEAPONS  = SKILL_EXPERT,
 		SKILL_LITERACY = SKILL_ADEPT
 	)
-	skill_points = 28
+	skill_points = 30
 
 /datum/job/yinglet/patriarch
 	title = "Enclave Patriarch"
@@ -67,7 +67,7 @@
 		SKILL_ATMOS        = SKILL_MAX,
 		SKILL_ENGINES      = SKILL_MAX
 	)
-	skill_points = 32
+	skill_points = 38
 	head_position = 1
 	guestbanned = 1
 	department_types = list(/decl/department/enclave)
@@ -137,7 +137,7 @@
 		SKILL_MEDICAL  = SKILL_MAX,
 		SKILL_ANATOMY  = SKILL_EXPERT
 	)
-	skill_points = 40
+	skill_points = 44
 	head_position = 1
 	department_types = list(
 		/decl/department/enclave,

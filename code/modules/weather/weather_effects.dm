@@ -44,7 +44,10 @@
 		if(!isliving(C.mob) || C.mob.get_preference_value(/datum/client_preference/play_ambiance) != PREF_YES)
 			continue
 		var/turf/T = get_turf(C.mob)
-		if(!(T.z in affecting_zs))
+		if(!T || !(T.z in affecting_zs))
+			continue
+		var/exposure = T.get_weather_exposure()
+		if(exposure == WEATHER_IGNORE || exposure == WEATHER_ROOFED)
 			continue
 		sound_to(C.mob, sound('sound/effects/weather/thunder.ogg', repeat = FALSE, wait = 0, volume = 100))
 	sleep(3)

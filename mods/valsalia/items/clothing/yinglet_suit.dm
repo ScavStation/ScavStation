@@ -13,6 +13,19 @@
 	_yinglet_icon = null
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 
+// Vest gets its own override rather than the generic jacket_yinglet.dmi above
+/obj/item/clothing/suit/jacket/vest
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/yingvest.dmi'
+
+/obj/item/clothing/suit/jacket/vest/blue
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/yingvest.dmi'
+
+/obj/item/clothing/suit/jacket/vest/gray
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/yingvest.dmi'
+
+/obj/item/clothing/suit/jacket/vest/black
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/yingvest.dmi'
+
 /obj/item/clothing/suit/yinglet/cape
 	name = "small cape"
 	desc = "A short length of cloth worked into a cape. Some people would say it looks stupid."
@@ -32,6 +45,31 @@
 	name = "yinglet fancy clothes"
 	desc = "White shorts and a shirt with a blue scarf made for a yinglet. A fancy outfit for a fancy lad."
 	icon = 'mods/valsalia/icons/clothing/suit/fancy_clothes_yinglet.dmi'
+
+/obj/item/clothing/suit/yinglet/paunch
+	name = "yinglet paunch"
+	desc = "A red mantle with spackled yellow trim, along with some plain pants for added measure."
+	icon = 'mods/valsalia/icons/clothing/suit/paunch.dmi'
+
+/obj/item/clothing/suit/yinglet/prettygown
+	name = "yinglet pretty gown"
+	desc = "An orange gown with a short skirt. It's quite fancy!"
+	icon = 'mods/valsalia/icons/clothing/suit/prettygown.dmi'
+
+/obj/item/clothing/suit/yinglet/yingpao
+	name = "yinglet qipao"
+	desc = "A green gown with yellow trim, and a fancy loincloth hanging between the legs."
+	icon = 'mods/valsalia/icons/clothing/suit/yingpao.dmi'
+
+/obj/item/clothing/suit/yinglet/dancewear
+	name = "yinglet dancewear"
+	desc = "A vibrant outfit designed for dancing. It's quite eye-catching!"
+	icon = 'mods/valsalia/icons/clothing/suit/dancewear.dmi'
+
+/obj/item/clothing/suit/yinglet/bountifuldress
+	name = "yinglet bountiful dress"
+	desc = "A dress designed in mind for yinglets of the larger variety."
+	icon = 'mods/valsalia/icons/clothing/suit/bountifuldress.dmi'
 
 /obj/item/clothing/suit/quingsuit
 	name = "quinglet enviromental suit"

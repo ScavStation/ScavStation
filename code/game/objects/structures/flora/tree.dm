@@ -25,6 +25,10 @@
 	var/shake_animation_degrees = 4
 	/// Marker for repeating the cut sound effect and animation.
 	var/someone_is_cutting = FALSE
+	/// Some stump types share their icon_state naming with the tree itself (walnut tree "walnut_1" ->
+	/// stump "walnut_1" in a different icon file). Set FALSE for species where the stump has its own
+	/// distinct, dedicated icon_state that shouldn't be overwritten with the tree's current one.
+	var/stump_icon_matches_tree = TRUE
 
 /obj/structure/flora/tree/get_material_health_modifier()
 	return 2.5 //Prefer removing via tools than bashing
@@ -86,7 +90,8 @@
 		LAZYADD(., new log_type(T, rand(max(1,round(log_amount*0.5)), log_amount), material?.type, reinf_material?.type))
 	if(stump_type)
 		var/obj/structure/flora/stump/stump = new stump_type(T, material, reinf_material)
-		stump.icon_state = icon_state //A bit dirty maybe, but its probably not worth writing a whole system for this when we have 3 kinds of trees...
+		if(stump_icon_matches_tree)
+			stump.icon_state = icon_state //A bit dirty maybe, but its probably not worth writing a whole system for this when we have 3 kinds of trees...
 		if(paint_color)
 			stump.set_color()
 	. = ..()

@@ -266,14 +266,14 @@
 		loc.take_waste_burn_products(., effective_burn_temperature)
 
 // Dump waste gas from burned fuel.
-/obj/structure/fire_source/proc/dump_waste_products(var/atom/target, var/list/waste)
+/*/obj/structure/fire_source/proc/dump_waste_products(var/atom/target, var/list/waste)
 	if(istype(target) && length(waste))
 		var/datum/gas_mixture/environment = target.return_air()
 		if(environment)
 			for(var/w in waste)
 				if(waste[w] > 0)
 					environment.adjust_gas(w, waste[w], FALSE)
-			environment.update_values()
+			environment.update_values()*/
 
 /obj/structure/fire_source/attackby(var/obj/item/thing, var/mob/user)
 
@@ -347,7 +347,7 @@
 		if(fuel >= IDEAL_FUEL)
 			break
 
-	dump_waste_products(loc, waste)
+	/*dump_waste_products(loc, waste)*/
 
 	if(!isnull(cap_last_fuel_burn))
 		last_fuel_burn_temperature = min(last_fuel_burn_temperature, cap_last_fuel_burn)
@@ -375,7 +375,7 @@
 					waste[product] += waste_products[product]
 				reagents.remove_reagent(reagent.type, volume)
 
-		dump_waste_products(loc, waste)
+		/*dump_waste_products(loc, waste)*/
 
 		if(lit == FIRE_LIT && do_steam)
 			steam.start() // HISSSSSS!

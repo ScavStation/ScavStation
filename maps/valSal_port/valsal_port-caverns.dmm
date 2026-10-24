@@ -1,0 +1,338 @@
+"aa" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"ai" = (/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"al" = (/obj/effect/spider/stickyweb,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"at" = (/obj/machinery/auto_cloner{pixel_y = -9},/turf/floor/tiled/white,/area/valSal_port/lab)
+"aH" = (/obj/structure/boulder/basalt,/obj/effect/geyser,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"bc" = (/obj/structure/rubble/lab,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"bt" = (/obj/effect/spider/eggcluster,/turf/floor/dirt,/area/valSal_port/nest)
+"bG" = (/turf/floor/barren,/area/valSal_port/caves/deep)
+"bN" = (/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"cd" = (/obj/structure/flora/tree/hardwood/maple,/turf/unsimulated/floor/grass,/area/valSal_port/grove)
+"cr" = (/turf/unsimulated/floor/grass,/area/valSal_port/grove)
+"cP" = (/obj/item/chems/glass/rag,/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/turf/floor/path/marble,/area/valSal_port/prison)
+"cQ" = (/obj/item/remains,/turf/floor/rock/basalt,/area/valSal_port/miningcamp)
+"dp" = (/obj/item/stack/material/bone/mapped/bone/fifteen,/obj/effect/decal/cleanable/filth,/turf/floor/path/marble,/area/valSal_port/prison)
+"dO" = (/obj/item/remains/mouse,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"dQ" = (/turf/wall/natural/random/high_chance/basalt,/area/valSal_port/caves/deep)
+"ei" = (/turf/floor/carpet/rustic,/area/valSal_port/miningcamp)
+"ek" = (/obj/effect/decal/cleanable/dirt/visible,/turf/wall/brick/pottery,/area/valSal_port/prison)
+"ey" = (/obj/effect/decal/cleanable/filth,/turf/floor/path/herringbone/sandstone,/area/valSal_port/prison)
+"eB" = (/obj/structure/table/woodentable_reinforced/ebony,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/chems/glass/inkwell/quilled,/obj/effect/decal/cleanable/cobweb,/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"eK" = (/obj/item/toy/plushie/cat/siamese,/obj/effect/decal/cleanable/dirt,/turf/floor/tiled/stone,/area/valSal_port/library)
+"eO" = (/obj/item/frame/light/small{dir = 8; pixel_x = -14},/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"fx" = (/obj/structure/wall_sconce/lantern{dir = 8},/turf/floor/path/running_bond/marble,/area/valSal_port/library)
+"fA" = (/obj/item/cash/imperial/regalis,/mob/living/simple_animal/hostile/giant_spider/guard/cave,/turf/floor/dirt,/area/valSal_port/nest)
+"fG" = (/obj/structure/flora/bush/ppflowers,/turf/unsimulated/floor/grass,/area/valSal_port/grove)
+"fJ" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/dirt,/area/valSal_port/nest)
+"fO" = (/turf/wall/alium,/area/valSal_port/lab)
+"fW" = (/obj/item/remains/human,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"ge" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/turf/floor/path/marble,/area/valSal_port/prison)
+"gg" = (/turf/wall/natural/random/high_chance/basalt/valSal_port,/area/valSal_port/caves/deep)
+"gu" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/mob/living/simple_animal/hostile/giant_spider/guard/cave,/turf/floor/dirt,/area/valSal_port/nest)
+"gS" = (/turf/wall/brick/pottery/shutter,/area/valSal_port/prison)
+"gW" = (/obj/effect/decal/cleanable/filth,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"hf" = (/turf/wall/natural/random/basalt/valSal_port,/area/valSal_port/caves/deep)
+"hj" = (/obj/structure/boulder/basalt,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"hm" = (/obj/item/remains/human,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"ij" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/miningcamp)
+"iT" = (/obj/item/bladed/rapier,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"iY" = (/obj/effect/spider/spiderling,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"jg" = (/obj/item/frame/light/small{pixel_y = -14},/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"jC" = (/obj/item/remains/lizard,/obj/effect/spider/stickyweb,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"jE" = (/obj/item/stack/material/gemstone/mapped/diamond,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"jF" = (/obj/effect/spider/spiderling,/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/dirt,/area/valSal_port/nest)
+"jN" = (/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"jQ" = (/obj/item/remains/lizard,/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/dirt,/area/valSal_port/nest)
+"jR" = (/mob/living/simple_animal/hostile/antlion,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"jS" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"km" = (/turf/wall/natural/random/basalt/valSal_port,/area/valSal_port/mushroom)
+"lj" = (/turf/wall/natural/random/basalt/valSal_port,/area/valSal_port/mineshaft)
+"lq" = (/obj/item/chems/glass/handmade/bowl/wood,/obj/item/utensil/spoon/wood,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/marble,/area/valSal_port/prison)
+"lC" = (/turf/wall/natural/random/basalt/valSal_port,/area/valSal_port/nest)
+"mr" = (/obj/structure/door/sandstone{dir = 4},/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"mv" = (/obj/structure/boulder/basalt,/obj/item/remains,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"mx" = (/turf/wall/natural/basalt,/area/valSal_port/nest)
+"mH" = (/obj/effect/decal/cleanable/cobweb{dir = 4},/turf/floor/rock/basalt,/area/valSal_port/nest)
+"ny" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/mineshaft)
+"oa" = (/obj/structure/wall_sconce/lantern{dir = 4},/turf/floor/path/running_bond/marble,/area/valSal_port/library)
+"om" = (/obj/effect/spider/spiderling,/obj/effect/spider/stickyweb,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"oD" = (/obj/effect/decal/cleanable/dirt,/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 26},/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"oZ" = (/obj/structure/wall_sconce/lantern{dir = 1; pixel_y = 26},/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"pj" = (/obj/abstract/landmark/corpse/chef,/obj/item/book/manual/chef_recipes,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"pl" = (/obj/item/remains/lizard,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"pO" = (/obj/item/frame/light/small{dir = 4; pixel_x = 14},/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"pW" = (/obj/structure/boulder/basalt,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"qe" = (/mob/living/simple_animal/hostile/giant_spider/guard/cave,/turf/floor/dirt,/area/valSal_port/nest)
+"qt" = (/obj/effect/decal/cleanable/dirt,/turf/floor/tiled/stone,/area/valSal_port/library)
+"qJ" = (/obj/item/stack/material/ore/diamond,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"qK" = (/obj/item/cash/imperial/regalis,/turf/floor/dirt,/area/valSal_port/nest)
+"qO" = (/turf/floor/barren,/area/valSal_port/mushroom)
+"qQ" = (/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/turf/floor/dirt,/area/valSal_port/nest)
+"rk" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"rs" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/turf/floor/path/herringbone/sandstone,/area/valSal_port/prison)
+"sb" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/turf/floor/dirt,/area/valSal_port/nest)
+"sk" = (/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/effect/spider/stickyweb,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"ss" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"sx" = (/turf/floor/rock/basalt,/area/valSal_port/mushroom)
+"sA" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"sD" = (/obj/item/cash/imperial/regalis,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"sH" = (/obj/structure/closet/crate/chest/ebony,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/chems/glass/handmade/bowl/wood,/obj/item/utensil/fork,/obj/item/utensil/fork,/obj/item/utensil/fork,/obj/item/utensil/fork,/obj/item/utensil/spoon/wood,/obj/item/utensil/spoon/wood,/obj/item/utensil/spoon/wood,/obj/item/utensil/spoon/wood,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"tg" = (/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"tz" = (/obj/abstract/ramp_sculptor/north,/turf/wall/natural/basalt/valSal_port,/area/valSal_port/caves/deep)
+"tA" = (/obj/item/knife/primitive,/turf/floor/dirt,/area/valSal_port/nest)
+"tG" = (/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"tX" = (/obj/structure/bed/chair/office,/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/obj/item/remains/xeno,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"uv" = (/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/obj/item/paper/scroll,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"uS" = (/obj/item/remains,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"uU" = (/obj/structure/flora/tree/softwood/towercap,/turf/floor/barren,/area/valSal_port/caves/deep)
+"vu" = (/turf/wall/natural/random/high_chance/basalt/valSal_port,/area/valSal_port/miningcamp)
+"vC" = (/obj/machinery/computer/design_console{dir = 1},/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"vO" = (/obj/effect/decal/cleanable/dirt,/obj/structure/wall_sconce/lantern{dir = 4},/turf/floor/path/running_bond/marble,/area/valSal_port/library)
+"vS" = (/obj/effect/decal/cleanable/dirt,/obj/structure/wall_sconce/lantern,/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"wp" = (/obj/structure/fire_source/firepit/granite,/obj/item/stack/material/log/mapped/walnut/fifteen,/turf/floor/rock/basalt,/area/valSal_port/miningcamp)
+"wW" = (/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"wZ" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/clothing/suit/armor/forged/brigandine,/obj/item/clothing/suit/armor/forged/brigandine,/obj/item/clothing/suit/armor/forged/brigandine,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"xi" = (/obj/effect/spider/cocoon,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"xm" = (/obj/effect/geyser,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"xH" = (/obj/effect/decal/cleanable/cobweb,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"xI" = (/obj/effect/spider/eggcluster,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"yy" = (/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/regalis,/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"yL" = (/turf/floor/tiled/stone,/area/valSal_port/library)
+"yZ" = (/turf/floor/rock/basalt,/area/valSal_port/nest)
+"zq" = (/obj/effect/wingrille_spawn/reinforced/full,/turf/floor/plating,/area/valSal_port/lab)
+"zw" = (/mob/living/simple_animal/koala,/turf/unsimulated/floor/grass,/area/valSal_port/grove)
+"zP" = (/turf/floor/holofloor/beach/sand,/area/valSal_port/grove)
+"Aj" = (/obj/item/remains/lizard,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"Ao" = (/obj/item/gun/magnetic/railgun/flechette{name = "ancient antiquity"; desc = "An ancient antiquity from a bygone age. This one is almost like a crossbow, but far heavier."},/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"AA" = (/obj/item/cash/imperial/crown,/obj/structure/flora/plant/random_mushroom,/turf/floor/dirt,/area/valSal_port/nest)
+"AH" = (/turf/unsimulated/floor/sand,/area/valSal_port/grove)
+"AI" = (/obj/item/clothing/glasses/meson/prescription{name = "ancient antiquity"; action_button_name = "Toggle Antiquity"; desc = "An ancient relic from a bygone age. This one looks like a pair of spectacles."},/turf/floor/dirt,/area/valSal_port/nest)
+"AJ" = (/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/item/cash/imperial/quin,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"AN" = (/obj/structure/bed/bedroll,/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/marble,/area/valSal_port/prison)
+"Bu" = (/obj/structure/hygiene/sink/puddle,/turf/floor/path/marble,/area/valSal_port/prison)
+"BB" = (/turf/wall/natural/random/basalt/valSal_port,/area/valSal_port/miningcamp)
+"BI" = (/turf/wall/natural/basalt,/area/valSal_port/caves/deep)
+"BQ" = (/turf/floor/lava,/area/valSal_port/caves/deep)
+"BT" = (/turf/wall/brick/marble,/area/valSal_port/library)
+"BW" = (/obj/effect/decal/cleanable/cobweb2{dir = 8},/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"Co" = (/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/marble,/area/valSal_port/prison)
+"Ct" = (/obj/effect/spider/spiderling,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"CL" = (/obj/item/remains/lizard,/obj/item/cash/imperial/regalis,/turf/floor/dirt,/area/valSal_port/nest)
+"Dp" = (/turf/floor/rock/sand/water,/area/valSal_port/grove)
+"Dz" = (/obj/structure/flora/tree/softwood/towercap,/turf/floor/rock/basalt,/area/valSal_port/mushroom)
+"DI" = (/obj/item/remains/lizard,/turf/floor/dirt,/area/valSal_port/nest)
+"DV" = (/obj/item/remains/lizard,/obj/item/cash/imperial/crown,/turf/floor/dirt,/area/valSal_port/nest)
+"Ec" = (/obj/structure/pillar/round,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"Ee" = (/obj/item/remains/mouse,/turf/floor/dirt,/area/valSal_port/nest)
+"El" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/barren,/area/valSal_port/mushroom)
+"Ep" = (/obj/item/remains/human,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/marble,/area/valSal_port/prison)
+"Ew" = (/obj/structure/flora/plant/random_mushroom,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"Ez" = (/obj/random/dungeon_bookcase,/obj/effect/decal/cleanable/dirt,/turf/floor/path/running_bond/marble,/area/valSal_port/library)
+"EQ" = (/obj/effect/decal/cleanable/dirt/visible,/turf/wall/brick/pottery/shutter,/area/valSal_port/prison)
+"EW" = (/obj/abstract/level_data_spawner/valSal_port_caverns,/turf/unsimulated/dark_filler,/area/valSal_port/caves/deep)
+"FP" = (/turf/floor/dirt,/area/valSal_port/nest)
+"FR" = (/obj/machinery/computer/design_console{dir = 1},/obj/effect/decal/cleanable/dirt/visible,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"FV" = (/obj/effect/decal/cleanable/dirt,/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"Gb" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/floor/tiled/stone,/area/valSal_port/library)
+"Gm" = (/obj/random/natural_debris,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"Gw" = (/obj/structure/flora/bush/ywflowers,/turf/unsimulated/floor/grass,/area/valSal_port/grove)
+"Hc" = (/obj/structure/flora/tree/softwood/towercap,/turf/floor/barren,/area/valSal_port/mushroom)
+"Hd" = (/obj/structure/bed/bedroll/fur,/turf/floor/carpet/rustic,/area/valSal_port/miningcamp)
+"Hh" = (/obj/structure/closet/crate/chest,/obj/item/tool/pickaxe/titanium,/obj/item/stack/material/ore/iron,/obj/item/stack/material/ore/iron,/obj/item/stack/material/ore/iron,/obj/item/stack/material/ore/iron,/obj/item/stack/material/ore/iron,/obj/item/stack/material/ore/gold,/obj/item/stack/material/ore/gold,/obj/item/stack/material/ore/gold,/obj/item/stack/material/ore/gold,/obj/item/stack/material/ore/gold,/obj/item/stack/material/ore/diamond,/obj/item/stack/material/ore/diamond,/obj/item/stack/material/ore/diamond,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/obj/item/stack/material/ore/coal,/turf/floor/carpet/rustic,/area/valSal_port/miningcamp)
+"HD" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/herringbone/sandstone,/area/valSal_port/prison)
+"HU" = (/obj/item/remains/mouse,/obj/item/cash/imperial/regalis,/turf/floor/dirt,/area/valSal_port/nest)
+"HV" = (/obj/item/frame/light/small{pixel_y = -14},/obj/effect/decal/cleanable/filth,/obj/structure/rubble/lab,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"IA" = (/obj/structure/flora/bush/brflowers,/turf/unsimulated/floor/grass,/area/valSal_port/grove)
+"IC" = (/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"IT" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/marble,/area/valSal_port/prison)
+"Jl" = (/obj/item/remains/human,/turf/floor/dirt,/area/valSal_port/nest)
+"Jo" = (/turf/wall/diamond,/area/valSal_port/lab)
+"Jp" = (/obj/effect/spider/stickyweb,/turf/wall/natural/dirt,/area/valSal_port/nest)
+"Ju" = (/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/dirt,/area/valSal_port/nest)
+"Jz" = (/turf/wall/brick/sandstone,/area/valSal_port/caves/deep)
+"JB" = (/obj/effect/decal/cleanable/cobweb2,/obj/item/clothing/suit/champarmor,/obj/item/bladed/poignard,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"JC" = (/obj/structure/flora/plant/random_mushroom,/obj/structure/boulder/basalt,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"JF" = (/turf/unsimulated/dark_filler,/area/valSal_port/caves/deep)
+"JH" = (/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"JK" = (/obj/item/bone/skull,/turf/floor/path/marble,/area/valSal_port/prison)
+"JN" = (/turf/floor/rock/basalt,/area/valSal_port/miningcamp)
+"JU" = (/obj/item/stack/material/gemstone/mapped/diamond,/turf/floor/dirt,/area/valSal_port/caves/deep)
+"Kf" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/structure/flora/plant/random_mushroom,/turf/floor/dirt,/area/valSal_port/nest)
+"Kr" = (/obj/item/bladed/polearm/spear/improvised/steel,/turf/floor/dirt,/area/valSal_port/nest)
+"KK" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/nest)
+"Lh" = (/turf/floor/path/marble,/area/valSal_port/prison)
+"Lj" = (/turf/floor/path/herringbone/sandstone,/area/valSal_port/prison)
+"Lk" = (/obj/item/debris/scraps/chemical,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"LM" = (/obj/item/remains/mouse,/obj/effect/spider/stickyweb,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"LW" = (/turf/wall/brick/pottery,/area/valSal_port/prison)
+"Mp" = (/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/rock/basalt,/area/valSal_port/mushroom)
+"Ms" = (/turf/floor/tiled/white,/area/valSal_port/lab)
+"ME" = (/obj/effect/spider/spiderling,/obj/item/remains/human,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/turf/floor/dirt,/area/valSal_port/nest)
+"MM" = (/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"NK" = (/obj/structure/flora/plant/random_mushroom/glowing,/obj/effect/spider/stickyweb,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"NO" = (/obj/effect/spider/stickyweb,/obj/effect/spider/stickyweb,/turf/wall/natural/dirt,/area/valSal_port/nest)
+"Oc" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/mushroom)
+"OR" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/turf/floor/dirt,/area/valSal_port/nest)
+"Pi" = (/obj/structure/flora/tree/softwood/towercap,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
+"Pk" = (/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/obj/item/cash/imperial/crown,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"Pw" = (/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/barren,/area/valSal_port/mushroom)
+"PG" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/handcuffs/cable/yellow{name = "rope restraints"; desc = "Looks like some rope tied together. Could be used to tie something up."},/obj/item/handcuffs/cable/yellow{name = "rope restraints"; desc = "Looks like some rope tied together. Could be used to tie something up."},/obj/item/handcuffs/cable/yellow{name = "rope restraints"; desc = "Looks like some rope tied together. Could be used to tie something up."},/obj/item/handcuffs/cable/yellow{name = "rope restraints"; desc = "Looks like some rope tied together. Could be used to tie something up."},/obj/item/handcuffs/cable/yellow{name = "rope restraints"; desc = "Looks like some rope tied together. Could be used to tie something up."},/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"PW" = (/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"Ql" = (/obj/structure/table/desk/ebony,/obj/item/chems/glass/inkwell/quilled,/turf/floor/path/herringbone/sandstone,/area/valSal_port/prison)
+"QS" = (/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/herringbone/sandstone,/area/valSal_port/prison)
+"Rl" = (/obj/item/clothing/suit/armor/forged/brigandine,/turf/floor/dirt,/area/valSal_port/nest)
+"Rq" = (/obj/item/stack/material/ore/diamond,/turf/floor/dirt,/area/valSal_port/caves/deep)
+"RD" = (/obj/effect/decal/cleanable/filth,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"RR" = (/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/obj/structure/wall_sconce/lantern,/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"RT" = (/obj/effect/spider/cocoon,/turf/floor/dirt,/area/valSal_port/nest)
+"Sz" = (/obj/item/cash/imperial/crown,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"SA" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"SB" = (/obj/structure/bed/chair/wood/wings/ebony{dir = 1},/obj/item/remains/human,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"SL" = (/obj/item/remains/mouse,/obj/item/cash/imperial/crown,/turf/floor/dirt,/area/valSal_port/nest)
+"SU" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/caves/deep)
+"Tc" = (/obj/item/clothing/suit/armor/forged/breastplate,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"Te" = (/obj/abstract/ramp_sculptor/south,/turf/wall/natural/basalt/valSal_port,/area/valSal_port/caves/deep)
+"Tl" = (/obj/effect/decal/cleanable/dirt/visible,/obj/effect/decal/cleanable/filth,/obj/item/baton/cattleprod{name = "ancient warstave"; desc = "An antiquity from times long past."},/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"Tn" = (/obj/item/bladed/shortsword,/turf/floor/dirt,/area/valSal_port/nest)
+"Tp" = (/obj/structure/flora/pottedplant/overgrown,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"Tu" = (/obj/effect/decal/cleanable/dirt/visible,/obj/item/debris/scraps/chemical,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"TZ" = (/obj/effect/spider/spiderling,/turf/floor/dirt,/area/valSal_port/nest)
+"Ul" = (/obj/structure/door/sandstone{dir = 4},/turf/floor/path/marble,/area/valSal_port/prison)
+"UR" = (/obj/structure/closet/cabinet/wooden/ebony,/obj/item/whip,/obj/item/whip,/obj/item/whip/chainofcommand,/obj/item/whip/tail,/obj/item/classic_baton,/obj/item/classic_baton,/obj/item/classic_baton,/obj/item/classic_baton,/turf/floor/path/running_bond/basalt,/area/valSal_port/prison)
+"Va" = (/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"Vb" = (/obj/item/remains,/obj/item/pen/fancy,/obj/item/clothing/head/collectable/tophat,/obj/item/clothing/costume/lawyer{name = "black suit"},/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/floor/tiled/stone,/area/valSal_port/library)
+"Vm" = (/obj/structure/flora/plant/random_mushroom,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"Vu" = (/obj/effect/spider/spiderling,/obj/effect/spider/stickyweb,/turf/wall/natural/dirt,/area/valSal_port/nest)
+"VE" = (/obj/item/debris/melted,/obj/effect/decal/cleanable/dirt/visible,/turf/floor/path/herringbone/marble,/area/valSal_port/prison)
+"VG" = (/turf/floor/dirt,/area/valSal_port/caves/deep)
+"VH" = (/obj/structure/boulder/basalt,/obj/structure/boulder/basalt,/turf/floor/rock/basalt,/area/valSal_port/mineshaft)
+"VW" = (/obj/effect/decal/cleanable/cobweb2{dir = 8},/turf/floor/rock/basalt,/area/valSal_port/nest)
+"VY" = (/obj/random/dungeon_bookcase,/turf/floor/path/running_bond/marble,/area/valSal_port/library)
+"Wk" = (/turf/wall/natural/basalt/valSal_port,/area/valSal_port/mushroom)
+"WD" = (/obj/structure/bed/chair/office,/obj/effect/decal/cleanable/dirt/visible,/obj/item/remains/xeno,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+"WJ" = (/obj/random/dungeon_bookcase,/obj/effect/decal/cleanable/dirt,/obj/effect/decal/cleanable/dirt,/turf/floor/path/running_bond/marble,/area/valSal_port/library)
+"Xz" = (/mob/living/simple_animal/hostile/space_dragon{name = "dragon"},/turf/floor/tiled/stone,/area/valSal_port/caves/deep)
+"Yk" = (/obj/structure/artifact/dnascramble{desc = "A large antiquity from a bygone age."; name = "ancient artifact"},/turf/floor/path/running_bond/marble,/area/valSal_port/caves/deep)
+"Yv" = (/obj/abstract/ramp_sculptor/east,/turf/wall/natural/basalt/valSal_port,/area/valSal_port/caves/deep)
+"YW" = (/obj/structure/reagent_dispensers/barrel/ebony/oil,/turf/floor/path/herringbone/marble,/area/valSal_port/library)
+"Zq" = (/obj/structure/fountain,/turf/floor/rock/sand/water,/area/valSal_port/grove)
+"Zt" = (/obj/structure/flora/plant/random_mushroom/glowing,/obj/effect/spider/stickyweb,/turf/floor/dirt,/area/valSal_port/nest)
+"ZV" = (/obj/structure/loot_pile/bookcase/ebony,/obj/effect/decal/cleanable/dirt,/turf/floor/path/running_bond/marble,/area/valSal_port/library)
+"ZW" = (/obj/effect/decal/cleanable/dirt/visible,/turf/floor/tiled/steel_grid,/area/valSal_port/lab)
+
+(1,1,1) = {"
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfSUSUSUhfhfhfhfhfhfhfhfhfhfhfhfSUSUhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfSUhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfBIBIBIBIBIhfhfBIBIBISUSUSUSUSUSUSUSUSUhfSUhfSUhfhfhfhfhfhfhfSUhfSUSUSUSUSUSUSUhfhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUhfhfhfSUhfhfhfhfhfhfhfhfhfhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUSUtGtGtGtGtGtGtGtGtGtGxmtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGSUBIBIBISUSUSUBISUSUBISUhfSUSUSUSUSUSUSUSUSUSUhfhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhfSUSUSUSUhftGtGtGtGtGtGtGhfhfhfhfSUhfhfhfhfSUSUhfSUtGtGtGtGtGtGtGhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhftGhfhfhfhfhfhfSUSUSUBIBISUSUSUtGtGtGtGtGSUSUSUSUSUhfSUSUSUSUSUSUSUSUSUljljljljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUhftGtGtGtGtGxmtGtGSUSUhfhfSUSUhfSUtGtGtGtGtGtGhfhfhfhfhfSUSUSUSUhfhfhfhfhfBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQhfhfhfBISUSUSUSUSUtGtGtGtGSUSUSUSUSUSUSUSUSUBISUSUljMMMMMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUhftGtGtGtGtGtGtGtGhfSUSUhfhftGtGtGtGtGSUSUSUhfhfhfBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQhfhfBIBISUSUSUSUtGtGtGtGtGtGSUSUSUSUSUSUSUSUnyMMjRMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUhftGxmtGtGtGtGtGtGtGtGtGtGtGtGhfhfhfhfhfhfhfBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGBQBQBQBQBQBQhfBISUSUSUSUSUSUSUSUxmtGtGtGSUSUSUSUSUSUnyMMAoMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhfSUhfhftGtGtGtGtGtGhfSUSUhfhfSUSUSUhfhfhfhfhfBQBQBQBQBQBQBQhfhfBQBQBQBQBQtGtGtGtGhfhfBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIhfhftGtGtGBQBQBQBQBQhfhfSUSUSUSUSUSUSUSUSUSUtGtGSUSUSUSUSUnyljljljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUhftGtGtGtGhfhfhfSUSUhfhfSUSUhfhfhfBQBQBQBQBQBQBQBQBQtGtGtGtGtGtGtGtGtGtGhfhfBIBIBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBIBIBIBIhfhftGtGtGBQBQBQBQhfhfhfBISUSUSUSUSUSUSUSUtGhfSUhfSUSUnyhjhjljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUhfhftGtGtGhfhfSUSUSUhfhfBQBQBQBQBQBQBQBQBQBQBQtGtGtGtGtGhfBIBIBIBIBIBIBIBIBIBIhfSUSUSUSUSUSUhfhfhfhfBIBIBIBIhfhfhfhfSUSUSUSUSUSUSUSUBIBItGtGBQBQBQBQhfhfhfSUSUSUSUSUSUSUSUtGtGSUBISUSUnyuSljljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUhftGtGtGhfhfSUSUhfhfBQBQBQBQBQBQBQBQBQtGtGtGtGtGBIBIBIBIBIBIBIBIBIhfhfhfhfhfBISUSUSUBIhfggggggBIBIBIBIggggtGtGtGtGtGtGtGhfBIBIBISUSUSUSUBItGtGtGBQBQBQBQhfSUSUSUSUSUSUSUSUSUtGSUSUhfSUljEcMMEcljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUhftGtGggggSUSUggBQBQBQBQBQtGtGtGtGtGtGtGhfhfhfhfhfhfhfhfBIBIBIBIBIBIBIhfBISUSUSUSUBIBIBIBIBIBIBIggggtGtGtGtGtgtGtGtGjStGtGtGBIBIBIBISUSUBIBIBItGtGBQBQBQBQBQhfBISUSUSUSUSUSUtGSUSUSUSUnyMMMMMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhftGtGhfSUSUSUBQBQBQBQBQBQtGjStGtGtGtGtgtGtGtGpWtGtGtGtGhfBIhfhfhfhfBIBIBISUSUBIBIBIhfhfhfggggggtGtGtGjStGtGtGtGpWtGPitGtGxmtGtGBIBIhfBISUSUSUBIBItGtGBQBQBQBQBQhfBIBISUBISUSUtGSUSUhfSUnyhjljljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUhfhftGtGhfggggBQBQBQtGtGtGtGtGtGSUSUSUSUSUtGtGtGtGtGjSPitGtGxmtGtGhfhfhfhfhfSUhfhfhfhfhftGtGxmtGtGtGtGtGtGtGtGtGtGhftGSUSUtGtGtGtGtGhfBIBIBIBISUSUBIBItGtGtGBQBQBQhfhfBISUSUSUSUSUSUSUhfSUnyhjhjljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUhfhftGhfhfggBQBQBQtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUSUSUSUSUSUtGtGtGtGtGjStGtGtGtGtGtGtGtGtGtGtGtGpWtGhfSUSUSUSUSUSUhfSUtGSUSUSUtGtGpWtGtGhfBIBIBIBISUSUBIBIhftGtGBQBQBQhfBISUhfSUSUtGtGjESUSUnyuSljljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUhftGtGhfhfBQBQBQtGtGtGhfSUBISUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUtGtGtGtGpWtGtGtGtGtGjStGtGhfSUSUSUSUhfSUSUhfSUSUSUyZalKKSUSUSUtGtGjStGtGBIBIBISUSUSUBIBIhftGtGBQBQhfBISUBISUtGRqJUqJSUSUnyEcMMEcljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUhftGtGggBQBQBQBQtGPihfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBIBIBISUSUSUSUSUtGSUSUSUSUSUBIBISUSUBIhfSUSUKKyZyZKKKKSUSUSUSUtGtGtGBIBIBISUSUSUBIBIhftGBQBQhfSUSUBItGVGVGVGtGSUSUnyljljhjljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUhftGggggBQBQBQjStGBISUSUtGtGtGtGtGtGtGtGtGtGtGtGtGtGSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUtGtGtGSUSUSUSUSUSUSUSUSUBIBIBIBISUKKyZyZyZKKSUhfSUSUpWtGtGBIBIBISUSUBIBIhftGBQBQBQSUSUtGVGVGRqtGSUSUSUnyljhjMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUhftGggBQBQBQtGpWBIBItGtGtGSUSUSUSUSUSUSUSUSUBISUSUtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGtGSUSUBIBISUSUSUSUSUSUSUBIBISUBIBISUKKJpyZKKhfhfhfSUSUxmtGtGhfBIBISUBIBIBItGtGBQBQSUtGJUVGVGjESUSUSUSUnyljhjljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGtGggBQBQBQtGBIBItGtGSUSUSUtGtGtGtGSUSUSUSUSUSUSUSUhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBISUSUSUSUSUSUSUSUSUSUSUBIBImxyZKKhfhfhfhfSUSUtGtGPihfBISUSUhfBIhftGBQBQBItGRqVGtGSUSUSUSUSUnyljMMMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGggggBQBQtGtGSUtGtGSUSUSUtGtGSUSUtGtGtGSUSUSUSUSUSUBTBTBTBTBTBTBTBTBTSUBIBISUhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBImxmxmxmxJpKKlClClClCKKSUSUtGtGtGhfBISUSUhfBItGBQBQSUqJtGtGSUSUSUSUSUSUnyEcMMEcljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGggBQBQtGtGSUBItGSUSUSUtGtGSUSUSUSUSUtGtGtGSUBISUSUBTeBoDFVjNjNoZjNBTSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUmxmxmxNOJpmxmxalKKlClCalJplClCBItGSUtGtGhfBISUhfBItGBQBQSUSUSUSUSUSUSUSUhfSUnyljhjljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGggBQBQtGhfSUSUtGSUSUSUtGSUSUSUSUSUSUSUSUtGSUhfSUhfBTfxEzVYZVEzEzoaBTSUSUSUSUBIBIBIBISUSUSUSUSUSUSUBISUhfhfmxmxxHskNOalyZyZyZwWyZyZalJpJpJpmxSUSUSUtGtGBIhfSUSUtGBQBQSUSUSUSUSUSUSUSUSUSUnyhjhjhjljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGggBQBQtGhfSUSUtGSUtGtGtGSUSUSUSUBIBISUSUtGtGhfSUhfBTqteKqtyLqtqtqtBTtGtGtGtGtGtGtGtGtGtGhfSUBISUBIhfhfhfmxmxJpPkjCJpaifJjQFPFPFPFPjCalalJpJpmxSUtGtGtGhfBIhfBItGBQBQSUSUSUSUSUSUSUSUSUSUnyljljMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQBQtGtGSUSUSUtGtGtGSUSUhftGtGtGtGBISUSUSUtGhfSUhfBTyLyLGbVbqtGbyLBTtGtGtGtGjStGtgpWtGtGtGtGBISUBIhfSUmxmxxHJpFPaiJpaiguHUTnFPJlFPFPfJalalJpmxSUSUSUtGBIBIhftGtGBQBQSUSUSUSUSUSUSUSUSUSUnyljMMuSljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQBQtGSUSUSUSUSUSUSUBItGtGtGjStGtGtGSUSUSUtGSUSUhfBTfxEzVYZVEzWJvOBTSUSUtGtGSUSUSUSUSUSUhftGBIBIBIhflCmxxHJpomFPaiJpairkORFPFPFPFPFPJuFPalJplCmxSUtGtGhfBIhftGBQBQBQSUSUSUSUSUSUSUSUSUSUnyEcuSEcljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQBQtGSUSUSUSUhftGtGtGtGtGtGtGBQtGtGtGSUSUtGtGSUhfBTYWvSFVFVFVRRBWBThfhfSUtGtGBIBISUhfSUSUtGhfSUBImxmxxHyZJpaiFPxIJpJpxiDIFPFPaiaixIFPFPaiNOJBmxBItGhftGBIBItGBQBQBQSUSUSUBISUSUSUSUSUSUnyhjljljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQtGtGSUSUSUSUtGtGtGjStGtGtGBQBQtGPitGtGSUSUtGtGBIBTBTBTBTBTBTBTBTBThfSUBIBItGSUSUSUSUSUSUpWtGhfBImxxHwWJpJpaiFPJuaiJpaiaiaiaiJpJpaiqQDIaiJpyZmxBItGtGtGhfBItGBQBQBQSUSUSUBISUSUSUSUSUSUnyhjhjljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQjSdQSUSUBIhftGPixmpWtGBQBQBQBQBQtGtGtGtGSUBItGtGhfhfSUhfhfSUSUSUSUSUSUSUtGtGSUSUBISUSUhftGtGtGBImxVmiTJpaiAjFPqQaiJpJpVuJpJpJpaiaiFPfJaiJpyZmxBIBIjStGhfBItGBQBQBQSUSUSUSUSUSUSUSUSUhfnyljhjhjljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQtGBISUSUSUhfpWtGtGtGBQBQBQBQBQBQBQBQBQjStGSUBItGtGSUSUSUSUSUSUhfSUSUtGtGtGSUSUBIhfhftGtGtGjStGBImxyZJpJpTcFPRTFPaiaiJpaiaiaiaiaifJEeFPxiJpCtmxmxBItGtGtGhftGBQBQBQSUSUSUSUSUSUSUSUSUSUljljuSMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQtGSUSUSUSUSUtGtGtgtGBQBQggggggggtGBQBQBQtGtGBIBItGtGSUSUBIhfSUSUtGtGtGSUSUSUBIhftGtGxmxmpWtGtGBImxyZJpaiEwFPJlqKKfaiaiZtRTFPFPRTFPJuaiaiJpyZJpmxBItGtGtGhftGBQBQSUhfSUSUSUSUSUSUSUSUSUljEcMMEcljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQpWSUSUSUBISUhftGtGtGBQBQggggggggggggggBQBQtGtGSUBItGtGtGtGtGtGtGtGSUSUSUSUhftGpWtGtGSUSUSUtGSUBImxyZJpaidOTZFPFPEeFPAICLFPbtFPaihmaiaiJpJpyZJpmxBItGtgpWtGtGBQBQSUhfSUSUSUSUSUSUSUSUSUljMMljMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQtGBISUSUSUSUBItGtGBQBQggggggggggggggggggBQBQtGtGhfBISUSUSUSUSUSUSUSUSUhfhftGtGtGjSSUSUSUhfPitGBImxwWJpVuaiaiJuFPFPaiaiiYaiEwaiaiJpJpJpJpFPNKJpmxBItGtGtGtGtGBQBQSUSUSUSUSUSUSUSUSUSUSUnyhjhjMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQtGtGSUSUSUSUBIjStGBQggggggggBQBQBQBQBQBQBQBQBQtGtGhfSUSUSUSUhfSUSUSUhftGtGtGtGhfSUSUSUSUSUtGtGBImxmHyZJpJpaiFPFPxiaiJpJpJpJpJpJpJpFPqeFPFPLMJpmxBItGtGaHtGtGBQBQSUSUSUhfhfhfhfhfSUSUhfnyhjljMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGBQBQtGhfSUSUSUBItGtGBQBQBQBQBQBQtGtGtGtGtGtGtGtGtGtGtGtGBIBIBISUSUSUtGtGjSSUSUtGtGSUSUSUSUSUhftGBImxmxplFPJpaiaifJaiJpJpFPFPFPFPFPRTFPFPORVmjCJpmxBItGxmtGtGBIBQhfSUSUSUSUSUSUSUSUSUhfhfnyhjuSMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUtGtGBQtGtGSUBIhfBItGtGBQBQtGtGjStGtGxmtGpWjStGtGtGtGJCtGtGtGtGtGtGtGtGtGSUSUSUSUSUtGtGSUSUSUSUhftGtGBImxmHyyJpJpxIFPaiJpjFFPFPfJFPJuRlSLsbMEsDalJpmxBItGtGtGBIBQBQSUSUSUhfhfBBBBBBBBijSUSUljEcMMEcljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUhftGBQBQtGtGBIBIBItGBQBQtGtGtGtGSUSUSUtGtGtGSUSUSUtGtGtGtGtGtGjSSUhfSUSUSUSUSUhfSUhftGtGhfSUSUSUhftGBImxmxmHyZaiaiFPhmJpJpJpJpaiaiaiAJDVAASzalalJpmxBItGtGtGBIBQBQSUhfSUhfBBBBHheiHdBBijSUljljljhjljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUhftGtGBQBQtGjStGhftGBQBQtGtGtGSUSUhfSUSUSUSUSUSUSUSUSUtGtGhfSUSUSUSUSUSUSUhfBQBQBQSUhftGtGSUSUSUhftGtGBImxmxmHwWFPFPaiaiaiaiJpJpNOJpxIFPZtaiVuJpVWmxBItGtGtGBQBQBQSUhfSUhfBBJNeieieiJNBBijnyljhjhjljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUggggtGtGBQBQBQtGPitGBQhfSUtGhfSUSUSUSUSUSUSUSUSUSUSUSUtGhfSUSUhfSUSUSUSUSUhfBQBQBQBQSUhftGtGSUSUSUhfjStGBImxmxJpJpFPfJRTFPaixIaiaiaiaiEeaiJpJpJpmxBIBIjStGBQBQBQhfSUhfSUhfBBJNJNcQJNJNJNJNMMuShjljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhfhftGtGtGBQBQtGtGBQSUSUtGSUSUSUSUhfSUSUhfSUSUSUSUhftGSUSUhfSUSUhfSUSUSUSUBQBQBQBQSUSUhftGtGSUSUhftGtGBIBImxJpJpVuaiaiEeFPKrFPtATZfJFPJpNOVWmxBIBIBItGtGBQBQBQhfSUSUSUhfBBJNJNwpJNJNvuijnyMMljljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhfhfhfhftGBQBQBQBQBQSUhftGSUSUSUSUSUSUSUSUSUSUSUhftGtGhfSUSUSUSUSUSUSUSUSUSUBQBQSUSUSUSUtGtGSUSUSUhftGtGBIBImxJpJpJpaiaiFPDIFPJlFPaiaiJpJpmxBIBIBItGtGBQBQBQhfhfSUSUSUhfBBJNJNJNJNJNvuSUnyEcMMEcljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUhftGtGtGBQBQBQSUSUtGtGSUSUSUSUSUSUSUSUSUSUhftGtGtGtGtGtGtGtGtGtGtGtGtGBQBQSUSUSUSUSUtGtGSUSUSUhftGtGBIBImxmxJpJpaiaiaifAZtaixiJpJpmxBIBIBItGtGBQBQBQhfhfSUSUSUSUhfBBBBJNJNJNijijSUljMMMMMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUhftGBQBQBQhfSUtGtGSUSUSUSUSUSUSUSUSUSUhftGxmtGggggggSUSUSUggggtGtGtGBQBQSUSUSUSUhftGSUSUSUSUhftGtGBIBImxmxJpJpJpaiaiaiJpJpJpmxBIBIBItGpWtGBQBQhfhfSUSUSUSUSUhfhfBBJNJNijijSUSUljljljMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUhfhfhftGtGtGBQhfSUtGtGSUSUSUSUSUSUSUhfSUSUSUtGtGtGggSUSUSUSUSUSUSUSUggtGBQBQSUSUhfSUhftGSUSUSUSUSUhftGtGtGBIBImxmxJpJpJpJpJpJpmxBIBIBItGtGtGBQBQBQhfSUSUSUSUSUSUhfhfhftGtGSUSUSUSUljljljMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUhfhfhfggtGBQSUSUhftGSUSUSUSUSUSUSUSUSUSUSUSUtGtGggSUSUSUggSUSUSUSUSUtGtGBQBQtGhfhfSUxmtGSUSUSUSUSUhftGtGtGBIBIBImxmxmxmHVWmxBIBIBItGtGtGtGBQBQhfSUSUSUSUSUSUSUhfhfhftGSUSUhfSUSUljMMMMMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUhfhfggtGBQSUSUhftGtGSUSUSUSUhfSUSUSUSUSUSUtGtGggSUSUSUSUSUSUSUSUSUSUtGBQBQtGtGhfSUtGtGSUSUSUSUSUSUSUhfjStGtGBIBIBIBImxmxBIBIBItGtGtGtGBQBQBQhfSUSUSUSUSUSUSUhfhftGtGSUSUSUSUSUljEcMMEcljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUSUhfggtGBQBQSUSUxmtGSUSUSUSUSUSUSUSUSUhfSUtGggSUSUSUSUSUSUggggSUSUSUSUggBQBQtGtGSUtGtGSUSUhfSUSUSUSUSUSUtGtGtGSUBIBIBIBIBIBItGtGtGtGtGBQBQhfSUSUSUSUSUSUSUhfhftGtGSUSUhfSUSUSUljuSljMMljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUSUSUhftGtGBQhfSUhftGSUSUSUSUSUSUSUhfhfSUSUtGSUSUggtGtGtGtGtGggSUSUSUSUSUggBQBQtGtGtGtGSUSUhfhfSUSUSUSUSUSUtGtGtGtGSUBIBIBItGtGhftGtGBQBQhfhfSUSUSUSUSUSUSUhfhftGtGSUhfSUSUSUSUljhjljljljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfSUSUSUSUSUSUSUSUhftGtGBQBQSUhftGtGSUSUSUSUSUSUSUSUSUtGtGtGtGtGjStGtGtGxmtGtGggggSUSUggSUBQBQtGtGtGtGSUSUSUSUSUSUSUSUSUtGggtGtGtGtGBItGtGhftGtGBQBQBQhfSUSUhfSUSUSUSUSUhftGtGSUSUhfSUSUSUSUljhjhjhjljhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfhfhfhfhfhfhfhfSUhftGtGtGBQSUhftGtGSUSUSUSUSUSUSUSUtGtGtGtGtGSUSUSUSUSUSUtGtGtGtGggSUSUSUSUBQBQtGtGtGtGtGtGxmtGtGtGtGtGtGSUSUSUtGpWtGtGhftGtGBQBQBQhfhfSUSUSUSUSUhfhfhftGtGSUSUSUSUSUSUSUSUljMMMMljnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfhfJoJoJoJoJohfSUSUtGtGtGBQSUSUhftGtGSUSUSUSUSUhftGtGtGtGggSUSUSUSUSUSUSUSUggpWtGtGtGggSUSUSUBQBQSUggggtGtGtGtGtGggSUSUSUSUSUSUggtGjStGtGtGBQBQBQtGhfhfSUSUSUhfhfhftGtGtGhfSUSUhfSUSUSUSUSUljEcMMEcnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfJoJoZWTubNJoJoSUSUtGtGtGBQSUSUSUtGtGSUhfSUSUtGtGpWtGggSUSUbGbGbGuUbGbGbGggSUSUSUSUtGtGtGSUSUSUBQBQSUSUSUSUSUggggSUSUSUSUSUSUSUtGpWtGtGtGBQBQBQtGtGSUSUSUhfhfhfhftGtGtGhfSUSUSUSUSUSUhfSUSUljMMnyMMnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfJobcZWSATlbcJoSUSUtGtGtGBQhfSUSUhftGSUSUSUtGPitGSUSUSUSUbGtGtGtGtGtGtGtGbGbGggSUggtGtGjStGggggSUBQSUSUSUSUSUSUSUSUSUSUSUggpWtgtGtGSUSUBQBQBQtGtGSUhfhfhftGtGtGtGtGtGSUSUSUSUSUSUSUSUSUSUhfnyljljMMnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfJoeOtXWDWDpOJoSUSUxmtGtGBQhfSUSUSUtGSUSUtGtGtGtGSUSUggbGtGtGtGjStGtGtGxmtGtGbGSUSUggtGtGtGtGtGggBQSUSUSUggggSUSUSUSUggtGtGtGtGtGSUSUBQBQBQhftGtGhftGtGtGtGSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfnyljMMMMnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfJoTuFRvCvCLkJoSUSUtGtGtGBQSUSUSUSUtGtGSUjStGtGSUSUggbGtGxmtGtGtGtGtGtGtGtGjStGbGSUSUggtGtGtGtgtGBQggggggSUSUSUSUSUggtGtGtGtGPiSUSUggBQBQhfhftGtGtGhfhfSUSUSUhfSUSUSUSUSUSUSUSUSUhfSUSUSUSUnyMMhjMMnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfJojgRDbNZWHVJoSUSUtGtGtGBQSUSUSUSUhftGtGtGtGSUSUggbGtGtGtGtGBQBQBQBQBQBQBQtGtGtGbGSUSUSUSUtGtGtGBQtGtGPitGtGtGtGtGtGtGtGtGSUSUSUggBQBQhftGtGtGSUSUSUSUSUhfhfhfSUSUhfhfhfhfhfhfSUSUSUSUSUSUljEchjEcljSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfJofOzqzqzqfOJoSUSUtGtGtGBQSUSUSUSUhftGtGtGggSUSUgguUtGtGBQBQBQBQYkBQBQBQBQBQtGtGuUggSUSUSUSUSUggBQtGtGtGtGtGjStGxmpWtGtGSUSUSUSUBQBQtGtGtGSUSUSUhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfhfhfhfSUSUljMMhjuSljSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfhffOMsMsMsfOhfSUSUSUtGBQBQSUSUSUSUSUtGxmtGSUSUBIggbGjStGBQBQBQBQBQBQBQBQBQBQBQtGbGggSUSUSUSUSUSUBQBQSUSUSUSUSUSUggggggSUSUSUSUSUBQBQtGtGtGSUSUSUSUSUSUSUSUSUSUSUSUWkWkWkWkWkWkWkSUSUSUSUSUljljhjnynySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfhffOMsatMsfOhfSUSUSUtGBQBQhfSUhfSUSUSUtGtGSUBIBISUbGtGtGtGBQBQBQtGtGtGBQBQBQBQtGtGSUSUSUSUSUSUggSUBQSUSUSUSUSUSUSUSUSUSUSUSUSUggBQBQtGxmtGSUSUSUSUSUSUSUSUSUSUSUSUkmsxMpsxDzOcWkWkhfhfhfSUljljhjnynySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfhffOMsMsMsfOhfSUSUSUtGBQBQhfSUSUSUSUtgtGSUSUBIBISUSUbGtGtGtGtGxmtGtGtGBQBQBQBQBQtGtGSUSUggSUSUSUSUBQggggSUSUSUSUggggSUSUSUSUSUBQBQBQBQtGtGtGSUSUSUSUSUSUSUSUSUSUSUWksxHcElqOsxsxWkWkhfhfSUljMMMMMMljSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfhffOfOfOfOfOSUSUSUSUtGBQBQhfSUSUSUhftGtGSUSUBIBIggSUSUbGtGtGtGtGtGtGjStGBQBQBQBQtGtGtGtGtGggggSUggBQSUSUSUSUSUSUSUSUSUSUSUSUggBQtGBQBQBQtGtGtGSUSUSUSUhfSUSUSUSUhfWkWkqOqOqOqOMpsxWkWkSUSUljEcMMEcnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfhfhfhfhfSUSUhfSUSUSUggBQhfSUSUSUhftGtGtGSUBIBIBIBIggSUSUbGbGuUbGbGbGtGtGtGtGtGBQBQBQtGtGtGtGtGtGtGBQggSUSUggggggSUSUSUSUSUSUBQBQtGtGBQBQBQtGtGtGhfhfSUSUSUSUSUSUhfhfWkMpqOqOqOqOElsxkmWkSUljljhjMMnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfhfSUSUSUhfSUSUSUSUSUBQBQSUSUSUtGtGtGpWtGSUBISUSUSUBIBIBIBISUSUSUSUSUbGbGtGtGtGtGBQBQBQBQBQBQtGtGBQBQSUSUSUSUSUSUSUSUSUSUSUBQBQBQtGjStGBQBQBQBQtGtGtGtGtGhfSUSUSUSUSUSUWkDzElqOHcqOsxMpWkSUljhjhjMMnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfSUSUSUSUSUSUSUSUSUSUBQBQSUSUSUtGSUSUtGtGSUBIBIggBIBIBIBIBIBIBIBIBIBIBIBIBIggtGtGpWtGtGBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQBQtGtGtGtGtGtGBQBQBQtGtGtGtGtGtGtGSUSUSUSUWkWkkmqOPwqOsxDzWkSUljljljMMnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfSUSUSUSUSUSUSUSUSUSUBQSUSUSUtGtGSUSUtGtGSUggBIBISUSUSUSUSUSUSUSUSUSUSUBIBIBIBIggggtGtGtGtGBQBQBQBQBQBQBQBQBQBQBQBQtGtGtGtGtGtGtGBIBIBItGtGtGBQBQBQBQBQBQtGtGtGtGtGSUSUSUSUWkWksxElqOsxWkhfnyMMuSMMnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUhfSUSUSUSUSUhfSUBQSUSUhftGSUSUSUjStGSUggSUggtGtGtGjStGtGtGtGtGxmtGtGtGBISUBIggSUSUSUtGtGtGtGtGtGtGtGxmtGtGtGtGtGtGtGggSUSUBIBIggggBIBItGtGtGtGxmtGBQBQBQBQtGtGtGtGtGSUSUWkWksxsxMpWkSUnyEcMMEcnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUSUSUSUBQBQSUSUtGtGSUSUSUtGtGSUSUSUtGtGSUSUSUBIBIBIBISUSUSUjStGtGSUSUSUSUSUSUBIBIBIBIBIggtGjStGtGtGggggBIBIBISUBIBIBISUggggSUSUSUBIBItGtGtGtGtGtGBQBQBQBQBQtGtGtGSUWkWkWksxWkSUljMMnynynySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUSUSUhfBQSUSUhftGhfSUSUSUtGtGSUSUtGtGSUSUSUSUSUSUSUSUSUSUBIBISUtGtGggSUSUSUSUSUSUSUSUBISUSUSUSUtGtGSUSUSUSUSUSUSUSUSUSUSUSUBIBIBIBISUSUggSUSUggtGtGtGtGBQBQBQBQtGtGtGSUSUtGSUSUljMMhjhjnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUSUSUhfBQSUhftGtGSUSUSUSUtGPitGSUtGPiSUSUSUSUSUSUSUSUSUSUSUBIBIBItGtGSUSUSUSUSUSUtGtGtGtGtGggBIBItGSUBISUSUSUSUSUSUBIBIBISUSUSUSUSUSUBIggggggSUSUSUggtGjStGBQBQBQBQtGtGtGtGSUSUnyljhjhjnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUSUSUBQBQSUhftGhfSUSUSUSUtGtGtGSUtGtGSUSUBISUSUSUSUSUSUSUSUSUBIBISUtGSUSUSUSUSUSUtGSUSUSUtGBIBISUtGSUSUBISUSUBIBISUSUSUSUSUBIBIBIBIBIggSUSUSUggggSUSUSUtGtGtGtGBQBQBQtGtGSUSUSUnyljljMMljSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUSUSUBQBQSUtGtGhfSUSUSUSUtGxmtGSUtGtGSUSUSUSUSUhfBIBISUSUSUSUSUBISUPitGSUBISUSUSUtGtGSUSUtGtGSUSUtGSUSUSUBISUggSUBIBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUtGtGBQBQBQSUSUSUSUljEcMMEcljSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUhfSUggBQBQSUtGhfhfSUSUSUSUhftGtGtGtGtGBISUSUBQBQBQBQBQSUSUSUSUSUBISUtGtGSUSUSUSUSUSUtGSUSUBItGtGtGtGSUSUSUSUSUSUSUSUSUtGtGtGjStGtGPitGtGtGtGtGtGggggSUSUSUggSUSUtGtGBQBQSUSUSUSUnyljljmvnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUSUggBQSUSUtGhfSUSUSUSUSUSUtGtGtGtGtGBISUBIBQJzJzJzBQBISUSUSUSUBISUtGxmtGSUSUBIBItGtGSUSUSUSUSUSUSUSUSUSUSUSUggtGtGtGtGtGSUSUSUSUhftGtGpWtGtGtGtGtGSUSUSUSUSUSUSUtGtGBQhfSUSUSUnyljhjhjnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUhfSUSUggBQSUhfxmhfSUSUSUSUSUSUhftGjStGSUBISUSUBQJzXzJzBQBIBISUSUSUBISUtGtGtGtGSUBIBItGSUSUSUSUSUSUBIBIBISUSUSUtGtGtGSUSUSUSUhfhfhfSUhfhfhfhftGtGtGxmtGtgtGSUSUSUSUSUggtGBQBQhfSUSUnyljhjnynySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUggggBQSUSUtGSUSUSUSUSUSUSUSUtGtGtGSUSUSUSUBQJzJzJzBQSUBISUSUSUBItGtGhfjStGtGSUBItGtGtGtGtGtGBIBIBIBISUtGpWtGtGtGSUSUhfSUSUSUSUSUSUSUSUSUSUSUSUSUtGtGtGtGtGSUSUSUSUtGBQBQBQSUSUljMMMMljljSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUggBQBQSUSUtGSUSUSUSUSUSUhfSUtGpWSUSUSUSUSUBQBQBQBQBQSUBISUSUSUBItGtGhfhftGtGtGBIBIBISUSUSUtGBIBIBIggtGtGSUSUSUtGtGSUSUSUhfhfSUSUSUSUSUSUSUSUSUSUSUSUtGtGtGggSUggSUtGBQBQBQSUSUljEcMMEcnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfSUSUSUSUSUSUggBQhfSUSUtGSUSUSUSUSUSUSUSUtgtGSUSUSUSUSUBIBQBQBQBISUBISUSUSUBItGtGhfSUhftGtGtGBIBISUSUBItGtGggtGtGtGSUSUhfSUSUtGtGhfSUSUSUSUSUSUAHAHAHAHAHAHAHAHSUSUSUpWtGtGggSUtGtGBQBQSUSUljMMljljnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUggBQhfSUSUtGSUSUSUSUSUSUSUtGtGtGSUSUSUSUSUSUSUBQBQBISUSUSUSUSUBItGtGhfSUSUSUtgtGtGBISUBIBIBItGjStGtGhfSUhfhfhfSUhftGhfSUSUhfSUSUAHAHcrcrIAcrcrcrAHAHSUSUSUtGtGtGtGtGtGBQBQBQSUnyuShjnynySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUSUBQBQhfSUSUtGtGSUSUSUSUSUSUtGtGSUSUSUSUSUSUSUSUSUBQBQSUSUhfSUBItGtGtGSUSUSUhfhfhfpWtGtGtGtGtGtGtGSUSUSUSUSUSUSUSUhftGhfSUSUSUSUAHAHcrfGcrGwcrGwcdcrAHAHSUSUSUtGjStGtGtGBQBQBQSUnynyVHnynySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUhfBQBQSUSUSUhftGhfSUSUSUtGtGtGtGSUSUSUSUSUSUSUSUSUSUBQBQBQhfBIBItGtGhfSUSUSUSUhfhfSUhfhfhfhfhfSUSUhfhfSUSUSUSUSUhftGtGSUSUSUSUAHAHcrIAcdcrcrfGcrcrfGcrAHAHSUSUSUtGtGtGtGSUBQBQBQnyMMhjljnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUSUhfBQSUSUSUSUSUtGtGSUSUhftGtGPitGtGSUSUSUSUSUSUSUSUSUBIBIBQBQBISUtGtGhfhfhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUtGtGhfSUhfSUSUAHcrcrzwGwzPzPzPzPzPcrcdcrAHAHSUSUSUtGtGtGSUBQBQBQnyEcMMEcnyhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUhfhfBQSUSUSUSUSUhftGSUSUtGtGjStGtGtGtGBISUSUSUSUSUSUSUSUSUBIBQBQtGtGtGtGtGtGtGtGtGtGhfSUSUSUSUSUSUhfSUSUSUhfhfSUtGtGhfhfSUSUSUAHAHGwcrfGcrzPDpDpDpzPzPGwcrcrAHAHSUSUSUtGtGSUhfBQBQnyMMMMMMnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhfSUSUhfBQBQSUSUhfSUSUSUtGtGtGtGtGtGtGtGtGtGSUBISUSUtGtGtGSUtGtGtGtGBQBQSUSUtGtGtGtGtGggtGtGtGtGhfSUSUhftGtGtGtGtGtGxmtGSUSUhfhfSUSUAHAHcrcdcrzPzPDpDpDpDpzPcrIAcrcrAHAHSUSUtGtGSUSUhfSUnyhjnynynySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUhfBQBQSUSUSUSUSUSUtGpWxmtGhfSUSUhftGtGtGtGtGtGtGtGtGtGxmtGtGtGtGBQSUSUSUSUSUSUSUtGtGxmtGtGtGtGtGtGtGtGtGSUSUtGtGtGhfSUSUhfSUSUSUAHcrIAcrzPDpDpZqDpDpzPcrcrGwGwcrAHSUSUSUtGSUSUSUSUnyhjuSnynySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUSUhfBQBQSUSUSUSUSUSUhftGtGtGSUSUSUSUtGtGtGtGSUSUSUSUSUtGtGtGtGSUSUBQBQhfhfhfhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhftGtGhfSUSUSUSUSUAHfGcrGwzPDpDpDpDpDpzPfGcrcrcrcrAHSUSUSUtGtGpWpWpWhjMMMMljnySUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhfSUhfggBQhfSUSUhfSUSUhfjStGtGSUSUSUSUSUtGpWtGtGtGSUSUSUSUSUSUSUSUSUSUhfBQBQBQBQBQBQBQSUhfhfhfhfhfSUSUSUSUSUSUSUhfSUSUSUtGtGhfSUSUSUSUAHcrGwcrzPzPDpDpDpDpzPcrzwIAcdAHAHSUSUSUPixmhfSUSUnyEcMMEcljSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhfSUhfBQBQSUSUhfSUhftGtGtGtGSUSUSUhfSUSUSUtGtGtGtGSUSUSUSUSUSUSUSUSUBQBQBQSUSUBQBQBQBQBQSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhftGtGhfSUSUSUAHAHcrcdcrzPzPzPzPzPzPcrcrcrcrAHSUSUSUSUtGtGhfSUSUnyljljljljSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUhfBQBQSUSUSUSUtGtgtGtGSUSUhfSUSUSUSUSUhftGjStGtGtGtGtGtGtGtGtGtGBQBQSUSUSUhfBQBQBQBQBQSUSUSUSUSUSUSUSUSUhftGtGtGtGjStGtGtGpWhfSUSUSUAHAHcrfGcrcrcrfGcrcrcrGwcrfGAHSUSUSUSUtGtGSUSUSUSUhfSUSUhfSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUhfBQhfSUSUSUtGPipWtGhfSUhfBISUSUSUSUSUhfhftGtGtGtGpWtGtgtGtGPiBQBQSUSUhfSUSUBQBQBQBQBQhfhfSUSUSUSUSUtGtGtGtGSUSUSUSUSUSUtGtGtGtGSUSUSUAHAHcrIAGwcrcrGwcrIAcrcrAHAHSUSUSUSUpWtGSUSUSUSUSUSUSUhfSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFhfSUSUSUhfBQSUSUSUtGtGtGtGhfSUSUSUSUSUSUSUSUSUSUSUSUhfhfhfSUhfhfSUSUSUBQtGtGSUSUhfSUSUBQBQBQBQSUSUhfhfSUSUtGtGtGtgSUSUSUSUSUSUSUSUSUSUtGtGtGSUSUAHAHcrcrcrcdIAcrcrGwcrAHSUSUSUSUtGtGtGhfSUSUSUSUhfSUhfSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUhfSUBQBQSUSUtGtGtGSUSUBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUBQtGjStGSUSUSUSUBQBQBQBQhfhfhfhfSUhftGxmtGSUSUhfLWLWgSLWLWSUSUSUSUtGPijSSUSUAHAHAHcrGwcrcrfGAHAHAHSUSUSUtGtGjShfhfSUSUhfSUSUSUhfSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUSUSUBQBQhfhftGjShfSUBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfhfhfBQBQSUtGtGtGtGhfSUSUhfBQBQSUhfSUSUSUtGtGjSSUSUhfLWLWLjJHeyLWLWSUSUhfSUtGtGtGSUSUSUAHAHAHAHAHAHAHSUSUSUSUtGtGtGSUSUSUSUSUSUSUSUSUSUSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUSUBQBQBQBQxmtGtGtGhfBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUBIBIBIBQBQBIhftGtGSUaHtGtGSUSUSUSUSUSUSUhftGtGPiSUSUSUhfLWTprsVEQSTpLWhfSUSUhfSUSUtGtGtGSUSUSUSUSUSUSUSUSUSUtGtGtGtGSUSUhfSUSUSUSUhfSUhfSUhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFSUBQBQBQBQBQpWtGtGhfSUSUSUSUSUSUSUSUSUSUhfhfhfhfhfhfhfhfBQBQBQBQBQBQBIBIBItGhfSUSUtGtGtGhfSUSUSUSUhftGpWtGSULWLWLWLWLWJHLjVaQSJHLWLWLWLWLWSUSUSUtGtGtGtGtGtGtGtGtGtGtGtgtGtGSUSUSUhfSUSUSUSUSUSUSUSUSUhfJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFBQBQBQSUSUSUpWtgtGSUSUSUSUSUSUSUSUhfBQBQBQBQBQBQBQBQBQBQBQSUBISUSUSUhftGtGtGSUSUSUSUSUtGtGtGjStGtGtGtGtGSULWLWITITBuLWJHQluvLjsALWICsHICLWLWSUhfSUSUtGxmtGtGjStGtGtGtGtGtGSUSUhfhfSUSUSUSUSUSUSUSUhfSUSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFBQSUSUSUSUTeSUtgtGSUSUSUSUSUSUSUhfBQBQhfhfBQBQBQBQBQBQBQhfSUBISUSUSUtGtGtGBISUSUSUSUSUhfhfhfhfhfSUSUSUSUSUekCodpLhLhLWaaHDSBLjsAmrICPWssURLWSUhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUSUSUSUSUSUSUSUhfSUSUSUSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFBQSUSUYvtGtGtGtGtGSUSUhfhfhfhfhfBQBQtGtGtGtGpjhfBQBQBQBQhfSUBISUSUtGtGtGBIBISUSUSUSUSUSUBISUSUSUSUSUSUSUSUEQANCoEpcPLWGmrsVaQSVaLWPWssICwZgSSUSUhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfSUSUSUhfSUSUSUSUhfhfSUSUSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFBQSUSUYvtGtGtGtGtGhfSUtGtGtGhfBQBQhftGhfBQBQtGhfBQBQBQBQhfSUBIBItGtGxmtGSUSUSUSUBIBISUSUSUSUBIBISUSUSUSUSULWColqgeLhLWLWLWLWLWLWLWPWfWICPGLWSUSUSUSUSUSUSUSUSUSUhfhfhfSUSUSUSUhfhfSUSUSUSUSUSUSUSUSUSUSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFBQSUSUSUtztzSUSUtGtGtGtGSUtGBQBQhfhftGtGhfBQBQBQBQBQBQBQhftGtGtGtGtGtGSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfhfLWLWJKCoITUlLhCoCossICmrPWPWgWLWLWSUSUSUSUSUSUhfhfhfSUSUSUSUSUSUSUSUhfhfSUSUSUSUSUSUSUSUSUSUSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFBQSUSUSUSUSUSUSUtGSUSUSUSUBQBQhfhfSUSUtGtGtGtGtGBQtGtGtGtGtGtGtGBIBIBIBIBISUSUSUBIBISUSUSUhfBIBISUSUSUSUSUSULWLWLWLWLWLWLWLWLWLWLWLWLWLWLWSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUSUSUSUSUSUhfSUSUSUSUhfhfSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFBQBQBQBQBQBQBQBQBQBQBQBQBQBQhfhfhfSUSUBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBIBISUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfhfhfhfSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUSUhfSUSUSUSUSUhfSUSUJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFEWJF
+JFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJFJF
+"}

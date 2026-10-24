@@ -41,16 +41,26 @@
 		/decl/background_category/homeworld = list(
 			/decl/background_detail/location/fantasy,
 			/decl/background_detail/location/fantasy/mountains,
-			/decl/background_detail/location/fantasy/steppe,
-			/decl/background_detail/location/fantasy/woods,
+			/decl/background_detail/location/fantasy/valsal,
+			/decl/background_detail/location/fantasy/hold,
+			/decl/background_detail/location/fantasy/dinnlan,
+			/decl/background_detail/location/fantasy/beletam,
+			/decl/background_detail/location/fantasy/auhei,
+			/decl/background_detail/location/fantasy/brinnilee,
+			/decl/background_detail/location/fantasy/peshtul,
+			/decl/background_detail/location/fantasy/baramor,
+			/decl/background_detail/location/fantasy/eastwall,
+			/decl/background_detail/location/fantasy/reach,
+			/decl/background_detail/location/fantasy/empire,
+			/decl/background_detail/location/fantasy/isles,
 			/decl/background_detail/location/other
 		),
 		/decl/background_category/faction =   list(
 			/decl/background_detail/faction/fantasy,
-			/decl/background_detail/faction/fantasy/barbarian,
-			/decl/background_detail/faction/fantasy/centrist,
-			/decl/background_detail/faction/fantasy/aegis,
-			/decl/background_detail/faction/fantasy/primitivist,
+			/decl/background_detail/faction/fantasy/ivenmoth,
+			/decl/background_detail/faction/fantasy/cult,
+			/decl/background_detail/faction/fantasy/merc,
+			/decl/background_detail/faction/fantasy/talleraine,
 			/decl/background_detail/faction/other
 		),
 		/decl/background_category/heritage =   list(
@@ -61,10 +71,11 @@
 			/decl/background_detail/heritage/other
 		),
 		/decl/background_category/religion =  list(
-			/decl/background_detail/religion/ancestors,
+			/decl/background_detail/religion/ancestor,
 			/decl/background_detail/religion/folk_deity,
-			/decl/background_detail/religion/anima_materialism,
-			/decl/background_detail/religion/virtuist,
+			/decl/background_detail/religion/dinn,
+			/decl/background_detail/religion/veil,
+			/decl/background_detail/religion/angel,
 			/decl/background_detail/religion/other
 		)
 	)

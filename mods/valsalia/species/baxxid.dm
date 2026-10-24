@@ -86,6 +86,9 @@
 /decl/species/baxxid
 	name = SPECIES_BAXXID
 	name_plural = SPECIES_BAXXID
+	description = "A species of large, serpent-like creatures covered in hard boney protrusions and sporting giant claws for limbs. \
+	They are mostly concentrated under The Teeth, in the city of Val Salia, but a few sometimes roam out on expeditions to see the world. \
+	Most are timid, or self-conscious about their size, and have a tendency to avoid violence as best as they can."
 	available_bodytypes = list(
 		/decl/bodytype/baxxid
 	)

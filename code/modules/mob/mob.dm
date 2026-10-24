@@ -39,6 +39,9 @@
 	ghostize()
 	return ..()
 
+/mob/proc/can_open_doors()
+	return TRUE
+
 /mob/proc/remove_screen_obj_references()
 	QDEL_NULL_SCREEN(internals)
 	QDEL_NULL_SCREEN(oxygen)
@@ -68,6 +71,8 @@
 	if(!istype(move_intent))
 		move_intent = GET_DECL(move_intent)
 	. = ..()
+	if(. == INITIALIZE_HINT_QDEL)
+		return
 	ability_master = new(null, src)
 	refresh_ai_handler()
 	START_PROCESSING(SSmobs, src)
@@ -334,6 +339,10 @@
 	else
 		client.perspective = EYE_PERSPECTIVE
 		client.eye = loc
+
+// Turf this mob's senses are currently extended to, for mobs that are being remote-viewers
+/mob/proc/get_remote_hearing_turf()
+	return null
 
 /mob/proc/get_descriptive_slot_name(var/slot)
 	return global.descriptive_slot_names[slot] || slot
@@ -603,10 +612,10 @@
 	return ..()
 
 /mob/proc/pull_damage()
-	return 0
+	return FALSE
 
 /mob/living/human/pull_damage()
-	if(!current_posture.prone|| get_damage(BRUTE) + get_damage(BURN) < 100)
+	if(buckled || !current_posture.prone || get_damage(BRUTE) + get_damage(BURN) < 100)
 		return FALSE
 	for(var/obj/item/organ/external/e in get_external_organs())
 		if((e.status & ORGAN_BROKEN) && !e.splinted)

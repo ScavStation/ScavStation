@@ -11,7 +11,7 @@
 	extended_round_description = "We are on an unavoidable collision course with an asteroid field. You have only a moment to prepare before you are barraged by dust and meteors. As if it was not enough, all kinds of negative events seem to happen more frequently. Good luck."
 	uid = "meteor"
 	required_players = 15 // Definitely not good for low-pop
-	votable = TRUE
+	votable = FALSE
 	shuttle_delay = 2
 	available_by_default = TRUE // if you include this modpack, you know what you're getting into
 

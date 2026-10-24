@@ -62,6 +62,7 @@
 	else
 		var/turf/turf = loc
 		var/datum/gas_mixture/pipe_air = return_air()
+		var/heat_radiated = FALSE
 		if(istype(loc, /turf/space))
 			parent.radiate_heat_to_space(surface, 1)
 		else if(istype(turf) && turf.simulated)
@@ -71,8 +72,13 @@
 				environment_temperature = pipe_turf.temperature
 			else
 				var/datum/gas_mixture/environment = pipe_turf.return_air()
+				if(environment.get_total_moles() == 0) // We're in a vacuum
+					if(loc.is_outside()) // But we're outside, so we're in space
+						parent.radiate_heat_to_space(surface, 0.5) // Radiate out at half efficiency
+					// Else, we're inside, no gas means no heat capacity.  Nothing to do, heat was dealt with either way
+					heat_radiated = TRUE // Skip temperature_interact() either way
 				environment_temperature = environment.temperature
-			if(abs(environment_temperature-pipe_air.temperature) > minimum_temperature_difference)
+			if(!heat_radiated && abs(environment_temperature-pipe_air.temperature) > minimum_temperature_difference)
 				parent.temperature_interact(pipe_turf, volume, thermal_conductivity)
 
 		if(buckled_mob)

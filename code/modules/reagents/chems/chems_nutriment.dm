@@ -14,6 +14,7 @@
 	nutriment_factor = 10
 	affect_blood_on_ingest = 0
 	affect_blood_on_inhale = 0
+	hardness = MAT_VALUE_SOFT // same softness as meat
 
 	// Technically a room-temperature solid, but saves
 	// repathing it to /solid all over the codebase.
@@ -304,6 +305,19 @@
 	color = "#801e28"
 	fruit_descriptor = "sweet"
 	uid = "chem_nutriment_cherryjelly"
+	melting_point = 273
+	boiling_point = 373
+	allergen_flags = ALLERGEN_FRUIT
+
+/decl/material/liquid/nutriment/grapejelly
+	name = "grape jelly"
+	lore_text = "Sweet, thick, and purple. Best spread generously."
+	taste_description = "grape"
+	taste_mult = 1.3
+	nutriment_factor = 1
+	color = "#4a1259"
+	fruit_descriptor = "sweet"
+	uid = "chem_nutriment_grapejelly"
 	melting_point = 273
 	boiling_point = 373
 	allergen_flags = ALLERGEN_FRUIT

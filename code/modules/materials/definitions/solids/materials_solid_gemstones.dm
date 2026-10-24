@@ -13,6 +13,7 @@
 	abstract_type = /decl/material/solid/gemstone
 	sound_manipulate = 'sound/foley/pebblespickup1.ogg'
 	sound_dropped = 'sound/foley/pebblesdrop1.ogg'
+	wall_damage_threshold = 10
 
 /decl/material/solid/gemstone/diamond
 	name = "diamond"

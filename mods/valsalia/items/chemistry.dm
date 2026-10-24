@@ -8,6 +8,7 @@
 
 /decl/material/liquid/nutriment/slime_meat
 	overdose = 5
+	flags = IGNORE_MOB_SIZE
 	melting_point = 223
 	boiling_point = 473
 	color = "#517a54"

@@ -69,6 +69,14 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		"t"
 	)
 
+/decl/background_detail/heritage/yinglet/misc
+	name = "Miscellaneous Faction Yinglet"
+	description = "You come from some major group that isn't the main Enclave system, isn't one of the main Arcologies, and isn't a tiny rural colony world. \
+	But you also aren't a lone wanderer through the void with no homeland to call your own. It's probably a decently-sized faction, one you are probably proud of, \
+	and others likely have heard of it."
+	uid = "scav_background_heritage_misc_faction"
+
+
 /decl/background_detail/heritage/yinglet/get_random_name(var/gender)
 	// First syllable.
 	. = pick(global.alphabet_no_vowels)
@@ -202,7 +210,7 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 /decl/background_detail/religion/dinnaism
 	name = "Dinnaism"
 	description = "Dinnaism is the national faith of the Dinnish people. It is the belief that the mythic founder and cultural ancestor of the Dinnish people, called \
-	Dinn, would descend from the Heavenly Veil and save Dinnlan in its greatest time of need."
+	Alsper of Dinn, would descend from the Heavenly Veil and save Dinnlan in its greatest time of need."
 	uid = "scav_background_religion_dinnaism"
 
 /decl/background_detail/religion/veil_worship

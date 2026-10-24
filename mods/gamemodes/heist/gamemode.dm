@@ -2,6 +2,7 @@
 	name = "Heist"
 	uid = "heist"
 	required_players = 12
+	votable = FALSE
 	required_enemies = 3
 	round_description = "An unidentified drive signature has slipped into close sensor range and is approaching!"
 	extended_round_description = "Piratical raiders are on their way to steal the station goods, and possibly the crew!"

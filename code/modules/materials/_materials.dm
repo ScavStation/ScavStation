@@ -362,6 +362,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/gas_overlay)
 	/// If an item has a null paint_verb, it automatically sets it based on material.
 	var/paint_verb = "painted"
 
+	// Physical attacks against walls must beat this threshold to cause damage.
+	var/wall_damage_threshold = 2
+
 // Placeholders for light tiles and rglass.
 /decl/material/proc/reinforce(var/mob/user, var/obj/item/stack/material/used_stack, var/obj/item/stack/material/target_stack, var/use_sheets = 1)
 	if(!used_stack.can_use(use_sheets))

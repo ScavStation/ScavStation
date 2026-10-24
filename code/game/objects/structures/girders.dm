@@ -9,8 +9,9 @@
 	material_alteration =    MAT_FLAG_ALTERATION_NAME | MAT_FLAG_ALTERATION_COLOR
 	tool_interaction_flags = (TOOL_INTERACTION_ANCHOR | TOOL_INTERACTION_DECONSTRUCT)
 	max_health = 100
-	parts_amount = 2
-	parts_type = /obj/item/stack/material/strut
+	material = /decl/material/solid/metal/steel
+	parts_amount = 5
+	parts_type = /obj/item/stack/material/rods
 
 	var/cover = 50
 	var/prepped_for_fakewall

@@ -4,6 +4,7 @@
 	extended_round_description = "Nothing can possibly go wrong with lots of people and lots of guns, right?"
 	uid = "crossfire"
 	required_players = 25
+	votable = FALSE
 	required_enemies = 6
 	end_on_antag_death = FALSE
 	associated_antags = list(

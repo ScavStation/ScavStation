@@ -93,6 +93,9 @@
 /decl/species/indrel
 	name = SPECIES_INDREL
 	name_plural = SPECIES_INDREL
+	description = "A species of large insectoids that inhabit the giant Indrel Mountain range that dominates the continent. \
+	They usually keep to themselves, and aren't very keen on people settling within their territory, but they can be open to \
+	cooperation if there is a good incentive for them and their hive."
 
 	sniff_message_3p = "waves their antennae."
 	sniff_message_1p = "You wave your antennae, searching for scents."

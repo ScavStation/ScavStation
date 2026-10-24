@@ -94,11 +94,15 @@
 	desc = "A soft-shelled yinglet egg, currently at an early incubation stage. The miracle of life is beautiful, but some might consider it a goddamn nightmare factory."
 	icon = 'mods/valsalia/icons/egg_yinglet.dmi'
 	icon_state = "egg"
-	max_health = 20 // fragile
+	max_health = ITEM_HEALTH_NO_DAMAGE // People were sad that eggs could be smashed, so here ya go //20 // fragile
 
 /obj/item/yinglet_egg/attack_self(mob/user)
 	if(user.a_intent == I_HELP)
 		src.visible_message(SPAN_NOTICE("\The [user] pets \the [name]."))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE
+	else if(user.a_intent == I_HURT)
+		src.visible_message(SPAN_WARNING("Be careful with \the [name]."))
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		return FALSE
 	return ..()

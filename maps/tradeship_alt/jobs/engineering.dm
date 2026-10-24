@@ -45,7 +45,7 @@
 		SKILL_ATMOS        = SKILL_MAX,
 		SKILL_ENGINES      = SKILL_MAX
 	)
-	skill_points = 28
+	skill_points = 34
 	alt_titles = list()
 	event_categories = list(ASSIGNMENT_ENGINEER)
 
@@ -121,6 +121,6 @@
 		SKILL_ATMOS        = SKILL_MAX,
 		SKILL_ENGINES      = SKILL_MAX
 	)
-	skill_points = 38
+	skill_points = 44
 	alt_titles = list()
 	event_categories = list(ASSIGNMENT_ENGINEER)

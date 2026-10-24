@@ -56,7 +56,9 @@
 			/datum/job/tradeship_doctor,
 			/datum/job/tradeship_doctor/head,
 			/datum/job/tradeship_researcher,
-			/datum/job/tradeship_researcher/head
+			/datum/job/tradeship_researcher/head,
+			/datum/job/tradeship_captain,
+			/datum/job/tradeship_first_mate
 		)
 	)
 

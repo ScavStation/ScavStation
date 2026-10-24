@@ -19,6 +19,7 @@
 	uniform = /obj/item/clothing/pants/formal/black/outfit
 	id_type = /obj/item/card/id/ministation/bartender
 	pda_type = /obj/item/modular_computer/pda
+	uniform = /obj/item/clothing/jumpsuit/hydroponics
 	suit = /obj/item/clothing/suit/jacket/redcoat/service/officiated
 	head = /obj/item/clothing/head/chefhat
 	yinglet_suit_service = TRUE

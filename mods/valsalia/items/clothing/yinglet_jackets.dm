@@ -1,6 +1,10 @@
 /obj/item/clothing/suit/jacket
 	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/jacket_yinglet.dmi'
 
+// Bomber gets its own override rather than the generic jacket_yinglet.dmi above
+/obj/item/clothing/suit/jacket/bomber
+	_yinglet_icon = 'mods/valsalia/icons/clothing/suit/bomber_yinglet.dmi'
+
 /obj/item/clothing/suit/jacket/yinglet
 	name = "small green jacket"
 	desc = "A green jacket. It looks like it might fit a yinglet."
@@ -13,6 +17,23 @@
 	desc = "A small, dark suit jacket for formal occasions. It looks to be fitted for a yinglet."
 	bodytype_equip_flags = BODY_FLAG_YINGLET
 	icon = 'mods/valsalia/icons/clothing/suit/suitcoat.dmi'
+
+/obj/item/clothing/suit/jacket/yinglet/moon
+	name = "Moon Vest"
+	desc = "A vest that once belonged to someone's son."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/moonvest.dmi'
+
+/obj/item/clothing/suit/jacket/yinglet/flowery
+	name = "flowery gown"
+	desc = "A light blue gown with decorative floral motifs in yellow."
+	icon = 'mods/valsalia/icons/clothing/suit/flowery.dmi'
+
+/obj/item/clothing/suit/jacket/yinglet/sinistral
+	name = "small fancy attire"
+	desc = "An exceedingly fancy attire for a yinglet. Fits better when you're left-handed."
+	bodytype_equip_flags = BODY_FLAG_YINGLET
+	icon = 'mods/valsalia/icons/clothing/suit/sinistral.dmi'
 
 /obj/item/clothing/suit/jacket/redcoat/yinglet
 	desc = "The signature uniform of Tradehouse guardsmen. This one seems to be sized for a yinglet."

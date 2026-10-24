@@ -22,6 +22,9 @@
 	var/list/connections
 	var/list/other_connections
 
+/obj/structure/grille/get_matter_amount_modifier()
+	. = ..() * HOLLOW_OBJECT_MATTER_MULTIPLIER // it is mostly just a lattice of rods, so it should be lighter than a solid wall.
+
 /obj/structure/grille/clear_connections()
 	connections = null
 	other_connections = null

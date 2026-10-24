@@ -108,3 +108,9 @@
 
 /decl/stack_recipe/steel/furniture/drill_brace
 	result_type       = /obj/structure/drill_brace
+
+// Temporary recipe until dev merge.
+/decl/stack_recipe/steel/girder
+	result_type                 = /obj/structure/girder
+	required_wall_support_value = 10
+	available_to_map_tech_level = MAP_TECH_LEVEL_SPACE

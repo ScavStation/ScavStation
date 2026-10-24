@@ -13,7 +13,7 @@
 	company_name  = "Tradehouse Ivenmoth"
 	company_short = "Ivenmoth"
 
-	lobby_screens = list('maps/ministation/ministation_lobby.png')
+	lobby_screens = list('maps/ministation/lobbyscreen/ministation_lobby.png', 'maps/ministation/lobbyscreen/ministation_lobby2.png', 'maps/ministation/lobbyscreen/ministation_lobby3.png', 'maps/ministation/lobbyscreen/ministation_lobby4.png', 'maps/ministation/lobbyscreen/ministation_lobby5.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 3
@@ -21,7 +21,8 @@
 	lobby_tracks = list(
 		/decl/music_track/absconditus,
 		/decl/music_track/level3_mod,
-		/decl/music_track/tintin
+		/decl/music_track/tintin,
+		/decl/music_track/cleanrooms
 	)
 
 	shuttle_docked_message = "The public ferry to %dock_name% has docked with the station. It will depart in approximately %ETD%"
@@ -48,9 +49,7 @@
 
 	allowed_latejoin_spawns = list(
 		/decl/spawnpoint/arrivals,
-		/decl/spawnpoint/cryo,
-		/decl/spawnpoint/cryo/contractor,
-		/decl/spawnpoint/cryo/enclave,
+		/decl/spawnpoint/cryo
 	)
 	default_spawn = /decl/spawnpoint/arrivals
 

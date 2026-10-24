@@ -3,7 +3,7 @@
 	#ifdef UNIT_TEST
 		#include "../../code/unit_tests/offset_tests.dm"
 	#endif
-
+	#include "../../mods/cloning/_cloning.dme"
 	#include "../../mods/gamemodes/cult/_cult.dme"
 	#include "../../mods/gamemodes/heist/_heist.dme"
 	#include "../../mods/gamemodes/ninja/_ninja.dme"
@@ -71,6 +71,7 @@
 	#include "tradeship_shuttles.dm"
 	#include "tradeship_spawnpoints.dm"
 	#include "tradeship_unit_testing.dm"
+	#include "tradeship_weapons.dm"
 	#include "tradeship-0.dmm"
 	#include "tradeship-1.dmm"
 	#include "tradeship-2.dmm"

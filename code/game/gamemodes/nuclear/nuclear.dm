@@ -10,6 +10,7 @@ var/global/list/nuke_disks = list()
 	extended_round_description = "A heavily armed merc team is approaching in their warship; whatever their goal is, it can't be good for the crew."
 	uid = "mercenary"
 	required_players = 15
+	votable = FALSE
 	required_enemies = 1
 	end_on_antag_death = FALSE
 	probability = 1

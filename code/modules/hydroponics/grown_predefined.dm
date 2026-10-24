@@ -47,3 +47,8 @@
 	seed = "ginseng"
 	icon_state = "pod-product"
 	color = "#ddbb7c"
+
+/obj/item/food/grown/apple
+	seed = "apple"
+	icon_state = "apple-product"
+	color = "#ff540a"

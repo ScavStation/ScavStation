@@ -16,11 +16,18 @@
 	game_year = 294
 
 	// yingspace.png was remixed from Out-Of-Placers assets by Raptie and is included with kind permission.
-	lobby_screens = list('mods/valsalia/lobby/fishfinder.png')
+	lobby_screens = list('maps/tradeship_alt/lobbyscreen/fishfinder.png', 'maps/tradeship_alt/lobbyscreen/fishfinder2.png', 'maps/tradeship_alt/lobbyscreen/fishfinder3.png', 'maps/tradeship_alt/lobbyscreen/fishfinder4.png', 'maps/tradeship_alt/lobbyscreen/fishfinder5.png')
 
 	overmap_ids = list(OVERMAP_ID_SPACE)
 	num_exoplanets = 4
 	away_site_budget = 3
+	lobby_tracks = list(
+		/decl/music_track/absconditus,
+		/decl/music_track/level3_mod,
+		/decl/music_track/tintin,
+		/decl/music_track/spaceharrier,
+		/decl/music_track/cleanrooms
+	)
 	welcome_sound = 'sound/effects/cowboysting.ogg'
 	emergency_shuttle_leaving_dock = "Attention all hands: the escape pods have been launched, maintaining burn for %ETA%."
 	emergency_shuttle_called_message = "Attention all hands: emergency evacuation procedures are now in effect. Escape pods will launch in %ETA%"

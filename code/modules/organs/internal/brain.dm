@@ -78,6 +78,11 @@
 /obj/item/organ/internal/brain/do_uninstall(in_place, detach, ignore_children, update_icon)
 	if(!in_place && istype(owner) && name == initial(name))
 		SetName("\the [owner.real_name]'s [initial(name)]")
+	// Refresh our cached appearance snapshot from the owner before we lose the reference. organ_appearance is otherwise only ever set once,
+	// at organ creation, before hair/skin/markings are actually added onto the owner's organs.
+	if(istype(owner))
+		QDEL_NULL(organ_appearance)
+		organ_appearance = owner.get_mob_snapshot()
 	if(!(. = ..()))
 		return
 

@@ -1,6 +1,6 @@
 /datum/job/ministation/captain
 	title = "Captain"
-	alt_titles = list("El Capitán de Decisiones Extremadamente Apresuradas y Grandiosas", "Supreme Patriarch", "Supreme Matriarch")
+	alt_titles = list("El Capitï¿½n de Decisiones Extremadamente Apresuradas y Grandiosas", "Interim Captain", "Supreme Patriarch", "Supreme Matriarch")
 	supervisors = "your profit margin, your conscience, and the watchful eye of the Tradehouse Rep"
 	outfit_type = /decl/outfit/job/ministation/captain
 	min_skill = list(
@@ -13,7 +13,8 @@
 		SKILL_PILOT   = SKILL_MAX,
 		SKILL_WEAPONS = SKILL_MAX,
 		SKILL_MEDICAL = SKILL_EXPERT,
-		SKILL_ANATOMY  = SKILL_EXPERT
+		SKILL_ANATOMY  = SKILL_EXPERT,
+		SKILL_LITERACY = SKILL_MAX
 	)
 	skill_points = 40
 	head_position = 1

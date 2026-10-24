@@ -17,7 +17,8 @@
 	max_skill = list(
 		SKILL_MEDICAL   = SKILL_MAX,
 		SKILL_ANATOMY   = SKILL_MAX,
-		SKILL_CHEMISTRY = SKILL_MAX
+		SKILL_CHEMISTRY = SKILL_MAX,
+		SKILL_LITERACY  = SKILL_MAX
 	)
 	selection_color = "#013d3b"
 	economic_power = 12
@@ -29,7 +30,8 @@
 		access_chemistry,
 		access_virology,
 		access_cameras,
-		access_maint_tunnels
+		access_maint_tunnels,
+				access_janitor
 	)
 	minimal_access = list(
 		access_medical,
@@ -38,7 +40,8 @@
 		access_surgery,
 		access_virology,
 		access_cameras,
-		access_maint_tunnels
+		access_maint_tunnels,
+		access_janitor
 	)
 	outfit_type = /decl/outfit/job/ministation/doctor
 	minimal_player_age = 3
@@ -88,7 +91,8 @@
 		access_maint_tunnels,
 		access_external_airlocks,
 		access_cameras,
-		access_security
+		access_security,
+		access_janitor
 	)
 	minimal_access = list(
 		access_medical,
@@ -114,7 +118,8 @@
 		access_maint_tunnels,
 		access_external_airlocks,
 		access_cameras,
-		access_security
+		access_security,
+				access_janitor
 	)
 	minimal_player_age = 14
 	ideal_character_age = 50

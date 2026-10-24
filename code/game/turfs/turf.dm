@@ -31,6 +31,8 @@
 
 	// Used for slowdown.
 	var/movement_delay
+	// Whether wading through a fluid turf adds a movement penalty. Set FALSE for decorative water
+	var/fluid_movement_penalty = TRUE
 
 	var/fluid_can_pass
 	var/fluid_blocked_dirs = 0
@@ -209,7 +211,7 @@
 	if(weather)
 		. += weather.get_movement_delay(return_air(), travel_dir)
 	// TODO: check user species webbed feet, wearing swimming gear
-	if(!get_supporting_platform() && reagents?.total_volume > FLUID_PUDDLE)
+	if(fluid_movement_penalty && !get_supporting_platform() && reagents?.total_volume > FLUID_PUDDLE)
 		. += (reagents.total_volume > FLUID_SHALLOW) ? 6 : 3
 
 /turf/attack_hand(mob/user)
@@ -351,7 +353,7 @@
 			var/old_height     = old_turf.get_physical_height() + old_turf.reagents?.total_volume
 			var/current_height = get_physical_height() + reagents?.total_volume
 			if(abs(current_height - old_height) > FLUID_SHALLOW)
-				if(current_height > old_height)
+				if(current_height > old_height && !is_open() && !old_turf?.is_open()) // check is_open() due to open turf depth stuff.
 					return 0
 				if(istype(mover_mob) && MOVING_DELIBERATELY(mover_mob))
 					to_chat(mover_mob, SPAN_WARNING("You refrain from stepping over the edge; it looks like a steep drop down to \the [src]."))
@@ -570,7 +572,8 @@
 
 	// If we are in a multiz volume and not already inside, we return
 	// the outside value of the highest unenclosed turf in the stack.
-	if(HasAbove(z))
+	var/datum/level_data/level = SSmapping.levels_by_z[z]
+	if(HasAbove(z) && !level?.ignore_multiz_outside_stacking)
 		. =  OUTSIDE_YES // assume for the moment we're unroofed until we learn otherwise.
 		var/turf/top_of_stack = src
 		while(HasAbove(top_of_stack.z))

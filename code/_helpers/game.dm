@@ -213,6 +213,8 @@
 			mobs |= M
 		else if(hearturfs[get_turf(M)])
 			mobs |= M
+		else if(hearturfs[M.get_remote_hearing_turf()])
+			mobs |= M
 
 	for(var/obj/O in global.listening_objects)
 		if(hearturfs[get_turf(O)])
