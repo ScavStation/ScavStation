@@ -54,8 +54,8 @@
 
 /obj/item/stock_parts/computer/scanner/proc/do_on_afterattack(mob/user, atom/target, proximity)
 
-/obj/item/stock_parts/computer/scanner/attackby(obj/W, mob/user)
-	return do_on_attackby(user, W)
+/obj/item/stock_parts/computer/scanner/attackby(obj/used_item, mob/user)
+	return do_on_attackby(user, used_item)
 
 /// Returns TRUE if the attackby chain should be stopped.
 /obj/item/stock_parts/computer/scanner/proc/do_on_attackby(mob/user, atom/target)
@@ -66,7 +66,7 @@
 		return 0
 	if(user.incapacitated())
 		return 0
-	if(!user.check_dexterity(DEXTERITY_COMPLEX_TOOLS))
+	if(!user.check_dexterity(DEXTERITY_COMPLEX_TOOLS, fail_message = "You lack the dexterity to use \the [src]."))
 		return 0
 	if(!proximity)
 		return 0

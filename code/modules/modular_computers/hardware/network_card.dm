@@ -25,13 +25,18 @@
 	if(ethernet)
 		. += "OpenEth (Physical Connection) - Physical network connection port"
 
-/obj/item/stock_parts/computer/network_card/Initialize()
-	set_extension(src, /datum/extension/network_device/stock_part, null, null, long_range ? RECEIVER_STRONG_WIRELESS : RECEIVER_WIRELESS)
+/obj/item/stock_parts/computer/network_card/Initialize(ml, material_key, initial_network_id, initial_network_tag)
+	if(isnull(initial_network_id))
+		var/turf/my_turf = get_turf(src)
+		if(istype(my_turf))
+			var/datum/level_data/level = SSmapping.levels_by_z[my_turf.z]
+			initial_network_id ||= level?.default_network_id
+	set_extension(src, /datum/extension/network_device/stock_part, initial_network_id, initial_network_tag, long_range ? RECEIVER_STRONG_WIRELESS : RECEIVER_WIRELESS)
 	. = ..()
 
 /obj/item/stock_parts/computer/network_card/advanced
 	name = "advanced network card"
-	desc = "An advanced network card for usage with standard network protocols. It's transmitter is strong enough to connect even when far away."
+	desc = "An advanced network card for usage with standard network protocols. Its transmitter is strong enough to connect even when far away."
 	long_range = 1
 	origin_tech = @'{"programming":4,"engineering":2}'
 	power_usage = 100 // Better range but higher power usage.

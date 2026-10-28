@@ -750,7 +750,7 @@
 /turf/floor,
 /area/ship/trade/fore_port_underside_maint)
 "bD" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -970,7 +970,7 @@
 /turf/floor,
 /area/ship/trade/aft_port_underside_maint)
 "bZ" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -1362,9 +1362,7 @@
 /turf/wall,
 /area/ship/trade/loading_bay)
 "qQ" = (
-/obj/machinery/network/relay{
-	initial_network_id = "tradenet"
-	},
+/obj/machinery/network/relay,
 /turf/floor/bluegrid,
 /area/ship/trade/undercomms)
 "rp" = (
@@ -1374,7 +1372,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/backpack/dufflebag,
-/obj/item/chems/glass/rag,
+/obj/item/chems/rag,
 /obj/item/chems/glass/bucket,
 /obj/machinery/firealarm{
 	pixel_y = 25
@@ -1558,7 +1556,7 @@
 /turf/floor/tiled/white,
 /area/ship/trade/livestock)
 "xZ" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -1577,7 +1575,7 @@
 /obj/item/assembly/mousetrap,
 /obj/item/radio,
 /obj/item/bag/trash,
-/obj/item/chems/glass/rag,
+/obj/item/chems/rag,
 /obj/item/caution,
 /obj/item/caution,
 /obj/item/caution,
@@ -1621,7 +1619,7 @@
 /turf/floor/tiled/steel_grid,
 /area/ship/trade/loading_bay)
 "yT" = (
-/obj/machinery/honey_extractor,
+/obj/machinery/centrifuge/mapped,
 /obj/item/seeds/tomatoseed,
 /turf/floor,
 /area/ship/trade/aft_port_underside_maint)
@@ -1680,9 +1678,7 @@
 /turf/floor,
 /area/ship/trade/fore_port_underside_maint)
 "Dt" = (
-/obj/abstract/level_data_spawner/main_level{
-	name = "Tradeship Basement Deck"
-	},
+/obj/abstract/level_data_spawner/tradeship_basement,
 /turf/space,
 /area/space)
 "Dz" = (
@@ -1778,7 +1774,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -1818,10 +1814,10 @@
 /turf/wall/r_wall/hull,
 /area/ship/trade/livestock)
 "IG" = (
-/obj/structure/bed/chair/comfy/green{
+/obj/structure/chair/comfy/green{
 	dir = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -1892,7 +1888,7 @@
 /turf/wall/r_wall/hull,
 /area/ship/trade/undercomms)
 "Lx" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_x = 22
 	},
@@ -2060,7 +2056,7 @@
 /turf/floor,
 /area/ship/trade/aft_starboard_underside_maint)
 "Qh" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/laminate/mahogany,
 /obj/item/cell/crap/empty,
 /obj/item/gun/launcher/bow/crossbow,
 /obj/item/stack/material/rods,
@@ -2243,7 +2239,7 @@
 /turf/floor,
 /area/ship/trade/aft_starboard_underside_maint)
 "Zz" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},

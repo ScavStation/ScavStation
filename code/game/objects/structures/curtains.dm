@@ -23,8 +23,8 @@
 	matter = atom_info_repository.get_matter_for(/obj/structure/curtain, kind.material_key)
 	update_icon()
 
-/obj/item/curtain/attackby(obj/item/W, mob/user)
-	if(IS_SCREWDRIVER(W))
+/obj/item/curtain/attackby(obj/item/used_item, mob/user)
+	if(IS_SCREWDRIVER(used_item))
 		if(!curtain_kind_path)
 			return TRUE
 
@@ -108,13 +108,13 @@
 		..(P, def_zone)
 
 /obj/structure/curtain/attack_hand(mob/user)
-	if(user.check_dexterity(DEXTERITY_HOLD_ITEM))
+	if(user.check_dexterity(DEXTERITY_HOLD_ITEM, fail_message = "You lack the dexterity to adjust \the [src]."))
 		toggle()
 		return TRUE
 	return ..()
 
-/obj/structure/curtain/attackby(obj/item/W, mob/user)
-	if(IS_SCREWDRIVER(W) && curtain_kind_path)
+/obj/structure/curtain/attackby(obj/item/used_item, mob/user)
+	if(IS_SCREWDRIVER(used_item) && curtain_kind_path)
 		user.visible_message(
 			SPAN_NOTICE("\The [user] begins uninstalling \the [src]."),
 			SPAN_NOTICE("You begin uninstalling \the [src]."))
@@ -170,6 +170,8 @@
 	curtain_kind_path = /decl/curtain_kind/plastic/shower/engineering
 /obj/item/curtain/shower/security
 	curtain_kind_path = /decl/curtain_kind/plastic/shower/security
+/obj/item/curtain/shower/medical
+	curtain_kind_path = /decl/curtain_kind/plastic/shower/medical
 /obj/item/curtain/canteen
 	curtain_kind_path = /decl/curtain_kind/plastic/canteen
 
@@ -228,3 +230,6 @@
 /obj/structure/curtain/open/shower/security
 	curtain_kind_path = /decl/curtain_kind/plastic/shower/security
 	color = /decl/curtain_kind/plastic/shower/security::color
+/obj/structure/curtain/open/shower/medical
+	curtain_kind_path = /decl/curtain_kind/plastic/shower/medical
+	color = /decl/curtain_kind/plastic/shower/medical::color

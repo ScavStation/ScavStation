@@ -34,7 +34,6 @@
 
 	//IRC admin that spoke with them last.
 	var/irc_admin
-	var/mute_irc = 0
 
 	// Prevents people from being spammed about multikeying every time their mob changes.
 	var/warned_about_multikeying = 0
@@ -72,3 +71,5 @@
 	var/next_move_dir_sub
 	/// Movement dir of the most recently pressed movement key. Used in cardinal-only movement mode.
 	var/last_move_dir_pressed
+	/// Semaphore for macro updates, so that they all complete and don't stomp over each other.
+	var/updating_macros = 0

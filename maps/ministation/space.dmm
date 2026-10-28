@@ -56,7 +56,7 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "ao" = (
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 1
 	},
@@ -67,7 +67,7 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aq" = (
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 1
 	},
@@ -113,6 +113,17 @@
 /turf/floor/shuttle/black,
 /area/shuttle/escape_shuttle)
 "av" = (
+<<<<<<< HEAD
+=======
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 1
+	},
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
+>>>>>>> d8adf696612d21ccb96675ff44edea4cfcd502c5
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
@@ -124,7 +135,15 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aw" = (
+<<<<<<< HEAD
 /obj/structure/bed/chair/shuttle/black{
+=======
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 1
+	},
+/obj/structure/chair/shuttle{
+>>>>>>> d8adf696612d21ccb96675ff44edea4cfcd502c5
 	icon_state = "shuttle_chair";
 	dir = 8
 	},
@@ -134,7 +153,19 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "ax" = (
+<<<<<<< HEAD
 /turf/floor/shuttle/red,
+=======
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 5
+	},
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
+/turf/floor/shuttle/blue,
+>>>>>>> d8adf696612d21ccb96675ff44edea4cfcd502c5
 /area/shuttle/escape_shuttle)
 "ay" = (
 /obj/machinery/light{
@@ -160,15 +191,31 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aC" = (
+<<<<<<< HEAD
 /obj/structure/bed/chair/shuttle/black{
+=======
+/obj/structure/chair/shuttle{
+>>>>>>> d8adf696612d21ccb96675ff44edea4cfcd502c5
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aD" = (
+<<<<<<< HEAD
 /obj/structure/shuttle/engine/heater,
 /turf/floor/shuttle/black,
+=======
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 4
+	},
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
+/turf/floor/shuttle/blue,
+>>>>>>> d8adf696612d21ccb96675ff44edea4cfcd502c5
 /area/shuttle/escape_shuttle)
 "aE" = (
 /obj/structure/table/reinforced,
@@ -184,6 +231,13 @@
 /area/shuttle/escape_shuttle)
 "aG" = (
 /obj/effect/floor_decal/industrial/traffic,
+<<<<<<< HEAD
+=======
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
+>>>>>>> d8adf696612d21ccb96675ff44edea4cfcd502c5
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
@@ -196,7 +250,11 @@
 /area/shuttle/escape_shuttle)
 "aH" = (
 /obj/effect/floor_decal/industrial/traffic,
+<<<<<<< HEAD
 /obj/structure/bed/chair/shuttle/black{
+=======
+/obj/structure/chair/shuttle{
+>>>>>>> d8adf696612d21ccb96675ff44edea4cfcd502c5
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
@@ -206,6 +264,17 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aI" = (
+<<<<<<< HEAD
+=======
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 6
+	},
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
+>>>>>>> d8adf696612d21ccb96675ff44edea4cfcd502c5
 /obj/effect/shuttle_landmark/escape_shuttle/start,
 /turf/floor/shuttle/black,
 /area/shuttle/escape_shuttle)

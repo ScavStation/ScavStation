@@ -4,8 +4,16 @@
 // BEGIN_INCLUDE
 #include "_utility_frames.dm"
 #include "markings.dm"
+#include "mobs.dm"
 #include "species.dm"
 #include "species_bodytypes.dm"
 #include "traits.dm"
 // END_INCLUDE
 #endif
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES

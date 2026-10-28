@@ -6,7 +6,7 @@
 	start_length	(num)					How long to wait before starting the main loop after playing start_sound
 	end_sound		(soundfile)				The sound played after the main loop has concluded
 	chance			(num)					Chance per loop to play a mid_sound
-	volume			(num)					Sound output volume
+	play_volume		(num)					Sound output volume
 	max_loops		(num)					The max amount of loops to run for.
 	direct			(bool)					If true plays directly to provided atoms instead of from them
 */
@@ -19,7 +19,7 @@
 	var/start_length
 	var/end_sound
 	var/chance
-	var/volume = 100
+	var/play_volume = 100
 	var/max_loops
 	var/direct
 	var/timerid
@@ -42,24 +42,26 @@
 	return ..()
 
 /datum/composite_sound/proc/start(atom/add_thing)
+	started = TRUE
 	if(add_thing)
 		LAZYDISTINCTADD(output_atoms, add_thing)
 	if(timerid)
 		return
-	started = TRUE
 	on_start()
 
 /datum/composite_sound/proc/stop(atom/remove_thing)
+	started = FALSE
 	if(remove_thing)
 		LAZYREMOVE(output_atoms, remove_thing)
 	if(!timerid)
 		return
-	started = FALSE
 	on_stop()
 	deltimer(timerid)
 	timerid = null
 
 /datum/composite_sound/proc/sound_loop(starttime)
+	if(!started)
+		return
 	if(max_loops && (world.time >= starttime + mid_length * max_loops))
 		stop()
 		return
@@ -71,7 +73,7 @@
 /datum/composite_sound/proc/play(soundfile)
 	var/sound/S = sound(soundfile)
 	for(var/atom/thing as anything in output_atoms)
-		playsound(thing, S, volume)
+		playsound(thing, S, play_volume)
 
 /datum/composite_sound/proc/get_sound(starttime, _mid_sounds)
 	. = _mid_sounds || mid_sounds

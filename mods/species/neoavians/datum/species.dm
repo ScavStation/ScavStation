@@ -16,7 +16,8 @@
 	meat_type = /obj/item/food/butchery/meat/chicken
 
 /decl/species/neoavian
-	name = SPECIES_AVIAN
+	uid = "species_avian"
+	name = "Neo-Avian"
 	name_plural = "Neo-Avians"
 	description = "Avian species, largely crows, magpies and other corvids, were among the first sophonts uplifted to aid in colonizing Mars. \
 	These days they are more commonly found pursuing their own careers and goals on the fringes of human space or around their adopted homeworld \
@@ -52,12 +53,6 @@
 	swap_flags = MONKEY|SIMPLE_ANIMAL
 	push_flags = MONKEY|SIMPLE_ANIMAL
 
-	unarmed_attacks = list(
-		/decl/natural_attack/bite/sharp,
-		/decl/natural_attack/claws,
-		/decl/natural_attack/stomp/weak
-	)
-
 	available_background_info = list(
 		/decl/background_category/heritage = list(
 			/decl/background_detail/heritage/neoavian,
@@ -69,7 +64,7 @@
 /decl/species/neoavian/equip_default_fallback_uniform(var/mob/living/human/H)
 	if(istype(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/dress/avian_smock/worker, slot_w_uniform_str)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes, slot_shoes_str)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/avian, slot_shoes_str)
 
 /decl/species/neoavian/get_holder_color(var/mob/living/human/H)
 	return H.get_skin_colour()

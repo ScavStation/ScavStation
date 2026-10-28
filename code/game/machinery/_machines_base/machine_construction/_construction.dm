@@ -14,6 +14,7 @@
 
 // Called on state transition; can intercept, but must call parent.
 /obj/machinery/proc/state_transition(var/decl/machine_construction/new_state, var/mob/user)
+	SHOULD_CALL_PARENT(TRUE)
 	construct_state = new_state
 
 // Return a change state define or a fail message to block transition.
@@ -77,6 +78,10 @@
 			return MCS_CHANGE
 		if(istext(fail))
 			to_chat(user, fail)
+			// This logging exists so that random CI fails due to state change failures will be caught.
+			#ifdef UNIT_TEST
+			log_unit_test("[log_info_line(machine)]: [fail]")
+			#endif
 			return MCS_BLOCK
 		return fail
 	return MCS_CONTINUE
@@ -86,10 +91,10 @@
 		PRINT_STACK_TRACE("Machine [log_info_line(machine)] violated the state assumptions of the construction state [type]!")
 		machine.attack_hand(user)
 
-/decl/machine_construction/proc/attackby(obj/item/I, mob/user, obj/machinery/machine)
+/decl/machine_construction/proc/attackby(obj/item/used_item, mob/user, obj/machinery/machine)
 	if(!validate_state(machine))
 		PRINT_STACK_TRACE("Machine [log_info_line(machine)] violated the state assumptions of the construction state [type]!")
-		return machine.attackby(I, user)
+		return machine.attackby(used_item, user)
 	return FALSE
 
 /decl/machine_construction/proc/mechanics_info()

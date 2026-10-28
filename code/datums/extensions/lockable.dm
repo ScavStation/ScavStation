@@ -92,7 +92,7 @@
 	Process keypresses coming from the nanoUI.
  */
 /datum/extension/lockable/proc/pressed_key(key_char, mob/user)
-	if(!user.check_dexterity(DEXTERITY_KEYBOARDS))
+	if(!user.check_dexterity(DEXTERITY_KEYBOARDS, fail_message = "You lack the dexterity to type on the keypad."))
 		return
 	// Always clear error when pressing a button.
 	clear_error()
@@ -395,13 +395,13 @@
 /**
 	Called when a multitool is used on the holder to hack the device.
  */
-/datum/extension/lockable/proc/try_hack(obj/item/multitool/W, mob/user)
+/datum/extension/lockable/proc/try_hack(obj/item/multitool/multitool, mob/user)
 	//Don't do anything if the panel isn't opened, or if we're already hacking it.
 	if(!open || l_hacking)
 		return FALSE
 
 	//Show a message to let the user know how likely this is to even succeed.
-	var/fail_chance = hack_fail_chance(W, user)
+	var/fail_chance = hack_fail_chance(multitool, user)
 	var/skill_msg
 	if(fail_chance >= 90)
 		skill_msg = SPAN_WARNING("But, you struggle to make sense of this thing..")
@@ -436,7 +436,7 @@
 /**
 	Returns a percent chance of the given user failing at hacking this lock.
  */
-/datum/extension/lockable/proc/hack_fail_chance(obj/item/multitool/W, mob/user)
+/datum/extension/lockable/proc/hack_fail_chance(obj/item/multitool/multitool, mob/user)
 	//In order to make the lock actually any use at all, make sure not just anybody with a multitool can open it.
 	return user.skill_fail_chance(SKILL_DEVICES, 99, SKILL_MAX, 0.35)
 

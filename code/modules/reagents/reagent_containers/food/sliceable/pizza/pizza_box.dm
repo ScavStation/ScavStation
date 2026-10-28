@@ -35,11 +35,11 @@
 	if(overlay && length(stacked_boxes))
 		var/i = 1
 		for(var/obj/item/pizzabox/box in stacked_boxes)
-			var/image/I = box.get_mob_overlay(user_mob, slot, bodypart, use_fallback_if_icon_missing, TRUE)
-			if(I)
-				I.pixel_y = i * 3
-				I.pixel_x = pick(-1,0,1)
-				overlay.overlays += I
+			var/image/overlay_image = box.get_mob_overlay(user_mob, slot, bodypart, use_fallback_if_icon_missing, TRUE)
+			if(overlay_image)
+				overlay_image.pixel_y = i * 3
+				overlay_image.pixel_x = pick(-1,0,1)
+				overlay.overlays += overlay_image
 				i++
 	. = ..()
 
@@ -49,7 +49,7 @@
 	return FALSE
 
 /obj/item/pizzabox/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	if(proximity_flag && user?.a_intent == I_HURT && user != target)
+	if(proximity_flag && user?.check_intent(I_FLAG_HARM) && user != target)
 		jostle_pizza()
 		explode_stack()
 
@@ -70,6 +70,7 @@
 	while(LAZYLEN(stacked_boxes))
 		var/obj/item/pizzabox/top_box = stacked_boxes[LAZYLEN(stacked_boxes)]
 		LAZYREMOVE(stacked_boxes, top_box)
+		top_box.dropInto(our_turf)
 		top_box.throw_at(get_edge_target_turf(our_turf, pick(global.alldirs)), 1, 1) // just enough to bonk people
 	update_strings()
 	update_icon()
@@ -189,8 +190,8 @@
 
 /obj/item/pizzabox/attack_hand(mob/user)
 
-	if(open && pizza && user.a_intent != I_GRAB)
-		if(user.check_dexterity(DEXTERITY_HOLD_ITEM))
+	if(open && pizza && !user.check_intent(I_FLAG_GRAB))
+		if(user.check_dexterity(DEXTERITY_HOLD_ITEM, fail_message = "You lack the dexterity to take the pizza out of \the [src]."))
 			user.put_in_hands(pizza)
 			to_chat(user, SPAN_NOTICE("You take \the [pizza] out of \the [src]."))
 			pizza = null
@@ -198,7 +199,7 @@
 		return TRUE
 
 	var/box_count = LAZYLEN(stacked_boxes)
-	if(box_count && user.is_holding_offhand(src) && user.check_dexterity(DEXTERITY_HOLD_ITEM))
+	if(box_count && user.is_holding_offhand(src) && user.check_dexterity(DEXTERITY_HOLD_ITEM, fail_message = "You lack the dexterity to take the topmost box."))
 		var/obj/item/pizzabox/box = stacked_boxes[box_count]
 		LAZYREMOVE(stacked_boxes, box)
 		user.put_in_hands(box)
@@ -220,11 +221,11 @@
 		return TRUE
 	return ..()
 
-/obj/item/pizzabox/attackby(obj/item/I, mob/user)
+/obj/item/pizzabox/attackby(obj/item/used_item, mob/user)
 
 	// Stacking pizza boxes.
-	if(istype(I, /obj/item/pizzabox))
-		var/obj/item/pizzabox/box = I
+	if(istype(used_item, /obj/item/pizzabox))
+		var/obj/item/pizzabox/box = used_item
 		if(box.open)
 			to_chat(user, SPAN_WARNING("You need to close \the [box] first!"))
 			return TRUE
@@ -257,7 +258,7 @@
 		return TRUE
 
 	// Putting a pizza back in the box.
-	if(istype(I, /obj/item/food/sliceable/pizza))
+	if(istype(used_item, /obj/item/food/sliceable/pizza))
 
 		if(!open)
 			to_chat(user, SPAN_WARNING("Open \the [src] first!"))
@@ -267,17 +268,17 @@
 			to_chat(user, SPAN_WARNING("\The [src] already has \the [pizza] inside!"))
 			return TRUE
 
-		if(!user.try_unequip(I, src))
+		if(!user.try_unequip(used_item, src))
 			return TRUE
 
-		pizza = I
+		pizza = used_item
 		update_strings()
 		update_icon()
-		user.visible_message(SPAN_NOTICE("\The [user] slides \the [I] into \the [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] slides \the [used_item] into \the [src]."))
 		return TRUE
 
 	// Appending to the tag.
-	if(IS_PEN(I))
+	if(IS_PEN(used_item))
 
 		if(open)
 			to_chat(user, SPAN_WARNING("Close \the [src] first!"))
@@ -290,7 +291,7 @@
 		var/box_count = LAZYLEN(stacked_boxes)
 		var/obj/item/pizzabox/tagging_box = (box_count > 0) ? stacked_boxes[box_count] : src
 		tagging_box.box_tag = copytext("[tagging_box.box_tag][tag_string]", 1, 30)
-		tagging_box.box_tag_color = I.get_tool_property(TOOL_PEN, TOOL_PROP_COLOR) || COLOR_BLACK
+		tagging_box.box_tag_color = used_item.get_tool_property(TOOL_PEN, TOOL_PROP_COLOR) || COLOR_BLACK
 		user.visible_message(SPAN_NOTICE("\The [user] writes something on \the [src]."))
 		update_strings()
 		update_icon()
@@ -304,6 +305,7 @@
 
 /decl/interaction_handler/open_pizza_box
 	expected_target_type = /obj/item/pizzabox
+	examine_desc = "open or close $TARGET_THEM$"
 
 /decl/interaction_handler/open_pizza_box/is_possible(atom/target, mob/user, obj/item/prop)
 	. = ..()

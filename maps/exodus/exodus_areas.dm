@@ -11,6 +11,7 @@
 //Do not remove dots after comments
 
 /area/exodus
+	abstract_type = /area/exodus
 	secure = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_CREW
 
@@ -86,8 +87,8 @@
 	req_access = list(access_engine)
 
 /area/exodus/solar
-	requires_power = 1
-	always_unpowered = 1
+	requires_power = TRUE
+	always_unpowered = TRUE
 	has_gravity = FALSE
 	base_turf = /turf/space
 
@@ -1047,10 +1048,6 @@
 	name = "\improper Teleporter"
 	icon_state = "teleporter"
 	req_access = list(access_teleporter)
-
-/area/exodus/gateway
-	name = "\improper Gateway"
-	icon_state = "teleporter"
 
 // Thunderdome
 

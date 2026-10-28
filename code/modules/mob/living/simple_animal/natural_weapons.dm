@@ -1,7 +1,7 @@
 /obj/item/natural_weapon
 	name = "natural weapons"
 	gender = PLURAL
-	attack_verb = list("attacked")
+	attack_verb = "attacked"
 	atom_damage_type =  BRUTE
 	canremove = FALSE
 	obj_flags = OBJ_FLAG_CONDUCTIBLE //for intent of shocking checks, they're right inside the animal
@@ -9,8 +9,10 @@
 	needs_attack_dexterity = DEXTERITY_NONE
 	weapon_can_knock_prone = FALSE // Very powerful in the hands of simplemobs.
 	var/show_in_message   // whether should we show up in attack message, e.g. 'urist has been bit with teeth by carp' vs 'urist has been bit by carp'
+	var/cloaked_bonus_damage  = 0 // This is added on top of the normal melee damage.
+	var/cloaked_weaken_amount = 0 // How long to stun for.
 
-/obj/item/natural_weapon/get_attack_force(mob/living/user)
+/obj/item/natural_weapon/expend_attack_force(mob/living/user)
 	return get_base_attack_force()
 
 /obj/item/natural_weapon/attack_message_name()
@@ -18,6 +20,19 @@
 
 /obj/item/natural_weapon/can_embed()
 	return FALSE
+
+/obj/item/natural_weapon/use_on_mob(mob/living/target, mob/living/user, animate)
+	if(user.check_intent(I_FLAG_HARM) && user.is_cloaked() && (cloaked_weaken_amount || cloaked_bonus_damage))
+		if(cloaked_weaken_amount)
+			SET_STATUS_MAX(target, STAT_WEAK, cloaked_weaken_amount)
+		if(cloaked_bonus_damage)
+			set_base_attack_force(initial(_base_attack_force) + cloaked_bonus_damage)
+		to_chat(target, SPAN_DANGER("\The [user] ambushes you!"))
+		playsound(target, 'sound/weapons/spiderlunge.ogg', 75, 1)
+	user.remove_cloak()
+	. = ..()
+	if(cloaked_bonus_damage)
+		set_base_attack_force(initial(_base_attack_force))
 
 /obj/item/natural_weapon/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
 	if(!(. = ..()))
@@ -28,7 +43,7 @@
 
 /obj/item/natural_weapon/bite
 	name = "teeth"
-	attack_verb = list("bitten")
+	attack_verb = "bitten"
 	hitsound = 'sound/weapons/bite.ogg'
 	_base_attack_force = 10
 	sharp = TRUE
@@ -39,7 +54,7 @@
 
 /obj/item/natural_weapon/bite/mouse
 	_base_attack_force = 1
-	attack_verb = list("nibbled")
+	attack_verb = "nibbled"
 	hitsound = null
 
 /obj/item/natural_weapon/bite/strong
@@ -61,11 +76,11 @@
 
 /obj/item/natural_weapon/hooves
 	name = "hooves"
-	attack_verb = list("kicked")
+	attack_verb = "kicked"
 
 /obj/item/natural_weapon/punch
 	name = "fists"
-	attack_verb = list("punched")
+	attack_verb = "punched"
 	_base_attack_force = 10
 
 /obj/item/natural_weapon/pincers
@@ -75,7 +90,7 @@
 /obj/item/natural_weapon/drone_slicer
 	name = "sharpened leg"
 	gender = NEUTER
-	attack_verb = list("sliced")
+	attack_verb = "sliced"
 	atom_damage_type =  BRUTE
 	edge = TRUE
 	show_in_message = TRUE

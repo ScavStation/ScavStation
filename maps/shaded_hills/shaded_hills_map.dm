@@ -1,6 +1,6 @@
 /datum/map/shaded_hills
-	default_liquid_fuel_type = /decl/material/liquid/nutriment/plant_oil
 	default_species = SPECIES_YINGLET //SPECIES_KOBALOI // ScavStation edit
+	default_liquid_fuel_type = /decl/material/liquid/oil
 	loadout_categories = list(
 		/decl/loadout_category/fantasy/clothing,
 		/decl/loadout_category/fantasy/utility

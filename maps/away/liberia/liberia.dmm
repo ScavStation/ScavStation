@@ -29,7 +29,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/dockinghall)
 "ad" = (
-/obj/structure/bed/chair/comfy/captain{
+/obj/structure/chair/comfy/captain{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/mono,
@@ -152,7 +152,7 @@
 	},
 /obj/effect/floor_decal/corner_techfloor_grid,
 /obj/effect/floor_decal/techfloor/corner,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -332,7 +332,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/engineeringengines)
 "aO" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/chair/office/dark{
 	dir = 8
 	},
 /turf/floor/tiled/steel_grid,
@@ -591,7 +591,7 @@
 /turf/floor/plating,
 /area/liberia/bridge)
 "bn" = (
-/obj/structure/bed/chair/wood/walnut,
+/obj/structure/chair/wood/walnut,
 /obj/effect/floor_decal/borderfloor{
 	dir = 4
 	},
@@ -670,7 +670,7 @@
 /area/liberia/mule)
 "bt" = (
 /obj/effect/floor_decal/corner/brown/half,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "merchant north bump";
 	pixel_y = 24
@@ -805,7 +805,7 @@
 /turf/floor/carpet/blue2,
 /area/liberia/mule)
 "bE" = (
-/obj/structure/bed/chair/shuttle/blue{
+/obj/structure/chair/shuttle/blue{
 	dir = 8
 	},
 /turf/floor/carpet/blue2,
@@ -826,7 +826,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-4"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "bH" = (
 /obj/machinery/door/firedoor,
@@ -1081,7 +1081,7 @@
 	req_access = list("ACCESS_MERCHANT");
 	dir = 1
 	},
-/obj/structure/bed/chair/shuttle/blue{
+/obj/structure/chair/shuttle/blue{
 	dir = 8
 	},
 /turf/floor/carpet/blue2,
@@ -1093,7 +1093,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/holopad/longrange,
 /turf/floor/carpet/blue2,
 /area/liberia/mule)
 "cf" = (
@@ -1106,7 +1106,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/mule)
 "cg" = (
 /obj/machinery/door/airlock/hatch{
@@ -1122,7 +1122,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/mule)
 "ch" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -1424,7 +1424,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -1436,7 +1436,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/engineeringengines)
 "cG" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/chair/office/dark,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
@@ -1493,7 +1493,7 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 1
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/mule)
 "cN" = (
 /obj/effect/paint/silver,
@@ -1522,7 +1522,7 @@
 /turf/floor/tiled/dark,
 /area/liberia/mule)
 "cQ" = (
-/obj/structure/bed/chair/office/comfy/brown{
+/obj/structure/chair/office/comfy/brown{
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -1621,7 +1621,7 @@
 /turf/floor/tiled/techfloor,
 /area/liberia/engineeringengines)
 "cZ" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/machinery/chemical_dispenser/bar_coffee{
 	dir = 1
 	},
@@ -1870,7 +1870,7 @@
 /turf/floor/tiled/dark,
 /area/liberia/bridge)
 "dv" = (
-/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/holopad/longrange,
 /obj/effect/floor_decal/corner/blue/mono,
 /obj/effect/overmap/visitable/ship/liberia,
 /turf/floor/tiled/dark/monotile,
@@ -1893,7 +1893,7 @@
 	icon_state = "0-2"
 	},
 /obj/random/powercell,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "merchant north bump";
 	pixel_y = 24
@@ -2759,7 +2759,7 @@
 /area/liberia/medbay)
 "eS" = (
 /obj/machinery/body_scanconsole,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24
@@ -3094,7 +3094,7 @@
 "fx" = (
 /obj/effect/floor_decal/techfloor,
 /obj/structure/table,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	name = "south bump";
 	pixel_y = -24
 	},
@@ -3196,7 +3196,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "fI" = (
 /obj/structure/closet/emcloset,
@@ -3272,7 +3272,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 4
 	},
 /turf/floor/carpet,
@@ -3284,7 +3284,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/flashlight/lamp/green,
 /turf/floor/carpet,
 /area/liberia/bar)
@@ -3292,34 +3292,34 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 8
 	},
 /turf/floor/carpet,
 /area/liberia/bar)
 "fR" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 4
 	},
 /obj/machinery/alarm/liberia{
 	pixel_y = 24
 	},
 /obj/abstract/submap_landmark/spawnpoint/liberia,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "fS" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "fT" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 8
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -3328,29 +3328,29 @@
 	icon_state = "0-2"
 	},
 /obj/abstract/submap_landmark/spawnpoint/liberia,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "fU" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/random/drinkbottle,
 /obj/random/drinkbottle,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "fV" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/machinery/chemical_dispenser/bar_soft/full,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "fW" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/machinery/chemical_dispenser/bar_alc/full,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "fX" = (
 /obj/effect/floor_decal/techfloor{
@@ -3444,7 +3444,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/bed/chair/office/dark{
+/obj/structure/chair/office/dark{
 	dir = 1
 	},
 /turf/floor/tiled,
@@ -3463,14 +3463,14 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 4
 	},
 /turf/floor/carpet,
 /area/liberia/bar)
 "gg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/deck/cards,
 /turf/floor/carpet,
 /area/liberia/bar)
@@ -3478,28 +3478,28 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 8
 	},
 /turf/floor/carpet,
 /area/liberia/bar)
 "gi" = (
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gj" = (
-/obj/structure/bed/chair/wood/walnut,
+/obj/structure/chair/wood/walnut,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/abstract/submap_landmark/spawnpoint/liberia,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gk" = (
 /obj/machinery/door/window/westright,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gl" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/box/glasses/pint,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gm" = (
 /obj/structure/extinguisher_cabinet{
@@ -3538,7 +3538,7 @@
 /obj/effect/floor_decal/borderfloor/corner2{
 	dir = 8
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
@@ -3547,7 +3547,7 @@
 /turf/floor/tiled/monotile,
 /area/liberia/officeroom)
 "gp" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/chair/office/dark{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3599,7 +3599,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -3613,7 +3613,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3632,10 +3632,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gx" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -3648,10 +3648,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gy" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/ashtray/glass,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3663,11 +3663,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gz" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/chems/glass/rag,
+/obj/structure/table/laminate,
+/obj/item/chems/rag,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -3680,7 +3680,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3733,7 +3733,7 @@
 "gE" = (
 /obj/structure/table,
 /obj/item/towel/random,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
@@ -3847,7 +3847,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/captain)
 "gN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3856,13 +3856,13 @@
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/captain)
 "gO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -3870,7 +3870,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-4"
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/captain)
 "gP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3888,7 +3888,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/captain)
 "gQ" = (
 /obj/machinery/door/airlock{
@@ -3913,7 +3913,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/captain)
 "gR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3926,7 +3926,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/disposalpipe/segment,
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "gS" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -3942,7 +3942,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "gT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3957,7 +3957,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "gU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3973,7 +3973,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "gW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3981,7 +3981,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "gX" = (
 /obj/item/stool/padded,
@@ -3989,20 +3989,20 @@
 	dir = 10
 	},
 /obj/abstract/submap_landmark/spawnpoint/liberia,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gY" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/spline/plain/brown,
 /obj/abstract/submap_landmark/spawnpoint/liberia,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "gZ" = (
 /obj/item/stool/padded,
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/plain/brown,
 /obj/abstract/submap_landmark/spawnpoint/liberia,
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "ha" = (
 /obj/machinery/door/airlock/glass{
@@ -4012,7 +4012,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "hb" = (
 /obj/machinery/light/small{
@@ -4065,14 +4065,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/captain)
 "hh" = (
 /obj/effect/floor_decal/spline/plain/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/captain)
 "hi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4083,7 +4083,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/captain)
 "hj" = (
 /obj/machinery/door/airlock{
@@ -4096,18 +4096,18 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/personellroom2)
 "hk" = (
 /obj/machinery/media/jukebox/old,
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "hl" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "hm" = (
 /obj/structure/window/reinforced{
@@ -4147,7 +4147,7 @@
 /turf/floor/carpet/red,
 /area/liberia/captain)
 "hq" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/chair/office/dark{
 	dir = 8
 	},
 /turf/floor/carpet/red,
@@ -4157,7 +4157,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -4184,7 +4184,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/clothing/suit/chef/classic,
-/obj/item/kitchen/rollingpin,
+/obj/item/rollingpin,
 /obj/item/knife/kitchen,
 /turf/floor/tiled/freezer,
 /area/liberia/bar)
@@ -4213,43 +4213,43 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "hz" = (
 /obj/machinery/vending/cigarette{
 	dir = 1;
 	products = list(/obj/item/box/fancy/cigarettes=10,/obj/item/box/matches=10,/obj/item/flame/fuelled/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "hA" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/scanner/price,
 /obj/item/scanner/price,
 /obj/machinery/light/small,
 /obj/item/scanner/price,
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "hB" = (
 /obj/machinery/pipelayer,
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/engineeringreactor)
 "hC" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/ashtray,
 /obj/item/box/matches,
 /obj/random/smokes,
 /turf/floor/carpet/red,
 /area/liberia/captain)
 "hD" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /mob/living/simple_animal/tindalos{
 	name = "Eddy"
 	},
 /turf/floor/carpet/red,
 /area/liberia/captain)
 "hE" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/flashlight/lamp/green,
 /turf/floor/carpet/red,
 /area/liberia/captain)
@@ -4286,7 +4286,7 @@
 /turf/floor/carpet,
 /area/liberia/personellroom2)
 "hI" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/flashlight/lamp/green,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4341,7 +4341,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/merchantstorage)
 "hN" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/random/action_figure,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4747,7 +4747,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/liberia/bridge)
 "iN" = (
-/obj/structure/bed/chair/comfy/blue{
+/obj/structure/chair/comfy/blue{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/blue/mono,
@@ -5131,18 +5131,18 @@
 /obj/machinery/alarm/liberia{
 	pixel_y = 24
 	},
-/obj/structure/bed/chair/office/comfy/beige,
+/obj/structure/chair/office/comfy/beige,
 /turf/floor/carpet,
 /area/liberia/library)
 "jM" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "jO" = (
 /obj/structure/bookcase/skill_books/random,
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "jP" = (
 /obj/effect/wallframe_spawn/reinforced,
@@ -5159,7 +5159,7 @@
 /turf/floor/tiled/monotile,
 /area/liberia/officeroom)
 "jR" = (
-/obj/structure/bed/chair/wood/walnut,
+/obj/structure/chair/wood/walnut,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -5175,7 +5175,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
@@ -5185,11 +5185,11 @@
 /turf/floor/tiled/dark,
 /area/liberia/bridge)
 "jU" = (
-/obj/structure/bed/chair/wood/walnut,
+/obj/structure/chair/wood/walnut,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24
@@ -5210,13 +5210,13 @@
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/merchantstorage)
 "jW" = (
-/obj/structure/bed/chair/office/comfy/beige{
+/obj/structure/chair/office/comfy/beige{
 	dir = 4
 	},
 /turf/floor/carpet,
 /area/liberia/library)
 "jX" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/flashlight/lamp/lava/orange,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -5224,7 +5224,7 @@
 /turf/floor/carpet,
 /area/liberia/library)
 "jY" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/structure/flora/pottedplant/deskleaf{
 	pixel_x = -5;
 	pixel_y = 2
@@ -5260,7 +5260,7 @@
 /turf/floor/carpet/magenta,
 /area/liberia/guestroom2)
 "ka" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/structure/flora/pottedplant/smallcactus{
 	pixel_x = -5;
 	pixel_y = 9
@@ -5278,13 +5278,13 @@
 /area/liberia/guestroom2)
 "kb" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/structure/bed/chair/office/comfy/beige{
+/obj/structure/chair/office/comfy/beige{
 	dir = 4
 	},
 /turf/floor/carpet,
 /area/liberia/library)
 "kc" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/box/fancy/donut,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -5323,7 +5323,7 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 4
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "ki" = (
 /obj/machinery/newscaster{
@@ -5336,7 +5336,7 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 8
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "kk" = (
 /obj/effect/floor_decal/techfloor{
@@ -5446,7 +5446,7 @@
 /turf/floor/carpet,
 /area/liberia/library)
 "kq" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/chair/office/dark{
 	dir = 4
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -5459,7 +5459,7 @@
 /turf/floor/carpet,
 /area/liberia/library)
 "kr" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/modular_computer/laptop/preset/custom_loadout/standard{
 	dir = 8
 	},
@@ -5507,9 +5507,9 @@
 /turf/floor/carpet,
 /area/liberia/library)
 "ky" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	name = "south bump";
 	pixel_y = -24
 	},
@@ -5517,7 +5517,7 @@
 /turf/floor/carpet,
 /area/liberia/library)
 "kz" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/machinery/light/small{
@@ -6034,7 +6034,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24
@@ -6074,7 +6074,7 @@
 /turf/floor/carpet/green,
 /area/liberia/guestroom1)
 "lB" = (
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "lC" = (
 /obj/effect/floor_decal/corner_techfloor_grid{
@@ -6164,7 +6164,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "mu" = (
 /obj/effect/floor_decal/techfloor{
@@ -6234,7 +6234,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "ns" = (
 /obj/structure/cable/blue{
@@ -6268,7 +6268,7 @@
 /turf/floor/tiled/steel_grid,
 /area/liberia/atmos)
 "nH" = (
-/obj/structure/bed/chair/wood/walnut,
+/obj/structure/chair/wood/walnut,
 /obj/abstract/submap_landmark/spawnpoint/liberia,
 /turf/floor/tiled,
 /area/liberia/hallway)
@@ -6285,7 +6285,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "op" = (
 /obj/structure/railing/mapped,
@@ -6295,7 +6295,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/liberia/merchantstorage)
 "os" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/floor/carpet/red,
 /area/liberia/traidingroom)
@@ -6465,7 +6465,7 @@
 /turf/floor/tiled/techfloor,
 /area/liberia/cryo)
 "pZ" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/machinery/fabricator/micro/bartender{
 	pixel_x = 4
 	},
@@ -6480,8 +6480,9 @@
 	req_access = newlist()
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/blood/gibs/robot,
-/obj/random/accessory,
+/obj/machinery/atm{
+	pixel_y = -30
+	},
 /turf/floor/tiled/steel_grid,
 /area/liberia/mule)
 "qg" = (
@@ -6606,7 +6607,7 @@
 /turf/floor/plating,
 /area/liberia/hallway)
 "rx" = (
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
@@ -6715,7 +6716,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 4
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -6787,7 +6788,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "sY" = (
 /obj/item/stack/material/panel/mapped/plastic/ten{
@@ -6801,7 +6802,7 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -6934,7 +6935,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
-/turf/floor/wood/ebony,
+/turf/floor/laminate/ebony,
 /area/liberia/bar)
 "wq" = (
 /obj/machinery/door/airlock/external{
@@ -7069,7 +7070,7 @@
 /obj/machinery/light_switch{
 	pixel_y = 24
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "yC" = (
 /obj/effect/floor_decal/techfloor{
@@ -7170,7 +7171,7 @@
 /turf/wall/r_wall/prepainted,
 /area/liberia/captain)
 "Af" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/effect/floor_decal/borderfloor{
 	dir = 10
 	},
@@ -7274,7 +7275,7 @@
 /turf/floor/tiled/steel_grid,
 /area/liberia/atmos)
 "BH" = (
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "BJ" = (
 /turf/wall/prepainted,
@@ -7299,7 +7300,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "DI" = (
 /turf/wall/prepainted,
@@ -7386,7 +7387,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
@@ -7520,7 +7521,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/effect/catwalk_plated,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24
@@ -7548,7 +7549,7 @@
 /obj/structure/janitorialcart,
 /obj/item/mop,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -7576,7 +7577,7 @@
 /obj/item/stack/material/ingot/mapped/copper/fifty,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	name = "south bump";
 	pixel_y = -24
 	},
@@ -7609,7 +7610,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-8"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/bar)
 "Hv" = (
 /turf/wall/prepainted,
@@ -7721,7 +7722,7 @@
 /turf/wall/prepainted,
 /area/liberia/bar)
 "Ja" = (
-/obj/structure/bed/chair/wood/walnut,
+/obj/structure/chair/wood/walnut,
 /obj/effect/floor_decal/borderfloor{
 	dir = 8
 	},
@@ -7771,7 +7772,7 @@
 /turf/floor/tiled,
 /area/liberia/hallway)
 "JS" = (
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
@@ -7782,7 +7783,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /turf/floor/carpet/blue,
 /area/liberia/personellroom1)
 "Kh" = (
@@ -7893,7 +7894,7 @@
 /turf/wall/r_wall/prepainted,
 /area/liberia/officeroom)
 "Ml" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/ashtray/glass,
 /obj/effect/floor_decal/borderfloor{
 	dir = 6
@@ -7977,7 +7978,7 @@
 /obj/structure/cable/blue{
 	icon_state = "2-4"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "Od" = (
 /turf/wall/prepainted,
@@ -8108,7 +8109,7 @@
 /area/liberia/engineeringstorage)
 "QA" = (
 /obj/effect/floor_decal/techfloor,
-/obj/machinery/power/apc/liberia{
+/obj/machinery/apc/liberia{
 	name = "south bump";
 	pixel_y = -24
 	},
@@ -8141,7 +8142,7 @@
 /turf/floor/tiled/techfloor,
 /area/liberia/merchantstorage)
 "QK" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/effect/floor_decal/borderfloor,
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -8185,7 +8186,7 @@
 /area/liberia/merchantstorage)
 "RO" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "RP" = (
 /obj/effect/paint/silver,
@@ -8279,7 +8280,7 @@
 /obj/structure/disposalpipe/segment/bent{
 	dir = 4
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "Tz" = (
 /obj/machinery/door/airlock,
@@ -8354,7 +8355,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "Uh" = (
 /turf/wall/r_wall/prepainted,
@@ -8450,7 +8451,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/turf/floor/wood/walnut,
+/turf/floor/laminate/walnut,
 /area/liberia/library)
 "Wn" = (
 /obj/effect/floor_decal/borderfloor{
@@ -8560,7 +8561,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/laminate,
 /obj/item/flashlight/lamp/green,
 /turf/floor/carpet/blue,
 /area/liberia/personellroom1)

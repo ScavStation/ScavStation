@@ -24,7 +24,7 @@
 		/obj/item/borg/sight/meson,
 		/obj/item/wrench,
 		/obj/item/screwdriver,
-		/obj/item/ore,
+		/obj/item/ore_satchel,
 		/obj/item/tool/drill/advanced,
 		/obj/item/sheetsnatcher/borg,
 		/obj/item/gripper/miner,
@@ -40,10 +40,10 @@
 	)
 
 /obj/item/robot_module/miner/handle_emagged()
+	..()
 	var/obj/item/tool/drill/advanced/D = locate() in equipment
 	if(D)
 		equipment -= D
 		qdel(D)
 	D = new /obj/item/tool/drill/diamond(src)
-	D.canremove = FALSE
 	equipment += D
