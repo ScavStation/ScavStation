@@ -31,8 +31,8 @@ jobs:
       - name: Run Dreamchecker
         run: |
           set -o pipefail
-          ./test/lint-all-modpacks.sh nebula.dme
-          ./test/lint-each-modpack.sh nebula.dme
+          ./test/lint-all-modpacks.sh scavstation.dme
+          ./test/lint-each-modpack.sh scavstation.dme
       - name: Annotate Lints
         uses: yogstation13/DreamAnnotate@v2
         if: always()
@@ -65,7 +65,7 @@ jobs:
           fileName: "DMCompiler_linux-x64.tar.gz"
           extract: true
       - name: Run OpenDream
-        run: ./test/compile-od-all-modpacks.sh nebula.dme
+        run: ./test/compile-od-all-modpacks.sh scavstation.dme
   Code:
     runs-on: ubuntu-latest
     steps:
