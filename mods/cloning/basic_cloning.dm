@@ -240,7 +240,7 @@
 		else
 			H.change_species(donor_species.name, donor_bodytype)
 	else
-		H.set_species(SPECIES_HUMAN)
+		H.set_species(/decl/species/human::uid)
 
 	if(stored_head)
 		H.set_skin_colour(stored_head.skin_colour, skip_update = TRUE)

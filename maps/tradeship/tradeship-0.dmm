@@ -1119,7 +1119,7 @@
 /area/ship/trade/enclave)
 "hc" = (
 /obj/item/radio,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /turf/floor/wood/walnut,
 /area/ship/trade/enclave)
 "hf" = (
@@ -1381,7 +1381,7 @@
 /turf/floor/tiled,
 /area/ship/trade/enclave)
 "rt" = (
-/obj/structure/bed/chair/padded/beige,
+/obj/structure/chair/padded/beige,
 /obj/abstract/landmark/start{
 	name = "Enclave Matriarch"
 	},
@@ -2142,7 +2142,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/livestock)
 "Ua" = (
-/obj/structure/bed/chair/wood/walnut,
+/obj/structure/chair/wood/walnut,
 /obj/abstract/landmark/start{
 	name = "Enclave Matriarch"
 	},
@@ -2162,7 +2162,7 @@
 /turf/floor,
 /area/ship/trade/loading_bay)
 "VT" = (
-/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/holopad/longrange,
 /turf/floor/wood/walnut,
 /area/ship/trade/enclave)
 "Xe" = (

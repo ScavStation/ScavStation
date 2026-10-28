@@ -40,7 +40,7 @@
 	uid = "bodytype_animal_skittercrab"
 
 /decl/bodytype/hexapod/animal/skittercrab/Initialize()
-	equip_adjust = list(
+	_equip_adjust = list(
 		slot_head_str = list(
 			"[NORTH]" = list(-1, -10),
 			"[SOUTH]" = list(-1, -10),

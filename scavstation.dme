@@ -4138,7 +4138,6 @@
 #include "maps\random_ruins\exoplanet_ruins\monoliths\monoliths.dm"
 #include "maps\random_ruins\exoplanet_ruins\oasis\oasis.dm"
 #include "maps\random_ruins\exoplanet_ruins\radshrine\radshrine.dm"
-#include "maps\random_ruins\exoplanet_ruins\summit\summit.dm"
 #include "maps\random_ruins\exoplanet_ruins\tar_anomaly\tar_anomaly.dm"
 #include "maps\random_ruins\space_ruins\space_ruins.dm"
 #include "maps\shaded_hills\shaded_hills_define.dm"
@@ -4159,15 +4158,6 @@
 #include "maps\~mapsystem\maps_unit_testing.dm"
 #include "maps\~unit_tests\unit_testing.dm"
 #include "mods\_modpack.dm"
-#include "mods\valsalia\announce_additions.dm"
-#include "mods\valsalia\overwrites.dm"
-#include "mods\valsalia\valsalia.dm"
 #include "mods\~compatibility\~compatibility.dm"
 #include "~code\global_init.dm"
 // END_INCLUDE
-// Scavstation coders, add Additional Scavstation includes below this line. The entirity of everything above this line will likely be replaced with every major update from Nebula.
-#include "mods\valsalia\announce_additions.dm"
-#include "mods\valsalia\overwrites.dm"
-#include "mods\valsalia\valsalia.dm"
-#include "maps\tradeship_alt\tradeship_alt_define.dm"
-#include "maps\valSal_port\valSal_port_define.dm"

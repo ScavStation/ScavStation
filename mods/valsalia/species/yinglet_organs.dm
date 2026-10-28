@@ -33,8 +33,8 @@
 		return
 	// Handle some post-metabolism reagent processing for generally inedible foods.
 	var/total_nutriment = 0
-	if(ingested.total_volume > 0)
-		for(var/R in ingested.reagent_volumes)
+	if(REAGENT_TOTAL_VOLUME(ingested) > 0)
+		for(var/R in REAGENT_VOLUMES(ingested))
 			total_nutriment += gains_nutriment_from_inedible_reagents[R]
 	for(var/obj/item/food in contents)
 		for(var/mat in food.matter)
@@ -65,6 +65,10 @@
 	max_damage = 45
 	min_broken_damage = 25
 
+/obj/item/organ/external/head/yinglet/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/bite)
+	return natural_attacks
+
 /obj/item/organ/external/arm/yinglet
 	max_damage = 25
 	min_broken_damage = 15
@@ -85,14 +89,30 @@
 	max_damage = 20
 	min_broken_damage = 10
 
+/obj/item/organ/external/hand/yinglet/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/punch/weak)
+	return natural_attacks
+
 /obj/item/organ/external/hand/right/yinglet
 	max_damage = 20
 	min_broken_damage = 10
+
+/obj/item/organ/external/hand/right/yinglet/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/punch/weak)
+	return natural_attacks
 
 /obj/item/organ/external/foot/yinglet
 	max_damage = 20
 	min_broken_damage = 10
 
+/obj/item/organ/external/foot/yinglet/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/stomp/weak)
+	return natural_attacks
+
 /obj/item/organ/external/foot/right/yinglet
 	max_damage = 20
 	min_broken_damage = 10
+
+/obj/item/organ/external/foot/right/yinglet/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/stomp/weak)
+	return natural_attacks

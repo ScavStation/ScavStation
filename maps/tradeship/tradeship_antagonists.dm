@@ -1,5 +1,5 @@
 /decl/special_role
-	valid_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	valid_species = list(/decl/species/human::uid, /decl/species/yinglet::uid)
 	initial_spawn_req = 1
 	initial_spawn_target = 1
 

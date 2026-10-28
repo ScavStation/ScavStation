@@ -27,14 +27,14 @@
 	icon_state = "train_keys"
 	w_class = ITEM_SIZE_TINY
 
-/obj/vehicle/train/cargo/trolley_wood
+/obj/vehicle/train/trolley_wood
 	name = "wooden cargo train trolley"
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_trailer_wood"
 	anchored = FALSE
 	passenger_allowed = 0
 	locked = 0
-	buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 8)
+	_buckle_pixel_shift = @"{'x':0,'y':0,'z':8}"
 	//material                  = /decl/material/solid/organic/wood
 	color                     = /decl/material/solid/organic/wood::color
 	load_item_visible = 1

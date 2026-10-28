@@ -21,7 +21,7 @@
 	has_limbs = list(
 		BP_CHEST           = list("path" = /obj/item/organ/external/chest/insectoid),
 		BP_GROIN           = list("path" = /obj/item/organ/external/groin/insectoid),
-		BP_HEAD            = list("path" = /obj/item/organ/external/head/insectoid),
+		BP_HEAD            = list("path" = /obj/item/organ/external/head/insectoid/indrel),
 		BP_L_ARM           = list("path" = /obj/item/organ/external/arm/insectoid),
 		BP_L_HAND          = list("path" = /obj/item/organ/external/hand/insectoid),
 		BP_L_HAND_UPPER    = list("path" = /obj/item/organ/external/hand/insectoid/upper/indrel),
@@ -40,7 +40,7 @@
 
 /decl/bodytype/indrel/Initialize()
 	. = ..()
-	equip_adjust = list(
+	_equip_adjust = list(
 		BP_L_HAND_UPPER =  list(
 			"[NORTH]" = list( 0, 8),
 			"[EAST]"  = list( 0, 8),
@@ -91,8 +91,8 @@
 		)
 	)
 /decl/species/indrel
-	name = SPECIES_INDREL
-	name_plural = SPECIES_INDREL
+	name = "Indrel"
+	name_plural = "Indrel"
 	description = "A species of large insectoids that inhabit the giant Indrel Mountain range that dominates the continent. \
 	They usually keep to themselves, and aren't very keen on people settling within their territory, but they can be open to \
 	cooperation if there is a good incentive for them and their hive."
@@ -109,10 +109,6 @@
 
 	base_external_prosthetics_model = null
 
-	unarmed_attacks = list(
-		/decl/natural_attack/claws/strong,
-		/decl/natural_attack/bite/strong
-	)
 	hazard_low_pressure = -1
 
 	available_background_info = list(
@@ -161,8 +157,20 @@
 /obj/item/organ/external/hand/right/insectoid/upper/indrel
 	gripper_type = /datum/inventory_slot/gripper/right_hand/indrel
 
+/obj/item/organ/external/hand/right/insectoid/upper/indrel/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/claws/strong)
+	return natural_attacks
+
 /obj/item/organ/external/hand/insectoid/upper/indrel
 	gripper_type = /datum/inventory_slot/gripper/left_hand/indrel
+
+/obj/item/organ/external/hand/insectoid/upper/indrel/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/claws/strong)
+	return natural_attacks
+
+/obj/item/organ/external/head/insectoid/indrel/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/bite/strong)
+	return natural_attacks
 
 /decl/species/indrel/handle_autohiss(message, decl/language/lang, mode)
 	if(autohiss_exempt && (lang.name in autohiss_exempt))

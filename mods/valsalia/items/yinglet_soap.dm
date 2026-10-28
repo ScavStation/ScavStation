@@ -15,12 +15,12 @@
 	return
 
 /obj/item/soap/yinglet/proc/is_yinglet(mob/living/target)
-	return istype(target) && target.get_species_name() == SPECIES_YINGLET
+	return istype(target) && target.get_species_name() == /decl/species/yinglet::name
 
 /obj/item/soap/yinglet/use_on_mob(mob/living/target, mob/living/user, animate = TRUE)
 	// Non-hurt intent on a mob that isn't a yinglet = tox damage
-	if(istype(target) && user?.a_intent != I_HURT && !is_yinglet(target))
-		if(reagents?.total_volume < 1)
+	if(istype(target) && !user?.check_intent(I_FLAG_HARM) && !is_yinglet(target))
+		if(REAGENT_TOTAL_VOLUME(reagents) < 1)
 			to_chat(user, SPAN_WARNING("\The [src] is too dry to work up a lather."))
 			return TRUE
 		user.visible_message(
@@ -29,7 +29,7 @@
 		)
 		to_chat(target, SPAN_DANGER("\The [src] burns where it touches you!"))
 		target.apply_damage(YINGLET_SOAP_TOX_PER_USE, TOX)
-		reagents.trans_to(target, reagents.total_volume / 8)
+		reagents.trans_to(target, REAGENT_TOTAL_VOLUME(reagents) / 8)
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) // prevent spam
 		return TRUE
 	return ..()

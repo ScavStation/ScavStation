@@ -68,10 +68,10 @@
 	update_icon()
 	. = ..()
 
-/obj/item/clothing/suit/jacket/redcoat/examine(var/mob/user, var/distance)
+/obj/item/clothing/suit/jacket/redcoat/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(has_badge)
-		to_chat(user, "This one has a badge sewn to the front indicating the wearer is recognized by the Tradehouse.")
+		LAZYADD(., "This one has a badge sewn to the front indicating the wearer is recognized by the Tradehouse.")
 
 /obj/item/clothing/suit/jacket/redcoat/proc/collect_overlays(var/use_state)
 	if(has_badge)

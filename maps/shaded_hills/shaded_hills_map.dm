@@ -1,5 +1,5 @@
 /datum/map/shaded_hills
-	default_species = SPECIES_YINGLET //SPECIES_KOBALOI // ScavStation edit
+	default_species = /decl/species/yinglet::uid // ScavStation edit
 	default_liquid_fuel_type = /decl/material/liquid/oil
 	loadout_categories = list(
 		/decl/loadout_category/fantasy/clothing,

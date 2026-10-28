@@ -46,7 +46,7 @@
 
 /decl/bodytype/baxxid/Initialize()
 	. = ..()
-	equip_adjust = list(
+	_equip_adjust = list(
 		slot_back_str = list(
 			"[NORTH]" = list( 0, 0),
 			"[EAST]"  = list( 6, 0),
@@ -84,18 +84,13 @@
 	head = /obj/item/clothing/head/baxxid/hood/long
 
 /decl/species/baxxid
-	name = SPECIES_BAXXID
-	name_plural = SPECIES_BAXXID
+	name = "Baxxid"
+	name_plural = "Baxxid"
 	description = "A species of large, serpent-like creatures covered in hard boney protrusions and sporting giant claws for limbs. \
 	They are mostly concentrated under The Teeth, in the city of Val Salia, but a few sometimes roam out on expeditions to see the world. \
 	Most are timid, or self-conscious about their size, and have a tendency to avoid violence as best as they can."
 	available_bodytypes = list(
 		/decl/bodytype/baxxid
-	)
-
-	unarmed_attacks = list(
-		/decl/natural_attack/claws/strong/baxxid,
-		/decl/natural_attack/bite/strong
 	)
 
 	shock_vulnerability = 0.05262
@@ -215,7 +210,7 @@
 
 
 /decl/species/baxxid/handle_autohiss(message, decl/language/lang, mode)
-	if(lang.flags & LANG_FLAG_NO_STUTTER)
+	if(lang.language_flags & LANG_FLAG_NO_STUTTER)
 		return message
 	if(autohiss_exempt && (lang.name in autohiss_exempt))
 		return message
@@ -235,7 +230,7 @@
 /decl/sprite_accessory/marking/baxxid
 	name = "Spiked Crest"
 	body_parts = list(BP_HEAD)
-	species_allowed = list(SPECIES_BAXXID)
+	species_allowed = list(/decl/species/baxxid::uid)
 	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
 	icon_state = "crest"
 	color_blend = ICON_MULTIPLY
@@ -246,7 +241,7 @@
 /decl/sprite_accessory/marking/baxxid/smooth_crest
 	name = "Smooth Crest"
 	body_parts = list(BP_HEAD)
-	species_allowed = list(SPECIES_BAXXID)
+	species_allowed = list(/decl/species/baxxid::uid)
 	icon = 'mods/valsalia/icons/species/baxxid/markings.dmi'
 	icon_state = "smooth_crest"
 	color_blend = ICON_MULTIPLY
@@ -361,14 +356,26 @@
 /obj/item/organ/external/hand/baxxid
 	gripper_type = /datum/inventory_slot/gripper/left_hand/baxxid
 
+/obj/item/organ/external/hand/baxxid/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/claws/strong/baxxid)
+	return natural_attacks
+
 /obj/item/organ/external/hand/baxxid/get_manual_dexterity()
 	return (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
 
 /obj/item/organ/external/hand/right/baxxid
 	gripper_type = /datum/inventory_slot/gripper/right_hand/baxxid
 
+/obj/item/organ/external/hand/right/baxxid/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/claws/strong/baxxid)
+	return natural_attacks
+
 /obj/item/organ/external/hand/right/baxxid/get_manual_dexterity()
 	return (DEXTERITY_HOLD_ITEM|DEXTERITY_SIMPLE_MACHINES|DEXTERITY_KEYBOARDS)
+
+/obj/item/organ/external/head/baxxid/get_natural_attacks()
+	var/static/list/natural_attacks = list(/decl/natural_attack/bite/strong)
+	return natural_attacks
 
 /obj/item/organ/external/head/baxxid/get_manual_dexterity()
 	return (DEXTERITY_FULL & ~(DEXTERITY_WEAPONS))

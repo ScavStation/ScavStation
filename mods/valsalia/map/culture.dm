@@ -77,7 +77,7 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 	uid = "scav_background_heritage_misc_faction"
 
 
-/decl/background_detail/heritage/yinglet/get_random_name(var/gender)
+/decl/background_detail/heritage/yinglet/get_random_cultural_name(mob/recipient, gender, species)
 	// First syllable.
 	. = pick(global.alphabet_no_vowels)
 	if(. == "h")
@@ -165,7 +165,7 @@ var/global/list/alphabet_no_vowels = list("b","c","d","f","g","h","j","k","l","m
 		"Zeez",         "Zerb",         "Zerk",          "Zibzab",     "Zink"
 	)
 
-/decl/background_detail/heritage/yinglet/tribal/get_random_name(var/gender)
+/decl/background_detail/heritage/yinglet/tribal/get_random_cultural_name(mob/recipient, gender, species)
 	. = pick(all_scav_names)
 
 /decl/background_detail/heritage/yinglet/void

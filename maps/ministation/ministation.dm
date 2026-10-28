@@ -15,11 +15,9 @@ Twice...
 //		#include "../../code/unit_tests/offset_tests.dm"
 //	#endif
 
-	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
-
 	#include "../../mods/content/mundane.dm"
 	#include "../../mods/content/scaling_descriptors.dm"
-
+	#include "../../mods/content/response_team/_response_team.dme"
 	#include "../../mods/content/augments/_augments.dme"
 	#include "../../mods/content/bigpharma/_bigpharma.dme"
 	#include "../../mods/content/blob/_blob.dme"
@@ -35,10 +33,12 @@ Twice...
 	#include "../../mods/content/turbolift/_turbolift.dme"
 	#include "../../mods/content/sealant_gun/_sealant_gun.dme"
 	#include "../../mods/content/standard_jobs/_standard_jobs.dme"
+	#include "../../mods/content/standard_merchants/_standard_merchants.dme"
 	#include "../../mods/content/supermatter/_supermatter.dme"
 	#include "../../mods/content/ventcrawl/_ventcrawl.dme"
 	#include "../../mods/content/xenobiology/_xenobiology.dme"
 	#include "../../mods/content/exploration/_exploration.dme"
+	#include "../../mods/content/holodeck/_holodeck.dme"
 
 	#include "../../mods/gamemodes/cult/_cult.dme"
 	#include "../../mods/gamemodes/heist/_heist.dme"
@@ -55,9 +55,6 @@ Twice...
 	#include "../random_ruins/exoplanet_ruins/summit/summit.dm"
 
 	#include "../../mods/cloning/_cloning.dme"
-	#include "../../mods/content/xenobiology/_xenobiology.dme"
-	#include "../../mods/content/corporate/_corporate.dme"
-	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
 	#include "../../mods/mobs/borers/_borers.dme"
 	#include "../../mods/mobs/spiders/_spiders.dme"
@@ -72,14 +69,7 @@ Twice...
 	#include "../../mods/species/tritonian/_tritonian.dme"
 	#include "../../mods/species/neoavians/_neoavians.dme"
 	#include "../../mods/species/vox/_vox.dme"
-	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/species/serpentid/_serpentid.dme"
-	#include "../../mods/content/mundane.dm"
-	#include "../../mods/content/bigpharma/_bigpharma.dme"
-	#include "../../mods/content/government/_government.dme"
-	#include "../../mods/content/modern_earth/_modern_earth.dme"
-	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
-	#include "../../mods/content/scaling_descriptors.dm"
 	#include "../../mods/valsalia/_valsalia.dme"
 	#include "../../mods/species/drakes/_drakes.dme"
 
