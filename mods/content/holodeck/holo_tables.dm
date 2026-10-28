@@ -1,4 +1,4 @@
-/obj/structure/table/holotable
+/obj/structure/table/holo
 	icon_state = "holo_preview"
 	holographic = TRUE
 	worthless = TRUE

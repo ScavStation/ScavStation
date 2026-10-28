@@ -101,7 +101,6 @@
 /turf/floor/mud/water/swamp
 	name = "swamp water"
 	color = COLOR_DARK_GREEN_GRAY
-	fluid_movement_penalty = FALSE
 
 /turf/floor/mud/flooded
 	flooded           = /decl/material/liquid/water
@@ -148,7 +147,6 @@
 /turf/floor/rock/sand/water/swamp
 	name = "swamp water"
 	color = COLOR_DARK_GREEN_GRAY
-	fluid_movement_penalty = FALSE
 
 /turf/floor/seafloor
 	name              = "sea floor"

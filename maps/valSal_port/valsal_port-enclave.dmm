@@ -13,7 +13,7 @@
 /turf/wall/log/walnut/shutter/open,
 /area/valSal_port/enclave/storehouse)
 "aH" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/commonhouse)
 "aI" = (
@@ -33,7 +33,7 @@
 /turf/floor/wood/ebony,
 /area/valSal_port/enclave/nursery)
 "aP" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/abstract/landmark/paperwork_spawn_valSal_port,
 /obj/item/paperwork/valSal_port,
 /turf/floor/carpet/rustic,
@@ -288,7 +288,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_cliff)
 "gm" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/gun/launcher/bow/crafted,
 /obj/item/gun/launcher/bow/crafted,
 /obj/item/stack/material/bow_ammo/arrow/fifteen,
@@ -326,7 +326,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/enclave)
 "hj" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /obj/item/toy/plushie/carp/gold{
 	desc = "An adorable stuffed toy that resembles a carp."
 	},
@@ -344,7 +344,7 @@
 /turf/floor/dirt,
 /area/valSal_port/outside/enclave_farm)
 "hq" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /obj/structure/wall_sconce/lantern{
 	dir = 8
 	},
@@ -720,7 +720,7 @@
 /area/valSal_port/outside/enclave)
 "pI" = (
 /obj/structure/wall_sconce/torch,
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/pan_net,
 /obj/item/pan_net,
 /turf/floor/wood/mahogany,
@@ -746,7 +746,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "pY" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /turf/floor/wood/ebony,
 /area/valSal_port/enclave/nursery)
 "qb" = (
@@ -842,7 +842,7 @@
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/enclave/riverborder)
 "sr" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/mollusc/clam,
 /obj/item/mollusc/clam,
 /obj/item/mollusc/clam,
@@ -894,7 +894,7 @@
 /turf/floor/dirt,
 /area/valSal_port/enclave/mining)
 "sZ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/dirt,
 /area/valSal_port/outside/enclave)
 "tb" = (
@@ -929,7 +929,7 @@
 /turf/floor/rock/basalt,
 /area/valSal_port/caves)
 "tz" = (
-/obj/structure/bed/chair/bench/pew/ebony{
+/obj/structure/bed/bench/pew/ebony{
 	dir = 4
 	},
 /turf/floor/wood/mahogany,
@@ -978,7 +978,7 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/medicinehut)
 "uv" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/chems/glass/handmade/mug/wood,
 /obj/structure/wall_sconce/torch{
 	dir = 8
@@ -1013,7 +1013,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "vc" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/tool/pickaxe/iron,
 /turf/floor/dirt,
 /area/valSal_port/enclave/mining)
@@ -1050,7 +1050,7 @@
 /turf/floor/barren,
 /area/valSal_port/outside/enclave_farm)
 "vr" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/chems/glass/handmade/mug/wood,
 /obj/structure/wall_sconce/torch{
 	dir = 4
@@ -1117,11 +1117,11 @@
 /turf/floor/rock/basalt,
 /area/valSal_port/caves/deep)
 "xk" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /turf/floor/dirt,
 /area/valSal_port/enclave/dininghut)
 "xm" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/chems/drinks/healthy_healthy_juice,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/medicinehut)
@@ -1158,7 +1158,7 @@
 /turf/floor/mud,
 /area/valSal_port/outside/enclave)
 "xF" = (
-/obj/vehicle/train/cargo/trolley_wood,
+/obj/vehicle/train/trolley_wood,
 /turf/floor/barren,
 /area/valSal_port/outside/enclave)
 "xO" = (
@@ -1296,7 +1296,7 @@
 /turf/floor/rock/basalt,
 /area/valSal_port/caves)
 "zW" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/bladed/polearm/spear,
 /obj/item/bladed/polearm/spear,
 /turf/floor/carpet/rustic,
@@ -1460,7 +1460,7 @@
 /area/valSal_port/enclave/patriarch)
 "Dt" = (
 /obj/structure/wall_sconce/torch,
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /turf/floor/dirt,
 /area/valSal_port/enclave/dininghut)
 "DE" = (
@@ -1534,7 +1534,7 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/huntershut)
 "EW" = (
-/obj/vehicle/train/cargo/engine{
+/obj/vehicle/train/engine{
 	dir = 8
 	},
 /turf/floor/barren,
@@ -1552,7 +1552,7 @@
 /turf/floor/dirt,
 /area/valSal_port/outside/enclave)
 "Fk" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/stack/material/thread/mapped/dried_gut/ten,
 /obj/item/stack/material/thread/mapped/dried_gut/five,
 /obj/item/basket,
@@ -1583,7 +1583,7 @@
 /turf/unsimulated/dark_filler,
 /area/valSal_port/outside/outdoors_enclave)
 "FH" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/structure/fire_source/heater/mapped,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/medicinehut)
@@ -1644,7 +1644,7 @@
 	pixel_y = 24
 	},
 /obj/item/lute,
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/foyer)
 "GR" = (
@@ -1658,7 +1658,7 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/matriarch)
 "He" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/drum,
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/commonhouse)
@@ -1684,7 +1684,7 @@
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/storehouse)
 "HW" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/paper/scroll,
 /obj/item/paper/scroll,
 /obj/item/paper/scroll,
@@ -1700,7 +1700,7 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/matriarch)
 "Ib" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/dininghut)
 "Il" = (
@@ -1724,7 +1724,7 @@
 /turf/floor/mud/water/swamp,
 /area/valSal_port/outside/enclave)
 "Iy" = (
-/obj/structure/bed/chair/bench/mahogany,
+/obj/structure/bed/bench/mahogany,
 /turf/floor/wood/ebony,
 /area/valSal_port/enclave/nursery)
 "IA" = (
@@ -1808,7 +1808,7 @@
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/commonhouse)
 "KI" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/chems/glass/inkwell/quilled,
 /obj/structure/wall_sconce/torch{
 	dir = 8
@@ -1841,7 +1841,7 @@
 /turf/unsimulated/dark_filler,
 /area/valSal_port/outside/enclave/river)
 "Lq" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/chems/glass/handmade/bottle,
 /obj/item/chems/glass/handmade/bottle,
 /obj/item/chems/glass/handmade/bottle/tall,
@@ -2169,7 +2169,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_enclave)
 "Sb" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/carpet/rustic,
 /area/valSal_port/enclave/patriarch)
 "Sn" = (
@@ -2234,7 +2234,7 @@
 /turf/floor/dirt,
 /area/valSal_port/outside/enclave)
 "TB" = (
-/obj/structure/bed/chair/bench/mahogany{
+/obj/structure/bed/bench/mahogany{
 	dir = 1
 	},
 /turf/floor/wood/ebony,
@@ -2304,7 +2304,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/enclave)
 "VK" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/chems/glass/handmade/mug/wood,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/dininghut)
@@ -2322,7 +2322,7 @@
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/storehouse)
 "Wi" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /obj/structure/wall_sconce/lantern{
 	dir = 8
 	},
@@ -2349,7 +2349,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/outdoors_enclave)
 "WL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/kitchen/rollingpin,
 /obj/item/knife/primitive{
 	name = "skinning knife"
@@ -2372,7 +2372,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outdoors_cliff)
 "Xo" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/stack/material/brick/mapped/basalt/ten,
 /turf/floor/dirt,
 /area/valSal_port/enclave/mining)

@@ -50,12 +50,9 @@
 	new /datum/trade_hub/singleton/tradeship
 
 /datum/trade_hub/singleton/tradeship
-	name = "Tradehouse Freight Network"
-
-/datum/trade_hub/singleton/tradeship/get_initial_traders()
-	return list(
-		/datum/trader/xeno_shop,
-		/datum/trader/medical,
-		/datum/trader/mining,
-		/datum/trader/books
+	initial_merchant_types = list(
+		/datum/merchant/xeno_shop,
+		/datum/merchant/medical,
+		/datum/merchant/mining,
+		/datum/merchant/books
 	)

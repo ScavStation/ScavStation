@@ -777,7 +777,7 @@
 /turf/floor/tiled/techfloor,
 /area/ship/trade/fore_port_underside_maint)
 "bD" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -982,7 +982,7 @@
 /turf/floor/fake_grass,
 /area/ship/trade/aft_port_underside_maint)
 "bZ" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -1005,7 +1005,7 @@
 /turf/floor/plating,
 /area/ship/trade/loading_bay)
 "ca" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -1019,7 +1019,7 @@
 /obj/item/assembly/mousetrap,
 /obj/item/radio,
 /obj/item/bag/trash,
-/obj/item/chems/glass/rag,
+/obj/item/chems/rag,
 /obj/item/caution,
 /obj/item/caution,
 /obj/item/caution,
@@ -1623,7 +1623,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/backpack/dufflebag,
-/obj/item/chems/glass/rag,
+/obj/item/chems/rag,
 /obj/item/chems/glass/bucket,
 /obj/machinery/firealarm{
 	pixel_y = 25
@@ -2069,7 +2069,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -2234,7 +2234,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -2295,10 +2295,10 @@
 /turf/floor/bluegrid,
 /area/ship/trade/aft_starboard_underside_maint)
 "IG" = (
-/obj/structure/bed/chair/comfy/green{
+/obj/structure/chair/comfy/green{
 	dir = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -2369,7 +2369,7 @@
 /turf/wall/r_wall,
 /area/ship/trade/undercomms)
 "Lx" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_x = 22
 	},
@@ -2505,7 +2505,7 @@
 /area/ship/trade/livestock)
 "Nm" = (
 /obj/structure/bookcase/ebony,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -2583,7 +2583,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/aft_starboard_underside_maint)
 "Qh" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /obj/item/cell/crap/empty,
 /obj/item/gun/launcher/bow/crossbow,
 /obj/item/stack/material/rods,
@@ -2613,7 +2613,7 @@
 /turf/floor,
 /area/ship/trade/loading_bay)
 "QQ" = (
-/obj/structure/bed/chair/rounded{
+/obj/structure/chair/rounded{
 	dir = 1
 	},
 /turf/floor/plating,
@@ -2737,7 +2737,7 @@
 /turf/floor/plating/dirt,
 /area/ship/trade/aft_port_underside_maint)
 "VT" = (
-/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/holopad/longrange,
 /obj/item/stool/padded,
 /obj/effect/floor_decal/carpet/green{
 	dir = 8;

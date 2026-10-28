@@ -481,3 +481,6 @@
 /decl/interaction_handler/clothing_set_sensors/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/item/clothing/clothing = target
 	clothing.set_sensors(user)
+
+/obj/item/clothing/proc/get_nonstandard_icon_states()
+	return list()

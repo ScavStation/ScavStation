@@ -1,18 +1,6 @@
 var/global/notifiednullmatter = 0
 var/global/notifiedend = 0
 var/global/ruinstate = 0
-/decl/public_access/public_method/triggerNM
-	name = "activate NM"
-	desc = "activate NM if possible."
-	call_proc = TYPE_PROC_REF(/obj/machinery/power/supermatter/nullmatter, activate)
-
-
-/decl/stock_part_preset/radio/receiver/nullmatter
-	frequency = BUTTON_FREQ
-	receive_and_call = list("button_active" = /decl/public_access/public_method/triggerNM)
-
-
-
 
 /datum/map_template/ruin/exoplanet/summit
 	name = "The Summit"
@@ -255,14 +243,14 @@ var/global/ruinstate = 0
 	desc = "It feels faintly warm to the touch."
 
 /obj/structure/closet/crate/secure/large/supermatter/experimentalsm/WillContain() // Borrowed from Unishi
-	return list(/obj/machinery/power/supermatter/randomsample)
+	return list(/obj/structure/supermatter/randomsample)
 
-/obj/machinery/power/supermatter/randomsample // Borrowed from Unishi
+/obj/structure/supermatter/randomsample // Borrowed from Unishi
 	name = "experimental supermatter sample"
 	icon = 'icons/obj/supermatter_32.dmi'
 	icon_state = "supermatter_shard"
 
-/obj/machinery/power/supermatter/randomsample/Initialize() // Borrowed from Unishi
+/obj/structure/supermatter/randomsample/Initialize() // Borrowed from Unishi
 	. = ..()
 	nitrogen_retardation_factor = rand(0.01, 1)	  //Higher == N2 slows reaction more
 	thermal_release_modifier = rand(100, 1000000) //Higher == more heat released during reaction
@@ -278,7 +266,7 @@ var/global/ruinstate = 0
 	damage_rate_limit = rand( 1, 10)		//damage rate cap at power = 300, scales linearly with power
 //nullmatter
 
-/obj/machinery/power/supermatter/nullmatter
+/obj/structure/supermatter/nullmatter
 	name = "nullmatter condensate"
 	desc = "Nothing. Absolute physical nothing that ought to be impossible to exist. Your head hurts."
 	icon = 'icons/obj/singularity.dmi'
@@ -290,15 +278,10 @@ var/global/ruinstate = 0
 	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
 	safe_alert = null;
 	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
-	id_tag = "selfd";
 	base_color = "#000000";
 	color = "#000000";
 	light_color = "#000000";
 	blood_color = "#000000";
-	emagged = 1;
-	sharp = 1;
-	edge = 1;
-	explosion_resistance = 80;
 	explosion_power = 2;
 	animate_movement = 0;
 	light_range = null;
@@ -308,16 +291,8 @@ var/global/ruinstate = 0
 	disable_adminwarn = TRUE
 	var/timer = 30 //minutes
 	var/started = 0
-	stock_part_presets = list(/decl/stock_part_preset/radio/receiver/nullmatter = 1)
-	uncreated_component_parts = list(
-		/obj/item/stock_parts/radio/receiver/buildable,
-		/obj/item/stock_parts/power/apc/buildable
-		)
-	public_methods = list(
-		/decl/public_access/public_method/triggerNM)
 
-
-/obj/machinery/power/supermatter/nullmatter/proc/activate()
+/obj/structure/supermatter/nullmatter/proc/activate()
 
 	if(!global.ruinstate)
 		damage = 0
@@ -334,30 +309,30 @@ var/global/ruinstate = 0
 		explosion(src, 3, 4, 5, 6, 1)
 		qdel(src)
 
-/obj/machinery/power/supermatter/nullmatter/proc/stateroll()
+/obj/structure/supermatter/nullmatter/proc/stateroll()
 	if(!global.ruinstate)
 		var/i = rand(1, 10)
 		if(i >= 5)
 			global.ruinstate = 1
 
-/obj/machinery/power/supermatter/nullmatter/Initialize(mapload)
+/obj/structure/supermatter/nullmatter/Initialize(mapload)
 	. = ..()
 	stateroll()
 	started = 0
 	addtimer(CALLBACK(src, PROC_REF(activate)), timer MINUTE)
 
-/obj/machinery/power/supermatter/nullmatter/Process()
+/obj/structure/supermatter/nullmatter/Process()
 	if(!started)
 		return
 	else
 		. = ..()
 
-/obj/machinery/power/supermatter/nullmatter/explode()
+/obj/structure/supermatter/nullmatter/explode()
 	. = ..()
 	if(!global.notifiedend)
 		global.notifiedend = 1
 		to_world("Suddenly, you feel a wave of wrongness wash over you, then fade just as quickly. Something horrific has been silenced.")
 
-/obj/machinery/power/supermatter/nullmatter/explosion_act()
+/obj/structure/supermatter/nullmatter/explosion_act()
 	SHOULD_CALL_PARENT(FALSE)
 	currently_exploding = FALSE

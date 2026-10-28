@@ -769,7 +769,7 @@
 	temperature = 0
 	})
 "dV" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/structure/supermatter/nullmatter{
 	explosion_point = 150;
 	emergency_point = 125;
 	critical_temperature = 1250;
@@ -2320,7 +2320,7 @@
 	temperature = 0
 	})
 "mO" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/structure/supermatter/nullmatter{
 	explosion_point = 150;
 	emergency_point = 125;
 	critical_temperature = 1200;
@@ -2412,34 +2412,7 @@
 	germ_level = 800000000
 	})
 "np" = (
-/obj/machinery/power/supermatter/nullmatter{
-	explosion_point = 150;
-	emergency_point = 125;
-	critical_temperature = 1200;
-	decay_factor = 250;
-	emergency_alert = "INTRATEMPORAL PARADOX DETECTED. EVACUATE IMMEDIATELY.";
-	safe_alert = null;
-	warning_alert = "Warning! Intratemporal strain detected! Power Down all singularity generators immediately!";
-	id_tag = "selfd";
-	base_color = "#000000";
-	color = "#000000";
-	light_color = "#000000";
-	blood_color = "#000000";
-	emagged = 1;
-	sharp = 1;
-	edge = 1;
-	explosion_resistance = 80;
-	explosion_power = 15;
-	name = "nullmatter condensate";
-	animate_movement = 0;
-	desc = "A terrifying display of space-time paradox abuse.";
-	light_range = null;
-	light_power = null;
-	temperature = 0;
-	icon = 'icons/obj/singularity.dmi';
-	icon_state = "singularity_s1";
-	timer = 45
-	},
+/obj/structure/supermatter/nullmatter,
 /obj/machinery/igniter{
 	id_tag = "selfd";
 	emagged = 1
@@ -2908,7 +2881,7 @@
 	temperature = 0
 	})
 "pL" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/structure/supermatter/nullmatter{
 	explosion_point = 300;
 	emergency_point = 125;
 	critical_temperature = 600;
@@ -3618,7 +3591,7 @@
 	})
 "uz" = (
 /obj/machinery/recharge_station,
-/obj/machinery/power/apc/hyper{
+/obj/machinery/apc/hyper{
 	dir = 1;
 	pixel_y = 21
 	},
@@ -4870,7 +4843,7 @@
 	})
 "EH" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/item/stack/material/rods/ten{
+/obj/item/stack/material/rods/mapped/steel/ten{
 	pixel_y = 7;
 	pixel_x = -4
 	},
@@ -6212,7 +6185,7 @@
 	temperature = 0
 	})
 "Qz" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/structure/supermatter/nullmatter{
 	explosion_point = 150;
 	emergency_point = 125;
 	critical_temperature = 1250;
@@ -7169,7 +7142,7 @@
 	temperature = 0
 	})
 "Vm" = (
-/obj/machinery/power/supermatter/nullmatter{
+/obj/structure/supermatter/nullmatter{
 	explosion_point = 300;
 	emergency_point = 125;
 	critical_temperature = 600;
@@ -7237,7 +7210,7 @@
 	})
 "VT" = (
 /obj/machinery/recharge_station,
-/obj/machinery/power/apc/hyper{
+/obj/machinery/apc/hyper{
 	dir = 1;
 	pixel_y = 21
 	},

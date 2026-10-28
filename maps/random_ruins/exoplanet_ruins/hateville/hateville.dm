@@ -12,7 +12,7 @@
 		)
 
 /decl/submap_archetype/hateville
-	descriptor = "Overrun Colony"
+	name = "Overrun Colony"
 	crew_jobs = list(/datum/job/submap/hatevillecolonist)
 
 /datum/job/submap/hatevillecolonist

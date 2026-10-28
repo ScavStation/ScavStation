@@ -1,5 +1,5 @@
 /decl/sprite_accessory/marking/yinglet
-	species_allowed = list(SPECIES_YINGLET)
+	species_allowed = list(/decl/species/yinglet::uid)
 	icon = 'mods/valsalia/icons/species/yinglet/markings.dmi'
 	color_blend = ICON_MULTIPLY
 	mask_to_bodypart = TRUE
@@ -171,7 +171,7 @@
 /decl/sprite_accessory/hair/yinglet
 	name = "Ying Messy"
 	icon_state = "hair_messy"
-	species_allowed = list(SPECIES_YINGLET)
+	species_allowed = list(/decl/species/yinglet::uid)
 	icon = 'mods/valsalia/icons/species/yinglet/hair.dmi'
 	color_blend = ICON_MULTIPLY
 	uid = "hair_ying_messy"

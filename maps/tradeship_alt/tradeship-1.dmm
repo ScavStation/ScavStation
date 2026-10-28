@@ -185,7 +185,7 @@
 /turf/floor/plating,
 /area/ship/trade/cargo/lower)
 "aw" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -458,7 +458,7 @@
 	pixel_x = 24;
 	dir = 8
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -482,7 +482,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/lower)
 "bd" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -22
 	},
@@ -827,7 +827,7 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_x = 22
 	},
@@ -896,7 +896,7 @@
 /obj/random/clothing,
 /obj/random/clothing,
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -1213,7 +1213,7 @@
 "dm" = (
 /obj/effect/floor_decal/borderfloorblack/full,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/box/bodybags,
 /turf/floor/tiled/dark,
 /area/ship/trade/crew/morgue)
@@ -1335,7 +1335,7 @@
 /area/ship/trade/crew/morgue)
 "dB" = (
 /obj/effect/floor_decal/borderfloorblack/full,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_x = 22
 	},
@@ -1417,7 +1417,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -1790,7 +1790,7 @@
 	level = 2
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "Engineering Supply Storage APC";
 	pixel_x = 22
@@ -1823,7 +1823,7 @@
 	dir = 8;
 	icon_state = "bulb1"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -1996,7 +1996,7 @@
 /obj/item/stock_parts/micro_laser,
 /obj/item/stock_parts/micro_laser/ultra,
 /obj/structure/rack,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -2065,7 +2065,7 @@
 /obj/random/clothing,
 /obj/random/clothing,
 /obj/effect/decal/cleanable/cobweb,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -2133,7 +2133,7 @@
 /turf/floor/tiled/steel_ridged,
 /area/ship/trade/crew/dorms2)
 "lb" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -2150,7 +2150,7 @@
 /area/ship/trade/science)
 "lg" = (
 /obj/structure/closet/crate/plastic,
-/obj/item/ore,
+/obj/item/ore_satchel,
 /obj/item/tool/pickaxe,
 /obj/item/stack/flag/yellow,
 /obj/item/box/glowsticks,
@@ -2179,7 +2179,7 @@
 /obj/effect/floor_decal/techfloor/orange{
 	dir = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "south bump";
 	pixel_y = -22
 	},
@@ -2712,7 +2712,7 @@
 	dir = 4;
 	icon_state = "bulb1"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	pixel_y = -22
 	},
 /obj/machinery/alarm{
@@ -3412,7 +3412,7 @@
 /area/ship/trade/crew/dorms2)
 "Nb" = (
 /obj/effect/floor_decal/borderfloorblack/full,
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/urn,
 /turf/floor/tiled/dark,
 /area/ship/trade/crew/morgue)

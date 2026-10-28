@@ -385,11 +385,11 @@ var/global/list/roulette_bet_payouts = list(
 	if(!ispath(currency, /decl/currency))
 		currency = global.using_map.default_currency
 
-/obj/structure/casino/oh_bandit/examine(mob/user, distance)
+/obj/structure/casino/oh_bandit/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(distance <= 3)
 		var/decl/currency/cur = GET_DECL(currency)
-		to_chat(user, SPAN_NOTICE("It holds [cur.format_value(pool)]. A pull costs [cur.format_value(bet_amount)]."))
+		LAZYADD(., SPAN_NOTICE("It holds [cur.format_value(pool)]. A pull costs [cur.format_value(bet_amount)]."))
 
 // Insert money.
 /obj/structure/casino/oh_bandit/attackby(obj/item/W, mob/user)
@@ -433,7 +433,7 @@ var/global/list/roulette_bet_payouts = list(
 
 // Plain left-click: cash out.
 /obj/structure/casino/oh_bandit/attack_hand(mob/user)
-	if(user.a_intent == I_HURT || !user.check_dexterity(DEXTERITY_SIMPLE_MACHINES, TRUE))
+	if(user.check_intent(I_FLAG_HARM) || !user.check_dexterity(DEXTERITY_SIMPLE_MACHINES, TRUE))
 		return ..()
 	if(busy)
 		to_chat(user, SPAN_WARNING("\The [src] is still spinning."))
@@ -496,7 +496,7 @@ var/global/list/roulette_bet_payouts = list(
 	do_spin(usr)
 
 /obj/structure/casino/oh_bandit/proc/do_spin(mob/user)
-	if(user.a_intent == I_HURT || !user.check_dexterity(DEXTERITY_SIMPLE_MACHINES, TRUE))
+	if(user.check_intent(I_FLAG_HARM) || !user.check_dexterity(DEXTERITY_SIMPLE_MACHINES, TRUE))
 		return
 	if(busy)
 		to_chat(user, SPAN_WARNING("\The [src] is still spinning."))

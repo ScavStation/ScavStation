@@ -87,7 +87,7 @@
 		"Engineering" = 1
 	)
 	camera_channels = list(
-		CAMERA_CAMERA_CHANNEL_ENGINEERING
+		CAMERA_CHANNEL_ENGINEERING
 	)
 	software = list(
 		/datum/computer_file/program/power_monitor,
@@ -101,7 +101,7 @@
 		/obj/item/flash,
 		/obj/item/borg/sight/meson,
 		/obj/item/chems/spray/extinguisher,
-		/obj/item/weldingtool/largetank,
+		/obj/item/fuelled_tool/welding/largetank,
 		/obj/item/screwdriver,
 		/obj/item/wrench,
 		/obj/item/crowbar/brace_jack,

@@ -121,7 +121,7 @@
 /turf/floor/snow,
 /area/valSal_port/outside/clearing)
 "fN" = (
-/obj/structure/bed/chair/wood/wings/walnut,
+/obj/structure/chair/wood/wings/walnut,
 /turf/floor/wood/bamboo,
 /area/valSal_port/valley/quarter3)
 "fY" = (
@@ -274,7 +274,7 @@
 /turf/wall/brick/sandstone,
 /area/valSal_port/valley/library)
 "mg" = (
-/obj/structure/bed/chair/bench/pew/ebony{
+/obj/structure/bed/bench/pew/ebony{
 	dir = 8
 	},
 /turf/floor/carpet,
@@ -352,7 +352,7 @@
 /area/valSal_port/valley/shrine)
 "sF" = (
 /obj/effect/floor_decal/corner/black/mono,
-/obj/structure/bed/chair/rustic_fancy/ebony,
+/obj/structure/bed/rustic_fancy/ebony,
 /mob/living/simple_animal/hostile/thug/bandit{
 	name = "Chieftain";
 	desc = "A mighty individual who has little qualms about what he did.";
@@ -394,7 +394,7 @@
 /turf/floor/ice,
 /area/valSal_port/valley/nest)
 "we" = (
-/obj/structure/bed/chair/wood/wings/walnut,
+/obj/structure/chair/wood/wings/walnut,
 /turf/floor/carpet/rustic,
 /area/valSal_port/valley/quarter4)
 "wx" = (
@@ -440,7 +440,7 @@
 /turf/floor/snow,
 /area/valSal_port/valley/halls)
 "ym" = (
-/obj/structure/bed/chair/wood/wings/walnut{
+/obj/structure/chair/wood/wings/walnut{
 	dir = 1
 	},
 /turf/unsimulated/floor/carpet,
@@ -518,7 +518,7 @@
 /turf/floor/carpet,
 /area/valSal_port/valley/chapel)
 "CO" = (
-/obj/structure/bed/chair/wood/wings/walnut{
+/obj/structure/chair/wood/wings/walnut{
 	dir = 1
 	},
 /turf/floor/woven,
@@ -552,7 +552,7 @@
 /turf/floor/path/herringbone/marble/water/deep,
 /area/valSal_port/valley/outpost)
 "Ec" = (
-/obj/structure/bed/chair/bench/pew/ebony{
+/obj/structure/bed/bench/pew/ebony{
 	dir = 8
 	},
 /turf/floor/path/herringbone/granite,
@@ -845,7 +845,7 @@
 /turf/floor/rock/basalt,
 /area/valSal_port/outside/caldera)
 "Sn" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/stack/material/log/mapped/ebony/twentyfive,
 /turf/unsimulated/floor/bcarpet,
 /area/valSal_port/valley/kitchen)
@@ -854,7 +854,7 @@
 /turf/floor/path/herringbone,
 /area/valSal_port/valley/library)
 "Sq" = (
-/obj/structure/bed/chair/wood/wings/walnut,
+/obj/structure/chair/wood/wings/walnut,
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/valley/quarter5)
 "Sx" = (
@@ -926,7 +926,7 @@
 /turf/wall/natural/ice,
 /area/valSal_port/valley/stonenorth)
 "Vi" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/tool/hammer/jack{
 	name = "The Batterer"
 	},
