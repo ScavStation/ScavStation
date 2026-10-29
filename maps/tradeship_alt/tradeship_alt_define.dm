@@ -46,13 +46,3 @@
 	return "You're aboard the <b>[station_name],</b> a survey and mercantile vessel affiliated with <b>Tradehouse Ivenmoth</b>, a large merchant guild operating out of Val Salia Station. \
 	This repurposed Tradeship vessel as been expanded to accomodate a larger crew, and is a trial run of how well yinglets can commandeer a vessel... under a close eye, anyway."
 
-/datum/map/tradeship_alt/create_trade_hubs()
-	new /datum/trade_hub/singleton/tradeship
-
-/datum/trade_hub/singleton/tradeship
-	initial_merchant_types = list(
-		/datum/merchant/xeno_shop,
-		/datum/merchant/medical,
-		/datum/merchant/mining,
-		/datum/merchant/books
-	)
