@@ -54,3 +54,7 @@
 #ifdef MODPACK_STANDARD_MERCHANTS
 #include "patches/standard_merchants.dm"
 #endif
+
+#ifdef CONTENT_PACK_VALSALIA
+#include "patches/valsalia.dm"
+#endif

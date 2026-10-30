@@ -48,7 +48,6 @@
 	return DEXTERITY_NONE
 
 /mob/living/simple_animal/passive/ivenmoth/Initialize()
-	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
 	if(name == initial(name))
 		name = "[name] ([sequential_id(/mob/living/simple_animal/passive/ivenmoth)])"
