@@ -90,8 +90,7 @@
 		CAMERA_CHANNEL_ENGINEERING
 	)
 	software = list(
-		/datum/computer_file/program/power_monitor,
-		/datum/computer_file/program/supermatter_monitor
+		/datum/computer_file/program/power_monitor
 	)
 	has_nonslip_feet  = TRUE
 	has_magnetic_feet = TRUE
