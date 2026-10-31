@@ -15,7 +15,6 @@
 		"a jetpack"								= /obj/item/tank/jetpack/,
 		"a pump action shotgun"					= /obj/item/gun/projectile/shotgun/pump/,
 		"a health analyzer"						= /obj/item/scanner/health,
-		"the integrated circuit printer"		= /obj/item/integrated_circuit_printer,
 		"a whole uneaten mollusc"				= /obj/item/mollusc,
 		"a yinglet egg"							= /obj/item/yinglet_egg
 	)
