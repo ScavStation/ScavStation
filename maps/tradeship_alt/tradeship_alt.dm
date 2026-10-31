@@ -31,6 +31,7 @@
 	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/merchants/_merchants.dme"
 	#include "../../mods/content/standard_merchants/_standard_merchants.dme"
+	#include "../../mods/content/merchants/_turbolift.dme"
 
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
 	#include "../../mods/mobs/borers/_borers.dme"
