@@ -241,12 +241,12 @@
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "ay" = (
-/obj/structure/bed/chair/bench/pew/mahogany,
+/obj/structure/bed/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/grass,
 /area/map_template/hateville/command)
 "az" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -820,7 +820,7 @@
 /area/map_template/hateville/command)
 "bp" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/bed/chair/rounded/blue,
+/obj/structure/chair/rounded/blue,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -876,7 +876,7 @@
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureIN)
 "bv" = (
-/obj/structure/table/woodentable_reinforced/walnut,
+/obj/structure/table/wood/reinforced/walnut,
 /obj/machinery/alarm{
 	locked = 0;
 	pixel_y = 20
@@ -1042,7 +1042,7 @@
 	name = "Colony Survivor"
 	},
 /obj/item/clothing/glasses/welding,
-/obj/item/weldingtool/mini,
+/obj/item/fuelled_tool/welding/mini,
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville)
 "bL" = (
@@ -1335,7 +1335,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 6
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 8
 	},
 /obj/item/remains/human,
@@ -2177,7 +2177,7 @@
 	},
 /area/map_template/hateville/dormitories4)
 "dq" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -3049,7 +3049,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -3094,7 +3094,7 @@
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "eD" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/chair/comfy/brown{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/visible,
@@ -3134,7 +3134,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/chair/comfy/brown{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/visible,
@@ -3222,7 +3222,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/splatter,
@@ -3279,7 +3279,7 @@
 	dir = 9
 	},
 /obj/machinery/light,
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/chair/comfy/brown{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/visible,
@@ -3646,43 +3646,43 @@
 	pixel_y = -1;
 	pixel_x = -4
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -3;
 	pixel_x = 7
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -3;
 	pixel_x = 7
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -6;
 	pixel_x = -10
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -3;
 	pixel_x = -11
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -7;
 	pixel_x = -1
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -7;
 	pixel_x = 7
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -3;
 	pixel_x = -3
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 6;
 	pixel_x = 7
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 1;
 	pixel_x = 7
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 4;
 	pixel_x = 7
 	},
@@ -3938,11 +3938,11 @@
 /obj/item/chems/spray/cleaner{
 	pixel_y = 6
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 8;
 	pixel_x = -7
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 6;
 	pixel_x = 9
 	},
@@ -3959,7 +3959,7 @@
 	},
 /area/map_template/hateville/operating)
 "fC" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -4025,7 +4025,7 @@
 	pixel_y = 16;
 	pixel_x = 7
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 6;
 	pixel_x = 9
 	},
@@ -4417,7 +4417,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_y = 3;
 	pixel_x = 25
@@ -4521,7 +4521,7 @@
 	pixel_x = -7
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 13;
 	pixel_x = -2
 	},
@@ -4906,7 +4906,7 @@
 	},
 /area/map_template/hateville/power)
 "gY" = (
-/obj/structure/table/woodentable_reinforced/walnut,
+/obj/structure/table/wood/reinforced/walnut,
 /obj/machinery/button/blast_door{
 	id_tag = "commblast";
 	name = "Command Center Blast Door Control";
@@ -4998,7 +4998,7 @@
 	pixel_x = -13
 	},
 /obj/random/soap,
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 5
 	},
 /obj/machinery/light/small{
@@ -5520,7 +5520,7 @@
 /turf/floor/carpet/blue2,
 /area/map_template/hateville/dormitories7)
 "hO" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/ashtray/plastic{
 	pixel_y = 8;
 	pixel_x = 5
@@ -5751,7 +5751,7 @@
 	},
 /area/map_template/hateville/dormitories)
 "id" = (
-/obj/structure/bed/chair/armchair/teal,
+/obj/structure/chair/armchair/teal,
 /turf/floor/tiled/white,
 /area/map_template/hateville/medical)
 "ie" = (
@@ -5797,7 +5797,7 @@
 	},
 /area/map_template/hateville/foodcourt)
 "ih" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -6120,7 +6120,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/map_template/hateville/agriculture)
 "iF" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -6163,7 +6163,7 @@
 /turf/floor/tiled/techfloor,
 /area/map_template/hateville/power)
 "iJ" = (
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/chair/comfy/teal{
 	dir = 1
 	},
 /obj/machinery/light,
@@ -6192,7 +6192,7 @@
 /turf/floor/holofloor/tiled/stone,
 /area/template_noop)
 "iL" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -6449,7 +6449,7 @@
 	pixel_y = 12
 	},
 /obj/item/clothing/head/welding/knight,
-/obj/item/weldingtool,
+/obj/item/fuelled_tool/welding,
 /turf/floor/carpet/blue2,
 /area/map_template/hateville/dormitories2)
 "jh" = (
@@ -6530,7 +6530,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/sticky_pad{
 	pixel_y = 9;
 	pixel_x = -8
@@ -6762,7 +6762,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -6884,7 +6884,7 @@
 	},
 /area/map_template/hateville/dormitories)
 "jN" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -6953,7 +6953,7 @@
 	},
 /area/map_template/hateville/common)
 "jR" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -7573,7 +7573,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	locked = 0;
 	name = "south bump";
 	pixel_y = -28
@@ -7826,7 +7826,7 @@
 /turf/floor/holofloor/tiled/stone,
 /area/template_noop)
 "ll" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -7953,7 +7953,7 @@
 /area/map_template/hateville/foodcourt)
 "lu" = (
 /obj/structure/flora/bush/brflowers,
-/obj/structure/bed/chair/bench/pew/mahogany,
+/obj/structure/bed/bench/pew/mahogany,
 /turf/floor/grass,
 /area/map_template/hateville/command)
 "lv" = (
@@ -8047,7 +8047,7 @@
 /area/map_template/hateville/agriculture)
 "lC" = (
 /obj/structure/flora/bush/brflowers,
-/obj/structure/bed/chair/bench/pew/mahogany,
+/obj/structure/bed/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/grass,
@@ -8416,7 +8416,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/map_template/hateville/maintenance)
 "mg" = (
-/obj/structure/bed/chair/office/comfy/teal{
+/obj/structure/chair/office/comfy/teal{
 	dir = 8
 	},
 /obj/structure/cable{
@@ -8537,10 +8537,10 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/rack,
 /obj/item/tool/pickaxe,
-/obj/item/stack/material/rods/fifty,
-/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/rods/mapped/steel/fifty,
+/obj/item/stack/material/rods/mapped/steel/fifty,
 /obj/item/tool/shovel,
-/obj/item/ore,
+/obj/item/ore_satchel,
 /obj/item/backpack/dufflebag/eng,
 /obj/item/cell/super,
 /obj/item/cell/super,
@@ -8876,7 +8876,7 @@
 	locked = 0;
 	pixel_y = 20
 	},
-/obj/structure/bed/chair/office/comfy/teal{
+/obj/structure/chair/office/comfy/teal{
 	dir = 8
 	},
 /obj/item/scalpel/laser/advanced{
@@ -9322,7 +9322,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/item/weldingtool/experimental,
+/obj/item/fuelled_tool/welding/experimental,
 /obj/item/clothing/head/welding/engie,
 /turf/floor/tiled/techfloor/grid,
 /area/map_template/hateville/maintenance)
@@ -10170,7 +10170,7 @@
 	pixel_x = -13
 	},
 /obj/random/soap,
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -5;
 	pixel_x = -7
 	},
@@ -10404,7 +10404,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 4
 	},
 /obj/random/trash,
@@ -10473,7 +10473,7 @@
 "pq" = (
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/machinery/light/small,
-/obj/structure/bed/chair/wood{
+/obj/structure/chair/wood{
 	dir = 1;
 	pixel_y = 12
 	},
@@ -11349,7 +11349,7 @@
 /turf/floor/tiled/freezer,
 /area/map_template/hateville/operating)
 "rr" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/random/single/textbook,
 /turf/floor/carpet/green,
@@ -11480,7 +11480,7 @@
 /obj/random/mre/drink{
 	pixel_y = 7
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 7;
 	pixel_x = -2
 	},
@@ -11875,7 +11875,7 @@
 /turf/floor/concrete/reinforced/road,
 /area/map_template/hateville/mining)
 "sq" = (
-/obj/structure/table/woodentable_reinforced/walnut,
+/obj/structure/table/wood/reinforced/walnut,
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	dir = 8;
 	pixel_y = 4
@@ -12112,7 +12112,7 @@
 	pixel_y = 14;
 	pixel_x = -10
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 8;
 	pixel_x = -3
 	},
@@ -12163,7 +12163,7 @@
 /obj/item/chems/spray/cleaner{
 	pixel_y = 6
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 8;
 	pixel_x = -7
 	},
@@ -12418,7 +12418,7 @@
 /obj/item/chems/spray/cleaner{
 	pixel_y = 6
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 8;
 	pixel_x = -7
 	},
@@ -13315,7 +13315,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/template_noop)
 "vh" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/a_gift{
 	pixel_y = 14;
 	pixel_x = -8
@@ -13587,7 +13587,7 @@
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_y = 3;
 	pixel_x = 25
@@ -13818,7 +13818,7 @@
 	pixel_x = -7;
 	pixel_y = -5
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 13;
 	pixel_x = 9
 	},
@@ -13862,7 +13862,7 @@
 /turf/floor/holofloor/tiled/stone,
 /area/map_template/hateville/agriculture)
 "wA" = (
-/obj/structure/table/woodentable_reinforced/walnut,
+/obj/structure/table/wood/reinforced/walnut,
 /obj/item/cash/c1000{
 	pixel_y = 10;
 	pixel_x = -5
@@ -14289,7 +14289,7 @@
 /obj/item/oxycandle,
 /obj/item/oxycandle,
 /obj/item/oxycandle,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -14425,7 +14425,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 8
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 1
 	},
 /obj/structure/cable{
@@ -14908,7 +14908,7 @@
 /turf/floor/plating,
 /area/map_template/hateville/armory)
 "yN" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -14953,7 +14953,7 @@
 	dir = 4;
 	pixel_x = -24
 	},
-/obj/item/weldingtool/hugetank,
+/obj/item/fuelled_tool/welding/hugetank,
 /obj/item/clothing/head/welding/demon,
 /obj/random/trash,
 /turf/floor/tiled/white{
@@ -15007,7 +15007,7 @@
 	},
 /area/map_template/hateville/agricultureIN)
 "zi" = (
-/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/holopad/longrange,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/radio/intercom{
@@ -15181,7 +15181,7 @@
 	},
 /area/map_template/hateville)
 "zC" = (
-/obj/structure/bed/chair/bench/pew/mahogany,
+/obj/structure/bed/bench/pew/mahogany,
 /turf/floor/grass,
 /area/map_template/hateville/command)
 "zD" = (
@@ -15489,7 +15489,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -15582,7 +15582,7 @@
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = 28
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_y = 3;
 	pixel_x = 25
@@ -15970,7 +15970,7 @@
 	},
 /area/map_template/hateville/security)
 "Bh" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -15993,7 +15993,7 @@
 /area/map_template/hateville/environment)
 "Bk" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	locked = 0;
 	name = "south bump";
 	pixel_y = -28
@@ -16022,7 +16022,7 @@
 	},
 /area/map_template/hateville)
 "Bo" = (
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/chair/comfy/teal{
 	dir = 1
 	},
 /obj/machinery/light,
@@ -16940,7 +16940,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/item/weldingtool/largetank,
+/obj/item/fuelled_tool/welding/largetank,
 /obj/item/clothing/head/welding/fancy,
 /obj/random/trash,
 /turf/floor/tiled/white{
@@ -17085,7 +17085,7 @@
 	},
 /area/map_template/hateville/foodcourt)
 "DF" = (
-/obj/structure/bed/chair/office/comfy/teal{
+/obj/structure/chair/office/comfy/teal{
 	dir = 8
 	},
 /turf/floor/tiled/white,
@@ -17719,7 +17719,7 @@
 /obj/structure/hygiene/sink{
 	dir = 4
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -17740,7 +17740,7 @@
 /turf/floor/concrete/reinforced/road,
 /area/map_template/hateville/materials)
 "Fh" = (
-/obj/structure/table/woodentable_reinforced/walnut,
+/obj/structure/table/wood/reinforced/walnut,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/item/paper_bin{
 	pixel_y = 7;
@@ -18015,7 +18015,7 @@
 /obj/item/chems/spray/cleaner{
 	pixel_y = 6
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 8;
 	pixel_x = -7
 	},
@@ -18697,7 +18697,7 @@
 /obj/effect/floor_decal/techfloor{
 	dir = 9
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -19764,7 +19764,7 @@
 /obj/effect/decal/cleanable/blood/gibs{
 	color = "#a10808"
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/splatter,
@@ -19938,7 +19938,7 @@
 /turf/floor/tiled/old_tile,
 /area/map_template/hateville/agricultureIN)
 "Kc" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -20328,7 +20328,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	locked = 0;
 	name = "south bump";
 	pixel_y = -28
@@ -20891,7 +20891,7 @@
 	pixel_x = -13
 	},
 /obj/random/soap,
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = 7;
 	pixel_x = -6
 	},
@@ -21901,7 +21901,7 @@
 /turf/floor/concrete,
 /area/template_noop)
 "ON" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -22967,10 +22967,10 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/rack,
 /obj/item/tool/pickaxe,
-/obj/item/stack/material/rods/fifty,
-/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/rods/mapped/steel/fifty,
+/obj/item/stack/material/rods/mapped/steel/fifty,
 /obj/item/tool/shovel,
-/obj/item/ore,
+/obj/item/ore_satchel,
 /obj/item/backpack/dufflebag/eng,
 /obj/item/cell/super,
 /obj/item/cell/super,
@@ -23057,7 +23057,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	locked = 0;
 	name = "south bump";
 	pixel_y = -28
@@ -23112,7 +23112,7 @@
 /obj/structure/hygiene/sink{
 	dir = 4
 	},
-/obj/item/chems/glass/rag{
+/obj/item/chems/rag{
 	pixel_y = -5;
 	pixel_x = -7
 	},
@@ -23570,7 +23570,7 @@
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_y = 3;
 	pixel_x = 25
@@ -24729,7 +24729,7 @@
 /obj/structure/catwalk,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -25
 	},
@@ -24992,7 +24992,7 @@
 /area/map_template/hateville/agriculture)
 "Vl" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -25192,7 +25192,7 @@
 /area/template_noop)
 "VL" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/table/woodentable_reinforced/walnut,
+/obj/structure/table/wood/reinforced/walnut,
 /obj/item/toy/desk/fan{
 	pixel_y = -3;
 	pixel_x = -7
@@ -25713,7 +25713,7 @@
 /area/template_noop)
 "WQ" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/structure/bed/chair/wood/wings/mahogany{
+/obj/structure/chair/wood/wings/mahogany{
 	dir = 4
 	},
 /obj/machinery/firealarm{
@@ -26269,7 +26269,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 19
 	},
@@ -26517,7 +26517,7 @@
 /area/map_template/hateville/environment)
 "Yp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/freezer{
+/obj/machinery/atmospherics/unary/temperature/freezer{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -26952,7 +26952,7 @@
 /turf/floor/concrete/reinforced/road,
 /area/map_template/hateville/mining)
 "Zl" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_y = 3;
 	pixel_x = 25

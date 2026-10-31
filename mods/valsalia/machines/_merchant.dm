@@ -158,7 +158,7 @@
 /datum/vendor/proc/attackby(obj/item/W, mob/user)
 	if(!currently_vending)
 		// Not mid-sale: the merchant may want to buy this off the player instead.
-		if(user.a_intent != I_HURT && LAZYLEN(buy_prices) && istype(W))
+		if(!user.check_intent(I_FLAG_HARM) && LAZYLEN(buy_prices) && istype(W))
 			return handle_player_sale(W, user)
 		return FALSE
 
@@ -284,9 +284,9 @@
 // per-unit rate * volume comes to (reagent_buy_prices), not just whichever container type it is.
 /datum/vendor/proc/get_reagent_buy_offer(obj/item/W)
 	. = 0
-	if(!LAZYLEN(reagent_buy_prices) || !istype(W, /obj/item/chems) || !W.reagents?.total_volume)
+	if(!LAZYLEN(reagent_buy_prices) || !istype(W, /obj/item/chems) || !REAGENT_TOTAL_VOLUME(W.reagents))
 		return
-	for(var/rtype in W.reagents.reagent_volumes)
+	for(var/rtype in REAGENT_VOLUMES(W.reagents))
 		var/per_unit = reagent_buy_price_per_unit(rtype)
 		if(per_unit > 0)
 			. += per_unit * REAGENT_VOLUME(W.reagents, rtype)

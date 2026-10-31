@@ -16,7 +16,7 @@
  */
 /obj/structure/closet/emcloset
 	name = "emergency closet"
-	desc = "It's a storage unit for emergency breathmasks and o2 tanks."
+	desc = "It's a storage unit for emergency breath masks and oxygen tanks."
 	closet_appearance = /decl/closet_appearance/oxygen
 
 /obj/structure/closet/emcloset/WillContain()
@@ -71,7 +71,7 @@
 		new /datum/atom_creator/simple(/obj/item/flashlight,                70),
 		new /datum/atom_creator/simple(/obj/item/screwdriver,               70),
 		new /datum/atom_creator/simple(/obj/item/wrench,                    70),
-		new /datum/atom_creator/simple(/obj/item/weldingtool,               70),
+		new /datum/atom_creator/simple(/obj/item/fuelled_tool/welding,               70),
 		new /datum/atom_creator/simple(/obj/item/crowbar,                   70),
 		new /datum/atom_creator/simple(/obj/item/wirecutters,               70),
 		new /datum/atom_creator/simple(/obj/item/t_scanner,                 70),

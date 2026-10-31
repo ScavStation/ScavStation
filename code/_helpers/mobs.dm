@@ -9,11 +9,12 @@
 
 /proc/random_name(gender, species)
 	if(species)
-		var/decl/species/current_species = get_species_by_key(species)
+		var/decl/species/current_species = decls_repository.get_decl_by_id(species)
 		if(current_species)
 			var/decl/background_detail/background = current_species.get_default_background_datum_by_flag(BACKGROUND_FLAG_NAMING)
 			if(background)
-				return background.get_random_name(null, gender)
+				return background.get_random_cultural_name(gender = gender, species = species)
+
 	return capitalize(pick(gender == FEMALE ? global.using_map.first_names_female : global.using_map.first_names_male)) + " " + capitalize(pick(global.using_map.last_names))
 
 /proc/random_skin_tone(var/decl/bodytype/current_bodytype)
@@ -28,13 +29,13 @@
 		return FALSE
 	if(!isrobot(thing.loc))
 		return FALSE
-	var/mob/living/silicon/robot/R = thing.loc
-	return (thing in R.module.equipment)
+	var/mob/living/silicon/robot/robot = thing.loc
+	return (thing in robot.module.equipment)
 
 /proc/get_exposed_defense_zone(var/atom/movable/target)
 	return pick(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN)
 
-/proc/do_mob(mob/user , mob/target, time = 30, target_zone = 0, uninterruptible = 0, progress = 1, incapacitation_flags = INCAPACITATION_DEFAULT, check_holding = TRUE)
+/proc/do_mob(mob/user, mob/target, time = 30, target_zone = 0, uninterruptible = 0, progress = 1, incapacitation_flags = INCAPACITATION_DEFAULT, check_holding = TRUE)
 	if(!user || !target)
 		return 0
 	var/user_loc = user.loc
@@ -252,35 +253,32 @@ var/global/list/bodypart_coverage_cache = list()
 	var/key = "[checking_flags]"
 	if(isnull(global.bodypart_coverage_cache[key]))
 		var/coverage = 0
-		if(checking_flags & SLOT_FULL_BODY)
-			coverage = 1
-		else
-			if(checking_flags & SLOT_HEAD)
-				coverage += 0.1
-			if(checking_flags & SLOT_FACE)
-				coverage += 0.05
-			if(checking_flags & SLOT_EYES)
-				coverage += 0.05
-			if(checking_flags & SLOT_UPPER_BODY)
-				coverage += 0.15
-			if(checking_flags & SLOT_LOWER_BODY)
-				coverage += 0.15
-			if(checking_flags & SLOT_LEG_LEFT)
-				coverage += 0.075
-			if(checking_flags & SLOT_LEG_RIGHT)
-				coverage += 0.075
-			if(checking_flags & SLOT_FOOT_LEFT)
-				coverage += 0.05
-			if(checking_flags & SLOT_FOOT_RIGHT)
-				coverage += 0.05
-			if(checking_flags & SLOT_ARM_LEFT)
-				coverage += 0.075
-			if(checking_flags & SLOT_ARM_RIGHT)
-				coverage += 0.075
-			if(checking_flags & SLOT_HAND_LEFT)
-				coverage += 0.05
-			if(checking_flags & SLOT_HAND_RIGHT)
-				coverage += 0.05
+		if(checking_flags & SLOT_HEAD)
+			coverage += 0.1
+		if(checking_flags & SLOT_FACE)
+			coverage += 0.05
+		if(checking_flags & SLOT_EYES)
+			coverage += 0.05
+		if(checking_flags & SLOT_UPPER_BODY)
+			coverage += 0.15
+		if(checking_flags & SLOT_LOWER_BODY)
+			coverage += 0.15
+		if(checking_flags & SLOT_LEG_LEFT)
+			coverage += 0.075
+		if(checking_flags & SLOT_LEG_RIGHT)
+			coverage += 0.075
+		if(checking_flags & SLOT_FOOT_LEFT)
+			coverage += 0.05
+		if(checking_flags & SLOT_FOOT_RIGHT)
+			coverage += 0.05
+		if(checking_flags & SLOT_ARM_LEFT)
+			coverage += 0.075
+		if(checking_flags & SLOT_ARM_RIGHT)
+			coverage += 0.075
+		if(checking_flags & SLOT_HAND_LEFT)
+			coverage += 0.05
+		if(checking_flags & SLOT_HAND_RIGHT)
+			coverage += 0.05
 		global.bodypart_coverage_cache[key] = coverage
 	. = global.bodypart_coverage_cache[key]
 

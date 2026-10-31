@@ -39,7 +39,7 @@
 /turf/wall/r_titanium,
 /area/shuttle/escape_shuttle)
 "ak" = (
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 1
 	},
@@ -56,7 +56,7 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "ao" = (
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 1
 	},
@@ -67,7 +67,7 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aq" = (
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 1
 	},
@@ -113,18 +113,30 @@
 /turf/floor/shuttle/black,
 /area/shuttle/escape_shuttle)
 "av" = (
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 1
+	},
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
 	},
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aw" = (
-/obj/structure/bed/chair/shuttle/black{
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 1
+	},
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 8
 	},
@@ -134,7 +146,15 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "ax" = (
-/turf/floor/shuttle/red,
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 5
+	},
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
+/turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "ay" = (
 /obj/machinery/light{
@@ -160,15 +180,22 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aC" = (
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aD" = (
-/obj/structure/shuttle/engine/heater,
-/turf/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 4
+	},
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
+/turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aE" = (
 /obj/structure/table/reinforced,
@@ -184,11 +211,15 @@
 /area/shuttle/escape_shuttle)
 "aG" = (
 /obj/effect/floor_decal/industrial/traffic,
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
 /obj/machinery/light{
 	icon_state = "tube_map";
 	dir = 8
 	},
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
@@ -196,7 +227,7 @@
 /area/shuttle/escape_shuttle)
 "aH" = (
 /obj/effect/floor_decal/industrial/traffic,
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
@@ -206,6 +237,14 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "aI" = (
+/obj/effect/floor_decal/industrial/traffic{
+	icon_state = "stripe";
+	dir = 6
+	},
+/obj/structure/chair/shuttle{
+	icon_state = "shuttle_chair";
+	dir = 1
+	},
 /obj/effect/shuttle_landmark/escape_shuttle/start,
 /turf/floor/shuttle/black,
 /area/shuttle/escape_shuttle)
@@ -424,7 +463,7 @@
 /area/ministation/centcomm/bathroom)
 "cy" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	name = "_West APC";
 	pixel_x = -25
@@ -442,7 +481,7 @@
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "cC" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -461,7 +500,7 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/lounge)
 "cP" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 4
 	},
 /turf/floor/wood,
@@ -473,7 +512,7 @@
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_1)
 "cZ" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_2)
 "db" = (
@@ -603,7 +642,7 @@
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
 "eI" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 8
 	},
 /obj/machinery/alarm{
@@ -663,7 +702,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -686,7 +725,7 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/ghost_halls_2)
 "fl" = (
-/obj/structure/bed/chair/comfy{
+/obj/structure/chair/comfy{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -724,7 +763,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -903,7 +942,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 24;
@@ -925,7 +964,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
 "hE" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 4
 	},
 /turf/floor/wood,
@@ -993,7 +1032,7 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/custodials)
 "hS" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/chair/office/dark,
 /turf/floor/tiled,
 /area/ministation/centcomm/backrooms)
 "hX" = (
@@ -1010,7 +1049,7 @@
 /turf/floor/carpet/blue2,
 /area/ministation/centcomm/medbay)
 "hZ" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_3)
 "id" = (
@@ -1029,7 +1068,7 @@
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "if" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -1238,7 +1277,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -1438,7 +1477,7 @@
 /turf/floor/tiled/white,
 /area/ministation/centcomm/medbay)
 "mF" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -1466,7 +1505,7 @@
 	icon_state = "stripe";
 	dir = 6
 	},
-/obj/structure/bed/chair/shuttle,
+/obj/structure/chair/shuttle,
 /turf/floor/shuttle/yellow,
 /area/shuttle/escape_shuttle)
 "mJ" = (
@@ -2009,7 +2048,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ministation/centcomm/Arrival)
 "rk" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 4
 	},
 /turf/floor/wood,
@@ -2034,7 +2073,7 @@
 /area/shuttle/escape_shuttle)
 "rq" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/boombox,
+/obj/item/music_player/boombox,
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "rt" = (
@@ -2225,7 +2264,7 @@
 /area/ministation/centcomm/custodials)
 "tc" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/chems/drinks/shaker,
 /obj/machinery/light{
 	dir = 4
@@ -2427,7 +2466,7 @@
 /area/ministation/centcomm/Arrival)
 "ve" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	pixel_y = 6
 	},
@@ -2575,7 +2614,7 @@
 /area/ministation/centcomm/backrooms_2)
 "wK" = (
 /obj/effect/floor_decal/industrial/traffic,
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 8
 	},
@@ -2624,7 +2663,7 @@
 /turf/floor/holofloor/tiled/dark,
 /area/ministation/centcomm/command)
 "wU" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 8
 	},
 /obj/machinery/alarm{
@@ -2673,7 +2712,7 @@
 /turf/floor/lino,
 /area/ministation/centcomm/bathroom)
 "xA" = (
-/obj/structure/bed/chair/wood/walnut{
+/obj/structure/chair/wood/walnut{
 	dir = 8
 	},
 /obj/machinery/alarm{
@@ -2814,7 +2853,7 @@
 	icon_state = "stripe";
 	dir = 1
 	},
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 8
 	},
@@ -2995,7 +3034,7 @@
 /area/ministation/centcomm/private_room_1)
 "Bd" = (
 /obj/effect/floor_decal/corner/paleblue/mono,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -3108,7 +3147,7 @@
 /turf/floor/plating,
 /area/ministation/centcomm/Arrival)
 "BU" = (
-/obj/structure/bed/chair/comfy{
+/obj/structure/chair/comfy{
 	dir = 8
 	},
 /obj/effect/floor_decal/techfloor{
@@ -3153,7 +3192,7 @@
 /turf/floor/tiled/techfloor,
 /area/ministation/centcomm/Arrival)
 "Co" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	name = "_West APC";
 	pixel_x = -25
@@ -3311,7 +3350,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 24;
@@ -3356,7 +3395,7 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/ghost_halls_2)
 "ED" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/chair/office/dark{
 	dir = 1
 	},
 /turf/floor/tiled,
@@ -3373,7 +3412,7 @@
 /area/ministation/centcomm/Arrival)
 "EI" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/chems/packet/sugar,
 /obj/item/chems/packet/sugar,
 /obj/item/chems/packet/sugar,
@@ -3507,7 +3546,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 24;
@@ -3539,7 +3578,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -3653,7 +3692,7 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "Hi" = (
-/obj/structure/sign/department/star_of_life,
+/obj/structure/sign/department/cross/star_of_life,
 /turf/wall/r_titanium,
 /area/ministation/centcomm/halls)
 "Hl" = (
@@ -3752,7 +3791,7 @@
 /obj/effect/floor_decal/industrial/custodial{
 	dir = 8
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	name = "_West APC";
 	pixel_x = -25
@@ -3858,7 +3897,7 @@
 /turf/floor/fake_grass,
 /area/ministation/centcomm/Arrival)
 "Je" = (
-/obj/structure/bed/chair/shuttle,
+/obj/structure/chair/shuttle,
 /obj/effect/floor_decal/industrial/traffic{
 	icon_state = "stripe";
 	dir = 10
@@ -3955,7 +3994,7 @@
 /turf/floor/tiled/white,
 /area/ministation/centcomm/lounge)
 "KC" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/machinery/media/jukebox{
 	pixel_y = 13
 	},
@@ -4083,7 +4122,7 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/lounge)
 "LV" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/machinery/media/jukebox{
 	pixel_y = 13
 	},
@@ -4186,7 +4225,7 @@
 /area/ministation/centcomm/ghost_halls)
 "MT" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/machinery/chemical_dispenser/bar_coffee/full{
 	pixel_y = 7
 	},
@@ -4332,7 +4371,7 @@
 /turf/floor/plating,
 /area/ministation/centcomm/backrooms_2)
 "NZ" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/machinery/media/jukebox{
 	pixel_y = 13
 	},
@@ -4410,7 +4449,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 24;
@@ -4445,7 +4484,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/sign/department/redcross,
+/obj/structure/sign/department/cross,
 /obj/machinery/door/firedoor,
 /turf/floor/shuttle/black,
 /area/ministation/centcomm/medbay)
@@ -4563,11 +4602,11 @@
 /turf/floor/plating,
 /area/ministation/centcomm/backrooms_2)
 "Qa" = (
-/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/holopad/longrange,
 /turf/floor/holofloor/tiled/dark,
 /area/ministation/centcomm/command)
 "Qd" = (
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
@@ -4603,7 +4642,7 @@
 /turf/wall/r_titanium,
 /area/ministation/centcomm/Arrival)
 "QE" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /turf/floor/wood,
 /area/ministation/centcomm/private_room_1)
 "QH" = (
@@ -4698,7 +4737,7 @@
 /turf/floor,
 /area/space)
 "Rr" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 24;
@@ -4881,7 +4920,7 @@
 /turf/floor/tiled/monotile,
 /area/ministation/centcomm/halls)
 "Tv" = (
-/obj/machinery/power/debug_items/infinite_generator,
+/obj/machinery/debug_items/infinite_generator,
 /obj/structure/cable/orange{
 	icon_state = "0-4"
 	},
@@ -4953,7 +4992,7 @@
 /area/ministation/centcomm/backrooms)
 "TQ" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 8
 	},
@@ -4985,7 +5024,7 @@
 	icon_state = "stripe";
 	dir = 1
 	},
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
@@ -4995,7 +5034,7 @@
 /turf/floor/shuttle/blue,
 /area/shuttle/escape_shuttle)
 "Uz" = (
-/obj/structure/door/wood/saloon/walnut{
+/obj/structure/door/walnut/saloon{
 	dir = 8
 	},
 /turf/floor/wood/walnut,
@@ -5123,7 +5162,7 @@
 /turf/floor/tiled/steel_grid,
 /area/ministation/centcomm/command)
 "VN" = (
-/obj/machinery/power/apc/high{
+/obj/machinery/apc/high{
 	dir = 1;
 	pixel_y = 20
 	},
@@ -5428,7 +5467,7 @@
 	icon_state = "stripe";
 	dir = 1
 	},
-/obj/structure/bed/chair/shuttle/black{
+/obj/structure/chair/shuttle/black{
 	icon_state = "shuttle_chair";
 	dir = 4
 	},
@@ -5490,7 +5529,7 @@
 /area/ministation/centcomm/halls)
 "ZP" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/machinery/reagentgrinder/juicer,
 /turf/floor/tiled/white,
 /area/ministation/centcomm/lounge)

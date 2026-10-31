@@ -36,6 +36,14 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
+// Overridden to spider eggs in _spiders.dme
+/obj/random/evil_manifestation
+	name = "Random Evil Manifestation"
+	var/list/spawn_types = list(/obj/item/ectoplasm)
+
+/obj/random/evil_manifestation/spawn_choices()
+	return spawn_types
+
 /obj/item/vampiric/Process()
 	//see if we've identified anyone nearby
 	if(world.time - last_bloodcall > bloodcall_interval && nearby_mobs.len)
@@ -60,7 +68,7 @@
 	//use up stored charges
 	if(charges >= 10)
 		charges -= 10
-		new /obj/effect/spider/eggcluster(pick(view(1,src)))
+		new /obj/random/evil_manifestation(pick(view(1,src)))
 
 	if(charges >= 3)
 		if(prob(5))
@@ -86,18 +94,18 @@
 		if(wight_check_index > shadow_wights.len)
 			wight_check_index = 1
 
-		var/obj/effect/shadow_wight/W = shadow_wights[wight_check_index]
-		if(isnull(W))
+		var/obj/effect/shadow_wight/wight = shadow_wights[wight_check_index]
+		if(isnull(wight))
 			shadow_wights.Remove(wight_check_index)
-		else if(isnull(W.loc))
+		else if(isnull(wight.loc))
 			shadow_wights.Remove(wight_check_index)
-		else if(get_dist(W, src) > 10)
+		else if(get_dist(wight, src) > 10)
 			shadow_wights.Remove(wight_check_index)
 
-/obj/item/vampiric/hear_talk(mob/M, text)
+/obj/item/vampiric/hear_talk(mob/living/speaker, datum/speech/phrases, verb, stars, decl/language/force_language)
 	..()
-	if(world.time - last_bloodcall >= bloodcall_interval && (M in view(7, src)))
-		bloodcall(M)
+	if(world.time - last_bloodcall >= bloodcall_interval && (speaker in view(7, src)))
+		bloodcall(speaker)
 
 /obj/item/vampiric/proc/bloodcall(var/mob/living/human/M)
 	last_bloodcall = world.time

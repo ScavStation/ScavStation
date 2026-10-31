@@ -236,7 +236,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centraln)
 "aH" = (
-/obj/structure/bed/chair,
+/obj/structure/bed,
 /turf/floor/carpet,
 /area/ministation/hall/w2)
 "aJ" = (
@@ -328,7 +328,7 @@
 /turf/floor/tiled,
 /area/ministation/Murphy/hydro)
 "aU" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -392,7 +392,7 @@
 /turf/floor/tiled/techfloor,
 /area/ministation/Murphy/smresearch)
 "bi" = (
-/obj/structure/bed/chair/office{
+/obj/structure/chair/office{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -407,7 +407,7 @@
 /turf/wall,
 /area/ministation/cafe)
 "bl" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/random/toy,
 /obj/random/toy{
 	pixel_y = 4;
@@ -623,7 +623,7 @@
 /turf/floor/grass,
 /area/ministation/hydro)
 "bM" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 8
 	},
 /turf/floor/wood/walnut,
@@ -832,7 +832,7 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/structure/bed/chair,
+/obj/structure/bed,
 /obj/machinery/camera/network/security{
 	dir = 4
 	},
@@ -845,7 +845,7 @@
 /obj/effect/floor_decal/floordetail/edgedrain{
 	dir = 8
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	name = "_West APC";
 	pixel_x = -25
@@ -887,7 +887,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "cA" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/flashlight/lamp/green,
 /obj/machinery/firealarm{
 	dir = 4;
@@ -1003,7 +1003,7 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "cR" = (
-/obj/structure/bed/chair/office/comfy/brown,
+/obj/structure/chair/office/comfy/brown,
 /obj/abstract/landmark/start{
 	name = "Detective"
 	},
@@ -1175,8 +1175,7 @@
 /obj/machinery/power/terminal,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/emitter{
-	anchored = 1;
-	state = 2
+	anchored = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
@@ -1458,7 +1457,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2central)
 "ec" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1476,7 +1475,7 @@
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "eg" = (
-/obj/machinery/hologram/holopad,
+/obj/machinery/holopad,
 /obj/machinery/light_switch{
 	dir = 4;
 	pixel_x = -23
@@ -1808,7 +1807,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/hologram/holopad,
+/obj/machinery/holopad,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
@@ -1992,7 +1991,7 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/pill_bottle/antidepressants{
 	pixel_x = -5;
 	pixel_y = 8
@@ -2007,7 +2006,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/sign/department/redcross{
+/obj/structure/sign/department/cross{
 	pixel_y = 32
 	},
 /obj/structure/disposalpipe/segment{
@@ -2128,7 +2127,7 @@
 	},
 /obj/machinery/camera/network/security,
 /obj/item/implanter,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -2292,7 +2291,7 @@
 /turf/floor/tiled,
 /area/ministation/Murphy/rnd)
 "gB" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/laminate/mahogany,
 /obj/item/pen/blue,
 /turf/floor/carpet/red,
 /area/ministation/securityoffice)
@@ -2366,7 +2365,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/floor/wood,
+/turf/floor/laminate,
 /area/ministation/detective)
 "gK" = (
 /obj/machinery/door/blast/regular/open{
@@ -2393,7 +2392,7 @@
 /turf/floor,
 /area/ministation/Murphy/robotics)
 "gL" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 4
 	},
 /turf/floor/tiled/dark/monotile,
@@ -2548,7 +2547,7 @@
 /turf/floor/tiled/white,
 /area/ministation/surgicaln)
 "hh" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/chair/office/light,
 /obj/abstract/landmark/start{
 	name = "Medical Doctor"
 	},
@@ -2716,7 +2715,7 @@
 /obj/abstract/landmark/start{
 	name = "Medical Doctor"
 	},
-/obj/structure/bed/chair/office/light{
+/obj/structure/chair/office/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -2740,7 +2739,7 @@
 /turf/floor/tiled/old_tile,
 /area/ministation/perma)
 "hC" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/item/scanner/spectrometer,
 /obj/item/handcuffs,
@@ -2921,7 +2920,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "id" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
@@ -2980,7 +2979,7 @@
 /turf/floor/path/running_bond,
 /area/ministation/hall/w2)
 "il" = (
-/obj/structure/table/woodentable_reinforced,
+/obj/structure/table/wood/reinforced,
 /obj/item/slide_projector,
 /turf/floor/wood/walnut,
 /area/ministation/Murphy/living)
@@ -3165,7 +3164,7 @@
 /turf/floor/plating,
 /area/ministation/Murphy/chem)
 "iG" = (
-/obj/structure/bed/chair/office/comfy/brown{
+/obj/structure/chair/office/comfy/brown{
 	dir = 1
 	},
 /turf/floor/carpet/red,
@@ -3198,7 +3197,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2underpass)
 "iL" = (
-/obj/structure/table/woodentable_reinforced,
+/obj/structure/table/wood/reinforced,
 /obj/item/trash/snack_bowl,
 /obj/machinery/light/small{
 	dir = 1
@@ -3288,7 +3287,7 @@
 /turf/floor/tiled/stone,
 /area/ministation/hall/e2)
 "iZ" = (
-/obj/structure/table/woodentable_reinforced,
+/obj/structure/table/wood/reinforced,
 /obj/random/snack,
 /obj/machinery/light/small{
 	dir = 1
@@ -3376,7 +3375,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	areastring = null;
 	name = "_South APC";
 	pixel_y = -24
@@ -3384,7 +3383,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/turf/floor/wood,
+/turf/floor/laminate,
 /area/ministation/detective)
 "jl" = (
 /obj/machinery/porta_turret{
@@ -3446,7 +3445,7 @@
 /obj/machinery/mass_driver{
 	id_tag = "Murphy_sm_eject"
 	},
-/obj/machinery/power/supermatter,
+/obj/structure/supermatter,
 /turf/floor/reinforced/airless,
 /area/ministation/Murphy/smresearch)
 "ju" = (
@@ -3569,7 +3568,7 @@
 	dir = 8;
 	level = 2
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 4
 	},
 /turf/floor/tiled/dark,
@@ -3764,7 +3763,7 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -4010,7 +4009,7 @@
 /area/ministation/hall/w2)
 "kR" = (
 /obj/structure/table,
-/obj/item/chems/glass/rag,
+/obj/item/chems/rag,
 /obj/item/trash/stick,
 /turf/floor/tiled/white,
 /area/ministation/surgicaln)
@@ -4086,7 +4085,7 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	name = "_West APC";
 	pixel_x = -25
@@ -4303,7 +4302,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/obj/structure/bed/chair,
+/obj/structure/chair,
 /obj/machinery/status_display{
 	pixel_x = -32;
 	dir = 8
@@ -4565,7 +4564,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/hologram/holopad{
+/obj/machinery/holopad{
 	holopad_id = "Security Meeting Room"
 	},
 /turf/floor/carpet/red,
@@ -4694,7 +4693,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "mT" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
@@ -4900,7 +4899,7 @@
 "nv" = (
 /obj/item/book/manual/medical_diagnostics_manual,
 /obj/item/mollusc/clam,
-/obj/structure/table/holotable,
+/obj/structure/table/holo,
 /obj/random/makeup,
 /obj/random/makeup,
 /obj/item/cell/high/empty,
@@ -5296,7 +5295,7 @@
 /turf/floor/plating,
 /area/ministation/maint/secmaint)
 "oD" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -5351,7 +5350,7 @@
 /turf/wall/titanium,
 /area/ministation/Murphy/medical)
 "oK" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/paper_bin,
 /turf/floor/tiled,
 /area/ministation/Murphy/meeting)
@@ -5385,7 +5384,7 @@
 /turf/floor/carpet/blue,
 /area/ministation/medical)
 "oT" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 1
 	},
 /turf/floor/tiled/dark,
@@ -5551,7 +5550,7 @@
 /turf/floor/plating/airless,
 /area/space)
 "ps" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/chair/office/light{
 	dir = 4
 	},
 /obj/item/clothing/glasses/sunglasses/sechud/toggle,
@@ -5567,7 +5566,7 @@
 /turf/floor/bluegrid,
 /area/ministation/armory)
 "pt" = (
-/obj/structure/bed/chair/office/comfy/black{
+/obj/structure/chair/office/comfy/black{
 	dir = 1
 	},
 /obj/effect/shuttle_landmark/medical_dock,
@@ -5597,7 +5596,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centraln)
 "px" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/chems/glass/beaker,
 /turf/floor/lino,
 /area/ministation/kitchen)
@@ -5622,7 +5621,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "pA" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -5799,7 +5798,7 @@
 /turf/floor/tiled/white,
 /area/ministation/surgicaln)
 "pQ" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -5871,7 +5870,7 @@
 /turf/floor/tiled/white,
 /area/ministation/detective)
 "qc" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
@@ -5914,7 +5913,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centraln)
 "qh" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24;
@@ -5933,7 +5932,7 @@
 /obj/item/stack/cable_coil,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
 /obj/item/stack/material/sheet/mapped/steel/fifty,
-/obj/item/stack/material/rods/ten,
+/obj/item/stack/material/rods/mapped/steel/ten,
 /obj/machinery/network/relay,
 /turf/floor/carpet/blue3,
 /area/ministation/Murphy/ai)
@@ -5942,7 +5941,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2central)
 "ql" = (
-/obj/structure/bed/chair/office/comfy/black{
+/obj/structure/chair/office/comfy/black{
 	dir = 4
 	},
 /obj/machinery/camera/network/security{
@@ -6062,10 +6061,10 @@
 /turf/floor/wood/yew,
 /area/ministation/medical)
 "qz" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 4
 	},
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -6090,7 +6089,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/kitchen)
 "qF" = (
-/obj/structure/bed/chair/comfy/beige{
+/obj/structure/chair/comfy/beige{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -6369,7 +6368,7 @@
 /turf/floor/plating,
 /area/ministation/hall/w2)
 "rv" = (
-/obj/structure/bed/chair,
+/obj/structure/bed,
 /obj/machinery/light{
 	dir = 8;
 	flickering = 1
@@ -6731,7 +6730,7 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "sr" = (
-/obj/structure/bed/chair/office/comfy/black{
+/obj/structure/chair/office/comfy/black{
 	dir = 1
 	},
 /turf/floor/tiled,
@@ -7209,7 +7208,7 @@
 /area/ministation/hall/e2)
 "tF" = (
 /obj/effect/floor_decal/corner/white/mono,
-/obj/structure/bed/chair/wheelchair,
+/obj/structure/chair/wheelchair,
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "tG" = (
@@ -7299,7 +7298,7 @@
 /turf/wall/r_wall,
 /area/ministation/maint/secmaint)
 "tR" = (
-/obj/structure/bed/chair/office/comfy/black{
+/obj/structure/chair/office/comfy/black{
 	dir = 1
 	},
 /turf/floor/tiled/dark,
@@ -7314,7 +7313,7 @@
 /turf/floor/lino,
 /area/ministation/kitchen)
 "tT" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -7348,7 +7347,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/bed/chair/armchair/red{
+/obj/structure/chair/armchair/red{
 	dir = 1
 	},
 /turf/floor/tiled/dark/monotile,
@@ -7360,7 +7359,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -7602,7 +7601,7 @@
 /turf/floor/fake_grass,
 /area/ministation/hall/w2)
 "uG" = (
-/obj/structure/bed/chair/office/comfy/brown{
+/obj/structure/chair/office/comfy/brown{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
@@ -7615,7 +7614,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	areastring = null;
 	name = "_South APC";
 	pixel_y = -24
@@ -7857,7 +7856,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
 "vn" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -7893,7 +7892,7 @@
 /turf/floor/plating,
 /area/ministation/medical)
 "vq" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/book/manual/detective,
 /turf/floor/carpet/red,
 /area/ministation/detective)
@@ -8312,7 +8311,7 @@
 /turf/floor/tiled,
 /area/ministation/hydro)
 "wt" = (
-/obj/effect/floor_decal/snow,
+/obj/effect/floor_decal/snow_floor,
 /obj/machinery/gibber,
 /turf/floor/tiled/freezer{
 	name = "kitchen freezer floor";
@@ -8536,7 +8535,7 @@
 /turf/floor/tiled,
 /area/ministation/hydro)
 "wX" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 4
 	},
 /obj/machinery/camera/network/medbay{
@@ -8605,7 +8604,7 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "xd" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/chair/office/light{
 	dir = 8
 	},
 /obj/machinery/alarm{
@@ -8680,7 +8679,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/perma)
 "xn" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/laminate/mahogany,
 /obj/item/paper_bin,
 /turf/floor/carpet/red,
 /area/ministation/securityoffice)
@@ -8866,7 +8865,7 @@
 /turf/floor/plating,
 /area/ministation/hall/w2)
 "xM" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/deck/cards,
 /obj/item/dice/d4{
 	pixel_x = 11
@@ -9024,16 +9023,16 @@
 	dir = 5
 	},
 /obj/structure/table/glass,
-/obj/item/plants,
+/obj/item/plant_satchel,
 /obj/item/scanner/plant,
 /obj/item/wirecutters/clippers,
 /obj/item/book/skill/service/botany,
 /obj/item/tool/axe/hatchet,
 /obj/item/tool/hoe/mini,
 /obj/item/tool/hoe/mini,
-/obj/item/honey_frame,
-/obj/item/honey_frame,
-/obj/item/honey_frame,
+/obj/item/hive_frame/crafted,
+/obj/item/hive_frame/crafted,
+/obj/item/hive_frame/crafted,
 /turf/floor/tiled,
 /area/ministation/hydro)
 "yg" = (
@@ -9141,7 +9140,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	areastring = null;
 	name = "_South APC";
 	pixel_y = -24
@@ -9494,7 +9493,7 @@
 /turf/floor/wood/walnut,
 /area/ministation/kitchen)
 "zi" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/chair/office/light{
 	dir = 8
 	},
 /turf/floor/carpet/red,
@@ -9502,7 +9501,7 @@
 "zj" = (
 /obj/effect/floor_decal/corner/beige/half,
 /obj/structure/table/glass,
-/obj/machinery/honey_extractor,
+/obj/machinery/centrifuge/mapped,
 /turf/floor/tiled,
 /area/ministation/hydro)
 "zk" = (
@@ -9525,7 +9524,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
 "zn" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 1
 	},
 /turf/floor/carpet/green,
@@ -9543,7 +9542,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/laminate/mahogany,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -9590,7 +9589,7 @@
 /turf/floor/fake_grass,
 /area/ministation/hall/e2)
 "zw" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
@@ -9665,7 +9664,7 @@
 	pixel_x = -3;
 	pixel_y = 6
 	},
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/machinery/button/blast_door{
 	id_tag = "Kitchen1";
 	name = "Kitchen Shutter";
@@ -9750,7 +9749,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "zU" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -9777,7 +9776,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/floor/wood,
+/turf/floor/laminate,
 /area/ministation/detective)
 "zY" = (
 /obj/machinery/computer/arcade,
@@ -9785,7 +9784,7 @@
 /turf/floor/tiled/monotile,
 /area/ministation/cafe)
 "Ac" = (
-/obj/structure/bed/chair/office/comfy/black{
+/obj/structure/chair/office/comfy/black{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -10208,7 +10207,7 @@
 /turf/floor/plating,
 /area/ministation/hall/w2)
 "Bk" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
@@ -10221,17 +10220,17 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 4
 	},
 /turf/floor/tiled/dark,
 /area/ministation/perma)
 "Bm" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /turf/floor/lino,
 /area/ministation/kitchen)
 "Bn" = (
-/obj/structure/bed/chair/office{
+/obj/structure/chair/office{
 	dir = 1
 	},
 /obj/machinery/camera/network/research{
@@ -10257,7 +10256,7 @@
 /turf/floor/lino,
 /area/ministation/kitchen)
 "Bs" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/chair/office/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -10343,7 +10342,7 @@
 /area/ministation/cafe)
 "BF" = (
 /obj/structure/table/glass,
-/obj/item/chems/glass/rag,
+/obj/item/chems/rag,
 /obj/item/box/gloves{
 	pixel_x = 1
 	},
@@ -10373,7 +10372,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/floor/wood,
+/turf/floor/laminate,
 /area/ministation/detective)
 "BJ" = (
 /obj/machinery/door/firedoor,
@@ -10556,7 +10555,7 @@
 	pixel_y = -32;
 	dir = 1
 	},
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/machinery/reagent_temperature,
 /turf/floor/lino,
 /area/ministation/kitchen)
@@ -10638,7 +10637,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
 "CB" = (
-/obj/machinery/hologram/holopad{
+/obj/machinery/holopad{
 	holopad_id = "Bar Holopad"
 	},
 /turf/floor/tiled/dark/monotile,
@@ -10753,7 +10752,7 @@
 /turf/floor/carpet/blue3,
 /area/ministation/securityoffice)
 "CP" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -10945,7 +10944,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "Dj" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/chems/condiment/enzyme,
 /obj/item/mollusc/clam,
 /obj/item/mollusc/clam,
@@ -11229,7 +11228,7 @@
 /turf/floor/reinforced/airless,
 /area/ministation/Murphy/smresearch)
 "DS" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/toy/plushie/corgi,
 /turf/floor/wood/walnut,
 /area/ministation/medical/nursery)
@@ -11300,7 +11299,7 @@
 	dir = 8;
 	flickering = 1
 	},
-/obj/machinery/hologram/holopad{
+/obj/machinery/holopad{
 	holopad_id = "Perma Holopad"
 	},
 /turf/floor/tiled/dark,
@@ -11331,7 +11330,7 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/chair/comfy/beige,
 /turf/floor/carpet,
 /area/ministation/hall/w2)
 "Ej" = (
@@ -11511,10 +11510,10 @@
 /turf/floor/plating,
 /area/ministation/maint/l2central)
 "ET" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 8
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -11712,7 +11711,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/cargo/f2)
 "Fx" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 1
 	},
 /obj/machinery/button/blast_door{
@@ -11846,7 +11845,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
 "FR" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -11913,7 +11912,7 @@
 /obj/machinery/firealarm{
 	pixel_y = 32
 	},
-/obj/structure/bed/chair/comfy/beige,
+/obj/structure/chair/comfy/beige,
 /turf/floor/carpet,
 /area/ministation/hall/w2)
 "Ga" = (
@@ -12002,7 +12001,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Gl" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	name = "_West APC";
 	pixel_x = -25
@@ -12170,7 +12169,7 @@
 /obj/item/implantcase/death_alarm,
 /obj/item/implantcase/death_alarm,
 /obj/item/stack/material/ingot/mapped/brass/thirty,
-/obj/item/weldingtool/hugetank,
+/obj/item/fuelled_tool/welding/hugetank,
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "GO" = (
@@ -12385,7 +12384,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/perma)
 "Hx" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/reagent_temperature/cooler,
 /turf/floor/lino,
 /area/ministation/kitchen)
@@ -12492,9 +12491,9 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "HI" = (
-/obj/structure/table/woodentable_reinforced,
+/obj/structure/table/wood/reinforced,
 /obj/item/book/fluff,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
@@ -12611,7 +12610,7 @@
 /turf/floor/carpet/red,
 /area/ministation/medical/nursery)
 "Ia" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/wood/mahogany,
 /obj/machinery/faxmachine/mapped,
 /turf/floor/carpet/red,
 /area/ministation/securityoffice)
@@ -12789,7 +12788,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -12844,7 +12843,7 @@
 /turf/floor/carpet,
 /area/ministation/hall/w2)
 "IN" = (
-/obj/structure/bed/chair/office{
+/obj/structure/chair/office{
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -12931,7 +12930,7 @@
 /area/ministation/cafe)
 "IY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -12961,7 +12960,7 @@
 /obj/effect/floor_decal/carpet/red{
 	dir = 4
 	},
-/obj/structure/bed/chair/armchair/black,
+/obj/structure/chair/armchair/black,
 /turf/floor/wood/walnut,
 /area/ministation/Murphy/living)
 "Jc" = (
@@ -12969,7 +12968,7 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	areastring = null;
 	name = "_South APC";
 	pixel_y = -24
@@ -12985,7 +12984,7 @@
 	req_access = newlist();
 	pixel_y = 23
 	},
-/obj/structure/bed/chair/armchair/black,
+/obj/structure/chair/armchair/black,
 /turf/floor/carpet,
 /area/ministation/Murphy/common)
 "Jh" = (
@@ -13002,7 +13001,7 @@
 /turf/floor/grass,
 /area/ministation/hydro)
 "Jj" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/cooker/candy,
 /turf/floor/lino,
 /area/ministation/kitchen)
@@ -13030,7 +13029,7 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "Jm" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -13065,7 +13064,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "Jo" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/pen,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -13249,9 +13248,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "JX" = (
-/obj/machinery/network/relay{
-	initial_network_id = "molluscnet"
-	},
+/obj/machinery/network/relay,
 /turf/floor/plating,
 /area/ministation/maint/l2centrals)
 "JY" = (
@@ -13563,7 +13560,7 @@
 /turf/floor/tiled,
 /area/ministation/Murphy/meeting)
 "KU" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/pen{
 	pixel_x = -2;
 	pixel_y = 7
@@ -13575,7 +13572,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "KW" = (
-/obj/structure/bed/chair/office/comfy/brown{
+/obj/structure/chair/office/comfy/brown{
 	dir = 1
 	},
 /obj/structure/cable{
@@ -13617,7 +13614,7 @@
 /obj/effect/floor_decal/carpet/red{
 	dir = 4
 	},
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 8
 	},
 /turf/floor/wood/walnut,
@@ -13646,7 +13643,7 @@
 /turf/unsimulated/floor/snow_plating,
 /area/ministation/maint/l2centrals)
 "Lk" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/laminate/mahogany,
 /obj/item/pen/multi,
 /turf/floor/carpet/red,
 /area/ministation/securityoffice)
@@ -13680,7 +13677,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Lr" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/machinery/reagentgrinder/juicer,
 /obj/item/chems/glass/beaker,
 /turf/floor/lino,
@@ -13706,7 +13703,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/cargo/f2)
 "Lu" = (
-/obj/structure/bed/chair/office/dark{
+/obj/structure/chair/office/dark{
 	dir = 1
 	},
 /turf/floor/tiled/white,
@@ -13759,7 +13756,7 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "LD" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
 	level = 2
@@ -13838,7 +13835,7 @@
 /turf/floor/plating,
 /area/ministation/medical)
 "LK" = (
-/obj/structure/bed/chair/office/light{
+/obj/structure/chair/office/light{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
@@ -13847,7 +13844,7 @@
 /turf/floor/wood/mahogany,
 /area/ministation/securityoffice)
 "LM" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/knife/kitchen/cleaver,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -13930,7 +13927,7 @@
 /turf/floor/tiled,
 /area/ministation/security)
 "LZ" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -13973,18 +13970,18 @@
 /area/ministation/medical)
 "Me" = (
 /obj/structure/rack,
-/obj/item/target,
-/obj/item/target/alien,
-/obj/item/target/syndicate,
+/obj/item/training_dummy,
+/obj/item/training_dummy/alien,
+/obj/item/training_dummy/syndicate,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/syndicate,
-/obj/item/target/alien,
-/obj/item/target/alien,
-/obj/item/target/alien,
+/obj/item/training_dummy/syndicate,
+/obj/item/training_dummy/syndicate,
+/obj/item/training_dummy/syndicate,
+/obj/item/training_dummy/alien,
+/obj/item/training_dummy/alien,
+/obj/item/training_dummy/alien,
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "Mf" = (
@@ -14116,7 +14113,7 @@
 /turf/floor/wood/yew,
 /area/ministation/medical)
 "Mv" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
@@ -14368,7 +14365,7 @@
 /turf/floor/wood/yew,
 /area/ministation/perma)
 "Nb" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/chair/comfy/brown{
 	dir = 4
 	},
 /obj/item/radio/intercom{
@@ -14647,7 +14644,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/Murphy/common)
 "NO" = (
-/obj/abstract/level_data_spawner/main_level,
+/obj/abstract/level_data_spawner/ministation_one,
 /turf/space,
 /area/space)
 "NP" = (
@@ -14759,7 +14756,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "Ol" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -14784,7 +14781,7 @@
 /turf/floor/wood/walnut,
 /area/ministation/medical/nursery)
 "Oo" = (
-/obj/machinery/beehive,
+/obj/structure/apiary/mapped,
 /turf/floor/grass,
 /area/ministation/hydro)
 "Op" = (
@@ -14914,7 +14911,7 @@
 /turf/floor/tiled/stone,
 /area/ministation/hall/e2)
 "OJ" = (
-/obj/structure/bed/chair/office/comfy/black,
+/obj/structure/chair/office/comfy/black,
 /turf/floor/tiled,
 /area/ministation/Murphy/meeting)
 "OK" = (
@@ -15051,7 +15048,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/surgicals)
 "Pd" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/flame/fuelled/lighter/random,
 /turf/floor/carpet,
 /area/ministation/hall/w2)
@@ -15113,7 +15110,7 @@
 /turf/wall/titanium,
 /area/ministation/Murphy/smresearch)
 "Pm" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 4
 	},
 /turf/floor/tiled/dark,
@@ -15552,7 +15549,7 @@
 /turf/floor/tiled/techmaint,
 /area/ministation/Murphy/robotics)
 "Qu" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/tiled/dark,
 /area/ministation/perma)
 "Qw" = (
@@ -15613,12 +15610,12 @@
 /turf/floor/fake_grass,
 /area/ministation/hall/e2)
 "QH" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/laminate/mahogany,
 /obj/item/pen,
 /turf/floor/carpet/red,
 /area/ministation/securityoffice)
 "QI" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
@@ -15712,7 +15709,7 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "QQ" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 4
 	},
 /turf/floor/wood/walnut,
@@ -15925,7 +15922,7 @@
 /turf/floor/tiled/techfloor,
 /area/ministation/Murphy/smresearch)
 "RG" = (
-/obj/structure/bed/chair,
+/obj/structure/bed,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -16239,7 +16236,7 @@
 /turf/floor/plating,
 /area/ministation/Arrival)
 "SL" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -16315,7 +16312,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "Tc" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/toy/balloon/nanotrasen,
 /obj/item/toy/plushie/fox/orange,
 /turf/floor/wood/walnut,
@@ -16331,7 +16328,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centraln)
 "Te" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/chair/office/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -16380,7 +16377,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/hologram/holopad,
+/obj/machinery/holopad,
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "Tl" = (
@@ -16469,7 +16466,7 @@
 	dir = 1
 	},
 /obj/item/belt/medical/emt,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
@@ -16675,7 +16672,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "TX" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/eftpos,
 /obj/item/chems/spray/cleaner,
 /obj/item/chems/packet/honey_fake,
@@ -16712,7 +16709,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/armory)
 "Ue" = (
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 8
 	},
 /turf/floor/tiled/dark/monotile,
@@ -16777,7 +16774,7 @@
 /turf/wall/r_wall,
 /area/ministation/medical/nursery)
 "Ur" = (
-/obj/structure/table/woodentable/mahogany,
+/obj/structure/table/laminate/mahogany,
 /turf/floor/carpet/red,
 /area/ministation/securityoffice)
 "Us" = (
@@ -16893,7 +16890,7 @@
 /turf/floor/plating,
 /area/ministation/maint/l2centraln)
 "UN" = (
-/obj/structure/bed/chair{
+/obj/structure/chair{
 	dir = 1
 	},
 /turf/floor/plating,
@@ -16960,7 +16957,7 @@
 /turf/space,
 /area/space)
 "UW" = (
-/obj/structure/bed/chair,
+/obj/structure/bed,
 /turf/floor/carpet,
 /area/ministation/hall/e2)
 "UY" = (
@@ -17203,7 +17200,7 @@
 /turf/floor/tiled/white/monotile,
 /area/ministation/medical)
 "Vz" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
@@ -17411,7 +17408,7 @@
 /turf/floor/plating,
 /area/ministation/medical)
 "Wa" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/flashlight/lamp/green{
 	pixel_x = 1;
 	pixel_y = 5
@@ -17457,7 +17454,7 @@
 /obj/effect/floor_decal/carpet/red{
 	dir = 8
 	},
-/obj/structure/bed/chair/armchair/black{
+/obj/structure/chair/armchair/black{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -17496,7 +17493,7 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/turf/floor/wood,
+/turf/floor/laminate,
 /area/ministation/detective)
 "Wm" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -17514,7 +17511,7 @@
 /area/ministation/security)
 "Wn" = (
 /obj/machinery/vending/hydroseeds,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24;
@@ -17649,7 +17646,7 @@
 /turf/floor/wood/walnut,
 /area/ministation/Murphy/living)
 "WE" = (
-/obj/structure/bed/chair/comfy/brown{
+/obj/structure/chair/comfy/brown{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -18104,7 +18101,7 @@
 /obj/effect/floor_decal/corner/paleblue/three_quarters{
 	dir = 4
 	},
-/obj/structure/bed/chair/office/light{
+/obj/structure/chair/office/light{
 	dir = 8
 	},
 /obj/machinery/light/small/emergency{
@@ -18114,7 +18111,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	name = "_North APC";
 	pixel_y = -24
 	},
@@ -18124,7 +18121,7 @@
 /turf/floor/tiled/dark,
 /area/ministation/meddocking)
 "XW" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/laminate,
 /obj/item/box/ammo/beanbags,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -18145,7 +18142,7 @@
 /turf/floor/plating,
 /area/ministation/security)
 "XZ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/dice/d100,
 /obj/item/dice/d12{
 	pixel_x = -9;
@@ -18180,7 +18177,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -18197,7 +18194,7 @@
 /turf/wall,
 /area/ministation/Murphy/ai)
 "Yj" = (
-/obj/structure/bed/chair/office/light,
+/obj/structure/chair/office/light,
 /obj/abstract/landmark/start{
 	name = "Security Officer"
 	},
@@ -18530,7 +18527,7 @@
 	icon_state = "0-2";
 	pixel_y = 1
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	name = "_East APC";
 	pixel_x = 27;
@@ -18552,7 +18549,7 @@
 /turf/floor/bluegrid,
 /area/ministation/Murphy/ai)
 "Zw" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/folder{
 	pixel_x = -3;
 	pixel_y = 4
@@ -18568,7 +18565,7 @@
 	pixel_x = 2;
 	pixel_y = 9
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	name = "_West APC";
 	pixel_x = -25
@@ -18583,7 +18580,7 @@
 /turf/unsimulated/floor/snow_plating,
 /area/ministation/maint/l2centrals)
 "Zz" = (
-/obj/machinery/hologram/holopad{
+/obj/machinery/holopad{
 	holopad_id = "Medical Front Desk"
 	},
 /obj/effect/floor_decal/corner/white/mono,
@@ -18678,7 +18675,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ministation/security)
 "ZJ" = (
-/obj/structure/bed/chair/office/comfy/black{
+/obj/structure/chair/office/comfy/black{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{

@@ -1,14 +1,9 @@
 /obj/structure
-	var/decl/material/material
-	var/decl/material/reinf_material
 	var/material_alteration
 	var/dismantled
+	var/name_prefix
 	/// The base alpha used to calculate material-based alpha in update_material_color().
 	var/base_alpha = 50
-
-/obj/structure/get_material()
-	RETURN_TYPE(/decl/material)
-	return material
 
 /obj/structure/proc/get_material_health_modifier()
 	. = 1
@@ -39,14 +34,18 @@
 
 /obj/structure/proc/update_material_name(var/override_name)
 	var/base_name = override_name || initial(name)
-	if(istype(material))
-		SetName("[material.adjective_name] [base_name]")
+	var/new_name
+	if(istype(material) && (material_alteration & MAT_FLAG_ALTERATION_NAME))
+		new_name = "[material.adjective_name] [base_name]"
 	else
-		SetName(base_name)
+		new_name = base_name
+	if(name_prefix)
+		new_name = "[name_prefix] [new_name]"
+	SetName(new_name)
 
 /obj/structure/proc/update_material_desc(var/override_desc)
 	var/base_desc = override_desc || initial(desc)
-	if(istype(material))
+	if(istype(material) && (material_alteration & MAT_FLAG_ALTERATION_DESC))
 		desc = "[base_desc] This one is made of [material.solid_name]."
 	else
 		desc = base_desc
@@ -62,30 +61,33 @@
 /obj/structure/proc/create_dismantled_part(var/turf/T)
 	return new parts_type(T, (material && material.type), (reinf_material && reinf_material.type))
 
+/obj/structure/proc/drop_dismantled_matter(decl/material/drop_material)
+	var/placing
+	if(isnull(parts_amount))
+		placing = (matter[drop_material.type] / SHEET_MATERIAL_AMOUNT) * 0.75
+		if(material == drop_material && parts_type)
+			placing *= atom_info_repository.get_matter_multiplier_for(parts_type, drop_material.type, placing)
+		placing = floor(placing)
+	else
+		placing = parts_amount
+
+	if(placing <= 0)
+		return
+
+	if(material == drop_material) // Primary material uses parts_type (in case it is a stack) otherwise we use default raw form.
+		LAZYADD(., drop_material.place_dismantled_product(loc, FALSE, placing, parts_type))
+	else
+		LAZYADD(., drop_material.place_dismantled_product(loc, FALSE, placing))
+
 /obj/structure/proc/create_dismantled_products(var/turf/T)
 	SHOULD_CALL_PARENT(TRUE)
 	if(parts_type && !ispath(parts_type, /obj/item/stack))
 		for(var/i = 1 to max(parts_amount, 1))
 			LAZYADD(., create_dismantled_part(T))
 		return
-
 	for(var/mat in matter)
-
-		var/decl/material/M = GET_DECL(mat)
-		var/placing
-		if(isnull(parts_amount))
-			placing = (matter[mat] / SHEET_MATERIAL_AMOUNT) * 0.75
-			if(material == M && parts_type)
-				placing *= atom_info_repository.get_matter_multiplier_for(parts_type, mat, placing)
-			placing = floor(placing)
-		else
-			placing = parts_amount
-
-		if(placing > 0)
-			if(material == M)
-				LAZYADD(., M.place_dismantled_product(T, FALSE, placing, parts_type))
-			else
-				LAZYADD(., M.place_dismantled_product(T, FALSE, placing))
+		for(var/thing in drop_dismantled_matter(GET_DECL(mat)))
+			LAZYADD(., thing)
 
 /obj/structure/proc/clear_materials()
 	matter = null

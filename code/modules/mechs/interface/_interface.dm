@@ -20,41 +20,34 @@
 	if(client)
 		client.screen |= hud_elements
 
-/obj/screen/zone_selector/exosuit
-	requires_ui_style = FALSE
-
-/mob/living/exosuit/InitializeHud()
-	zone_sel = new /obj/screen/zone_selector/exosuit(null, src)
+/mob/living/exosuit/initialize_hud()
 	if(!LAZYLEN(hud_elements))
 		var/i = 1
 		for(var/hardpoint in hardpoints)
 			var/obj/screen/exosuit/hardpoint/H = new(null, src, null, null, null, null, hardpoint)
-			H.screen_loc = "LEFT:6,TOP-[i]:-16"
-			hud_elements |= H
-			hardpoint_hud_elements[hardpoint] = H
+			if(istype(H))
+				H.screen_loc = "LEFT+1:6,TOP-[i]:-16"
+				hud_elements |= H
+				hardpoint_hud_elements[hardpoint] = H
 			i++
 
 		if(body && body.pilot_coverage >= 100)
 			additional_hud_elements += /obj/screen/exosuit/toggle/air
-		i = 0
-		var/pos = 7
+		i = 16
 		for(var/additional_hud in additional_hud_elements)
 			var/obj/screen/exosuit/M = new additional_hud(null, src)
-			M.screen_loc = "LEFT:6,BOTTOM+[pos]:[i]"
+			M.screen_loc = "LEFT:6,TOP-1:-[i]"
 			hud_elements |= M
-			i -= M.height
+			i += M.height
 
 		hud_health = new /obj/screen/exosuit/health(null, src)
-		hud_health.screen_loc = "RIGHT-1:28,CENTER-3:11"
 		hud_elements |= hud_health
 		hud_open = locate(/obj/screen/exosuit/toggle/hatch_open) in hud_elements
 		hud_power = new /obj/screen/exosuit/power(null, src)
-		hud_power.screen_loc = "RIGHT-1:28,CENTER-4:25"
 		hud_elements |= hud_power
 		hud_power_control = locate(/obj/screen/exosuit/toggle/power_control) in hud_elements
 		hud_camera = locate(/obj/screen/exosuit/toggle/camera) in hud_elements
 		hud_heat = new /obj/screen/exosuit/heat(null, src)
-		hud_heat.screen_loc = "RIGHT-1:28,CENTER-4"
 		hud_elements |= hud_heat
 
 	refresh_hud()
@@ -69,12 +62,13 @@
 /mob/living/exosuit/handle_hud_icons()
 	for(var/hardpoint in hardpoint_hud_elements)
 		var/obj/screen/exosuit/hardpoint/H = hardpoint_hud_elements[hardpoint]
-		if(H) H.update_system_info()
+		if(istype(H))
+			H.update_system_info()
 	handle_hud_icons_health()
 
 	var/maptext_string = "CHECK<br>POWER"
-	var/obj/item/cell/C = get_cell()
-	if(istype(C))
+	var/obj/item/cell/cell = get_cell()
+	if(istype(cell))
 		maptext_string = "[round(get_cell().charge)]/[round(get_cell().maxcharge)]"
 	hud_power.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[maptext_string]</center>", 5, COLOR_WHITE, COLOR_BLACK)
 	refresh_hud()
@@ -120,14 +114,14 @@
 /mob/living/exosuit/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)
 		var/obj/screen/exosuit/hardpoint/H = hardpoint_hud_elements[hardpoint]
-		if(H)
+		if(istype(H))
 			H.color = COLOR_WHITE
 
 /mob/living/exosuit/setClickCooldown(var/timeout)
 	. = ..()
 	for(var/hardpoint in hardpoint_hud_elements)
 		var/obj/screen/exosuit/hardpoint/H = hardpoint_hud_elements[hardpoint]
-		if(H)
+		if(istype(H))
 			H.color = "#a03b3b"
 			animate(H, color = COLOR_WHITE, time = timeout, easing = CUBIC_EASING | EASE_IN)
 	addtimer(CALLBACK(src, PROC_REF(reset_hardpoint_color)), timeout)

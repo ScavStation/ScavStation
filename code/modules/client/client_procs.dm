@@ -65,16 +65,6 @@ var/global/list/localhost_addresses = list(
 		cmd_admin_pm(C, null, ticket)
 		return
 
-	if(href_list["irc_msg"])
-		if(!holder && received_irc_pm < world.time - 6000) //Worst they can do is spam IRC for 10 minutes
-			to_chat(usr, SPAN_WARNING("You are no longer able to use this, it's been more then 10 minutes since an admin on IRC has responded to you."))
-			return
-		if(mute_irc)
-			to_chat(usr, SPAN_WARNING("You cannot use this as your client has been muted from sending messages to the admins on IRC."))
-			return
-		cmd_admin_irc_pm(href_list["irc_msg"])
-		return
-
 	if(href_list["close_ticket"])
 		var/datum/ticket/ticket = locate(href_list["close_ticket"])
 
@@ -378,14 +368,10 @@ var/global/list/localhost_addresses = list(
 	if(admin_datums[ckey] && GAME_STATE == RUNLEVEL_GAME) //Only report this stuff if we are currently playing.
 		message_staff("\[[holder.rank]\] [key_name(src)] logged out.")
 		if(!global.admins.len) //Apparently the admin logging out is no longer an admin at this point, so we have to check this towards 0 and not towards 1. Awell.
-			var/full_message = "[key_name(src)] logged out - no more staff online."
-			send2adminirc(full_message)
-			SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Admin Logout (Game ID: [game_id])", "body" = full_message))
+			SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Admin Logout (Game ID: [game_id])", "body" = "[key_name(src)] logged out - no more staff online."))
 			if(get_config_value(/decl/config/toggle/delist_when_no_admins) && get_config_value(/decl/config/toggle/hub_visibility))
 				toggle_config_value(/decl/config/toggle/hub_visibility)
-				full_message = "Toggled hub visibility. The server is now invisible."
-				send2adminirc(full_message)
-				SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Automatic Hub Visibility Toggle (Game ID: [game_id])", "body" = full_message))
+				SSwebhooks.send(WEBHOOK_AHELP_SENT, list("name" = "Automatic Hub Visibility Toggle (Game ID: [game_id])", "body" = "Toggled hub visibility. The server is now invisible."))
 
 //checks if a client is afk
 //3000 frames = 5 minutes
@@ -444,23 +430,16 @@ var/global/list/localhost_addresses = list(
 	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= CLIENT_MIN_FPS && client_fps <= CLIENT_MAX_FPS)
 		vars["fps"] = client_fps
 
-/client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
-	. = ..()
-	var/mob/living/M = mob
-	if(istype(M))
-		M.OnMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
-
 /client/MouseUp(object, location, control, params)
 	. = ..()
-	var/mob/living/M = mob
-	if(istype(M))
-		M.OnMouseUp(object, location, control, params)
+	if(mob?.on_mouse_up())
+		_block_next_click = TRUE
 
 /client/MouseDown(object, location, control, params)
 	. = ..()
 	var/mob/living/M = mob
 	if(istype(M) && !M.in_throw_mode)
-		M.OnMouseDown(object, location, control, params)
+		M.on_mouse_down(object, location, control, params)
 
 /client/verb/SetWindowIconSize(var/val as num|text)
 	set hidden = 1
@@ -613,6 +592,12 @@ var/global/const/MAX_VIEW = 41
 		winset(src, "mainwindow.split", "splitter=[pct]")
 
 /client/Click(atom/A)
+
+	// Mouse drag safeguard against a trailing Click() called after MouseUp().
+	if(_block_next_click)
+		_block_next_click = FALSE
+		return
+
 	if(!user_acted(src))
 		return
 
@@ -652,6 +637,8 @@ var/global/const/MAX_VIEW = 41
 	var/list/communication_hotkeys = list()
 	for(var/key in D.key_bindings)
 		for(var/kb_name in D.key_bindings[key])
+			if(!prefs.hotkeys && !SSinput.unprintables_cache[key])
+				continue
 			switch(kb_name)
 				if("north")
 					movement_keys[key] = NORTH
@@ -677,24 +664,18 @@ var/global/const/MAX_VIEW = 41
 					winset(src, "default-\ref[key]", "parent=default;name=[key];command=.me")
 					communication_hotkeys += key
 
-	// winget() does not work for F1 and F2
-	for(var/key in communication_hotkeys)
-		if(!(key in list("F1","F2")) && !winget(src, "default-\ref[key]", "command"))
-			to_chat(src, SPAN_WARNING("You probably entered the game with a different keyboard layout.\n<a href='byond://?src=\ref[src];reset_macros=1'>Please switch to the English layout and click here to fix the communication hotkeys.</a>"))
-			break
-
 /client/proc/get_byond_membership()
 	return prefs?.is_byond_member || IsByondMember()
 
 /client/proc/set_right_click_menu_mode(shift_only)
 	if(shift_only)
 		winset(src, "mapwindow.map", "right-click=true")
-		winset(src, "ShiftUp", "is-disabled=false")
-		winset(src, "Shift", "is-disabled=false")
+		winset(src, "default.PROTECTED-Shift", "command=\".winset :map.right-click=false\nKeyDown Shift\"")
+		winset(src, "default.PROTECTED-ShiftUp", "command=\".winset :map.right-click=true\nKeyUp Shift\"")
 	else
 		winset(src, "mapwindow.map", "right-click=false")
-		winset(src, "default.Shift", "is-disabled=true")
-		winset(src, "default.ShiftUp", "is-disabled=true")
+		winset(src, "default.PROTECTED-Shift", "command=\"KeyDown Shift\"")
+		winset(src, "default.PROTECTED-ShiftUp", "command=\"KeyUp Shift\"")
 
 /client/verb/drop_item()
 	set hidden = 1

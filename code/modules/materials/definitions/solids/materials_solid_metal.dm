@@ -22,6 +22,8 @@
 	tensile_strength = 0.8 // metal wire is probably better than plastic?
 	wall_damage_threshold = 10
 	hitsound = 'sound/effects/metalhit.ogg'
+	forgable = TRUE
+	glows_with_heat = TRUE
 
 /decl/material/solid/metal/uranium
 	name = "uranium"
@@ -80,6 +82,7 @@
 
 /decl/material/solid/metal/gold
 	name = "gold"
+	adjective_name = "golden"
 	codex_name = "elemental gold"
 	uid = "solid_gold"
 	lore_text = "A heavy, soft, ductile metal. Once considered valuable enough to back entire currencies, now predominantly used in corrosion-resistant electronics."
@@ -219,7 +222,7 @@
 /decl/material/solid/metal/steel/holographic
 	name = "holographic steel"
 	uid = "solid_holographic_steel"
-	holographic = TRUE
+	visual_only = TRUE
 
 /decl/material/solid/metal/stainlesssteel
 	name = "stainless steel"
@@ -266,7 +269,7 @@
 /decl/material/solid/metal/aluminium/holographic
 	name = "holoaluminium"
 	uid = "solid_holographic_aluminium"
-	holographic = TRUE
+	visual_only = TRUE
 
 /decl/material/solid/metal/plasteel
 	name = "plasteel"
@@ -429,6 +432,12 @@
 	color = "#92aae4"
 	construction_difficulty = MAT_VALUE_NORMAL_DIY
 	reflectiveness = MAT_VALUE_MATTE
+	// Strictly speaking this should be via calcination, but it's used in alloys, so setting
+	// heating_product would just cause it to turn into white pigment in the crucible.
+	dissolves_into = list(
+		/decl/material/liquid/pigment/white = 0.8,
+		/decl/material/solid/slag           = 0.2
+	)
 
 /decl/material/solid/metal/chromium
 	name = "chromium"

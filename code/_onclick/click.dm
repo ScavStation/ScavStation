@@ -41,10 +41,10 @@
 
 	After that, mostly just check your state, check whether you're holding an item,
 	check whether you're adjacent to the target, then pass off the click to whoever
-	is recieving it.
+	is receiving it.
 	The most common are:
 	* mob/UnarmedAttack(atom,adjacent) - used here only when adjacent, with no item in hand; in the case of humans, checks gloves
-	* atom/attackby(item,user) - used only when adjacent
+	* atom/attackby(used_item,user) - used only when adjacent
 	* item/afterattack(atom,user,adjacent,params) - used both ranged and adjacent
 	* mob/RangedAttack(atom,params) - used only ranged, only used for tk and laser eyes but could be changed
 */
@@ -113,7 +113,7 @@
 	if(holding == A) // Handle attack_self
 		holding.attack_self(src)
 		trigger_aiming(TARGET_CAN_CLICK)
-		usr.update_inhand_overlays(FALSE)
+		update_inhand_overlays(FALSE)
 		return 1
 
 	//Atoms on your person
@@ -165,7 +165,14 @@
 	return 1
 
 /mob/proc/setClickCooldown(var/timeout)
-	next_move = max(world.time + timeout, next_move)
+
+	if(isnull(modifier_click_cooldown_mult))
+		modifier_click_cooldown_mult = 1
+		for(var/modifier_type in get_mob_modifiers())
+			var/decl/mob_modifier/modifier = RESOLVE_TO_DECL(modifier_type)
+			if(!isnull(modifier.click_cooldown_multiplier))
+				modifier_click_cooldown_mult *= modifier.click_cooldown_multiplier
+	next_move = max(world.time + (timeout * modifier_click_cooldown_mult), next_move)
 
 /mob/proc/canClick()
 	if(get_config_value(/decl/config/toggle/no_click_cooldown) || next_move <= world.time)
@@ -286,7 +293,7 @@
 
 /atom/proc/ShiftClick(var/mob/user)
 	if(user.client && user.client.eye == user)
-		user.examinate(src)
+		user.examine_verb(src)
 	return
 
 /*
@@ -303,6 +310,16 @@
 			var/using_item = user.get_active_held_item()
 			if(handler.is_possible(src, user, using_item))
 				return handler.invoked(src, user, using_item)
+	if(!isturf(loc) || user.Adjacent(src))
+		return FALSE
+	var/list/available_maneuvers = user.get_available_maneuvers()
+	if(!length(available_maneuvers))
+		return FALSE
+	var/turf/target_turf = loc
+	for(var/maneuver_type in available_maneuvers)
+		var/decl/maneuver/maneuver_decl = RESOLVE_TO_DECL(maneuver_type)
+		if(maneuver_decl.perform(user, target_turf, user.get_acrobatics_multiplier(maneuver_decl)))
+			return TRUE
 	return FALSE
 
 /atom/movable/CtrlClick(var/mob/living/user)
@@ -317,7 +334,7 @@
 	A.AltClick(src)
 
 /atom/proc/AltClick(var/mob/user)
-	if(try_handle_interactions(user, get_alt_interactions(user), user?.get_active_held_item()))
+	if(try_handle_interactions(user, get_alt_interactions(user), user?.get_active_held_item(), check_alt_interactions = TRUE))
 		return TRUE
 	if(user?.get_preference_value(/datum/client_preference/show_turf_contents) == PREF_ALT_CLICK)
 		. = show_atom_list_for_turf(user, get_turf(src))

@@ -17,7 +17,7 @@
 /obj/abstract/landmark/mapped_fluid
 	name = "mapped fluid area"
 	alpha = FLUID_MIN_ALPHA
-	icon_state = "shallow_still"
+	icon_state = "shallow"
 	color = COLOR_LIQUID_WATER
 
 	var/fluid_type = /decl/material/liquid/water

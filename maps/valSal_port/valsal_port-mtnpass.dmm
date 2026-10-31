@@ -33,7 +33,7 @@
 /turf/floor/barren,
 /area/valSal_port/outdoors_mtn_pass/cave1)
 "cj" = (
-/obj/structure/bed/chair/bench,
+/obj/structure/bed/bench,
 /turf/floor/woven,
 /area/valSal_port/outdoors_mtn_pass/camp1)
 "co" = (
@@ -99,7 +99,7 @@
 /turf/unsimulated/floor/cult,
 /area/valSal_port/outdoors_mtn_pass/temple)
 "fN" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/straw,
 /area/valSal_port/outdoors_mtn_pass/camp1)
 "fY" = (
@@ -242,7 +242,7 @@
 /turf/unsimulated/floor/cult,
 /area/valSal_port/outdoors_mtn_pass/temple)
 "oa" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/woven,
 /area/valSal_port/outdoors_mtn_pass/camp1)
 "oc" = (

@@ -97,7 +97,7 @@
 			to_chat(user, SPAN_WARNING("You can't do that right now!"))
 			return
 
-		if(!user.check_dexterity(DEXTERITY_HOLD_ITEM))
+		if(!user.check_dexterity(DEXTERITY_HOLD_ITEM, fail_message = "You lack the dexterity to fold the ladder."))
 			return
 
 		user.visible_message(
@@ -130,6 +130,7 @@
 /decl/interaction_handler/ladder_fold
 	name = "Fold Ladder"
 	expected_target_type = /obj/structure/ladder/mobile
+	examine_desc = "fold $TARGET_THEM$ up"
 
 /decl/interaction_handler/ladder_fold/invoked(atom/target, mob/user, obj/item/prop)
 	var/obj/structure/ladder/mobile/L

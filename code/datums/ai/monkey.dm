@@ -32,4 +32,5 @@
 				touchables += O
 		if(touchables.len)
 			var/obj/touchy = pick(touchables)
-			touchy.attack_hand(body) // No need for paranoid as we check physical interactivity above.
+			// No need for paranoid as we check physical interactivity above.
+			addtimer(CALLBACK(touchy, TYPE_PROC_REF(/atom, attack_hand), body), 0)

@@ -17,7 +17,6 @@
 		/obj/item/clothing/suit/jacket/vest/black
 	)
 
-
 /obj/item/clothing/pants/slacks/outfit/detective_grey
 	starting_accessories = list(
 		/obj/item/clothing/shirt/button,

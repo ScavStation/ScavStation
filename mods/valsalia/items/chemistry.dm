@@ -93,14 +93,14 @@
 	. = ..()
 	if(.)
 		for(var/thing in can_make_soggy)
-			for(var/rtype in holder.reagent_volumes)
+			for(var/rtype in REAGENT_VOLUMES(holder))
 				if(ispath(rtype, thing))
 					return TRUE
 		return FALSE
 
 /decl/chemical_reaction/recipe/soggy_food/on_reaction(datum/reagents/holder, created_volume, reaction_flags)
 	. = ..()
-	var/obj/item/food/food = holder ? holder.my_atom : null
+	var/obj/item/food/food = holder ? UNLINT(holder.my_atom) : null
 	if(!QDELETED(food) && istype(food) && !findtext(lowertext(food.name), "soggy"))
 		food.name = "soggy [food.name]"
 

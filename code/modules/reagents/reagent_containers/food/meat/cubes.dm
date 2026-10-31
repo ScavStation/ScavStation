@@ -36,6 +36,8 @@
 	add_to_reagents(/decl/material/solid/organic/meat, 10)
 
 /obj/item/food/animal_cube/get_single_monetary_worth()
+	if(worthless)
+		return 0
 	. = (spawn_type ? round(atom_info_repository.get_combined_worth_for((islist(spawn_type) ? spawn_type[1] : spawn_type)) * 1.25) : 5)
 	if(wrapper_type)
 		. += atom_info_repository.get_combined_worth_for(wrapper_type)
@@ -51,6 +53,8 @@
 		return
 	growing = TRUE
 	visible_message(SPAN_NOTICE("\The [src] expands!"))
+	if(islist(spawn_type))
+		spawn_type = pickweight(spawn_type)
 	var/mob/critter = new spawn_type
 	critter.dropInto(force_loc || loc)
 	qdel(src)
@@ -73,21 +77,12 @@
 			target.visible_message(SPAN_DANGER("A screeching creature bursts out of \the [target]!"))
 			var/obj/item/organ/external/organ = GET_EXTERNAL_ORGAN(target, BP_CHEST)
 			if(organ)
-				organ.take_external_damage(50, 0, 0, "Animal escaping the ribcage")
+				organ.take_damage(50, inflicter = "Animal escaping the ribcage")
 		spawn_creature(get_turf(target))
 
 /obj/item/food/animal_cube/on_reagent_change()
 	if((. = ..()) && !QDELETED(src) && reagents?.has_reagent(/decl/material/liquid/water))
 		spawn_creature()
-
-//Spider cubes, all that's left of the cube PR
-/obj/item/food/animal_cube/spider
-	name = "spider cube"
-	spawn_type = /obj/effect/spider/spiderling
-
-/obj/item/food/animal_cube/wrapped/spider
-	name = "spider cube"
-	spawn_type = /obj/effect/spider/spiderling
 
 /obj/item/food/animal_cube/monkey
 	name = "monkey cube"
@@ -99,8 +94,16 @@
 
 /obj/item/food/animal_cube/carp
 	name = "carp cube"
-	spawn_type = list(/mob/living/simple_animal/hostile/carp = 10, /mob/living/simple_animal/hostile/carp/pike = 3, /mob/living/simple_animal/hostile/carp/shark = 1)
+	spawn_type = list(
+		/mob/living/simple_animal/hostile/carp       = 10,
+		/mob/living/simple_animal/hostile/carp/pike  =  3,
+		/mob/living/simple_animal/hostile/carp/shark =  1
+	)
 
 /obj/item/food/animal_cube/wrapped/carp
 	name = "carp cube"
-	spawn_type = list(/mob/living/simple_animal/hostile/carp = 10, /mob/living/simple_animal/hostile/carp/pike = 3, /mob/living/simple_animal/hostile/carp/shark = 1)
+	spawn_type = list(
+		/mob/living/simple_animal/hostile/carp       = 10,
+		/mob/living/simple_animal/hostile/carp/pike  =  3,
+		/mob/living/simple_animal/hostile/carp/shark =  1
+	)

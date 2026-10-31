@@ -1,7 +1,5 @@
-/datum/job/ministation/doctor
+/datum/job/standard/doctor/ministation
 	title = "Medical Doctor"
-	department_types = list(/decl/department/medical)
-	head_position = 0
 	supervisors = "the Head Doctor"
 	total_positions = 3
 	spawn_positions = 4
@@ -20,8 +18,6 @@
 		SKILL_CHEMISTRY = SKILL_MAX,
 		SKILL_LITERACY  = SKILL_MAX
 	)
-	selection_color = "#013d3b"
-	economic_power = 12
 	access = list(
 		access_medical,
 		access_medical_equip,
@@ -44,29 +40,13 @@
 		access_janitor
 	)
 	outfit_type = /decl/outfit/job/ministation/doctor
-	minimal_player_age = 3
-	event_categories = list(ASSIGNMENT_MEDICAL)
 
-/datum/job/ministation/doctor/head
-	title = "Medical Director"
-	head_position = 1
-	department_types = list(
-		/decl/department/medical,
-		/decl/department/command
-	)
+/datum/job/standard/cmo/ministation
+	title = "Head Doctor"
 	supervisors = "the Captain and your own ethics"
 	outfit_type = /decl/outfit/job/ministation/doctor/head
-	alt_titles = list("Surgeon","Patriarch of Medicine", "Head Doctor")
-	total_positions = 1
-	spawn_positions = 1
+	alt_titles = list("Chief Medical Officer", "Head Surgeon")
 	skill_points = 38
-	guestbanned = 1
-	must_fill = 1
-	not_random_selectable = 1
-	selection_color = "#026865"
-	req_admin_notify = 1
-	economic_power = 15
-	hud_icon = "hudheaddoctor"
 	access = list(
 		access_medical,
 		access_medical_equip,
@@ -121,6 +101,3 @@
 		access_security,
 				access_janitor
 	)
-	minimal_player_age = 14
-	ideal_character_age = 50
-	event_categories = list(ASSIGNMENT_MEDICAL)

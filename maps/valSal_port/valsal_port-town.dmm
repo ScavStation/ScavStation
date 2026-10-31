@@ -9,7 +9,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/westside)
 "ap" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/flame/candle/handmade{
 	pixel_y = 6
 	},
@@ -39,7 +39,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/westside)
 "ba" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/banner/woven,
 /obj/structure/merchant/tailor{
 	pixel_y = 33
@@ -62,7 +62,7 @@
 /area/valSal_port/outside/river)
 "bL" = (
 /obj/structure/railing/mapped/wooden/walnut,
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/tool/hoe,
 /turf/floor/path/basalt,
 /area/valSal_port/outside/garden)
@@ -82,13 +82,13 @@
 /turf/floor/dirt,
 /area/valSal_port/town/den)
 "cd" = (
-/obj/structure/bed/chair/armchair/beige{
+/obj/structure/chair/armchair/beige{
 	dir = 4
 	},
 /turf/floor/wood/yew,
 /area/valSal_port/town/hermit)
 "cn" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/chems/glass/mortar,
 /obj/item/rock/basalt,
 /turf/floor/dirt,
@@ -107,7 +107,7 @@
 /turf/unsimulated/dark_filler,
 /area/valSal_port/outside/southside)
 "cw" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/chair/wood{
 	dir = 1
 	},
 /obj/structure/wall_sconce/lantern{
@@ -140,7 +140,7 @@
 "cR" = (
 /obj/structure/table/desk/dresser/ebony,
 /obj/item/clothing/dress/devil,
-/obj/item/clothing/gloves/ring/material/gold{
+/obj/item/clothing/gloves/ring/gold{
 	desc = "A golden ring. This one won't make you invisible though."
 	},
 /obj/item/clothing/neck/necklace/prayer_beads/gold,
@@ -162,7 +162,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/westside)
 "dm" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/board,
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
@@ -224,7 +224,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/westside)
 "eH" = (
-/obj/vehicle/train/cargo/trolley_wood,
+/obj/vehicle/train/trolley_wood,
 /turf/floor/dirt,
 /area/valSal_port/outside/merchantcamp)
 "eJ" = (
@@ -243,7 +243,7 @@
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/town/shrine)
 "eW" = (
-/obj/structure/bed/chair/bench/pew/mahogany,
+/obj/structure/bed/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/town/shrine)
@@ -284,7 +284,7 @@
 /turf/floor/dirt,
 /area/valSal_port/town/den)
 "fA" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/chair/wood{
 	dir = 4
 	},
 /obj/structure/wall_sconce/lantern,
@@ -362,7 +362,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "gj" = (
-/obj/structure/bed/chair/wood/wings/ebony{
+/obj/structure/chair/wood/wings/ebony{
 	dir = 1
 	},
 /turf/floor/wood/mahogany,
@@ -406,13 +406,13 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
 "ha" = (
-/obj/structure/bed/chair/wood/ebony{
+/obj/structure/chair/wood/ebony{
 	dir = 8
 	},
 /turf/floor/path/running_bond/granite,
 /area/valSal_port/outside/outer_town)
 "hf" = (
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /obj/structure/fire_source/heater/mapped{
 	pixel_y = 6
 	},
@@ -574,7 +574,7 @@
 /turf/floor/wood,
 /area/valSal_port/town/house)
 "jW" = (
-/obj/structure/door/wood/saloon/walnut,
+/obj/structure/door/walnut/saloon,
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
 "jZ" = (
@@ -649,7 +649,7 @@
 /turf/floor/carpet/blue,
 /area/valSal_port/town/trapper)
 "lt" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/chair/wood{
 	dir = 8
 	},
 /turf/floor/wood/yew,
@@ -674,7 +674,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/filth,
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /obj/item/staff/broom,
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
@@ -735,7 +735,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/inner_town)
 "mN" = (
-/obj/structure/bed/chair/wood/wings/ebony,
+/obj/structure/chair/wood/wings/ebony,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
@@ -1015,7 +1015,7 @@
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
 "qo" = (
-/obj/structure/bed/chair/bench/pew/mahogany,
+/obj/structure/bed/bench/pew/mahogany,
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/town/shrine)
 "qt" = (
@@ -1046,7 +1046,7 @@
 /turf/floor/path/herringbone,
 /area/valSal_port/town/farmhouse)
 "qD" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
 "qE" = (
@@ -1165,7 +1165,7 @@
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/town/shrine)
 "sq" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/shears,
 /obj/structure/wall_sconce/lantern{
 	dir = 1;
@@ -1217,7 +1217,7 @@
 /turf/floor/path/herringbone/granite,
 /area/valSal_port/town/general_store)
 "sE" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/kitchen/rollingpin,
 /obj/item/knife/kitchen/cleaver,
 /turf/floor/wood/mahogany,
@@ -1246,7 +1246,7 @@
 /turf/floor/mud/water,
 /area/valSal_port/outside/river)
 "tg" = (
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
 "tr" = (
@@ -1340,7 +1340,7 @@
 /area/valSal_port/town/dogden)
 "ut" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /turf/floor/wood,
 /area/valSal_port/town/house)
 "uu" = (
@@ -1366,11 +1366,11 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/eastside)
 "uM" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /turf/floor/path/running_bond/granite,
 /area/valSal_port/outside/outer_town)
 "uT" = (
-/obj/structure/bed/chair/wood/wings/ebony,
+/obj/structure/chair/wood/wings/ebony,
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
 "uW" = (
@@ -1420,7 +1420,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
 "vC" = (
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /obj/item/plate/tray/metal/silver{
 	pixel_y = 6
 	},
@@ -1498,7 +1498,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "wV" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /turf/floor/wood,
 /area/valSal_port/town/house)
 "xg" = (
@@ -1600,7 +1600,7 @@
 /turf/floor/mud,
 /area/valSal_port/outside/outer_town)
 "ym" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /turf/floor/wood,
 /area/valSal_port/town/farmhouse)
 "yq" = (
@@ -1621,12 +1621,12 @@
 /turf/wall/log/yew/shutter/open,
 /area/valSal_port/town/house)
 "yI" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/flora/pottedplant/deskferntrim,
 /turf/floor/wood,
 /area/valSal_port/town/trapper)
 "yK" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/structure/merchant/general{
 	dir = 1;
 	pixel_y = -11
@@ -1676,7 +1676,7 @@
 /turf/wall/log/maple/shutter/open,
 /area/valSal_port/town/slaughterhouse)
 "zu" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/wood,
 /area/valSal_port/town/trapper)
 "zw" = (
@@ -1717,7 +1717,7 @@
 /turf/floor/carpet/rustic,
 /area/valSal_port/town/mansion)
 "Ax" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/wood,
 /area/valSal_port/town/residence)
 "Ay" = (
@@ -1740,7 +1740,7 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
 "AH" = (
-/obj/structure/bed/chair/rustic_fancy{
+/obj/structure/bed/rustic_fancy{
 	dir = 8
 	},
 /obj/item/cash/imperial/crown,
@@ -1910,7 +1910,7 @@
 /turf/wall/natural/basalt/valSal_port,
 /area/valSal_port/town/dogden)
 "Dn" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/chair/wood{
 	dir = 8
 	},
 /obj/structure/wall_sconce/lantern{
@@ -2001,7 +2001,7 @@
 /turf/floor/path/basalt,
 /area/valSal_port/town/general_store)
 "EC" = (
-/obj/structure/bed/chair/wood/ebony{
+/obj/structure/chair/wood/ebony{
 	dir = 4
 	},
 /turf/floor/path/running_bond/granite,
@@ -2105,7 +2105,7 @@
 /turf/floor/mud,
 /area/valSal_port/outside/river)
 "Go" = (
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /obj/item/plate/tray/metal/silver{
 	pixel_y = 6
 	},
@@ -2200,7 +2200,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/westside)
 "HP" = (
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /obj/item/plate,
 /obj/item/utensil/fork,
 /obj/item/chems/glass/handmade/cup/wood,
@@ -2237,7 +2237,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "IF" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/item/mollusc/clam/fished/pearl,
 /turf/floor/wood/yew,
 /area/valSal_port/town/hermit)
@@ -2466,7 +2466,7 @@
 /turf/wall/brick/pottery,
 /area/valSal_port/town/farmhouse)
 "Mj" = (
-/obj/structure/door/wood/saloon/walnut{
+/obj/structure/door/walnut/saloon{
 	dir = 4
 	},
 /turf/floor/wood,
@@ -2506,7 +2506,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/eastside)
 "MK" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/knife/ritual,
 /obj/item/tool/axe,
 /obj/item/shield/buckler,
@@ -2554,7 +2554,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/southside)
 "NB" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/chair/wood{
 	dir = 4
 	},
 /obj/structure/wall_sconce/lantern{
@@ -2722,7 +2722,7 @@
 /turf/floor/mud/water/deep,
 /area/valSal_port/outside/river)
 "Qq" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/structure/merchant/apothecary{
 	pixel_y = 30;
 	pixel_x = -1
@@ -2750,13 +2750,13 @@
 /turf/floor/grass,
 /area/valSal_port/outside/eastside)
 "Qy" = (
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /obj/item/utensil/fork,
 /obj/item/chems/glass/handmade/cup/wood,
 /turf/unsimulated/floor/carpet,
 /area/valSal_port/town/mansion)
 "Qz" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/item/chems/glass/bucket/wood,
 /obj/structure/wall_sconce/lantern{
 	dir = 8
@@ -2772,7 +2772,7 @@
 /turf/floor/grass/wild,
 /area/valSal_port/outside/outer_town)
 "QM" = (
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /obj/item/flame/candle/handmade{
 	pixel_y = 6
 	},
@@ -2780,12 +2780,12 @@
 /turf/unsimulated/floor/carpet,
 /area/valSal_port/town/mansion)
 "QQ" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /turf/floor/dirt,
 /area/valSal_port/town/outpost)
 "QS" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/woodentable_reinforced/ebony,
+/obj/structure/table/wood/reinforced/ebony,
 /obj/item/flute,
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
@@ -2798,7 +2798,7 @@
 /turf/floor/wood,
 /area/valSal_port/town/general_store)
 "Rj" = (
-/obj/vehicle/train/cargo/engine{
+/obj/vehicle/train/engine{
 	dir = 8
 	},
 /turf/floor/dirt,
@@ -2848,7 +2848,7 @@
 /turf/floor/grass,
 /area/valSal_port/outside/southside)
 "RX" = (
-/obj/structure/bed/chair/wood/wings/ebony,
+/obj/structure/chair/wood/wings/ebony,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/ash,
 /turf/floor/wood/mahogany,
@@ -2990,7 +2990,7 @@
 /turf/floor/straw,
 /area/valSal_port/outside/inner_town)
 "UO" = (
-/obj/structure/table/woodentable/ebony,
+/obj/structure/table/wood/ebony,
 /obj/structure/flora/pottedplant/bamboo{
 	pixel_x = 1;
 	pixel_y = 12
@@ -3059,7 +3059,7 @@
 /turf/wall/brick/basalt,
 /area/valSal_port/town/mansion)
 "VI" = (
-/obj/structure/table/woodentable/walnut,
+/obj/structure/table/wood/walnut,
 /obj/structure/merchant/butcher{
 	dir = 8;
 	pixel_x = 28
@@ -3206,7 +3206,7 @@
 /turf/floor/dirt,
 /area/valSal_port/town/outpost)
 "Xo" = (
-/obj/structure/bed/chair/wood{
+/obj/structure/chair/wood{
 	dir = 4
 	},
 /turf/floor/wood/yew,
@@ -3332,7 +3332,7 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
 "YO" = (
-/obj/structure/table/woodentable,
+/obj/structure/table/wood,
 /obj/item/paper/scroll,
 /obj/item/paper/scroll,
 /obj/item/cash/imperial/crown,

@@ -75,8 +75,8 @@
 		to_chat(user, "[html_icon(src)] <span class='warning'>[src] beeps: \"[response]\"</span>")
 		return 1
 
-/obj/machinery/atm/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/card/id))
+/obj/machinery/atm/attackby(obj/item/used_item, mob/user)
+	if(istype(used_item, /obj/item/card/id))
 		if(emagged > 0)
 			//prevent inserting id into an emagged ATM
 			to_chat(user, "[html_icon(src)] <span class='warning'>CARD READER ERROR. This system has been compromised!</span>")
@@ -85,7 +85,7 @@
 			to_chat(user, "You try to insert your card into [src], but nothing happens.")
 			return TRUE
 
-		var/obj/item/card/id/idcard = I
+		var/obj/item/card/id/idcard = used_item
 		if(!held_card)
 			if(!user.try_unequip(idcard, src))
 				return TRUE
@@ -96,30 +96,30 @@
 			return TRUE
 
 	else if(authenticated_account)
-		if(istype(I,/obj/item/cash))
-			var/obj/item/cash/dolla = I
+		if(istype(used_item,/obj/item/cash))
+			var/obj/item/cash/dolla = used_item
 
 			//deposit the cash
 			if(authenticated_account.deposit(dolla.absolute_worth, "Credit deposit", machine_id))
 				playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 50, 1)
 
-				to_chat(user, "<span class='info'>You insert [I] into [src].</span>")
+				to_chat(user, "<span class='info'>You insert [used_item] into [src].</span>")
 				attack_hand_with_interaction_checks(user)
-				qdel(I)
+				qdel(used_item)
 			return TRUE
 
-		if(istype(I,/obj/item/charge_stick))
-			var/obj/item/charge_stick/stick = I
-			var/datum/extension/lockable/lock = get_extension(I, /datum/extension/lockable)
+		if(istype(used_item,/obj/item/charge_stick))
+			var/obj/item/charge_stick/stick = used_item
+			var/datum/extension/lockable/lock = get_extension(used_item, /datum/extension/lockable)
 			if(lock.locked)
 				to_chat(user, SPAN_WARNING("Cannot transfer funds from a locked [stick.name]."))
 			else
 				if(authenticated_account.deposit(stick.loaded_worth, "Credit deposit", machine_id))
 					playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 50, 1)
 
-					to_chat(user, "<span class='info'>You insert [I] into [src].</span>")
+					to_chat(user, "<span class='info'>You insert [used_item] into [src].</span>")
 					attack_hand_with_interaction_checks(user)
-					qdel(I)
+					qdel(used_item)
 			return TRUE
 	return ..()
 
@@ -133,143 +133,144 @@
 		to_chat(user, "[html_icon(src)] <span class='warning'>Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per system banking regulation #1005.</span>")
 		return
 
-	if(get_dist(src,user) <= 1)
-		//make the window the user interacts with, divided out into welcome message, card 'slot', then login/data screen
-		var/list/t = list()
-
-		if(authenticated_account)
-			t += "<span class='highlight'>Welcome <b>[authenticated_account.owner_name]</b>.</span><BR>"
-		else
-			t += "<span class='highlight'>Welcome. Please login below.</span><BR>"
-
-		t += "<div class='statusDisplay'><span class='highlight'><b>Card: </b></span>"
-		if(emagged > 0)
-			t += "<span class='bad'><b>LOCKED</b><br>Unauthorized terminal access detected!<br>This ATM has been locked down.</span></div><BR>"
-		else
-			t += "<a href='byond://?src=\ref[src];choice=insert_card'>[held_card ? held_card.name : "No card inserted"]</a></div><BR>"
-			t += "<div class='statusDisplay'>"
-			if(ticks_left_locked_down > 0)
-				t += "<span class='bad'>Maximum number of pin attempts exceeded! Access to this ATM has been temporarily disabled.</span></div>"
-			else if(authenticated_account)
-				if(authenticated_account.suspended)
-					t += "<span class='bad'><b>Access to this account has been suspended, and the funds within frozen.</b></span></div>"
-				else
-					switch(view_screen)
-						if(CHANGE_SECURITY_LEVEL)
-							t += "Select a new security level for this account:<br><hr>"
-							if(authenticated_account.security_level != 0)
-								t += "<A href='byond://?src=\ref[src];choice=change_security_level;new_security_level=0'>Select Minimum Security</a><BR>"
-							else
-								t += "<span class='good'><b>Minimum security set: </b></span><BR>"
-							t += "Either the account number or card is required to access this account. EFTPOS transactions will require a card and ask for a pin, but not verify the pin is correct.<hr>"
-							if(authenticated_account.security_level != 1)
-								t += "<A href='byond://?src=\ref[src];choice=change_security_level;new_security_level=1'>Select Moderate Security</a><BR>"
-							else
-								t += "<span class='average'><b>Moderate Security set: </b></span><BR>"
-							t += "An account number and pin must be manually entered to access this account and process transactions.<hr>"
-							if(authenticated_account.security_level != 2)
-								t += "<A href='byond://?src=\ref[src];choice=change_security_level;new_security_level=2'>Select Maximum Security</a><BR>"
-							else
-								t += "<span class='bad'><b>Maximum security Set: </b></span><BR>"
-							t += "High - In addition to account number, a pin and a card is required to access this account and process transactions.<hr><br>"
-						if(VIEW_TRANSACTION_LOGS)
-							t += "<b>Transaction logs</b><br>"
-							t += "<table border=1 style='width:100%'>"
-							t += "<tr>"
-							t += "<td><b>Date</b></td>"
-							t += "<td><b>Time</b></td>"
-							t += "<td><b>Target</b></td>"
-							t += "<td><b>Purpose</b></td>"
-							t += "<td><b>Value</b></td>"
-							t += "<td><b>Source terminal ID</b></td>"
-							t += "</tr>"
-							for(var/datum/transaction/T in authenticated_account.transaction_log)
-								t += "<tr>"
-								t += "<td>[T.date]</td>"
-								t += "<td>[T.time]</td>"
-								t += "<td>[T.get_target_name()]</td>"
-								t += "<td>[T.purpose]</td>"
-								t += "<td>[authenticated_account.format_value_by_currency(T.amount)]</td>"
-								t += "<td>[T.get_source_name()]</td>"
-								t += "</tr>"
-							t += "</table>"
-							t += "<A href='byond://?src=\ref[src];choice=print_transaction'>Print</a><br>"
-						if(TRANSFER_FUNDS)
-							t += "<b>Account balance:</b> [authenticated_account.format_value_by_currency(authenticated_account.money)]<br>"
-							t += "<form name='transfer' action='byond://?src=\ref[src]' method='get'>"
-							t += "<input type='hidden' name='src' value='\ref[src]'>"
-							t += "<input type='hidden' name='choice' value='transfer'>"
-							t += "Target account number: <input type='text' name='target_acc_number' value='' style='width:200px; background-color:white;'><br>"
-							t += "Funds to transfer: <input type='text' name='funds_amount' value='' style='width:200px; background-color:white;'><br>"
-							t += "Transaction purpose: <input type='text' name='purpose' value='Funds transfer' style='width:200px; background-color:white;'><br>"
-							t += "<input type='submit' value='Transfer funds'><br>"
-							t += "</form>"
-						else
-							t += "<b>Account balance:</b> [authenticated_account.format_value_by_currency(authenticated_account.money)]"
-							t += "<form name='withdrawal' action='byond://?src=\ref[src]' method='get'>"
-							t += "<input type='hidden' name='src' value='\ref[src]'>"
-							t += "<input type='radio' name='choice' value='withdrawal' checked> Cash  <input type='radio' name='choice' value='e_withdrawal'> Chargecard<br>"
-							t += "<input type='text' name='funds_amount' value='' style='width:200px; background-color:white;'><input type='submit' value='Withdraw'>"
-							t += "</form>"
-							t += "<A href='byond://?src=\ref[src];choice=view_screen;view_screen=1'>Change account security level</a><br>"
-							t += "<A href='byond://?src=\ref[src];choice=view_screen;view_screen=2'>Make transfer</a><br>"
-							t += "<A href='byond://?src=\ref[src];choice=view_screen;view_screen=3'>View transaction log</a><br>"
-							t += "<A href='byond://?src=\ref[src];choice=balance_statement'>Print balance statement</a><br>"
-
-					//Logout/back buttons, put here for some modularity and for less repeated code
-					if(view_screen == NO_SCREEN)
-						t += "<A href='byond://?src=\ref[src];choice=logout'>Logout</a><br></div>"
-					else
-						t += "<A href='byond://?src=\ref[src];choice=view_screen;view_screen=0'>Back</a></div>"
-
-			else
-				//change our display depending on account security levels
-				if(!account_security_level)
-					t += "To log in to your savings account, press 'submit' with ID clearly displayed. If you wish to log into another account, please enter the account number into the field below or insert a registered ID card into the slot above and then press 'submit'.<BR>"
-				else if (account_security_level == 1)
-					t += "This account requires a PIN to access. For security reasons the account # will need re-entered or ID bound to this account re-scanned."
-				else
-					t += "<span class='bad'><b>Due to the security settings on this account, all information needs to be re-entered and the ID bound to this account placed in the slot above.</b></span><BR>"
-				t += "<form name='atm_auth' action='byond://?src=\ref[src]' method='get'>"
-				t += "<input type='hidden' name='src' value='\ref[src]'>"
-				t += "<input type='hidden' name='choice' value='attempt_auth'>"
-				t += "<b>Account:</b> <input type='text' id='account_num' name='account_num' style='width:250px; background-color:white;'><BR><BR>"
-				//Leave the PIN field out of sight until needed
-				if(account_security_level)
-					t += "<b>PIN:</b> <input type='text' id='account_pin' name='account_pin' style='width:250px; background-color:white;'><BR><BR>"
-				t += "<input type='submit' value='Submit'><br>"
-				t += "</div></form>"
-				if(user?.mind?.initial_account)
-					t += "<i>You recall your personal account number is <b>#[user.mind.initial_account.account_number]</b> and your PIN is <b>[user.mind.initial_account.remote_access_pin]</b>.</i><br/>"
-
-		var/datum/browser/written_digital/popup = new(user, "ATM", machine_id)
-		popup.set_content(jointext(t,null))
-		popup.open()
-	else
+	if(get_dist(src,user) > 1)
 		return
 
-/obj/machinery/atm/Topic(var/href, var/href_list)
+	//make the window the user interacts with, divided out into welcome message, card 'slot', then login/data screen
+	var/list/t = list()
+
+	if(authenticated_account)
+		t += "<span class='highlight'>Welcome <b>[authenticated_account.owner_name]</b>.</span><BR>"
+	else
+		t += "<span class='highlight'>Welcome. Please login below.</span><BR>"
+
+	t += "<div class='statusDisplay'><span class='highlight'><b>Card: </b></span>"
+	if(emagged > 0)
+		t += "<span class='bad'><b>LOCKED</b><br>Unauthorized terminal access detected!<br>This ATM has been locked down.</span></div><BR>"
+	else
+		t += "<a href='byond://?src=\ref[src];choice=insert_card'>[held_card ? held_card.name : "No card inserted"]</a></div><BR>"
+		t += "<div class='statusDisplay'>"
+		if(ticks_left_locked_down > 0)
+			t += "<span class='bad'>Maximum number of pin attempts exceeded! Access to this ATM has been temporarily disabled.</span></div>"
+		else if(authenticated_account)
+			if(authenticated_account.suspended)
+				t += "<span class='bad'><b>Access to this account has been suspended, and the funds within frozen.</b></span></div>"
+			else
+				switch(view_screen)
+					if(CHANGE_SECURITY_LEVEL)
+						t += "Select a new security level for this account:<br><hr>"
+						if(authenticated_account.security_level != 0)
+							t += "<A href='byond://?src=\ref[src];choice=change_security_level;new_security_level=0'>Select Minimum Security</a><BR>"
+						else
+							t += "<span class='good'><b>Minimum security set: </b></span><BR>"
+						t += "Either the account number or card is required to access this account. EFTPOS transactions will require a card and ask for a pin, but not verify the pin is correct.<hr>"
+						if(authenticated_account.security_level != 1)
+							t += "<A href='byond://?src=\ref[src];choice=change_security_level;new_security_level=1'>Select Moderate Security</a><BR>"
+						else
+							t += "<span class='average'><b>Moderate Security set: </b></span><BR>"
+						t += "An account number and pin must be manually entered to access this account and process transactions.<hr>"
+						if(authenticated_account.security_level != 2)
+							t += "<A href='byond://?src=\ref[src];choice=change_security_level;new_security_level=2'>Select Maximum Security</a><BR>"
+						else
+							t += "<span class='bad'><b>Maximum security Set: </b></span><BR>"
+						t += "High - In addition to account number, a pin and a card is required to access this account and process transactions.<hr><br>"
+					if(VIEW_TRANSACTION_LOGS)
+						t += "<b>Transaction logs</b><br>"
+						t += "<table border=1 style='width:100%'>"
+						t += "<tr>"
+						t += "<td><b>Date</b></td>"
+						t += "<td><b>Time</b></td>"
+						t += "<td><b>Target</b></td>"
+						t += "<td><b>Purpose</b></td>"
+						t += "<td><b>Value</b></td>"
+						t += "<td><b>Source terminal ID</b></td>"
+						t += "</tr>"
+						for(var/datum/transaction/T in authenticated_account.transaction_log)
+							t += "<tr>"
+							t += "<td>[T.date]</td>"
+							t += "<td>[T.time]</td>"
+							t += "<td>[T.get_target_name()]</td>"
+							t += "<td>[T.purpose]</td>"
+							t += "<td>[authenticated_account.format_value_by_currency(T.amount)]</td>"
+							t += "<td>[T.get_source_name()]</td>"
+							t += "</tr>"
+						t += "</table>"
+						t += "<A href='byond://?src=\ref[src];choice=print_transaction'>Print</a><br>"
+					if(TRANSFER_FUNDS)
+						t += "<b>Account balance:</b> [authenticated_account.format_value_by_currency(authenticated_account.money)]<br>"
+						t += "<form name='transfer' action='byond://?src=\ref[src]' method='get'>"
+						t += "<input type='hidden' name='src' value='\ref[src]'>"
+						t += "<input type='hidden' name='choice' value='transfer'>"
+						t += "Target account number: <input type='text' name='target_acc_number' value='' style='width:200px; background-color:black;'><br>"
+						t += "Funds to transfer: <input type='text' name='funds_amount' value='' style='width:200px; background-color:black;'><br>"
+						t += "Transaction purpose: <input type='text' name='purpose' value='Funds transfer' style='width:200px; background-color:black;'><br>"
+						t += "<input type='submit' value='Transfer funds'><br>"
+						t += "</form>"
+					else
+						t += "<b>Account balance:</b> [authenticated_account.format_value_by_currency(authenticated_account.money)]"
+						t += "<form name='withdrawal' action='byond://?src=\ref[src]' method='get'>"
+						t += "<input type='hidden' name='src' value='\ref[src]'>"
+						t += "<input type='radio' name='choice' value='withdrawal' checked> Cash  <input type='radio' name='choice' value='e_withdrawal'> Chargecard<br>"
+						t += "<input type='text' name='funds_amount' value='' style='width:200px; background-color:black;'><input type='submit' value='Withdraw'>"
+						t += "</form>"
+						t += "<A href='byond://?src=\ref[src];choice=view_screen;view_screen=1'>Change account security level</a><br>"
+						t += "<A href='byond://?src=\ref[src];choice=view_screen;view_screen=2'>Make transfer</a><br>"
+						t += "<A href='byond://?src=\ref[src];choice=view_screen;view_screen=3'>View transaction log</a><br>"
+						t += "<A href='byond://?src=\ref[src];choice=balance_statement'>Print balance statement</a><br>"
+
+				//Logout/back buttons, put here for some modularity and for less repeated code
+				if(view_screen == NO_SCREEN)
+					t += "<A href='byond://?src=\ref[src];choice=logout'>Logout</a><br></div>"
+				else
+					t += "<A href='byond://?src=\ref[src];choice=view_screen;view_screen=0'>Back</a></div>"
+
+		else
+			//change our display depending on account security levels
+			if(!account_security_level)
+				t += "To log in to your savings account, press 'submit' with ID clearly displayed. If you wish to log into another account, please enter the account number into the field below or insert a registered ID card into the slot above and then press 'submit'.<BR>"
+			else if (account_security_level == 1)
+				t += "This account requires a PIN to access. For security reasons the account # will need re-entered or ID bound to this account re-scanned."
+			else
+				t += "<span class='bad'><b>Due to the security settings on this account, all information needs to be re-entered and the ID bound to this account placed in the slot above.</b></span><BR>"
+			t += "<form name='atm_auth' action='byond://?src=\ref[src]' method='get'>"
+			t += "<input type='hidden' name='src' value='\ref[src]'>"
+			t += "<input type='hidden' name='choice' value='attempt_auth'>"
+			t += "<b>Account:</b> <input type='text' id='account_num' name='account_num' style='width:250px; background-color:black;'><BR><BR>"
+			//Leave the PIN field out of sight until needed
+			if(account_security_level)
+				t += "<b>PIN:</b> <input type='text' id='account_pin' name='account_pin' style='width:250px; background-color:black;'><BR><BR>"
+			t += "<input type='submit' value='Submit'><br>"
+			t += "</div></form>"
+			if(user?.mind?.initial_account)
+				t += "<i>You recall your personal account number is <b>#[user.mind.initial_account.account_number]</b> and your PIN is <b>[user.mind.initial_account.remote_access_pin]</b>.</i><br/>"
+
+	var/datum/browser/written_digital/popup = new(user, "ATM", machine_id)
+	popup.set_content(jointext(t,null))
+	popup.open()
+
+/obj/machinery/atm/OnTopic(mob/user, href_list)
 	if((. = ..()))
 		return
 	if(href_list["choice"])
+		. = TOPIC_REFRESH
 		switch(href_list["choice"])
 			if("transfer")
 				if(authenticated_account)
 					var/transfer_amount = text2num(href_list["funds_amount"])
 					transfer_amount = round(transfer_amount, 0.01)
 					if(transfer_amount <= 0)
-						alert("That is not a valid amount.")
+						alert(user, "That is not a valid amount.")
 					else if(transfer_amount <= authenticated_account.money)
 						var/target_account_number = text2num(href_list["target_acc_number"])
 						var/transfer_purpose = href_list["purpose"]
 						var/datum/money_account/target_account = get_account(target_account_number)
 						if(target_account && authenticated_account.transfer(target_account, transfer_amount, transfer_purpose))
-							to_chat(usr, "[html_icon(src)]<span class='info'>Funds transfer successful.</span>")
+							to_chat(user, "[html_icon(src)]<span class='info'>Funds transfer successful.</span>")
 						else
-							to_chat(usr, "[html_icon(src)]<span class='warning'>Funds transfer failed.</span>")
+							to_chat(user, "[html_icon(src)]<span class='warning'>Funds transfer failed.</span>")
 
 					else
-						to_chat(usr, "[html_icon(src)]<span class='warning'>You don't have enough funds to do that!</span>")
+						to_chat(user, "[html_icon(src)]<span class='warning'>You don't have enough funds to do that!</span>")
 			if("view_screen")
 				view_screen = text2num(href_list["view_screen"])
 			if("change_security_level")
@@ -283,7 +284,7 @@
 				if(held_card)
 					login_card = held_card
 				else
-					login_card = scan_user(usr)
+					login_card = scan_user(user)
 
 				if(!ticks_left_locked_down)
 					var/tried_account_num = text2num(href_list["account_num"])
@@ -317,11 +318,11 @@
 								if(failed_account)
 									failed_account.log_msg("Unauthorized login attempt", machine_id)
 							else
-								to_chat(usr, "[html_icon(src)] <span class='warning'>Incorrect pin/account combination entered, [max_pin_attempts - number_incorrect_tries] attempts remaining.</span>")
+								to_chat(user, "[html_icon(src)] <span class='warning'>Incorrect pin/account combination entered, [max_pin_attempts - number_incorrect_tries] attempts remaining.</span>")
 								previous_account_number = tried_account_num
 								playsound(src, 'sound/machines/buzz-sigh.ogg', 50, 1)
 						else
-							to_chat(usr, "[html_icon(src)] <span class='warning'>Unable to log in to account, additional information may be required.</span>")
+							to_chat(user, "[html_icon(src)] <span class='warning'>Unable to log in to account, additional information may be required.</span>")
 							number_incorrect_tries = 0
 					else
 						playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
@@ -331,7 +332,7 @@
 						//create a transaction log entry
 						authenticated_account.log_msg("Remote terminal access", machine_id)
 
-						to_chat(usr, "[html_icon(src)] <span class='info'>Access granted. Welcome user '[authenticated_account.owner_name].'</span>")
+						to_chat(user, "[html_icon(src)] <span class='info'>Access granted. Welcome user '[authenticated_account.owner_name].'</span>")
 
 					previous_account_number = tried_account_num
 			if("e_withdrawal")
@@ -339,10 +340,10 @@
 				amount = round(amount, 0.01)
 				var/obj/item/charge_stick/E = charge_stick_type
 				if(amount <= 0)
-					alert("That is not a valid amount.")
+					alert(user, "That is not a valid amount.")
 				else if(amount > initial(E.max_worth))
 					var/decl/currency/cur = GET_DECL(initial(E.currency) || global.using_map.default_currency)
-					alert("That amount exceeds the maximum amount holdable by charge sticks from this machine ([cur.format_value(initial(E.max_worth))]).")
+					alert(user, "That amount exceeds the maximum amount holdable by charge sticks from this machine ([cur.format_value(initial(E.max_worth))]).")
 				else if(authenticated_account && amount > 0)
 					//create an entry in the account transaction log
 					if(authenticated_account.withdraw(amount, "Credit withdrawal", machine_id))
@@ -350,27 +351,26 @@
 						E = new charge_stick_type(loc)
 						E.adjust_worth(amount)
 						E.creator = authenticated_account.owner_name
-						usr.put_in_hands(E)
+						user.put_in_hands(E)
 					else
-						to_chat(usr, "[html_icon(src)]<span class='warning'>You don't have enough funds to do that!</span>")
+						to_chat(user, "[html_icon(src)]<span class='warning'>You don't have enough funds to do that!</span>")
 			if("withdrawal")
 				var/amount = max(text2num(href_list["funds_amount"]),0)
 				amount = round(amount, 0.01)
 				if(amount <= 0)
-					alert("That is not a valid amount.")
+					alert(user, "That is not a valid amount.")
 				else if(authenticated_account && amount > 0)
 					//remove the money
-					// TODO: Jesus Christ why does this entire proc use usr
 					if(authenticated_account.withdraw(amount, "Credit withdrawal", machine_id))
 						playsound(src, 'sound/machines/chime.ogg', 50, 1)
-						var/cash_turf = get_turf(usr)
+						var/cash_turf = get_turf(user)
 						var/obj/item/cash/cash = new(cash_turf, null, amount)
 						if(QDELETED(cash))
 							cash = locate() in cash_turf
 						if(cash)
-							usr.put_in_hands(cash)
+							user.put_in_hands(cash)
 					else
-						to_chat(usr, "[html_icon(src)]<span class='warning'>You don't have enough funds to do that!</span>")
+						to_chat(user, "[html_icon(src)]<span class='warning'>You don't have enough funds to do that!</span>")
 			if("balance_statement")
 				if(authenticated_account)
 					var/txt
@@ -384,10 +384,8 @@
 					var/obj/item/paper/R = new(src.loc, null, txt, "Account balance: [authenticated_account.owner_name]")
 					R.apply_custom_stamp('icons/obj/items/stamps/stamp_boss.dmi', "by the [machine_id]")
 
-				if(prob(50))
-					playsound(loc, 'sound/items/polaroid1.ogg', 50, 1)
-				else
-					playsound(loc, 'sound/items/polaroid2.ogg', 50, 1)
+				playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 50, 1)
+
 			if ("print_transaction")
 				if(authenticated_account)
 					var/txt
@@ -428,26 +426,26 @@
 				if(!held_card)
 					//this might happen if the user had the browser window open when somebody emagged it
 					if(emagged > 0)
-						to_chat(usr, "[html_icon(src)] <span class='warning'>The ATM card reader rejected your ID because this machine has been sabotaged!</span>")
+						to_chat(user, "[html_icon(src)] <span class='warning'>The ATM card reader rejected your ID because this machine has been sabotaged!</span>")
 					else
-						var/obj/item/I = usr.get_active_held_item()
-						if (istype(I, /obj/item/card/id))
-							if(!usr.try_unequip(I, src))
+						var/obj/item/thing = user.get_active_held_item()
+						if (istype(thing, /obj/item/card/id))
+							if(!user.try_unequip(thing, src))
 								return
-							held_card = I
+							held_card = thing
 				else
-					release_held_id(usr)
+					release_held_id(user)
 			if("logout")
 				authenticated_account = null
 				account_security_level = 0
-
-	interact(usr)
+			else
+				. = TOPIC_NOACTION // Unhandled, href hack or just a subtype's command?
 
 /obj/machinery/atm/proc/scan_user(mob/living/human/human_user)
 	if(!authenticated_account)
-		var/obj/item/card/id/I = human_user.GetIdCard()
-		if(istype(I))
-			return I
+		var/obj/item/card/id/thing = human_user.GetIdCard()
+		if(istype(thing))
+			return thing
 
 // put the currently held id on the ground or in the hand of the user
 /obj/machinery/atm/proc/release_held_id(mob/living/human/human_user)

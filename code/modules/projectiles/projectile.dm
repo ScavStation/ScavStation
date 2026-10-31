@@ -14,16 +14,28 @@
 	is_spawnable_type = FALSE
 	atom_damage_type = BRUTE //BRUTE, BURN, TOX, OXY, CLONE, ELECTROCUTE are the only things that should be in here, Try not to use PAIN as it doesn't go through stun_effect_act
 
+	// Code for handling tails, if any.
+	/// If the projectile leaves a trail.
+	var/proj_trail = FALSE
+	/// How long the trail lasts.
+	var/proj_trail_lifespan = 0
+	/// What icon to use for the projectile trail.
+	var/proj_trail_icon = 'icons/effects/projectiles/trail.dmi'
+	/// What icon_state to use for the projectile trail.
+	var/proj_trail_icon_state = "trail"
+	/// Any extant trail effects.
+	var/list/proj_trails
+	/// An effect to spawn when a non-hitscan projectile collides with a target.
+	var/impact_effect_type
+	/// A sound to play when striking a non-mob (hitsound is used for mobs)
+	var/hitsound_non_mob
+
 	var/bumped = 0		//Prevents it from hitting more than one guy at once
 	var/def_zone = ""	//Aiming at
-	var/atom/movable/firer = null//Who shot it
 	var/silenced = 0	//Attack message
 	var/yo = null
 	var/xo = null
-	var/current = null
 	var/shot_from = "" // name of the object which shot us
-	var/atom/original = null // the target clicked (not necessarily where the projectile is headed). Should probably be renamed to 'target' or something.
-	var/turf/starting = null // the projectile's starting turf
 	var/list/permutated = list() // we've passed through these atoms, don't try to hit them again
 
 	var/p_x = 16
@@ -61,9 +73,7 @@
 
 	var/fire_sound
 	var/fire_sound_vol = 50
-	var/miss_sounds
-	var/ricochet_sounds
-	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
+	var/fire_sound_vol_silenced = 10
 	var/shrapnel_type = /obj/item/shard/shrapnel
 
 	var/vacuum_traversal = 1 //Determines if the projectile can exist in vacuum, if false, the projectile will be deleted if it enters vacuum.
@@ -81,15 +91,27 @@
 	var/last_projectile_move = 0
 	var/last_process = 0
 	var/time_offset = 0
-	var/datum/point/vector/trajectory
 	var/trajectory_ignore_forcemove = FALSE	//instructs forceMove to NOT reset our trajectory to the new location!
 	var/range = 50 //This will de-increment every step. When 0, it will deletze the projectile.
 
 	//Hitscan
 	var/hitscan = FALSE		//Whether this is hitscan. If it is, speed is basically ignored.
 	var/list/beam_segments	//assoc list of datum/point or datum/point/vector, start = end. Used for hitscan effect generation.
+
+	/// If set, will apply a modifier to mobs that are hit by this projectile.
+	var/modifier_type_to_apply
+	/// How long the above modifier should last for. Leave null to be permanent.
+	var/modifier_duration = null
+
+	var/weakref/original_ref = null // the target clicked (not necessarily where the projectile is headed). Should probably be renamed to 'target' or something.
+	var/weakref/starting_ref = null // the projectile's starting turf
+	var/weakref/firer_ref = null    // Who shot it
+	var/weakref/hitscan_last_ref    // last turf touched during hitscanning.
+	var/weakref/current_ref = null
+
+	var/datum/point/vector/trajectory
 	var/datum/point/beam_index
-	var/turf/hitscan_last	//last turf touched during hitscanning.
+
 
 /obj/item/projectile/Initialize()
 	if(!hitscan)
@@ -97,7 +119,7 @@
 	else animate_movement = NO_STEPS
 	. = ..()
 
-/obj/item/projectile/CanPass()
+/obj/item/projectile/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return TRUE
 
 /obj/item/projectile/damage_flags()
@@ -111,6 +133,8 @@
 		return FALSE
 
 	var/mob/living/L = target
+	if(modifier_type_to_apply)
+		L.add_mob_modifier(modifier_type_to_apply, modifier_duration, source = src)
 	L.apply_effects(0, weaken, paralyze, stutter, eyeblur, drowsy, 0, blocked)
 	L.stun_effect_act(stun, agony, def_zone, src)
 	//radiation protection is handled separately from other armour types.
@@ -119,6 +143,10 @@
 
 //called when the projectile stops flying because it collided with something
 /obj/item/projectile/proc/on_impact(var/atom/A)
+
+	impact_sounds(A)
+	impact_visuals(A)
+
 	if(damage && atom_damage_type == BURN)
 		var/turf/T = get_turf(A)
 		if(T)
@@ -132,7 +160,7 @@
 				if(!M.can_slip(magboots_only = TRUE))
 					return
 			var/old_dir = AM.dir
-			step(AM,get_dir(firer,AM))
+			step(AM,get_dir(firer_ref?.resolve(),AM))
 			AM.set_dir(old_dir)
 
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
@@ -152,9 +180,9 @@
 
 //called to launch a projectile
 /obj/item/projectile/proc/launch(atom/target, target_zone, atom/movable/shooter, params, Angle_override, forced_spread = 0)
-	original = target
+	original_ref = weakref(target)
 	def_zone = check_zone(target_zone)
-	firer = shooter
+	firer_ref = weakref(shooter)
 	var/direct_target
 	var/turf/actual_target_turf = get_turf(target)
 	actual_target_turf = actual_target_turf?.resolve_to_actual_turf()
@@ -182,20 +210,22 @@
 
 //Used to change the direction of the projectile in flight.
 /obj/item/projectile/proc/redirect(var/new_x, var/new_y, var/atom/starting_loc, var/atom/movable/new_firer=null, var/is_ricochet = FALSE)
-	var/turf/starting_turf = get_turf(src)
+	var/turf/starting_turf = get_turf(starting_loc)
 	var/turf/new_target = locate(new_x, new_y, src.z)
-
-	original = new_target
+	if(!istype(starting_turf) || !istype(new_target))
+		qdel(src)
+		return
+	original_ref = weakref(new_target)
 	if(new_firer)
-		firer = src
-	var/new_Angle = Atan2(starting_turf, new_target)
+		firer_ref = weakref(src)
+	var/new_Angle = Atan2(starting_turf.x - new_target.x, starting_turf.y - new_target.y)
 	if(is_ricochet) // Add some dispersion.
 		new_Angle += (rand(-5,5) * 5)
 	setAngle(new_Angle)
 
-
 //Called when the projectile intercepts a mob. Returns 1 if the projectile hit the mob, 0 if it missed and should keep flying.
 /obj/item/projectile/proc/attack_mob(var/mob/living/target_mob, var/distance, var/special_miss_modifier=0)
+	SHOULD_CALL_PARENT(TRUE)
 	if(!istype(target_mob))
 		return
 
@@ -205,35 +235,42 @@
 	var/movment_mod = min(5, (world.time - target_mob.l_move_time) - 20)
 	//running in a straight line isnt as helpful tho
 	if(movment_mod < 0)
+		var/atom/movable/firer = firer_ref?.resolve()
 		if(target_mob.last_move == get_dir(firer, target_mob))
 			movment_mod *= 0.25
 		else if(target_mob.last_move == get_dir(target_mob,firer))
 			movment_mod *= 0.5
 	miss_modifier -= movment_mod
-	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
+	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original_ref?.resolve() != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
 
 	var/result = PROJECTILE_FORCE_MISS
 	if(hit_zone)
 		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
-		if(!target_mob.aura_check(AURA_TYPE_BULLET, src,def_zone))
+		if(target_mob.mob_modifiers_block_attack(MM_ATTACK_TYPE_PROJECTILE, src, def_zone))
 			return TRUE
 		result = target_mob.bullet_act(src, def_zone)
 
 	if(result == PROJECTILE_FORCE_MISS)
 		if(!silenced)
 			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+			var/list/miss_sounds = get_miss_sounds()
 			if(LAZYLEN(miss_sounds))
 				playsound(target_mob.loc, pick(miss_sounds), 60, 1)
 		return FALSE
 
 	//hit messages
 	if(silenced)
-		to_chat(target_mob, "<span class='danger'>You've been hit in the [parse_zone(def_zone)] by \the [src]!</span>")
+		to_chat(target_mob, SPAN_DANGER("You've been hit in the [parse_zone(def_zone)] by \the [src]!"))
+		if(hitsound)
+			var/impact_volume = get_impact_volume_by_damage()
+			if(impact_volume)
+				playsound(target_mob, hitsound, impact_volume, 1, -1)
 	else
 		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!</span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	//admin logs
 	if(!no_attack_log)
+		var/atom/movable/firer = firer_ref?.resolve()
 		if(ismob(firer))
 
 			var/attacker_message = "shot with \a [src.type]"
@@ -254,15 +291,15 @@
 	if(A == src)
 		return 0 //no
 
-	if(A == firer)
+	if(A == firer_ref?.resolve())
 		forceMove(A.loc)
 		return 0 //cannot shoot yourself
 
-	if((bumped && !forced) || (A in permutated))
+	if((bumped && !forced) || (weakref(A) in permutated))
 		return 0
 
 	var/passthrough = 0 //if the projectile should continue flying
-	var/distance = get_dist(starting,loc)
+	var/distance = get_dist(starting_ref?.resolve(), loc)
 
 	bumped = 1
 	if(ismob(A))
@@ -298,7 +335,7 @@
 		var/turf/T = get_turf(A)
 		if(T)
 			forceMove(T)
-		permutated.Add(A)
+		permutated.Add(weakref(A))
 		bumped = 0 //reset bumped variable!
 		return 0
 
@@ -315,11 +352,16 @@
 	SHOULD_CALL_PARENT(FALSE)
 	return
 
-/obj/item/projectile/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	return 1
-
 /obj/item/projectile/proc/before_move()
-	return
+	if(!proj_trail || !isturf(loc) || !proj_trail_icon || !proj_trail_icon_state || !proj_trail_lifespan)
+		return
+	var/obj/effect/overlay/projectile_trail/trail = new(loc)
+	trail.master     = src
+	trail.icon       = proj_trail_icon
+	trail.icon_state = proj_trail_icon_state
+	trail.set_density(FALSE)
+	LAZYADD(proj_trails, trail)
+	QDEL_IN(trail, proj_trail_lifespan)
 
 /obj/item/projectile/proc/after_move()
 	if(hitscan && tracer_type && !(locate(/obj/effect/projectile) in loc))
@@ -376,15 +418,15 @@
 	if(isnum(Angle))
 		setAngle(Angle)
 	// trajectory dispersion
-	var/turf/starting = get_turf(src)
-	if(!starting)
+	var/turf/starting_turf = get_turf(src)
+	if(!starting_turf)
 		return
 	if(isnull(Angle))	//Try to resolve through offsets if there's no Angle set.
 		if(isnull(xo) || isnull(yo))
 			PRINT_STACK_TRACE("WARNING: Projectile [type] deleted due to being unable to resolve a target after Angle was null!")
 			qdel(src)
 			return
-		var/turf/target = locate(clamp(starting + xo, 1, world.maxx), clamp(starting + yo, 1, world.maxy), starting.z)
+		var/turf/target = locate(clamp(starting_turf + xo, 1, world.maxx), clamp(starting_turf + yo, 1, world.maxy), starting_turf.z)
 		setAngle(get_projectile_angle(src, target.resolve_to_actual_turf()))
 	if(dispersion)
 		var/DeviationAngle = (dispersion * 15)
@@ -394,8 +436,8 @@
 		var/matrix/M = new
 		M.Turn(Angle)
 		transform = M
-	forceMove(starting)
-	trajectory = new(starting.x, starting.y, starting.z, 0, 0, Angle, pixel_speed)
+	forceMove(starting_turf)
+	trajectory = new(starting_turf.x, starting_turf.y, starting_turf.z, 0, 0, Angle, pixel_speed)
 	last_projectile_move = world.time
 	fired = TRUE
 	if(hitscan)
@@ -404,7 +446,7 @@
 	if(muzzle_type)
 		var/atom/movable/thing = new muzzle_type
 		update_effect(thing)
-		thing.forceMove(starting)
+		thing.forceMove(starting_turf)
 		thing.pixel_x = trajectory.return_px() + (trajectory.mpx * 0.5)
 		thing.pixel_y = trajectory.return_py() + (trajectory.mpy * 0.5)
 		var/matrix/M = new
@@ -421,8 +463,8 @@
 	var/turf/targloc = get_turf(target)
 	targloc = targloc?.resolve_to_actual_turf()
 	forceMove(get_turf(source))
-	starting = get_turf(source)
-	original = target
+	starting_ref = weakref(get_turf(source))
+	original_ref = weakref(target)
 
 	var/list/calculated = list(null,null,null)
 	var/mob/living/S = source
@@ -446,7 +488,7 @@
 
 /obj/item/projectile/Crossed(atom/movable/AM) //A mob moving on a tile with a projectile is hit by it.
 	..()
-	if(isliving(AM) && (AM.density || AM == original) && !(pass_flags & PASS_FLAG_MOB))
+	if(isliving(AM) && (AM.density || AM == original_ref?.resolve()) && !(pass_flags & PASS_FLAG_MOB))
 		Bump(AM)
 
 /obj/item/projectile/proc/pixel_move(moves, trajectory_multiplier = 1, hitscanning = FALSE)
@@ -491,14 +533,15 @@
 	if(!hitscanning)
 		animate(src, pixel_x = trajectory.return_px(), pixel_y = trajectory.return_py(), time = 1, flags = ANIMATION_END_NOW)
 	if(isturf(loc))
-		hitscan_last = loc
+		hitscan_last_ref = weakref(loc)
+	var/turf/original = original_ref?.resolve()
 	if(can_hit_target(original, permutated))
 		Bump(original, TRUE)
 	check_distance_left()
 
 //Returns true if the target atom is on our current turf and above the right layer
 /obj/item/projectile/proc/can_hit_target(atom/target, var/list/passthrough)
-	return (target && ((target.layer >= STRUCTURE_LAYER) || ismob(target)) && (loc == get_turf(target)) && (!(target in passthrough)))
+	return (target && ((target.layer >= STRUCTURE_LAYER) || ismob(target)) && (loc == get_turf(target)) && (!(weakref(target) in passthrough)))
 
 /proc/calculate_projectile_Angle_and_pixel_offsets(mob/user, params)
 	var/list/mouse_control = params2list(params)
@@ -612,6 +655,7 @@
 		trajectory.initialize_location(target.x, target.y, target.z, 0, 0)
 
 /obj/item/projectile/Destroy()
+	QDEL_NULL_LIST(proj_trails)
 	if(hitscan)
 		if(loc && trajectory)
 			var/datum/point/pcache = trajectory.copy_to()
@@ -653,4 +697,62 @@
 		QDEL_NULL(beam_index)
 
 /obj/item/projectile/proc/update_effect(var/obj/effect/projectile/effect)
+	return
+
+/obj/item/projectile/proc/get_projectile_damage(mob/living/target)
+	return damage
+
+// Makes a brief effect sprite appear when the projectile hits something solid.
+/obj/item/projectile/proc/impact_visuals(atom/A, hit_x, hit_y)
+	 // Hitscan things have their own impact sprite.
+	if(!impact_effect_type || hitscan)
+		return
+	if(isnull(hit_x) && isnull(hit_y))
+		if(trajectory)
+			// Effect goes where the projectile 'stopped'.
+			hit_x = A.pixel_x + trajectory.return_px()
+			hit_y = A.pixel_y + trajectory.return_py()
+		else if(A == original_ref?.resolve())
+			// Otherwise it goes where the person who fired clicked.
+			hit_x = A.pixel_x + p_x - 16
+			hit_y = A.pixel_y + p_y - 16
+		else
+			// Otherwise it'll be random.
+			hit_x = A.pixel_x + rand(-8, 8)
+			hit_y = A.pixel_y + rand(-8, 8)
+	new impact_effect_type(get_turf(A), src, hit_x, hit_y)
+
+/obj/item/projectile/proc/get_impact_volume_by_damage()
+	if(damage || agony)
+		var/value_to_use = damage > agony ? damage : agony
+		// Multiply projectile damage by 1.2, then CLAMP the value between 30 and 100.
+		// This was 0.67 but in practice it made all projectiles that did 45 or less damage play at 30,
+		// which is hard to hear over the gunshots, and is rather rare for a projectile to do that much.
+		return clamp((value_to_use) * 1.2, 30, 100)
+	return 50 //if the projectile doesn't do damage or agony, play its hitsound at 50% volume.
+
+/obj/item/projectile/proc/impact_sounds(atom/A)
+
+	var/play_volume = clamp(get_impact_volume_by_damage() + 20, 0, 100)
+	if(play_volume <= 0)
+		return
+	if(silenced)
+		play_volume = min(play_volume, 5)
+
+	var/play_sound
+	if(ismob(A)) // Mob sounds are handled in attack_mob().
+		play_sound = hitsound
+	else
+		play_sound = hitsound_non_mob
+	if(!play_sound)
+		return
+	playsound(A, play_sound, play_volume, 1, -1)
+
+/obj/item/projectile/proc/get_miss_sounds()
+	return
+
+/obj/item/projectile/proc/get_ricochet_sounds()
+	return
+
+/obj/item/projectile/proc/get_impact_sounds()
 	return

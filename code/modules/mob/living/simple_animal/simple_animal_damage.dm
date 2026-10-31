@@ -3,6 +3,7 @@
 	var/burn_damage  = 0
 	/// Set to -1 to disable gene damage for the mob.
 	var/gene_damage  = 0
+	var/alist/immune_to_damage_type
 
 /mob/living/simple_animal/getFireLoss()
 	return burn_damage
@@ -49,14 +50,15 @@
 
 	var/attack_name = O?.attack_message_name()
 	if(attack_name)
-		visible_message(SPAN_DANGER("\The [src] has been [DEFAULTPICK(O.attack_verb, "attacked")] with [attack_name] by \the [user]!"))
+		visible_message(SPAN_DANGER("\The [src] has been [O.pick_attack_verb()] with [attack_name] by \the [user]!"))
 	else
-		visible_message(SPAN_DANGER("\The [src] has been [DEFAULTPICK(O.attack_verb, "attacked")] by \the [user]!"))
+		visible_message(SPAN_DANGER("\The [src] has been [O.pick_attack_verb()] by \the [user]!"))
 
+	remove_cloak()
 	if(istype(ai))
 		ai.retaliate(user)
 
-	var/damage = O.get_attack_force(user)
+	var/damage = O.expend_attack_force(user)
 	if(damage <= resistance)
 		to_chat(user, SPAN_WARNING("This weapon is ineffective; it does no damage."))
 		return 0
@@ -73,6 +75,8 @@
 	return 1
 
 /mob/living/simple_animal/take_damage(damage, damage_type = BRUTE, damage_flags, inflicter, armor_pen = 0, silent, do_update_health)
+	if(damage > 0 && immune_to_damage_type && immune_to_damage_type[damage_type])
+		return
 	. = ..()
 	if((damage_type == BRUTE) && (damage_flags & (DAM_EDGE | DAM_SHARP | DAM_BULLET))) // damage flags that should cause bleeding
 		adjustBleedTicks(damage)

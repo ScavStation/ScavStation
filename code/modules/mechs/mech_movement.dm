@@ -6,18 +6,19 @@
 		/datum/movement_handler/mob/exosuit
 	)
 
+/mob/living/exosuit/get_turn_sound()
+	return mech_turn_sound
+
+/mob/living/exosuit/get_footstep_sound(turf/step_turf)
+	if(!isspaceturf(step_turf))
+		return mech_step_sound
+	return ..()
+
 /mob/living/exosuit/Move()
 	. = ..()
 	if(.)
-		if(!isspaceturf(loc))
-			playsound(src.loc, mech_step_sound, 40, 1)
-
-		var/turf/B = GetAbove(src)
-
-		for(var/thing in pilots)
-			var/mob/pilot = thing
-			if(pilot.up_hint)
-				pilot.up_hint.icon_state = "uphint[!!(B && TURF_IS_MIMICKING(B))]"
+		for(var/mob/pilot as anything in pilots)
+			pilot.refresh_hud_element(HUD_UP_HINT)
 
 //Inertia drift making us face direction makes exosuit flight a bit difficult, plus newtonian flight model yo
 /mob/living/exosuit/set_dir(ndir)
@@ -31,7 +32,7 @@
 		return !(can_overcome_gravity())
 
 //For swimming
-// /mob/living/exosuit/can_float()
+// /mob/living/exosuit/can_float_on_liquids()
 // 	return FALSE //Nope
 
 /datum/movement_handler/mob/delay/exosuit
@@ -77,8 +78,8 @@
 		to_chat(mover, SPAN_WARNING("Maintenance protocols are in effect."))
 		exosuit.SetMoveCooldown(3)
 		return MOVEMENT_STOP
-	var/obj/item/cell/C = exosuit.get_cell()
-	if(!C || !C.check_charge(exosuit.legs.power_use * CELLRATE))
+	var/obj/item/cell/cell = exosuit.get_cell()
+	if(!cell || !cell.check_charge(exosuit.legs.power_use * CELLRATE))
 		to_chat(mover, SPAN_WARNING("The power indicator flashes briefly."))
 		exosuit.SetMoveCooldown(3) //On fast exosuits this got annoying fast
 		return MOVEMENT_STOP
@@ -106,7 +107,6 @@
 		exosuit.visible_message(SPAN_NOTICE("\The [exosuit] moves [txt_dir]."))
 
 	if(exosuit.dir != moving_dir && !(direction & (UP|DOWN)))
-		playsound(exosuit.loc, exosuit.mech_turn_sound, 40,1)
 		exosuit.set_dir(moving_dir)
 		exosuit.SetMoveCooldown(exosuit.legs.turn_delay)
 	else

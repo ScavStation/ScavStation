@@ -1,8 +1,10 @@
 /decl/background_detail/heritage/fantasy
-	name = "Northerner"
-	description = "You come from one of the northern nations of the Heart of the World. The states are often seen as civilized, \
-	and the ruling powers on the continent. They are advanced, often both technologically, and societally, holding onto many \
-	ancient practices and residual knowledge from before the Silent Ages."
+	name = "Splinter Kingdom"
+	description = "The Splinter Kingdoms are a disparate mish-mash of regional powers, feudal warlords, and more organized \
+	settlements within the space once claimed by the Imperial Aegis. When the Aegis collapsed, several hundred years ago, the \
+	resulting wars and squabbling took decades to settle, and in many places the tensions and conflicts still run hot. Most of \
+	the Splinter Kingdoms emulate the peasant-noble social hierarchies of the Aegis, but a variety of other forms of governance \
+	and society can be found."
 	uid = "heritage_fantasy_splinter"
 
 /decl/background_detail/heritage/fantasy/steppe

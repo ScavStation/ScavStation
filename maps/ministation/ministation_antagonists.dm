@@ -1,5 +1,5 @@
 /decl/special_role
-	valid_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	valid_species = list(/decl/species/human::uid, /decl/species/yinglet::uid)
 	initial_spawn_req = 1
 	initial_spawn_target = 1
 
@@ -46,7 +46,7 @@
 		"the tradehouse account documents"   = /obj/item/documents/tradehouse/account,
 		"the tradehouse personnel data"      = /obj/item/documents/tradehouse/personnel,
 		"the table-top spaceship model"      = /obj/item/toy/shipmodel,
-		"the AI inteliCard"                  = /obj/item/aicard,
+		"the AI intelliCard"                  = /obj/item/aicard,
 		"the nuclear authentication disk"    = /obj/item/disk/nuclear,
 		"a yinglet egg"                      = /obj/item/yinglet_egg,
 		"the officer's sword"                = /obj/item/sword/replica/officersword,

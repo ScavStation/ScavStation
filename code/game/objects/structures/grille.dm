@@ -93,7 +93,7 @@
 
 /obj/structure/grille/attack_hand(mob/user)
 
-	if(user.a_intent != I_HURT)
+	if(!user.check_intent(I_FLAG_HARM))
 		return ..()
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -105,12 +105,10 @@
 
 	var/damage_dealt = 1
 	var/attack_message = "kicks"
-	if(ishuman(user))
-		var/mob/living/human/H = user
-		if(H.species.can_shred(H))
-			attack_message = "mangles"
-			damage_dealt = 5
-	attack_generic(user,damage_dealt,attack_message)
+	if(user.can_shred())
+		attack_message = "mangles"
+		damage_dealt = 5
+	attack_generic(user, damage_dealt, attack_message)
 	return TRUE
 
 /obj/structure/grille/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -137,7 +135,7 @@
 	switch(Proj.atom_damage_type)
 		if(BRUTE)
 			//bullets
-			if(Proj.original == src || prob(20))
+			if(Proj.original_ref?.resolve() == src || prob(20))
 				Proj.damage *= clamp(Proj.damage/60, 0, 0.5)
 				if(prob(max((damage-10)/25, 0))*100)
 					passthrough = 1
@@ -146,7 +144,7 @@
 				passthrough = 1
 		if(BURN)
 			//beams and other projectiles are either blocked completely by grilles or stop half the damage.
-			if(!(Proj.original == src || prob(20)))
+			if(!(Proj.original_ref?.resolve() == src || prob(20)))
 				Proj.damage *= 0.5
 				passthrough = 1
 
@@ -171,18 +169,18 @@
 		parts_amount = 1
 		update_icon()
 
-/obj/structure/grille/attackby(obj/item/W, mob/user)
-	if(IS_WIRECUTTER(W))
+/obj/structure/grille/attackby(obj/item/used_item, mob/user)
+	if(IS_WIRECUTTER(used_item))
 		if(!material.conductive || !shock(user, 100))
 			cut_grille()
 		return TRUE
 
-	if((IS_SCREWDRIVER(W)))
+	if((IS_SCREWDRIVER(used_item)))
 		var/turf/turf = loc
 		if(((istype(turf) && turf.simulated) || anchored))
 			if(!shock(user, 90))
 				playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
-				anchored = !anchored
+				set_anchored(!anchored)
 				user.visible_message(
 					SPAN_NOTICE("[user] [anchored ? "fastens" : "unfastens"] the grille."),
 					SPAN_NOTICE("You have [anchored ? "fastened the grille to" : "unfastened the grill from"] the floor.")
@@ -192,8 +190,8 @@
 			return TRUE
 
 	//window placing
-	if(istype(W,/obj/item/stack/material))
-		var/obj/item/stack/material/ST = W
+	if(istype(used_item,/obj/item/stack/material))
+		var/obj/item/stack/material/ST = used_item
 		if(ST.material.opacity > 0.7)
 			return FALSE
 
@@ -209,15 +207,15 @@
 		place_window(user, loc, dir_to_set, ST)
 		return TRUE
 
-	if(!(W.obj_flags & OBJ_FLAG_CONDUCTIBLE) || !shock(user, 70))
+	if(!(used_item.obj_flags & OBJ_FLAG_CONDUCTIBLE) || !shock(user, 70))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
 		playsound(loc, 'sound/effects/grillehit.ogg', 80, 1)
-		switch(W.atom_damage_type)
+		switch(used_item.atom_damage_type)
 			if(BURN)
-				take_damage(W.get_attack_force(user))
+				take_damage(used_item.expend_attack_force(user))
 			if(BRUTE)
-				take_damage(W.get_attack_force(user) * 0.1)
+				take_damage(used_item.expend_attack_force(user) * 0.1)
 		return TRUE
 
 	return ..()

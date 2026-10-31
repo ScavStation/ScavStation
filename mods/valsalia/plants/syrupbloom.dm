@@ -6,7 +6,6 @@
 	product_name = "syrup bloom fruit"
 	display_name = "syrup bloom bush"
 	product_type = /obj/item/food/grown/syrupbloom
-	chems = list(/decl/material/liquid/nutriment/grapejelly = list(2,10))
 	grown_tag = "syrupbloom"
 	slice_product = /obj/item/food/processed_grown/crushed
 	slice_amount = 3
@@ -14,6 +13,7 @@
 
 /datum/seed/syrupbloom/New()
 	..()
+	set_chemical_amount(/decl/material/liquid/nutriment/grapejelly, list(2,10))
 	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_JUICY,1)
 	set_trait(TRAIT_MATURATION,6)

@@ -19,12 +19,12 @@
 	. = ..()
 	icon_state = "barrier[src.locked]"
 
-/obj/machinery/deployable/barrier/attackby(obj/item/W, mob/user)
-	if (istype(W, /obj/item/card/id))
+/obj/machinery/deployable/barrier/attackby(obj/item/used_item, mob/user)
+	if (istype(used_item, /obj/item/card/id))
 		if (src.allowed(user))
 			if	(src.emagged < 2.0)
 				src.locked = !src.locked
-				src.anchored = !src.anchored
+				set_anchored(!anchored)
 				src.icon_state = "barrier[src.locked]"
 				if ((src.locked == 1.0) && (src.emagged < 2.0))
 					to_chat(user, "Barrier lock toggled on.")
@@ -36,7 +36,7 @@
 				spark_at(src, amount=2, cardinal_only = TRUE)
 				visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 				return TRUE
-	else if(IS_WRENCH(W))
+	else if(IS_WRENCH(used_item))
 		var/current_max_health = get_max_health()
 		if (current_health < current_max_health)
 			current_health = current_max_health
@@ -50,11 +50,11 @@
 			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
 			return TRUE
 	else
-		switch(W.atom_damage_type)
+		switch(used_item.atom_damage_type)
 			if(BURN)
-				current_health -= W.get_attack_force(user) * 0.75
+				current_health -= used_item.expend_attack_force(user) * 0.75
 			if(BRUTE)
-				current_health -= W.get_attack_force(user) * 0.5
+				current_health -= used_item.expend_attack_force(user) * 0.5
 		if (current_health <= 0)
 			explode()
 		return TRUE
@@ -75,7 +75,7 @@
 		return
 	if(prob(50/severity))
 		locked = !locked
-		anchored = !anchored
+		set_anchored(!anchored)
 		icon_state = "barrier[src.locked]"
 
 /obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.

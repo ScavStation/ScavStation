@@ -21,7 +21,7 @@
 	away_site_budget = 3
 	welcome_sound = 'sound/effects/cowboysting.ogg'
 	emergency_shuttle_leaving_dock = "Attention all hands: the escape pods have been launched, maintaining burn for %ETA%."
-	emergency_shuttle_called_message = "Attention all hands: emergency evacuation procedures are now in effect. Escape pods will launch in %ETA%"
+	emergency_shuttle_called_message = "Attention all hands: emergency evacuation procedures are now in effect. Escape pods will launch in %ETA%."
 	emergency_shuttle_recall_message = "Attention all hands: emergency evacuation sequence aborted. Return to normal operating conditions."
 	evac_controller_type = /datum/evacuation_controller/lifepods
 	pray_reward_type = /obj/item/mollusc/clam
@@ -36,17 +36,3 @@
 /datum/map/tradeship/get_map_info()
 	return "You're aboard the <b>[station_name],</b> a survey and mercantile vessel affiliated with <b>Tradehouse Ivenmoth</b>, a large merchant guild operating out of Val Salia Station. \
 	No meaningful authorities can claim the planets and resources in this uncharted sector, so their exploitation is entirely up to you - mine, poach and deforest all you want."
-
-/datum/map/tradeship/create_trade_hubs()
-	new /datum/trade_hub/singleton/tradeship
-
-/datum/trade_hub/singleton/tradeship
-	name = "Tradehouse Freight Network"
-
-/datum/trade_hub/singleton/tradeship/get_initial_traders()
-	return list(
-		/datum/trader/xeno_shop,
-		/datum/trader/medical,
-		/datum/trader/mining,
-		/datum/trader/books
-	)
