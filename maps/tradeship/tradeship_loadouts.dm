@@ -15,6 +15,6 @@
 	LAZYDISTINCTADD(allowed_roles, list(
 		/datum/job/yinglet/patriarch,
 		/datum/job/yinglet/matriarch,
-		/datum/job/tradeship_doctor,
-		/datum/job/tradeship_doctor/head
+		/datum/job/standard/doctor/tradeship,
+		/datum/job/standard/cmo/tradeship
 	))
