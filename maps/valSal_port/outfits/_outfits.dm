@@ -4,7 +4,7 @@
 	id_type           = null
 	pda_type          = null
 	l_ear             = null
-	uniform           = /obj/item/clothing/pants/trousers/jerkin
+	uniform           = /obj/item/clothing/pants/trousers
 	shoes             = /obj/item/clothing/shoes/craftable/boots
 	backpack_contents = list(
 		/obj/item/rock/flint/striker,
