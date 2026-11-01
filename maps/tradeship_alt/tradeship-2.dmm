@@ -3240,7 +3240,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
 "ip" = (
-/obj/machinery/power/sensor{
+/obj/machinery/power_sensor{
 	id_tag = "Main Grid"
 	},
 /obj/structure/cable{
@@ -6020,7 +6020,7 @@
 /obj/item/backpack/dufflebag/syndie,
 /obj/item/box/ammo/shotgunshells,
 /obj/item/handcuffs,
-/obj/item/boombox,
+/obj/item/music_player/boombox,
 /obj/item/stack/tape_roll/barricade_tape/bureaucracy,
 /obj/machinery/keycard_auth,
 /obj/item/clothing/costume/captain_suit,
@@ -8043,7 +8043,7 @@
 	},
 /obj/random/powercell,
 /obj/random/powercell,
-/obj/item/boombox,
+/obj/item/music_player/boombox,
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/power)
 "Jf" = (
@@ -9329,7 +9329,7 @@
 	desc = "Yar! He be getting back to his cap'n duties just after he lounges 'round in the sun!"
 	},
 /obj/random/handgun,
-/obj/machinery/hologram/projector,
+/obj/machinery/holosign,
 /obj/effect/paint/black,
 /turf/floor/plating,
 /area/ship/trade/hidden)
@@ -10473,7 +10473,7 @@
 /turf/floor/tiled/white,
 /area/ship/trade/crew/medbay/chemistry)
 "Za" = (
-/obj/machinery/power/breakerbox/activated,
+/obj/machinery/breakerbox/activated,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},

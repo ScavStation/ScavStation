@@ -3498,7 +3498,6 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/maintenance/lower)
 "Py" = (
-/obj/effect/decal/cleanable/spiderling_remains,
 /obj/structure/disposalpipe/segment/bent{
 	dir = 1
 	},
