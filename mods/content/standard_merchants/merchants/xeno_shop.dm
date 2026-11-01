@@ -25,8 +25,7 @@
 		/mob/living/simple_animal/hostile/carp	= MERCHANT_INCLUDE_THIS_TYPE,
 		/obj/item/dociler						= MERCHANT_INCLUDE_THIS_TYPE,
 		/obj/item/beartrap						= MERCHANT_INCLUDE_THIS_TYPE,
-		/obj/item/scanner/xenobio				= MERCHANT_INCLUDE_THIS_TYPE,
-		/obj/structure/stasis_cage				= MERCHANT_INCLUDE_THIS_TYPE
+		/obj/item/scanner/xenobio				= MERCHANT_INCLUDE_THIS_TYPE
 	)
 
 /decl/merchant_potential_commodities/xeno_shop_demand

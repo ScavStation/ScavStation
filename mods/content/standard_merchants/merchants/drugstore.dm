@@ -44,7 +44,6 @@
 		/obj/item/synthesized_instrument/violin 	= MERCHANT_INCLUDE_THIS_TYPE,
 		/obj/item/hailer							= MERCHANT_INCLUDE_THIS_TYPE,
 		/obj/item/uv_light							= MERCHANT_INCLUDE_THIS_TYPE,
-		/obj/item/organ/internal/brain_interface	= MERCHANT_INCLUDE_SUBTYPES,
 		/obj/item/robotanalyzer						= MERCHANT_INCLUDE_THIS_TYPE,
 		/obj/item/chems/toner_cartridge				= MERCHANT_INCLUDE_THIS_TYPE,
 		/obj/item/camera_film						= MERCHANT_INCLUDE_THIS_TYPE,
