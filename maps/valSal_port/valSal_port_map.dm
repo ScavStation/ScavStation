@@ -1,5 +1,5 @@
 /datum/map/valSal_port
-	default_liquid_fuel_type = /decl/material/liquid/nutriment/plant_oil
+	default_liquid_fuel_type = /decl/material/liquid/oil
 	default_species = /decl/species/human::uid
 	loadout_categories = list(
 		/decl/loadout_category/fantasy/clothing,

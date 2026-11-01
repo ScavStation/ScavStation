@@ -1,5 +1,5 @@
 /datum/map/valSal_port
-	id_hud_icons = 'maps/valSal_port/icons/hud.dmi'
+	hud_icon = 'maps/valSal_port/icons/hud.dmi'
 	allowed_jobs = list(
 		/datum/job/valSal_port/enclavecommand/matriarch,
 		/datum/job/valSal_port/enclavecommand/farmpatriarch,

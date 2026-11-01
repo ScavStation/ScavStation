@@ -8,6 +8,8 @@
 	#include "../../mods/content/scaling_descriptors.dm"
 	#include "../../mods/species/drakes/_drakes.dme" // include before _fantasy.dme so overrides work
 	#include "../../mods/content/fantasy/_fantasy.dme"
+	#include "../../mods/content/fishing/_fishing.dme"
+	#include "../../mods/mobs/spiders/_spiders.dme"
 
 	#include "areas/_areas.dm"
 	#include "areas/caverns.dm"
