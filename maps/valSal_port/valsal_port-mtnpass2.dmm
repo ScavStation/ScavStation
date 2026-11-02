@@ -352,7 +352,7 @@
 /area/valSal_port/valley/shrine)
 "sF" = (
 /obj/effect/floor_decal/corner/black/mono,
-/obj/structure/bed/rustic_fancy/ebony,
+/obj/structure/chair/rustic_fancy/ebony,
 /mob/living/simple_animal/hostile/thug/bandit{
 	name = "Chieftain";
 	desc = "A mighty individual who has little qualms about what he did.";

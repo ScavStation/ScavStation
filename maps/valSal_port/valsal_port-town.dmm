@@ -143,7 +143,6 @@
 /obj/item/clothing/gloves/ring/gold{
 	desc = "A golden ring. This one won't make you invisible though."
 	},
-/obj/item/clothing/neck/necklace/prayer_beads/gold,
 /obj/item/clothing/ears/dangle/gold,
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
@@ -243,7 +242,7 @@
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/town/shrine)
 "eW" = (
-/obj/structure/bed/bench/pew/mahogany,
+/obj/structure/chair/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt,
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/town/shrine)
@@ -1015,7 +1014,7 @@
 /turf/floor/wood/yew,
 /area/valSal_port/town/mansion)
 "qo" = (
-/obj/structure/bed/bench/pew/mahogany,
+/obj/structure/chair/bench/pew/mahogany,
 /turf/floor/holofloor/tiled/stone,
 /area/valSal_port/town/shrine)
 "qt" = (
@@ -1740,7 +1739,7 @@
 /turf/floor/wood/mahogany,
 /area/valSal_port/town/mansion)
 "AH" = (
-/obj/structure/bed/rustic_fancy{
+/obj/structure/chair/rustic_fancy{
 	dir = 8
 	},
 /obj/item/cash/imperial/crown,
@@ -3375,10 +3374,6 @@
 /obj/structure/closet/crate/chest,
 /obj/item/chems/drinks/bottle/holywater,
 /obj/item/clothing/neck/necklace/prayer_beads,
-/obj/item/clothing/insignia/islam{
-	name = "chaplain insignia";
-	desc = "All fates sealed and sins redeemed. If you have pity, mourn the lost, but let the weeping cease..."
-	},
 /obj/item/clothing/mask/smokable/pipe/cobpipe,
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/town/shrine)

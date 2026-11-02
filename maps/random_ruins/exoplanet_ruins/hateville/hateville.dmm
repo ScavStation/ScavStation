@@ -241,7 +241,7 @@
 /turf/floor/concrete/reinforced/road,
 /area/template_noop)
 "ay" = (
-/obj/structure/bed/bench/pew/mahogany,
+/obj/structure/chair/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/grass,
 /area/map_template/hateville/command)
@@ -7953,7 +7953,7 @@
 /area/map_template/hateville/foodcourt)
 "lu" = (
 /obj/structure/flora/bush/brflowers,
-/obj/structure/bed/bench/pew/mahogany,
+/obj/structure/chair/bench/pew/mahogany,
 /turf/floor/grass,
 /area/map_template/hateville/command)
 "lv" = (
@@ -8047,7 +8047,7 @@
 /area/map_template/hateville/agriculture)
 "lC" = (
 /obj/structure/flora/bush/brflowers,
-/obj/structure/bed/bench/pew/mahogany,
+/obj/structure/chair/bench/pew/mahogany,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/grass,
@@ -15181,7 +15181,7 @@
 	},
 /area/map_template/hateville)
 "zC" = (
-/obj/structure/bed/bench/pew/mahogany,
+/obj/structure/chair/bench/pew/mahogany,
 /turf/floor/grass,
 /area/map_template/hateville/command)
 "zD" = (
