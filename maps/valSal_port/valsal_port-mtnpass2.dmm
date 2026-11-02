@@ -897,7 +897,6 @@
 /turf/floor/barren,
 /area/valSal_port/outside/valley)
 "TT" = (
-/obj/item/scrying,
 /obj/item/cash/imperial/quin,
 /obj/item/cash/imperial/crown,
 /obj/item/cash/imperial/crown,

@@ -12,7 +12,7 @@
 	#include "../../mods/mobs/spiders/_spiders.dme"
 	#include "../../mods/content/holodeck/_holodeck.dme"
 	#include "../../mods/gamemodes/cult/_cult.dme"
-
+	#include "../../mods/species/random_species/_random_species.dme"
 
 	#include "areas/_areas.dm"
 	#include "areas/caverns.dm"
