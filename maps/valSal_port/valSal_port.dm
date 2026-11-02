@@ -11,6 +11,7 @@
 	#include "../../mods/content/fishing/_fishing.dme"
 	#include "../../mods/mobs/spiders/_spiders.dme"
 	#include "../../mods/content/holodeck/_holodeck.dme"
+	#include "../../mods/gamemodes/cult/_cult.dme"
 
 
 	#include "areas/_areas.dm"

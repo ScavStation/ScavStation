@@ -1656,7 +1656,7 @@
 /obj/item/fleece,
 /obj/item/clothing/shirt/tunic,
 /obj/item/clothing/pants/trousers,
-/obj/item/clothing/head/bandana/familiarband,
+/obj/item/clothing/head/bandana,
 /obj/effect/floor_decal/spline/fancy/wood/walnut{
 	dir = 1
 	},
@@ -2508,7 +2508,7 @@
 /obj/structure/table/wood,
 /obj/item/knife/ritual,
 /obj/item/tool/axe,
-/obj/item/shield/buckler,
+/obj/item/shield/crafted/buckler,
 /turf/floor/dirt,
 /area/valSal_port/outside/camp)
 "MS" = (
@@ -3373,7 +3373,6 @@
 "Zf" = (
 /obj/structure/closet/crate/chest,
 /obj/item/chems/drinks/bottle/holywater,
-/obj/item/clothing/neck/necklace/prayer_beads,
 /obj/item/clothing/mask/smokable/pipe/cobpipe,
 /turf/floor/path/running_bond/sandstone,
 /area/valSal_port/town/shrine)
