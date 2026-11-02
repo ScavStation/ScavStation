@@ -6,7 +6,7 @@
 	anchored = FALSE
 	passenger_allowed = 0
 	locked = 0
-	_buckle_pixel_shift = list("x" = 0, "y" = 0, "z" = 8)
+	_buckle_pixel_shift = @'{"x":0,"y":0,"z":8}'
 
 	load_item_visible = 1
 	load_offset_x = 0
@@ -20,6 +20,32 @@
 		/obj/structure/ore_box,
 		/mob/living/human
 	)
+
+/obj/vehicle/train/trolley_wood
+	name = "wooden cargo train trolley"
+	desc = "A large, flat, wooden platform made for putting things on."
+	icon = 'icons/obj/vehicles.dmi'
+	icon_state = "cargo_trailer_wood"
+	anchored = FALSE
+	passenger_allowed = 0
+	locked = 0
+	_buckle_pixel_shift = @'{"x":0,"y":0,"z":8}'
+	color = /decl/material/solid/organic/wood::color
+
+	load_item_visible = 1
+	load_offset_x = 0
+	load_offset_y = 4
+
+	var/static/list/can_load_types = list(
+		/obj/machinery,
+		/obj/structure/closet,
+		/obj/structure/largecrate,
+		/obj/structure/reagent_dispensers,
+		/obj/structure/ore_box,
+		/mob/living/human
+	)
+	color = /decl/material/solid/organic/wood::color
+
 
 /obj/vehicle/train/trolley/insert_cell(var/obj/item/cell/cell, var/mob/living/human/H)
 	return
