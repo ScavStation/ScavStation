@@ -274,7 +274,7 @@
 /turf/wall/brick/sandstone,
 /area/valSal_port/valley/library)
 "mg" = (
-/obj/structure/bed/bench/pew/ebony{
+/obj/structure/chair/bench/pew/ebony{
 	dir = 8
 	},
 /turf/floor/carpet,
@@ -552,13 +552,13 @@
 /turf/floor/path/herringbone/marble/water/deep,
 /area/valSal_port/valley/outpost)
 "Ec" = (
-/obj/structure/bed/bench/pew/ebony{
+/obj/structure/chair/bench/pew/ebony{
 	dir = 8
 	},
 /turf/floor/path/herringbone/granite,
 /area/valSal_port/valley/chapel)
 "Ep" = (
-/obj/structure/door/wood,
+/obj/structure/door/oak,
 /turf/floor/wood,
 /area/valSal_port/valley/massacre)
 "EG" = (

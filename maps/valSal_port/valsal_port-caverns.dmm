@@ -150,7 +150,7 @@
 "Jp" = (/obj/effect/spider/stickyweb,/turf/wall/natural/dirt,/area/valSal_port/nest)
 "Ju" = (/obj/structure/flora/plant/random_mushroom/glowing,/turf/floor/dirt,/area/valSal_port/nest)
 "Jz" = (/turf/wall/brick/sandstone,/area/valSal_port/caves/deep)
-"JB" = (/obj/effect/decal/cleanable/cobweb2,/obj/item/clothing/suit/champarmor,/obj/item/bladed/poignard,/turf/floor/rock/basalt,/area/valSal_port/nest)
+"JB" = (/obj/effect/decal/cleanable/cobweb2,/obj/item/bladed/poignard,/turf/floor/rock/basalt,/area/valSal_port/nest)
 "JC" = (/obj/structure/flora/plant/random_mushroom,/obj/structure/boulder/basalt,/turf/floor/rock/basalt,/area/valSal_port/caves/deep)
 "JF" = (/turf/unsimulated/dark_filler,/area/valSal_port/caves/deep)
 "JH" = (/turf/floor/path/herringbone/marble,/area/valSal_port/prison)

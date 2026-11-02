@@ -20,7 +20,7 @@
 /turf/floor/mud,
 /area/valSal_port/caves/river)
 "aK" = (
-/obj/structure/door/wood,
+/obj/structure/door/oak,
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/nursery)
 "aN" = (
@@ -259,7 +259,7 @@
 /area/valSal_port/outside/outdoors_enclave)
 "fP" = (
 /obj/structure/curtain/bar,
-/obj/structure/door/wood,
+/obj/structure/door/oak,
 /turf/floor/wood/yew,
 /area/valSal_port/enclave/foyer)
 "fQ" = (
@@ -599,7 +599,7 @@
 /area/valSal_port/outside/enclave)
 "mP" = (
 /obj/structure/curtain/bar,
-/obj/structure/door/wood,
+/obj/structure/door/oak,
 /turf/floor/dirt,
 /area/valSal_port/enclave/huntershut)
 "mT" = (
@@ -634,7 +634,7 @@
 /area/valSal_port/outside/outdoors_enclave)
 "nc" = (
 /obj/structure/curtain/bar,
-/obj/structure/door/wood,
+/obj/structure/door/oak,
 /turf/floor/wood/mahogany,
 /area/valSal_port/enclave/huntershut)
 "nh" = (
@@ -929,7 +929,7 @@
 /turf/floor/rock/basalt,
 /area/valSal_port/caves)
 "tz" = (
-/obj/structure/bed/bench/pew/ebony{
+/obj/structure/chair/bench/pew/ebony{
 	dir = 4
 	},
 /turf/floor/wood/mahogany,
@@ -1368,12 +1368,12 @@
 "BJ" = (
 /obj/structure/closet/crate/chest,
 /obj/item/stack/material/thread/mapped/cotton/five,
-/obj/item/stack/material/bolt/beige/mapped/beige/five,
+/obj/item/stack/material/bolt/mapped/cloth/five,
 /obj/structure/wall_sconce/torch{
 	dir = 1;
 	pixel_y = 24
 	},
-/obj/item/stack/material/bolt/beige/mapped/beige/five,
+/obj/item/stack/material/bolt/mapped/cloth/five,
 /obj/item/stack/material/thread/mapped/cotton/five,
 /obj/item/stack/material/thread/mapped/cotton/five,
 /obj/item/stack/material/thread/mapped/cotton/five,
@@ -1724,7 +1724,7 @@
 /turf/floor/mud/water/swamp,
 /area/valSal_port/outside/enclave)
 "Iy" = (
-/obj/structure/bed/bench/mahogany,
+/obj/structure/chair/bench/mahogany,
 /turf/floor/wood/ebony,
 /area/valSal_port/enclave/nursery)
 "IA" = (
@@ -2234,7 +2234,7 @@
 /turf/floor/dirt,
 /area/valSal_port/outside/enclave)
 "TB" = (
-/obj/structure/bed/bench/mahogany{
+/obj/structure/chair/bench/mahogany{
 	dir = 1
 	},
 /turf/floor/wood/ebony,

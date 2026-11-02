@@ -2390,7 +2390,7 @@
 /area/valSal_port/outside/westside)
 "KJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/door/wood,
+/obj/structure/door/oak,
 /turf/floor/wood,
 /area/valSal_port/town/farmhouse)
 "KM" = (
@@ -3300,7 +3300,7 @@
 /turf/floor/wood/yew,
 /area/valSal_port/town/hermit)
 "Yk" = (
-/obj/structure/door/wood,
+/obj/structure/door/oak,
 /turf/floor/wood,
 /area/valSal_port/town/house)
 "Ys" = (
