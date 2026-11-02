@@ -703,7 +703,7 @@
 /turf/floor/straw,
 /area/valSal_port/outdoors_mtn_pass/camp1)
 "SD" = (
-/turf/unsimulated/wall/cult,
+/turf/unsimulated/wall,
 /area/valSal_port/outdoors_mtn_pass/temple)
 "SO" = (
 /turf/wall/wood,

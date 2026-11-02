@@ -885,7 +885,7 @@
 "SX" = (
 /obj/structure/closet/cabinet/wooden/ebony,
 /obj/item/bladed/broadsword,
-/obj/item/clothing/gloves/ring/magic,
+/obj/item/clothing/gloves/ring/gold,
 /obj/item/clothing/head/boaterhat,
 /turf/floor/woven,
 /area/valSal_port/valley/quarter1)
