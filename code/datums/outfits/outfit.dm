@@ -1,6 +1,6 @@
 /decl/outfit
 	abstract_type = /decl/outfit
-	var/name       = "Naked And Afraid"
+	var/name       = null
 	var/uniform    = null
 	var/suit       = null
 	var/back       = null
