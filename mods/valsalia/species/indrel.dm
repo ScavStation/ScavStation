@@ -91,6 +91,7 @@
 		)
 	)
 /decl/species/indrel
+	uid = "species_indrel"
 	name = "Indrel"
 	name_plural = "Indrel"
 	description = "A species of large insectoids that inhabit the giant Indrel Mountain range that dominates the continent. \

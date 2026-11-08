@@ -84,6 +84,7 @@
 	head = /obj/item/clothing/head/baxxid/hood/long
 
 /decl/species/baxxid
+	uid = "species_baxxid"
 	name = "Baxxid"
 	name_plural = "Baxxid"
 	description = "A species of large, serpent-like creatures covered in hard boney protrusions and sporting giant claws for limbs. \

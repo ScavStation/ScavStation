@@ -1,7 +1,7 @@
 #if !defined(USING_MAP_DATUM)
 
-	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
+	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/content/dungeon_loot/_dungeon_loot.dme"
 	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"

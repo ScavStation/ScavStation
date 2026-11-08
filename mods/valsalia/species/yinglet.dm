@@ -1,5 +1,6 @@
 // Semi-adapted from Polaris Teshari.
 /decl/species/yinglet
+	uid = "species_yinglet"
 	name = "Yinglet"
 	name_plural = "Yinglets"
 	description = "A species of short, slender rat-birds with a fondness for clams. Commonly found wherever humans are, \
