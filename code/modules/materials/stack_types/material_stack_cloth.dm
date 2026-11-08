@@ -6,7 +6,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	stack_merge_type = /obj/item/stack/material/bolt
 	crafting_stack_type = /obj/item/stack/material/bolt
-	material = /decl/material/solid/orgainc/cloth
+	material = /decl/material/solid/organic/cloth
 	craft_verb = "tailor"
 	craft_verbing = "tailoring"
 
