@@ -50,7 +50,7 @@
 	var/can_escape_buckles = FALSE
 
 	/// What is our current general attitude and demeanor?
-	var/stance = STANCE_NONE
+	var/stance = STANCE_IDLE
 	/// What are we busy with currently?
 	var/current_activity = AI_ACTIVITY_IDLE
 
@@ -130,11 +130,12 @@
 	if(QDELETED(body) || QDELETED(src) || get_stance() == STANCE_BUSY)
 		return FALSE
 
-	if(!isnull(home) && get_dist(body, home) > home_wander_distance)
-		body.start_automove(home, metadata = new /datum/automove_metadata(_acceptable_distance = home_wander_distance))
-		return FALSE
-
 	if(get_stance() == STANCE_IDLE && !body.stat)
+
+		if(!isnull(home) && get_dist(body, home) > home_wander_distance)
+			body.start_automove(home, metadata = new /datum/automove_metadata(_acceptable_distance = home_wander_distance))
+			return FALSE
+
 		try_unbuckle()
 		try_wander()
 		try_bark()
@@ -194,14 +195,19 @@
 /datum/mob_controller/proc/try_bark()
 	//Speaking
 	if(prob(speak_chance))
-		var/action = pick(
-			LAZYLEN(emote_speech); "emote_speech",
-			LAZYLEN(emote_hear);   "emote_hear",
-			LAZYLEN(emote_see);    "emote_see"
-		)
+		var/action = list()
+		if(LAZYLEN(emote_speech))
+			action["emote_speech"] = LAZYLEN(emote_speech)
+		if(LAZYLEN(emote_hear))
+			action["emote_hear"] = LAZYLEN(emote_hear)
+		if(LAZYLEN(emote_see))
+			action["emote_see"] = LAZYLEN(emote_see)
+		if(!length(action))
+			return
+
 		var/do_emote
 		var/emote_type = VISIBLE_MESSAGE
-		switch(action)
+		switch(pickweight(action))
 			if("emote_speech")
 				if(length(emote_speech))
 					body.say(pick(emote_speech))

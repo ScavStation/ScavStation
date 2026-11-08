@@ -246,10 +246,11 @@
 // engine.
 //-------------------------------------------------------
 /obj/vehicle/train/engine/update_vehicle_move_delay(atom/prev_loc)
-	..()
+	if(!(. = ..()))
+		return
 	if(is_train_head() && on)
-		move_delay = max(move_delay, (-car_limit * active_engines) + train_length - active_engines)	//limits base overweight so you can't overspeed trains
-		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
+		vehicle_move_delay = max(vehicle_move_delay, (-car_limit * active_engines) + train_length - active_engines)	//limits base overweight so you can't overspeed trains
+		vehicle_move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
 
 /obj/vehicle/train/engine/get_alt_interactions(mob/user)
 	. = ..()
