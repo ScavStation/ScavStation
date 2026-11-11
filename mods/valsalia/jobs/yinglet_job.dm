@@ -1,4 +1,5 @@
 /datum/job/yinglet
+	abstract_type = /datum/job/yinglet
 	hud_icon = "hudying"
 	supervisors = "the Matriarch and the Patriarches"
 	outfit_type = /decl/outfit/job/yinglet/assistant
