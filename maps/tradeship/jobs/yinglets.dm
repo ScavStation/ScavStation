@@ -12,7 +12,7 @@
 		/decl/department/enclave,
 		/decl/department/exploration
 	)
-	hud_icon = "hudyingscout"
+	hud_icon_state = "hudyingscout"
 	supervisors = "the Matriarch and the Patriarches"
 	outfit_type = /decl/outfit/job/yinglet/scout
 	access = list(
@@ -35,7 +35,7 @@
 
 /datum/job/yinglet/patriarch
 	title = "Enclave Patriarch"
-	hud_icon = "hudyingpatriarch"
+	hud_icon_state = "hudyingpatriarch"
 	spawn_positions = 2
 	total_positions = 3
 	supervisors = "the Matriarch"
@@ -114,7 +114,7 @@
 
 /datum/job/yinglet/matriarch
 	title = "Enclave Matriarch"
-	hud_icon = "hudyingmatriarch"
+	hud_icon_state = "hudyingmatriarch"
 	spawn_positions = 1
 	total_positions = 1
 	required_gender = FEMALE
