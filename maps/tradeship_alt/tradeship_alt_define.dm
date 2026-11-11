@@ -12,6 +12,7 @@
 	boss_short    = "Trademaster"
 	company_name  = "Tradehouse Ivenmoth"
 	company_short = "Ivenmoth"
+	hud_icons 	  = "hud.dmi"
 
 	game_year = 294
 
