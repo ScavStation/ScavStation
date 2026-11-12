@@ -52,7 +52,7 @@ Twice...
 	#include "../random_ruins/exoplanet_ruins/playablecolony/playablecolony.dm"
 	#include "../random_ruins/exoplanet_ruins/hateville/hateville.dm"
 	#include "../random_ruins/exoplanet_ruins/crashed_pod/crashed_pod.dm"
-	#include "../random_ruins/exoplanet_ruins/summit/summit.dm"
+	// #include "../random_ruins/exoplanet_ruins/summit/summit.dm"
 
 	#include "../../mods/cloning/_cloning.dme"
 	#include "../../mods/mobs/dionaea/_dionaea.dme"
