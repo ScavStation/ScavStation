@@ -2163,9 +2163,6 @@
 /obj/structure/cable{
 	dir = 8
 	},
-/obj/effect/rift{
-	max_health = 50
-	},
 /turf/floor/blackgrid,
 /area/map_template/summit{
 	germ_level = 800000000;
@@ -4524,9 +4521,6 @@
 	},
 /obj/structure/cable{
 	dir = 4
-	},
-/obj/effect/rift{
-	max_health = 50
 	},
 /turf/floor/blackgrid,
 /area/map_template/summit{
