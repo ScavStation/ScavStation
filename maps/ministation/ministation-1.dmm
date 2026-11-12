@@ -1174,8 +1174,7 @@
 	},
 /obj/machinery/power/terminal,
 /obj/effect/floor_decal/industrial/warning,
-/obj/machinery/emitter{
-	anchored = 1
+/obj/machinery/emitter/anchored{
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
