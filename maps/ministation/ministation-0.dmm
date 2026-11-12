@@ -6080,8 +6080,7 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/machinery/emitter{
-	anchored = 1;
+/obj/machinery/emitter/anchored{
 	id_tag = "EngineEmitter"
 	},
 /obj/structure/cable/yellow,
