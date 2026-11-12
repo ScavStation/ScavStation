@@ -1,7 +1,7 @@
 /decl/psionic_faculty/energistics
 	id = PSI_ENERGISTICS
 	name = "Energistics"
-	associated_intent = I_HURT
+	associated_intent_flag = I_FLAG_HARM
 	armour_types = list(ARMOR_BOMB, ARMOR_LASER, ARMOR_ENERGY)
 
 /decl/psionic_power/energistics
@@ -88,9 +88,9 @@
 
 		if(istype(pew))
 			playsound(pew.loc, pew_sound, 25, 1)
-			pew.original = target
-			pew.current = target
-			pew.starting = get_turf(user)
+			pew.original_ref = weakref(target)
+			pew.current_ref = weakref(target)
+			pew.starting_ref = weakref(get_turf(user))
 			pew.shot_from = user
 			pew.launch(target, user.get_target_zone(), user)
 			return TRUE

@@ -13,13 +13,16 @@
 	bleed_colour = SYNTH_BLOOD_COLOR
 	butchery_data = /decl/butchery_data/synthetic
 
+/mob/living/simple_animal/hostile/viscerator/can_overcome_gravity()
+	return TRUE
+
 /obj/item/natural_weapon/rotating_blade
 	name = "rotating blades"
 	attack_verb = list("sliced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	_base_attack_force = 15
-	edge = 1
-	sharp = 1
+	edge = TRUE
+	sharp = TRUE
 
 /mob/living/simple_animal/hostile/viscerator/check_has_mouth()
 	return FALSE

@@ -527,7 +527,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "_North APC";
 	pixel_y = 24
@@ -562,7 +562,6 @@
 /obj/machinery/door/airlock{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
@@ -613,7 +612,7 @@
 /obj/item/tool/axe/hatchet,
 /obj/item/plantspray/pests,
 /obj/item/plantspray/weeds,
-/obj/item/plants,
+/obj/item/plant_satchel,
 /obj/item/chems/glass/bottle/eznutrient,
 /obj/item/seeds/wheatseed,
 /obj/effect/decal/cleanable/dirt/visible,
@@ -626,8 +625,8 @@
 /obj/structure/closet/crate{
 	dir = 8
 	},
-/obj/item/ore,
-/obj/item/ore,
+/obj/item/ore_satchel,
+/obj/item/ore_satchel,
 /obj/item/mop,
 /obj/item/flashlight/lantern,
 /obj/item/flashlight/lantern,
@@ -688,7 +687,7 @@
 	pixel_x = -24;
 	locked = 0
 	},
-/obj/structure/bed/chair{
+/obj/structure/chair{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt/visible,
@@ -948,14 +947,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock,
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "bC" = (
-/obj/structure/bed/chair{
+/obj/structure/chair{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt/visible,
@@ -992,13 +987,13 @@
 /turf/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "bH" = (
-/obj/structure/bed/chair/shuttle/black,
+/obj/structure/chair/shuttle/black,
 /obj/abstract/submap_landmark/spawnpoint/crashed_pod_survivor,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/dark,
 /area/map_template/crashed_pod)
 "bI" = (
-/obj/structure/bed/chair/shuttle/black,
+/obj/structure/chair/shuttle/black,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -1144,7 +1139,7 @@
 /turf/floor/tiled/white,
 /area/map_template/crashed_pod)
 "bW" = (
-/obj/structure/bed/chair/shuttle/black,
+/obj/structure/chair/shuttle/black,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -1201,7 +1196,7 @@
 /turf/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "ca" = (
-/obj/structure/bed/chair,
+/obj/structure/chair,
 /obj/effect/decal/cleanable/dirt/visible,
 /turf/floor/tiled/dark,
 /area/map_template/crashed_pod)
@@ -1210,7 +1205,7 @@
 	dir = 1;
 	icon_state = "warning"
 	},
-/obj/effect/decal/cleanable/vomit,
+/obj/effect/decal/cleanable/vomit/mapped,
 /obj/effect/decal/cleanable/dirt/visible,
 /obj/effect/decal/cleanable/dirt{
 	dir = 9
@@ -1321,12 +1316,11 @@
 /area/map_template/crashed_pod)
 "Ta" = (
 /obj/effect/decal/cleanable/dirt/visible,
-/obj/effect/decal/cleanable/dirt/visible,
 /obj/structure/hygiene/sink{
 	dir = 8;
 	pixel_x = -13
 	},
-/obj/effect/decal/cleanable/vomit,
+/obj/effect/decal/cleanable/vomit/mapped,
 /turf/floor/tiled/techfloor,
 /area/map_template/crashed_pod)
 "Ut" = (

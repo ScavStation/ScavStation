@@ -5,8 +5,8 @@
 	exclaim_verb = "objects"
 	ask_verb = "inquiries"
 	space_chance = 30
-	key = "V"
-	flags = LANG_FLAG_WHITELISTED | LANG_FLAG_NO_STUTTER
+	language_key = "V"
+	language_flags = LANG_FLAG_WHITELISTED | LANG_FLAG_NO_STUTTER
 	machine_understands = 1
 	partial_understanding = list(
 		/decl/language/human/common = 30

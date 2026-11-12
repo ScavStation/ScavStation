@@ -1,38 +1,44 @@
-/obj/structure/crystal
+/obj/structure/crystal/xeno
 	name = "large crystal"
-	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "ano70"
-	density = TRUE
+	icon = 'icons/obj/structures/crystals/xeno.dmi'
+	material_alteration = MAT_FLAG_ALTERATION_NONE
+	has_shadow = FALSE
+	alpha = 255
+	max_health = 200
+	matter = list(
+		/decl/material/solid/exotic_matter = MATTER_AMOUNT_REINFORCEMENT
+	)
+	var/energized = FALSE
 
-/obj/structure/crystal/Initialize()
+/obj/structure/crystal/xeno/get_random_states()
+	var/static/list/random_states = pick("green","purple")
+	return random_states
+
+/obj/structure/crystal/xeno/Initialize()
 	. = ..()
+	desc = pick(list(
+		"It shines faintly as it catches the light.",
+		"It appears to have a faint inner glow.",
+		"It seems to draw you inward as you look it at.",
+		"Something twinkles faintly as you look at it.",
+		"It's mesmerizing to behold."
+	))
 
-	icon_state = pick("ano70","ano80")
+/obj/structure/crystal/xeno/on_update_icon()
+	. = ..()
+	if(energized)
+		icon_state = "[icon_state]_active"
 
-	desc = pick(
-	"It shines faintly as it catches the light.",
-	"It appears to have a faint inner glow.",
-	"It seems to draw you inward as you look it at.",
-	"Something twinkles faintly as you look at it.",
-	"It's mesmerizing to behold.")
+/obj/structure/crystal/xeno/get_artifact_scan_data()
+	. = "Crystal formation - pseudo-organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition."
+	if(energized)
+		. += " Stimulation of the inner crystal lattice has caused it to enter a metastable energy level, indicating potential uses in power storage and energy manipulation."
 
-/obj/structure/crystal/Destroy()
-	src.visible_message("<span class='warning'>[src] shatters!</span>")
-	if(prob(75))
-		new /obj/item/shard/borosilicate(src.loc)
-	if(prob(50))
-		new /obj/item/shard/borosilicate(src.loc)
-	if(prob(25))
-		new /obj/item/shard/borosilicate(src.loc)
-	if(prob(75))
-		new /obj/item/shard(src.loc)
-	if(prob(50))
-		new /obj/item/shard(src.loc)
-	if(prob(25))
-		new /obj/item/shard(src.loc)
-	return ..()
-
-/obj/structure/crystal/get_artifact_scan_data()
-	return "Crystal formation - pseudo-organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition."
-
-//todo: laser_act
+// Placeholder functionality so that these do something
+/obj/structure/crystal/xeno/bullet_act(obj/item/projectile/the_bullet)
+	var/proj_damage = the_bullet.get_structure_damage()
+	if(!(the_bullet.damage_flags & DAM_LASER) || (proj_damage < 10) || energized)
+		return ..()
+	visible_message(SPAN_WARNING("\The [src] begins glowing..."))
+	energized = TRUE
+	update_icon()

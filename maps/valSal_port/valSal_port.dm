@@ -1,13 +1,18 @@
 #if !defined(USING_MAP_DATUM)
 
-	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/valsalia/_valsalia.dme"
+	#include "../../mods/content/pheromones/_pheromones.dme"
 	#include "../../mods/content/matchmaking/_matchmaking.dme"
 	#include "../../mods/content/dungeon_loot/_dungeon_loot.dme"
 	#include "../../mods/content/mouse_highlights/_mouse_highlight.dme"
 	#include "../../mods/content/scaling_descriptors.dm"
 	#include "../../mods/species/drakes/_drakes.dme" // include before _fantasy.dme so overrides work
 	#include "../../mods/content/fantasy/_fantasy.dme"
+	#include "../../mods/content/fishing/_fishing.dme"
+	#include "../../mods/mobs/spiders/_spiders.dme"
+	#include "../../mods/content/holodeck/_holodeck.dme"
+	#include "../../mods/gamemodes/cult/_cult.dme"
+	#include "../../mods/species/random_species/_random_species.dme"
 
 	#include "areas/_areas.dm"
 	#include "areas/caverns.dm"

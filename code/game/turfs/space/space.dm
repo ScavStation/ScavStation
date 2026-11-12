@@ -19,12 +19,14 @@
 	/// Force this one to pretend it's an overedge turf.
 	var/forced_dirs = 0
 
-/turf/space/Initialize()
+/turf/space/Initialize(mapload)
 
 	SHOULD_CALL_PARENT(FALSE)
 	atom_flags |= ATOM_FLAG_INITIALIZED
+	_earliest_type ||= type
 
-	AMBIENCE_QUEUE_TURF(src)
+	if(SSambience.initialized) // if not initialized, we'll loop over all turfs anyway
+		AMBIENCE_QUEUE_TURF(src)
 
 	//We might be an edge
 	if(y == world.maxy || forced_dirs & NORTH)
@@ -42,15 +44,41 @@
 	else //Dust
 		appearance = SSskybox.dust_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
 
+	// Z-Copy does this too, but we want to avoid calling into Z-Copy.
+	var/turf/lower
+	if (z_flags)
+		lower = HasBelow(z) ? get_step(src, DOWN) : null
+		if (lower)
+			z_eventually_space = lower.z_eventually_space
+
+		permit_ao = !z_eventually_space
+
+	// This is a common turf that frequently has fuck-all on it, so we're going to cheat.
+	if (mapload && z_flags && (z_flags & ZM_MIMIC_BELOW))
+		if (lower)
+			if (!z_eventually_space || !lower.z_allow_fastinit)	// Have stuff, can't avoid doing the full ZM path. This should be uncommon though.
+				z_allow_fastinit = FALSE
+				setup_zmimic(mapload)
+			else	// Fast init, we only care about setting up the Z-stack. For efficiency, we're not going to bother with boundaries - it's unlikely the lack of transition will be visible to a player.
+				below = lower
+				below.above = src
+				SSzcopy.openspace_turfs += 1
+				SSzcopy.total_space_fastinit += 1
+				z_was_fastinit = TRUE
+		else	// Nothing below, nothing would be copied -- cheat, and skip actually calling into ZM. State will still be correct, because the implicit below is us.
+			z_flags = 0
+			// SSzcopy.openspace_turfs += 1	// Counting these as openspace is kind of cheating, they're not meaningfully participating in ZM.
+			SSzcopy.total_space_zeroinit += 1
+
 	if(!HasBelow(z))
 		return INITIALIZE_HINT_NORMAL
 
-	var/turf/below = GetBelow(src)
-	if(isspaceturf(below))
+	lower ||= HasBelow(z) ? get_step(src, DOWN) : null
+	if(isspaceturf(lower))
 		return INITIALIZE_HINT_NORMAL
 
-	var/area/A = below.loc
-	if(!below.density && (A.area_flags & AREA_FLAG_EXTERNAL))
+	var/area/A = lower.loc
+	if(!lower.density && (A.area_flags & AREA_FLAG_EXTERNAL))
 		return INITIALIZE_HINT_NORMAL
 
 	return INITIALIZE_HINT_LATELOAD // oh no! we need to switch to being a different kind of turf!
@@ -58,7 +86,7 @@
 /turf/space/LateInitialize()
 	if(SSmapping.base_floor_area)
 		var/area/new_area = locate(SSmapping.base_floor_area) || new SSmapping.base_floor_area
-		ChangeArea(src, new_area)
+		ChangeArea(new_area)
 	ChangeTurf(SSmapping.base_floor_type)
 
 /turf/space/proc/toggle_transit(var/direction)
@@ -92,23 +120,23 @@
 
 	return ..()
 
-/turf/space/attackby(obj/item/C, mob/user)
+/turf/space/attackby(obj/item/used_item, mob/user)
 
-	if (istype(C, /obj/item/stack/material/rods))
+	if (istype(used_item, /obj/item/stack/material/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
-			return L.attackby(C, user)
-		var/obj/item/stack/material/rods/R = C
-		if (R.use(1))
+			return L.attackby(used_item, user)
+		var/obj/item/stack/material/rods/rods = used_item
+		if (rods.use(1))
 			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			new /obj/structure/lattice(src, R.material.type)
+			new /obj/structure/lattice(src, rods.material.type)
 			return TRUE
 
-	if (istype(C, /obj/item/stack/tile/floor))
+	if (istype(used_item, /obj/item/stack/tile/floor))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
-			var/obj/item/stack/tile/floor/S = C
+			var/obj/item/stack/tile/floor/S = used_item
 			if (!S.use(1))
 				return TRUE
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
@@ -141,3 +169,7 @@
 
 /turf/space/black
 	icon_state = "black"
+
+// not how space works
+/turf/space/get_movable_alpha_mask_state(atom/movable/mover)
+	return null

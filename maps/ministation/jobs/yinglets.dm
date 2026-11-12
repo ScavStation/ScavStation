@@ -1,7 +1,7 @@
 /datum/job/yinglet/yinglet_rep
 	title = "Enclave Representative"
 	alt_titles = list("Patriarch","Enclave Diplomat", "Enclave Ambassador", "Enclave Matriarch")
-	hud_icon = "hudyingmatriarch"
+	hud_icon_state = "hudyingmatriarch"
 	spawn_positions = 1
 	total_positions = 1
 	supervisors = "the needs and wants of your Enclave"

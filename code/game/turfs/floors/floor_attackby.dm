@@ -1,10 +1,18 @@
 /turf/floor/attack_hand(mob/user)
-	if(!ishuman(user))
-		return ..()
-	var/mob/living/human/H = user
-	var/obj/item/hand = GET_EXTERNAL_ORGAN(H, H.get_active_held_item_slot())
-	if(hand && try_graffiti(H, hand))
+
+	// Clicking on a turf during combat and getting stuck in the graffiti menu is annoying.
+	if(user.check_intent(I_FLAG_HARM))
+		return FALSE
+
+	// Collect snow or mud.
+	var/decl/flooring/flooring = get_topmost_flooring()
+	if(flooring?.handle_hand_interaction(src, user))
 		return TRUE
+
+	var/obj/item/hand = GET_EXTERNAL_ORGAN(user, user.get_active_held_item_slot())
+	if(hand && try_graffiti(user, hand))
+		return TRUE
+
 	return ..()
 
 /turf/floor/attackby(var/obj/item/used_item, var/mob/user)
@@ -144,8 +152,8 @@
 		return TRUE
 
 	if(IS_WELDER(used_item))
-		var/obj/item/weldingtool/welder = used_item
-		if(welder.isOn() && is_plating() && welder.weld(0, user))
+		var/obj/item/fuelled_tool/welding/welder = used_item
+		if(welder.tool_is_running() && is_plating() && welder.weld(0, user))
 			if(is_floor_damaged())
 				to_chat(user, SPAN_NOTICE("You fix some damage to \the [src]."))
 				playsound(src, 'sound/items/Welder.ogg', 80, 1)
@@ -155,7 +163,7 @@
 			else
 				playsound(src, 'sound/items/Welder.ogg', 80, 1)
 				visible_message(SPAN_NOTICE("\The [user] has started melting \the [src]'s reinforcements!"))
-				if(do_after(user, 5 SECONDS) && welder.isOn() && welder_melt())
+				if(do_after(user, 5 SECONDS) && welder.tool_is_running() && welder_melt())
 					visible_message(SPAN_NOTICE("\The [user] has melted \the [src]'s reinforcements! It should now be possible to pry it off."))
 					playsound(src, 'sound/items/Welder.ogg', 80, 1)
 			return TRUE

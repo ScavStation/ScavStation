@@ -4,8 +4,8 @@
 	speech_verb = "rumbles"
 	whisper_verb = "hisses"
 	colour = ""
-	key = "r"
-	flags = LANG_FLAG_WHITELISTED
+	language_key = "baxxid"
+	language_flags = LANG_FLAG_WHITELISTED
 	shorthand = "BX"
 	partial_understanding = list()
 	syllables = list(

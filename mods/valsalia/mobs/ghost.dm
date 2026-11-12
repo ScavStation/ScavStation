@@ -115,16 +115,16 @@
 	next_light_smash = world.time + light_smash_interval
 	var/smashed_any = FALSE
 	for(var/obj/machinery/light/L in orange(light_smash_radius, src))
-		if(L.get_status() != LIGHT_BROKEN)
+		if(!L.is_broken())
 			L.broken()
 			smashed_any = TRUE
 	for(var/obj/structure/wall_sconce/S in orange(light_smash_radius, src))
 		if(S.light_source?.lit)
-			S.light_source.extinguish(null, TRUE)
+			S.light_source.extinguish_fire(null, TRUE)
 			smashed_any = TRUE
 	for(var/obj/item/flame/F in orange(light_smash_radius, src))
 		if(isturf(F.loc) && F.lit)
-			F.extinguish(null, TRUE)
+			F.extinguish_fire(null, TRUE)
 			smashed_any = TRUE
 	if(smashed_any)
 		visible_message(SPAN_DANGER("The lights around \the [src] shatter and gutter out!"))
@@ -136,7 +136,7 @@
 	var/ranged_attack_interval = 6 SECONDS
 	var/next_ranged_attack = 0
 
-/datum/mob_controller/aggressive/stalker/open_fire()
+/datum/mob_controller/aggressive/stalker/handle_ranged_target(atom/ranged_target)
 	if(world.time < next_ranged_attack)
 		return FALSE
 	next_ranged_attack = world.time + ranged_attack_interval
@@ -153,6 +153,7 @@
 	return ..()
 
 /datum/mob_controller/aggressive/stalker/move_to_target(var/move_only = FALSE)
+	SHOULD_CALL_PARENT(FALSE)
 	if(!body.can_act())
 		return
 	if(HAS_STATUS(body, STAT_CONFUSE))
@@ -181,7 +182,7 @@
 
 	// Can't melee yet (not adjacent) - take a ranged potshot if it's in range
 	if(!move_only && same_z && !body.Adjacent(target) && body.has_ranged_attack() && get_dist(body, target) <= body.get_ranged_attack_distance())
-		open_fire()
+		handle_ranged_target(target)
 
 // It's untouchable so being attacked isn't a threat worth reacting to, but retaliate() is required
 // to call its parent, and the parent retargets/moves toward whoever just hit it. So let it run, then
@@ -199,6 +200,7 @@
 			. += M
 
 /datum/mob_controller/aggressive/stalker/find_target()
+	SHOULD_CALL_PARENT(FALSE)
 	if(!body.can_act() || !body.faction)
 		return null
 	resume_wandering()

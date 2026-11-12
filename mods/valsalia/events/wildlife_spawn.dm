@@ -2,7 +2,7 @@
 // the animals in directly - see /obj/abstract/landmark/wildlife_spawn.
 /obj/abstract/landmark/wildlife_spawn/valSal_port/forest
 	name = "forest wildlife spawn point"
-	spawn_groups_by_severity = list(
+	spawn_groups_by_severity = alist(
 		EVENT_LEVEL_MUNDANE = list(
 			list("type" = /mob/living/simple_animal/passive/rabbit,       "min" = 3, "max" = 5, "label" = "rabbits") = 10,
 			list("type" = /mob/living/simple_animal/passive/rabbit/brown, "min" = 3, "max" = 5, "label" = "rabbits") = 10,
@@ -70,7 +70,7 @@ var/global/list/wildlife_spawn_count = list() // all tracked wildlife across the
 
 /datum/event/wildlife_spawn/proc/get_spawn_points()
 	. = list()
-	for(var/obj/abstract/landmark/wildlife_spawn/point in global.landmarks_list)
+	for(var/obj/abstract/landmark/wildlife_spawn/point in global.wildlife_landmarks)
 		if(point.z in affecting_z)
 			. += point
 

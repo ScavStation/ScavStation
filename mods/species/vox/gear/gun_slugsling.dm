@@ -24,7 +24,7 @@
 		var/mob/living/L = AM
 		if(L.get_bodytype()?.bodytype_flag & BODY_EQUIP_FLAG_VOX)
 			return FALSE
-		if(L.faction == SPECIES_VOX)
+		if(L.faction == /mob/living/simple_animal/hostile/slug/vox::faction)
 			return FALSE
 		squish()
 
@@ -34,9 +34,12 @@
 	playsound(src.loc,'sound/effects/attackblob.ogg',100, 1)
 	qdel(src)
 
+/mob/living/simple_animal/hostile/slug/vox
+	faction = "Vox"
+
 //a slug sling basically launches a small egg that hatches (either on a person or on the floor), releasing a terrible blood thirsty monster.
 //Balanced due to the non-spammy nature of the gun, as well as the frailty of the creatures.
-/obj/item/gun/launcher/alien/slugsling
+/obj/item/gun/launcher/vox/slugsling
 	name = "slug sling"
 	desc = "A bulbous looking rifle. It feels like holding a plastic bag full of meat."
 	w_class = ITEM_SIZE_LARGE
@@ -52,13 +55,13 @@
 	ammo_gen_time = 600
 	var/mode = "Impact"
 
-/obj/item/gun/launcher/alien/slugsling/consume_next_projectile()
+/obj/item/gun/launcher/vox/slugsling/consume_next_projectile()
 	var/obj/item/slugegg/S = ..()
 	if(S)
 		S.break_on_impact = (mode == "Impact")
 	return S
 
 
-/obj/item/gun/launcher/alien/slugsling/attack_self(var/mob/user)
+/obj/item/gun/launcher/vox/slugsling/attack_self(var/mob/user)
 	mode = mode == "Impact" ? "Sentry" : "Impact"
 	to_chat(user,"<span class='notice'>You switch \the [src]'s mode to \"[mode]\"</span>")

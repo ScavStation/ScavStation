@@ -35,8 +35,9 @@
 /mob/living/simple_animal/hostile/vagrant/bullet_act(var/obj/item/projectile/Proj)
 	var/oldhealth = current_health
 	. = ..()
-	if(istype(ai) && isliving(Proj.firer) && (ai.get_target() != Proj.firer) && current_health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT)) //Respond to being shot at
-		ai.set_target(Proj.firer)
+	var/atom/movable/firer = Proj.firer_ref?.resolve()
+	if(istype(ai) && isliving(firer) && (ai.get_target() != firer) && current_health < oldhealth && !incapacitated(INCAPACITATION_KNOCKOUT)) //Respond to being shot at
+		ai.set_target(firer)
 		ai.turns_per_wander = 6
 		ai.move_to_target()
 
@@ -54,7 +55,7 @@
 			gripping = null
 
 		else if(gripping.should_have_organ(BP_HEART))
-			var/blood_volume = round(gripping.vessel.total_volume)
+			var/blood_volume = round(REAGENT_TOTAL_VOLUME(gripping.vessel))
 			if(blood_volume > 5)
 				gripping.vessel.remove_any(blood_per_tick)
 				heal_overall_damage(health_per_tick)

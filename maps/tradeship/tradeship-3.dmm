@@ -47,7 +47,7 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "ai" = (
-/obj/structure/bed/chair/wood,
+/obj/structure/chair/wood,
 /turf/floor/reinforced/airless,
 /area/space)
 "aj" = (
@@ -495,7 +495,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	pixel_y = -22
 	},
 /obj/structure/cable{
@@ -554,9 +554,7 @@
 /turf/floor/plating,
 /area/ship/trade/bridge_unused)
 "dm" = (
-/obj/abstract/level_data_spawner/main_level{
-	name = "Tradeship Upper Deck"
-	},
+/obj/abstract/level_data_spawner/tradeship_upper,
 /turf/space,
 /area/space)
 "dq" = (
@@ -566,9 +564,7 @@
 /turf/floor/reinforced/airless,
 /area/space)
 "ds" = (
-/obj/machinery/network/router{
-	initial_network_id = "tradenet"
-	},
+/obj/machinery/network/router,
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
 "fi" = (
@@ -714,7 +710,7 @@
 /area/ship/trade/command/bridge_upper)
 "oq" = (
 /obj/random/trash,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -22
 	},
@@ -789,7 +785,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "Communications APC";
 	pixel_y = 22
@@ -822,7 +818,7 @@
 /area/space)
 "wc" = (
 /obj/effect/floor_decal/steeldecal/steel_decals6,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -907,9 +903,7 @@
 /turf/floor/plating,
 /area/ship/trade/maintenance/solars)
 "AK" = (
-/obj/machinery/network/mainframe{
-	initial_network_id = "tradenet"
-	},
+/obj/machinery/network/mainframe,
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
 "Db" = (
@@ -1280,9 +1274,7 @@
 /turf/open,
 /area/ship/trade/command/bridge_upper)
 "ZU" = (
-/obj/machinery/network/telecomms_hub{
-	initial_network_id = "tradenet"
-	},
+/obj/machinery/network/telecomms_hub,
 /turf/floor/bluegrid,
 /area/ship/trade/comms)
 

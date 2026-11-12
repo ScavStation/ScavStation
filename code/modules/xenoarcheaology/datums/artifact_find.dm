@@ -2,12 +2,10 @@
 	var/artifact_id
 	var/artifact_find_type
 	var/static/potential_finds = list(
-		/obj/machinery/power/supermatter = 5,
-		/obj/machinery/power/supermatter/shard = 25,
 		/obj/machinery/auto_cloner = 100,
 		/obj/machinery/giga_drill = 100,
 		/obj/machinery/replicator = 100,
-		/obj/structure/crystal = 150,
+		/obj/structure/crystal/xeno = 150,
 		/obj/structure/artifact = 1000
 	)
 

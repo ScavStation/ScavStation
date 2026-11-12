@@ -2,30 +2,21 @@
 	stance = STANCE_IDLE
 	stop_wander_when_pulled = FALSE
 	try_destroy_surroundings = TRUE
+	target_scan_distance = 10
+
+	var/decl/special_role/friendly_to_role = null
+	var/socially_distancing = 3 // If set, will try to stay this many tiles away from the target while a ranged attack is available.
+	var/ambusher = FALSE // If set, will avoid the enemy unless cloaked.
 	var/attack_same_faction = FALSE
 	var/only_attack_enemies = FALSE
 	var/break_stuff_probability = 10
-	var/weakref/target_ref
 
-/datum/mob_controller/aggressive/set_target(atom/new_target)
-	var/weakref/new_target_ref = weakref(new_target)
-	if(target_ref != new_target_ref)
-		target_ref = new_target_ref
-		return TRUE
-	return FALSE
-
-/datum/mob_controller/aggressive/get_target()
-	if(isnull(target_ref))
-		return null
-	var/atom/target = target_ref?.resolve()
-	if(!istype(target) || QDELETED(target))
-		set_target(null)
-		return null
-	return target
-
-/datum/mob_controller/aggressive/Destroy()
-	set_target(null)
-	return ..()
+/datum/mob_controller/aggressive/New()
+	if(friendly_to_role)
+		friendly_to_role = RESOLVE_TO_DECL(friendly_to_role)
+	..()
+	if(isliving(body) && !QDELETED(body) && !QDELETED(src))
+		body.set_intent(I_FLAG_HARM)
 
 /datum/mob_controller/aggressive/do_process()
 
@@ -37,24 +28,40 @@
 		set_stance(get_target() ? STANCE_ATTACK : STANCE_IDLE)
 		return
 
-	if(isturf(body.loc) && !body.buckled)
-		switch(stance)
+	if(isnull(stance))
+		set_stance(get_target() ? STANCE_ATTACK : STANCE_IDLE)
 
-			if(STANCE_IDLE)
-				set_target(find_target())
+	if(ambusher && body.can_cloak() && !body.is_cloaked())
+		body.apply_cloak()
+
+	if(isturf(body.loc) && !body.buckled)
+
+		// Separate to main block so we don't waste an AI tick staring into space.
+		if(stance == STANCE_IDLE && do_target_scan())
+			set_target(find_target())
+			if(get_target())
 				set_stance(STANCE_ATTACK)
 
+		switch(stance)
+
 			if(STANCE_ATTACK)
-				body.face_atom(get_target())
-				if(try_destroy_surroundings)
-					destroy_surroundings()
-				move_to_target()
+
+				if(get_target())
+					body.face_atom(get_target())
+					if(try_destroy_surroundings)
+						destroy_surroundings()
+					move_to_target()
+				else
+					set_stance(STANCE_IDLE)
 
 			if(STANCE_ATTACKING)
-				body.face_atom(get_target())
-				if(try_destroy_surroundings)
-					destroy_surroundings()
-				handle_attacking_target()
+				if(get_target())
+					body.face_atom(get_target())
+					if(try_destroy_surroundings)
+						destroy_surroundings()
+					handle_attacking_target()
+				else
+					set_stance(STANCE_IDLE)
 
 			if(STANCE_CONTAINED) //we aren't inside something so just switch
 				set_stance(STANCE_IDLE)
@@ -74,12 +81,12 @@
 /datum/mob_controller/aggressive/proc/handle_attacking_target()
 	stop_wandering()
 	var/atom/target = get_target()
-	if(!istype(target) || !attackable(target) || !(target in list_targets(10))) // consider replacing this list_targets() call with a distance or LOS check
+	if(!istype(target) || !attackable(target) || !(target in get_raw_target_list()))
 		lose_target()
 		return FALSE
 	if (ishuman(target))
 		var/mob/living/human/H = target
-		if (H.is_cloaked())
+		if (H.is_invisible_to(body))
 			lose_target()
 			return FALSE
 	if(body.next_move >= world.time)
@@ -100,58 +107,64 @@
 		lose_target()
 		return
 
-	if(isliving(target) && body.buckled_mob == target && (!body.faction || body.buckled_mob.faction != body.faction))
-		body.visible_message(SPAN_DANGER("\The [body] attempts to unseat \the [body.buckled_mob]!"))
+	if(finding_position(target))
+		return
+
+	// TODO: update this to handle being ridden by an enemy we are not targeting; maybe update target to that mob prior to this block.
+	var/mob/living/target_mob = target
+	if(istype(target_mob) && (target in body.get_buckled_mobs()) && (!body.faction || target_mob.faction != body.faction))
+		body.visible_message(SPAN_DANGER("\The [body] attempts to unseat \the [target]!"))
 		body.set_dir(pick(global.cardinal))
 		body.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(prob(33))
-			body.unbuckle_mob()
-			if(body.buckled_mob != target && !QDELETED(target))
+			body.unbuckle_mob(target)
+			if(!(target in body.get_buckled_mobs()) && !QDELETED(target))
 				to_chat(target, SPAN_DANGER("You are thrown off \the [body]!"))
 				var/mob/living/victim = target
 				SET_STATUS_MAX(victim, STAT_WEAK, 3)
-		return target
+		return
 
 	if(!body.Adjacent(target))
-		return target
+		return
 
 	// AI-driven mobs have a melee telegraph that needs to be handled here.
 	if(!body.do_attack_windup_checking(target))
-		return target
-
-	if(QDELETED(body) || body.incapacitated() || QDELETED(target))
-		return target
-
-	body.a_intent = I_HURT
-	body.try_click_on(target)
-	return target
-
-/datum/mob_controller/aggressive/destroy_surroundings()
-
-	if(!body.can_act())
 		return
 
+	if(QDELETED(body) || body.incapacitated() || QDELETED(target))
+		return
+
+	body.set_intent(I_FLAG_HARM)
+	body.ClickOn(target)
+
+/datum/mob_controller/aggressive/destroy_surroundings()
+	if(!body.can_act())
+		return FALSE
 	// If we're not hunting something, don't destroy stuff.
 	var/atom/target = get_target()
 	if(!istype(target))
-		return
-
+		return FALSE
 	// Not breaking stuff, or already adjacent to a target.
 	if(!prob(break_stuff_probability) || body.Adjacent(target))
-		return
-
-	// Try to get our next step towards the target.
-	body.face_atom(target)
+		return FALSE
 	var/turf/targ = get_step_towards(body, target)
 	if(!targ)
-		return
+		return FALSE
+	// Try to get our next step towards the target.
+	body.face_atom(target)
+	// Try to apply to our target turf first, then our own turf (border windows/walls)
+	if((isturf(body.loc) && apply_on_move_actions(body.loc)) || apply_on_move_actions(targ))
+		return TRUE
+	return FALSE
+
+/datum/mob_controller/aggressive/proc/apply_on_move_actions(turf/targ, atom/target)
 
 	// Attack anything on the target turf.
 	var/obj/effect/shield/S = locate(/obj/effect/shield) in targ
 	if(S && S.gen && S.gen.check_flag(MODEFLAG_NONHUMANS))
-		body.a_intent = I_HURT
+		body.set_intent(I_FLAG_HARM)
 		body.try_click_on(S)
-		return
+		return TRUE
 
 	// Hostile mobs will bash through these in order with their natural weapon
 	// Note that airlocks and blast doors are handled separately below.
@@ -170,9 +183,9 @@
 	for(var/type in valid_obstacles_by_priority)
 		var/obj/obstacle = locate(type) in targ
 		if(obstacle)
-			body.a_intent = I_HURT
+			body.set_intent(I_FLAG_HARM)
 			body.try_click_on(obstacle)
-			return
+			return TRUE
 
 	if(body.can_pry_door())
 		for(var/obj/machinery/door/obstacle in targ)
@@ -181,7 +194,18 @@
 					return
 				body.face_atom(obstacle)
 				body.pry_door((obstacle.pry_mod * body.get_door_pry_time()), obstacle)
-				return
+				return TRUE
+
+	return FALSE
+
+/datum/mob_controller/aggressive/proc/is_in_faction(mob/friend)
+	// Cannibalistic mobs don't care at all.
+	if(attack_same_faction)
+		return FALSE
+	// Special role check overrides faction check.
+	if(istype(friendly_to_role) && friend.mind && friendly_to_role.is_antagonist(friend.mind))
+		return TRUE
+	return (friend.faction == body.faction)
 
 /datum/mob_controller/aggressive/retaliate(atom/source)
 
@@ -195,10 +219,11 @@
 			if(A == body || !isliving(A))
 				continue
 			var/mob/living/M = A
-			if(attack_same_faction || M.faction != body.faction)
+			if(is_in_faction(M))
+				if(istype(M.ai))
+					LAZYADD(allies, M.ai)
+			else
 				add_enemy(M)
-			else if(istype(M.ai))
-				LAZYADD(allies, M.ai)
 		var/list/enemies = get_enemies()
 		if(LAZYLEN(enemies) && LAZYLEN(allies))
 			for(var/datum/mob_controller/ally as anything in allies)
@@ -209,81 +234,91 @@
 		move_to_target(move_only = TRUE)
 
 /datum/mob_controller/aggressive/move_to_target(var/move_only = FALSE)
+
 	set waitfor = FALSE
-	if(!body.can_act())
+	if(!(. = ..()))
 		return
+
 	if(HAS_STATUS(body, STAT_CONFUSE))
 		body.start_automove(pick(orange(2, body)))
 		return
+
 	stop_wandering()
+
 	var/atom/target = get_target()
-	if(!istype(target) || !attackable(target) || !(target in list_targets(10)))
+	if(!istype(target) || !attackable(target) || !(target in get_raw_target_list()))
 		lose_target()
 		return
-	if(body.has_ranged_attack() && get_dist(body, target) <= body.get_ranged_attack_distance() && !move_only)
-		body.stop_automove()
-		open_fire()
+
+	if(finding_position(target))
 		return
+
+	if(body.has_ranged_attack(target) && !target.Adjacent(body) && get_dist(body, target) <= body.get_ranged_attack_distance() && !move_only)
+		body.stop_automove()
+		handle_ranged_target(target)
+		return
+
 	set_stance(STANCE_ATTACKING)
 	body.start_automove(target)
 
-/datum/mob_controller/aggressive/list_targets(var/dist = 7)
+// Flee until our cloak returns. Note that setting ambusher on a mob that can't cloak means it will flee forever.
+/datum/mob_controller/aggressive/proc/finding_position(atom/target)
+	if(!target)
+		return FALSE
+
+	var/run_away = FALSE
+	if(socially_distancing && get_dist(body, target) < socially_distancing && body.has_ranged_attack(target))
+		run_away = TRUE
+	if(ambusher && !body.is_fully_cloaked())
+		run_away = TRUE
+
+	if(run_away)
+		var/static/datum/automove_metadata/_ambusher_flee_metadata = new(
+			_avoid_target = TRUE,
+			_acceptable_distance = 3
+		)
+		body.start_automove(target, metadata = _ambusher_flee_metadata)
+	return run_away
+
+/datum/mob_controller/aggressive/list_targets()
 	// Base hostile mobs will just destroy everything in view.
 	// Mobs with an enemy list will filter the view by their enemies.
 	if(!only_attack_enemies)
-		return hearers(body, dist)-body
-	var/list/enemies = get_enemies()
-	if(!LAZYLEN(enemies))
-		return
-	var/list/possible_targets = hearers(body, dist)-body
-	if(!length(possible_targets))
-		return
-	for(var/weakref/enemy in enemies) // Remove all entries that aren't in enemies
-		var/M = enemy.resolve()
-		if(M in possible_targets)
-			LAZYDISTINCTADD(., M)
+		return get_raw_target_list()
+	return ..()
 
 /datum/mob_controller/aggressive/find_target()
+	. = ..()
 	if(!body.can_act() || !body.faction)
 		return null
 	resume_wandering()
-	for(var/atom/A in list_targets(10))
-		if(valid_target(A))
-			set_stance(STANCE_ATTACK)
-			body.face_atom(A)
-			return A
+	for(var/atom/A in get_valid_targets())
+		set_stance(STANCE_ATTACK)
+		body.face_atom(A)
+		return A
 
 /datum/mob_controller/aggressive/valid_target(var/atom/A)
-	if(A == body)
+	if(!..())
 		return FALSE
 	if(ismob(A))
 		var/mob/M = A
-		if(M.faction == body.faction && !attack_same_faction)
-			return FALSE
-		else if(weakref(M) in get_friends())
+		if(is_in_faction(M))
 			return FALSE
 		if(M.stat)
 			return FALSE
 		if(ishuman(M))
 			var/mob/living/human/H = M
-			if (H.is_cloaked())
+			if (H.is_invisible_to(body))
 				return FALSE
 	return TRUE
 
-/datum/mob_controller/aggressive/open_fire()
-	if(!body.can_act())
+/datum/mob_controller/aggressive/handle_ranged_target(atom/ranged_target)
+	if(!body.can_act() || !ranged_target)
 		return FALSE
-	body.handle_ranged_attack(get_target())
+	body.handle_ranged_attack(ranged_target)
 	return TRUE
-
-/datum/mob_controller/aggressive/lose_target()
-	set_target(null)
-	lost_target()
-
-/datum/mob_controller/aggressive/lost_target()
-	set_stance(STANCE_IDLE)
-	body.stop_automove()
 
 /datum/mob_controller/aggressive/pacify(mob/user)
 	..()
 	attack_same_faction = FALSE
+	friendly_to_role = null

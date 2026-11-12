@@ -19,7 +19,7 @@
 		/obj/item/borg/sight/hud/jani,
 		/obj/item/plunger/unbreakable,
 		/obj/item/crowbar,
-		/obj/item/weldingtool
+		/obj/item/fuelled_tool/welding
 	)
 	emag = /obj/item/chems/spray
 	has_nonslip_feet  = TRUE
@@ -32,10 +32,10 @@
 	emag.add_to_reagents(/decl/material/liquid/lube, 250)
 	emag.SetName("lubricant spray")
 
-/obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+/obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/robot, var/amount)
 	..()
 	var/obj/item/lightreplacer/LR = locate() in equipment
-	LR.Charge(R, amount)
+	LR.Charge(robot, amount)
 	if(emag)
 		var/obj/item/chems/spray/S = emag
 		S.add_to_reagents(/decl/material/liquid/lube, 20 * amount)

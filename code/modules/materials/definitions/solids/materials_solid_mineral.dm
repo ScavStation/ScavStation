@@ -69,6 +69,7 @@
 	boiling_point = 2504
 	color = "#effffe"
 	reflectiveness = MAT_VALUE_SHINY
+	hardness = MAT_VALUE_VERY_HARD - 5 // Hard enough to whet steel.
 	sparse_material_weight = 3
 	rich_material_weight = 1
 	dissolves_into = list(
@@ -122,8 +123,16 @@
 	sparse_material_weight = 9
 	rich_material_weight = 3
 	dissolves_into = list(
-		/decl/material/liquid/mercury = 1
+		/decl/material/liquid/mercury = 0.5,
+		/decl/material/liquid/pigment/red = 0.5
 	)
+	heating_products = list(
+		/decl/material/liquid/mercury = 0.8,
+		/decl/material/solid/slag = 0.2
+	)
+	heating_point = GENERIC_SMELTING_HEAT_POINT
+	heating_sound = null
+	heating_message = null
 
 /decl/material/solid/phosphorite
 	name = "phosphorite"
@@ -184,10 +193,10 @@
 
 /decl/material/solid/potash/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	. = ..()
-	var/volume = REAGENT_VOLUME(holder, type)
-	if(volume > 3)
+	var/affect_volume = REAGENT_VOLUME(holder, src)
+	if(affect_volume > 3)
 		M.add_chemical_effect(CE_PULSE, 1)
-	if(volume > 10)
+	if(affect_volume > 10)
 		M.add_chemical_effect(CE_PULSE, 1)
 
 /decl/material/solid/bauxite
@@ -236,6 +245,8 @@
 	dug_drop_type = /obj/item/stack/material/ore/handful
 	default_solid_form = /obj/item/stack/material/ore/handful
 	can_backfill_floor_type = /decl/flooring/sand
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
 
 /decl/material/solid/clay
 	name = "clay"
@@ -259,6 +270,15 @@
 	// lower than the temperature expected from a kiln so that clay can be used to make bricks to make a high-temperature kiln.
 	bakes_into_at_temperature = 950 CELSIUS
 	can_backfill_floor_type = /decl/flooring/clay
+	gemstone_chance = 0.01
+	gemstone_types  = list(/decl/material/solid/gemstone/sapphire = 1)
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
+	dissolves_in = MAT_SOLVENT_MODERATE
+	dissolves_into = list(
+		/decl/material/solid/soil           = 0.5,
+		/decl/material/liquid/pigment/brown = 0.5
+	)
 
 /decl/material/solid/soil
 	name = "soil"
@@ -277,6 +297,19 @@
 		/decl/flooring/mud,
 		/decl/flooring/dirt
 	)
+	solution_name = "mud"
+	coated_adjective = "muddy"
+	sound_manipulate = 'sound/foley/paperpickup2.ogg'
+	sound_dropped = 'sound/foley/paperpickup1.ogg'
+
+// todo: make mud either its own material or a mix of dirt and water
+// or let dirt be in the liquid volumes list for mud?
+// would a ball of mud just be a ball of dirt coated with water?
+// or would water be part of its matter?
+// well anyway.
+// for now, at least, we assume dirt coatings are always mud.
+/decl/material/solid/soil/get_primary_coating_name(datum/reagents/coating)
+	return solution_name
 
 /decl/material/solid/hematite
 	name = "hematite"

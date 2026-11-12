@@ -1,19 +1,6 @@
 /****************
  true human verbs
 ****************/
-/mob/living/human/verb/hold_breath()
-	set name = "Hold Breath"
-	set desc = "Hold your breath, or stop holding your breath."
-	set category = "IC"
-	set src = usr
-	if(stat == CONSCIOUS)
-		if(!holding_breath)
-			visible_message(SPAN_WARNING("\The [src] starts holding their breath!"), SPAN_WARNING("You start holding your breath!"))
-			holding_breath = 1
-		else
-			visible_message(SPAN_NOTICE("\The [src] starts breathing again."), SPAN_NOTICE("You stop holding your breath."))
-			holding_breath = (holding_breath >= 2 ? 3 : 0)
-		try_breathe()
 
 /mob/living/human/proc/tie_hair()
 	set name = "Tie Hair"

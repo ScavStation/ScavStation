@@ -1,6 +1,14 @@
-MANTIDIFY(/obj/item/bag/trash/purple,   "sample collection carrier", "material storage")
+MANTIDIFY(/obj/item/bag/trash/purple,           "sample collection carrier", "material storage")
 MANTIDIFY(/obj/item/tool/drill/diamond,         "lithobliterator",           "drilling")
 MANTIDIFY(/obj/item/tank/jetpack/carbondioxide, "maneuvering pack",          "propulsion")
+MANTIDIFY(/obj/item/circular_saw,               "carapace penetrator",       "saw")
+MANTIDIFY(/obj/item/sutures,                    "incision stapler",          "suturing")
+MANTIDIFY(/obj/item/scalpel,                    "surface splitter",          "scalpel")
+MANTIDIFY(/obj/item/hemostat,                   "hemolymph clamp",           "hemostat")
+MANTIDIFY(/obj/item/bone_clamp,                 "structural reconfigurator", "bone setting")
+MANTIDIFY(/obj/item/retractor,                  "leverage applicator",       "retractor")
+MANTIDIFY(/obj/structure/table,                 "support surface",           "table")
+MANTIDIFY(/obj/structure/closet,                "containment systme",        "storage")
 
 /obj/item/light/tube/ascent
 	name = "mantid light filament"
@@ -14,7 +22,7 @@ MANTIDIFY(/obj/item/tank/jetpack/carbondioxide, "maneuvering pack",          "pr
 	icon = 'mods/species/ascent/icons/ascent.dmi'
 	icon_state = "multitool"
 
-/obj/item/weldingtool/electric/mantid
+/obj/item/fuelled_tool/welding/electric/mantid
 	name = "mantid welding tool"
 	desc = "An oddly shaped alien welding tool."
 	icon = 'mods/species/ascent/icons/ascent.dmi'
@@ -32,10 +40,9 @@ MANTIDIFY(/obj/item/tank/jetpack/carbondioxide, "maneuvering pack",          "pr
 
 /obj/item/knife/kitchen/cleaver/ascent
 	name = "xenobiological flenser"
-	desc = "A mindboggingly alien tool for flensing flesh."
+	desc = "A mind-boggingly alien tool for flensing flesh."
 	icon = 'mods/species/ascent/icons/ascent_doodads.dmi'
 	icon_state = "xenobutch"
-
 
 /obj/item/chems/drinks/cans/waterbottle/ascent
 	name = "hydration cylinder"
@@ -44,7 +51,7 @@ MANTIDIFY(/obj/item/tank/jetpack/carbondioxide, "maneuvering pack",          "pr
 
 /obj/item/food/hydration
 	name = "hydration ration"
-	desc = "Approximately ten units of liquid hydration in a edible membrane. Unflavored."
+	desc = "Approximately ten units of liquid hydration in an edible membrane. Unflavored."
 	icon = 'mods/species/ascent/icons/ascent_doodads.dmi'
 	icon_state = "h2o_ration"
 	bitesize = 10

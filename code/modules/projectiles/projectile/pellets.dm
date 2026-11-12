@@ -27,7 +27,9 @@
 	..()
 
 /obj/item/projectile/bullet/pellet/attack_mob(var/mob/target_mob, var/distance, var/miss_modifier)
-	if (pellets < 0) return 1
+	SHOULD_CALL_PARENT(FALSE)
+	if (pellets < 0)
+		return 1
 
 	var/total_pellets = get_pellets(distance)
 	var/spread = max(base_spread - (spread_step*distance), 0)
@@ -39,7 +41,7 @@
 
 	var/hits = 0
 	for (var/i in 1 to total_pellets)
-		if(target_mob.current_posture.prone && target_mob != original && prob(prone_chance))
+		if(target_mob.current_posture.prone && target_mob != original_ref?.resolve() && prob(prone_chance))
 			continue
 
 		//pellet hits spread out across different zones, but 'aim at' the targeted zone with higher probability
@@ -49,13 +51,15 @@
 		if (..()) hits++
 		def_zone = old_zone //restore the original zone the projectile was aimed at
 
-	pellets -= hits //each hit reduces the number of pellets left
+	if(hits > 0)
+		pellets -= hits //each hit reduces the number of pellets left
+
 	if (hits >= total_pellets || pellets <= 0)
 		return 1
 	return 0
 
 /obj/item/projectile/bullet/pellet/get_structure_damage()
-	var/distance = get_dist(loc, starting)
+	var/distance = get_dist(loc, starting_ref?.resolve())
 	return ..() * get_pellets(distance)
 
 /obj/item/projectile/bullet/pellet/Move()

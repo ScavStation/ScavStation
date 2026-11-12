@@ -8,7 +8,7 @@
 	density = FALSE
 	response_harm = "stamps on"
 	mob_size = MOB_SIZE_MINISCULE
-	possession_candidate = 1
+	possession_candidate = TRUE
 	pass_flags = PASS_FLAG_TABLE
 	butchery_data = /decl/butchery_data/animal/reptile/small
 	ai = /datum/mob_controller/lizard

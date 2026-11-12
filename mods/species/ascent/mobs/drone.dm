@@ -18,7 +18,7 @@
 		/obj/item/soap,
 		/obj/item/mop/advanced,
 		/obj/item/plunger/unbreakable,
-		/obj/item/weldingtool/electric/mantid,
+		/obj/item/fuelled_tool/welding/electric/mantid,
 		/obj/item/chems/spray/extinguisher,
 		/obj/item/t_scanner,
 		/obj/item/scanner/gas,
@@ -121,7 +121,7 @@
 
 	. = ..()
 
-/obj/item/robot_module/flying/ascent/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+/obj/item/robot_module/flying/ascent/respawn_consumable(var/mob/living/silicon/robot/robot, var/amount)
 	var/obj/item/stack/medical/resin/drone/resin = locate() in equipment
 	if(!resin)
 		resin = new(src, 1)

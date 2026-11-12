@@ -5,7 +5,7 @@
 /mob/living/simple_animal/hostile/hivebot/mega
 	name = "hivemind"
 	desc = "A huge quadruped robot equipped with a myriad of weaponry."
-	icon = 'icons/mob/simple_animal/megabot.dmi'
+	icon = 'icons/mob/simple_animal/hivebots/megabot.dmi'
 	max_health = 440
 	natural_weapon = /obj/item/natural_weapon/circular_saw
 	natural_armor = list(
@@ -26,7 +26,7 @@
 /datum/mob_controller/aggressive/megahivebot
 	can_escape_buckles = TRUE
 
-/datum/mob_controller/aggressive/megahivebot/open_fire()
+/datum/mob_controller/aggressive/megahivebot/handle_ranged_target(atom/ranged_target)
 	var/mob/living/simple_animal/hostile/hivebot/mega/megabot = body
 	if(!istype(megabot))
 		return ..()
@@ -74,7 +74,7 @@
 			if(ATTACK_MODE_ROCKET)
 				add_overlay("[icon_state]-rocket")
 
-/mob/living/simple_animal/hostile/hivebot/mega/has_ranged_attack()
+/mob/living/simple_animal/hostile/hivebot/mega/has_ranged_attack(atom/target)
 	return attack_mode != ATTACK_MODE_MELEE && num_shots > 0
 
 /mob/living/simple_animal/hostile/hivebot/mega/proc/switch_mode(var/new_mode)

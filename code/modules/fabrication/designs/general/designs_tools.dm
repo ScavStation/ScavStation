@@ -2,15 +2,6 @@
 	path = /obj/item/crowbar
 	category = "Tools"
 
-/datum/fabricator_recipe/tool/int_wirer
-	path = /obj/item/integrated_electronics/wirer
-
-/datum/fabricator_recipe/tool/int_debugger
-	path = /obj/item/integrated_electronics/debugger
-
-/datum/fabricator_recipe/tool/int_analyzer
-	path = /obj/item/integrated_electronics/analyzer
-
 /datum/fabricator_recipe/tool/multitool
 	path = /obj/item/multitool
 
@@ -18,7 +9,7 @@
 	path = /obj/item/t_scanner
 
 /datum/fabricator_recipe/tool/weldertool
-	path = /obj/item/weldingtool
+	path = /obj/item/fuelled_tool/welding
 
 /datum/fabricator_recipe/tool/screwdriver
 	path = /obj/item/screwdriver
@@ -42,7 +33,7 @@
 	path = /obj/item/inflatable/door
 
 /datum/fabricator_recipe/tool/welder_industrial
-	path = /obj/item/weldingtool/largetank
+	path = /obj/item/fuelled_tool/welding/largetank
 	hidden = TRUE
 
 /datum/fabricator_recipe/tool/hoist_kit

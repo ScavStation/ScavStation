@@ -120,7 +120,7 @@
 // attackby item
 // wrench: (un)anchor
 // weldingtool: convert to real pipe
-/obj/structure/disposalconstruct/attackby(var/obj/item/I, var/mob/user)
+/obj/structure/disposalconstruct/attackby(var/obj/item/used_item, var/mob/user)
 	var/turf/T = loc
 	if(!istype(T))
 		return TRUE
@@ -130,7 +130,7 @@
 
 	var/obj/structure/disposalpipe/CP = locate() in T
 
-	if(IS_WRENCH(I))
+	if(IS_WRENCH(used_item))
 		if(anchored)
 			anchored = FALSE
 			wrench_down(FALSE)
@@ -144,21 +144,21 @@
 		update()
 		update_verbs()
 		return TRUE
-	else if(istype(I, /obj/item/weldingtool))
+	else if(istype(used_item, /obj/item/fuelled_tool/welding))
 		if(anchored)
-			var/obj/item/weldingtool/W = I
-			if(W.weld(0,user))
+			var/obj/item/fuelled_tool/welding/welder = used_item
+			if(welder.weld(0,user))
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				to_chat(user, "Welding \the [src] in place.")
 				if(do_after(user, 2 SECONDS, src))
-					if(!src || !W.isOn()) return TRUE
+					if(!src || !welder.tool_is_running()) return TRUE
 					to_chat(user, "\The [src] has been welded in place!")
 					build(CP)
 					qdel(src)
 					return TRUE
 				return TRUE
 			else
-				to_chat(user, "You need more welding fuel to complete this task.")
+				to_chat(user, "You need more fuel to complete this task.")
 				return TRUE
 		else
 			to_chat(user, "You need to attach it to the plating first!")
@@ -223,7 +223,7 @@
 	return // No flipping
 
 /obj/structure/disposalconstruct/machine/wrench_down(anchor)
-	anchored = anchor
+	set_anchored(anchor)
 	set_density(1) // We don't want disposal bins or outlets to go density 0
 	update_icon()
 

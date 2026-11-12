@@ -79,3 +79,7 @@
 /datum/fabricator_recipe/arms_ammo/hidden/speedloader_laser
 	name = "ammunition (speedloader, laserbulb)"
 	path = /obj/item/ammo_magazine/speedloader/laser_revolver
+
+/datum/fabricator_recipe/arms_ammo/hidden/mine_assembly
+	name = "mine assembly"
+	path = /obj/item/mine/assembly

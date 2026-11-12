@@ -19,7 +19,6 @@
 	sound_manipulate = 'sound/foley/meat1.ogg'
 	sound_dropped = 'sound/foley/meat2.ogg'
 	hitsound = 'sound/effects/squelch1.ogg'
-	fishing_bait_value = 1
 	reagent_overlay = "soup_chunks"
 	nutriment_factor = 10
 	allergen_flags = ALLERGEN_MEAT
@@ -83,7 +82,6 @@
 	sound_manipulate = 'sound/foley/meat1.ogg'
 	sound_dropped = 'sound/foley/meat2.ogg'
 	hitsound = "punch"
-	fishing_bait_value = 0.75
 	tans_to = /decl/material/solid/organic/leather
 	compost_value = 0.8
 	allergen_flags = ALLERGEN_MEAT
@@ -116,7 +114,6 @@
 	default_solid_form = /obj/item/stack/material/skin/pelt
 	sound_manipulate = 'sound/foley/paperpickup2.ogg'
 	sound_dropped = 'sound/foley/paperpickup1.ogg'
-	fishing_bait_value = 0
 	paint_verb = "dyed"
 
 /decl/material/solid/organic/skin/fur/gray
@@ -178,7 +175,6 @@
 	default_solid_form = /obj/item/stack/material/skin/feathers
 	sound_manipulate = 'sound/foley/paperpickup2.ogg'
 	sound_dropped = 'sound/foley/paperpickup1.ogg'
-	fishing_bait_value = 0
 
 /decl/material/solid/organic/skin/feathers/purple
 	color = COLOR_PALE_PURPLE_GRAY
@@ -224,6 +220,21 @@
 	compost_value = 0.5
 	allergen_flags = ALLERGEN_MEAT
 	exoplanet_rarity_plant = MAT_RARITY_EXOTIC
+	// Todo: calcium
+	dissolves_into = list(
+		/decl/material/solid/carbon = 1
+	)
+
+/decl/material/solid/organic/bone/shell
+	name = "shell"
+	uid = "solid_shell"
+	color = "#668585"
+	hardness = MAT_VALUE_FLEXIBLE // Not really, but should be crushable in mortar/pestle.
+	// TODO: calcium
+	dissolves_into = list(
+		/decl/material/solid/carbon          = 0.8,
+		/decl/material/liquid/pigment/purple = 0.2
+	)
 
 // Stub to stop eggs melting while being boiled.
 /decl/material/solid/organic/bone/eggshell

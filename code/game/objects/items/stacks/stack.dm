@@ -13,6 +13,8 @@
 	gender = PLURAL
 	origin_tech = @'{"materials":1}'
 	max_health = 32 //Stacks should take damage even if no materials
+	needs_attack_dexterity = DEXTERITY_HOLD_ITEM // Combining stacks is not complex.
+
 	/// A copy of initial matter list when this atom initialized. Stack matter should always assume a single tile.
 	var/list/matter_per_piece
 	var/name_modifier
@@ -53,7 +55,6 @@
 	update_name()
 
 /obj/item/stack/update_name()
-	. = ..()
 	if(amount == 1)
 		gender = NEUTER
 		SetName(singular_name)
@@ -77,13 +78,13 @@
 		return TRUE
 	return FALSE
 
-/obj/item/stack/examine(mob/user, distance)
+/obj/item/stack/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		if(!uses_charge)
-			to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s in the stack.")
+		if(uses_charge)
+			. += "There is enough charge for [get_amount()]."
 		else
-			to_chat(user, "There is enough charge for [get_amount()].")
+			. += "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s in the stack."
 
 /obj/item/stack/on_update_icon()
 	. = ..()
@@ -184,10 +185,10 @@
 		return
 	var/used_skill = recipe.get_skill(mat, reinf_mat)
 	var/used_difficulty = recipe.get_skill_difficulty(mat, reinf_mat)
-	var/used_time = recipe.get_adjusted_time(mat, reinf_mat)
+	var/used_time = recipe.get_adjusted_time(mat, reinf_mat, user)
 	if (used_time)
 		to_chat(user, SPAN_NOTICE("You set about [recipe.get_craft_verbing(src)] [recipe.get_display_name(producing, mat, reinf_mat)]..."))
-		if (!user.do_skilled(used_time, used_skill))
+		if (!do_after(user, used_time, src))
 			return
 
 	if(!use(expending))
@@ -457,9 +458,9 @@
 				src.interact(usr)
 	return TRUE
 
-/obj/item/stack/attackby(obj/item/W, mob/user)
-	if (istype(W, /obj/item/stack) && can_merge_stacks(W))
-		var/obj/item/stack/S = W
+/obj/item/stack/attackby(obj/item/used_item, mob/user)
+	if (istype(used_item, /obj/item/stack) && can_merge_stacks(used_item))
+		var/obj/item/stack/S = used_item
 		. = src.transfer_to(S)
 
 		spawn(0) //give the stacks a chance to delete themselves if necessary

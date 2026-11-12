@@ -86,7 +86,7 @@
 	)
 
 /decl/bodytype/yinglet/Initialize()
-	equip_adjust = list(
+	_equip_adjust = list(
 		slot_undershirt_str = list(
 			"[NORTH]" = list( 0, -3),
 			"[EAST]" =  list( 1, -3),
@@ -138,7 +138,9 @@
 	)
 	. = ..()
 
+// TODO rewrite for tail sprite accessories
 /obj/item/organ/external/tail/yinglet
+/*
 	tail_state = "tail_yinglet"
 	tail_blend = ICON_MULTIPLY
 	tail_hair = "female"
@@ -168,6 +170,7 @@
 				"descriptor" = "tail's ridge fur"
 			)
 	return ..()
+*/
 
 /obj/item/organ/external/tail/yinglet/robot
 	tail_icon = 'mods/valsalia/icons/species/yinglet/tail_robot.dmi'

@@ -16,18 +16,15 @@
 
 	var/do_initialize = SSatoms.atom_init_stage
 	var/list/created = SSatoms.created_atoms
-	if(do_initialize > INITIALIZATION_INSSATOMS_LATE)
+	if(do_initialize > INITIALIZATION_INSSATOMS)
 		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
 		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
-	else if(created)
-		var/list/argument_list
-		if(length(args) > 1)
-			argument_list = args.Copy(2)
-		if(argument_list || do_initialize == INITIALIZATION_INSSATOMS_LATE)
-			created[src] = argument_list
-
+	else if(length(args) > 1)
+		created[++created.len] = list(src, args.Copy(2))
+	else
+		created[++created.len] = list(src, null)
 	if(atom_flags & ATOM_FLAG_CLIMBABLE)
 		verbs += /atom/proc/climb_on
 
@@ -80,17 +77,21 @@
 
 /atom/Destroy()
 	// must be done before deletion // TODO: ADD PRE_DELETION OBSERVATION
-	if(isatom(loc) && loc.storage)
+	if(isatom(loc) && loc.storage && !QDELETED(loc.storage))
 		loc.storage.on_item_pre_deletion(src)
 	UNQUEUE_TEMPERATURE_ATOM(src)
 	QDEL_NULL(reagents)
-	LAZYCLEARLIST(our_overlays)
-	LAZYCLEARLIST(priority_overlays)
+
+	if (simple_overlays)
+		simple_overlays = null
+	if (grouped_overlays)
+		grouped_overlays = null
+
 	LAZYCLEARLIST(climbers)
 	QDEL_NULL(light)
 	if(simulated && opacity)
 		updateVisibility(src)
-	if(atom_codex_ref && atom_codex_ref != TRUE) // may be null, TRUE or a datum instance
+	if(istype(atom_codex_ref) && !atom_codex_ref.store_codex_entry) // may be null, TRUE or a datum instance
 		QDEL_NULL(atom_codex_ref)
 	. = ..()
 	// This might need to be moved onto a Del() override at some point.
@@ -98,6 +99,8 @@
 
 // Called if an atom is deleted before it initializes. Only call Destroy in this if you know what you're doing.
 /atom/proc/EarlyDestroy(force = FALSE)
+	// since this is set up in New, we have to make sure it's cleared in EarlyDestroy too
+	QDEL_NULL(storage)
 	return QDEL_HINT_QUEUE
 
 
@@ -115,7 +118,7 @@
 	// Changing this behavior will almost certainly break power; update accordingly.
 	if (!ml && loc)
 		loc.Entered(src, null)
-	if(loc && (z_flags & ZMM_WIDE_LOAD))
+	if(loc && MOVABLE_SHALL_MIMIC(src) && MOVABLE_IS_BELOW_ZTURF(src))
 		SSzcopy.discover_movable(src)
 
 /atom/movable/EarlyDestroy(force = FALSE)
@@ -185,5 +188,5 @@
 
 /atom/movable/PopulateClone(atom/movable/clone)
 	clone = ..()
-	clone.anchored = anchored
+	clone.set_anchored(anchored)
 	return clone

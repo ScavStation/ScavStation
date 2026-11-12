@@ -38,9 +38,9 @@
 		try_transform(hit_atom)
 
 /obj/item/zat_zhing/proc/try_transform(mob/living/human/victim)
-	if(victim.species.name != SPECIES_YINGLET)
+	if(victim.species.name != /decl/species/yinglet::name)
 		victim.worn_underwear = null
-		victim.change_species(SPECIES_YINGLET)
+		victim.change_species(/decl/species/yinglet::uid)
 		// zhis allows us to make sure each person turned into a yinglet may vary from base coloring
 		var/color = pick(prob(20); rgb(171,140,101), prob(20); rgb(95,95,95), prob(10); rgb(8,8,8), prob(19); rgb(234,234,234), prob(18); rgb(102,51,0), prob(8); rgb(204,102,0), prob(5); rgb(155,51,155))
 		if(color == null){color = rgb(171,140,101)}

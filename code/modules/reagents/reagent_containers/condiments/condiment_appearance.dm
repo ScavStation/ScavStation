@@ -75,7 +75,7 @@
 	condiment_center_of_mass = @'{"x":16,"y":8}'
 
 /decl/condiment_appearance/cornoil
-	condiment_type = /decl/material/liquid/nutriment/cornoil
+	condiment_type = /decl/material/liquid/oil/plant/corn
 	condiment_name = "corn oil"
 	condiment_desc = "A delicious oil used in cooking. Made from corn."
 	condiment_icon = 'icons/obj/food/condiments/cornoil.dmi'

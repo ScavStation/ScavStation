@@ -1,6 +1,7 @@
 // Semi-adapted from Polaris Teshari.
 /decl/species/yinglet
-	name = SPECIES_YINGLET
+	uid = "species_yinglet"
+	name = "Yinglet"
 	name_plural = "Yinglets"
 	description = "A species of short, slender rat-birds with a fondness for clams. Commonly found wherever humans are, \
 	either scavenging amongst their leavings, or benefiting from adjacency to an older and more developed culture."
@@ -24,12 +25,6 @@
 		/decl/bodytype/yinglet,
 		/decl/bodytype/prosthetic/ying/metal/fbp,
 		/decl/bodytype/prosthetic/ying/metal/fbp/masculine
-	)
-
-	unarmed_attacks = list(
-		/decl/natural_attack/punch/weak,
-		/decl/natural_attack/stomp/weak,
-		/decl/natural_attack/bite
 	)
 
 	flesh_color = "#ab8c65"
@@ -79,9 +74,6 @@
 		/decl/trait/mollusc_lover = TRAIT_LEVEL_EXISTS,
 		/decl/trait/gluten_allergy = TRAIT_LEVEL_EXISTS
 	)
-
-/decl/species/yinglet/get_root_species_name(mob/living/human/H)
-	return SPECIES_YINGLET
 
 /decl/species/yinglet/skills_from_age(age)
 	switch(age)

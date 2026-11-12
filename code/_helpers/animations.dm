@@ -23,7 +23,7 @@
 	var/pixel_x_diff = rand(-2,2)
 	var/pixel_y_diff = rand(-2,2)
 	animate(A, pixel_x = A.pixel_x + pixel_x_diff, pixel_y = A.pixel_y + pixel_y_diff, time = 2)
-	animate(pixel_x = initial(A.pixel_x), pixel_y = initial(A.pixel_y), time = 2)
+	animate(pixel_x = A.default_pixel_x, pixel_y = A.default_pixel_y, time = 2)
 
 /proc/animate_throw(atom/A)
 	var/ipx = A.pixel_x
@@ -69,11 +69,20 @@
 		animate(time = 1)
 		animate(alpha = 0, time = 3, easing = CIRCULAR_EASING|EASE_OUT)
 
+// Shake animation stolen from Polaris.
+/atom
+	/// How much to shake the atom when struck.
+	/// Larger objs should have smaller numbers or it looks weird.
+	var/shake_animation_degrees = 4
+
 /atom/proc/shake_animation(var/intensity = 8)
 	var/init_px = pixel_x
 	var/shake_dir = pick(-1, 1)
-	animate(src, transform=turn(matrix(), intensity*shake_dir), pixel_x=init_px + 2*shake_dir, time=1)
-	animate(transform=null, pixel_x=init_px, time=6, easing=ELASTIC_EASING)
+	var/matrix/M = matrix()
+	M.Scale(icon_scale_x, icon_scale_y)
+	M.Translate(0, 16*(icon_scale_y-1))
+	animate(src, transform=turn(M, shake_animation_degrees * shake_dir), pixel_x=init_px + 2*shake_dir, time=1)
+	animate(transform=M, pixel_x=init_px, time=6, easing=ELASTIC_EASING)
 
 /atom/proc/SpinAnimation(speed = 10, loops = -1, clockwise = 1, segments = 3, parallel = TRUE)
 	if(!segments)

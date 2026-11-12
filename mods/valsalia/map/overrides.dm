@@ -1,8 +1,8 @@
 /datum/job/submap
-	//whitelisted_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	//whitelisted_species = list(/decl/species/human::uid, /decl/species/yinglet::uid)
 
 /decl/submap_archetype
-	//whitelisted_species = list(SPECIES_HUMAN, SPECIES_YINGLET)
+	//whitelisted_species = list(/decl/species/human::uid, /decl/species/yinglet::uid)
 
 /datum/map/tradeship
 	lobby_tracks = list(/decl/music_track/zazie)
@@ -15,7 +15,6 @@
 		"a jetpack"								= /obj/item/tank/jetpack/,
 		"a pump action shotgun"					= /obj/item/gun/projectile/shotgun/pump/,
 		"a health analyzer"						= /obj/item/scanner/health,
-		"the integrated circuit printer"		= /obj/item/integrated_circuit_printer,
 		"a whole uneaten mollusc"				= /obj/item/mollusc,
 		"a yinglet egg"							= /obj/item/yinglet_egg
 	)
@@ -23,12 +22,3 @@
 /datum/computer_file/program/merchant //wild capitalism
 	read_access = null
 	write_access = null
-
-/datum/trader/books
-	name = "Yinglet book merchant"
-	wanted_items = list(/obj/item/mollusc/clam = TRUE)
-	possible_wanted_items = list(
-		/obj/item/mollusc = TRADER_ALL,
-		/obj/item/food/butchery/meat/fish/mollusc = TRADER_ALL
-	)
-	want_multiplier = 50 // pay good money for clam

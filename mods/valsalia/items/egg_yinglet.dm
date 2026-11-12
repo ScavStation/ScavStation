@@ -29,7 +29,7 @@
 /obj/structure/yinglet_nest/attack_hand(mob/user)
 	. = ..()
 	if(egg)
-		if(user.a_intent == I_HELP)
+		if(user.check_intent(I_FLAG_HELP))
 			user.setClickCooldown(1.5 SECONDS)
 			visible_message(SPAN_NOTICE("\The [user] pets \the [egg]. Grow up big and strong now, okay?"))
 		else
@@ -97,11 +97,11 @@
 	max_health = ITEM_HEALTH_NO_DAMAGE // People were sad that eggs could be smashed, so here ya go //20 // fragile
 
 /obj/item/yinglet_egg/attack_self(mob/user)
-	if(user.a_intent == I_HELP)
+	if(user.check_intent(I_FLAG_HELP))
 		src.visible_message(SPAN_NOTICE("\The [user] pets \the [name]."))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE
-	else if(user.a_intent == I_HURT)
+	else if(user.check_intent(I_FLAG_HARM))
 		src.visible_message(SPAN_WARNING("Be careful with \the [name]."))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return FALSE

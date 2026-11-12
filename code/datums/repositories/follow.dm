@@ -158,11 +158,11 @@ var/global/repository/follow/follow_repository = new()
 	followed_type = /mob/living/silicon/robot
 
 /datum/follow_holder/robot/show_entry()
-	var/mob/living/silicon/robot/R = followed_instance
-	return ..() && R.braintype
+	var/mob/living/silicon/robot/robot = followed_instance
+	return ..() && robot.braintype
 
-/datum/follow_holder/robot/get_suffix(var/mob/living/silicon/robot/R)
-	suffix = "\[[R.braintype]\][R.module ? " \[[R.module.name]\]" : ""]"
+/datum/follow_holder/robot/get_suffix(var/mob/living/silicon/robot/robot)
+	suffix = "\[[robot.braintype]\][robot.module ? " \[[robot.module.name]\]" : ""]"
 	return ..()
 
 /datum/follow_holder/human
@@ -193,14 +193,6 @@ var/global/repository/follow/follow_repository = new()
 	followed_type = /mob/living/simple_animal
 	suffix = "Animal"
 
-/datum/follow_holder/spiderling
-	sort_order = 6
-	followed_type = /obj/effect/spider/spiderling
-
-/datum/follow_holder/spiderling/show_entry()
-	var/obj/effect/spider/spiderling/S = followed_instance
-	return ..() && S.amount_grown > 0
-
 /datum/follow_holder/bot
 	sort_order = 7
 	followed_type = /mob/living/bot
@@ -210,15 +202,6 @@ var/global/repository/follow/follow_repository = new()
 	sort_order = 7
 	followed_type = /mob/living // List all other (living) mobs we haven't given a special suffix
 	suffix = "Mob"
-
-/datum/follow_holder/blob
-	sort_order = 9
-	followed_type = /obj/effect/blob/core
-	suffix = "Blob"
-
-/datum/follow_holder/supermatter
-	sort_order = 10
-	followed_type = /obj/machinery/power/supermatter
 
 /datum/follow_holder/singularity
 	sort_order = 10

@@ -32,12 +32,12 @@
 	sound_id = "[type]_[sequential_id(type)]"
 	tracks = setup_music_tracks_fantasy_lute(tracks)
 
-/obj/item/lute/examine(mob/user)
+/obj/item/lute/get_examine_strings(mob/user, distance, infix, suffix)
 	. = ..()
 	if(!panel)
-		to_chat(user, SPAN_NOTICE("The front panel is unhinged."))
+		LAZYADD(., SPAN_NOTICE("The front panel is unhinged."))
 	if(broken)
-		to_chat(user, SPAN_WARNING("It's broken."))
+		LAZYADD(., SPAN_WARNING("It's broken."))
 
 /obj/item/lute/Destroy()
 	stop()

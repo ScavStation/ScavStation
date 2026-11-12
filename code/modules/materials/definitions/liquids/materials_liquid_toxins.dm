@@ -65,7 +65,7 @@
 	name = "spider venom"
 	uid = "liquid_spider_venom"
 	lore_text = "A deadly necrotic toxin produced by giant spiders to disable their prey."
-	taste_description = "absolutely vile"
+	taste_description = "vile poison"
 	color = "#91d895"
 	toxicity_targets_organ = BP_LIVER
 	toxicity = 5
@@ -88,9 +88,18 @@
 /decl/material/liquid/venom/affect_blood(var/mob/living/M, var/removed, var/datum/reagents/holder)
 	if(M.has_trait(/decl/trait/metabolically_inert))
 		return
-	if(prob(REAGENT_VOLUME(holder, type)*2))
+	if(prob(REAGENT_VOLUME(holder, src)*2))
 		SET_STATUS_MAX(M, STAT_CONFUSE, 3)
 	..()
+
+/decl/material/liquid/expired_medicine
+	name = "expired medicine"
+	uid = "liquid_expired_medicine"
+	lore_text = "Some form of liquid medicine that is well beyond its shelf date. Administering it now would cause illness."
+	taste_description = "bitterness"
+	toxicity = 5
+	exoplanet_rarity_plant = MAT_RARITY_NOWHERE
+	exoplanet_rarity_gas   = MAT_RARITY_NOWHERE
 
 /decl/material/liquid/cyanide //Fast and Lethal
 	name = "cyanide"
@@ -131,8 +140,8 @@
 /decl/material/liquid/heartstopper/affect_overdose(mob/living/victim, total_dose)
 	..()
 	if(victim.stat != UNCONSCIOUS)
-		if(victim.ticks_since_last_successful_breath >= 10)
-			victim.ticks_since_last_successful_breath = max(10, victim.ticks_since_last_successful_breath-10)
+		if(victim.suffocation_counter >= 10)
+			victim.suffocation_counter = max(10, victim.suffocation_counter-10)
 		victim.take_damage(2, OXY)
 		SET_STATUS_MAX(victim, STAT_WEAK, 10)
 	victim.add_chemical_effect(CE_NOPULSE, 1)
@@ -163,12 +172,12 @@
 	M.take_damage(3 * removed, OXY)
 	SET_STATUS_MAX(M, STAT_WEAK, 10)
 	SET_STATUS_MAX(M, STAT_SILENCE, 10)
-	if(LAZYACCESS(M.chem_doses, type) <= removed) //half-assed attempt to make timeofdeath update only at the onset
+	if(CHEM_DOSE(M, src) <= removed) //half-assed attempt to make timeofdeath update only at the onset
 		M.timeofdeath = world.time
 	M.add_chemical_effect(CE_NOPULSE, 1)
 
 /decl/material/liquid/zombiepowder/on_leaving_metabolism(datum/reagents/metabolism/holder)
-	var/mob/M = holder?.my_atom
+	var/mob/M = REAGENT_GET_ATOM(holder)
 	if(istype(M))
 		M.status_flags &= ~FAKEDEATH
 	. = ..()
@@ -210,7 +219,9 @@
 
 /decl/material/liquid/tar
 	name = "tar"
+	solid_name = "asphalt"
 	uid = "liquid_tar"
+	coated_adjective = "tarry"
 	lore_text = "A dark, viscous liquid."
 	taste_description = "petroleum"
 	color = "#140b30"
@@ -225,6 +236,7 @@
 	taste_mult = 1.2
 	metabolism = REM * 0.25
 	exoplanet_rarity_gas = MAT_RARITY_NOWHERE
+	opacity = 1.0
 
 /decl/material/liquid/hair_remover
 	name = "hair remover"
@@ -241,7 +253,7 @@
 /decl/material/liquid/hair_remover/affect_touch(var/mob/M, var/removed, var/datum/reagents/holder)
 	. = ..()
 	M.lose_hair()
-	holder.remove_reagent(type, REAGENT_VOLUME(holder, type))
+	holder.remove_reagent(type, REAGENT_VOLUME(holder, src))
 	return TRUE
 
 /decl/material/liquid/zombie
@@ -268,7 +280,7 @@
 	..()
 	if (ishuman(M))
 		var/mob/living/human/H = M
-		var/true_dose = LAZYACCESS(H.chem_doses, type) + REAGENT_VOLUME(holder, type)
+		var/true_dose = CHEM_DOSE(H, src) + REAGENT_VOLUME(holder, src)
 		if (true_dose >= amount_to_zombify)
 			H.zombify()
 		else if (true_dose > 1 && prob(20))
@@ -306,3 +318,11 @@
 	color = "#484848"
 	value = 0.5
 	narcosis = 5
+
+/decl/material/solid/organic/mold
+	name = "mold"
+	uid = "solid_mold"
+	lore_text = "A mold is a fungus that causes biodegradation of natural materials. This variant contains mycotoxins, and is dangerous to humans."
+	taste_description = "mold"
+	toxicity = 5
+	color = "#635656"

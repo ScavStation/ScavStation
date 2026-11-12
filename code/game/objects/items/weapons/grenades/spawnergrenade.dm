@@ -6,7 +6,7 @@
 	var/spawner_type = null // must be an object path
 	var/deliveryamt = 1 // amount of type to deliver
 
-/obj/item/grenade/spawnergrenade/fake_carp/detonate()
+/obj/item/grenade/spawnergrenade/detonate()
 	if(spawner_type && deliveryamt)
 		var/turf/T = get_turf(src)
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
@@ -20,8 +20,8 @@
 						step(spawned, pick(global.cardinal))
 		qdel(src)
 
-/obj/item/grenade/spawnergrenade/manhacks
-	name = "manhack delivery grenade"
+/obj/item/grenade/spawnergrenade/viscerator
+	name = "viscerator delivery grenade"
 	spawner_type = /mob/living/simple_animal/hostile/viscerator
 	deliveryamt = 5
 	origin_tech = @'{"materials":3,"magnets":4,"esoteric":4}'

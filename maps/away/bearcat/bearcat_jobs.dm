@@ -7,15 +7,8 @@
 	unexplored space. The Captain is dead, leaving you, previously the First Mate in charge. Organize what's left of \
 	your crew, and maybe you'll be able to survive long enough to be rescued."
 	access = list(
-	//	access_eva, 
-		access_engine, 
-	//	access_engine_equip, 
-	//	access_tech_storage, 
-	//	access_maint_tunnels, 
-	//	access_external_airlocks, 
-	//	access_construction, 
-		access_atmospherics, 
-	//	access_emergency_storage
+		access_engine,
+		access_atmospherics,
 	)
 
 /datum/job/submap/bearcat_crewman
@@ -27,15 +20,8 @@
 	unexplored space. Work together with the Acting Captain and what's left of the crew, and maybe you'll be able \
 	to survive long enough to be rescued."
 	access = list(
-	//	access_eva, 
-		access_engine, 
-	//	access_engine_equip, 
-	//	access_tech_storage, 
-	//	access_maint_tunnels, 
-	//	access_external_airlocks, 
-	//	access_construction, 
-		access_atmospherics, 
-	//	access_emergency_storage
+		access_engine,
+		access_atmospherics
 	)
 
 /decl/outfit/job/bearcat

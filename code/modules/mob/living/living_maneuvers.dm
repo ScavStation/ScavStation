@@ -1,6 +1,6 @@
 /mob/living
 	var/decl/maneuver/prepared_maneuver
-	var/list/available_maneuvers = list()
+	VAR_PROTECTED/list/_available_maneuvers
 
 /mob/living/begin_falling(var/lastloc, var/below)
 	if(throwing)
@@ -19,19 +19,22 @@
 		return
 	. = ..()
 
+/mob/living/get_available_maneuvers()
+	return _available_maneuvers
+
 /mob/living/proc/reflexive_maneuver_callback(var/turf/origin, var/turf/check)
 	if(prepared_maneuver)
 		if(origin) // Used to avoid falling into open space.
 			forceMove(get_turf(origin))
 		prepared_maneuver.perform(src, check, get_acrobatics_multiplier(prepared_maneuver), reflexively = TRUE)
 		prepared_maneuver = null
-		maneuver_icon?.icon_state = "maneuver_off"
+		refresh_hud_element(HUD_MANEUVER)
 
 /mob/living/proc/try_maneuver(var/atom/target)
 	if(prepared_maneuver && (isturf(target) || isturf(target.loc))) // Avoid trying to jump at your backpack contents.
 		prepared_maneuver.perform(src, get_turf(target), get_acrobatics_multiplier(prepared_maneuver))
 		prepared_maneuver = null
-		maneuver_icon?.icon_state = "maneuver_off"
+		refresh_hud_element(HUD_MANEUVER)
 		return TRUE
 	return FALSE
 
@@ -40,6 +43,7 @@
 	set desc = "Select a maneuver to perform."
 	set category = "IC"
 
+	var/list/available_maneuvers = get_available_maneuvers()
 	if(!length(available_maneuvers))
 		to_chat(src, SPAN_WARNING("You are unable to perform any maneuvers."))
 		return
@@ -59,25 +63,27 @@
 		if(!maneuver.can_be_used_by(src, null))
 			return
 		prepared_maneuver = maneuver
-		maneuver_icon?.icon_state = "maneuver_on"
 		to_chat(src, SPAN_NOTICE("You prepare to [prepared_maneuver.name]."))
 	else
 		prepared_maneuver = null
-		maneuver_icon?.icon_state = "maneuver_off"
 		to_chat(src, SPAN_NOTICE("You are no longer preparing to perform a maneuver."))
+	refresh_hud_element(HUD_MANEUVER)
 
 /mob/living/proc/perform_maneuver(var/maneuver, var/atom/target)
 	var/decl/maneuver/performing_maneuver = ispath(maneuver) ? GET_DECL(maneuver) : maneuver
 	if(istype(performing_maneuver))
+		var/last_stance = ai?.stance
+		if(last_stance)
+			ai.set_stance(STANCE_BUSY)
+			stop_automove()
 		. = performing_maneuver.perform(src, target, get_acrobatics_multiplier(performing_maneuver))
 		prepared_maneuver = null
-		maneuver_icon?.icon_state = "maneuver_off"
-
-/mob/living/proc/get_acrobatics_multiplier(var/decl/maneuver/attempting_maneuver)
-	return 1
+		refresh_hud_element(HUD_MANEUVER)
+		if(ai && ai.stance == STANCE_BUSY)
+			ai.set_stance(last_stance)
 
 /mob/living/proc/can_do_maneuver(var/decl/maneuver/maneuver, var/silent = FALSE)
-	. = ((istype(maneuver) ? maneuver.type : maneuver) in available_maneuvers)
+	. = ((istype(maneuver) ? maneuver.type : maneuver) in get_available_maneuvers())
 
 /mob/living/proc/get_jump_distance()
 	return 0

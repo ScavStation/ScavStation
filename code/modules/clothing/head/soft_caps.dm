@@ -81,6 +81,7 @@
 /obj/item/clothing/head/soft/sec
 	name = "security cap"
 	desc = "It's a field cap."
+	color = COLOR_NT_RED
 
 /obj/item/clothing/head/soft/black
 	name = "black cap"

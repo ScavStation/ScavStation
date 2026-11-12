@@ -1,5 +1,6 @@
 /datum/job/yinglet
-	hud_icon = "hudying"
+	abstract_type = /datum/job/yinglet
+	hud_icon_state = "hudying"
 	supervisors = "the Matriarch and the Patriarches"
 	outfit_type = /decl/outfit/job/yinglet/assistant
 	department_types = list(/decl/department/enclave)
@@ -13,8 +14,8 @@
 
 /datum/job/yinglet/is_species_allowed(var/decl/species/S)
 	if(S && !istype(S))
-		S = all_species[S]
-	. = istype(S) && S.name == SPECIES_YINGLET
+		S = decls_repository.get_decl_by_id(S)
+	. = istype(S) && S.name == /decl/species/yinglet::name
 
 /datum/job/yinglet/check_special_blockers(var/datum/preferences/prefs)
 	if(required_gender && prefs.gender != required_gender)
@@ -27,7 +28,7 @@
 
 /decl/outfit/job/proc/try_give_yinglet_fallbacks(var/mob/living/human/H, var/title)
 
-	if(H?.species.name != SPECIES_YINGLET)
+	if(H?.species.name != /decl/species/yinglet::name)
 		return
 
 	var/previous_suit = H.get_equipped_item(slot_wear_suit_str)

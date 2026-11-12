@@ -4,13 +4,13 @@
 	has_nonslip_feet  = TRUE
 	has_magnetic_feet = TRUE
 	camera_channels   = list(
-		CAMERA_CAMERA_CHANNEL_ENGINEERING
+		CAMERA_CHANNEL_ENGINEERING
 	)
 	languages = list(
 		/decl/language/human/common = FALSE
 	)
 	equipment = list(
-		/obj/item/weldingtool,
+		/obj/item/fuelled_tool/welding,
 		/obj/item/screwdriver,
 		/obj/item/wrench,
 		/obj/item/crowbar,
@@ -58,10 +58,10 @@
 		SKILL_ELECTRICAL   = SKILL_EXPERT
 	)
 
-/obj/item/robot_module/drone/finalize_equipment(var/mob/living/silicon/robot/R)
+/obj/item/robot_module/drone/finalize_equipment(var/mob/living/silicon/robot/robot)
 	. = ..()
-	if(istype(R))
-		R.internals = locate(/obj/item/tank/jetpack/carbondioxide) in equipment
+	if(istype(robot))
+		robot.set_internals(locate(/obj/item/tank/jetpack/carbondioxide) in equipment)
 
 /obj/item/robot_module/drone/finalize_emag()
 	. = ..()
@@ -112,10 +112,12 @@
 	var/obj/item/stack/material/cyborg/plastic/P = locate() in equipment
 	P.synths = list(plastic)
 
-/obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
+/obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/robot, var/amount)
 	..()
 	var/obj/item/chems/spray/cleaner/drone/SC = locate() in equipment
 	SC.add_to_reagents(/decl/material/liquid/cleaner, 8 * amount)
+	var/obj/item/lightreplacer/LR = locate() in equipment
+	LR.Charge(robot, amount)
 
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
@@ -127,8 +129,3 @@
 /obj/item/robot_module/drone/construction/Initialize()
 	equipment += /obj/item/rcd/borg
 	. = ..()
-
-/obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
-	var/obj/item/lightreplacer/LR = locate() in equipment
-	LR.Charge(R, amount)
-	..()

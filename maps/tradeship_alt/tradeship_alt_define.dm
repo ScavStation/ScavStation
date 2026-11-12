@@ -12,6 +12,7 @@
 	boss_short    = "Trademaster"
 	company_name  = "Tradehouse Ivenmoth"
 	company_short = "Ivenmoth"
+	hud_icons 	  = 'maps/tradeship_alt/hud.dmi'
 
 	game_year = 294
 
@@ -46,16 +47,3 @@
 	return "You're aboard the <b>[station_name],</b> a survey and mercantile vessel affiliated with <b>Tradehouse Ivenmoth</b>, a large merchant guild operating out of Val Salia Station. \
 	This repurposed Tradeship vessel as been expanded to accomodate a larger crew, and is a trial run of how well yinglets can commandeer a vessel... under a close eye, anyway."
 
-/datum/map/tradeship_alt/create_trade_hubs()
-	new /datum/trade_hub/singleton/tradeship
-
-/datum/trade_hub/singleton/tradeship
-	name = "Tradehouse Freight Network"
-
-/datum/trade_hub/singleton/tradeship/get_initial_traders()
-	return list(
-		/datum/trader/xeno_shop,
-		/datum/trader/medical,
-		/datum/trader/mining,
-		/datum/trader/books
-	)

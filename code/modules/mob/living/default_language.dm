@@ -3,6 +3,14 @@
 
 /mob/living/proc/set_default_language(var/decl/language/language)
 
+	// Use our first known speakable language if no language is supplied (ie. we are spawning)
+	if(isnull(language))
+		for(var/lang in languages)
+			var/decl/language/check = RESOLVE_TO_DECL(lang)
+			if(check.can_be_spoken_properly_by(src) != SPEECH_RESULT_INCAPABLE)
+				language = check
+				break
+
 	if(ispath(language, /decl/language))
 		language = GET_DECL(language)
 
@@ -24,10 +32,6 @@
 	else
 		to_chat(src, "<span class='notice'>You will now speak whatever your standard default language is if you do not specify one when speaking.</span>")
 	default_language = language?.type
-
-// Silicons can't neccessarily speak everything in their languages list
-/mob/living/silicon/set_default_language(language)
-	..()
 
 /mob/living/verb/check_default_language()
 	set name = "Check Default Language"

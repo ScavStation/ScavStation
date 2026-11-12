@@ -43,16 +43,16 @@
 	next_light_smash = world.time + light_smash_interval
 	var/smashed_any = FALSE
 	for(var/obj/machinery/light/L in orange(light_smash_radius, src))
-		if(L.get_status() != LIGHT_BROKEN)
+		if(!L.is_broken())
 			L.broken()
 			smashed_any = TRUE
 	for(var/obj/structure/wall_sconce/S in orange(light_smash_radius, src))
 		if(S.light_source?.lit)
-			S.light_source.extinguish(null, TRUE)
+			S.light_source.extinguish_fire(null, TRUE)
 			smashed_any = TRUE
 	for(var/obj/item/flame/F in orange(light_smash_radius, src))
 		if(isturf(F.loc) && F.lit)
-			F.extinguish(null, TRUE)
+			F.extinguish_fire(null, TRUE)
 			smashed_any = TRUE
 	if(smashed_any)
 		visible_message(SPAN_DANGER("The lights around \the [src] gutter and die!"))
@@ -118,6 +118,7 @@
 // start_automove() (BYOND's built-in walk_to) can't path across z-levels, so once its target crosses
 // a map-stitch edge onto a connected level it would otherwise just get stuck, unable to "see" someone
 /datum/mob_controller/aggressive/night_terror/move_to_target(var/move_only = FALSE)
+	SHOULD_CALL_PARENT(FALSE)
 	if(!body.can_act())
 		return
 	if(HAS_STATUS(body, STAT_CONFUSE))
@@ -170,12 +171,15 @@
 				nearest = H
 		if(!nearest)
 			break
-		if(AStar(my_turf, get_turf(nearest), TYPE_PROC_REF(/turf, night_terror_open_turfs), TYPE_PROC_REF(/turf, Distance), 0, 60))
+		if(find_path_astar(my_turf, get_turf(nearest), TYPE_PROC_REF(/turf, night_terror_open_turfs), TYPE_PROC_REF(/turf, Distance), 0, 60))
 			return nearest
 		candidates -= nearest
 	return null
 
+/*
+
 /datum/mob_controller/aggressive/night_terror/find_target()
+	SHOULD_CALL_PARENT(FALSE)
 	if(!body.can_act() || !body.faction)
 		return null
 	resume_wandering()
@@ -207,6 +211,7 @@
 	set_stance(STANCE_ATTACK)
 	body.face_atom(target)
 	return target
+*/
 
 /datum/mob_controller/aggressive/night_terror/list_targets(var/dist = 7)
 	var/atom/current = get_target()

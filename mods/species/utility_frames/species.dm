@@ -10,11 +10,12 @@
 	)
 
 /decl/species/utility_frame
-	name =                  SPECIES_FRAME
+	uid =                   "species_frame"
+	name =                  "Utility Frame"
 	name_plural =           "Utility Frames"
 	description =           "Simple AI-driven robots are used for many menial or repetitive tasks in human space."
 	cyborg_noun = null
-	base_external_prosthetics_model = null
+	base_external_prosthetics_model = /decl/bodytype/prosthetic/basic_human
 	blood_types = list(/decl/blood_type/coolant)
 	available_bodytypes = list(/decl/bodytype/prosthetic/utility_frame)
 	hidden_from_codex =     FALSE
@@ -27,20 +28,15 @@
 	body_temperature =      null
 	passive_temp_gain =     5  // stabilize at ~80 C in a 20 C environment.
 	blood_volume = 0
-
 	preview_outfit = null
 
-	unarmed_attacks = list(
-		/decl/natural_attack/stomp,
-		/decl/natural_attack/kick,
-		/decl/natural_attack/punch
-	)
 	available_pronouns = list(
-		/decl/pronouns,
+		/decl/pronouns/pseudoplural,
 		/decl/pronouns/neuter
 	)
 	available_background_info = list(
-		/decl/background_category/heritage = list(/decl/background_detail/heritage/synthetic)
+		/decl/background_category/citizenship = list(/decl/background_detail/citizenship/synthetic),
+		/decl/background_category/heritage    = list(/decl/background_detail/heritage/synthetic)
 	)
 
 	exertion_effect_chance = 10

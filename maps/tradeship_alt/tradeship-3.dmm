@@ -480,7 +480,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	pixel_y = -22
 	},
 /obj/structure/cable{
@@ -533,7 +533,7 @@
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "cB" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 1
 	},
 /obj/machinery/light_switch{
@@ -716,7 +716,7 @@
 /turf/floor/reinforced/airless,
 /area/space)
 "ja" = (
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	pixel_y = 22
 	},
@@ -727,7 +727,7 @@
 /turf/floor/tiled/monotile,
 /area/ship/trade/command/bridge_upper)
 "jv" = (
-/obj/structure/bed/chair/comfy,
+/obj/structure/chair/comfy,
 /obj/effect/floor_decal/corner/red/mono,
 /obj/machinery/door_timer/cell_1{
 	id_tag = "tank";
@@ -769,7 +769,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "Security APC";
 	pixel_y = 22
@@ -810,7 +810,7 @@
 /turf/floor/bluegrid,
 /area/ship/trade/command/bridge)
 "mn" = (
-/obj/machinery/hologram/holopad/longrange,
+/obj/machinery/holopad/longrange,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -884,7 +884,7 @@
 /area/ship/trade/command/bridge_upper)
 "oq" = (
 /obj/random/trash,
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 8;
 	pixel_x = -22
 	},
@@ -965,7 +965,7 @@
 /turf/floor/tiled/dark,
 /area/ship/trade/drunk_tank)
 "qP" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	icon = 'icons/obj/watercloset.dmi';
 	icon_state = "toilet00";
 	desc = "Sometimes, you need a good view for your business.";
@@ -1173,7 +1173,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 4;
 	pixel_x = 22
 	},
@@ -1234,7 +1234,7 @@
 /turf/floor/tiled/dark/monotile,
 /area/ship/trade/bridge_security)
 "ze" = (
-/obj/structure/bed/chair/comfy/teal{
+/obj/structure/chair/comfy/teal{
 	dir = 1
 	},
 /obj/abstract/landmark/start{
@@ -1297,7 +1297,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/power/apc{
+/obj/machinery/apc{
 	dir = 1;
 	name = "Communications APC";
 	pixel_y = 22
@@ -1445,7 +1445,7 @@
 /turf/floor/reinforced/airless,
 /area/space)
 "Gn" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full,
@@ -1571,7 +1571,7 @@
 /turf/floor/tiled/techfloor/grid,
 /area/ship/trade/comms)
 "Lu" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -1873,7 +1873,7 @@
 /turf/wall/r_wall,
 /area/ship/trade/bridge_security)
 "Wp" = (
-/obj/structure/bed/chair{
+/obj/structure/bed{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/navyblue/full,

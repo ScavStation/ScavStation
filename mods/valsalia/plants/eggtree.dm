@@ -7,11 +7,11 @@
 	display_name = "eggtree plant"
 	product_material = /decl/material/solid/organic/bone/eggshell
 	product_type = /obj/item/food/grown/eggtree
-	chems = list(/decl/material/solid/organic/meat/egg = list(2,10))
 	grown_tag = "eggtree"
 
 /datum/seed/eggtree/New()
 	..()
+	set_chemical_amount(/decl/material/solid/organic/meat/egg, list(2,10))
 	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_MATURATION,6)
 	set_trait(TRAIT_PRODUCTION,6)
@@ -60,7 +60,7 @@
 /obj/item/food/grown/eggtree/afterattack(atom/target, mob/user, proximity)
 	if(proximity && !istype(target, /obj/machinery/microwave) && ATOM_IS_OPEN_CONTAINER(target))
 		to_chat(user, "You crack \the [src] into \the [target].")
-		reagents.trans_to(target, reagents.total_volume)
+		reagents.trans_to(target, REAGENT_TOTAL_VOLUME(reagents))
 		qdel(src)
 		return
 	. = ..()

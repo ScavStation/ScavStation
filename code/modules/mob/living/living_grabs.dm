@@ -62,7 +62,7 @@
 
 /mob/living/add_grab(var/obj/item/grab/grab, var/defer_hand = FALSE)
 
-	if(has_had_gripper)
+	if(use_gripper_for_grabs_if_available && has_had_gripper)
 		if(defer_hand)
 			. = put_in_hands(grab)
 		else
@@ -80,4 +80,4 @@
 		resist()
 
 /mob/living/give_control_grab(var/mob/living/M)
-	return (isliving(M) && M == buckled_mob) ? M.make_grab(src, /decl/grab/simple/control, force_grab_tag = TRUE) : ..()
+	return (isliving(M) && (M in get_buckled_mobs())) ? M.make_grab(src, /decl/grab/simple/control, force_grab_tag = TRUE) : ..()

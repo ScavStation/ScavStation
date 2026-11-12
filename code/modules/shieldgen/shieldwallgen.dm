@@ -138,7 +138,7 @@
 		storedpower = 0
 
 	if(src.active == 1)
-		if(!src.anchored == 1)
+		if(!src.anchored)
 			src.active = 0
 			return
 		spawn(1)
@@ -203,22 +203,22 @@
 		CF.set_dir(field_dir)
 
 
-/obj/machinery/shieldwallgen/attackby(obj/item/W, mob/user)
-	if(IS_WRENCH(W))
+/obj/machinery/shieldwallgen/attackby(obj/item/used_item, mob/user)
+	if(IS_WRENCH(used_item))
 		if(active)
 			to_chat(user, "Turn off the field generator first.")
 			return TRUE
 		if(!anchored)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			to_chat(user, "You secure the external reinforcing bolts to the floor.")
-			src.anchored = TRUE
+			set_anchored(TRUE)
 			return TRUE
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 		to_chat(user, "You undo the external reinforcing bolts.")
-		src.anchored = FALSE
+		set_anchored(FALSE)
 		return TRUE
 
-	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
+	if(istype(used_item, /obj/item/card/id)||istype(used_item, /obj/item/modular_computer))
 		if (src.allowed(user))
 			src.locked = !src.locked
 			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")

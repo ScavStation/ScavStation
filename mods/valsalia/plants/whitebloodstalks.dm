@@ -40,11 +40,11 @@
 	display_name = "white blood stalk patch"
 	mutants = null
 	product_type = /obj/item/food/grown/whitebloodstalk
-	chems = list(/decl/material/liquid/whiteblood_toxin = list(2,10))
 	grown_tag = "whitebloodstalk"
 
 /datum/seed/mushroom/whitebloodstalk/New()
 	..()
+	set_chemical_amount(/decl/material/liquid/whiteblood_toxin, list(2,10))
 	set_trait(TRAIT_HARVEST_REPEAT,1)
 	set_trait(TRAIT_MATURATION,8)
 	set_trait(TRAIT_YIELD,2)
